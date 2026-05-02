@@ -1,0 +1,31 @@
+node_modules
+.next
+dist
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.turbo
+.vercel
+coverage
+
+# build / cache artifacts
+*.tsbuildinfo
+.cache/
+.pnpm-store/
+out/
+
+# tmp dirs created by scraping / fetch
+tmp/
+.tmp/
+temp/
+
+# editor / OS
+.idea/
+.vscode/
+Thumbs.db

@@ -1,0 +1,394 @@
+{
+  "date": "2026-05-02",
+  "generatedAt": "2026-05-02T06:02:30.331Z",
+  "items": [
+    {
+      "id": "0b09ffda55f8d8e2",
+      "kind": "news",
+      "title": "Claude Opus 4.7 × Agent SDK × GitHub Actions を全部やってみた｜旧バージョンとの差分まとめ",
+      "url": "https://zenn.dev/zephel01/articles/ef9765424ad875",
+      "summary": "TL;DR Claude Opus 4.7（2026年4月16日 GA）はコスト据え置きで性能向上、xhigh エフォートとタスクバジェットがエージェント用途で効く Claude Code SDK は Claude Agent SDK にリブランド、skills パラメータ・SessionStore プロトコル・サブエージェント観測性が追加 anthropics/claude-code-action@v1 で GitHub Actions 設定が claude_args に集",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 16,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-01T20:41:57.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--UxWY7JLH--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Opus%25204.7%2520%25C3%2597%2520Agent%2520SDK%2520%25C3%2597%2520GitHub%2520Actions%2520%25E3%2582%2592%25E5%2585%25A8%25E9%2583%25A8%25E3%2582%2584%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25EF%25BD%259C%25E6%2597%25A7%25E3%2583%2590%25E3%2583%25BC...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%258F%25E3%2583%25BC%25E3%2582%258B%25E3%2581%259C%25E3%2582%258D%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzEwNGI2ZTg1NzMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "0c23bde4b5ea2f45",
+      "kind": "paper",
+      "title": "Formulating Subgroup Discovery as a Quantum Optimization Problem for Network Security",
+      "url": "https://arxiv.org/abs/2604.27153",
+      "summary": "While current network intrusion detection systems achieve satisfactory accuracy, they often lack explainability. Subgroup Discovery (SD) addresses this by building interpretable rules that characterize feature interactions associated with a",
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 15,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-01T04:00:00.000Z",
+      "fetchedAt": "2026-05-02T01:26:01.094Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "d4d7fa2fae4c43f6",
+      "kind": "news",
+      "title": "RTK (Rust Token Killer) - AIコーディングアシスタントのトークン消費を最大80%削減するCLIツール",
+      "url": "https://zenn.dev/yamitake/articles/rtk-token-killer-introduction",
+      "summary": "はじめに Claude Code、GitHub Copilot、Cursor などの AI コーディングアシスタントを使っていると、トークン消費が気になることはありませんか？ 特に長いデバッグセッションや、大きな git diff の確認、テスト結果の分析などでは、あっという間にトークンを消費してしまいます。 今回紹介する RTK (Rust Token Killer) は、このトークン消費問題を解決する CLI ツールです。 https://github.com/rtk-a",
+      "tags": [
+        "rust",
+        "claude"
+      ],
+      "score": 15,
+      "source": "rss:zenn-topic-rust",
+      "publishedAt": "2026-05-01T08:57:27.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0HgA7h9h--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:RTK%2520%2528Rust%2520Token%2520Killer%2529%2520-%2520AI%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25A2%25E3%2582%25B7%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AE%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E6%25B6%2588%25E8%25B2%25BB%25E3%2582%2592%25E6%259C%2580%25E5%25A4%25A780%2525%25E5%2589%258A%25E6%25B8%259B%25E3%2581%2599%25E3%2582%258B...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yamitake%2540yapr%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzE2MTEyMjRhNGQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "23ebae59abd3e9d8",
+      "kind": "news",
+      "title": "Claude Max で毎月 $8,833 分使っていた。Pro/Max/API の境目を実データで割り出した",
+      "url": "https://zenn.dev/kojihq/articles/42addb8f5acd4b",
+      "summary": "はじめに Claude Code を毎日使っていて、「自分は本当にこのプランで合ってるのか」が気になり始めました。 私は Claude Max（5x プラン、Pro の 5 倍利用枠）に入っています。定額なので「いくら使っても OK」のはずなのに、本当にプランに見合うほど使えているのか、Pro $20 に下げても良いのか、逆に Max 20x に上げるべきなのか、API 従量課金にした方が安いのか — その答えがどこにも出てきません。 Anthropic Console で見",
+      "tags": [
+        "claude"
+      ],
+      "score": 14,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-01T06:25:53.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Ii9YkvWu--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Max%2520%25E3%2581%25A7%25E6%25AF%258E%25E6%259C%2588%2520%25248%252C833%2520%25E5%2588%2586%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2584%25E3%2581%259F%25E3%2580%2582Pro%252FMax%252FAPI%2520%25E3%2581%25AE%25E5%25A2%2583%25E7%259B%25AE%25E3%2582%2592%25E5%25AE%259F%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2581%25A7%25E5%2589%25B2%25E3%2582%258A%25E5%2587%25BA%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:koji_%25E9%25BA%25B9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzg3Y2E1MTk1NmIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "1562e5538629ac3e",
+      "kind": "news",
+      "title": "gh skill と Copilot Coding Agent で Agent Skills を自動推薦する仕組みを作ってみた",
+      "url": "https://zenn.dev/exwzd/articles/20260501_copilot_agent_skill_recommender",
+      "summary": "はじめに こんにちは、株式会社エクサウィザーズWANDの大西です。 2026年4月16日、gh skill コマンドが GitHub CLI v2.90.0 で public preview としてリリースされました。gh skill install や gh skill search で、Agent Skills の検索・インストール・公開がコマンドラインから行えるようになり、対応エージェントも Copilot、Claude Code、Cursor、Codex、Gemini",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 12,
+      "source": "rss:zenn-all",
+      "publishedAt": "2026-05-01T06:26:38.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LC5bheK2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:gh%2520skill%2520%25E3%2581%25A8%2520Copilot%2520Coding%2520Agent%2520%25E3%2581%25A7%2520Agent%2520Skills%2520%25E3%2582%2592%25E8%2587%25AA%25E5%258B%2595%25E6%258E%25A8%25E8%2596%25A6%25E3%2581%2599%25E3%2582%258B%25E4%25BB%2595%25E7%25B5%2584%25E3%2581%25BF...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Masaki%2520Onishi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA5NTQ0OTVhMzYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25A8%25E3%2582%25AF%25E3%2582%25B5%25E3%2582%25A6%25E3%2582%25A3%25E3%2582%25B6%25E3%2583%25BC%25E3%2582%25BA%2520Tech%2520Blog%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkyYWIxM2U5YTIuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "79dafe3c77b325f2",
+      "kind": "news",
+      "title": "Claude Codeを使ったアプリ開発 ― SIerが現場で実践するAI活用プロセス",
+      "url": "https://qiita.com/DKTech/items/ead9da13369a5ef66a3a",
+      "summary": "Claude Codeを使ったアプリ開発 ― SIerが現場で実践するAI活用プロセス はじめに 最近、Claude Codeがめちゃくちゃ流行っています。ChatGPTやGeminiを抜いて、もうClaude Code一強と言ってもいいくらいの勢いですよね。エージェ...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-tag-claude",
+      "publishedAt": "2026-05-02T04:34:34.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDIyMzAwJTJGODdiMzJmZTJhNjRhZjJhMzY3MzcxM2M5OTk2Zjk5NWUyMDk0MWIyMSUyRmxhcmdlLnBuZyUzRjE3Nzc2NDU2NDM_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTQ1MzNhNjdjM2U0NGU0N2ZlNzg1YjJlY2IxOTE2NDg0%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D99f637dfe235ef2e25dac9287cc12bc0?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MiU5MiVFNCVCRCVCRiVFMyU4MSVBMyVFMyU4MSU5RiVFMyU4MiVBMiVFMyU4MyU5NyVFMyU4MyVBQSVFOSU5NiU4QiVFNyU5OSVCQSUyMCVFMiU4MCU5NSUyMFNJZXIlRTMlODElOEMlRTclOEYlQkUlRTUlQTAlQjQlRTMlODElQTclRTUlQUUlOUYlRTglQjclQjUlRTMlODElOTklRTMlODIlOEJBSSVFNiVCNCVCQiVFNyU5NCVBOCVFMyU4MyU5NyVFMyU4MyVBRCVFMyU4MiVCQiVFMyU4MiVCOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWFiNGM4NzA0MDUxYmJmZGUwODkzNjIyMDI2MWRiYzY5&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBES1RlY2gmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz02YzYzMDg4ZjhkMjRkNjMzMWRiOTJiNzFiYTg0YTYyMw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=b3d3a16f3a60afa56e1fa26dc6c47f54"
+    },
+    {
+      "id": "46175852eb7c6e88",
+      "kind": "news",
+      "title": "【検出率100%】セキュリティ診断、Claude Codeに全部やらせる時代が来た",
+      "url": "https://zenn.dev/sabakan1/articles/57ca07f4b277b4",
+      "summary": "はじめに 前回の記事で /security-scan を作った後、こんな気持ちになりました。 「これ、デプロイ前の静的解析と、デプロイ後の動的テストが混ざってないか？🤔」 そのとおりで、1スキルに詰め込みすぎていました。 今回は 3スキルに分割してOSSとして公開、さらに テストハーネスで精度を客観測定 するところまでやりました。 まず費用対効果だけ見てください 従来手段 claude-security-scan（3スキル） 静的解析ツール（Snyk等） $98/月〜 — ",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-all",
+      "publishedAt": "2026-05-01T14:15:19.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--4Z18x-Ef--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E6%25A4%259C%25E5%2587%25BA%25E7%258E%2587100%2525%25E3%2580%2591%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E8%25A8%25BA%25E6%2596%25AD%25E3%2580%2581Claude%2520Code%25E3%2581%25AB%25E5%2585%25A8%25E9%2583%25A8%25E3%2582%2584%25E3%2582%2589%25E3%2581%259B%25E3%2582%258B%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%258C%25E6%259D%25A5%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Sabakan%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E2NWY0YjNjODEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "adcf8188794be36c",
+      "kind": "news",
+      "title": "C-3PO 計画──Claude Code Conductor と parallel-orchestra が組むまでの 48 時間",
+      "url": "https://zenn.dev/satoh_y_0323/articles/0954fd57390aeb",
+      "summary": "前回記事: https://zenn.dev/satoh_y_0323/articles/df43dc28ad0bfd C3 GitHub: https://github.com/satoh-y-0323/claude-code-conductor / PyPI: https://pypi.org/project/claude-code-conductor/ PO GitHub: https://github.com/satoh-y-0323/parallel-orchest",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-python",
+      "publishedAt": "2026-05-01T14:29:56.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--nMKFHb2U--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:C-3PO%2520%25E8%25A8%2588%25E7%2594%25BB%25E2%2594%2580%25E2%2594%2580Claude%2520Code%2520Conductor%2520%25E3%2581%25A8%2520parallel-orchestra%2520%25E3%2581%258C%25E7%25B5%2584%25E3%2582%2580%25E3%2581%25BE...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:satoh-y-0323%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzAwMDMzNjljMTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "156e9f2d90c91e3f",
+      "kind": "news",
+      "title": "あるメルマガの発想をヒントに、競馬の期待値エンジンを作った話",
+      "url": "https://zenn.dev/mojya/articles/964724219009cc",
+      "summary": "はじめに 何年も前に読んだ高城剛氏のメルマガで、競馬をデータで捉える発想に触れた。 正確な記述を再現するものではなく、あくまで当時の私の記憶と解釈に基づくが、私が受け取ったのは「データで判断し、やらないことを先に決める」という発想だった。 ちなみに私は競馬をほとんど知らない。数回行ったことがあるくらいで、賭けた金額は合計でも数百円だと思う。 Claude Codeを触り始めたとき、ふと思った。「これ、今なら作れるんじゃないか」 競馬を知らないからこそ、勘が入り込む余地がない。",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-python",
+      "publishedAt": "2026-05-01T12:51:57.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Ggf7JL96--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2581%2582%25E3%2582%258B%25E3%2583%25A1%25E3%2583%25AB%25E3%2583%259E%25E3%2582%25AC%25E3%2581%25AE%25E7%2599%25BA%25E6%2583%25B3%25E3%2582%2592%25E3%2583%2592%25E3%2583%25B3%25E3%2583%2588%25E3%2581%25AB%25E3%2580%2581%25E7%25AB%25B6%25E9%25A6%25AC%25E3%2581%25AE%25E6%259C%259F%25E5%25BE%2585%25E5%2580%25A4%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%25B3%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:mojya%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2piaG5oN0NpNUtBTTQ4WXllNFJPaFNsdVBDdTR2QTExUVY3MWZsPXM5Ni1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "4ede58acb8e4b146",
+      "kind": "news",
+      "title": "Claude CodeのスキルをNotionで一括管理できるようにした話",
+      "url": "https://zenn.dev/taroh_7/articles/2026-04-20-claude-skill-notion-management",
+      "summary": "はじめに Claude Code や Codex を使っていると、自分専用のスキル（SKILL.md）が増えていく。20本を超えたあたりで「どのスキルが最新か」「どこに置いてあるか」「使えるバージョンはどれか」を把握するのが難しくなってきた。 この記事では、スキルのメタデータ・バージョン・zipパッケージを Notion DB で一元管理する仕組み を作った話をまとめる。 作ったもの：全体像 SKILL.md（正本） │ ├── sync_plugins.py ──────→",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-python",
+      "publishedAt": "2026-05-01T11:44:50.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--5d8VFGBh--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AE%25E3%2582%25B9%25E3%2582%25AD%25E3%2583%25AB%25E3%2582%2592Notion%25E3%2581%25A7%25E4%25B8%2580%25E6%258B%25AC%25E7%25AE%25A1%25E7%2590%2586%25E3%2581%25A7%25E3%2581%258D%25E3%2582%258B%25E3%2582%2588%25E3%2581%2586%25E3%2581%25AB%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%259F%25E3%2582%258D%25E3%2583%25BC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZlYzA5ZGU4YTcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "fbf6ab3fed3fb348",
+      "kind": "news",
+      "title": "電気回路屋がコードを1行も書かずにWebアプリを公開した話——Claude Codeがあれば非エンジニアでも副業アプリ開発できる",
+      "url": "https://zenn.dev/hnokmim/articles/10ec5626a55918",
+      "summary": "はじめに ! この記事はQiitaにも同内容を掲載しています。 「Webアプリって、作るのはエンジニアの仕事だよね」——ほんの数日前まで、私はそう思い込んでいました。ところが今、私が作ったWebアプリが実際にインターネット上で動いています。私はハード設計者です。プログラミングはほぼ未経験です。それでも公開できました。その話を正直に書きます。 自己紹介 産業用機器メーカーに勤める電子・電気回路のハード設計者です。仕事は基板設計や回路解析が中心で、ソフトウェアはほとんど触りません",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-01T13:23:38.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--SPibo0nK--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E9%259B%25BB%25E6%25B0%2597%25E5%259B%259E%25E8%25B7%25AF%25E5%25B1%258B%25E3%2581%258C%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2582%25921%25E8%25A1%258C%25E3%2582%2582%25E6%259B%25B8%25E3%2581%258B%25E3%2581%259A%25E3%2581%25ABWeb%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2582%2592%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%25E2%2580%2594%25E2%2580%2594Claude%2520Code%25E3%2581%258C%25E3%2581%2582%25E3%2582%258C%25E3%2581%25B0%25E9%259D%259E%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25A7%25E3%2582%2582%25E5%2589%25AF%25E6%25A5%25AD%25E3%2582%25A2...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Haneoka%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2NlZDFkMGZkYzIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "81257737140138c0",
+      "kind": "news",
+      "title": "動画講座の知識が流れていくのを止めたくて、Claude Code に学びを声で言語化する学習法に辿り着いた",
+      "url": "https://zenn.dev/matsutake_prgrm/articles/claude-code-voice-learning",
+      "summary": "はじめに Web制作のフリーランスを2年やってきて、フロントエンドエンジニアへの転向を目指して学習中です。 学習スタイルは動画講座メイン。 ただ、見ているうちに知識が右から左に流れていく感覚に、ずっとモヤモヤしていました。 その流れを止めたくて試行錯誤した結果、学んだ内容を自分の言葉に変えて、Claude Code に声で残していくというやり方に落ち着いたので、観察ベースで書き残しておきます。 同じように学習中の方にとって、何かしらの参考になれば嬉しいです。 動画を見るだけだ",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-01T12:03:38.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--kedoKNl7--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%258B%2595%25E7%2594%25BB%25E8%25AC%259B%25E5%25BA%25A7%25E3%2581%25AE%25E7%259F%25A5%25E8%25AD%2598%25E3%2581%258C%25E6%25B5%2581%25E3%2582%258C%25E3%2581%25A6%25E3%2581%2584%25E3%2581%258F%25E3%2581%25AE%25E3%2582%2592%25E6%25AD%25A2%25E3%2582%2581%25E3%2581%259F%25E3%2581%258F%25E3%2581%25A6%25E3%2580%2581Claude%2520Code%2520%25E3%2581%25AB%25E5%25AD%25A6%25E3%2581%25B3%25E3%2582%2592%25E5%25A3%25B0%25E3%2581%25A7%25E8%25A8%2580%25E8%25AA%259E%25E5%258C%2596%25E3%2581%2599%25E3%2582%258B%25E5%25AD%25A6%25E7%25BF%2592%25E6%25B3%2595%25E3%2581%25AB%25E8%25BE%25BF%25E3%2582%258A%25E7%259D%2580%25E3%2581%2584%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BE%25E3%2581%25A4%25E3%2581%259F%25E3%2581%2591%2Cx_90%2Cy_121/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "9c247c06c2b7a6b2",
+      "kind": "news",
+      "title": "AIコーディングエージェントをセキュアに使うためのハーネス設計",
+      "url": "https://zenn.dev/yuzzzn/articles/45626e1ab08e3c",
+      "summary": "はじめに Claude Code などの AI コーディングエージェントは、ファイルの読み書き・コマンド実行・Web アクセスを自律的に行います。強力な反面、何も設定しないまま使うとローカルマシン全体へのアクセスを許可した状態で動作します。 この記事では「ハーネス設計」という観点から、AI エージェントをセキュアに運用するために構築した環境をまとめます。 ハーネス設計とは ハーネスエンジニアリングとは、AI エージェントを信頼できるレベルで動作させるために、環境・制約・フィー",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-01T10:56:19.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--HTsBHHYV--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2582%2592%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2582%25A2%25E3%2581%25AB%25E4%25BD%25BF%25E3%2581%2586%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E3%2583%258F%25E3%2583%25BC%25E3%2583%258D%25E3%2582%25B9%25E8%25A8%25AD%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:poyo%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVQyY2RYNVdyV2pKVm00OFRUemQ2QTZpbjhyTzBLVnAyTk1ZZ3hyN1pXNEVxLWxaVT1zOTYtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "459d4ef94cf9dcc3",
+      "kind": "news",
+      "title": "Notion を canonical にして AI 開発パイプラインを組んだら踏み抜いた 5 つの落とし穴",
+      "url": "https://zenn.dev/zoetaka38/articles/84241a9e4d6c25",
+      "summary": "はじめに タイムラインで「Issue を Notion に登録 → Claude Code が GitHub MCP 経由で branch 切って実装 → PR 作って差分 Summary を Slack に流す」みたいなフローを組んでいる人を見かけて、自分も近い構成を運用してきたのでハマったポイントを書き残しておく。 うちのケースだと、ビジネス側からの要望は Notion の DB に書かれていて、それを AI が PRD に構造化、開発側がレビューして承認したら下流に流す",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-01T08:21:32.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--fLz5KFeW--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Notion%2520%25E3%2582%2592%2520canonical%2520%25E3%2581%25AB%25E3%2581%2597%25E3%2581%25A6%2520AI%2520%25E9%2596%258B%25E7%2599%25BA%25E3%2583%2591%25E3%2582%25A4%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%2592%25E7%25B5%2584%25E3%2582%2593%25E3%2581%25A0%25E3%2582%2589%25E8%25B8%258F%25E3%2581%25BF%25E6%258A%259C%25E3%2581%2584%25E3%2581%259F%25205%2520%25E3%2581%25A4%25E3%2581%25AE%25E8%2590%25BD%25E3%2581%25A8%25E3%2581%2597%25E7%25A9%25B4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "567933f211508d5c",
+      "kind": "paper",
+      "title": "A Geometric Perspective on Polynomially Solvable Convex Maximization",
+      "url": "https://arxiv.org/abs/2604.27427",
+      "summary": "Convex maximization encompasses a broad class of optimization problems and is generally NP-hard, even for low-rank objectives. This paper investigates structural conditions under which convex maximization becomes polynomially solvable. From",
+      "tags": [
+        "priority",
+        "np-hard",
+        "optimization"
+      ],
+      "score": 8,
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-05-01T04:00:00.000Z",
+      "fetchedAt": "2026-05-02T01:26:01.094Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "4cca98b7df6c65ed",
+      "kind": "paper",
+      "title": "Explicit Quantum Search Algorithm for the Densest k-Subgraph Problem",
+      "url": "https://arxiv.org/abs/2604.27782",
+      "summary": "This paper addresses the problem of finding the densest $k$-vertex subgraph in an arbitrary graph. This problem is NP-hard and has important applications in social network analysis, fraud detection, recommendation systems, and bioinformatic",
+      "tags": [
+        "priority",
+        "np-hard",
+        "optimization"
+      ],
+      "score": 8,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-01T04:00:00.000Z",
+      "fetchedAt": "2026-05-02T01:26:01.094Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "78d21bf9171cc6d9",
+      "kind": "news",
+      "title": "拡張された心、もしくは攻殻機動隊への半歩 — AI 思考拡張時代の電脳化論",
+      "url": "https://qiita.com/JUMP_IN/items/00e3b2e881df693e35cd",
+      "summary": "起点 連休中に Tailscale + RustDesk + RDP で多段リモート接続環境を組み終えて、ふと自分のデスク周りを見渡してみたとき、変な感覚に襲われました。手元のキーボードで打ったコマンドが、別の PC を経由して、また別の PC に届く。同時に Claud...",
+      "tags": [
+        "キーボード",
+        "rust"
+      ],
+      "score": 8,
+      "source": "rss:qiita-tag-claude",
+      "publishedAt": "2026-05-02T01:27:50.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkZDE5NzcxYmM3ZDc4ODI0MjgyN2JmNzViZDNkZmM5Zj9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MmExOGJkNzE4ZGYxOTc0Yjg2Mjg3ZWEwYjJjMTYzOWM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc458908bb9679c093ff1c648e45b8eb8?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUU2JThCJUExJUU1JUJDJUI1JUUzJTgxJTk1JUUzJTgyJThDJUUzJTgxJTlGJUU1JUJGJTgzJUUzJTgwJTgxJUUzJTgyJTgyJUUzJTgxJTk3JUUzJTgxJThGJUUzJTgxJUFGJUU2JTk0JUJCJUU2JUFFJUJCJUU2JUE5JTlGJUU1JThCJTk1JUU5JTlBJThBJUUzJTgxJUI4JUUzJTgxJUFFJUU1JThEJThBJUU2JUFEJUE5JTIwJUUyJTgwJTk0JTIwQUklMjAlRTYlODAlOUQlRTglODAlODMlRTYlOEIlQTElRTUlQkMlQjUlRTYlOTklODIlRTQlQkIlQTMlRTMlODElQUUlRTklOUIlQkIlRTglODQlQjMlRTUlOEMlOTYlRTglQUIlOTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1lMzQ2MTMwODA3ZWUxMGE1NjZmYjhiOTZjYjQ0NmUxNg&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBKVU1QX0lOJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OWNhZjFiZjYyNTQxM2YyYTMwODBjMTg1NmFlMTYyNjI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=5063ecc14d6c4db1b93f96de222515d3"
+    },
+    {
+      "id": "1268dd7f7879e60f",
+      "kind": "news",
+      "title": "AI が推す「住所 API」は AI によって全部違う — エージェント統合 3 パターンと 4 大 LLM 競合認識比較",
+      "url": "https://qiita.com/yosikawa-techwell/items/19e277d339bd7f4d5a9c",
+      "summary": "TL;DR AI エージェント(GPTs / Claude / LangChain)に 日本住所の正規化 をやらせるとき、典型的な統合パターンは 3 種類しかない 各パターンは OpenAPI 3.1 を起点 に組み立てるが、認証戦略・レート制御・リトライ設計が微妙に異...",
+      "tags": [
+        "claude",
+        "llm"
+      ],
+      "score": 7,
+      "source": "rss:qiita-tag-claude",
+      "publishedAt": "2026-05-02T01:25:28.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjI3NTU3NTA4NSUzRnYlM0Q0P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz04YzhiMGIwNGRkMDZiYThlYzE3NjhhNzE5MmM3NmFkYQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D712bfa9fe0792a036d99167a3a7b46d7?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9QUklMjAlRTMlODElOEMlRTYlOEUlQTglRTMlODElOTklRTMlODAlOEMlRTQlQkQlOEYlRTYlODklODAlMjBBUEklRTMlODAlOEQlRTMlODElQUYlMjBBSSUyMCVFMyU4MSVBQiVFMyU4MiU4OCVFMyU4MSVBMyVFMyU4MSVBNiVFNSU4NSVBOCVFOSU4MyVBOCVFOSU4MSU5NSVFMyU4MSU4NiUyMCVFMiU4MCU5NCUyMCVFMyU4MiVBOCVFMyU4MyVCQyVFMyU4MiVCOCVFMyU4MiVBNyVFMyU4MyVCMyVFMyU4MyU4OCVFNyVCNSVCMSVFNSU5MCU4OCUyMDMlMjAlRTMlODMlOTElRTMlODIlQkYlRTMlODMlQkMlRTMlODMlQjMlRTMlODElQTglMjA0JTIwJUU1JUE0JUE3JTIwTExNJTIwJUU3JUFCJUI2JUU1JTkwJTg4JUU4JUFBJThEJUU4JUFEJTk4JUU2JUFGJTk0JUU4JUJDJTgzJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YWZlMzk4NzY1OTVmYjhjMWFjYzRlYmE0OTZiMTgwZDY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB5b3Npa2F3YS10ZWNod2VsbCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTY3NjBkM2Q5NjQ4MjE1Yjg2NGNhMGViOTgyMjhlMjVm&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=8767cf65634ec971c1c6dd3a0e596695"
+    },
+    {
+      "id": "e9b5067284b9a50b",
+      "kind": "news",
+      "title": "5 サービスで Claude Agent SDK を呼ぶことになって、共通化した部分と意図的に揃えなかった部分",
+      "url": "https://zenn.dev/zoetaka38/articles/409d4c89fc78a5",
+      "summary": "はじめに うちでは Claude Agent SDK を 5 つのサービス(Green / Purple / Red / Blue / Yellow)から叩いている。最初は各サービスに素直に infrastructure/external_apis/claude_agent_sdk_client.py を生やしていて、4 サービス目を書いているあたりで「全部別々にメンテしたら破綻する」と気付いて骨格を揃えに行った。 ただ全部を共通ライブラリに切り出すのも違う。Red の 3-",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 7,
+      "source": "rss:zenn-topic-python",
+      "publishedAt": "2026-05-01T11:36:06.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Ttcr3ReU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:5%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2593%25E3%2582%25B9%25E3%2581%25A7%2520Claude%2520Agent%2520SDK%2520%25E3%2582%2592%25E5%2591%25BC%25E3%2581%25B6%25E3%2581%2593%25E3%2581%25A8%25E3%2581%25AB%25E3%2581%25AA%25E3%2581%25A3%25E3%2581%25A6%25E3%2580%2581%25E5%2585%25B1%25E9%2580%259A%25E5%258C%2596%25E3%2581%2597%25E3%2581%259F%25E9%2583%25A8%25E5%2588%2586%25E3%2581%25A8%25E6%2584%258F%25E5%259B%25B3%25E7%259A%2584%25E3%2581%25AB%25E6%258F%2583%25E3%2581%2588%25E3%2581%25AA%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E9%2583%25A8%25E5%2588%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "ba9e5d0e93bc2b43",
+      "kind": "paper",
+      "title": "Average-Tree Phylogenetic Diversity Parameterized by Scanwidth and Invisibility",
+      "url": "https://arxiv.org/abs/2604.27745",
+      "summary": "We investigate parameterized algorithms for computing the average-tree phylogenetic diversity (APD) in rooted phylogenetic networks, studying the problem under different structural parameters that capture the deviation of a network from a t",
+      "tags": [
+        "priority",
+        "np-hard"
+      ],
+      "score": 5,
+      "source": "arxiv:cs.DS",
+      "publishedAt": "2026-05-01T04:00:00.000Z",
+      "fetchedAt": "2026-05-02T01:26:01.094Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "46bbcaf2742217d9",
+      "kind": "paper",
+      "title": "Distributed Santa Claus via Global Rounding",
+      "url": "https://arxiv.org/abs/2604.27983",
+      "summary": "In this paper, we consider the Santa Claus problem in the CONGEST model. This NP-hard problem can be modeled as a bipartite graph of children and gifts where an edge indicates that a child desires a gift. Notably, each gift can have a diffe",
+      "tags": [
+        "priority",
+        "np-hard"
+      ],
+      "score": 5,
+      "source": "arxiv:cs.DS",
+      "publishedAt": "2026-05-01T04:00:00.000Z",
+      "fetchedAt": "2026-05-02T01:26:01.094Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "6ed1fd13016483de",
+      "kind": "news",
+      "title": "Translation - エロゲー用HookerをRustLangで作ってみる",
+      "url": "https://qiita.com/dongsub1103/items/9d60c0e099946e9a793d",
+      "summary": "main.rs コードが開けられなくて説明は後しかします！ gir logs commit 717a00cb854a621aaadff8850b5ed9d84dd9d25a Author: dongsub-joung ehdtjqwjd@kangwon.ac.kr...",
+      "tags": [
+        "rust"
+      ],
+      "score": 5,
+      "source": "rss:qiita-tag-rust",
+      "publishedAt": "2026-05-01T20:52:11.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzkxODU0MyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NzY1ODM2ND9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjRhZGIyOTYxNGJkYzVmOTkzMDAwNjg2ZmRkODMxODY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbe2122058c883f5af37f12f767bafb91?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9VHJhbnNsYXRpb24lMjAtJTIwJUUzJTgyJUE4JUUzJTgzJUFEJUUzJTgyJUIyJUUzJTgzJUJDJUU3JTk0JUE4SG9va2VyJUUzJTgyJTkyUnVzdExhbmclRTMlODElQTclRTQlQkQlOUMlRTMlODElQTMlRTMlODElQTYlRTMlODElQkYlRTMlODIlOEIlMjAmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jZTNkZTFmODIzMDg1ODI0ODQwZThlNjNlMDQ3MTMyZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBkb25nc3ViMTEwMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWQ5ZTgyODQ0ZWEwNDIyZWQ3NzEwODgwM2RiNDNlNGJi&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=6f42347c9594ea028944636a6346279f"
+    },
+    {
+      "id": "7aad25958bf381c1",
+      "kind": "news",
+      "title": "エロゲー用HookerをRustLangで作ってみる - 1",
+      "url": "https://qiita.com/dongsub1103/items/0e3fc3185e85a4234f74",
+      "summary": "Smart pointer at static array byte arrayのサイズが決まっていないのでBox<>で包みVec<>でlog用dataを作りました。 : Vec> let pe_file; let v_bytes_data...",
+      "tags": [
+        "rust"
+      ],
+      "score": 5,
+      "source": "rss:qiita-tag-rust",
+      "publishedAt": "2026-05-01T18:14:55.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzkxODU0MyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NzY1ODM2ND9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjRhZGIyOTYxNGJkYzVmOTkzMDAwNjg2ZmRkODMxODY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbe2122058c883f5af37f12f767bafb91?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUE4JUUzJTgzJUFEJUUzJTgyJUIyJUUzJTgzJUJDJUU3JTk0JUE4SG9va2VyJUUzJTgyJTkyUnVzdExhbmclRTMlODElQTclRTQlQkQlOUMlRTMlODElQTMlRTMlODElQTYlRTMlODElQkYlRTMlODIlOEIlMjAtJTIwMSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTJjZDcyMjhlNDEyM2Q3NzBlMmRhNzQxZGRiMDM1N2Ux&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBkb25nc3ViMTEwMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWQ5ZTgyODQ0ZWEwNDIyZWQ3NzEwODgwM2RiNDNlNGJi&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=4b4a3e8d8ead6ed24267ac29133738dd"
+    },
+    {
+      "id": "bb3f81490965e507",
+      "kind": "news",
+      "title": "Rustで自作データベースを作る その31: verifyのchecklistを追加して、確認手順を順序付きで案内する",
+      "url": "https://zenn.dev/hmlyn523/articles/6e1fc26a54bc71",
+      "summary": "前回は、verify の remediation hints を導入して、 VerifyRemediationHint verify report の remediation_hints CLI / JSON での hint 表示 status / code / details / hints の 4 層化 を追加し、mismatch のあとに次の確認ポイントを案内できるようにしました。 ここまでで verify はかなり使いやすくなっています。 status で大分類が分か",
+      "tags": [
+        "rust"
+      ],
+      "score": 5,
+      "source": "rss:zenn-topic-rust",
+      "publishedAt": "2026-05-01T12:00:06.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--OW-6PKPb--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25A7%25E8%2587%25AA%25E4%25BD%259C%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B9%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%2520%25E3%2581%259D%25E3%2581%25AE31%253A%2520verify%25E3%2581%25AEchecklist%25E3%2582%2592%25E8%25BF%25BD%25E5%258A%25A0%25E3%2581%2597%25E3%2581%25A6%25E3%2580%2581%25E7%25A2%25BA%25E8%25AA%258D%25E6%2589%258B%25E9%25A0%2586%25E3%2582%2592%25E9%25A0%2586%25E5%25BA%258F%25E4%25BB%2598%25E3%2581%258D%25E3%2581%25A7%25E6%25A1%2588%25E5%2586%2585%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25B2%25E3%2581%25BE%25E3%2581%25A1%25E3%2582%2583%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzgxNjYzMWZiNDguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "4abbd20856d1bf53",
+      "kind": "news",
+      "title": "型の表現力はタダ: Rustのニッチ最適化を追う【第1部: メモリレイアウトの観察】",
+      "url": "https://zenn.dev/fast/articles/4c418720d3ab1d",
+      "summary": "! この記事はシリーズの第1部です。 第1部: メモリレイアウトの観察（本記事） 第2部: MIR・LLVM IR・ASMを追う 第3部: コンパイラ内部を読む 第4部: ニッチ最適化の実践パターン はじめに こんにちは、moriです。 FAST株式会社にてRustを用いてデスクトップアプリケーション・バックエンドの開発を行なっています。 私がRustで好きなのは型で意図を表現しやすいことです。例えば、Option ——「値がないか、0でない数値」という意図が型に現れます。た",
+      "tags": [
+        "rust"
+      ],
+      "score": 5,
+      "source": "rss:zenn-topic-rust",
+      "publishedAt": "2026-05-01T08:12:46.000Z",
+      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--BHWslgwl--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%259E%258B%25E3%2581%25AE%25E8%25A1%25A8%25E7%258F%25BE%25E5%258A%259B%25E3%2581%25AF%25E3%2582%25BF%25E3%2583%2580%253A%2520Rust%25E3%2581%25AE%25E3%2583%258B%25E3%2583%2583%25E3%2583%2581%25E6%259C%2580%25E9%2581%25A9%25E5%258C%2596%25E3%2582%2592%25E8%25BF%25BD%25E3%2581%2586%25E3%2580%2590%25E7%25AC%25AC1%25E9%2583%25A8%253A%2520%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E3%2583%25AC%25E3%2582%25A4%25E3%2582%25A2%25E3%2582%25A6%25E3%2583%2588%25E3%2581%25AE%25E8%25A6%25B3%25E5%25AF%259F%25E3%2580%2591%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:moriyoshi_kasuga%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzljYTEzZDEyMWEuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:FAST%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTDYzNGNZZnNLeDl1cEJUXzNGek9LNERBbUJieUlqYUdPdG9YTlRxdE1od19wWDc2Zz1zOTYtYw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    }
+  ]
+}

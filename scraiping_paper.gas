@@ -1,0 +1,478 @@
+/** チェックする Arxiv の RSS リスト */
+const URL_LIST = [
+    "https://export.arxiv.org/rss/cs.DS",
+    "https://export.arxiv.org/rss/cs.CC",
+    "https://export.arxiv.org/rss/math.OC",
+    "https://export.arxiv.org/rss/math.CO",
+    "https://export.arxiv.org/rss/quant-ph"
+];
+
+/** チェックするキーワードのリスト */
+const KEYWORD_LIST = ["combinatorial", "optimize", "np-hard"];
+const PRIORITIZED_KEYWORD = ["np-hard"];
+
+/** チェックする論文の最大本数 */
+const MAX_NUM_PAPER = 6;
+
+/** rate limit 回避のため (もう少し短くてもいいかも) */ 
+const SLEEPING_SECS = 10000;
+
+function main() {
+  // メール本文
+  let body = "";
+
+  // 論文の情報をリストに格納
+  console.info("load arxives");
+  let infos = []
+  URL_LIST.forEach(url => {
+      infos = infos.concat(getArxivPapersInfo(url, false));
+  });
+
+  console.info("filter papers");
+
+  var seen = new Set();
+  infos = infos.filter(row => {
+    const key = row[1]; // タイトル
+    if (seen.has(key)) {
+      return false; // 既に出たキーなら除外
+    }
+    seen.add(key);
+    return true;
+  });
+
+  console.info("sort papers");
+
+  // 日付でソート
+  infos.sort((a, b) => {
+    const dateA = a[0];
+    const dateB = b[0];
+
+    const hasKeywordA = PRIORITIZED_KEYWORD.some(keyword => a[2].toLowerCase().includes(keyword.toLowerCase()));
+    const hasKeywordB = PRIORITIZED_KEYWORD.some(keyword => b[2].toLowerCase().includes(keyword.toLowerCase()));
+
+    // キーワード優先（true = 1, false = 0）
+    if (hasKeywordA !== hasKeywordB) {
+      return hasKeywordB - hasKeywordA; // キーワードありを先頭に
+    }
+
+    // 日付で新しい順に
+    return dateB - dateA;
+  });
+
+  console.info("post ChatGPT");
+
+  for (let i = 0; i < infos.length; i++) {
+    // 最大本数を超えた場合、終了
+    if (i >= MAX_NUM_PAPER) {
+      break;
+    }
+    // rate limit 回避のため、間でスリープ
+    if (i > 0) {
+      Utilities.sleep(SLEEPING_SECS);
+    }
+
+    // 論文情報をパース
+    const [pubDate, title, abstract, link] = infos[i];
+
+    // ChatGPT に要約してもらう
+    const summary = summarizeAbstract(abstract); 
+
+    // メール本文に要約を追記
+    body += makeHtmlBody(title, summary, link);
+  }
+
+  // 論文がなかった場合はメール本文にその旨を記述
+  if (infos.length == 0) {
+    body = "今日は新しい論文がありませんでした。"
+  }
+  
+  const email_subject = `Paper Digest - ${new Date().toDateString()}`;
+
+  // メールを送信
+  MailApp.sendEmail({
+    to: EMAIL_RECIPIENT,
+    subject: email_subject,
+    htmlBody: body
+  });
+}
+
+/**
+ * RSSから昨日以降出版された論文の情報を最大 `max_num_paper` 本取得する
+ * @param {string} rssURL RSSのURL (https://export.arxiv.org/rss/cs.DS)
+ * @return {list} (出版時刻, タイトル, 概要, PDFへのリンク) のタプルのリスト
+ */
+function getArxivPapersInfo(rssUrl, onlyPublished=true) {
+  const today = new Date();
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+
+  let response;
+  do {
+    try {
+      response = UrlFetchApp.fetch(rssUrl);
+      break;
+    } catch (e) {
+      console.log(e);
+      Utilities.sleep(SLEEPING_SECS);
+    }
+  } while (true);
+
+  const xml = XmlService.parse(response.getContentText());
+  const entries = xml.getRootElement().getChild("channel").getChildren("item");
+  let infos = [];
+  for (let i = 0; i < entries.length; i++) {
+    const entry = entries[i];
+    const title = entry.getChildText("title");
+    const description = entry.getChildText("description");
+    const submittedStr = entry.getChildText("pubDate");
+    const abs_link = entry.getChildText("link");
+    const pdf_link = abs_link.replace("abs", "pdf");
+
+    // arXiv ID を抽出（例: https://arxiv.org/abs/2504.21624 → 2504.21624）
+    const idMatch = abs_link.match(/\/abs\/([^\/]+)$/);
+    if (!idMatch) continue;
+    const arxivId = idMatch[1];
+
+    // API 経由で submitted（published）日付を取得
+    const apiUrl = `https://export.arxiv.org/api/query?id_list=${arxivId}`;
+    let apiResponse;
+    try {
+      apiResponse = UrlFetchApp.fetch(apiUrl);
+    } catch (e) {
+      console.log("API fetch failed for:", arxivId, e);
+      continue;
+    }
+
+    const apiXml = XmlService.parse(apiResponse.getContentText());
+    const ns = XmlService.getNamespace("http://www.w3.org/2005/Atom");
+    const entryNode = apiXml.getRootElement().getChild("entry", ns);
+    const publishedStr = entryNode.getChildText("published", ns); // 例: "2025-04-30T00:00:00Z"
+    const submittedDate = new Date(publishedStr);
+
+    // 昨日以前の投稿は除外
+    if (onlyPublished && submittedDate < yesterday) {
+      continue;
+    }
+    if (!onlyPublished && new Date(submittedStr) < yesterday) {
+      continue;
+    }
+
+    // abstract 抽出
+    const abs_keyword = "Abstract: ";
+    const abs_ind = description.indexOf(abs_keyword);
+    if (abs_ind === -1) continue;
+    const abstract = description.substring(abs_ind + abs_keyword.length);
+
+    // キーワードにマッチするか判定
+    const found = KEYWORD_LIST.some(keyword =>
+      abstract.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+    if (found) {
+      infos.push([submittedDate, title, abstract, pdf_link]);
+    }
+  }
+
+  return infos;
+}
+
+/**
+ * ChatGPTを用いて論文の概要を要約する
+ * @param {string} abstract 論文の概要
+ * @return {string} 要約された概要
+ */
+function summarizeAbstract(abstract) {
+  const prompt = `
+<abstract_translation_request>
+abstractタブ内は論文のアブストラクトです。日本語に翻訳してください。
+
+<note>
+- 平文で出力してください。
+- 正確な翻訳を心がけ、論文に書かれていない推測は避けてください。
+- タイトルは不要です。
+- 読み手にわかりやすい文章構成を心がけ、論理的な流れを意識してください。
+- 専門用語には説明を加えてください。
+- 簡潔かつ明瞭な表現を使用してください。
+</note>
+
+<abstract>
+${abstract}
+</abstract>
+<abstract_translation_request>
+`;
+
+  return getChatGPTResponse(prompt);
+}
+
+/**
+ * メール本文に載せるために情報を整形して文字列で返す
+ * @param {string} title 論文のタイトル
+ * @param {string} summary 論文の概要
+ * @param {string} link 論文のリンク
+ */
+function makeHtmlBody(title, summary, link) {
+  let body = `<h2><a href="${link}">${title}</a></h2>
+<p>${summary}</p>
+<p>
+<ul>`;
+
+  for (let i = 0; i < QUERY_LIST.length; i++) {
+    const [prompt, description] = QUERY_LIST[i];
+    body += `<li><a href=${makeQuestionUrl(link, prompt)}>${description}</a></li>
+`;
+  }
+  body += `</ul>
+</p>
+`;
+  return body;
+}
+
+/**
+ * ChatGPTに入力された内容を質問する
+ * @param {string} promptText 質問内容
+ * @return {string} 回答内容
+ */
+function getChatGPTResponse(promptText) {
+  const payload = {
+    model: "gpt-3.5-turbo",
+    messages: [{ role: "user", content: promptText }],
+    temperature: 0.7
+  };
+  const options = {
+    method: 'post',
+    contentType: 'application/json',
+    headers: { Authorization: `Bearer ${OPENAI_API_KEY}` },
+    payload: JSON.stringify(payload),
+    muteHttpExceptions: true
+  };
+  const response = UrlFetchApp.fetch("https://api.openai.com/v1/chat/completions", options);
+  const result = JSON.parse(response.getContentText());
+  console.log(result);
+  return result.choices[0].message.content.trim();
+}
+
+/**
+ * ChatGPT への論文に関する質問 URL を作成する
+ * @param {string} 論文の URL
+ * @param {string} プロンプトテンプレート
+ * @return {string} 質問内容が埋め込まれた URL
+ */
+function makeQuestionUrl(paperUrl, promptTemplate) {
+  const prompt = `
+  ${paperUrl}
+  ${promptTemplate}
+`
+
+  return "https://chat.openai.com/?q=" + encodeURIComponent(prompt);
+}
+
+// ------------------------
+// 以下のプロンプトは https://note.com/sora_motorsport/n/nd578bc43c3ba より拝借しています
+// ------------------------
+const SUMMARY_PROMPT = `
+<research_purpose_and_background>
+研究の目的と背景を2000文字以上でまとめてください。
+
+<purpose>
+本研究の目的について、以下の観点を踏まえて詳細に説明してください:
+- 研究で解決しようとしている問題や達成しようとしている目標
+- 研究の意義や重要性
+- 研究の新規性や独自性
+</purpose>
+
+<background>
+本研究の背景について、以下の観点を踏まえて詳細に説明してください:
+- 研究分野の現状と課題
+- 関連する先行研究とその限界や問題点
+- 本研究の位置づけ
+</background>
+
+<note>
+- 論文の内容に忠実に、論文に書かれていない情報や著者の意図を超えた解釈は避けてください。
+- 論文から直接引用する場合は、引用部分を明示してください。
+- 読み手にわかりやすい文章構成を心がけ、段落構成を適切に行い、論理的な流れを意識してください。
+- 専門用語には説明を加えてください。
+- 簡潔かつ明瞭な表現を使用してください。
+</note>
+</research_purpose_and_background>
+`;
+
+const METHOD_PROMPT = `
+<methods_and_comparison>
+使用した手法の概要を2000文字以上でまとめてください。
+
+<methods>
+本研究で使用された主要な手法について、以下の観点を踏まえて詳細に説明してください:
+- 各手法の基本的な概念や原理
+- 手法の特徴や利点、適用範囲
+- 手法の選択理由や研究における役割
+- 手法の具体的な適用方法や実装方法
+- 手法に関連する重要な数式やアルゴリズム
+- 手法のパラメータ設定や学習プロセス
+</methods>
+
+<comparison>
+複数の手法を組み合わせて使用している場合、以下の観点を踏まえて説明してください:
+- 手法間の関連性や相互作用
+- 類似の手法との比較
+- 本研究で使用した手法の優位性や特徴
+</comparison>
+
+<note>
+- 論文の内容に忠実に、論文に書かれていない情報や著者の意図を超えた解釈は避けてください。
+- 必ず論文から直接引用してください。引用部分を明示してください。
+- 読み手にわかりやすい文章構成を心がけ、段落構成を適切に行い、論理的な流れを意識してください。
+- 専門用語には説明を加えてください。
+- 図表やコードスニペットを活用して、手法の理解を助けてください。
+</note>
+</methods_and_comparison>
+`;
+
+const EQUATION_PROMPT = `
+<equations_methods_relationship>
+論文内の数式と手法の関連を2500文字以上でまとめてください。
+
+<equations>
+論文で提示されている全ての数式について、以下の観点を踏まえて詳細に説明してください:
+- 各数式の意味や役割
+- 数式が手法のどの部分に対応しているか
+- 数式がどのように手法の実装や動作に寄与しているか
+- 数式のパラメータや変数が手法のどの要素を表しているか
+</equations>
+
+<derivation>
+各数式の導出過程や理論的背景について、以下の観点を踏まえて詳細に説明してください:
+- 数式がどのような前提条件や仮定に基づいて導出されたか
+- 数式の理論的根拠や、関連する定理・原理
+- 数式の一般性や適用範囲
+</derivation>
+
+<impact>
+数式と手法の関連性が結果にどのように影響しているかについて、以下の観点を踏まえて考察してください:
+- 数式のパラメータ設定が手法の性能にどのように影響するか
+- 数式の変更や拡張が手法の改善にどのようにつながるか
+</impact>
+
+<note>
+- 論文の内容に忠実に、論文に明示的に書かれている数式と手法の関連性のみを扱ってください。
+- 論文に書かれていない解釈や推測は避けてください。
+- 必ず論文から直接引用してください。引用部分を明示してください。
+- 読み手にわかりやすい文章構成を心がけ、段落構成を適切に行い、論理的な流れを意識してください。
+- 専門用語には説明を加えてください。
+- 図表や数式のレンダリングを活用して、理解を助けてください。
+- LaTeX形式で出力してください。また出力する際には $$¥{数式¥}$$ という形式で、数式を $$¥{ と ¥}$$ で囲むようにしてください。
+</note>
+</equations_methods_relationship>
+`;
+
+const DISCUSSION_PROMPT = `
+<interpretations_and_discussions>
+論文内で結果の解釈や考察がどのようにまとめられているかを3000文字以上でまとめてください。
+
+<structure>
+結果の解釈や考察の全体的な構成について、以下の観点を踏まえて説明してください:
+- 結果の解釈や考察が論文のどの部分で行われているか
+- 解釈や考察の流れや論理構成
+- 著者が重要視している点や強調している内容
+</structure>
+
+<interpretations>
+個々の結果に対する解釈や考察について、以下の観点を踏まえて詳細に説明してください:
+- 各結果が持つ意味や示唆についての著者の解釈
+- 結果が研究の目的や仮説とどのように関連しているか
+- 結果の解釈が先行研究や関連分野の知見とどのように関連しているか
+</interpretations>
+
+<arguments>
+結果の解釈や考察における著者の主張や論点について、以下の観点を踏まえて明確に述べてください:
+- 著者が結果から導き出した主要な主張や結論
+- 著者が提示する新しい知見や洞察
+- 著者が結果の解釈を通じて示唆する今後の研究の方向性
+</arguments>
+
+<validity>
+結果の解釈や考察の妥当性や限界について、以下の観点を踏まえて議論してください:
+- 著者の解釈や主張を裏付けるエビデンスの強さ
+- 結果の解釈における仮定や前提条件
+- 結果の解釈が持つ限界や対象となる範囲
+</validity>
+
+<note>
+- 論文の内容に忠実に、論文に明示的に書かれている解釈や考察のみを扱ってください。
+- 論文に書かれていない推測や主観的な評価は避けてください。
+- 必ず論文から直接引用してください。引用部分を明示してください。
+- 読み手にわかりやすい文章構成を心がけ、段落構成を適切に行い、論理的な流れを意識してください。
+- 専門用語には説明を加えてください。
+- 著者の主張や論点を明確に伝える文章表現を使用してください。
+</note>
+</interpretations_and_discussions>
+`;
+
+const RELATED_PROMPT = `
+<related_studies_summary>
+関連研究リストを1500文字以上でまとめてください。
+
+<list_related_studies>
+論文で引用されている関連研究を網羅的にリストアップしてください。本文中の引用と参考文献リストの両方を確認し、漏れのないようにしてください。また、各関連研究が論文のどの部分で引用されているかを以下の形式で明示してください。
+
+関連研究1（著者名, 発表年）: 引用箇所（例: 緒言, 方法, 結果, 考察）
+</list_related_studies>
+
+<summarize_studies>
+各関連研究の内容について、以下の観点を踏まえて要約してください:
+- 関連研究の目的、手法、結果
+- 関連研究の独自性や重要性
+- 関連研究と本研究の関連性
+
+要約の根拠となる関連研究の該当部分を論文から引用してください。
+</summarize_studies>
+
+<citation_context>
+関連研究の引用箇所と文脈について、以下の観点を踏まえて明示してください:
+- 関連研究が論文のどの部分で引用されているか（例: 緒言、方法、結果、考察）
+- 関連研究が引用されている文脈や目的
+
+引用箇所とその文脈を論文から直接引用してください。
+</citation_context>
+
+<study_details>
+各関連研究について、以下の情報を明記してください:
+- 発表年
+- 著者名
+- 出版物情報（雑誌名、巻号、ページ数など）
+</study_details>
+
+<categorize_studies>
+関連研究を種類や重要度に応じて分類し、特に重要な関連研究を強調してください。例えば、以下のような分類が考えられます:
+- 理論的基盤となる研究
+- 手法の比較対象となる研究
+- 応用事例となる研究
+</categorize_studies>
+
+<info_availability>
+論文中に関連研究について詳細な情報が記載されていない場合は、以下の文章を記載してください:
+
+「論文中に関連研究の詳細な情報が十分に記載されていません。関連研究の詳細な内容や重要性を確認するためには、元の論文を参照する必要があります。」
+</info_availability>
+
+<note>
+- 必ず論文で実際に引用されている関連研究のみをリストアップしてください。
+- 関連研究の要約は論文の記述を必ず引用して行ってください。
+- 読み手にわかりやすい文章構成を心がけ、関連研究を論理的な順序で配置してください。
+- 専門用語には説明を加え、簡潔かつ明瞭な文章で要約してください。
+</note>
+</related_studies_summary>
+`;
+
+/**
+ * メールに載せる質問リンクのリスト
+ * (プロンプト, 説明文) のタプルのリスト
+ * 不要なプロンプトはコメントアウトしてください
+ */
+const QUERY_LIST = [
+  [SUMMARY_PROMPT, "より詳細な概要について質問する"],
+  [METHOD_PROMPT, "論文の手法について質問する"],
+  // [EQUATION_PROMPT, "論文内の数式について質問する"],
+  // [DISCUSSION_PROMPT, "論文内の考察について質問する"],
+  // [RELATED_PROMPT, "関連研究について質問する"],
+];
