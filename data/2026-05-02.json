@@ -1,6 +1,6 @@
 {
   "date": "2026-05-02",
-  "generatedAt": "2026-05-02T06:02:30.331Z",
+  "generatedAt": "2026-05-02T13:25:20.057Z",
   "items": [
     {
       "id": "0b09ffda55f8d8e2",
@@ -15,7 +15,7 @@
       "score": 16,
       "source": "rss:zenn-topic-claude",
       "publishedAt": "2026-05-01T20:41:57.000Z",
-      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--UxWY7JLH--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Opus%25204.7%2520%25C3%2597%2520Agent%2520SDK%2520%25C3%2597%2520GitHub%2520Actions%2520%25E3%2582%2592%25E5%2585%25A8%25E9%2583%25A8%25E3%2582%2584%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25EF%25BD%259C%25E6%2597%25A7%25E3%2583%2590%25E3%2583%25BC...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%258F%25E3%2583%25BC%25E3%2582%258B%25E3%2581%259C%25E3%2582%258D%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzEwNGI2ZTg1NzMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
@@ -82,6 +82,22 @@
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LC5bheK2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:gh%2520skill%2520%25E3%2581%25A8%2520Copilot%2520Coding%2520Agent%2520%25E3%2581%25A7%2520Agent%2520Skills%2520%25E3%2582%2592%25E8%2587%25AA%25E5%258B%2595%25E6%258E%25A8%25E8%2596%25A6%25E3%2581%2599%25E3%2582%258B%25E4%25BB%2595%25E7%25B5%2584%25E3%2581%25BF...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Masaki%2520Onishi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA5NTQ0OTVhMzYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25A8%25E3%2582%25AF%25E3%2582%25B5%25E3%2582%25A6%25E3%2582%25A3%25E3%2582%25B6%25E3%2583%25BC%25E3%2582%25BA%2520Tech%2520Blog%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkyYWIxM2U5YTIuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
+      "id": "0f867ff4433d0224",
+      "kind": "news",
+      "title": "AI agent の「半分しかやってない」を検出するのに、diff の正規表現を入れて剥がした話",
+      "url": "https://zenn.dev/zoetaka38/articles/5f28338d908dd2",
+      "summary": "はじめに AI agent(うちでは Claude Code)に「このチケットを実装しろ」と渡すと、たまに「動いた、commit した、push した」までは進むのに チケットの半分しか触ってない ことがある。テストファイルだけ書いて実装ファイルがない、とか、実装はしたがマイグレーションが抜けてる、とか。exit_code は 0、commit もある、PR も開ける。下流から見ると成功にしか見えない。 この「形式上は完了、内容は未達」をどう検出するかという問題に、自分は半年",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 12,
+      "source": "rss:zenn-topic-python",
+      "publishedAt": "2026-05-02T10:38:09.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--cmfjmoS0--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520agent%2520%25E3%2581%25AE%25E3%2580%258C%25E5%258D%258A%25E5%2588%2586%25E3%2581%2597%25E3%2581%258B%25E3%2582%2584%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25AA%25E3%2581%2584%25E3%2580%258D%25E3%2582%2592%25E6%25A4%259C%25E5%2587%25BA%25E3%2581%2599%25E3%2582%258B%25E3%2581%25AE%25E3%2581%25AB%25E3%2580%2581diff%2520%25E3%2581%25AE%25E6%25AD%25A3%25E8%25A6%258F%25E8%25A1%25A8%25E7%258F%25BE%25E3%2582%2592%25E5%2585%25A5%25E3%2582%258C%25E3%2581%25A6%25E5%2589%25A5%25E3%2581%258C%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
       "id": "79dafe3c77b325f2",
       "kind": "news",
       "title": "Claude Codeを使ったアプリ開発 ― SIerが現場で実践するAI活用プロセス",
@@ -108,7 +124,7 @@
       "score": 10,
       "source": "rss:zenn-all",
       "publishedAt": "2026-05-01T14:15:19.000Z",
-      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--4Z18x-Ef--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590%25E6%25A4%259C%25E5%2587%25BA%25E7%258E%2587100%2525%25E3%2580%2591%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E8%25A8%25BA%25E6%2596%25AD%25E3%2580%2581Claude%2520Code%25E3%2581%25AB%25E5%2585%25A8%25E9%2583%25A8%25E3%2582%2584%25E3%2582%2589%25E3%2581%259B%25E3%2582%258B%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%258C%25E6%259D%25A5%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Sabakan%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E2NWY0YjNjODEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
@@ -123,7 +139,7 @@
       "score": 10,
       "source": "rss:zenn-topic-python",
       "publishedAt": "2026-05-01T14:29:56.000Z",
-      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--nMKFHb2U--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:C-3PO%2520%25E8%25A8%2588%25E7%2594%25BB%25E2%2594%2580%25E2%2594%2580Claude%2520Code%2520Conductor%2520%25E3%2581%25A8%2520parallel-orchestra%2520%25E3%2581%258C%25E7%25B5%2584%25E3%2582%2580%25E3%2581%25BE...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:satoh-y-0323%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzAwMDMzNjljMTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
@@ -217,6 +233,186 @@
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--fLz5KFeW--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Notion%2520%25E3%2582%2592%2520canonical%2520%25E3%2581%25AB%25E3%2581%2597%25E3%2581%25A6%2520AI%2520%25E9%2596%258B%25E7%2599%25BA%25E3%2583%2591%25E3%2582%25A4%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%2592%25E7%25B5%2584%25E3%2582%2593%25E3%2581%25A0%25E3%2582%2589%25E8%25B8%258F%25E3%2581%25BF%25E6%258A%259C%25E3%2581%2584%25E3%2581%259F%25205%2520%25E3%2581%25A4%25E3%2581%25AE%25E8%2590%25BD%25E3%2581%25A8%25E3%2581%2597%25E7%25A9%25B4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
+      "id": "7e36adfad8db4c18",
+      "kind": "news",
+      "title": "Claude Codeにオレたち流のコードを書かせる（前編）— プロジェクトの流儀を自動抽出する",
+      "url": "https://qiita.com/hiropon122/items/80e76424effeeb5431c2?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "この記事は Claude on SonicGarden の記事です。ソニックガーデンのプログラマが、Claude Codeの活用について書いています。#claude_on_sonicgarden きっかけ Claude Code、もはやない人生は考えられないくらいお世...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-popular",
+      "publishedAt": "2026-05-02T00:48:01.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjk4OTQ0MCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTY2OTcwODMwMj9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YzIyYjUyYjE5YzMxOGIyZmRhOWYyOWNlZjFiYTMxY2M%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0MjMzNjY1ZTNiODM2N2U4MDEyMDMwYzc1ODg3Y2ZjZjY3NTg2MGI3JTJGb3JpZ2luYWwuanBnJTNGMTcyNzIyMzQ1OD9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz03MWI1MjI1M2EyMzFhNmZlZjBmNGM5OGZlMTQ1MDY4MA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dba925b37220a0f2173dcda8a74c6b5f5?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBQiVFMyU4MiVBQSVFMyU4MyVBQyVFMyU4MSU5RiVFMyU4MSVBMSVFNiVCNSU4MSVFMyU4MSVBRSVFMyU4MiVCMyVFMyU4MyVCQyVFMyU4MyU4OSVFMyU4MiU5MiVFNiU5QiVCOCVFMyU4MSU4QiVFMyU4MSU5QiVFMyU4MiU4QiVFRiVCQyU4OCVFNSU4OSU4RCVFNyVCNyVBOCVFRiVCQyU4OSVFMiU4MCU5NCUyMCVFMyU4MyU5NyVFMyU4MyVBRCVFMyU4MiVCOCVFMyU4MiVBNyVFMyU4MiVBRiVFMyU4MyU4OCVFMyU4MSVBRSVFNiVCNSU4MSVFNSU4NCU4MCVFMyU4MiU5MiVFOCU4NyVBQSVFNSU4QiU5NSVFNiU4QSVCRCVFNSU4NyVCQSVFMyU4MSU5OSVFMyU4MiU4QiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTkyMDgxOTA1MjQwMGUzOGZlNzhiZjkyZmJlNTJkNTM4&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBoaXJvcG9uMTIyJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YWQ3YjRhMmRlYzE1ZDQ4YWRkZjFhYzM0MDA4ZmI4OGE&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-44K944OL44OD44Kv44Ks44O844OH44Oz&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=d8550b47c917fba12a5271546f14a76a"
+    },
+    {
+      "id": "7f2c71f6e6dcb240",
+      "kind": "news",
+      "title": "Claude Codeについて思うこと",
+      "url": "https://qiita.com/sour23/items/e95f490b6533227fe73c?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+      "summary": "このたび、マイナビ出版から 「開発効率をアップする！ Claude Code 実用入門」 という書籍を出します。 なんでこの本を書いたかというと、より多くの人に、Claude Codeを使ってほしいから。これに尽きます。 Twitter（X）などのSNSを眺めていると...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-popular",
+      "publishedAt": "2026-05-02T04:02:14.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDQxNTY4MyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NzY5NDUxNz9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YzNiZDQyZGRiYjc3YzMwMWVjYzM3NDM4YzE1Y2E5Zjc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D791009cbead9bd77ba4623bf5eb550da?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBQiVFMyU4MSVBNCVFMyU4MSU4NCVFMyU4MSVBNiVFNiU4MCU5RCVFMyU4MSU4NiVFMyU4MSU5MyVFMyU4MSVBOCZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTBmNGU1YzI5Y2IxZGMwZmFhYjFkMTcxM2I0YWQwNTJj&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzb3VyMjMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz02NmM2NzE1M2RkNzQ4ZWZmODk3ODBjZDcyMjQ5ZjEwOQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=f81516eeca6cf292654b5e2055123398"
+    },
+    {
+      "id": "098922c06eb51930",
+      "kind": "news",
+      "title": "Claude Code の Skill を自作して、設計→実装→検証→調査のワークフローを丸ごと AI に任せた話",
+      "url": "https://qiita.com/N-i-ke/items/b87d1d144ef6eef9d257",
+      "summary": "はじめに 副業で Web 開発をしていると、ひとりで「要件整理 → 設計 → 実装 → 動作確認 → 不具合調査」を全部回す時間が、コードを書く時間と同じくらい消えていきます。 特に副業案件は「夜にちょっとずつ」しか触れないので、前回の自分の文脈をどう引き継ぐか が常に課...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-tag-python",
+      "publishedAt": "2026-05-02T11:25:45.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzE5MjMyNCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTczNjI0MDYyNz9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjRhYWY0NGYzMGZmNTk5Yjk2MzQwMTFhNGViMTJhMzc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9dd175382b21fd623adf582982690f2a?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSUyMFNraWxsJTIwJUUzJTgyJTkyJUU4JTg3JUFBJUU0JUJEJTlDJUUzJTgxJTk3JUUzJTgxJUE2JUUzJTgwJTgxJUU4JUE4JUFEJUU4JUE4JTg4JUUyJTg2JTkyJUU1JUFFJTlGJUU4JUEzJTg1JUUyJTg2JTkyJUU2JUE0JTlDJUU4JUE4JUJDJUUyJTg2JTkyJUU4JUFBJUJGJUU2JTlGJUJCJUUzJTgxJUFFJUUzJTgzJUFGJUUzJTgzJUJDJUUzJTgyJUFGJUUzJTgzJTk1JUUzJTgzJUFEJUUzJTgzJUJDJUUzJTgyJTkyJUU0JUI4JUI4JUUzJTgxJTk0JUUzJTgxJUE4JTIwQUklMjAlRTMlODElQUIlRTQlQkIlQkIlRTMlODElOUIlRTMlODElOUYlRTglQTklQjEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz04Y2E3OTM4NmI4MzJhNzFkMGIzNWEwNDIyNWU4MDU4Mw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBOLWkta2UmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jOWE0MTNlMTI3ZTlhZWZiY2QyNjg4NTRmOWM5ZWU1ZQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=8baffbd90b527a53d41823d8b248a4a0"
+    },
+    {
+      "id": "847171c24c4a6ca9",
+      "kind": "news",
+      "title": "GitHub Copilot 従量課金化：Pre-PR Self Review × cross-model 視点分離で Claude Code + Codex CLI へ移行した話",
+      "url": "https://qiita.com/akatsuki39/items/aea601a3680b20882f5b",
+      "summary": "はじめに 2026年4月、GitHub から「Copilot が PRU（Premium Request Unit）を廃止し、従量課金に移行する」という案内メールが届いた。Pro / Pro+ / Business / Enterprise すべてに及ぶ変更で、個人開発者...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-tag-claude",
+      "publishedAt": "2026-05-02T12:23:26.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMyLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYyNTg5Njk5NiUzRnYlM0Q0P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1lYmMzMTZmNWI5NWVjNGY0NGU2MDYyMzdjMzY1YmUwOQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1afaf082876c88c00c468d22534fe753?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9R2l0SHViJTIwQ29waWxvdCUyMCVFNSVCRSU5MyVFOSU4NyU4RiVFOCVBQSVCMiVFOSU4NyU5MSVFNSU4QyU5NiVFRiVCQyU5QVByZS1QUiUyMFNlbGYlMjBSZXZpZXclMjAlQzMlOTclMjBjcm9zcy1tb2RlbCUyMCVFOCVBNiU5NiVFNyU4MiVCOSVFNSU4OCU4NiVFOSU5QiVBMiVFMyU4MSVBNyUyMENsYXVkZSUyMENvZGUlMjAlMkIlMjBDb2QlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1lMjQ0ZTM2NjBkZDM2YjNkYWZmMTZlZTAwZmI0NzhjZA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBha2F0c3VraTM5JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDQ1ZDAwNzViZmVjZjUyNjg2MTU1MTdiZjZiZGIwMWE&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=888dcdba635165285da2b64c1a555a10"
+    },
+    {
+      "id": "5110b59e9ecfec14",
+      "kind": "news",
+      "title": "Codex CLI 実用リファレンス：モデル・認証・料金（2026-05 時点）",
+      "url": "https://qiita.com/akatsuki39/items/936806eba6098d830432",
+      "summary": "関連記事 GitHub Copilot 従量課金化：Pre-PR Self Review × cross-model 視点分離で Claude Code + Codex CLI へ移行した話 — 本リファレンスの参照元記事 1. 用語 \"Codex\" という単語は...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-tag-claude",
+      "publishedAt": "2026-05-02T12:23:04.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMyLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYyNTg5Njk5NiUzRnYlM0Q0P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1lYmMzMTZmNWI5NWVjNGY0NGU2MDYyMzdjMzY1YmUwOQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1afaf082876c88c00c468d22534fe753?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q29kZXglMjBDTEklMjAlRTUlQUUlOUYlRTclOTQlQTglRTMlODMlQUElRTMlODMlOTUlRTMlODIlQTElRTMlODMlQUMlRTMlODMlQjMlRTMlODIlQjklRUYlQkMlOUElRTMlODMlQTIlRTMlODMlODclRTMlODMlQUIlRTMlODMlQkIlRTglQUElOEQlRTglQTglQkMlRTMlODMlQkIlRTYlOTYlOTklRTklODclOTElRUYlQkMlODgyMDI2LTA1JTIwJUU2JTk5JTgyJUU3JTgyJUI5JUVGJUJDJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NjYyMjIwZTQ3YTY5ZmQzYjkyMTIxZWZlY2JhZDYxY2M&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBha2F0c3VraTM5JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDQ1ZDAwNzViZmVjZjUyNjg2MTU1MTdiZjZiZGIwMWE&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=11f5480606bee12296cf698b762f7e46"
+    },
+    {
+      "id": "2fb249bb8734297d",
+      "kind": "news",
+      "title": "Claude Codeのマルチエージェントを、LangGraphの設計思想で整理・改善した話",
+      "url": "https://qiita.com/Tadashi_Kudo/items/bdb630198086ae7794ce",
+      "summary": "はじめに 「LangGraphって今どこで使われてるの？」という素朴な疑問を持ったことがきっかけでした。 LangGraphを調べていくうちに気づいたこと——自分がMarkdownで運用しているClaude Codeのマルチエージェント設計が、すでにLangGraph相当...",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:qiita-tag-claude",
+      "publishedAt": "2026-05-02T12:11:31.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzkxMjQyJTJGN2FlYjA5ODBjOTQ5MTU4YjQyODAxYjkxN2QxNmE1MWI0ZTQyZmU3MSUyRnhfbGFyZ2UucG5nJTNGMTc3NDgyOTg2MT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZWRlYzAyMGY4NzgyNmUyOGMyODcwZmE4ZjM1Y2U2ODc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da0e16bbc7a6e11f63495ad58584377ae?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBRSVFMyU4MyU5RSVFMyU4MyVBQiVFMyU4MyU4MSVFMyU4MiVBOCVFMyU4MyVCQyVFMyU4MiVCOCVFMyU4MiVBNyVFMyU4MyVCMyVFMyU4MyU4OCVFMyU4MiU5MiVFMyU4MCU4MUxhbmdHcmFwaCVFMyU4MSVBRSVFOCVBOCVBRCVFOCVBOCU4OCVFNiU4MCU5RCVFNiU4MyVCMyVFMyU4MSVBNyVFNiU5NSVCNCVFNyU5MCU4NiVFMyU4MyVCQiVFNiU5NCVCOSVFNSU5NiU4NCVFMyU4MSU5NyVFMyU4MSU5RiVFOCVBOSVCMSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTM2MjFlNWViNDkzZTEwNjhlZmY3YzBmM2M4Y2ZlNjYw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBUYWRhc2hpX0t1ZG8mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05YWQ2YjdhOWVhNGFlYmRkNDViNjdhOTRjMmI0NmE3Mw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=885f5d35857f725cc7500b60c74c8ded"
+    },
+    {
+      "id": "20bfde93970bce33",
+      "kind": "news",
+      "title": "AndroidでClaude Code / Codex / Gemini CLIを動かすネイティブAIターミナルIDEを作った",
+      "url": "https://zenn.dev/ryoitabashi/articles/744397718965f6",
+      "summary": "前回、スマホだけで10万行規模のターミナルIDEを作った話を書いた。 今回はその続きです。 結論から言うと、Shellyは現在、Galaxy Z Fold6上で以下のAIコーディングCLIを実際に起動できるところまで来ました。 Claude Code OpenAI Codex CLI Gemini CLI しかもTermuxやprootの中ではなく、AndroidアプリであるShelly自身の中で動いています。 現在の検証環境では、以下の状態です。 claude extrac",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-all",
+      "publishedAt": "2026-05-01T14:57:21.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--iXD_PNz0--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Android%25E3%2581%25A7Claude%2520Code%2520%252F%2520Codex%2520%252F%2520Gemini%2520CLI%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2599%25E3%2583%258D%25E3%2582%25A4%25E3%2583%2586%25E3%2582%25A3%25E3%2583%2596AI%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%259F%25E3%2583%258A%25E3%2583%25ABI...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:RYO%2520ITABASHI%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzY4MDViNWQxYTYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "d43d8a5c954b3a97",
+      "kind": "news",
+      "title": "Claude Code の Skill を自作して、設計→実装→検証→調査のワークフローを丸ごと AI に任せた話",
+      "url": "https://zenn.dev/ken32/articles/fe2910a71d6523",
+      "summary": "はじめに 副業で Web 開発をしていると、ひとりで「要件整理 → 設計 → 実装 → 動作確認 → 不具合調査」を全部回す時間が、コードを書く時間と同じくらい消えていきます。 特に副業案件は「夜にちょっとずつ」しか触れないので、前回の自分の文脈をどう引き継ぐか が常に課題でした。 その答えとして最近落ち着いたのが、Claude Code の Skill（旧 Slash Command の上位概念）を自作する という選択肢です。 今回は自作プラグイン nike-skills ",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-python",
+      "publishedAt": "2026-05-02T11:31:39.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Ydnbsa_E--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25AE%2520Skill%2520%25E3%2582%2592%25E8%2587%25AA%25E4%25BD%259C%25E3%2581%2597%25E3%2581%25A6%25E3%2580%2581%25E8%25A8%25AD%25E8%25A8%2588%25E2%2586%2592%25E5%25AE%259F%25E8%25A3%2585%25E2%2586%2592%25E6%25A4%259C%25E8%25A8%25BC%25E2%2586%2592%25E8%25AA%25BF%25E6%259F%25BB%25E3%2581%25AE%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%2592%25E4%25B8%25B8%25E3%2581%2594%25E3%2581%25A8%2520AI%2520%25E3%2581%25AB%25E4%25BB%25BB%25E3%2581%259B%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:N-i-ke%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzI2NDI0Mjc2ZjYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "d022f0563dae1022",
+      "kind": "news",
+      "title": "Claude Code が出した提案を却下する技術 - 個人開発SaaSをDDDで作りながら学んだこと",
+      "url": "https://zenn.dev/takepon7/articles/3dd56bd4c46304",
+      "summary": "はじめに: なぜこの記事を書くか Claude Code を使った開発記事は世の中に無数にある。しかしそのほとんどは「Claude Code でこう作れた」という体験記事で、「Claude Code の提案をどう取捨選択したか」を書いた記事は意外と少ない。 この記事で書きたいのは後者だ。 個人開発で Claude Code を使う時、一番やりがちなのが「AI の提案を全部受け入れる」ことだ。動くものは確かにできる。しかしそれは判断停止であって、ポートフォリオとしては弱い。エン",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-02T11:23:49.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Vr0proW_--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%258C%25E5%2587%25BA%25E3%2581%2597%25E3%2581%259F%25E6%258F%2590%25E6%25A1%2588%25E3%2582%2592%25E5%258D%25B4%25E4%25B8%258B%25E3%2581%2599%25E3%2582%258B%25E6%258A%2580%25E8%25A1%2593%2520-%2520%25E5%2580%258B%25E4%25BA%25BA%25E9%2596%258B%25E7%2599%25BASaaS%25E3%2582%2592DDD%25E3%2581%25A7%25E4%25BD%259C%25E3%2582%258A%25E3%2581%25AA%25E3%2581%258C%25E3%2582%2589%25E5%25AD%25A6%25E3%2582%2593%25E3%2581%25A0%25E3%2581%2593%25E3%2581%25A8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:takepon7%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTDZUYTQ3Z0lxLTRub0toS1Q5aG12Qk9hRWMtM2VGX19BbHRIZjVLTzF4R0lJcFVVaG49czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "47a99bbd9ffd6eef",
+      "kind": "news",
+      "title": "個人開発のペットアプリで「削除」を「お別れ」に変えた理由",
+      "url": "https://zenn.dev/abekyo/articles/cba03e0efb4581",
+      "summary": "Claude CodeやCode Xなどコードエージェントの台頭によって、プロダクトは一晩で作れる時代になった。 「ペットの健康記録アプリを作って」と AI に頼めば、ものの５分でそれらしいものが返ってくる。 もちろん完璧ではないが、少し手直しさえすればリリースすることができる。 数日も使わずに、App Store には何かが並ぶ。 それ自体は素晴らしい。 でも、AI には取れないものが一つある。責任だ。 私はいま、ペットの毎日を記録するアプリ「Petla」を個人で作っている",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-02T06:21:29.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--CNNwhwVt--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%2580%258B%25E4%25BA%25BA%25E9%2596%258B%25E7%2599%25BA%25E3%2581%25AE%25E3%2583%259A%25E3%2583%2583%25E3%2583%2588%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2581%25A7%25E3%2580%258C%25E5%2589%258A%25E9%2599%25A4%25E3%2580%258D%25E3%2582%2592%25E3%2580%258C%25E3%2581%258A%25E5%2588%25A5%25E3%2582%258C%25E3%2580%258D%25E3%2581%25AB%25E5%25A4%2589%25E3%2581%2588%25E3%2581%259F%25E7%2590%2586%25E7%2594%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:abekyo%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzQwOTBmNjgzZGIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "c495388b9e5c05d6",
+      "kind": "news",
+      "title": "Claude Codeを使ったアプリ開発 ― SIerが現場で実践するAI活用プロセス",
+      "url": "https://zenn.dev/dktech/articles/4dfc31469778c3",
+      "summary": "Claude Codeを使ったアプリ開発 ― SIerが現場で実践するAI活用プロセス はじめに 最近、Claude Codeがめちゃくちゃ流行っています。ChatGPTやGeminiを抜いて、もうClaude Code一強と言ってもいいくらいの勢いですよね。エージェントやスキルといった便利な機能が色々あって、チャットで適当に指示するだけでアプリができてしまう。いわゆる「バイブコーディング」を試したことがある方も多いのではないでしょうか。 バイブコーディングの落とし穴 このC",
+      "tags": [
+        "claude"
+      ],
+      "score": 10,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-02T04:31:39.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--FSwwR_dG--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%259F%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E9%2596%258B%25E7%2599%25BA%2520%25E2%2580%2595%2520SIer%25E3%2581%258C%25E7%258F%25BE%25E5%25A0%25B4%25E3%2581%25A7%25E5%25AE%259F%25E8%25B7%25B5%25E3%2581%2599%25E3%2582%258BAI%25E6%25B4%25BB%25E7%2594%25A8%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25BB%25E3%2582%25B9%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:DKTech%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUzMzliY2ZiZDkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6d3179389c61537a",
+      "kind": "news",
+      "title": "Claude Certified Architect - Foundations (CCA-F) 完全攻略ガイド",
+      "url": "https://zenn.dev/acntechjp/articles/40f3ff24064968",
+      "summary": "はじめに 3月にAnthropic社が初のAI資格試験を公開しました。 その対策ロードマップを自分用にまとめましたので、皆さんにも向けて公開します。 こちらの内容で私が学習を進めてみます。実際合格できたらその体験記も別記事で書こうと思います。 1. 資格の階層構造 CCA-F（プロクター試験）← 720/1000で合格、2年更新、$99 ↑ Academy修了証群 ← 各コース完了で発行、無期限、無料 CCA-Fは Academy修了証とは別物。Academyのコース群はCC",
+      "tags": [
+        "claude"
+      ],
+      "score": 9,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-02T07:03:00.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--5_lcMWM0--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Certified%2520Architect%2520-%2520Foundations%2520%2528CCA-F%2529%2520%25E5%25AE%258C%25E5%2585%25A8%25E6%2594%25BB%25E7%2595%25A5%25E3%2582%25AC%25E3%2582%25A4%25E3%2583%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E5%25B2%25B8%25E6%259C%25AC%25E6%2582%25A0%25E4%25BD%2591_AI%25E3%2582%25B5%25E3%2583%25A0%25E3%2583%25A9%25E3%2582%25A4%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U2ZDA4MDY5ODcuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Accenture%2520Japan%2520%2528%25E6%259C%2589%25E5%25BF%2597%2529%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzlvMFFUdVBiWUNvUUZGY0JGc3hqb2RYQ1ZUdGdSUnhHaHRXeE1hRmlkVTlLQWhOakdXZz1zOTYtYw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
       "id": "567933f211508d5c",
       "kind": "paper",
       "title": "A Geometric Perspective on Polynomially Solvable Convex Maximization",
@@ -299,6 +495,22 @@
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Ttcr3ReU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:5%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2593%25E3%2582%25B9%25E3%2581%25A7%2520Claude%2520Agent%2520SDK%2520%25E3%2582%2592%25E5%2591%25BC%25E3%2581%25B6%25E3%2581%2593%25E3%2581%25A8%25E3%2581%25AB%25E3%2581%25AA%25E3%2581%25A3%25E3%2581%25A6%25E3%2580%2581%25E5%2585%25B1%25E9%2580%259A%25E5%258C%2596%25E3%2581%2597%25E3%2581%259F%25E9%2583%25A8%25E5%2588%2586%25E3%2581%25A8%25E6%2584%258F%25E5%259B%25B3%25E7%259A%2584%25E3%2581%25AB%25E6%258F%2583%25E3%2581%2588%25E3%2581%25AA%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E9%2583%25A8%25E5%2588%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
+      "id": "0c7133b1c2e85861",
+      "kind": "news",
+      "title": "ClaudeにAPI料金を自分で払わせる──x402-market MCP server入門",
+      "url": "https://zenn.dev/shota_x402/articles/d25f07df336c28",
+      "summary": "TL;DR Claude Desktopに @x402-market/mcp-server を組み込むと、AI agent自身がHTTP APIの料金（USDC）を支払って結果を受け取れる 決済はBase mainnet上のUSDCで、1コールあたり数セント〜 本記事ではnpm publishされたMCPサーバーを使い、テスト用の test-echo-prod APIを0.01 USDCで叩くまでを解説する npx -y @x402-market/mcp-server x40",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 7,
+      "source": "rss:zenn-topic-claude",
+      "publishedAt": "2026-05-02T09:46:19.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--MWai77OO--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%25E3%2581%25ABAPI%25E6%2596%2599%25E9%2587%2591%25E3%2582%2592%25E8%2587%25AA%25E5%2588%2586%25E3%2581%25A7%25E6%2589%2595%25E3%2582%258F%25E3%2581%259B%25E3%2582%258B%25E2%2594%2580%25E2%2594%2580x402-market%2520MCP%2520server%25E5%2585%25A5%25E9%2596%2580%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Shota%2520Asai%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSV9xTmhXVFVQeUVRdDE3VGJmcV9fUzh6VWhQaG1LWkxtYjNxTUNKeU9aNWtSZXVRPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
       "id": "ba9e5d0e93bc2b43",
       "kind": "paper",
       "title": "Average-Tree Phylogenetic Diversity Parameterized by Scanwidth and Invisibility",
@@ -342,7 +554,7 @@
       "score": 5,
       "source": "rss:qiita-tag-rust",
       "publishedAt": "2026-05-01T20:52:11.000Z",
-      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzkxODU0MyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NzY1ODM2ND9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjRhZGIyOTYxNGJkYzVmOTkzMDAwNjg2ZmRkODMxODY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbe2122058c883f5af37f12f767bafb91?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9VHJhbnNsYXRpb24lMjAtJTIwJUUzJTgyJUE4JUUzJTgzJUFEJUUzJTgyJUIyJUUzJTgzJUJDJUU3JTk0JUE4SG9va2VyJUUzJTgyJTkyUnVzdExhbmclRTMlODElQTclRTQlQkQlOUMlRTMlODElQTMlRTMlODElQTYlRTMlODElQkYlRTMlODIlOEIlMjAmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jZTNkZTFmODIzMDg1ODI0ODQwZThlNjNlMDQ3MTMyZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBkb25nc3ViMTEwMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWQ5ZTgyODQ0ZWEwNDIyZWQ3NzEwODgwM2RiNDNlNGJi&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=6f42347c9594ea028944636a6346279f"
     },
     {
@@ -357,7 +569,7 @@
       "score": 5,
       "source": "rss:qiita-tag-rust",
       "publishedAt": "2026-05-01T18:14:55.000Z",
-      "fetchedAt": "2026-05-02T06:02:29.657Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzkxODU0MyUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NzY1ODM2ND9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NjRhZGIyOTYxNGJkYzVmOTkzMDAwNjg2ZmRkODMxODY%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbe2122058c883f5af37f12f767bafb91?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUE4JUUzJTgzJUFEJUUzJTgyJUIyJUUzJTgzJUJDJUU3JTk0JUE4SG9va2VyJUUzJTgyJTkyUnVzdExhbmclRTMlODElQTclRTQlQkQlOUMlRTMlODElQTMlRTMlODElQTYlRTMlODElQkYlRTMlODIlOEIlMjAtJTIwMSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTJjZDcyMjhlNDEyM2Q3NzBlMmRhNzQxZGRiMDM1N2Ux&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBkb25nc3ViMTEwMyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWQ5ZTgyODQ0ZWEwNDIyZWQ3NzEwODgwM2RiNDNlNGJi&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=4b4a3e8d8ead6ed24267ac29133738dd"
     },
     {
@@ -389,6 +601,21 @@
       "publishedAt": "2026-05-01T08:12:46.000Z",
       "fetchedAt": "2026-05-02T06:02:29.657Z",
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--BHWslgwl--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%259E%258B%25E3%2581%25AE%25E8%25A1%25A8%25E7%258F%25BE%25E5%258A%259B%25E3%2581%25AF%25E3%2582%25BF%25E3%2583%2580%253A%2520Rust%25E3%2581%25AE%25E3%2583%258B%25E3%2583%2583%25E3%2583%2581%25E6%259C%2580%25E9%2581%25A9%25E5%258C%2596%25E3%2582%2592%25E8%25BF%25BD%25E3%2581%2586%25E3%2580%2590%25E7%25AC%25AC1%25E9%2583%25A8%253A%2520%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E3%2583%25AC%25E3%2582%25A4%25E3%2582%25A2%25E3%2582%25A6%25E3%2583%2588%25E3%2581%25AE%25E8%25A6%25B3%25E5%25AF%259F%25E3%2580%2591%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:moriyoshi_kasuga%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzljYTEzZDEyMWEuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:FAST%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTDYzNGNZZnNLeDl1cEJUXzNGek9LNERBbUJieUlqYUdPdG9YTlRxdE1od19wWDc2Zz1zOTYtYw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6052359f9c20036a",
+      "kind": "news",
+      "title": "Rustで作る \"壊れる\" HTTPサーバー",
+      "url": "https://zenn.dev/yuyan/books/a992ad35b406a8",
+      "summary": "HTTPサーバーは、なぜ壊れるのか。 ほとんどの教材は「正しく動く」ことしか教えません。 しかし実際の障害は、すべて「壊れ方」にあります。 本書では、あえてHTTPサーバーを壊します。 時間、サイズ、接続数、終了。 あらゆる方向から壊し、その理由を観測し、設計としてどう防ぐべきかを理解します。",
+      "tags": [
+        "rust"
+      ],
+      "score": 5,
+      "source": "rss:zenn-topic-rust",
+      "publishedAt": "2026-05-02T00:37:36.000Z",
+      "fetchedAt": "2026-05-02T13:25:18.631Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--V5EdMOdE--/g_center%2Ch_280%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYm9va19jb3Zlci85MjliZmJmMjczLmpwZWc=%2Cw_200/v1627283836/default/og-base-book_yz4z02.jpg?_a=BACAGSGT"
     }
   ]
 }
