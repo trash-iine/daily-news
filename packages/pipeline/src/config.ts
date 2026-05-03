@@ -72,23 +72,9 @@ export interface RssFeedConfig {
 }
 
 export const RSS_FEEDS: RssFeedConfig[] = [
-  // 日本語汎用 高頻度 (キーワードでフィルタ)
+  // 日本語汎用 高頻度 (キーワードでフィルタ) — Qiita/Zenn のタグ別は API ベースに移行済み
   { id: "qiita-popular", url: "https://qiita.com/popular-items/feed" },
-  { id: "qiita-tag-rust", url: "https://qiita.com/tags/rust/feed" },
-  { id: "qiita-tag-python", url: "https://qiita.com/tags/python/feed" },
-  { id: "qiita-tag-claude", url: "https://qiita.com/tags/claude/feed" },
-  {
-    id: "qiita-tag-jisaku-keyboard",
-    url: "https://qiita.com/tags/%E8%87%AA%E4%BD%9C%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/feed",
-  },
   { id: "zenn-all", url: "https://zenn.dev/feed" },
-  { id: "zenn-topic-rust", url: "https://zenn.dev/topics/rust/feed" },
-  { id: "zenn-topic-python", url: "https://zenn.dev/topics/python/feed" },
-  { id: "zenn-topic-claude", url: "https://zenn.dev/topics/claude/feed" },
-  {
-    id: "zenn-topic-jisaku-keyboard",
-    url: "https://zenn.dev/topics/%E8%87%AA%E4%BD%9C%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/feed",
-  },
   // 中頻度 (~10/週)
   { id: "greenkeys", url: "https://green-keys.info/feed/", baseScore: 5 },
   // 低頻度 (~1-2/週) — 投稿があった日は上位に押し上げる
@@ -114,14 +100,70 @@ export const ARXIV_CATEGORIES = [
   "cs.LG",
 ];
 
+/**
+ * タイトル or 本文にいずれかが含まれる item は除外する。
+ * プロモーション系 / アフィリエイト記事を切り捨てる用途。
+ * ASCII / 非 ASCII の両方を扱える (score.ts と同じ規約)。
+ */
+export const NEGATIVE_KEYWORDS: string[] = [
+  "sponsored",
+  "アフィリエイト",
+  "プロモーション",
+  "pr記事",
+];
+
+/**
+ * Qiita API v2 (https://qiita.com/api/v2/items) で取得するタグ。
+ * 各タグごとに `query=tag:<tag>+created:>YYYY-MM-DD` で取得し、likes_count を baseScore に折り込む。
+ * RSS のタグ別フィードでは LGTM が取れないため、トレンド指標を活かすために API に切り替えた。
+ */
+export const QIITA_API_TAGS: string[] = [
+  "rust",
+  "python",
+  "claude",
+  "自作キーボード",
+];
+
+/**
+ * Zenn 非公式 API (https://zenn.dev/api/articles?topicname=...&order=liked) で取得するトピック。
+ * liked_count を baseScore に折り込む。
+ */
+export const ZENN_API_TOPICS: string[] = [
+  "rust",
+  "python",
+  "claude",
+  "自作キーボード",
+];
+
+/**
+ * Hacker News (Algolia HN Search API) で検索するクエリ。
+ * 各クエリは個別 API 呼び出しで `NEWS_MAX_AGE_HOURS` 内の story を取得する。
+ * KEYWORD_WEIGHTS の英語トークンに合わせる。
+ */
+export const HN_QUERIES: string[] = [
+  "claude",
+  "anthropic",
+  "rust",
+  "python",
+  "mechanical keyboard",
+  "qmk",
+  "zmk",
+];
+
 export const NEWS_TOP_N = 20;
 
 /**
  * ニュースの最大配信遅延 (時間)。`publishedAt` がこの値より古い item は採用しない。
  * arXiv 側は announceType === "new" でフィルタしているのと対になる挙動。
- * cron が日次 (22 UTC = 07 JST) で動くので 24h で前回実行以降の新着がほぼ拾える。
+ * 168h (= 7 日) — 直近 1 週間まで拾い、トレンド指標 (LGTM / いいね / HN points) で
+ * 浮かせる。同記事の再掲は `loadRecentNewsIds` による cross-day dedup で防ぐ。
  */
-export const NEWS_MAX_AGE_HOURS = 24;
+export const NEWS_MAX_AGE_HOURS = 168;
+
+/**
+ * 「過去に取得済み」と見做す範囲の日数。`main` の seen 構築で使う。
+ */
+export const NEWS_SEEN_LOOKBACK_DAYS = 7;
 export const PAPERS_TOP_N = 5;
 
 export const NEWS_SCORE_THRESHOLD = 1;

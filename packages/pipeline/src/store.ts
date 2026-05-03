@@ -32,6 +32,45 @@ export async function writeDaily(date: string, items: BaseItem[]): Promise<void>
 }
 
 /**
+ * 直近 daysBack 日の bundle から news の id を集めて返す。
+ * lookback を 24h から伸ばしたとき、過去日に既に上位入りした記事が翌日以降の bundle に
+ * 再掲されるのを防ぐため、main の rankNews 前にこの Set でフィルタする。
+ * id は `hashId(url)` (SHA1[:16]) なので、生 URL からも `hashId` で照合できる。
+ */
+export async function loadRecentNewsIds(
+  beforeDate: string,
+  daysBack: number,
+): Promise<Set<string>> {
+  const seen = new Set<string>();
+  const indexPath = join(DATA_DIR, "index.json");
+  let dates: string[] = [];
+  try {
+    const idx = JSON.parse(await readFile(indexPath, "utf-8")) as DailyIndex;
+    dates = idx.dates;
+  } catch {
+    return seen;
+  }
+  const candidates = dates
+    .filter((d) => d < beforeDate)
+    .sort()
+    .reverse()
+    .slice(0, daysBack);
+  for (const d of candidates) {
+    try {
+      const bundle = JSON.parse(
+        await readFile(join(DATA_DIR, `${d}.json`), "utf-8"),
+      ) as DailyBundle;
+      for (const item of bundle.items) {
+        if (item.kind === "news") seen.add(item.id);
+      }
+    } catch {
+      // skip missing/broken file
+    }
+  }
+  return seen;
+}
+
+/**
  * 直近の過去 bundle から論文を取得する。
  * arXiv RSS は土日 (skipDays) に空配信となり、当日 0 件のことがあるため、
  * パイプライン側で直近の論文を引き継いで表示できるようにする。

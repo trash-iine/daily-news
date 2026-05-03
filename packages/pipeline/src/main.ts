@@ -1,22 +1,36 @@
 import type { BaseItem } from "@daily-news/shared";
 import {
   ARXIV_CATEGORIES,
+  HN_QUERIES,
   KEYWORD_WEIGHTS,
+  NEGATIVE_KEYWORDS,
   NEWS_MAX_AGE_HOURS,
   NEWS_SCORE_THRESHOLD,
+  NEWS_SEEN_LOOKBACK_DAYS,
   NEWS_TOP_N,
   PAPERS_TOP_N,
   PAPER_KEYWORDS,
   PAPER_PRIORITY_KEYWORDS,
   PAPER_SCORE_THRESHOLD,
+  QIITA_API_TAGS,
   RSS_FEEDS,
   TAG_ALIASES,
+  ZENN_API_TOPICS,
 } from "./config.js";
-import { scoreText } from "./score.js";
+import { hasNegativeKeyword, scoreFields } from "./score.js";
+import { appendHealth } from "./cache.js";
 import { fetchArxivCategory, type ArxivPaper } from "./sources/arxiv.js";
-import { fetchRssFeed } from "./sources/rssFeeds.js";
+import { fetchHackerNewsQuery } from "./sources/hackerNews.js";
+import { fetchQiitaTag } from "./sources/qiitaApi.js";
+import { fetchRssFeed, type FeedFetchResult } from "./sources/rssFeeds.js";
+import { fetchZennTopic } from "./sources/zennApi.js";
 import type { RawItem } from "./sources/types.js";
-import { loadRecentPapers, updateIndex, writeDaily } from "./store.js";
+import {
+  loadRecentNewsIds,
+  loadRecentPapers,
+  updateIndex,
+  writeDaily,
+} from "./store.js";
 import { summarizePaper } from "./summarize.js";
 import { fetchThumbnail } from "./thumbnail.js";
 import { cleanText, hashId, todayString } from "./util.js";
@@ -61,11 +75,63 @@ async function safe<T>(label: string, p: Promise<T[]>): Promise<T[]> {
   }
 }
 
+/**
+ * フィード取得を try で包み、健全性ログ (data/.cache/health.log) に
+ * status / count / ms を JSON Lines で追記する。
+ * 失敗時は空配列を返してパイプライン全体を続行させる。
+ */
+async function safeFeed(
+  id: string,
+  fn: () => Promise<FeedFetchResult>,
+): Promise<RawItem[]> {
+  const startedAt = Date.now();
+  try {
+    const result = await fn();
+    await appendHealth({
+      ts: new Date().toISOString(),
+      id,
+      status: result.cached ? "cached" : "ok",
+      count: result.items.length,
+      ms: Date.now() - startedAt,
+    });
+    return result.items;
+  } catch (err) {
+    const message = (err as Error).message;
+    console.warn(`[source] ${id} failed:`, message);
+    await appendHealth({
+      ts: new Date().toISOString(),
+      id,
+      status: "failed",
+      count: 0,
+      ms: Date.now() - startedAt,
+      error: message,
+    });
+    return [];
+  }
+}
+
 async function collectNews(): Promise<RawItem[]> {
-  const tasks = RSS_FEEDS.map((f) =>
-    safe(`rss:${f.id}`, fetchRssFeed(f.id, f.url, f.baseScore ?? 0)),
+  const sinceISO = new Date(
+    Date.now() - NEWS_MAX_AGE_HOURS * 3600 * 1000,
+  ).toISOString();
+  const rssTasks = RSS_FEEDS.map((f) =>
+    safeFeed(`rss:${f.id}`, () => fetchRssFeed(f.id, f.url, f.baseScore ?? 0)),
   );
-  const all = await Promise.all(tasks);
+  const qiitaTasks = QIITA_API_TAGS.map((t) =>
+    safeFeed(`qiita-api:${t}`, () => fetchQiitaTag(t, sinceISO)),
+  );
+  const zennTasks = ZENN_API_TOPICS.map((t) =>
+    safeFeed(`zenn-api:${t}`, () => fetchZennTopic(t, sinceISO)),
+  );
+  const hnTasks = HN_QUERIES.map((q) =>
+    safeFeed(`hn:${q}`, () => fetchHackerNewsQuery(q)),
+  );
+  const all = await Promise.all([
+    ...rssTasks,
+    ...qiitaTasks,
+    ...zennTasks,
+    ...hnTasks,
+  ]);
   return all.flat();
 }
 
@@ -77,29 +143,36 @@ async function collectPapers(): Promise<ArxivPaper[]> {
   return all.flat();
 }
 
-function rankNews(raw: RawItem[]): BaseItem[] {
+function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
   const fetchedAt = new Date().toISOString();
   const cleaned = raw.map((r) => ({
     ...r,
     title: cleanText(r.title),
     description: cleanText(r.description),
   }));
-  // 今日発行された (= 直近 NEWS_MAX_AGE_HOURS 時間以内の) item に限定
+  // 直近 NEWS_MAX_AGE_HOURS 時間以内の item に限定
   const cutoff = Date.now() - NEWS_MAX_AGE_HOURS * 3600 * 1000;
   const fresh = cleaned.filter((r) => {
     const t = Date.parse(r.publishedAt);
     return Number.isFinite(t) && t >= cutoff;
   });
-  // Qiita 人気記事とタグ別フィードでは同一記事が複数フィードから流れてくるため URL で重複除外
-  const seen = new Set<string>();
+  // 同一 URL が複数フィードから流れてくるため URL で重複除外 (Qiita popular ⇄ qiita-api タグ等)
+  const seenUrl = new Set<string>();
   const deduped = fresh.filter((r) => {
-    if (!r.url || seen.has(r.url)) return false;
-    seen.add(r.url);
+    if (!r.url || seenUrl.has(r.url)) return false;
+    seenUrl.add(r.url);
     return true;
   });
-  const scored = deduped.map((r) => {
-    const { score: kwScore, matched } = scoreText(
-      `${r.title} ${r.description}`,
+  // 過去 NEWS_SEEN_LOOKBACK_DAYS 日の bundle に出た記事を除外 (lookback を伸ばした分の再掲防止)
+  const unseen = deduped.filter((r) => !seenIds.has(hashId(r.url)));
+  // ネガティブキーワード（プロモ等）を除外
+  const filtered = unseen.filter(
+    (r) => !hasNegativeKeyword(r.title, r.description, NEGATIVE_KEYWORDS),
+  );
+  const scored = filtered.map((r) => {
+    const { score: kwScore, matched } = scoreFields(
+      r.title,
+      r.description,
       KEYWORD_WEIGHTS,
     );
     const score = kwScore + (r.baseScore ?? 0);
@@ -145,12 +218,15 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
     return true;
   });
 
-  // GAS 版に倣い abstract に対してのみキーワードマッチ
+  // タイトル + abstract で照合 (タイトル一致は scoreFields 内で加重される)。
+  // 元の GAS 実装は abstract のみだったが、タイトルにキーワードが入る論文は
+  // 強い信号なので採用する。
   const scored: ScoredPaper[] = unique
     .map((p) => {
-      const { score, matched } = scoreText(p.abstract, PAPER_KEYWORDS);
+      const { score, matched } = scoreFields(p.title, p.abstract, PAPER_KEYWORDS);
+      const haystack = `${p.title} ${p.abstract}`.toLowerCase();
       const priority = PAPER_PRIORITY_KEYWORDS.some((k) =>
-        p.abstract.toLowerCase().includes(k.toLowerCase()),
+        haystack.includes(k.toLowerCase()),
       );
       return { p, score, matched, priority };
     })
@@ -187,13 +263,16 @@ async function main() {
   const date = todayString();
   console.log(`[main] running for ${date}`);
 
-  const [rawNews, rawPapers] = await Promise.all([
+  const [rawNews, rawPapers, seenNewsIds] = await Promise.all([
     collectNews(),
     collectPapers(),
+    loadRecentNewsIds(date, NEWS_SEEN_LOOKBACK_DAYS),
   ]);
-  console.log(`[main] collected ${rawNews.length} news / ${rawPapers.length} papers`);
+  console.log(
+    `[main] collected ${rawNews.length} news / ${rawPapers.length} papers; ${seenNewsIds.size} previously-seen news ids`,
+  );
 
-  const news = rankNews(rawNews);
+  const news = rankNews(rawNews, seenNewsIds);
   let papers = await rankPapers(rawPapers);
   console.log(`[main] selected ${news.length} news / ${papers.length} papers`);
 

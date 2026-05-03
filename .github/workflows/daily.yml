@@ -28,6 +28,16 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      # 前回実行のフィードキャッシュ (ETag/Last-Modified + last-good items) を復元する。
+      # 304 Not Modified を引けるとフィード取得が大幅に短縮される。
+      - name: Restore feed cache
+        uses: actions/cache@v4
+        with:
+          path: data/.cache
+          key: feed-cache-${{ github.run_id }}
+          restore-keys: |
+            feed-cache-
+
       - name: Run pipeline
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
