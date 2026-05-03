@@ -1,88 +1,7 @@
 {
   "date": "2026-05-03",
-  "generatedAt": "2026-05-03T11:17:20.835Z",
+  "generatedAt": "2026-05-03T14:17:17.053Z",
   "items": [
-    {
-      "id": "59a1a779e18b1b4d",
-      "kind": "news",
-      "title": "RTK（Rust Token Killer）をWindows + Claude Code CLIで使えるようにする手順",
-      "url": "https://qiita.com/tanaka_taro_JP_KYUSYU/items/0565cc59862691982770",
-      "summary": "## RTKとは **RTK（Rust Token Killer）** は、Claude Code などのAIコーディングアシスタントのトークン消費を **60〜90%削減する CLI プロキシ**です。コマンドの出力を自動的に圧縮・フィルタリングし、LLMに渡してくれます。 **実績値の例:** - `cargo test`（262テスト成功）: 4,823トークン → **11トークン（99.8%削減）** - 30分間のセッション全体: 150K トークン → **45",
-      "tags": [
-        "rust",
-        "claude",
-        "llm"
-      ],
-      "score": 47,
-      "source": "qiita-api:claude",
-      "publishedAt": "2026-05-03T10:08:28+09:00",
-      "fetchedAt": "2026-05-03T11:17:20.064Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZjNWE5MjZhYjgzNmYyMzk3YWM4YmE0MTcxNmYyYzU1Yz9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OTZmM2NjM2FkOTJjMmU3YjZlODc1MjcyZDYxYWJkZTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da07fbec50aa8fd8d0668c0cef60b7669?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9UlRLJUVGJUJDJTg4UnVzdCUyMFRva2VuJTIwS2lsbGVyJUVGJUJDJTg5JUUzJTgyJTkyV2luZG93cyUyMCUyQiUyMENsYXVkZSUyMENvZGUlMjBDTEklRTMlODElQTclRTQlQkQlQkYlRTMlODElODglRTMlODIlOEIlRTMlODIlODglRTMlODElODYlRTMlODElQUIlRTMlODElOTklRTMlODIlOEIlRTYlODklOEIlRTklQTAlODYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NTUzM2FjODkzMzljMmMxZmEyYmU3NTQ5NzZiOWY4NA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB0YW5ha2FfdGFyb19KUF9LWVVTWVUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jOTU1YWZhYmU1NjI4NWIxMzRlY2FhODZjODg2ZTNlZQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=f0a64b82728102b0e5a533db5a982fba"
-    },
-    {
-      "id": "f164dd7ad98278c8",
-      "kind": "news",
-      "title": "Show HN: Destiny – Claude Code's fortune Teller skill",
-      "url": "https://github.com/xodn348/destiny",
-      "summary": "Destiny is the Claude Code's plugin that gives you a real fortune reading. Type /destiny to see today's destiny! It uses the actual classical East Asian astrology system. You enter your birthday once, then /destiny gives you today's reading",
-      "tags": [
-        "python",
-        "claude"
-      ],
-      "score": 46,
-      "source": "hn:python",
-      "publishedAt": "2026-05-01T19:56:18.000Z",
-      "fetchedAt": "2026-05-03T11:17:20.064Z",
-      "thumbnail": "https://opengraph.githubassets.com/d5762c940f0bf34cf220a1fd29ffb4d48d1b66d204845d925dc8236663dc65ae/xodn348/destiny"
-    },
-    {
-      "id": "5534e295a5d458a9",
-      "kind": "news",
-      "title": "ant CLI入門 — AnthropicのClaude API専用CLIツールをマスターする",
-      "url": "https://qiita.com/kai_kou/items/196bacb2393ee71918de",
-      "summary": "## はじめに Anthropic が公式リリースした **ant CLI** は、Claude API のすべてのリソースをコマンドラインから操作できる開発者向けツールです。手書きの JSON なしに API リクエストを組み立て、`--transform` フラグでレスポンスを整形し、`@path` 構文でローカルファイルをリクエストにインライン展開できます。 Claude Code とのネイティブ統合も備えており、エージェントワークフロー・API プロトタイプ・CI/C",
-      "tags": [
-        "claude"
-      ],
-      "score": 37,
-      "source": "qiita-api:claude",
-      "publishedAt": "2026-05-01T20:09:51+09:00",
-      "fetchedAt": "2026-05-03T11:17:20.064Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGNDg1NDklMkZwcm9maWxlLWltYWdlcyUyRjE1MjQxMzIyMDk_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTg5YjJiN2Q5OGNmODU1NjA0MDU1NzU0YzQ3MTliYjJj%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D828d55aeb65ce59821b10c2330043747?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9YW50JTIwQ0xJJUU1JTg1JUE1JUU5JTk2JTgwJTIwJUUyJTgwJTk0JTIwQW50aHJvcGljJUUzJTgxJUFFQ2xhdWRlJTIwQVBJJUU1JUIwJTgyJUU3JTk0JUE4Q0xJJUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJTkyJUUzJTgzJTlFJUUzJTgyJUI5JUUzJTgyJUJGJUUzJTgzJUJDJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OWJmYmUyMzEzZWRjOGJlMzUxYzRmYTczNjk3MDJiYzM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBrYWlfa291JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YjgzY2Y5ZDQzMDgzNDBjNmZmYzVhMzk4MTMzZjRhZjM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=96567034a12bcef3b0c646426d6d7001"
-    },
-    {
-      "id": "997895518902cc88",
-      "kind": "news",
-      "title": "Claude Code で e-Tax仕様書 117MB を読み解き、1人法人の法人税申告XMLを Python で生成した話",
-      "url": "https://zenn.dev/smartmatching/articles/83da6a0d54340e",
-      "summary": "117MB / 18,523ファイル / 10帳票 / 別表検算8項目通過 / 送信未完了（5/31期限まで残り28日） 1人法人の代表が、Claude Code Pro と Codex を使って、自社の法人税確定申告の準備を 1日で 65% 進めた 体験記です。送信そのものはまだ完了していません。 📋 免責事項 本記事は、株式会社スマートマッチングが自社の申告準備のために行った技術検証の記録です。税務代理、税務書類の作成代行、税務相談を提供するものではありません。著者は税",
-      "tags": [
-        "python",
-        "claude"
-      ],
-      "score": 36,
-      "source": "rss:zenn-topic-python",
-      "publishedAt": "2026-05-02T17:14:09.000Z",
-      "fetchedAt": "2026-05-03T10:49:06.130Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--nf3BX1Im--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25A7%2520e-Tax%25E4%25BB%2595%25E6%25A7%2598%25E6%259B%25B8%2520117MB%2520%25E3%2582%2592%25E8%25AA%25AD%25E3%2581%25BF%25E8%25A7%25A3%25E3%2581%258D%25E3%2580%25811%25E4%25BA%25BA%25E6%25B3%2595%25E4%25BA%25BA%25E3%2581%25AE%25E6%25B3%2595%25E4%25BA%25BA%25E7%25A8%258E%25E7%2594%25B3%25E5%2591%258AXML%25E3%2582%2592%2520Python%2520...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25B9%25E3%2583%259E%25E3%2583%25BC%25E3%2583%2588%25E3%2583%259E%25E3%2583%2583%25E3%2583%2581%25E3%2583%25B3%25E3%2582%25B0%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSjE4ZzU4UDRvck4wRUtzNENNZ0dwR0N1aEl5RVJTSTk2R2xIRWZmcGV6c0sxY1BoQT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "80d13e1f19b7f8f9",
-      "kind": "news",
-      "title": "Show HN: TradingAgents without the API bill – run multi agents in Claude Code",
-      "url": "https://github.com/lucemia/trading-agents-plugin",
-      "summary": "TradingAgents (github.com/TauricResearch/TradingAgents) is a great multi-agent stock analysis framework but requires LLM API keys. I rebuilt it as a Claude Code plugin that runs on your existing Claude subscription — zero extra API cost. Ty",
-      "tags": [
-        "claude",
-        "llm",
-        "agent"
-      ],
-      "score": 36,
-      "source": "hn:claude",
-      "publishedAt": "2026-05-02T15:39:56.000Z",
-      "fetchedAt": "2026-05-03T11:17:20.064Z",
-      "thumbnail": "https://opengraph.githubassets.com/39ed53b3945bd0166495cecc58f068a0168a86814378be349afa6ebef33f274b/lucemia/trading-agents-plugin"
-    },
     {
       "id": "f7f2fd43f166227e",
       "kind": "news",
@@ -100,19 +19,37 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0Mzc5MTcxJTJGZDRiMDFlMGJhZjI0MWYyMGNhNjVmOGJiNmZlNzFiZGM5NmQzNjY5YiUyRnhfbGFyZ2UucG5nJTNGMTc3NDMzMzc0OD9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGNlYzQxMjExYWEzYTY3MWRhNjQxMGI5YjI0NWUzYTk%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D92b1af22ddb1aa3de0fa8d2b2e7a03d3?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBRiVFNiU5NyVBMiVFMyU4MSVBQiVFOCU4NyVBQSVFNSU4OCU4NiVFMyU4MSVBNyVFNSU4OCVBNCVFNiU5NiVBRCVFMyU4MSU4QyVFNSU4NyVCQSVFNiU5RCVBNSVFMyU4MiU4QiVFMyU4MiU4OSVFMyU4MSU5NyVFMyU4MSU4NCVFMyU4MSVBNyVFMyU4MSU5OSVFMyU4MiU4OCUyOCVFOCVBOCU4MCVFMyU4MSU4NCVFOSU4MSU4RSVFMyU4MSU4RSVFMyU4MSU4QiVFMyU4MiU4MiUyOSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWJlM2M2Yjg4YTU5ZjM3OGQxYTU3YjliMTUyMjVjMzFi&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB0YWkwOTIxJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NGIzZDFmYWMwMzdkN2YxYmQxMjI0ZDhjMjkzZjJhZjY&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=1ed84a880ef4fa4133bbd293f1d8af38"
     },
     {
-      "id": "5fa8aadcbe002859",
+      "id": "59a1a779e18b1b4d",
       "kind": "news",
-      "title": "Claude Codeでできる仕事効率化・自動化アイデアまとめ",
-      "url": "https://qiita.com/kamome_susume/items/1723cd1ccf36dcf80710",
-      "summary": "「コードを書くのに時間がかかりすぎる」「繰り返しの作業が多くてしんどい」「もっとスマートに働きたいけど、何から始めればいいかわからない」——そんな悩みを抱えているエンジニアの方は多いのではないでしょうか。 この記事では、Anthropicが開発したAIコーディングアシスタント「Claude Code」を活用して、日々の開発業務をどう効率化・自動化できるかを具体的にまとめています。読み終えるころには「これ、今日から使えるな」と感じていただけるはずです。 --- ## 結論：Cl",
+      "title": "RTK（Rust Token Killer）をWindows + Claude Code CLIで使えるようにする手順",
+      "url": "https://qiita.com/tanaka_taro_JP_KYUSYU/items/0565cc59862691982770",
+      "summary": "## RTKとは **RTK（Rust Token Killer）** は、Claude Code などのAIコーディングアシスタントのトークン消費を **60〜90%削減する CLI プロキシ**です。コマンドの出力を自動的に圧縮・フィルタリングし、LLMに渡してくれます。 **実績値の例:** - `cargo test`（262テスト成功）: 4,823トークン → **11トークン（99.8%削減）** - 30分間のセッション全体: 150K トークン → **45",
       "tags": [
+        "rust",
+        "claude",
+        "llm"
+      ],
+      "score": 35,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-03T10:08:28+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZjNWE5MjZhYjgzNmYyMzk3YWM4YmE0MTcxNmYyYzU1Yz9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OTZmM2NjM2FkOTJjMmU3YjZlODc1MjcyZDYxYWJkZTA%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da07fbec50aa8fd8d0668c0cef60b7669?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9UlRLJUVGJUJDJTg4UnVzdCUyMFRva2VuJTIwS2lsbGVyJUVGJUJDJTg5JUUzJTgyJTkyV2luZG93cyUyMCUyQiUyMENsYXVkZSUyMENvZGUlMjBDTEklRTMlODElQTclRTQlQkQlQkYlRTMlODElODglRTMlODIlOEIlRTMlODIlODglRTMlODElODYlRTMlODElQUIlRTMlODElOTklRTMlODIlOEIlRTYlODklOEIlRTklQTAlODYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NTUzM2FjODkzMzljMmMxZmEyYmU3NTQ5NzZiOWY4NA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB0YW5ha2FfdGFyb19KUF9LWVVTWVUmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jOTU1YWZhYmU1NjI4NWIxMzRlY2FhODZjODg2ZTNlZQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=f0a64b82728102b0e5a533db5a982fba"
+    },
+    {
+      "id": "f164dd7ad98278c8",
+      "kind": "news",
+      "title": "Show HN: Destiny – Claude Code's fortune Teller skill",
+      "url": "https://github.com/xodn348/destiny",
+      "summary": "Destiny is the Claude Code's plugin that gives you a real fortune reading. Type /destiny to see today's destiny! It uses the actual classical East Asian astrology system. You enter your birthday once, then /destiny gives you today's reading",
+      "tags": [
+        "python",
         "claude"
       ],
       "score": 34,
-      "source": "qiita-api:claude",
-      "publishedAt": "2026-05-03T13:28:45+09:00",
-      "fetchedAt": "2026-05-03T11:17:20.064Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxNjkzMjQ4JTJGZDhlMmU1OWNiMDVmY2Y3MDQ3ZDgyN2ZjNDlkNDAwMTkzZTU5NDdjOSUyRnhfbGFyZ2UucG5nJTNGMTY4NjMxODg1ND9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZDRiNjcyYjg4ZWUxYTRkNjI1ZDRjOGFkMzVkMzQ5NjI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Ddc9a014e564257547b64353543c58776?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBNyVFMyU4MSVBNyVFMyU4MSU4RCVFMyU4MiU4QiVFNCVCQiU5NSVFNCVCQSU4QiVFNSU4QSVCOSVFNyU4RSU4NyVFNSU4QyU5NiVFMyU4MyVCQiVFOCU4NyVBQSVFNSU4QiU5NSVFNSU4QyU5NiVFMyU4MiVBMiVFMyU4MiVBNCVFMyU4MyU4NyVFMyU4MiVBMiVFMyU4MSVCRSVFMyU4MSVBOCVFMyU4MiU4MSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTAxODI1ZGRkMjAzZTBmZmEwZmRiZDA4NjlmOTFmMWY1&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBrYW1vbWVfc3VzdW1lJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZGRiZTIzN2VhYmFmZjQ1YThiNWYzYWQyMWVhNzMzOTI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ad91027e32ffcccd77790e198e67fa21"
+      "source": "hn:python",
+      "publishedAt": "2026-05-01T19:56:18.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://opengraph.githubassets.com/d5762c940f0bf34cf220a1fd29ffb4d48d1b66d204845d925dc8236663dc65ae/xodn348/destiny"
     },
     {
       "id": "062ed6bd2fa0a51d",
@@ -129,49 +66,6 @@
       "publishedAt": "2026-05-02T02:35:59.000Z",
       "fetchedAt": "2026-05-03T11:17:20.064Z",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MTU2NTc4JTJGYTgyYjkyMzUzMWRkYzIxYmZhMWY4MDhhY2QyMjM5Yzk2NjlkZjg4NSUyRnhfbGFyZ2UucG5nJTNGMTc3NjY1NTA1MT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9Mjc4ZmEwOTFjZjEwYTgxMmIxMmUyMzllOTM3OTUxODU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D47c9777f84630e6bc9f6c0b7577877ad?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSVBRSVFMyU4MyU4OCVFMyU4MyVCQyVFMyU4MiVBRiVFMyU4MyVCMyVFNiVCNiU4OCVFOCVCMiVCQiVFMyU4MiU5MiVFNiU4QSU5MSVFMyU4MSU4OCVFMyU4MiU4QiVFNSVBRSU5RiVFNSU4QiU5OSVFMyU4MyU4NiVFMyU4MiVBRiVFMyU4MyU4QiVFMyU4MyU4MyVFMyU4MiVBRjUlRTklODElQjglMjAlRTIlODAlOTQlMjBTa2lsbHMlMjAlMkYlMjAuY2xhdWRlaWdub3JlJTIwJTJGJTIwU3ViYWdlbnQlRTMlODElQUUlRTQlQkQlQkYlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kMDcxYWRlNDNkNGY3ZTZmZmMzOWQ3ODA0NTQwZmQ4NQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBlbm5hZ2FyYTEyOCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTUxY2ZiZTE2M2MxMzEwMmEwYjk2ZWMwMjEyZTRiMjA4&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=c009eb9b9d136bc4a01d4d14749b27c0"
-    },
-    {
-      "id": "f15717647ffa1edc",
-      "kind": "news",
-      "title": "AnthropicがARR14カ月19倍を達成した理由——Head of Growthが語る「CASH」とエンジニアのミニPM化",
-      "url": "https://qiita.com/daisuke-nagata/items/f2b9ca8b714eedab578f",
-      "summary": "**AnthropicのARRが14カ月で19倍になった。驚くのはその数字より、裏側の仕組みだ。** **「Claudeに成長実験を任せる」「エンジニアが顧客インタビューに出る」——AI企業の当たり前が、SaaSの常識を塗り替えようとしている。** ## この記事でわかること - Anthropicが「サクセス・ディザスター」と呼ぶ急成長の落とし穴と対処法 - CASHプロジェクト：ClaudeがグロースA/Bテストを自律実行する仕組み - 「エンジニアがミニPMになる2週間",
-      "tags": [
-        "claude"
-      ],
-      "score": 32,
-      "source": "qiita-api:claude",
-      "publishedAt": "2026-05-02T10:14:39+09:00",
-      "fetchedAt": "2026-05-03T11:17:20.064Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZhNmQxMzVlMTU5ZWUzMTU2MjFmNzYzZmI0Y2E2ZjA4ZD9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZjEwZjcyMTFlYTkzMzY2ODA5ODZhZGQyOTE0YTk3NWE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D031b8f15d715c8bb1cd132bd1cf518b1?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9QW50aHJvcGljJUUzJTgxJThDQVJSMTQlRTMlODIlQUIlRTYlOUMlODgxOSVFNSU4MCU4RCVFMyU4MiU5MiVFOSU4MSU5NCVFNiU4OCU5MCVFMyU4MSU5NyVFMyU4MSU5RiVFNyU5MCU4NiVFNyU5NCVCMSVFMiU4MCU5NCVFMiU4MCU5NEhlYWQlMjBvZiUyMEdyb3d0aCVFMyU4MSU4QyVFOCVBQSU5RSVFMyU4MiU4QiVFMyU4MCU4Q0NBU0glRTMlODAlOEQlRTMlODElQTglRTMlODIlQTglRTMlODMlQjMlRTMlODIlQjglRTMlODMlOEIlRTMlODIlQTIlRTMlODElQUUlRTMlODMlOUYlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zOTM2NDU2MDkzMDM3YTQwNzEzNTdhNTMxYzJjY2UxZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBkYWlzdWtlLW5hZ2F0YSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWY5N2MzZDliZTI5MGY0ZGE0OTRiZDBlYjIyNTZmNWEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=31bbfe981df5ed0576c2bbada9a17ceb"
-    },
-    {
-      "id": "9245288b08769b3a",
-      "kind": "news",
-      "title": "Claude Code dies with ANTHROPIC_API_KEY in cloud environment",
-      "url": "https://news.ycombinator.com/item?id=47966935",
-      "summary": "If you put ANTHROPIC_API_KEY in the cloud environment, this will cause CC to fail to do anything. So you were using it because your tests are going to look for it, think again, find another way. Also, I suspect that is why I had a lot of \"E",
-      "tags": [
-        "claude"
-      ],
-      "score": 32,
-      "source": "hn:anthropic",
-      "publishedAt": "2026-04-30T19:11:30.000Z",
-      "fetchedAt": "2026-05-03T11:17:20.064Z"
-    },
-    {
-      "id": "b19709c5672c6d40",
-      "kind": "news",
-      "title": "Anthropic's anti-distillation defense,reverse-engineered from Claude Code source",
-      "url": "https://wanlanglin.github.io/-awesome-cc-harness/en/",
-      "summary": "",
-      "tags": [
-        "claude"
-      ],
-      "score": 31,
-      "source": "hn:anthropic",
-      "publishedAt": "2026-05-01T12:24:13.000Z",
-      "fetchedAt": "2026-05-03T11:17:20.064Z"
     },
     {
       "id": "d43d8a5c954b3a97",
@@ -354,6 +248,20 @@
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjU0MTczODUwJTNGdiUzRDQ_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTQ5ZGU0OTdkMjMwMjhmNWZmOTcwNmZlNGNmY2E5MDZm%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D29ced0e10c8c1d24806abaf93840cae7?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU2JUJGJTgwJUU5JTlDJTg3JUUzJTgwJTkxT3BlbkFJJTIwQ29kZXglMjBDTEklRTMlODElQUIlRTMlODAlOEMlRTMlODIlQjQlRTMlODMlQkMlRTMlODMlQUIlRTYlQjAlQjglRTclQjYlOUElRTUlOEMlOTYlRTMlODAlOEQlRTMlODElOEMlRTYlOUQlQTUlRTMlODElOUYlRUYlQkMlODFDbGF1ZGUlMjBDb2RlJUUzJTgyJTkyJUU4JTg0JTg1JUUzJTgxJThCJUUzJTgxJTk5TXVsdGlBZ2VudFYyJUUzJTgxJUFFJUU1JTg1JUE4JUU4JUIyJThDJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MjVhMjAxMjE5ZTdjNTZiY2Y1MjdiNDY5MWMwZGY5MDU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBlbWlfbmRrJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NzU0NDg1YzBhMGMzNTE3YTkwZWM1ZTU4MzFlOTQyMWY&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=0bc55655c4cab5c947b70647b5776562"
     },
     {
+      "id": "b1e505ceb3824ccc",
+      "kind": "news",
+      "title": "This Week in Rust 649",
+      "url": "https://this-week-in-rust.org/blog/2026/04/29/this-week-in-rust-649/",
+      "summary": "Hello and welcome to another issue of This Week in Rust! Rust is a programming language empowering everyone to build reliable and efficient software. This is a weekly summary of its progress and community. Want something mentioned? Tag us a",
+      "tags": [
+        "rust"
+      ],
+      "score": 27,
+      "source": "rss:this-week-in-rust",
+      "publishedAt": "2026-04-29T04:00:00.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z"
+    },
+    {
       "id": "e1401544dd79fe09",
       "kind": "news",
       "title": "漫画のネームを 3 大 AI に競作させたい — コーディング CLI を並列で走らせる nemu-kaigi の実装事例",
@@ -370,6 +278,144 @@
       "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--ir4rTURg--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%25BC%25AB%25E7%2594%25BB%25E3%2581%25AE%25E3%2583%258D%25E3%2583%25BC%25E3%2583%25A0%25E3%2582%2592%25203%2520%25E5%25A4%25A7%2520AI%2520%25E3%2581%25AB%25E7%25AB%25B6%25E4%25BD%259C%25E3%2581%2595%25E3%2581%259B%25E3%2581%259F%25E3%2581%2584%2520%25E2%2580%2594%2520%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%2520CLI%2520%25E3%2582%2592%25E4%25B8%25A6%25E5%2588%2597%25E3%2581%25A7%25E8%25B5%25B0%25E3%2582%2589%25E3%2581%259B%25E3%2582%258B%2520nemu-kaigi%2520%25E3%2581%25AE...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yatmita%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSklmUHlyMko0aDBSSHBXV1p6M1BRa0ZzdlJRREFZOWtTNmpZTUxxaHJURmhhUk1Xdz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
+      "id": "641e07a8f5874f38",
+      "kind": "news",
+      "title": "Show HN: Agent-desktop – Native desktop automation CLI for AI agents",
+      "url": "https://github.com/lahfir/agent-desktop",
+      "summary": "I've been building computer-use tools for a while, and I quietly launched this about a month ago (122 Stars on GH). I figured it was worth sharing here. Over the last few months, a lot of computer-use agents have come out: Codex, Claude Cod",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 25,
+      "source": "hn:python",
+      "publishedAt": "2026-05-02T02:18:24.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://opengraph.githubassets.com/a81ef18c16bf915be70be015b01a9e29009a2118d9ed15698a90442ee7727f5f/lahfir/agent-desktop"
+    },
+    {
+      "id": "5534e295a5d458a9",
+      "kind": "news",
+      "title": "ant CLI入門 — AnthropicのClaude API専用CLIツールをマスターする",
+      "url": "https://qiita.com/kai_kou/items/196bacb2393ee71918de",
+      "summary": "## はじめに Anthropic が公式リリースした **ant CLI** は、Claude API のすべてのリソースをコマンドラインから操作できる開発者向けツールです。手書きの JSON なしに API リクエストを組み立て、`--transform` フラグでレスポンスを整形し、`@path` 構文でローカルファイルをリクエストにインライン展開できます。 Claude Code とのネイティブ統合も備えており、エージェントワークフロー・API プロトタイプ・CI/C",
+      "tags": [
+        "claude"
+      ],
+      "score": 24,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-01T20:09:51+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGNDg1NDklMkZwcm9maWxlLWltYWdlcyUyRjE1MjQxMzIyMDk_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTg5YjJiN2Q5OGNmODU1NjA0MDU1NzU0YzQ3MTliYjJj%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D828d55aeb65ce59821b10c2330043747?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9YW50JTIwQ0xJJUU1JTg1JUE1JUU5JTk2JTgwJTIwJUUyJTgwJTk0JTIwQW50aHJvcGljJUUzJTgxJUFFQ2xhdWRlJTIwQVBJJUU1JUIwJTgyJUU3JTk0JUE4Q0xJJUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUUzJTgyJTkyJUUzJTgzJTlFJUUzJTgyJUI5JUUzJTgyJUJGJUUzJTgzJUJDJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OWJmYmUyMzEzZWRjOGJlMzUxYzRmYTczNjk3MDJiYzM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBrYWlfa291JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YjgzY2Y5ZDQzMDgzNDBjNmZmYzVhMzk4MTMzZjRhZjM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=96567034a12bcef3b0c646426d6d7001"
+    },
+    {
+      "id": "80d13e1f19b7f8f9",
+      "kind": "news",
+      "title": "Show HN: TradingAgents without the API bill – run multi agents in Claude Code",
+      "url": "https://github.com/lucemia/trading-agents-plugin",
+      "summary": "TradingAgents (github.com/TauricResearch/TradingAgents) is a great multi-agent stock analysis framework but requires LLM API keys. I rebuilt it as a Claude Code plugin that runs on your existing Claude subscription — zero extra API cost. Ty",
+      "tags": [
+        "claude",
+        "llm",
+        "agent"
+      ],
+      "score": 24,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-02T15:39:56.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://opengraph.githubassets.com/39ed53b3945bd0166495cecc58f068a0168a86814378be349afa6ebef33f274b/lucemia/trading-agents-plugin"
+    },
+    {
+      "id": "d46a26b2b1214b89",
+      "kind": "news",
+      "title": "DIDP の Rust インターフェース RPID で柔軟な数理最適化モデリング + Wasm",
+      "url": "https://zenn.dev/espeon011/articles/3022342eb6f2ba",
+      "summary": "rust",
+      "tags": [
+        "rust",
+        "optimization"
+      ],
+      "score": 23,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-04-28T19:04:54.051+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--mpv7K6Gc--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:DIDP%2520%25E3%2581%25AE%2520Rust%2520%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%2595%25E3%2582%25A7%25E3%2583%25BC%25E3%2582%25B9%2520RPID%2520%25E3%2581%25A7%25E6%259F%2594%25E8%25BB%259F%25E3%2581%25AA%25E6%2595%25B0%25E7%2590%2586%25E6%259C%2580%25E9%2581%25A9%25E5%258C%2596%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0%2520%252B%2520Wasm%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:espeon011%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YyNzQ3ZmEwODEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "9245288b08769b3a",
+      "kind": "news",
+      "title": "Claude Code dies with ANTHROPIC_API_KEY in cloud environment",
+      "url": "https://news.ycombinator.com/item?id=47966935",
+      "summary": "If you put ANTHROPIC_API_KEY in the cloud environment, this will cause CC to fail to do anything. So you were using it because your tests are going to look for it, think again, find another way. Also, I suspect that is why I had a lot of \"E",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-04-30T19:11:30.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z"
+    },
+    {
+      "id": "997895518902cc88",
+      "kind": "news",
+      "title": "Claude Code で e-Tax仕様書 117MB を読み解き、1人法人の法人税申告XMLを Python で生成した話",
+      "url": "https://zenn.dev/smartmatching/articles/83da6a0d54340e",
+      "summary": "python",
+      "tags": [
+        "python",
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-03T02:14:09.593+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--nf3BX1Im--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25A7%2520e-Tax%25E4%25BB%2595%25E6%25A7%2598%25E6%259B%25B8%2520117MB%2520%25E3%2582%2592%25E8%25AA%25AD%25E3%2581%25BF%25E8%25A7%25A3%25E3%2581%258D%25E3%2580%25811%25E4%25BA%25BA%25E6%25B3%2595%25E4%25BA%25BA%25E3%2581%25AE%25E6%25B3%2595%25E4%25BA%25BA%25E7%25A8%258E%25E7%2594%25B3%25E5%2591%258AXML%25E3%2582%2592%2520Python%2520...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25B9%25E3%2583%259E%25E3%2583%25BC%25E3%2583%2588%25E3%2583%259E%25E3%2583%2583%25E3%2583%2581%25E3%2583%25B3%25E3%2582%25B0%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSjE4ZzU4UDRvck4wRUtzNENNZ0dwR0N1aEl5RVJTSTk2R2xIRWZmcGV6c0sxY1BoQT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "5fa8aadcbe002859",
+      "kind": "news",
+      "title": "Claude Codeでできる仕事効率化・自動化アイデアまとめ",
+      "url": "https://qiita.com/kamome_susume/items/1723cd1ccf36dcf80710",
+      "summary": "「コードを書くのに時間がかかりすぎる」「繰り返しの作業が多くてしんどい」「もっとスマートに働きたいけど、何から始めればいいかわからない」——そんな悩みを抱えているエンジニアの方は多いのではないでしょうか。 この記事では、Anthropicが開発したAIコーディングアシスタント「Claude Code」を活用して、日々の開発業務をどう効率化・自動化できるかを具体的にまとめています。読み終えるころには「これ、今日から使えるな」と感じていただけるはずです。 --- ## 結論：Cl",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-03T13:28:45+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxNjkzMjQ4JTJGZDhlMmU1OWNiMDVmY2Y3MDQ3ZDgyN2ZjNDlkNDAwMTkzZTU5NDdjOSUyRnhfbGFyZ2UucG5nJTNGMTY4NjMxODg1ND9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZDRiNjcyYjg4ZWUxYTRkNjI1ZDRjOGFkMzVkMzQ5NjI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Ddc9a014e564257547b64353543c58776?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBNyVFMyU4MSVBNyVFMyU4MSU4RCVFMyU4MiU4QiVFNCVCQiU5NSVFNCVCQSU4QiVFNSU4QSVCOSVFNyU4RSU4NyVFNSU4QyU5NiVFMyU4MyVCQiVFOCU4NyVBQSVFNSU4QiU5NSVFNSU4QyU5NiVFMyU4MiVBMiVFMyU4MiVBNCVFMyU4MyU4NyVFMyU4MiVBMiVFMyU4MSVCRSVFMyU4MSVBOCVFMyU4MiU4MSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTAxODI1ZGRkMjAzZTBmZmEwZmRiZDA4NjlmOTFmMWY1&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBrYW1vbWVfc3VzdW1lJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZGRiZTIzN2VhYmFmZjQ1YThiNWYzYWQyMWVhNzMzOTI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ad91027e32ffcccd77790e198e67fa21"
+    },
+    {
+      "id": "f15717647ffa1edc",
+      "kind": "news",
+      "title": "AnthropicがARR14カ月19倍を達成した理由——Head of Growthが語る「CASH」とエンジニアのミニPM化",
+      "url": "https://qiita.com/daisuke-nagata/items/f2b9ca8b714eedab578f",
+      "summary": "**AnthropicのARRが14カ月で19倍になった。驚くのはその数字より、裏側の仕組みだ。** **「Claudeに成長実験を任せる」「エンジニアが顧客インタビューに出る」——AI企業の当たり前が、SaaSの常識を塗り替えようとしている。** ## この記事でわかること - Anthropicが「サクセス・ディザスター」と呼ぶ急成長の落とし穴と対処法 - CASHプロジェクト：ClaudeがグロースA/Bテストを自律実行する仕組み - 「エンジニアがミニPMになる2週間",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-02T10:14:39+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZhNmQxMzVlMTU5ZWUzMTU2MjFmNzYzZmI0Y2E2ZjA4ZD9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZjEwZjcyMTFlYTkzMzY2ODA5ODZhZGQyOTE0YTk3NWE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D031b8f15d715c8bb1cd132bd1cf518b1?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9QW50aHJvcGljJUUzJTgxJThDQVJSMTQlRTMlODIlQUIlRTYlOUMlODgxOSVFNSU4MCU4RCVFMyU4MiU5MiVFOSU4MSU5NCVFNiU4OCU5MCVFMyU4MSU5NyVFMyU4MSU5RiVFNyU5MCU4NiVFNyU5NCVCMSVFMiU4MCU5NCVFMiU4MCU5NEhlYWQlMjBvZiUyMEdyb3d0aCVFMyU4MSU4QyVFOCVBQSU5RSVFMyU4MiU4QiVFMyU4MCU4Q0NBU0glRTMlODAlOEQlRTMlODElQTglRTMlODIlQTglRTMlODMlQjMlRTMlODIlQjglRTMlODMlOEIlRTMlODIlQTIlRTMlODElQUUlRTMlODMlOUYlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zOTM2NDU2MDkzMDM3YTQwNzEzNTdhNTMxYzJjY2UxZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBkYWlzdWtlLW5hZ2F0YSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWY5N2MzZDliZTI5MGY0ZGE0OTRiZDBlYjIyNTZmNWEw&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=31bbfe981df5ed0576c2bbada9a17ceb"
+    },
+    {
+      "id": "b19709c5672c6d40",
+      "kind": "news",
+      "title": "Anthropic's anti-distillation defense,reverse-engineered from Claude Code source",
+      "url": "https://wanlanglin.github.io/-awesome-cc-harness/en/",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-01T12:24:13.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z"
+    },
+    {
       "id": "da87dddd42a0bb3d",
       "kind": "news",
       "title": "Apple Magic TouchstreamLP｜Magic Trackpadをキーボードとして使うオープンソースプロジェクト",
@@ -381,8 +427,112 @@
       "score": 21,
       "source": "rss:talpkeyboard",
       "publishedAt": "2026-05-03T02:25:36.000Z",
-      "fetchedAt": "2026-05-03T10:49:06.130Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/4caa7c224bce8b71be0c25b2613127dec13df072/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTALPKEYBOARD%2F20260503%2F20260503112033.jpg"
+    },
+    {
+      "id": "564fd6e984e13a8d",
+      "kind": "news",
+      "title": "Kimi K2.6 just beat Claude, GPT-5.5, and Gemini in a coding challenge",
+      "url": "https://thinkpol.ca/2026/04/30/an-open-weights-chinese-model-just-beat-claude-gpt-5-5-and-gemini-in-a-programming-challenge/",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-03T04:05:28.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://thinkpol.ca/wp-content/uploads/2026/04/tp_cover.png"
+    },
+    {
+      "id": "4e8b07a62c7c14c8",
+      "kind": "news",
+      "title": "TOTP を原理から理解する：RFC 4226 / 6238 準拠の CLI を Rust で書いた",
+      "url": "https://qiita.com/sen-ltd/items/0d62637e431232db0e20",
+      "summary": "![otp-cli スクリーンショット](https://sen.ltd/portfolio/otp-cli/assets/screenshot.png) > TOTP / HOTP コードを生成し、`otpauth://` URI をパースし、クロックドリフトを考慮してユーザー入力を検証する小さな Rust CLI。`totp-rs` や `oath-toolkit` に依存しません。base32、HMAC 配線、動的トランケーション、URI フォーマット — すべて読める",
+      "tags": [
+        "rust",
+        "algorithm"
+      ],
+      "score": 21,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-05-03T20:10:35+09:00",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDExNzkxJTJGYTZhNGM1MTg4NWFhYjAxNTEzNmVkNTdkN2M0NmE5Zjc1ZjVlOTZkOSUyRnhfbGFyZ2UucG5nJTNGMTc3NjczMzQ3NT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MTFhY2Q0MmIzMzk2MjAzZTQ5ZjMwMzMwNTlkNDc4MzI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D59dd8e86f63e34196a452305d90aca93?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9VE9UUCUyMCVFMyU4MiU5MiVFNSU4RSU5RiVFNyU5MCU4NiVFMyU4MSU4QiVFMyU4MiU4OSVFNyU5MCU4NiVFOCVBNyVBMyVFMyU4MSU5OSVFMyU4MiU4QiVFRiVCQyU5QVJGQyUyMDQyMjYlMjAlMkYlMjA2MjM4JTIwJUU2JUJBJTk2JUU2JThCJUEwJUUzJTgxJUFFJTIwQ0xJJTIwJUUzJTgyJTkyJTIwUnVzdCUyMCVFMyU4MSVBNyVFNiU5QiVCOCVFMyU4MSU4NCVFMyU4MSU5RiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTZkYzVhNTNjNGY5OWYyMzQ5YmIwNDZjMGQ4YzIxZGU1&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzZW4tbHRkJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NTYyZjRjNmMzNTUzOTZlNjI3MGI1OGE1NzA1MGIzNzM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=4ea4e92d628d48a84a218a85f0131efd"
+    },
+    {
+      "id": "3fbb4534eb381d12",
+      "kind": "news",
+      "title": "Show HN: Kirikiri – A mobile IDE for Claude Code (iOS, open source)",
+      "url": "https://news.ycombinator.com/item?id=47996198",
+      "summary": "Claude Code runs in a terminal. Phones don't have good terminals. That's the problem Kirikiri solves. Connect to Google Cloud Shell or any SSH server, run Claude Code there, and interact with it from your phone. Instead of fighting a softwa",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-03T12:18:44.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z"
+    },
+    {
+      "id": "b809970bb03190d0",
+      "kind": "news",
+      "title": "The Claude Delusion: Richard Dawkins believes his AI chatbot is conscious",
+      "url": "https://www.dailygrail.com/2026/05/the-claude-delusion-richard-dawkins-believes-his-female-ai-chatbot-is-conscious/",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-02T22:44:23.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://www.dailygrail.com/wp-content/uploads/2024/03/What-is-AI-1.jpg"
+    },
+    {
+      "id": "16401c84979af34b",
+      "kind": "news",
+      "title": "Tell HN: Claude account suspension after flagging duplicate billing",
+      "url": "https://news.ycombinator.com/item?id=47976682",
+      "summary": "PSA, unsure about precise causation, but my Claude account was suspended less than 24 hours after flagging duplicate billing and payment irregularities to Anthropic. As I've documented here, I was charged an extra $200 this billing cycle, h",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-01T16:30:53.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z"
+    },
+    {
+      "id": "a79d883153a05c96",
+      "kind": "news",
+      "title": "After dissing Anthropic for limiting Mythos, OpenAI restricts access to Cyber",
+      "url": "https://techcrunch.com/2026/04/30/after-dissing-anthropic-for-limiting-mythos-openai-restricts-access-to-cyber-too/",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-01T10:28:12.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://techcrunch.com/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-7.00.44-PM.png?resize=1200,783"
+    },
+    {
+      "id": "360ea985b7054626",
+      "kind": "news",
+      "title": "Show HN: Pu.sh – a full coding-agent harness in 400 lines of shell",
+      "url": "https://pu.dev/",
+      "summary": "I originally was just messing with pi-autoresearch. Gave it a sample task to build the most portable coding agent. First cut was 6 KB of shell. Great for one-shots, unusable interactively. I was shocked it actually worked. Started building ",
+      "tags": [
+        "agent"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-04-30T20:55:12.000Z",
+      "fetchedAt": "2026-05-03T14:17:13.992Z",
+      "thumbnail": "https://pu.dev/logo.png"
     },
     {
       "id": "2d7b92a958185fd1",
@@ -428,21 +578,6 @@
       "publishedAt": "2026-05-03T08:00:20.000Z",
       "fetchedAt": "2026-05-03T10:49:06.130Z",
       "thumbnail": "https://substackcdn.com/image/fetch/$s_!XtUy!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5c14eaac-ec1b-4731-be4f-2bd87043750e_1143x867.png"
-    },
-    {
-      "id": "564fd6e984e13a8d",
-      "kind": "news",
-      "title": "Kimi K2.6 just beat Claude, GPT-5.5, and Gemini in a coding challenge",
-      "url": "https://thinkpol.ca/2026/04/30/an-open-weights-chinese-model-just-beat-claude-gpt-5-5-and-gemini-in-a-programming-challenge/",
-      "summary": "",
-      "tags": [
-        "claude"
-      ],
-      "score": 20,
-      "source": "hn:claude",
-      "publishedAt": "2026-05-03T04:05:28.000Z",
-      "fetchedAt": "2026-05-03T10:49:06.130Z",
-      "thumbnail": "https://thinkpol.ca/wp-content/uploads/2026/04/tp_cover.png"
     },
     {
       "id": "e89b21b0afd0e8c0",
