@@ -8,11 +8,41 @@ export const KEYWORD_WEIGHTS: Record<string, number> = {
   "zmk": 4,
   "rust": 5,
   "python": 3,
-  "claude": 5,
-  "claude code": 5,
-  "anthropic": 4,
+  "claude": 3,
+  "claude code": 3,
+  "anthropic": 3,
   "llm": 2,
   "agent": 2,
+  // アルゴリズム / 組合せ最適化
+  "algorithm": 3,
+  "algorithms": 3,
+  "combinatorial optimization": 5,
+  "optimization": 2,
+  "heuristic": 3,
+  "metaheuristic": 4,
+  "np-hard": 5,
+  "アルゴリズム": 3,
+  "競技プログラミング": 3,
+  "組合せ最適化": 5,
+  "組み合わせ最適化": 5,
+  "数理最適化": 4,
+  // 量子コンピュータ
+  "quantum computing": 5,
+  "quantum computer": 5,
+  "quantum algorithm": 5,
+  "量子コンピュータ": 5,
+  "量子コンピューティング": 5,
+  // 数学 (score.ts は ASCII を \b 区切りで照合するため、math と mathematics は別エントリが必要)
+  "mathematics": 3,
+  "math": 2,
+  "number theory": 4,
+  "topology": 3,
+  "geometry": 2,
+  "数学": 3,
+  "数論": 4,
+  "幾何": 3,
+  "代数": 3,
+  "トポロジー": 3,
 };
 
 /**
@@ -53,6 +83,26 @@ export const TAG_ALIASES: Record<string, string> = {
   "combinatorial": "optimization",
   "combinatorial optimization": "optimization",
   "np hard": "np-hard",
+  "組合せ最適化": "optimization",
+  "組み合わせ最適化": "optimization",
+  "数理最適化": "optimization",
+  "quantum computing": "quantum",
+  "quantum computer": "quantum",
+  "quantum algorithm": "quantum",
+  "量子コンピュータ": "quantum",
+  "量子コンピューティング": "quantum",
+  "algorithms": "algorithm",
+  "アルゴリズム": "algorithm",
+  "競技プログラミング": "algorithm",
+  "mathematics": "math",
+  "数学": "math",
+  "数論": "math",
+  "幾何": "math",
+  "代数": "math",
+  "topology": "math",
+  "トポロジー": "math",
+  "geometry": "math",
+  "number theory": "math",
 };
 
 export interface RssFeedConfig {
@@ -84,6 +134,12 @@ export const RSS_FEEDS: RssFeedConfig[] = [
   { id: "this-week-in-rust", url: "https://this-week-in-rust.org/rss.xml", baseScore: 12 },
   // 超低頻度 (<1/週)
   { id: "peps", url: "https://peps.python.org/peps.rss", baseScore: 15 },
+  { id: "shtetl-optimized", url: "https://scottaaronson.blog/?feed=rss2", baseScore: 15 },
+  // 中頻度 (~5-10/週) — Google Research の研究発表 (OR-Tools / 量子 / アルゴリズム研究を含む)
+  { id: "google-research", url: "https://research.google/blog/rss/", baseScore: 5 },
+  // 高頻度 / 広域科学ニュース — キーワード一致した記事のみ採用
+  { id: "quanta-magazine", url: "https://www.quantamagazine.org/feed/" },
+  { id: "nazology", url: "https://nazology.kusuguru.co.jp/feed" },
 ];
 
 /**
@@ -122,6 +178,9 @@ export const QIITA_API_TAGS: string[] = [
   "python",
   "claude",
   "自作キーボード",
+  "アルゴリズム",
+  "競技プログラミング",
+  "量子コンピュータ",
 ];
 
 /**
@@ -133,6 +192,9 @@ export const ZENN_API_TOPICS: string[] = [
   "python",
   "claude",
   "自作キーボード",
+  "algorithm",
+  "競技プログラミング",
+  "quantum",
 ];
 
 /**
@@ -148,6 +210,10 @@ export const HN_QUERIES: string[] = [
   "mechanical keyboard",
   "qmk",
   "zmk",
+  "combinatorial optimization",
+  "quantum computing",
+  "quantum algorithm",
+  "algorithm",
 ];
 
 export const NEWS_TOP_N = 20;
