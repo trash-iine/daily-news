@@ -78,11 +78,16 @@ export const PAPER_PRIORITY_KEYWORDS = ["np-hard", "np hard"];
  * ここに無いキーはそのまま (lowercase で) タグになる。
  */
 export const TAG_ALIASES: Record<string, string> = {
-  "claude code": "claude",
-  "anthropic": "claude",
+  "claude": "llm",
+  "claude code": "llm",
+  "anthropic": "llm",
+  "agent": "llm",
   "combinatorial": "optimization",
   "combinatorial optimization": "optimization",
-  "np hard": "np-hard",
+  "heuristic": "optimization",
+  "metaheuristic": "optimization",
+  "np-hard": "optimization",
+  "np hard": "optimization",
   "組合せ最適化": "optimization",
   "組み合わせ最適化": "optimization",
   "数理最適化": "optimization",
@@ -94,6 +99,7 @@ export const TAG_ALIASES: Record<string, string> = {
   "algorithms": "algorithm",
   "アルゴリズム": "algorithm",
   "競技プログラミング": "algorithm",
+  "自作キーボード": "キーボード",
   "mathematics": "math",
   "数学": "math",
   "数論": "math",

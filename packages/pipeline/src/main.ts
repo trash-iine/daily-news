@@ -181,9 +181,22 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     const score = kwScore + (r.baseScore ?? 0);
     return { r, score, matched };
   });
-  return scored
+  // github.com 直リンクはタグごとに最高スコア 1 件まで (HN 由来のレポ紹介で
+  // rust/python/algorithm 系が埋まるのを防ぐ)。先にスコア降順で並べてから
+  // filter することで、各タグで最も score が高い 1 件が残る。
+  const ghPerTag = new Map<string, number>();
+  const sortedAndCapped = scored
     .filter((s) => s.score >= NEWS_SCORE_THRESHOLD)
     .sort((a, b) => b.score - a.score)
+    .filter((s) => {
+      if (!/github\.com/.test(s.r.url)) return true;
+      const key = canonicalTags(s.matched)[0] ?? "";
+      const n = ghPerTag.get(key) ?? 0;
+      if (n >= 1) return false;
+      ghPerTag.set(key, n + 1);
+      return true;
+    });
+  return sortedAndCapped
     .slice(0, NEWS_TOP_N)
     .map(({ r, score, matched }) => ({
       id: hashId(r.url),
@@ -248,13 +261,13 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
     finalists.map(({ p }) => summarizePaper(p.title, p.abstract)),
   );
 
-  return finalists.map(({ p, score, matched, priority }, i) => ({
+  return finalists.map(({ p, score, matched }, i) => ({
     id: hashId(p.absUrl),
     kind: "paper",
     title: p.title,
     url: p.absUrl,
     summary: summaries[i] ?? "",
-    tags: priority ? ["priority", ...canonicalTags(matched)] : canonicalTags(matched),
+    tags: canonicalTags(matched),
     score,
     source: p.source,
     publishedAt: p.publishedAt,

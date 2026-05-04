@@ -1,7 +1,53 @@
 {
   "date": "2026-05-04",
-  "generatedAt": "2026-05-03T22:40:54.732Z",
+  "generatedAt": "2026-05-04T03:42:36.411Z",
   "items": [
+    {
+      "id": "8d0f19bff897fdc1",
+      "kind": "news",
+      "title": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro, 17x cheaper",
+      "url": "https://github.com/aattaran/deepclaude",
+      "summary": "",
+      "tags": [
+        "llm"
+      ],
+      "score": 31,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-03T22:13:20.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://opengraph.githubassets.com/71cadf7435c6db1cbeac10d978fdf88c9616a6a8c87174088613b4a5ecc5f52f/aattaran/deepclaude"
+    },
+    {
+      "id": "f4d5e204ecb55919",
+      "kind": "news",
+      "title": "Claude Code の検証を Skill にするか shell コマンドにするか、両方走らせて見えてきた境界",
+      "url": "https://zenn.dev/zoetaka38/articles/20d016ee5da0f5",
+      "summary": "はじめに AI agent に何かを実装させたあと、その出力が「ちゃんと完了しているか」を判定する仕組みは、大きく分けると 2 系統ある。一つは Claude Code の Skill として「fact-check」「verify」のような検証スキルを定義して agent 側に呼ばせる派。もう一つは preset / workflow の出口に shell コマンド(うちでは verify_commands と呼んでいる)を必ず噛ませて、deterministic に exi",
+      "tags": [
+        "llm"
+      ],
+      "score": 27,
+      "source": "rss:zenn-python",
+      "publishedAt": "2026-05-03T08:04:07.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--fWQOPbus--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25AE%25E6%25A4%259C%25E8%25A8%25BC%25E3%2582%2592%2520Skill%2520%25E3%2581%25AB%25E3%2581%2599%25E3%2582%258B%25E3%2581%258B%2520shell%2520%25E3%2582%25B3%25E3%2583%259E%25E3%2583%25B3%25E3%2583%2589%25E3%2581%25AB%25E3%2581%2599%25E3%2582%258B%25E3%2581%258B%25E3%2580%2581%25E4%25B8%25A1%25E6%2596%25B9%25E8%25B5%25B0%25E3%2582%2589%25E3%2581%259B%25E3%2581%25A6%25E8%25A6%258B%25E3%2581%2588%25E3%2581%25A6%25E3%2581%258D%25E3%2581%259F%25E5%25A2%2583%25E7%2595%258C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "a91d3302522ed372",
+      "kind": "news",
+      "title": "Claude Codeで仮想通貨自動売買Botを作った話 ── 4週間・601コミット・15取引所対応の全記録",
+      "url": "https://qiita.com/ponfreelance/items/8559dd0d44e7c2ad49a3",
+      "summary": "## システム概要 Claude Codeを使って、仮想通貨の自動売買Botを4週間で作った。 スマホアプリからBotの起動・停止ができて、15の取引所に対応、7種類の売買戦略を切り替えられる。デプロイ費用は月0円（Render無料プラン）。 ``` スマホアプリ（React Native） ↕ REST API / WebSocket FastAPIバックエンド（Python） ↕ ccxt（統一API） 15の仮想通貨取引所 ``` 最初は「APIで注文を出すスクリプト」",
+      "tags": [
+        "python",
+        "llm"
+      ],
+      "score": 24,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-04T09:00:07+09:00",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jSURKYWtUQU1QbU1PYmxfWW51cGZBdTk5aG5IdjlLbm9hQmdUNEp3VUo5NFlFZjNBJTNEczk2LWM_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMxMjU4Y2QyOWYwYWVkODM2ODBiNTJiMjY1NTE3ODFl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D01b75b7204b903f51f9f9041087bb01a?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBNyVFNCVCQiVBRSVFNiU4MyVCMyVFOSU4MCU5QSVFOCVCMiVBOCVFOCU4NyVBQSVFNSU4QiU5NSVFNSVBMyVCMiVFOCVCMiVCN0JvdCVFMyU4MiU5MiVFNCVCRCU5QyVFMyU4MSVBMyVFMyU4MSU5RiVFOCVBOSVCMSUyMCVFMiU5NCU4MCVFMiU5NCU4MCUyMDQlRTklODAlQjElRTklOTYlOTMlRTMlODMlQkI2MDElRTMlODIlQjMlRTMlODMlOUYlRTMlODMlODMlRTMlODMlODglRTMlODMlQkIxNSVFNSU4RiU5NiVFNSVCQyU5NSVFNiU4OSU4MCVFNSVBRiVCRSVFNSVCRiU5QyVFMyU4MSVBRSVFNSU4NSVBOCVFOCVBOCU5OCVFOSU4QyVCMiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWIzNDU3MDA3N2NlMmFkODAzMTBkNjU1MTQwODYwYzQ0&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBwb25mcmVlbGFuY2UmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04YTY1ZTBhZmY4NzdlNGIxZWM0NTM0YTdkZTgyZWU4MQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=d7cde84dd736ad1d471a33db754df9dd"
+    },
     {
       "id": "d0ae773b404393ae",
       "kind": "news",
@@ -9,13 +55,12 @@
       "url": "https://www.productcompass.pm/p/cowork-on-3p-any-llm",
       "summary": "",
       "tags": [
-        "claude",
         "llm"
       ],
       "score": 23,
       "source": "hn:claude",
       "publishedAt": "2026-05-03T15:05:22.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
       "thumbnail": "https://substackcdn.com/image/fetch/$s_!YB7Z!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5af023c9-acd3-48e9-8871-1d9f2e265ccc_1280x720.png"
     },
     {
@@ -30,7 +75,7 @@
       "score": 21,
       "source": "hn:python",
       "publishedAt": "2026-05-02T10:21:31.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
       "thumbnail": "https://mljar.com/images/mljar-card.jpg"
     },
     {
@@ -45,8 +90,8 @@
       "score": 21,
       "source": "hn:algorithm",
       "publishedAt": "2026-05-01T09:10:02.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
-      "thumbnail": "https://opengraph.githubassets.com/c737fb3ed96932991915baa6eac99503421063dc6a9b2198d41dd05c6bc513e1/intel/auto-round"
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://opengraph.githubassets.com/08056a87c7e2c66806037802d228b374ff4996aa08aecfb43e8de4544cde17c1/intel/auto-round"
     },
     {
       "id": "0a1d7d83268e1c1c",
@@ -60,7 +105,82 @@
       "score": 21,
       "source": "hn:algorithm",
       "publishedAt": "2026-05-01T07:28:55.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z"
+      "fetchedAt": "2026-05-04T03:42:34.861Z"
+    },
+    {
+      "id": "769541de300e305b",
+      "kind": "news",
+      "title": "ExcelマクロをClaude Codeで5万行のAIシステムに進化させた話 — 機械設計者の個人開発記録",
+      "url": "https://zenn.dev/divaai/articles/0b21ce49956436",
+      "summary": "📝 この記事は note からのクロスポストです。 note版: https://note.com/keibayosouai/n/nadb8dfd460ba Excelの競馬予想Divaを、Claude Codeで5万行のAIに進化させた話 2年前、僕はExcelマクロで競馬予想「Diva」を作っていました。 重賞を中心に予想を出して、このnoteに投稿していました。 その後、本業の機械設計が忙しくなり、しばらく更新が止まっていました。 半年前、Claude Codeに出会",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "rss:zenn-python",
+      "publishedAt": "2026-05-03T11:53:32.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--yawXhadf--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Excel%25E3%2583%259E%25E3%2582%25AF%25E3%2583%25AD%25E3%2582%2592Claude%2520Code%25E3%2581%25A75%25E4%25B8%2587%25E8%25A1%258C%25E3%2581%25AEAI%25E3%2582%25B7%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25A0%25E3%2581%25AB%25E9%2580%25B2%25E5%258C%2596%25E3%2581%2595%25E3%2581%259B%25E3%2581%259F%25E8%25A9%25B1%2520%25E2%2580%2594%2520%25E6%25A9%259F%25E6%25A2%25B0%25E8%25A8%25AD%25E8%25A8%2588%25E8%2580%2585%25E3%2581%25AE%25E5%2580%258B%25E4%25BA%25BA%25E9%2596%258B%25E7%2599%25BA%25E8%25A8%2598%25E9%258C%25B2%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:DIVA%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzY0NTQ3ZDQ3M2YuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "240f43fe754e22a2",
+      "kind": "news",
+      "title": "Claude Code,CodexGemini どのコーディングエージェントが良いエンジニアの振る舞いをするか",
+      "url": "https://zenn.dev/abalol/articles/44bae083b32e85",
+      "summary": "AI コーディングエージェント実装力比較レポート Claude Code / Codex / Gemini に同じ設計書を渡し、バックエンド・Web フロントエンド・モバイルアプリを含む小規模アプリを実装させ、成果物を比較評価しました。 仕様設計は Codex が行い、Claude Code と Gemini によるレビューで指摘なしになるまで改善しました。 今回見たかったのは、単に「動くアプリを作れるか」ではありません。 作りたいものを指示したときに、運用保守やランニングコ",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "rss:zenn-claude",
+      "publishedAt": "2026-05-04T00:19:36.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--RAcGgULG--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2580%2581Codex%25E3%2580%2581Gemini%2520CLI%25E3%2581%25A9%25E3%2581%25AE%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%258C%25E8%2589%25AF%25E3%2581%2584%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE%25E6%258C%25AF%25E3%2582%258B%25E8%2588%259E%25E3%2581%2584%25E3%2582%2592%25E3%2581%2599%25E3%2582%258B%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:abalol%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzc5MDU2YmQ4YmEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "0b2028a8f53f14f1",
+      "kind": "news",
+      "title": "Claude Code Hooks完全ガイド──Slack連携・Lint自動化・Push前チェックの実装レシピ",
+      "url": "https://zenn.dev/kai_kou/articles/024-claude-code-hooks-slack-lint-push-guide",
+      "summary": "はじめに Claude CodeのHooksは、特定のイベントに応じてスクリプトを自動実行する仕組みです。「タスクが完了したらSlackに通知」「ファイルを編集したらLintを自動実行」「git push前に未コミット変更を警告」といった自動化を、settings.jsonにスクリプトを登録するだけで実現できます。 Hooksを使いこなすと、Claude Codeとの協業で発生しがちな3つの問題が解消されます。 課題 Hooksでの解決 タスク完了に気づかずPCの前で待機 S",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "rss:zenn-claude",
+      "publishedAt": "2026-05-03T21:38:44.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s---jMeKFj3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520Hooks%25E5%25AE%258C%25E5%2585%25A8%25E3%2582%25AC%25E3%2582%25A4%25E3%2583%2589%25E2%2594%2580%25E2%2594%2580Slack%25E9%2580%25A3%25E6%2590%25BA%25E3%2583%25BBLint%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E3%2583%25BBPush%25E5%2589%258D%25E3%2583%2581%25E3%2582%25A7%25E3%2583%2583%25E3%2582%25AF%25E3%2581%25AE%25E5%25AE%259F%25E8%25A3%2585%25E3%2583%25AC%25E3%2582%25B7%25E3%2583%2594%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E7%2594%25B2%25E6%2596%2590%2520%25E7%2594%25B2%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2dXWU5BclRQMUJkb0JCVnEybjJwNm5maUxhdW1vdmE4d3gzSEVJPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "575f787df92839ee",
+      "kind": "news",
+      "title": "Claude Codeの設定を育てた話 — permission・hooks・CLAUDE.md・subagentで「任せられる環境」を作る",
+      "url": "https://zenn.dev/yt8220/articles/f0465e79d0abd9",
+      "summary": "はじめに Claude Codeを使い始めた頃、設定はほぼデフォルトでした。 とりあえず動かして、詰まったら調べる、という進め方です。 ところが使い込むほど「なんか違う」という感覚が積み重なってきました。 確認ダイアログが多すぎる。 テストなしでコミットしてバグを見逃す。 Opusを使おうとしたら全部Opusになってコストが跳ね上がる。 設定は一気に完成させるものではなく、痛みに応じて育てるものだと気づいたのは、しばらく経ってからでした。 この記事では、実際に直面した課題とそ",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "rss:zenn-claude",
+      "publishedAt": "2026-05-03T11:17:29.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--DHa6Bw-7--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AE%25E8%25A8%25AD%25E5%25AE%259A%25E3%2582%2592%25E8%2582%25B2%25E3%2581%25A6%25E3%2581%259F%25E8%25A9%25B1%2520%25E2%2580%2594%2520permission%25E3%2583%25BBhooks%25E3%2583%25BBCLAUDE.md%25E3%2583%25BBsubagent...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:irodori_yuto%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E1M2U1MjBmNTUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "136d2605b6cad7f2",
+      "kind": "news",
+      "title": "Claude Codeでキャリア戦略レポートの作り方を自動化した話",
+      "url": "https://zenn.dev/taroh_7/articles/2026-04-18-ai-career-strategy-multiagent",
+      "summary": "はじめに AIにキャリア相談をすると、だいたい前向きな答えが返ってくる。 それ自体は悪くない。選択肢を広げてくれるし、背中も押してくれる。ただ、キャリア戦略として使うなら、前向きなだけでは少し危ない。市場の現実、スキル習得にかかる時間、継続できる行動量、シナリオの上振れと下振れまで見たい。 そこで今回は、Claude Codeで複数のエージェントを並列に動かし、自分向けのキャリア戦略レポートを作った。 ポイントは、調査エージェントだけで終わらせず、最後に 批判専用の検証エージ",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "rss:zenn-claude",
+      "publishedAt": "2026-05-03T09:19:31.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--YgUSYE8G--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25A7%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%25AA%25E3%2582%25A2%25E6%2588%25A6%25E7%2595%25A5%25E3%2583%25AC%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%25E3%2581%25AE%25E4%25BD%259C%25E3%2582%258A%25E6%2596%25B9%25E3%2582%2592%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%259F%25E3%2582%258D%25E3%2583%25BC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZlYzA5ZGU4YTcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
       "id": "750518b6bfcc8379",
@@ -89,24 +209,22 @@
       "score": 20,
       "source": "hn:python",
       "publishedAt": "2026-05-02T16:34:09.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
       "thumbnail": "https://opengraph.githubassets.com/d07be301873598e8ff0d1af3d52e52bc47d9a1bf055edae34f3e4bf77534cdb1/facebook/pyrefly/issues/3292"
     },
     {
-      "id": "8d0f19bff897fdc1",
+      "id": "c1bfebc6750a30f1",
       "kind": "news",
-      "title": "DeepClaude – Claude Code agent loop with DeepSeek V4 Pro, 17x cheaper",
-      "url": "https://github.com/aattaran/deepclaude",
-      "summary": "",
+      "title": "Ask HN: Does Claude Code succeed after being asked \"should we give up?\" for you?",
+      "url": "https://news.ycombinator.com/item?id=48003592",
+      "summary": "Almost every time Claude has failed to properly implement something or fix a bug several times, if I ask \"should we give up?\" it declares it's not giving up and successfully completes the task. Of course, it could very well be that when I r",
       "tags": [
-        "claude",
-        "agent"
+        "llm"
       ],
-      "score": 19,
+      "score": 20,
       "source": "hn:claude",
-      "publishedAt": "2026-05-03T22:13:20.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
-      "thumbnail": "https://opengraph.githubassets.com/bcf89e306cc7189416708ed04aae6a18b2bff46f6f72a752f69b23e7b2e6316a/aattaran/deepclaude"
+      "publishedAt": "2026-05-04T01:32:02.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z"
     },
     {
       "id": "e7a3499ee53e8296",
@@ -120,8 +238,8 @@
       "score": 19,
       "source": "hn:qmk",
       "publishedAt": "2026-04-30T15:13:08.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
-      "thumbnail": "https://opengraph.githubassets.com/442da4f97b2e38d782a5743b1935455849382bb3f95f4d0abd57e411db1370e8/ewhauser/shuck"
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://opengraph.githubassets.com/38a6ccddea7f58ea4d9e6649ff41c1e098ecb9cc382d0cbdd39e11e1ef8c03ba/ewhauser/shuck"
     },
     {
       "id": "800dead073c133fc",
@@ -135,7 +253,7 @@
       "score": 18,
       "source": "rss:talpkeyboard",
       "publishedAt": "2026-04-27T05:27:56.000Z",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
       "thumbnail": "https://cdn.image.st-hatena.com/image/scale/08436374572b1c5d79f5e98bd62f5c4562de8480/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTALPKEYBOARD%2F20260427%2F20260427142658.jpg"
     },
     {
@@ -151,7 +269,7 @@
       "score": 18,
       "source": "qiita-api:rust",
       "publishedAt": "2026-05-03T08:08:18+09:00",
-      "fetchedAt": "2026-05-03T22:40:52.696Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
       "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDExNzkxJTJGYTZhNGM1MTg4NWFhYjAxNTEzNmVkNTdkN2M0NmE5Zjc1ZjVlOTZkOSUyRnhfbGFyZ2UucG5nJTNGMTc3NjczMzQ3NT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MTFhY2Q0MmIzMzk2MjAzZTQ5ZjMwMzMwNTlkNDc4MzI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D59dd8e86f63e34196a452305d90aca93?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUJGJUUzJTgzJUJDJUUzJTgzJTlGJUUzJTgzJThBJUUzJTgzJUFCJUUzJTgxJUE3JTIwUVIlMjAlRTMlODIlQjMlRTMlODMlQkMlRTMlODMlODklRTMlODIlOTIlRTYlOEYlOEYlRTMlODElOEYlMjBSdXN0JTIwQ0xJJTIwJUUzJTgyJTkyJTIwMTUwJTIwJUU4JUExJThDJUUzJTgxJUE3JUU2JTlCJUI4JUUzJTgxJThGJTIwJUUyJTgwJTk0JTIwJUU1JThEJThBJUU1JUI5JTg1JUUzJTgzJTk2JUUzJTgzJUFEJUUzJTgzJTgzJUUzJTgyJUFGJUU2JTk2JTg3JUU1JUFEJTk3JUUzJTgxJUE3JTIwMiUyMCVFOCVBMSU4QyVFMyU4MiU5MiUyMDElMjAlRTYlOTYlODclRTUlQUQlOTclRTMlODElQUIlRTglQTklQjAlRTMlODIlODElRTMlODIlOEIlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz04MjYzOTQ3NGZjOGE1MDkxZTg1ZWI2ZjExODRlMjU4ZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzZW4tbHRkJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NTYyZjRjNmMzNTUzOTZlNjI3MGI1OGE1NzA1MGIzNzM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=0fa30747b03cdbd6ed5007a9dddd0321"
     },
     {
@@ -288,6 +406,52 @@
       "publishedAt": "2026-05-03T07:25:20.000Z",
       "fetchedAt": "2026-05-03T22:40:52.696Z",
       "thumbnail": "https://www.python.org/static/opengraph-icon-200x200.png"
+    },
+    {
+      "id": "8a81a5dda2f7517a",
+      "kind": "news",
+      "title": "[写経]Rustの練習帳 Chapter 3(その6) &strとString、借用と参照",
+      "url": "https://zenn.dev/okani/articles/0f5039df081d09",
+      "summary": "教材 書籍「Rustの練習帳」を使って、教養としての Rust を勉強。 https://www.oreilly.co.jp/books/9784814400584/ 前回のページ： https://zenn.dev/okani/articles/8c3fc25536d8d6 やっぱりわかっていなかった 3章を終わらせて4章に進むか、もう少しcatrを拡張してみる取り組みをするか、どうしようかなーと迷っているうちに、またしても自分の理解が足りていないことが見えてしまったので、",
+      "tags": [
+        "rust"
+      ],
+      "score": 18,
+      "source": "rss:zenn-rust",
+      "publishedAt": "2026-05-03T11:12:00.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Jpgj2QJb--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%255B%25E5%2586%2599%25E7%25B5%258C%255DRust%25E3%2581%25AE%25E7%25B7%25B4%25E7%25BF%2592%25E5%25B8%25B3%2520Chapter%25203%2528%25E3%2581%259D%25E3%2581%25AE6%2529%2520%2526str%25E3%2581%25A8String%25E3%2580%2581%25E5%2580%259F%25E7%2594%25A8%25E3%2581%25A8%25E5%258F%2582%25E7%2585%25A7%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:okaniCo_oC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzAzMjU5NmZiYTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "2ee92a0d553bdcd4",
+      "kind": "news",
+      "title": "Next.js 16 Turbopack と Claude in Chrome の組み合わせで VS Code が 180GB に見えた話",
+      "url": "https://zenn.dev/m_naoki_m/articles/cc440272b8d0a3",
+      "summary": "この記事は 2026 年 5 月 3 日時点の状況に基づいています。Next.js / Claude Code / Claude in Chrome 拡張のいずれもアップデートが速いため、後日読まれる場合は各リンク先で最新情報を確認してください。 はじめに 個人開発で歯列矯正中の写真記録 Web サービスを Next.js 16 で作っています (矯正ログ / SmileProgress)。dev server を立ち上げて UI モックを Claude Code 経由でブラ",
+      "tags": [
+        "llm"
+      ],
+      "score": 18,
+      "source": "rss:zenn-claude",
+      "publishedAt": "2026-05-03T08:08:17.000Z",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--GwHNPjhZ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Next.js%252016%2520Turbopack%2520%25E3%2581%25A8%2520Claude%2520in%2520Chrome%2520%25E3%2581%25AE%25E7%25B5%2584%25E3%2581%25BF%25E5%2590%2588%25E3%2582%258F%25E3%2581%259B%25E3%2581%25A7%2520VS%2520Code%2520%25E3%2581%258C...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:m_naoki_m%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUwZjU2ZjBjZTAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "1de9d9b45ee5fdb3",
+      "kind": "news",
+      "title": "C言語のモダナイズとしてのRust",
+      "url": "https://qiita.com/givemegohan/items/a0cebdaf0007b2b08ff3",
+      "summary": "AIに組み込み用途向けのRust記事を書かせたら変になった。以下がその出力なので、AIのイカれ具合を噛み締めながら読んでほしい。 --- 聞け。お前が今、その震える指でキーボードを叩き、C言語という名の血塗られた荒野を彷徨っているのは知っている。だが、その腰に差した骨董品の回転式拳銃（リボルバー）が、いつ暴発してお前のこめかみをブチ抜くか、考えたことはあるか？ お前は「Cはシンプルだ」と言う。笑わせるな。それはジャングルの真ん中で全裸になるのを「シンプル」と呼んでいるのと同じ",
+      "tags": [
+        "キーボード",
+        "rust"
+      ],
+      "score": 18,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-05-04T09:09:19+09:00",
+      "fetchedAt": "2026-05-04T03:42:34.861Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNTM4MzE5JTJGcHJvZmlsZS1pbWFnZXMlMkYxNTc0NTc3NzU2P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0wNjdkYWQ3ZjBhZTQxYTc0ZDhhZmVjNGU0Y2RjYmRiNQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D665c5f43b729618bb953098e1d138fdd?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9QyVFOCVBOCU4MCVFOCVBQSU5RSVFMyU4MSVBRSVFMyU4MyVBMiVFMyU4MyU4MCVFMyU4MyU4QSVFMyU4MiVBNCVFMyU4MiVCQSVFMyU4MSVBOCVFMyU4MSU5NyVFMyU4MSVBNiVFMyU4MSVBRVJ1c3QmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1iODc3NzFjYmM1MzE4OWQwMjhlYmMyMGQwNTcxZTNjZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBnaXZlbWVnb2hhbiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWIxOGI2YjY4YjNlZWM0YTUwMWI0MzVmNzRlMTAwZWQx&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=542f321446b9fd3ea3ea3c43520ea87e"
     },
     {
       "id": "0c31d8b1c913d85a",
