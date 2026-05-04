@@ -1,4 +1,5 @@
-const USER_AGENT = "daily-news-bot/0.1 (+https://github.com/)";
+import { USER_AGENT } from "./util.js";
+
 const FETCH_TIMEOUT_MS = 5000;
 const MAX_BYTES = 512 * 1024;
 

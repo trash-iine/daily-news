@@ -122,9 +122,18 @@ export interface RssFeedConfig {
 }
 
 export const RSS_FEEDS: RssFeedConfig[] = [
-  // 日本語汎用 高頻度 (キーワードでフィルタ) — Qiita/Zenn のタグ別は API ベースに移行済み
+  // 日本語汎用 高頻度 (キーワードでフィルタ) — Qiita タグ別は API、Zenn トピック別は公式 RSS
   { id: "qiita-popular", url: "https://qiita.com/popular-items/feed" },
   { id: "zenn-all", url: "https://zenn.dev/feed" },
+  // Zenn トピック別 公式 RSS (zenn.dev/topics/<topic>/feed)。
+  // baseScore=3 はトピック一致を「キーワード重み 3 相当」として扱う近似。
+  { id: "zenn-rust", url: "https://zenn.dev/topics/rust/feed", baseScore: 3 },
+  { id: "zenn-python", url: "https://zenn.dev/topics/python/feed", baseScore: 3 },
+  { id: "zenn-claude", url: "https://zenn.dev/topics/claude/feed", baseScore: 3 },
+  { id: "zenn-keyboard", url: "https://zenn.dev/topics/%E8%87%AA%E4%BD%9C%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/feed", baseScore: 3 },
+  { id: "zenn-algorithm", url: "https://zenn.dev/topics/algorithm/feed", baseScore: 3 },
+  { id: "zenn-kyopro", url: "https://zenn.dev/topics/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/feed", baseScore: 3 },
+  { id: "zenn-quantum", url: "https://zenn.dev/topics/quantum/feed", baseScore: 3 },
   // 中頻度 (~10/週)
   { id: "greenkeys", url: "https://green-keys.info/feed/", baseScore: 5 },
   // 低頻度 (~1-2/週) — 投稿があった日は上位に押し上げる
@@ -181,20 +190,6 @@ export const QIITA_API_TAGS: string[] = [
   "アルゴリズム",
   "競技プログラミング",
   "量子コンピュータ",
-];
-
-/**
- * Zenn 非公式 API (https://zenn.dev/api/articles?topicname=...&order=liked) で取得するトピック。
- * liked_count を baseScore に折り込む。
- */
-export const ZENN_API_TOPICS: string[] = [
-  "rust",
-  "python",
-  "claude",
-  "自作キーボード",
-  "algorithm",
-  "競技プログラミング",
-  "quantum",
 ];
 
 /**

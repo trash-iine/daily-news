@@ -1,5 +1,8 @@
 import { createHash } from "node:crypto";
 
+export const USER_AGENT =
+  "daily-news-bot/0.1 (+https://github.com/trash-iine/daily-news)";
+
 export function hashId(input: string): string {
   return createHash("sha1").update(input).digest("hex").slice(0, 16);
 }
@@ -40,7 +43,7 @@ export async function fetchText(url: string, init?: RequestInit): Promise<string
   const res = await fetch(url, {
     ...init,
     headers: {
-      "user-agent": "daily-news-bot/0.1 (+https://github.com/)",
+      "user-agent": USER_AGENT,
       ...(init?.headers ?? {}),
     },
   });

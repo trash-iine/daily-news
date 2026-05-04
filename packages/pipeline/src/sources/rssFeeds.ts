@@ -1,9 +1,9 @@
 import Parser from "rss-parser";
 import { isFresh, readFeedCache, writeFeedCache } from "../cache.js";
+import { USER_AGENT } from "../util.js";
 import type { RawItem } from "./types.js";
 
 const parser = new Parser();
-const USER_AGENT = "daily-news-bot/0.1 (+https://github.com/)";
 const FETCH_TIMEOUT_MS = 10_000;
 const RETRY_DELAYS_MS = [500, 2000];
 

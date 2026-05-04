@@ -15,7 +15,6 @@ import {
   QIITA_API_TAGS,
   RSS_FEEDS,
   TAG_ALIASES,
-  ZENN_API_TOPICS,
 } from "./config.js";
 import { hasNegativeKeyword, scoreFields } from "./score.js";
 import { appendHealth } from "./cache.js";
@@ -23,7 +22,6 @@ import { fetchArxivCategory, type ArxivPaper } from "./sources/arxiv.js";
 import { fetchHackerNewsQuery } from "./sources/hackerNews.js";
 import { fetchQiitaTag } from "./sources/qiitaApi.js";
 import { fetchRssFeed, type FeedFetchResult } from "./sources/rssFeeds.js";
-import { fetchZennTopic } from "./sources/zennApi.js";
 import type { RawItem } from "./sources/types.js";
 import {
   loadRecentNewsIds,
@@ -120,27 +118,32 @@ async function collectNews(): Promise<RawItem[]> {
   const qiitaTasks = QIITA_API_TAGS.map((t) =>
     safeFeed(`qiita-api:${t}`, () => fetchQiitaTag(t, sinceISO)),
   );
-  const zennTasks = ZENN_API_TOPICS.map((t) =>
-    safeFeed(`zenn-api:${t}`, () => fetchZennTopic(t, sinceISO)),
-  );
   const hnTasks = HN_QUERIES.map((q) =>
     safeFeed(`hn:${q}`, () => fetchHackerNewsQuery(q)),
   );
   const all = await Promise.all([
     ...rssTasks,
     ...qiitaTasks,
-    ...zennTasks,
     ...hnTasks,
   ]);
   return all.flat();
 }
 
+const ARXIV_REQUEST_INTERVAL_MS = 3000;
+
 async function collectPapers(): Promise<ArxivPaper[]> {
-  const tasks = ARXIV_CATEGORIES.map((c) =>
-    safe(`arxiv:${c}`, fetchArxivCategory(c)),
-  );
-  const all = await Promise.all(tasks);
-  return all.flat();
+  // arXiv API ToU: "no more than one request every three seconds, and limit
+  // requests to a single connection at a time" — 7 カテゴリを逐次取得する。
+  const out: ArxivPaper[] = [];
+  for (let i = 0; i < ARXIV_CATEGORIES.length; i++) {
+    const c = ARXIV_CATEGORIES[i] as string;
+    const items = await safe(`arxiv:${c}`, fetchArxivCategory(c));
+    out.push(...items);
+    if (i < ARXIV_CATEGORIES.length - 1) {
+      await new Promise((r) => setTimeout(r, ARXIV_REQUEST_INTERVAL_MS));
+    }
+  }
+  return out;
 }
 
 function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
