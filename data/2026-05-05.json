@@ -1,38 +1,36 @@
 {
   "date": "2026-05-05",
-  "generatedAt": "2026-05-04T22:57:22.385Z",
+  "generatedAt": "2026-05-05T01:56:45.958Z",
   "items": [
     {
-      "id": "00c94dbaf0814180",
+      "id": "f30ea1214c419d02",
       "kind": "news",
-      "title": "OpenHarness：1.1万行のPythonでAI Agentの「黒箱」を丸裸にする",
-      "url": "https://zenn.dev/lumichy/articles/openharness-agent-architecture-2026",
-      "summary": "AI Agentのコードを読んだことがありますか？ Claude CodeやCodingAgent系のツールは確かにすごい。コードを書き、テストを走らせ、自律的にバグを直してくれる。でも「中で何が起きているのか」を理解しようと思ってソースを覗くと、そこには51万行のTypeScriptと1,884個のファイルが待ち受けている。正直、3分で閉じました。 香港大学のHKUDSチームが公開したOpenHarnessは、この問題に対する直球の回答です。Claude Codeのコアアー",
+      "title": "自作MCPサーバーのトークン消費を9割削減するTips ── MCPの退避パターン",
+      "url": "https://zenn.dev/aircloset/articles/4c5f49f89db19f",
+      "summary": "",
       "tags": [
-        "python",
         "llm"
       ],
-      "score": 30,
-      "source": "rss:zenn-python",
-      "publishedAt": "2026-05-04T13:39:52.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LNslPtNb--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:OpenHarness%25EF%25BC%259A1.1%25E4%25B8%2587%25E8%25A1%258C%25E3%2581%25AEPython%25E3%2581%25A7AI%2520Agent%25E3%2581%25AE%25E3%2580%258C%25E9%25BB%2592%25E7%25AE%25B1%25E3%2580%258D%25E3%2582%2592%25E4%25B8%25B8%25E8%25A3%25B8%25E3%2581%25AB%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:lumichy%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS2JKREhqSzZDZU9QaFNKLXlfcUFhT1FuS0kwY0JmSWJVZEZUQnJGUWRGNWJNSUU5T2s9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+      "score": 44,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-01T10:10:07.399+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--QXN22zXz--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E8%2587%25AA%25E4%25BD%259CMCP%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%25AE%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E6%25B6%2588%25E8%25B2%25BB%25E3%2582%25929%25E5%2589%25B2%25E5%2589%258A%25E6%25B8%259B%25E3%2581%2599%25E3%2582%258BTips%2520%25E2%2594%2580%25E2%2594%2580%2520MCP%25E3%2581%25AE%25E9%2580%2580%25E9%2581%25BF%25E3%2583%2591%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%25B3%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E8%25BE%25BB%2520%25E4%25BA%25AE%25E4%25BD%2591%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzkxZjY1NmYzNDQuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25A8%25E3%2582%25A2%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25BC%25E3%2583%2583%25E3%2583%2588%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2EyNzdkMDFjYWQuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
-      "id": "1857968f25351857",
+      "id": "86db2a39ec6f465b",
       "kind": "news",
-      "title": "Claude Code + Python で AI 情報収集→記事化パイプラインを Phase 3 まで作って分かったこと",
-      "url": "https://zenn.dev/masaki333/articles/31dd976fa49737",
-      "summary": "本記事は 2026-05 時点の実装・運用ログに基づく。 なぜ作ったか Claude Code が面白そうだという理由だけで始めた、というのが正直なところだ。 AI ツールの情報は速い。公式リリースノート、Hacker News のスレッド、Reddit の事例共有、Zenn の技術記事——毎週何十件と流れてくる。それを手作業で追うのは限界があるし、そもそも「追った気になって何も残らない」を繰り返していた。 「それなら自動で集めて、Claude に要約させて、Note に投稿",
+      "title": "中学生が趣味で開発しているOS、mochiOS",
+      "url": "https://zenn.dev/nekogakure/articles/5d88b39258e144",
+      "summary": "",
       "tags": [
-        "python",
-        "llm"
+        "rust"
       ],
-      "score": 27,
-      "source": "rss:zenn-python",
-      "publishedAt": "2026-05-04T09:02:41.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--uJx0wmDY--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%252B%2520Python%2520%25E3%2581%25A7%2520AI%2520%25E6%2583%2585%25E5%25A0%25B1%25E5%258F%258E%25E9%259B%2586%25E2%2586%2592%25E8%25A8%2598%25E4%25BA%258B%25E5%258C%2596%25E3%2583%2591%25E3%2582%25A4%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%2592%2520Phase%25203%2520%25E3%2581%25BE%25E3%2581%25A7%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E5%2588%2586%25E3%2581%258B...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:masaki%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2RhcmsvbS5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+      "score": 29,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-04T15:14:04.995+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--G1Q6NnrQ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E4%25B8%25AD%25E5%25AD%25A6%25E7%2594%259F%25E3%2581%258C%25E8%25B6%25A3%25E5%2591%25B3%25E3%2581%25A7%25E9%2596%258B%25E7%2599%25BA%25E3%2581%2597%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258BOS%25E3%2580%2581mochiOS%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%259F%25E3%2581%259D%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzZjYjUyN2ZmYWYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
       "id": "e8e432ff41cd785f",
@@ -46,38 +44,37 @@
       "score": 27,
       "source": "rss:rust-blog",
       "publishedAt": "2026-05-04T00:00:00.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
       "thumbnail": "https://www.rust-lang.org/static/images/rust-social-wide.jpg"
     },
     {
-      "id": "3cbacbb4c2ee5745",
+      "id": "ce50febda2ff8356",
       "kind": "news",
-      "title": "OpenHarness：1.1万行のPythonでAI Agentの「黒箱」を丸裸にする",
-      "url": "https://qiita.com/lumichy/items/71f9f6fca86510e46db7",
-      "summary": "![カバー画像](https://raw.githubusercontent.com/lumichy/Qiita/main/public/openharness-agent-architecture-2026/cover.png) AI Agentのコードを読んだことがありますか？ Claude CodeやCodingAgent系のツールは確かにすごい。コードを書き、テストを走らせ、自律的にバグを直してくれる。でも「中で何が起きているのか」を理解しようと思ってソースを覗くと、",
+      "title": "Bun is being ported from Zig to Rust",
+      "url": "https://github.com/oven-sh/bun/commit/46d3bc29f270fa881dd5730ef1549e88407701a5",
+      "summary": "",
       "tags": [
-        "python",
-        "llm"
+        "rust"
       ],
-      "score": 27,
-      "source": "qiita-api:python",
-      "publishedAt": "2026-05-04T22:39:39+09:00",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjExMzMyNiUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NjU1NjA4OT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MDJkZTBhZjE3OTU0YTFlNTI2N2Q0MzhkMzE1Y2RhYzQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D1c1efafb01d33be64d68c348bc4a73db?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9T3Blbkhhcm5lc3MlRUYlQkMlOUExLjElRTQlQjglODclRTglQTElOEMlRTMlODElQUVQeXRob24lRTMlODElQTdBSSUyMEFnZW50JUUzJTgxJUFFJUUzJTgwJThDJUU5JUJCJTkyJUU3JUFFJUIxJUUzJTgwJThEJUUzJTgyJTkyJUU0JUI4JUI4JUU4JUEzJUI4JUUzJTgxJUFCJUUzJTgxJTk5JUUzJTgyJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZjZjY2U1ZTkwY2U2NjFjNTg1NjgwYTBlZjY0YTgzZWU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBsdW1pY2h5JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ODEwNWNjMjBkMTY4ODQ5YzFiOTY3NjgwNjljZGJlNWQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=32595a1d4d124387b96b145cb2afb496"
+      "score": 25,
+      "source": "hn:rust",
+      "publishedAt": "2026-05-05T01:08:17.000Z",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://opengraph.githubassets.com/71b057188fb96b3e204004bda82c56574fc44a5f6c7958772ae6d55f18d93afb/oven-sh/bun/commit/46d3bc29f270fa881dd5730ef1549e88407701a5"
     },
     {
       "id": "05b1fcbf99cfadd7",
       "kind": "paper",
       "title": "A Resource-Efficient Variational Quantum Framework for the Traveling Salesman Problem",
       "url": "https://arxiv.org/abs/2605.00739",
-      "summary": "巡回セールスマン問題（TSP）は典型的な組合せ最適化問題ですが、その量子実装は標準的なワンホットエンコーディングによるO(n^2)量子ビットのオーバーヘッドによって制約されています。本研究では、コンパクトなバイナリレジスタエンコーディングに基づくリソース効率の良い変分量子フレームワーク、順列を保持する問題にインスパイアされたアンサッツ、そして補完的な分割統治実行戦略を提案します。コンパクトエンコーディングにより、データ量子ビットの要件がO(n log n)に削減され、分割統治の定式化によって各ローカルハードウェア実行に必要な量子ビット数が最大サブシステムのサイズにまで低下します。4、5、6都市のTSPインスタンスに対する数値シミュレーションでは、それぞれ100%、100%、95.5%の最高平均成功率を達成しました。また、5都市のTSPインスタンスに対する分割統治近似のローカル二量子ビット実装が、SpinQ Gemini ProおよびSpinQ Triangulum II NMR量子コンピュータ上でさらに評価されました。これらの結果は、コンパクトエンコーディングと古典的な後処理を用いた分割統治実行が、リソース制約のある量子ハードウェア上で小規模な組合せ最適化問題を研究するためにどのように利用できるかを示しています。",
+      "summary": "巡回セールスマン問題（TSP）は、典型的な組合せ最適化問題ですが、その量子実装は標準的なワンホットエンコーディングによるO(n^2)量子ビットのオーバーヘッドによって制限されています。本研究では、コンパクトなバイナリレジスタエンコーディング、順列を保持する問題にインスパイアされたアンサッツ（近似解法）、および補完的な分割統治実行戦略に基づくリソース効率の良い変分量子フレームワークを提案します。コンパクトエンコーディングにより、データ量子ビットの必要数はO(n log n)に削減され、分割統治の定式化によって各ローカルハードウェア実行に必要な量子ビット数は最大のサブシステムのサイズにまで低下します。4、5、6都市のTSPインスタンスに対する数値シミュレーションでは、それぞれ100%、100%、95.5%の最高平均成功率を達成しました。さらに、分割統治近似のローカルな二量子ビット実装が、SpinQ Gemini ProおよびSpinQ Triangulum II NMR量子コンピュータ上で5都市のTSPインスタンスに対して評価されました。これらの結果は、コンパクトエンコーディングと分割統治実行を組み合わせ、古典的な後処理を用いることで、リソース制約のある量子ハードウェア上で小規模な組合せ最適化問題を研究する方法を示しています。",
       "tags": [
         "optimization"
       ],
       "score": 24,
       "source": "arxiv:quant-ph",
       "publishedAt": "2026-05-04T04:00:00.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.328Z",
+      "fetchedAt": "2026-05-05T01:56:34.992Z",
       "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
@@ -92,68 +89,7 @@
       "score": 22,
       "source": "hn:claude",
       "publishedAt": "2026-05-04T14:22:20.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z"
-    },
-    {
-      "id": "5259ae40277d384a",
-      "kind": "news",
-      "title": "【Claude Code】カスタムステータスラインがホームディレクトリで表示されない",
-      "url": "https://qiita.com/ryu-ki/items/fa32472acb437bd2565a?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
-      "summary": "はじめに Claude Code のカスタムステータスラインは、画面下部にコンテキスト残量や使用率、モデル名などを表示してくれる便利機能です。 私も ~/.claude/settings.json に Python スクリプトを仕込んで、ずっと愛用しています。 と...",
-      "tags": [
-        "python",
-        "llm"
-      ],
-      "score": 21,
-      "source": "rss:qiita-popular",
-      "publishedAt": "2026-05-04T09:32:30.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzOTIxODAyJTJGYTA4NTVjYzQ4ZWI0ZTI5MjkzZjQ1Mjg4NGIxMWEyNTMxMGEwM2RjNiUyRmxhcmdlLnBuZyUzRjE3MzY4MjA0ODc_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWM1YTgzNmY1MWE3YTUzY2IzMzFhNmU2MzZmYjEwYjgy%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D06b2a2527ec6efeb66ffa950553cc893?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwQ2xhdWRlJTIwQ29kZSVFMyU4MCU5MSVFMyU4MiVBQiVFMyU4MiVCOSVFMyU4MiVCRiVFMyU4MyVBMCVFMyU4MiVCOSVFMyU4MyU4NiVFMyU4MyVCQyVFMyU4MiVCRiVFMyU4MiVCOSVFMyU4MyVBOSVFMyU4MiVBNCVFMyU4MyVCMyVFMyU4MSU4QyVFMyU4MyU5QiVFMyU4MyVCQyVFMyU4MyVBMCVFMyU4MyU4NyVFMyU4MiVBMyVFMyU4MyVBQyVFMyU4MiVBRiVFMyU4MyU4OCVFMyU4MyVBQSVFMyU4MSVBNyVFOCVBMSVBOCVFNyVBNCVCQSVFMyU4MSU5NSVFMyU4MiU4QyVFMyU4MSVBQSVFMyU4MSU4NCZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTg0YTY2OWMxOWFkNjMwOGYyYmJiMTZkYTBkN2Y2MTdj&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDByeXUta2kmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz0yZGZmMmYyY2QyM2E0MzgwYjAyY2Q4MzA1MDdjMjMyZg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=9ea97972f47742ef4acb6585f891dd2f"
-    },
-    {
-      "id": "45862faf2ac20b1b",
-      "kind": "news",
-      "title": "Claude Code Hooks を本番運用で踏んだ 4 つの罠と、責務をどう絞ったか",
-      "url": "https://zenn.dev/zoetaka38/articles/d78cc822e4bde2",
-      "summary": "はじめに 前回(zenn-012)で Skill とコマンドの分業を書いたあと、@kawai_design さんとのやり取りで「優先順は CLAUDE.md → Skill → MCP → GitHub → Hooks」という話を貰った。並びとしてはほぼ同意で、自分の運用も大体この順に効きを足していった結果になっている。ただ Hooks だけは触り始めてから 「効きすぎる側」 の罠を結構踏んだので、そこを切り出して書いておきたい。 Hooks は Claude Code の中",
-      "tags": [
-        "llm"
-      ],
-      "score": 21,
-      "source": "rss:zenn-claude",
-      "publishedAt": "2026-05-04T04:01:05.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Z0gMQ0rM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520Hooks%2520%25E3%2582%2592%25E6%259C%25AC%25E7%2595%25AA%25E9%2581%258B%25E7%2594%25A8%25E3%2581%25A7%25E8%25B8%258F%25E3%2582%2593%25E3%2581%25A0%25204%2520%25E3%2581%25A4%25E3%2581%25AE%25E7%25BD%25A0%25E3%2581%25A8%25E3%2580%2581%25E8%25B2%25AC%25E5%258B%2599%25E3%2582%2592%25E3%2581%25A9%25E3%2581%2586%25E7%25B5%259E%25E3%2581%25A3%25E3%2581%259F%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:zoetaka38%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZiMzIwZDRjNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "4b750e5898c7ef3e",
-      "kind": "news",
-      "title": "Claude CodeとGitHub ProjectsでIssue駆動開発",
-      "url": "https://zenn.dev/misumith/articles/01ca0394dc4a53",
-      "summary": "こちらの記事を参考にissueベースでの開発をやってみました。 https://dev.classmethod.jp/articles/claude-github-gemini/ 今回は一人でやりましたが、チームでやると便利そうです。 開発の流れ ProjectsのBacklogレーンにIssueを作る 開発するIssueをReadyに移動 Claude CodeにReadyにあるIssueに着手してもらう Claudeがブランチ作成、開発、コミット、PR作成する Issue",
-      "tags": [
-        "llm"
-      ],
-      "score": 21,
-      "source": "rss:zenn-claude",
-      "publishedAt": "2026-05-04T03:35:10.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--lUPPtA-R--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25A8GitHub%2520Projects%25E3%2581%25A7Issue%25E9%25A7%2586%25E5%258B%2595%25E9%2596%258B%25E7%2599%25BA%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E2%2596%25B2%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2oxazBJYWtFWjRGRzZJQkVlNWp1V1B6V3JGZnAxSVhMMVIyLWU0M3c9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "fe3535cbd0f1dca4",
-      "kind": "news",
-      "title": "Claude / Gemini CLIで学習データに使われないようにする設定まとめ",
-      "url": "https://qiita.com/zygm/items/49ca9350d03fa9f19c88",
-      "summary": "## 概要 LLMを上手に使いこなすことは、エンジニアとして業務を行う上で今や必須だ。 ここでは、Claude DesktopとClaude Code（CLI）、そしてGemini CLIについて、 入力した情報がLLMの学習データとして利用されないようにする設定方法をまとめる。 --- ## Claude Desktopにて入力した情報が学習データに取り込まれないようにする方法 下記のトグルをオフにする。 ![image.png](https://qiita-image-s",
-      "tags": [
-        "llm"
-      ],
-      "score": 19,
-      "source": "qiita-api:claude",
-      "publishedAt": "2026-05-04T17:21:29+09:00",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY0YjI1OTA0OWYwNjQyMTY1NDI0ZTUzYmIzNzcxYWY3NT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MjI5MmUwYjAyNjNiMmY2YmMzYWFhNzM0YWMwMWEyMmM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D844142143d33ed056f7f11b3db24599c?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwJTJGJTIwR2VtaW5pJTIwQ0xJJUUzJTgxJUE3JUU1JUFEJUE2JUU3JUJGJTkyJUUzJTgzJTg3JUUzJTgzJUJDJUUzJTgyJUJGJUUzJTgxJUFCJUU0JUJEJUJGJUUzJTgyJThGJUUzJTgyJThDJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgyJTg4JUUzJTgxJTg2JUUzJTgxJUFCJUUzJTgxJTk5JUUzJTgyJThCJUU4JUE4JUFEJUU1JUFFJTlBJUUzJTgxJUJFJUUzJTgxJUE4JUUzJTgyJTgxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YzM3NTdjNzJiZDU3ZmY0YmFhYzhhNzcwM2ZhYTNhNjM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB6eWdtJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MWE3MzU1NGRhYjhlNTAxNzg0Y2NkNjkxMGU3OGJmYzU&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=b17a65ffcfe30f1d712df620359c4b2b"
+      "fetchedAt": "2026-05-05T01:56:34.981Z"
     },
     {
       "id": "6a2e7681e2bd7c0d",
@@ -167,7 +103,8 @@
       "score": 19,
       "source": "hn:claude",
       "publishedAt": "2026-05-04T16:33:50.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z"
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://external-preview.redd.it/MzUyam1tY3FsMnpnMVskeXNOY6GFTC0zdsnVoq3bU0AWLZ02PvNpeu6LCANm.png?overlay-align=bottom,left&crop=1200:628.272251309,smart&overlay-height=15p&overlay=%2Fwatermark%2Ft5_7t8hvt.png%3Fs%3D6c8b4e19143e309702de5ae69af6716bcb9035ea&width=1200&height=628.272251309&auto=webp&s=0d1988849a0138dc68d2131b7875c651288c3903"
     },
     {
       "id": "176bfd0b287fb920",
@@ -182,158 +119,36 @@
       "score": 19,
       "source": "hn:python",
       "publishedAt": "2026-05-04T06:34:43.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://miro.medium.com/v2/resize:fit:1200/1*3Wu5XCk9WVJ_UGCJ1NSnRA.png"
+      "fetchedAt": "2026-05-05T01:56:34.981Z"
     },
     {
-      "id": "43625a50ac20e50d",
+      "id": "64b8f786e714895d",
       "kind": "news",
-      "title": "Show HN: Diom – Backend primitives (queue, rate limit, etc.) in one Rust binary",
-      "url": "https://github.com/svix/diom",
-      "summary": "Hey HN, my name is Tom and I'm the founder of Svix. We've been working on Diom ( https://diom.com ) for the last 6 months, and I'm excited to finally share it on HN! Diom is a single Rust binary that replaces Redis, RabbitMQ, Kafka, and a l",
+      "title": "シェル起動時と cd のたびにダッシュボードを描く CLI「splashboard」を作りました",
+      "url": "https://zenn.dev/unhappychoice/articles/splashboard-introduction",
+      "summary": "",
       "tags": [
         "rust"
       ],
-      "score": 19,
-      "source": "hn:python",
-      "publishedAt": "2026-05-03T12:38:21.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://opengraph.githubassets.com/96a0f411161f89673d61f0bbd1d170bfb3ba1375b34987410e8ca08a0d134d1d/svix/diom"
-    },
-    {
-      "id": "80ef667a37f15b5d",
-      "kind": "news",
-      "title": "あなたのClaude CodeのWebFetch、実はWebをちゃんと読んでいない",
-      "url": "https://zenn.dev/zhizhiarv/articles/claude-code-webfetch-haiku-summary",
-      "summary": "結論 Claude Code はWebFetchツールを使う多くの場合、実はWebページの原文を読んでいません。先にHaikuが読んで要約・抽出した結果だけを、あなたのOpusやSonnetが読んで実装を進めています。そして、それは非常に気づきにくい構造となっています。 ! この記事はClaude Codeに内蔵されているWebFetchツールの挙動についてです。以下とは異なります。 Claude API の Web fetch ツール：API経由で利用するWeb fetch",
-      "tags": [
-        "llm"
-      ],
-      "score": 18,
-      "source": "rss:zenn-all",
-      "publishedAt": "2026-05-04T10:39:09.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--CURDvLBK--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2581%2582%25E3%2581%25AA%25E3%2581%259F%25E3%2581%25AEClaude%2520Code%25E3%2581%25AEWebFetch%25E3%2580%2581%25E5%25AE%259F%25E3%2581%25AFWeb%25E3%2582%2592%25E3%2581%25A1%25E3%2582%2583%25E3%2582%2593%25E3%2581%25A8%25E8%25AA%25AD%25E3%2582%2593%25E3%2581%25A7%25E3%2581%2584%25E3%2581%25AA%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:sherry%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzhjYjM0YThjNTEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "efe70feb2c44e7ee",
-      "kind": "news",
-      "title": "Claude CodeユーザーのためのCodex入門",
-      "url": "https://zenn.dev/k9i/articles/20260504_cc_to_codex",
-      "summary": "はじめに 最近、CodexのほうがClaude Codeより使いやすい・性能が高いと感じる人が増えている印象です。 Claude Codeに慣れていて、Codexも使い始めてみたい方向けに、最初に知っておくとよいことを書きます！ この記事は2026年5月時点の私の利用経験と観測範囲をもとにしています。 私のCodex歴について もともとはClaude Code派で、Codexは半年ほどサブで使っていました。 GPT-5.4あたりでClaudeとモデル性能が逆転したと感じ、1ヶ",
-      "tags": [
-        "llm"
-      ],
-      "score": 18,
-      "source": "rss:zenn-all",
-      "publishedAt": "2026-05-04T06:52:29.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--sfoKKjFU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2583%25A6%25E3%2583%25BC%25E3%2582%25B6%25E3%2583%25BC%25E3%2581%25AE%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AECodex%25E5%2585%25A5%25E9%2596%2580%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:K9i%2520a.k.a.%2520%25E3%2581%259F%25E3%2581%2593%25E3%2581%2595%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2JjZjNiMTE1MDUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "b938a3b7c9fdd7d1",
-      "kind": "news",
-      "title": "Claude Codeの「Skill」で、自宅GPUサーバーからAIキャラ画像を自動生成する",
-      "url": "https://zenn.dev/miraclest/articles/claude-code-comfyui-skill-intro",
-      "summary": "この記事は誰のためか 以下のすべてに心当たりがある人向けです。 自宅にGPU搭載サーバーがある（あるいは、これから組む気満々の人） RunPodやNano BananaなどのクラウドGPUに月額課金するのはなんか違う。自分のマシンで回したい Claude Codeを日常的に使っていて、「テキストだけじゃなくて画像も出せたら」と思ったことがある 逸般の誤家庭の住人、またはその予備軍…！？ こんな人にも対応しています： 「GPUはあるけどComfyUIは初めて」→ 後続記事で一か",
-      "tags": [
-        "llm"
-      ],
-      "score": 18,
-      "source": "rss:zenn-all",
-      "publishedAt": "2026-05-03T20:44:47.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--18Vfol__--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AE%25E3%2580%258CSkill%25E3%2580%258D%25E3%2581%25A7%25E3%2580%2581%25E8%2587%25AA%25E5%25AE%2585GPU%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%258B%25E3%2582%2589AI%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%25A9%25E7%2594%25BB%25E5%2583%258F%25E3%2582%2592%25E8%2587%25AA%25E5%258B%2595%25E7%2594%259F%25E6%2588%2590%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Miraclest%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2MxMmNiZGM4NjIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "d43a3ebd5e79a391",
-      "kind": "news",
-      "title": "軽さ重視派の救世主？ Rust製AIネイティブエディタ「Zed」のメジャーリリース版を触ってみた",
-      "url": "https://zenn.dev/kodo8/articles/486aec7da725a1",
-      "summary": "Rust製の超軽量AIネイティブエディタ「Zed」がメジャーリリース（v1.0）となりました。 https://zed.dev/blog/zed-1-0 筆者は普段からHonoやBunといった軽量で高速な技術スタックを好んで使っています。そのため、以前からパフォーマンスの高さで評判になっていた「Zed」にも注目していましたが、ついにメジャーリリースを迎えたということでさっそく試してみました。 本記事では、今回のリリースで何が変わり、技術的にどのようなアプローチが採用されている",
-      "tags": [
-        "rust"
-      ],
-      "score": 18,
-      "source": "rss:zenn-rust",
-      "publishedAt": "2026-05-04T17:16:34.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--j3OYpcbo--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E8%25BB%25BD%25E3%2581%2595%25E9%2587%258D%25E8%25A6%2596%25E6%25B4%25BE%25E3%2581%25AE%25E6%2595%2591%25E4%25B8%2596%25E4%25B8%25BB%25EF%25BC%259F%2520Rust%25E8%25A3%25BDAI%25E3%2583%258D%25E3%2582%25A4%25E3%2583%2586%25E3%2582%25A3%25E3%2583%2596%25E3%2582%25A8%25E3%2583%2587%25E3%2582%25A3%25E3%2582%25BF%25E3%2580%258CZed%25E3%2580%258D%25E3%2581%25AE%25E3%2583%25A1%25E3%2582%25B8%25E3%2583%25A3%25E3%2583%25BC%25E3%2583%25AA%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25B9%25E7%2589%2588%25E3%2582%2592%25E8%25A7%25A6%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kodo%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSUlTZ052bnpBN3Y4Rzk5QXZPTjlKam0yUkJKbjVvQTJINnM0UVhRUFNJRUhiTDNhRWJ4UT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "58ce392f4562bba6",
-      "kind": "news",
-      "title": "[写経]Rustの練習帳 Chapter 4(その1) FromトレイトからErrorトレイトへ",
-      "url": "https://zenn.dev/okani/articles/7f5c2997f3e7ff",
-      "summary": "教材 書籍「Rustの練習帳」を使って、教養としての Rust を勉強。 https://www.oreilly.co.jp/books/9784814400584/ 前回のページ： https://zenn.dev/okani/articles/0f5039df081d09 立ちはだかる壁が高い AIの力を借りながら何とか4章をやり抜いたものの、色々と壁にぶつかり苦労の連続で終わってしまった😵‍💫 4章で疑問に思った箇所やつまづいたところを振り返っていく。 単体テストと",
-      "tags": [
-        "rust"
-      ],
-      "score": 18,
-      "source": "rss:zenn-rust",
-      "publishedAt": "2026-05-04T07:21:11.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0X0_hKZp--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%255B%25E5%2586%2599%25E7%25B5%258C%255DRust%25E3%2581%25AE%25E7%25B7%25B4%25E7%25BF%2592%25E5%25B8%25B3%2520Chapter%25204%2528%25E3%2581%259D%25E3%2581%25AE1%2529%2520From%25E3%2583%2588%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%2588%25E3%2581%258B%25E3%2582%2589Error%25E3%2583%2588%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%2588%25E3%2581%25B8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:okaniCo_oC%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzAzMjU5NmZiYTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "0dc5e6e6d602fd3e",
-      "kind": "news",
-      "title": "Claude Code の設計思想に追随する ── C3 v0.4.4 / PO v0.1.4",
-      "url": "https://zenn.dev/satoh_y_0323/articles/7afec867ae423e",
-      "summary": "前回記事: https://zenn.dev/satoh_y_0323/articles/0954fd57390aeb C3 GitHub: https://github.com/satoh-y-0323/claude-code-conductor / PyPI: https://pypi.org/project/claude-code-conductor/ PO GitHub: https://github.com/satoh-y-0323/parallel-orchest",
-      "tags": [
-        "llm"
-      ],
-      "score": 18,
-      "source": "rss:zenn-python",
-      "publishedAt": "2026-05-04T07:27:14.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--8Q9cKYHi--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25AE%25E8%25A8%25AD%25E8%25A8%2588%25E6%2580%259D%25E6%2583%25B3%25E3%2581%25AB%25E8%25BF%25BD%25E9%259A%258F%25E3%2581%2599%25E3%2582%258B%2520%25E2%2594%2580%25E2%2594%2580%2520C3%2520v0.4.4%2520%252F%2520PO%2520v0.1.4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:satoh-y-0323%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzAwMDMzNjljMTMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
-    },
-    {
-      "id": "042066eab8b7281d",
-      "kind": "news",
-      "title": "Rust + Tokio で設定可能な TCP エコーサーバーを作った",
-      "url": "https://qiita.com/sen-ltd/items/e0dd64bca7a9621fb9d1",
-      "summary": "## きっかけ TCP エコーサーバーは自明に見える。接続を受け、データを読み、送り返す。Python なら15行で書ける。しかし実用的な要件を足し始めると、非同期システム設計の良い演習になる。同時接続数の制限、アイドルタイムアウト、変換パイプライン、構造化ログ。 `tcpecho-rs` は Rust + Tokio で作った設定可能な TCP エコーサーバー。面白いのはエコーそのものではなく、**セマフォベースの接続制限**、**合成可能な変換パイプライン**、**リソー",
-      "tags": [
-        "rust",
-        "python"
-      ],
-      "score": 18,
-      "source": "qiita-api:rust",
-      "publishedAt": "2026-05-04T20:16:20+09:00",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDExNzkxJTJGYTZhNGM1MTg4NWFhYjAxNTEzNmVkNTdkN2M0NmE5Zjc1ZjVlOTZkOSUyRnhfbGFyZ2UucG5nJTNGMTc3NjczMzQ3NT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MTFhY2Q0MmIzMzk2MjAzZTQ5ZjMwMzMwNTlkNDc4MzI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D59dd8e86f63e34196a452305d90aca93?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9UnVzdCUyMCUyQiUyMFRva2lvJTIwJUUzJTgxJUE3JUU4JUE4JUFEJUU1JUFFJTlBJUU1JThGJUFGJUU4JTgzJUJEJUUzJTgxJUFBJTIwVENQJTIwJUUzJTgyJUE4JUUzJTgyJUIzJUUzJTgzJUJDJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgzJUJDJUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgxJUEzJUUzJTgxJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MTk4MTQwNzQyYjAwZTViNGRiNjhmMDI4ZTkzZTM4MzU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzZW4tbHRkJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NTYyZjRjNmMzNTUzOTZlNjI3MGI1OGE1NzA1MGIzNzM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=cff525796f8a2a3ef89cd2e71c13046f"
-    },
-    {
-      "id": "220ef83c06839ebe",
-      "kind": "news",
-      "title": "Claude Code が API 400 で詰まる時——cache_control 空テキストブロックの根本原因と復旧",
-      "url": "https://qiita.com/yurukusa/items/fbe51b3ce6b025dd089c",
-      "summary": "2026 年 4-5 月の Claude Code の自動運用の中で、 短いセッションでも突然 `400` エラーで動かなくなる事故が複数回起きた。 GitHub Issue を遡ると同じ根本原因 (cache_control が空テキストブロックに付いている状態) で 12 本以上のスレッドが立っていた。 個別の報告は散発的だが、 1 つの原因にまとまっている。 公式の更新の通知には記載が無いため、 利用者の側で発見して、 利用者の側で復旧する必要がある型の不具合。 この記",
-      "tags": [
-        "llm"
-      ],
-      "score": 18,
-      "source": "qiita-api:claude",
-      "publishedAt": "2026-05-05T04:45:06+09:00",
-      "fetchedAt": "2026-05-04T22:57:12.296Z",
-      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzU0MTk3JTJGNzY4MGMzNmI0MjExOWM0NTJhZGE3NTg4MmZmYTdiZGY2YWM5OWY5MSUyRmxhcmdlLnBuZyUzRjE3NzM1OTE5OTU_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWY2NzlkNTUyZTUxZTY1YTZkNTE1NWNiMDY1OWY4M2Uz%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dabf9ad6160c15f0825d62e524e5418ea?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MSU4QyUyMEFQSSUyMDQwMCUyMCVFMyU4MSVBNyVFOCVBOSVCMCVFMyU4MSVCRSVFMyU4MiU4QiVFNiU5OSU4MiVFMiU4MCU5NCVFMiU4MCU5NGNhY2hlX2NvbnRyb2wlMjAlRTclQTklQkElRTMlODMlODYlRTMlODIlQUQlRTMlODIlQjklRTMlODMlODglRTMlODMlOTYlRTMlODMlQUQlRTMlODMlODMlRTMlODIlQUYlRTMlODElQUUlRTYlQTAlQjklRTYlOUMlQUMlRTUlOEUlOUYlRTUlOUIlQTAlRTMlODElQTglRTUlQkUlQTklRTYlOTclQTcmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz01MGFiNTI1ZTcyNmM1MGJjOGRlODViZTFiOWEyM2VjYQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB5dXJ1a3VzYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWUzZjE5NmRiNTgxN2MyNzIyZTk5MDFiZTYxNDUyNTIz&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=04b34b6fd14911290ef85ccf6a8ebaeb"
+      "score": 13,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-04-29T14:45:05.075+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--25xV9Qwb--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B7%25E3%2582%25A7%25E3%2583%25AB%25E8%25B5%25B7%25E5%258B%2595%25E6%2599%2582%25E3%2581%25A8%2520cd%2520%25E3%2581%25AE%25E3%2581%259F%25E3%2581%25B3%25E3%2581%25AB%25E3%2583%2580%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%25E3%2582%2592%25E6%258F%258F%25E3%2581%258F%2520CLI%25E3%2580%258Csplashboard%25E3%2580%258D%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258A%25E3%2581%25BE%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Yuji%2520Ueki%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2htc0V1eUFJV0pMZjZCTGdTM1VweG5INnU5N0RCTHlrRkhXZmg5Q2t3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
       "id": "5176984e6d0022bb",
       "kind": "paper",
       "title": "The Keplerian Traveling Salesperson Problem",
       "url": "https://arxiv.org/abs/2605.00010",
-      "summary": "私たちは、宇宙ミッションの設計と宇宙物流における基本的な課題に取り組んでいます。それは、複数の天体とランデブー（接触）する必要があるミッションのための惑星間軌道の計画です。このようなミッションは、例えば、宇宙ごみの除去、軌道上のサービス、または小惑星帯の探査などで発生します。私たちはこれらの問題を、旅行セールスマン問題（TSP）の変種としてモデル化し、これをケプラー旅行セールスマン問題（KTSP）と呼びます。従来のTSPとは異なり、KTSPは軌道上のターゲットの動きを考慮に入れており、時間依存的かつ非対称の移動コストを導入しています。これにより、天体力学における重要な現実世界の影響を捉えています。\n\nKTSPの厳密な定式化を提供し、その研究を支援するためのベンチマークスイートを公開します。私たちのアプローチの中心には、時間展開ネットワークにおける連続的な問題を離散最適化タスクとして再定式化する時間展開技術があります。この表現により、天体力学に関する事前知識がなくても、離散最適化の研究者がベンチマークにアクセスできるようになります。また、移動の時間依存性に対処するために、区間ベースの動的離散化発見を使用した整数線形プログラムとしての代替エンコーディングも開発しました。\n\n最先端の整数線形プログラム（ILP）ソルバーを活用してKTSPのインスタンスを解決し、その強みと限界を強調する詳細な計算研究を行います。これらの正確な手法に加えて、初期解のヒューリスティック、改善ヒューリスティック、および最適性を保持する前処理ルーチンを補完的に提供します。",
+      "summary": "私たちは、宇宙ミッションの設計と宇宙物流における基本的な課題に取り組んでいます。それは、複数の天体とランデブー（接触）する必要があるミッションのための惑星間軌道の計画です。このようなミッションは、例えば、宇宙ごみの除去、軌道上のサービス、または小惑星帯の探査などで発生します。私たちはこれらの問題を、旅行セールスマン問題（TSP）の一種としてモデル化し、これをケプラー旅行セールスマン問題（KTSP）と呼びます。従来のTSPとは異なり、KTSPは軌道上のターゲットの動きを考慮に入れており、時間依存的かつ非対称の移動コストを導入しています。これにより、天体力学における重要な現実の影響を捉えています。\n\nKTSPの厳密な定式化を提供し、その研究を支援するためのベンチマークスイートを公開します。私たちのアプローチの中心には、時間展開技術があり、これにより連続的な問題を時間拡張ネットワーク内の離散最適化タスクとして再定式化します。この表現により、天体力学の事前知識がなくても、離散最適化の研究者がベンチマークにアクセスできるようになります。また、時間依存的な移動を扱うために、区間ベースの動的離散化発見を用いた整数線形計画（ILP）としての代替エンコーディングも開発しました。\n\nKTSPのインスタンスを解決するために、最先端のILPソルバーを活用し、それらの強みと限界を強調する詳細な計算研究を伴います。これらの正確な手法に加えて、初期解のヒューリスティック、改善ヒューリスティック、および最適性を保持する前処理ルーチンを補完的に提供します。",
       "tags": [
         "optimization"
       ],
       "score": 12,
       "source": "arxiv:math.OC",
       "publishedAt": "2026-05-04T04:00:00.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.328Z",
+      "fetchedAt": "2026-05-05T01:56:34.992Z",
       "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
@@ -341,14 +156,14 @@
       "kind": "paper",
       "title": "Weisfeiler Lehman Test on Combinatorial Complexes: Generalized Expressive Power of Topological Neural Networks",
       "url": "https://arxiv.org/abs/2605.00725",
-      "summary": "組合せ複体は、集合ベースの構造（例えば、グラフやハイパーグラフ）と部分-全体構造（例えば、単体複体や細胞複体）を共通の位相的枠組みに統合しています。既存の位相的ニューラルネットワークやワイゼフェル-レーマン（WL）変種は断片的であり、位相的深層学習のための統一された理論的基盤が欠けています。本研究では、組合せ複体に対するWLテストの公理的スタイルの拡張である組合せ複体ワイゼフェル-レーマン（CCWL）テストを導入します。CCWLは、4種類の近傍関係を通じて位相的メッセージパッシングを形式化し、高次の変種の表現力に関する統一的な視点を提供します。さらに、上位近傍と下位近傍の2つが、組合せ複体の位相的構造全体にわたるCCWLフレームワークの表現力を達成するために必要十分であることを証明します。このフレームワークに基づき、組合せ複体同型ネットワーク（CCIN）を提案し、合成データおよび実世界のベンチマークで評価を行いました。実験結果は、CCINがベースライン手法を上回り、位相的深層学習のための一般化された表現フレームワークを提供することを示しています。",
+      "summary": "組合せ複体は、集合に基づく構造（例：グラフ、ハイパーグラフ）と部分・全体の構造（例：単体複体、セル複体）を共通の位相的枠組みに統合しています。しかし、既存の位相的ニューラルネットワークやワイゼフェル・レーマンの変種は断片的であり、位相的深層学習のための統一された理論的基盤が欠けています。本研究では、組合せ複体に対するワイゼフェル・レーマン（WL）テストの公理的な拡張である組合せ複体ワイゼフェル・レーマン（CCWL）テストを紹介します。CCWLは、4種類の近傍関係を通じて位相的メッセージパッシングを形式化し、高次の変種の表現力に関する統一的な視点を提供します。さらに、4つの隣接するWLテストの中で上位および下位の近傍が、組合せ複体の位相的構造全体にわたるCCWLフレームワークの表現力を達成するのに十分であることを証明します。このフレームワークに基づき、組合せ複体同型ネットワーク（CCIN）を提案し、合成データと実世界のベンチマークで評価を行いました。実験結果は、CCINがベースライン手法を上回り、位相的深層学習のための一般化された表現フレームワークを提供することを示しています。",
       "tags": [
         "optimization"
       ],
       "score": 12,
       "source": "arxiv:cs.LG",
       "publishedAt": "2026-05-04T04:00:00.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.328Z",
+      "fetchedAt": "2026-05-05T01:56:34.992Z",
       "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
     },
     {
@@ -356,30 +171,285 @@
       "kind": "paper",
       "title": "Meritocratic Fairness in Budgeted Combinatorial Multi-armed Bandits via Shapley Values",
       "url": "https://arxiv.org/abs/2605.00762",
-      "summary": "新しいフレームワークを提案します。これは、フルバンディットフィードバック（BCMAB-FBF）を持つ予算付き組合せマルチアームバンディットにおけるメリトクラティックな公平性を実現するものです。セミバンディットフィードバックとは異なり、フルバンディットフィードバックでは個々のアームの貢献が完全には得られないため、設定が大幅に難しくなります。BCMAB-FBFにおけるアームの貢献を計算するために、まず協力ゲーム理論からの古典的な解決概念であるシャプレー値を拡張し、$K$-シャプレー値を定義します。これは、サイズが最大$K$の集合に制限されたエージェントの限界的な貢献を捉えます。私たちは、$K$-シャプレー値が対称性、線形性、無効プレイヤー、効率性の特性を満たす唯一の解決概念であることを示します。次に、K-SVFair-FBFという公平性を考慮したバンディットアルゴリズムを提案します。このアルゴリズムは、未知の評価関数に対して$K$-シャプレー値を適応的に推定します。標準的なフルバンディットフィードバックに関する文献とは異なり、K-SVFair-FBFはフルフィードバック設定の下で評価関数を学習するだけでなく、モンテカルロ近似から生じるノイズを軽減します。理論的には、K-SVFair-FBFが公平性の後悔に対して$O(T^{3/4})$の後悔境界を達成することを証明します。フェデレーテッドラーニングや社会的影響の最大化データセットに関する実験を通じて、私たちのアプローチが公平性を達成し、既存のベースラインよりも効果的に機能することを示します。",
+      "summary": "新しいフレームワークを提案します。これは、予算付きの組合せマルチアームバンディット（BCMAB）におけるメリトクラティックな公平性を扱うもので、特にフルバンディットフィードバック（FBF）を考慮しています。セミバンディットフィードバックとは異なり、フルバンディットフィードバックでは個々のアームの貢献が完全には得られないため、設定が大幅に難しくなります。BCMAB-FBFにおけるアームの貢献を計算するために、まず協力ゲーム理論からの古典的な解決概念であるシャプレー値を拡張し、$K$-シャプレー値を導入します。これは、サイズが最大$K$の集合に制限されたエージェントの限界的な貢献を捉えます。私たちは、$K$-シャプレー値が対称性、線形性、無効プレイヤー、効率性の特性を満たす唯一の解決概念であることを示します。次に、K-SVFair-FBFという公平性を考慮したバンディットアルゴリズムを提案します。これは、未知の評価関数に対して$K$-シャプレー値を適応的に推定します。従来のフルバンディットフィードバックに関する文献とは異なり、K-SVFair-FBFはフルフィードバック設定の下で評価関数を学習するだけでなく、モンテカルロ近似から生じるノイズを軽減します。理論的には、K-SVFair-FBFが公平性に関する後悔の境界を$O(T^{3/4})$で達成することを証明します。フェデレーテッドラーニングや社会的影響の最大化データセットに関する実験を通じて、私たちのアプローチが公平性を実現し、既存のベースラインよりも効果的に機能することを示します。",
       "tags": [
         "optimization"
       ],
       "score": 12,
       "source": "arxiv:cs.LG",
       "publishedAt": "2026-05-04T04:00:00.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.328Z",
+      "fetchedAt": "2026-05-05T01:56:34.992Z",
       "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "27dd7762907b803a",
+      "kind": "news",
+      "title": "RaTeX（Pure Rust × WASM）で数式をWebに表示する",
+      "url": "https://zenn.dev/dannchu/articles/ratex-wasm-math-renderer",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 8,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-04T10:14:06.261+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--j4GAHDBe--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:RaTeX%25EF%25BC%2588Pure%2520Rust%2520%25C3%2597%2520WASM%25EF%25BC%2589%25E3%2581%25A7%25E6%2595%25B0%25E5%25BC%258F%25E3%2582%2592Web%25E3%2581%25AB%25E8%25A1%25A8%25E7%25A4%25BA%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E6%25B8%2585%25E6%25B0%25B4%25E5%259B%25A3%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzFkNzg2OWJhNjcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "9aeec2012df06e42",
+      "kind": "news",
+      "title": ".envを平文で置かないためのツールを作ってみた",
+      "url": "https://zenn.dev/coxlessspcond/articles/f1e2d3c4b5a697",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 7,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-04-29T08:22:56.432+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--yfb6dyGt--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:.env%25E3%2582%2592%25E5%25B9%25B3%25E6%2596%2587%25E3%2581%25A7%25E7%25BD%25AE%25E3%2581%258B%25E3%2581%25AA%25E3%2581%2584%25E3%2581%259F%25E3%2582%2581%25E3%2581%25AE%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Coxless%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzVmOGE3MGI4MGUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "4639772e6eb86d42",
+      "kind": "news",
+      "title": "技術調査 - Codex /goal",
+      "url": "https://zenn.dev/suwash/articles/codex_goal_20260502",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 6,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-02T05:06:00.000+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--dnYXCkNZ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%258A%2580%25E8%25A1%2593%25E8%25AA%25BF%25E6%259F%25BB%2520-%2520Codex%2520%252Fgoal%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:suwa-sh%2520%252F%2520%25E8%25AB%258F%25E8%25A8%25AA%25E7%259C%259F%25E4%25B8%2580%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNlQ0cjdIdGJrWG10aG42OE53dmlHWXBLcGI5VWQ5N3hnRS1aQnM9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "b938a3b7c9fdd7d1",
+      "kind": "news",
+      "title": "Claude Codeの「Skill」で、自宅GPUサーバーからAIキャラ画像を自動生成する",
+      "url": "https://zenn.dev/miraclest/articles/claude-code-comfyui-skill-intro",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 6,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-04T05:44:47.242+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--18Vfol__--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AE%25E3%2580%258CSkill%25E3%2580%258D%25E3%2581%25A7%25E3%2580%2581%25E8%2587%25AA%25E5%25AE%2585GPU%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%258B%25E3%2582%2589AI%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%25A9%25E7%2594%25BB%25E5%2583%258F%25E3%2582%2592%25E8%2587%25AA%25E5%258B%2595%25E7%2594%259F%25E6%2588%2590%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Miraclest%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2MxMmNiZGM4NjIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
     },
     {
       "id": "68647d4db9fb0465",
       "kind": "paper",
       "title": "GD4: Graph-based Discrete Denoising Diffusion for MIMO Detection",
       "url": "https://arxiv.org/abs/2605.00423",
-      "summary": "無線通信において、複数の入力と出力を持つ（MIMO）検出問題の最適解を求めることはNP困難です。特に、送信アンテナが$N_t$、受信アンテナが$N_r < N_t$のような過小決定系においては、高品質な準最適解を得ることが、性能と計算の複雑さのトレードオフを考慮すると非常に難しいです。最近の拡散ベースのMIMO検出器は有望な結果を示していますが、推論時に多くのサンプリング反復を必要とし、過小決定のシナリオでは性能が低下します。そこで、私たちはGD4というグラフベースの離散的デノイジング拡散法をMIMO検出のために提案します。既存の拡散ベースの検出器が連続的な緩和空間で動作するのに対し、GD4は離散的なシンボル空間で直接デノイジングを行い、1回または数回のデノイジング評価で迅速な推論を可能にします。数値結果から、同様の推論時間の計算予算の下で、GD4は既存の拡散ベースの検出器や、ボックス制約付きのババイ点、$K$-ベストボックス制約付きのランダム化されたクライン・ババイ点などの広く使用されている古典的なベースラインよりも、過小決定系および過大決定系の両方において高品質な準最適解を生成することが示されました。",
+      "summary": "無線通信において、複数の入力と出力を持つ（MIMO）検出問題の最適解を回復することはNP困難です。送信アンテナが$N_t$、受信アンテナが$N_r < N_t$であるアンダーデターミンドシステムにおいては、性能と計算量のトレードオフが有利な高品質の準最適解を得ることが特に難しいです。最近の拡散ベースのMIMO検出器は有望な結果を示していますが、推論時に多くのサンプリング反復が必要であり、アンダーデターミンドなシナリオでは性能が低下します。そこで、我々はGD4というグラフベースの離散デノイジング拡散手法を提案します。既存の拡散ベースの検出器が連続的な緩和空間で動作するのに対し、GD4は離散的なシンボル空間で直接デノイジングを行い、1回または数回のデノイジング評価で迅速な推論を可能にします。数値結果から、同じ推論時間の計算予算の下で、GD4は既存の拡散ベースの検出器や、ボックス制約付きのババイ点、$K$-ベストボックス制約付きのランダム化されたクライン・ババイ点などの広く使用されている古典的な基準よりも、アンダーデターミンドおよびオーバーデターミンドの両方の設定において高品質の準最適解を生成することが示されています。",
       "tags": [
         "optimization"
       ],
       "score": 5,
       "source": "arxiv:cs.LG",
       "publishedAt": "2026-05-04T04:00:00.000Z",
-      "fetchedAt": "2026-05-04T22:57:12.328Z",
+      "fetchedAt": "2026-05-05T01:56:34.992Z",
       "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "5f93a6ba4edc9b9e",
+      "kind": "news",
+      "title": "stdout × shell integrationで実現する「入力欄に戻るCLI」cmdnote を作った",
+      "url": "https://zenn.dev/dokusy/articles/40f5ff7438bbfa",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 5,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-04-29T12:33:27.279+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Wr6JnYXT--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:stdout%2520%25C3%2597%2520shell%2520integration%25E3%2581%25A7%25E5%25AE%259F%25E7%258F%25BE%25E3%2581%2599%25E3%2582%258B%25E3%2580%258C%25E5%2585%25A5%25E5%258A%259B%25E6%25AC%2584%25E3%2581%25AB%25E6%2588%25BB%25E3%2582%258BCLI%25E3%2580%258Dcmdnote%2520%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25A9%25E3%2581%2585%25E3%2581%258F%25E3%2581%2597%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzRiYTU0YmQxZDcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "2dbeb7e63d72f5ee",
+      "kind": "news",
+      "title": "skill-creatorを自分好みに改良してみませんか？",
+      "url": "https://zenn.dev/einperience/articles/52e7c765f35c6f",
+      "summary": "",
+      "tags": [
+        "llm"
+      ],
+      "score": 5,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-03T14:23:37.564+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--disBj6Eo--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:skill-creator%25E3%2582%2592%25E8%2587%25AA%25E5%2588%2586%25E5%25A5%25BD%25E3%2581%25BF%25E3%2581%25AB%25E6%2594%25B9%25E8%2589%25AF%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%25BE%25E3%2581%259B%25E3%2582%2593%25E3%2581%258B%25EF%25BC%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:artie%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzdkMjc5MmIxNmIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6f4b4290ddfdbc43",
+      "kind": "news",
+      "title": "Rust言語初心者が学習ツールRustlingsを最後までやってみた",
+      "url": "https://qiita.com/t_tanno/items/840ee5b7e3a6640b83c9",
+      "summary": "## はじめに この記事では、Rust初心者向けに、学習ツールRustlingsの紹介と、実際に取り組んだ感想を共有します。 最近マイコンの学習を始めたのですが、その際にRustが組み込みシステムに適しているという記事を読みました。実行速度が速く、メモリ安全性が高いそうです（そのあたりの詳細は本記事では解説しません）。 そこでRustの勉強法を調べてみると、Rustlingsという無料の演習問題集が提供されていることを知りました。 ## 動作確認環境 - Windows 11",
+      "tags": [
+        "rust"
+      ],
+      "score": 4,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-04-30T09:50:09+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkY2YTcxNzI4ZGVkNTMwMTQ0ODI1MGI4Mzg1YTE3ZmMwZD9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NWYyYzY5MzlmZDZiZDU3N2U0MTYzM2IxNjA4MmNhZjU%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D29be5cd1b3237779472d3c5a0a038156?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9UnVzdCVFOCVBOCU4MCVFOCVBQSU5RSVFNSU4OCU5RCVFNSVCRiU4MyVFOCU4MCU4NSVFMyU4MSU4QyVFNSVBRCVBNiVFNyVCRiU5MiVFMyU4MyU4NCVFMyU4MyVCQyVFMyU4MyVBQlJ1c3RsaW5ncyVFMyU4MiU5MiVFNiU5QyU4MCVFNSVCRSU4QyVFMyU4MSVCRSVFMyU4MSVBNyVFMyU4MiU4NCVFMyU4MSVBMyVFMyU4MSVBNiVFMyU4MSVCRiVFMyU4MSU5RiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTk2NmU4ZTI4YzEyMDczYWQzNzAwY2ExZTI5NjM0ZDUw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB0X3Rhbm5vJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MWQ4MTM5Yzk4YzgzM2I4M2EyZGU3ZGZhOTZjZWYzYjQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=b4ec197202703b33a2147b5132576f0c"
+    },
+    {
+      "id": "463a1bcc1f7db3b1",
+      "kind": "news",
+      "title": "Claude Coworkで「Qiita自動投稿bot」を1日で組んだ話",
+      "url": "https://qiita.com/Ngen/items/8b91b3302a24e1429ccc",
+      "summary": "> このシリーズは、Claude Cowork を社内AXの常駐エンジンとして運用する実践ログです。社内固有名・個人名等は伏せています。 「毎日Qiitaを書きたいけど続かない」を、Claude Cowork のスケジュールタスクに肩代わりしてもらう仕組みを当日中に組みました。本記事は、設計判断・トークン管理・守秘ポリシー・記事生成プロンプトまで全部公開します。**そして、この記事自体が、その自動投稿botから配信されています**。 ## なぜ作ったか 3つの動機がありました",
+      "tags": [
+        "llm"
+      ],
+      "score": 4,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-04T15:43:14+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDIzNTUwJTJGYTIyZDJiODFmNjdiYWI4ODE1MmVjYWM3ZjRiZmRhZTkzZWIyZmIzYSUyRmxhcmdlLnBuZyUzRjE3Nzc4NzcxODA_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTlmYjdkMDUyMWY0OTQwZjAzNTU0Zjg1M2VhMzNiYjFj%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbdaf139217293a2a27df7429f2c3254f?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ293b3JrJUUzJTgxJUE3JUUzJTgwJThDUWlpdGElRTglODclQUElRTUlOEIlOTUlRTYlOEElOTUlRTclQTglQkZib3QlRTMlODAlOEQlRTMlODIlOTIxJUU2JTk3JUE1JUUzJTgxJUE3JUU3JUI1JTg0JUUzJTgyJTkzJUUzJTgxJUEwJUU4JUE5JUIxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YTZlMjI4YjExZmM0NDZiMWYzOTk2MWY5MzZhMmQ0YWI&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBOZ2VuJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MWQ3OTVjYzgyMDRkZTNjODljMTkwZjg1OWU0NDQwOWM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=70888bb6e0689908fe3f4822ae01a2e4"
+    },
+    {
+      "id": "1b365a2416ae9e23",
+      "kind": "news",
+      "title": "Rust/Tauriのビルドが謎のロックで失敗する原因はRiotのアンチチートだった",
+      "url": "https://zenn.dev/musoukun/articles/0598eb29952c74",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-03T10:28:39.858+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--A7yUrfQ4--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%252FTauri%25E3%2581%25AE%25E3%2583%2593%25E3%2583%25AB%25E3%2583%2589%25E3%2581%258C%25E8%25AC%258E%25E3%2581%25AE%25E3%2583%25AD%25E3%2583%2583%25E3%2582%25AF%25E3%2581%25A7%25E5%25A4%25B1%25E6%2595%2597%25E3%2581%2599%25E3%2582%258B%25E5%258E%259F%25E5%259B%25A0%25E3%2581%25AFRiot%25E3%2581%25AE%25E3%2582%25A2%25E3%2583%25B3%25E3%2583%2581%25E3%2583%2581%25E3%2583%25BC%25E3%2583%2588%25E3%2581%25A0%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:musoukun%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Q2ZDNkY2FmNzUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "019ccd2bc0d98124",
+      "kind": "news",
+      "title": "Rustで「プログラミング言語」を作ってみた——1,000行で動くSchemeインタプリタ",
+      "url": "https://zenn.dev/drk_laboratory/articles/bd517b4abe5291",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-04-29T08:34:55.719+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--IfdMgJ5N--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25A7%25E3%2580%258C%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E8%25A8%2580%25E8%25AA%259E%25E3%2580%258D%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25E2%2580%2594%25E2%2580%25941%252C000%25E8%25A1%258C%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258FScheme%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%2597%25E3%2583%25AA%25E3%2582%25BF%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Dr.K%2520Laboratory%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzYyOWJmN2U3OWYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "1305c6b772da9985",
+      "kind": "news",
+      "title": "Claude for Creative Workに「3Dにして」と頼んだら自作キャラが立体になってた",
+      "url": "https://zenn.dev/helloworld/articles/f6729c40541446",
+      "summary": "",
+      "tags": [
+        "llm"
+      ],
+      "score": 4,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-03T07:00:05.120+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--2RjVxkiv--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520for%2520Creative%2520Work%25E3%2581%25AB%25E3%2580%258C3D%25E3%2581%25AB%25E3%2581%2597%25E3%2581%25A6%25E3%2580%258D%25E3%2581%25A8%25E9%25A0%25BC%25E3%2582%2593%25E3%2581%25A0%25E3%2582%2589%25E8%2587%25AA%25E4%25BD%259C%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%25A9%25E3%2581%258C%25E7%25AB%258B%25E4%25BD%2593%25E3%2581%25AB%25E3%2581%25AA%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%2580%25B1%25E6%259C%25AB%25E3%2582%2582%25E3%2581%25AE%25E3%2581%25A5%25E3%2581%258F%25E3%2582%258A%25E9%2583%25A8%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2UxNDU4ODc2YTkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6aa6b4d45c3e870f",
+      "kind": "news",
+      "title": "ssh-obi を公開しました ― SSH の切断やスリープを越えてリモートシェルを生き続けさせる軽量ツール",
+      "url": "https://zenn.dev/menhera/articles/8b19b5d9c4b7e7",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 3,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-03T22:17:01.508+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--eysCLcSZ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:ssh-obi%2520%25E3%2582%2592%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2597%25E3%2581%25BE%25E3%2581%2597%25E3%2581%259F%2520%25E2%2580%2595%2520SSH%2520%25E3%2581%25AE%25E5%2588%2587%25E6%2596%25AD%25E3%2582%2584%25E3%2582%25B9%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%2597%25E3%2582%2592%25E8%25B6%258A%25E3%2581%2588%25E3%2581%25A6%25E3%2583%25AA%25E3%2583%25A2%25E3%2583%25BC%25E3%2583%2588%25E3%2582%25B7%25E3%2582%25A7%25E3%2583%25AB%25E3%2582%2592%25E7%2594%259F%25E3%2581%258D%25E7%25B6%259A%25E3%2581%2591%25E3%2581%2595%25E3%2581%259B%25E3%2582%258B%25E8%25BB%25BD%25E9%2587%258F%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E7%259C%259F%25E7%25A9%25BA%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Y4MmYxNDdkMTUuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E4%25B8%2580%25E8%2588%25AC%25E7%25A4%25BE%25E5%259B%25A3%25E6%25B3%2595%25E4%25BA%25BA%25E7%2594%259F%25E6%25B4%25BB%25E6%2583%2585%25E5%25A0%25B1%25E5%259F%25BA%25E7%259B%25A4%25E7%25A0%2594%25E7%25A9%25B6%25E6%25A9%259F%25E6%25A7%258B%2Cx_220%2Cy_160/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6c312b59f63061e6",
+      "kind": "news",
+      "title": "1 個塞ぐと別の形で出てくる — omamori v0.9 の防御設計",
+      "url": "https://zenn.dev/yottayoshida/articles/omamori-bypass-and-audit-v09",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 3,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-03T18:18:55.033+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--sOfReo9p--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:1%2520%25E5%2580%258B%25E5%25A1%259E%25E3%2581%2590%25E3%2581%25A8%25E5%2588%25A5%25E3%2581%25AE%25E5%25BD%25A2%25E3%2581%25A7%25E5%2587%25BA%25E3%2581%25A6%25E3%2581%258F%25E3%2582%258B%2520%25E2%2580%2594%2520omamori%2520v0.9%2520%25E3%2581%25AE%25E9%2598%25B2%25E5%25BE%25A1%25E8%25A8%25AD%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yotta%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSzNFeG9fM3BXaEhaNjFkN2RWMHhoY1MyemNpN1Z1VktzXzdhQzR2aVZiZXVhZGhKUFRLZz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "f414e445de4d4316",
+      "kind": "news",
+      "title": "AIエージェントを量産すれば仕事は自動化される——その幻想が崩れる構造的理由",
+      "url": "https://zenn.dev/bentenweb_fumi/articles/blzkcga0lv76",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 3,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-04T08:38:45.835+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--BNEO-oNl--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2582%2592%25E9%2587%258F%25E7%2594%25A3%25E3%2581%2599%25E3%2582%258C%25E3%2581%25B0%25E4%25BB%2595%25E4%25BA%258B%25E3%2581%25AF%25E8%2587%25AA%25E5%258B%2595%25E5%258C%2596%25E3%2581%2595%25E3%2582%258C%25E3%2582%258B%25E2%2580%2594%25E2%2580%2594%25E3%2581%259D%25E3%2581%25AE%25E5%25B9%25BB%25E6%2583%25B3%25E3%2581%258C%25E5%25B4%25A9%25E3%2582%258C%25E3%2582%258B%25E6%25A7%258B%25E9%2580%25A0%25E7%259A%2584%25E7%2590%2586%25E7%2594%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25B5%25E3%2581%25BF_BENTEN%2520WebWorks%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzM3ZjFlMmM5YWIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "449319d73f0f7386",
+      "kind": "news",
+      "title": "Cursor SDKで何ができるのか。Local / Cloud / Self-hosted と閉域化の範囲を整理する",
+      "url": "https://zenn.dev/ropital_dev/articles/b6a8159631bc98",
+      "summary": "",
+      "tags": [
+        "llm"
+      ],
+      "score": 3,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-02T16:09:35.360+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--YTNimcKa--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Cursor%2520SDK%25E3%2581%25A7%25E4%25BD%2595%25E3%2581%258C%25E3%2581%25A7%25E3%2581%258D%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258B%25E3%2580%2582Local%2520%252F%2520Cloud%2520%252F%2520Self-hosted%2520%25E3%2581%25A8%25E9%2596%2589%25E5%259F%259F%25E5%258C%2596%25E3%2581%25AE%25E7%25AF%2584%25E5%259B%25B2%25E3%2582%2592%25E6%2595%25B4%25E7%2590%2586%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2583%25AD%25E3%2583%2594%25E3%2582%25BF%25E3%2583%25AB%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2VlMjUxODhjMWYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "0819d50e83c58488",
+      "kind": "news",
+      "title": "無料AIツールだけでmacOSアプリを7本作った話——月額0円で個人開発する方法【2026年版】",
+      "url": "https://qiita.com/hiyokoko/items/e205407d0b57dcaf2830",
+      "summary": "「AIを使って開発したいけど、月額費用がかかるのがネック」 この記事はその悩みへの答えです。私はこの1年、**AI関連の費用を一切払わずに**macOSアプリを7本開発・リリースしました。 --- ## 使っている無料AIツール一覧 ### 1. Gemini API（Google AI Studio） - **費用**: 完全無料、クレジットカード不要 - **用途**: アプリへのAI機能組み込み、デバッグ相談 - **取得方法**: [aistudio.google.c",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-05-01T10:52:23+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNDM5MjU0NiUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc3NDg3NTYyNz9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NDIwYzg3NDgzMzYzNDc0YTI3NGRiZDEyYTIzYjU2MjE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D61632cd2dc82cbe361a5ccc14ba658e7?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUU3JTg0JUExJUU2JTk2JTk5QUklRTMlODMlODQlRTMlODMlQkMlRTMlODMlQUIlRTMlODElQTAlRTMlODElOTElRTMlODElQTdtYWNPUyVFMyU4MiVBMiVFMyU4MyU5NyVFMyU4MyVBQSVFMyU4MiU5MjclRTYlOUMlQUMlRTQlQkQlOUMlRTMlODElQTMlRTMlODElOUYlRTglQTklQjElRTIlODAlOTQlRTIlODAlOTQlRTYlOUMlODglRTklQTElOEQwJUU1JTg2JTg2JUUzJTgxJUE3JUU1JTgwJThCJUU0JUJBJUJBJUU5JTk2JThCJUU3JTk5JUJBJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JUUzJTgwJTkwMjAyNiVFNSVCOSVCNCVFNyU4OSU4OCVFMyU4MCU5MSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTY4NjFjNzdhMmQ3MWQzMWU3OGY2MDkzMTcwODRiMzM2&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBoaXlva29rbyZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWYxZjhhM2E4ZmIxZGFkMzVmZWY0NmE0MTZjN2I2NzY2&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=aa739698e5d6325086497f77c15eb349"
+    },
+    {
+      "id": "d5abb89a69e831b4",
+      "kind": "news",
+      "title": "Rustのmatch網羅性チェックに救われた話——Schemeインタプリタを書きながら気づいたこと",
+      "url": "https://qiita.com/DrK_Laboratory/items/183b27b816b839721c55",
+      "summary": "## はじめに Rust の `match` は「全てのケースを網羅していないとコンパイルエラーになる」という性質があります。初心者向けの解説ではよく「型安全性の一例」として紹介される機能ですが、**実際にこれが効いてくる場面**を自分の手で実装していくことで、じっくりと体感することができました。 これは Scheme インタプリタを Rust で書いていたときに、コンパイラに助けられた話です。「ああ、これは単なるコンパイラの優しさじゃなくて、**バグを未然に防ぐ安全装置**",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-04-30T19:40:38+09:00",
+      "fetchedAt": "2026-05-05T01:56:34.981Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjI3MzY3OTk3MyUzRnYlM0Q0P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0yZGIyYjFiNzZjMjQxNTEwN2ZkNjQ4ZGYwY2ExNDlkNw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D816343b8c3e269caab067addd8e75403?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9UnVzdCVFMyU4MSVBRW1hdGNoJUU3JUI2JUIyJUU3JUJFJTg1JUU2JTgwJUE3JUUzJTgzJTgxJUUzJTgyJUE3JUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgxJUFCJUU2JTk1JTkxJUUzJTgyJThGJUUzJTgyJThDJUUzJTgxJTlGJUU4JUE5JUIxJUUyJTgwJTk0JUUyJTgwJTk0U2NoZW1lJUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgyJUJGJUUzJTgzJTk3JUUzJTgzJUFBJUUzJTgyJUJGJUUzJTgyJTkyJUU2JTlCJUI4JUUzJTgxJThEJUUzJTgxJUFBJUUzJTgxJThDJUUzJTgyJTg5JUU2JUIwJTk3JUUzJTgxJUE1JUUzJTgxJTg0JUUzJTgxJTlGJUUzJTgxJTkzJUUzJTgxJUE4JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NjlhZWE2MTUzOGNkYmRmNDUwMjdkOWQzYTU3NmNhMDY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBEcktfTGFib3JhdG9yeSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWQ2NWMxNTlkYjk5NjBhMTAwMGU2ZWQyYWM1YzVjMjJl&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=e1c64abe81986a67b114cddaf5599599"
     }
   ]
 }

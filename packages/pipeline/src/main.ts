@@ -5,9 +5,10 @@ import {
   KEYWORD_WEIGHTS,
   NEGATIVE_KEYWORDS,
   NEWS_MAX_AGE_HOURS,
+  NEWS_OTHER_TOP_N,
+  NEWS_POPULAR_TOP_N,
   NEWS_SCORE_THRESHOLD,
   NEWS_SEEN_LOOKBACK_DAYS,
-  NEWS_TOP_N,
   PAPERS_TOP_N,
   PAPER_KEYWORDS,
   PAPER_PRIORITY_KEYWORDS,
@@ -15,6 +16,7 @@ import {
   QIITA_API_TAGS,
   RSS_FEEDS,
   TAG_ALIASES,
+  ZENN_API_TOPICS,
 } from "./config.js";
 import { hasNegativeKeyword, scoreFields } from "./score.js";
 import { appendHealth } from "./cache.js";
@@ -22,6 +24,7 @@ import { fetchArxivCategory, type ArxivPaper } from "./sources/arxiv.js";
 import { fetchHackerNewsQuery } from "./sources/hackerNews.js";
 import { fetchQiitaTag } from "./sources/qiitaApi.js";
 import { fetchRssFeed, type FeedFetchResult } from "./sources/rssFeeds.js";
+import { fetchZennTopic } from "./sources/zennApi.js";
 import type { RawItem } from "./sources/types.js";
 import {
   loadRecentNewsIds,
@@ -118,15 +121,29 @@ async function collectNews(): Promise<RawItem[]> {
   const qiitaTasks = QIITA_API_TAGS.map((t) =>
     safeFeed(`qiita-api:${t}`, () => fetchQiitaTag(t, sinceISO)),
   );
+  const zennTasks = ZENN_API_TOPICS.map((t) =>
+    safeFeed(`zenn-api:${t}`, () => fetchZennTopic(t, sinceISO)),
+  );
   const hnTasks = HN_QUERIES.map((q) =>
     safeFeed(`hn:${q}`, () => fetchHackerNewsQuery(q)),
   );
   const all = await Promise.all([
     ...rssTasks,
     ...qiitaTasks,
+    ...zennTasks,
     ...hnTasks,
   ]);
   return all.flat();
+}
+
+function isPopularityOnly(source: string): boolean {
+  return source.startsWith("qiita-api:") || source.startsWith("zenn-api:");
+}
+
+function tagsFromSource(source: string): string[] {
+  const m = /^(?:qiita-api|zenn-api):(.+)$/.exec(source);
+  if (!m) return [];
+  return canonicalTags([m[1] as string]);
 }
 
 const ARXIV_REQUEST_INTERVAL_MS = 3000;
@@ -173,20 +190,40 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     (r) => !hasNegativeKeyword(r.title, r.description, NEGATIVE_KEYWORDS),
   );
   const scored = filtered.map((r) => {
+    if (isPopularityOnly(r.source)) {
+      // Qiita / Zenn は likes_count を生値でスコアにし、キーワードマッチは行わない。
+      return {
+        r,
+        score: r.baseScore ?? 0,
+        matched: [] as string[],
+        fromPopularity: true,
+      };
+    }
     const { score: kwScore, matched } = scoreFields(
       r.title,
       r.description,
       KEYWORD_WEIGHTS,
     );
-    const score = kwScore + (r.baseScore ?? 0);
-    return { r, score, matched };
+    return {
+      r,
+      score: kwScore + (r.baseScore ?? 0),
+      matched,
+      fromPopularity: false,
+    };
   });
+
+  // 2 バケット (popular = qiita+zenn / other = それ以外) で別々にソート・cap する。
+  // 生 likes_count による押し出しを防ぎ、各バケット内では純粋に score 降順。
+  const popular = scored
+    .filter((s) => s.fromPopularity && s.score >= NEWS_SCORE_THRESHOLD)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, NEWS_POPULAR_TOP_N);
+
   // github.com 直リンクはタグごとに最高スコア 1 件まで (HN 由来のレポ紹介で
-  // rust/python/algorithm 系が埋まるのを防ぐ)。先にスコア降順で並べてから
-  // filter することで、各タグで最も score が高い 1 件が残る。
+  // rust/python/algorithm 系が埋まるのを防ぐ)。先にスコア降順で並べてから filter する。
   const ghPerTag = new Map<string, number>();
-  const sortedAndCapped = scored
-    .filter((s) => s.score >= NEWS_SCORE_THRESHOLD)
+  const other = scored
+    .filter((s) => !s.fromPopularity && s.score >= NEWS_SCORE_THRESHOLD)
     .sort((a, b) => b.score - a.score)
     .filter((s) => {
       if (!/github\.com/.test(s.r.url)) return true;
@@ -195,21 +232,21 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       if (n >= 1) return false;
       ghPerTag.set(key, n + 1);
       return true;
-    });
-  return sortedAndCapped
-    .slice(0, NEWS_TOP_N)
-    .map(({ r, score, matched }) => ({
-      id: hashId(r.url),
-      kind: "news",
-      title: r.title,
-      url: r.url,
-      summary: r.description.slice(0, 240),
-      tags: canonicalTags(matched),
-      score,
-      source: r.source,
-      publishedAt: r.publishedAt,
-      fetchedAt,
-    }));
+    })
+    .slice(0, NEWS_OTHER_TOP_N);
+
+  return [...popular, ...other].map(({ r, score, matched, fromPopularity }) => ({
+    id: hashId(r.url),
+    kind: "news",
+    title: r.title,
+    url: r.url,
+    summary: r.description.slice(0, 240),
+    tags: fromPopularity ? tagsFromSource(r.source) : canonicalTags(matched),
+    score,
+    source: r.source,
+    publishedAt: r.publishedAt,
+    fetchedAt,
+  }));
 }
 
 interface ScoredPaper {

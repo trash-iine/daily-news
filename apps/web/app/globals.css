@@ -746,6 +746,17 @@ a { color: inherit; text-decoration: none; }
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  cursor: pointer;
+}
+.ed-summary:hover { color: var(--fg); }
+.ed-summary:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+}
+.ed-summary--expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 .ed-foot {

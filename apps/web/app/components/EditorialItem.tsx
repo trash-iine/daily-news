@@ -3,6 +3,7 @@ import type { BaseItem } from "@daily-news/shared";
 import { sourceFamily, sourceLabel } from "@/lib/source-family";
 import { tagCatClass } from "@/lib/tag-category";
 import { fmtAbsTime, fmtTime, hostFromUrl } from "@/lib/format";
+import { ExpandableSummary } from "./ExpandableSummary";
 import { ScoreBar } from "./ScoreBar";
 import { Thumbnail } from "./Thumbnail";
 
@@ -45,7 +46,7 @@ export function EditorialItem({
                 {item.title}
               </a>
             </h3>
-            {item.summary && <p className="ed-summary">{item.summary}</p>}
+            {item.summary && <ExpandableSummary text={item.summary} />}
             <div className="ed-foot">
               <span className="ed-host">{hostFromUrl(item.url)}</span>
               {item.tags.length > 0 && (

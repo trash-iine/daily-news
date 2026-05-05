@@ -128,18 +128,7 @@ export interface RssFeedConfig {
 }
 
 export const RSS_FEEDS: RssFeedConfig[] = [
-  // 日本語汎用 高頻度 (キーワードでフィルタ) — Qiita タグ別は API、Zenn トピック別は公式 RSS
-  { id: "qiita-popular", url: "https://qiita.com/popular-items/feed" },
-  { id: "zenn-all", url: "https://zenn.dev/feed" },
-  // Zenn トピック別 公式 RSS (zenn.dev/topics/<topic>/feed)。
-  // baseScore=3 はトピック一致を「キーワード重み 3 相当」として扱う近似。
-  { id: "zenn-rust", url: "https://zenn.dev/topics/rust/feed", baseScore: 3 },
-  { id: "zenn-python", url: "https://zenn.dev/topics/python/feed", baseScore: 3 },
-  { id: "zenn-claude", url: "https://zenn.dev/topics/claude/feed", baseScore: 3 },
-  { id: "zenn-keyboard", url: "https://zenn.dev/topics/%E8%87%AA%E4%BD%9C%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89/feed", baseScore: 3 },
-  { id: "zenn-algorithm", url: "https://zenn.dev/topics/algorithm/feed", baseScore: 3 },
-  { id: "zenn-kyopro", url: "https://zenn.dev/topics/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/feed", baseScore: 3 },
-  { id: "zenn-quantum", url: "https://zenn.dev/topics/quantum/feed", baseScore: 3 },
+  // Qiita / Zenn は専用 API (qiitaApi / zennApi) で liked_count を取得し純人気順にランクする。
   // 中頻度 (~10/週)
   { id: "greenkeys", url: "https://green-keys.info/feed/", baseScore: 5 },
   // 低頻度 (~1-2/週) — 投稿があった日は上位に押し上げる
@@ -199,6 +188,20 @@ export const QIITA_API_TAGS: string[] = [
 ];
 
 /**
+ * Zenn 非公式 API (https://zenn.dev/api/articles?order=liked_count&topicname=<topic>) で取得するトピック。
+ * RSS では liked_count が取れないため、人気順ランキングには API が必須。
+ */
+export const ZENN_API_TOPICS: string[] = [
+  "rust",
+  "python",
+  "claude",
+  "自作キーボード",
+  "algorithm",
+  "競技プログラミング",
+  "quantum",
+];
+
+/**
  * Hacker News (Algolia HN Search API) で検索するクエリ。
  * 各クエリは個別 API 呼び出しで `NEWS_MAX_AGE_HOURS` 内の story を取得する。
  * KEYWORD_WEIGHTS の英語トークンに合わせる。
@@ -217,7 +220,13 @@ export const HN_QUERIES: string[] = [
   "algorithm",
 ];
 
-export const NEWS_TOP_N = 20;
+/**
+ * 1 日の news 採用件数。
+ * - POPULAR: Qiita / Zenn (人気指標で純粋にランク) の合計上限
+ * - OTHER:   それ以外 (RSS feeds, Hacker News) の合計上限
+ */
+export const NEWS_POPULAR_TOP_N = 20;
+export const NEWS_OTHER_TOP_N = 5;
 
 /**
  * ニュースの最大配信遅延 (時間)。`publishedAt` がこの値より古い item は採用しない。

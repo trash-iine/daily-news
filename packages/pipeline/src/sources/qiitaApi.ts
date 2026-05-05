@@ -16,15 +16,6 @@ interface QiitaItem {
   stocks_count?: number;
 }
 
-/**
- * likes_count を baseScore に変換。Qiita の LGTM スケールは Zenn より小さい (5 LGTM で人気枠) ので /5。
- * HN points と同じ枠 (0..15) に収める。
- */
-function likesToBaseScore(likes: number | null | undefined): number {
-  if (!likes || likes <= 0) return 0;
-  return Math.min(15, Math.floor(likes / 5));
-}
-
 function toDateOnly(iso: string): string {
   // "2026-04-26T00:00:00.000Z" -> "2026-04-26"
   return iso.slice(0, 10);
@@ -73,7 +64,7 @@ export async function fetchQiitaTag(
       description: cleanText(it.body ?? "").slice(0, 500),
       source: `qiita-api:${tag}`,
       publishedAt,
-      baseScore: likesToBaseScore(it.likes_count),
+      baseScore: it.likes_count ?? 0,
     });
   }
 
