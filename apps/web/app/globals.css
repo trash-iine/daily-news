@@ -27,6 +27,8 @@
   --fam-kbd: oklch(0.58 0.16 300);
   --fam-rust: oklch(0.58 0.18 35);
   --fam-python: oklch(0.58 0.15 230);
+  --fam-reddit: oklch(0.65 0.21 20);
+  --fam-github: oklch(0.5 0.04 270);
   --fam-other: oklch(0.55 0.02 60);
 
   --tagcat-ai: oklch(0.6 0.16 295);
@@ -384,6 +386,8 @@ a { color: inherit; text-decoration: none; }
 .fam-kbd { --fam-color: var(--fam-kbd); }
 .fam-rust { --fam-color: var(--fam-rust); }
 .fam-python { --fam-color: var(--fam-python); }
+.fam-reddit { --fam-color: var(--fam-reddit); }
+.fam-github { --fam-color: var(--fam-github); }
 .fam-other { --fam-color: var(--fam-other); }
 .mast-source-name { color: var(--fg); }
 .mast-source-count {
@@ -626,6 +630,8 @@ a { color: inherit; text-decoration: none; }
 .ed-item.fam-kbd .ed-kind-dot { background: var(--fam-kbd); }
 .ed-item.fam-rust .ed-kind-dot { background: var(--fam-rust); }
 .ed-item.fam-python .ed-kind-dot { background: var(--fam-python); }
+.ed-item.fam-reddit .ed-kind-dot { background: var(--fam-reddit); }
+.ed-item.fam-github .ed-kind-dot { background: var(--fam-github); }
 
 .ed-meta {
   display: flex; align-items: center; gap: 8px;
@@ -679,6 +685,8 @@ a { color: inherit; text-decoration: none; }
 .ed-source.fam-kbd { --fam-color: var(--fam-kbd); }
 .ed-source.fam-rust { --fam-color: var(--fam-rust); }
 .ed-source.fam-python { --fam-color: var(--fam-python); }
+.ed-source.fam-reddit { --fam-color: var(--fam-reddit); }
+.ed-source.fam-github { --fam-color: var(--fam-github); }
 .ed-source.fam-other { --fam-color: var(--fam-other); }
 .ed-dot { color: var(--fg-faint); }
 .ed-time { color: var(--fg-faint); }
