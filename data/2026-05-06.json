@@ -1,0 +1,459 @@
+{
+  "date": "2026-05-06",
+  "generatedAt": "2026-05-05T22:55:10.372Z",
+  "items": [
+    {
+      "id": "667bc95dc7660f90",
+      "kind": "paper",
+      "title": "Hybrid Quantum Reinforcement Learning with QAOA for Improved Vehicle Routing Optimization",
+      "url": "https://arxiv.org/abs/2605.01574",
+      "summary": "車両ルーティング問題（VRP）は、輸送および物流における最も複雑なNP困難な組合せ最適化問題の一つであり、動的な解決アプローチが求められます。本論文では、通常の変分層、QAOA（量子近似最適化アルゴリズム）のミキシング層およびコストハミルトニアン層の代わりに、QRL（量子強化学習）ポリシーネットワークにQAOAを組み合わせた新しいハイブリッドアプローチを提案します。この強化により、エージェントはポリシーを学習する際に問題特有の量子相関を活用でき、ルーティング解空間のより豊かな探索が可能になります。QAOAを強化したQRLフレームワークは、トレーニングの収束が速く、グローバーの適応探索（GAS）や量子強化学習（QRL）アプローチでは対処できない大規模なVRPインスタンスにも対応できます。標準的なVRPインスタンスに関する実験では、より良い解を示し、収束までのエピソード数が少なく、近未来の量子ハードウェアシミュレーターでの良好なメモリ使用が確認されました。これらの結果は、QAOAを統合したQRLがスケーラブルで高品質な量子支援の組合せ最適化に対する実行可能なアプローチであることを示しています。",
+      "tags": [
+        "optimization",
+        "routing"
+      ],
+      "score": 38,
+      "source": "arxiv:cs.LG",
+      "publishedAt": "2026-05-05T04:00:00.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.347Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "23e7633142e92862",
+      "kind": "paper",
+      "title": "Instance-Aware Parameter Configuration in Bilevel Late Acceptance Hill Climbing for the Electric Capacitated Vehicle Routing Problem",
+      "url": "https://arxiv.org/abs/2605.00572",
+      "summary": "組合最適化におけるアルゴリズムの性能は、パラメータ設定に非常に敏感です。また、単一のグローバルに調整された設定は、インスタンスの多様性を十分に活用できないことが多いです。この制限は、構造、需要パターン、エネルギー制約が異なる電気キャパシタ付き車両ルーティング問題において特に顕著です。本論文では、電気キャパシタ付き車両ルーティング問題に対する最先端のメタヒューリスティックであるバイレベル遅延受け入れヒルクライミングのためのインスタンスに応じたパラメータ設定を調査します。オフライン調整手順を用いて、インスタンス特有のパラメータラベルを取得し、これを回帰モデルを介してインスタンスの特徴からマッピングすることで、実行前に未知のインスタンスに対するパラメータ予測を可能にします。IEEE WCCI 2020ベンチマークおよびその拡張に関する実験結果は、提案手法がグローバルに調整された設定に対して、8つの保持されたテストインスタンスにおいて平均0.28%の目的値の削減を達成したことを示しています。これは、数百万ドル規模の輸送業務におけるコスト削減に相当します。",
+      "tags": [
+        "optimization",
+        "routing"
+      ],
+      "score": 22,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-05T04:00:00.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.347Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "a4fb4500679cd857",
+      "kind": "news",
+      "title": "March 2026 Project Director Update",
+      "url": "https://blog.rust-lang.org/inside-rust/2026/05/04/project-director-update/",
+      "summary": "This post covers the Rust Foundation board meeting that happened on March 10, 2026. Read the full March minutes on the Foundation's site. Highlights include: Sid Askary of Futurewei joined to discuss a proposal to create an AI-focused resea",
+      "tags": [
+        "rust"
+      ],
+      "score": 22,
+      "source": "rss:inside-rust",
+      "publishedAt": "2026-05-04T00:00:00.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://www.rust-lang.org/static/images/rust-social-wide.jpg"
+    },
+    {
+      "id": "0577eeca04802837",
+      "kind": "news",
+      "title": "Anthropic quietly nerfed Claude Code's 1-hour cache",
+      "url": "https://www.xda-developers.com/anthropic-quietly-nerfed-claude-code-hour-cache-token-budget/",
+      "summary": "",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-05T05:23:37.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/04/claude-code-terminal-window-on-mac-laptop-displaying-welcome-message-and-recent-activity.jpeg?w=1600&h=900&fit=crop"
+    },
+    {
+      "id": "f5701bf5da380a53",
+      "kind": "news",
+      "title": "Claude Codeを120%使いこなす設定3選【ECC・Memory.md・Obsidian連携】",
+      "url": "https://qiita.com/manchan/items/63745b9198f1989c2a15",
+      "summary": "## はじめに Claude Codeを使い始めてしばらく経つと、こんな壁にぶつかりませんか？ - **「毎回同じ説明をしている」** — セッションが切れるたびにプロジェクトの背景を一から説明する - **「コード生成はできるけど専門的なレビューが薄い」** — セキュリティや設計の観点が足りない - **「調査した情報がどこかに消えていく」** — Claudeと一緒に調べた内容が次のセッションで使えない 私もまったく同じ悩みを持っていました。フリーランスのエンジニアとし",
+      "tags": [
+        "llm"
+      ],
+      "score": 19,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-04T01:25:41+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMjU2NzUzJTJGcHJvZmlsZS1pbWFnZXMlMkYxNTM4MzAzMzIwP2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz00MzU1NDQ3NTE5OGE1OGM4NDBkNDRjODZkNjk1ZWU3ZQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D81dc0c63252239892e68edfe1cdca35d?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MiU5MjEyMCUyNSVFNCVCRCVCRiVFMyU4MSU4NCVFMyU4MSU5MyVFMyU4MSVBQSVFMyU4MSU5OSVFOCVBOCVBRCVFNSVBRSU5QTMlRTklODElQjglRTMlODAlOTBFQ0MlRTMlODMlQkJNZW1vcnkubWQlRTMlODMlQkJPYnNpZGlhbiVFOSU4MCVBMyVFNiU5MCVCQSVFMyU4MCU5MSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTIzOWI2MWExMjExY2UxMWIwZWE4ODBiZWE4NDEzNWU4&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBtYW5jaGFuJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZTBkOTRmNTJhNzkyNjhiMDNkYzA5ODk4MjFjYzg2Mzg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=443d5941a1459abb0374f9e40117a631"
+    },
+    {
+      "id": "f5ae7ccfed13f4b2",
+      "kind": "news",
+      "title": "Memoir – Git for AI agent memory, with a Claude Code plugin",
+      "url": "https://github.com/zhangfengcdt/memoir",
+      "summary": "",
+      "tags": [
+        "llm"
+      ],
+      "score": 19,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-05T15:54:54.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://opengraph.githubassets.com/5d083f0e89a543175aa6d71ea5fb1aaf23898c2f8b2efbc2e864c5966000da37/zhangfengcdt/memoir"
+    },
+    {
+      "id": "43625a50ac20e50d",
+      "kind": "news",
+      "title": "Show HN: Diom – Backend primitives (queue, rate limit, etc.) in one Rust binary",
+      "url": "https://github.com/svix/diom",
+      "summary": "Hey HN, my name is Tom and I'm the founder of Svix. We've been working on Diom ( https://diom.com ) for the last 6 months, and I'm excited to finally share it on HN! Diom is a single Rust binary that replaces Redis, RabbitMQ, Kafka, and a l",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "hn:python",
+      "publishedAt": "2026-05-03T12:38:21.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://opengraph.githubassets.com/632a9d90cedb1a860e58cab09deabdaff920030444c2a94f70c651deb1ae0537/svix/diom"
+    },
+    {
+      "id": "3e5e7b499652a205",
+      "kind": "news",
+      "title": "Executable installer will stop being released with Python 3.16",
+      "url": "https://www.python.org/downloads/release/pymanager-261/",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 19,
+      "source": "hn:python",
+      "publishedAt": "2026-05-03T07:25:20.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://www.python.org/static/opengraph-icon-200x200.png"
+    },
+    {
+      "id": "1c1a5b11486951eb",
+      "kind": "paper",
+      "title": "A Quantum Approach to Stochastic Optimization in Insurance Underwriting",
+      "url": "https://arxiv.org/abs/2605.01169",
+      "summary": "確率的要素が組合せ最適化問題に存在することは、これらの問題を特に難解にします。なぜなら、比較的小さなサイズであっても、古典的なコンピュータでは迅速に扱えなくなるからです。本研究では、確率的最適化問題の一種であるチャンス制約ナップサック問題を解決するための新しい量子-古典ハイブリッド手法を提案します。この問題では、アイテムの重さが確率分布に従い、制約が指定されたリスク許容度内で違反する可能性があります。私たちの方法は、ナップサック特有のQAOA（量子近似最適化アルゴリズム）に基づく回路を使用してサンプルを生成し、これを本研究で導入した自己整合的な古典的回復手法と組み合わせることで、高品質な解を得ることができます。IBM Heronプロセッサ上で行った実験では、深さ177の回路を用い、3443のゲートが最大150の量子ビットに作用する構成で、古典的な最適化手法に対して改善を示す解が得られました。提案された量子-古典ハイブリッド手法は、このような問題に取り組む道を開き、古典的な計算にのみ依存するアプローチを上回る可能性を秘めています。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 18,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-05T04:00:00.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.347Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "8461e497fea00b82",
+      "kind": "paper",
+      "title": "Structured Parameterization and Non-Stabilizerness in Hypergraph QAOA",
+      "url": "https://arxiv.org/abs/2605.01620",
+      "summary": "量子近似最適化アルゴリズム（QAOA）は、ノイズの多い中規模量子（NISQ）デバイス上で量子優位性を示す有望な候補として浮上しています。さまざまなQAOAのパラメータ化手法が存在し、元の単一角度アプローチから、より表現力のある多角度量子近似最適化アルゴリズム（MA-QAOA）や自己同型角度量子近似最適化アルゴリズム（AA-QAOA）まで、多様な選択肢がありますが、それぞれ表現力と古典的最適化の複雑さの間に異なるトレードオフがあります。本研究では、$k$-相互作用角度量子近似最適化アルゴリズム（$k$A-QAOA）を提案します。このパラメータ化手法は、コスト関数の項をその$k$-体相互作用の順序によってグループ化し、パラメータの効率性と解の質の間の自然な中間点を提供します。このアプローチは、ブール充足可能性や多者制約を伴う資源配分などの応用において多体相互作用が自然に発生するハイパーグラフ上で定義された組合せ最適化問題に特に適しています。私たちは、$k$A-QAOAを標準の単一角度量子近似最適化アルゴリズム（SA-QAOA）、MA-QAOA、AA-QAOAと比較し、3-均一循環符号交互ハイパーグラフとランダム係数ハイパーグラフという2つの問題クラスに対してベンチマークを行いました。その結果、$k$A-QAOAはMA-QAOAと同等の近似比を達成しながら、必要な関数評価の回数を大幅に削減し、量子リソースの消費を減少させることが示されました。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 18,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-05T04:00:00.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.347Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "42eaa2db5b64f2cf",
+      "kind": "paper",
+      "title": "Optimizing Travel Time and Regenerative Energy for Periodic Timetables",
+      "url": "https://arxiv.org/abs/2605.02355",
+      "summary": "鉄道交通のエネルギー効率を向上させるための主要な手段の一つは、ブレーキエネルギーの再生です。この特性を活かすためには、適切なダイヤを設計することが望まれます。しかし、エネルギーを再生できるダイヤは、しばしば乗客にとって不便なものとなります。そこで、我々は、ブレーキと牽引の重複時間に基づいて再生されるエネルギーを最大化し、乗客の移動時間を最小化する周期的な鉄道ダイヤを見つけるための二基準最適化問題（PESP-乗客-エネルギー）を定式化し分析します。このモデルは周期的イベントスケジューリング問題（PESP）を拡張しており、豊富な組合せ理論を提供します。私たちは、一駅ネットワークにおける計算の複雑さを調査し、マッチングやハミルトン路に基づいて分析を行います。単一の目的に対してもNP困難であることを示す一方で、いくつかの多項式時間で解ける特別なケースも特定します。最後に、我々のモデルの実用性を強調し、パレートフロントを分析する二つのケーススタディを提供します。",
+      "tags": [
+        "optimization",
+        "scheduling"
+      ],
+      "score": 9,
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-05-05T04:00:00.000Z",
+      "fetchedAt": "2026-05-05T22:55:00.347Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "997670d3e42deb94",
+      "kind": "news",
+      "title": "AIと100万文字書いた話──Claude×Geminiハイブリッド創作フローの結論",
+      "url": "https://qiita.com/pyuruco/items/b579fedfaee08b8d051c",
+      "summary": "## はじめに 長編小説『神愛 ─永遠と刹那─』を書いている。現在100万文字超の超大作。 → [神愛 ― 永遠の刹那 ―](https://kakuyomu.jp/works/822139839908962933) この記事は、前記事 [AIで小説は書けるのか？ ――人間とAIで物語を育ててみた結果](https://qiita.com/pyuruco/items/cb7d1c4bad7e0e74a42b) の続編となる。 ChatGPT、Gemini、Claudeを実際に",
+      "tags": [
+        "llm"
+      ],
+      "score": 4,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-04T15:48:28+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxNzg4MTAlMkY0NjE1ZjA0OWNmNDNjOThhNGNjNzY3MjZiNGJjZDE4OTA3YWQwNWMxJTJGbGFyZ2UucG5nJTNGMTc1NTM5MjkwMj9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NTcwMDljNTVmZjc0ZTY3NzY0MmMyZjJhMGM3N2QwNTI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D6c3bcface6d5fd1c328d5befda988d9c?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9QUklRTMlODElQTgxMDAlRTQlQjglODclRTYlOTYlODclRTUlQUQlOTclRTYlOUIlQjglRTMlODElODQlRTMlODElOUYlRTglQTklQjElRTIlOTQlODAlRTIlOTQlODBDbGF1ZGUlQzMlOTdHZW1pbmklRTMlODMlOEYlRTMlODIlQTQlRTMlODMlOTYlRTMlODMlQUElRTMlODMlODMlRTMlODMlODklRTUlODklQjUlRTQlQkQlOUMlRTMlODMlOTUlRTMlODMlQUQlRTMlODMlQkMlRTMlODElQUUlRTclQjUlOTAlRTglQUIlOTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NzdhY2E1ZTRiNTRiZTM1MDIyYTg0NjRkZTE4MTMzZg&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBweXVydWNvJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDgwODBiNGQxMjlmYjJkZWZiMjM3MjVjYjIyMTAzYTM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=8fd554054828fa627095313b68cec76e"
+    },
+    {
+      "id": "67aa738b11afdf92",
+      "kind": "news",
+      "title": "ラズベリーパイ用 24V入力 UPS基板作ってみた",
+      "url": "https://qiita.com/RaspiKoubou/items/077cca5602e2f54044dc",
+      "summary": "# 今回作った基板 ![IMG_4251.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3909178/ac45d453-2d3d-4149-a5fd-70551848cbef.jpeg) > 販売ページ https://raspikoubou.theshop.jp/items/139877475 今回作ったのは、**Raspberry Pi 用の産業用 UPS（無停電電源装置）HAT 基板",
+      "tags": [
+        "python"
+      ],
+      "score": 3,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-05T15:56:22+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMzkwOTE3OCUyRnByb2ZpbGUtaW1hZ2VzJTJGMTc2MjA4MDUzNj9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NzkzM2VhNzhkOTQ5NmM2MTNmZjEzOTY1MTMwMGViOWE%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D4cf35e1488817f38a579e054e2edd540?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJUE5JUUzJTgyJUJBJUUzJTgzJTk5JUUzJTgzJUFBJUUzJTgzJUJDJUUzJTgzJTkxJUUzJTgyJUE0JUU3JTk0JUE4JUUzJTgwJTgwMjRWJUU1JTg1JUE1JUU1JThBJTlCJUUzJTgwJTgwVVBTJUU1JTlGJUJBJUU2JTlEJUJGJUU0JUJEJTlDJUUzJTgxJUEzJUUzJTgxJUE2JUUzJTgxJUJGJUUzJTgxJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZTRiN2VhNTRkOWRjYThkZTMxNDdlZGZiMDc1ZjQ5NzM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBSYXNwaUtvdWJvdSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTYwMGVlMjFlZDUyNDMxZWE0NDY0ZjVhYTZmZGEzMTY4&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=00acda416a8bdfdb780e2be556dde233"
+    },
+    {
+      "id": "d980f489c88cb62a",
+      "kind": "news",
+      "title": "ハードウェアバディでClaudeとおともだち",
+      "url": "https://qiita.com/moritalous/items/cd53aec76db1dec20862",
+      "summary": "みなさん、Claude Desktopにハードウェアバディという機能があるのをご存知でしょうか？ ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/41574/439b48af-0c10-4971-8d7c-eb626ae27290.png) Claude Desktopと物理デバイスを接続できるIoT機能です。 接続する物理デバイス側のソースコードはGitHubで公開されており、",
+      "tags": [
+        "llm"
+      ],
+      "score": 3,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-05T23:19:24+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MTU3NCUyRjhkMWYzYTM2ZjI1ZmZjMTA2ZDE0NTJjZmU0Zjk2Mjc5MDk3Y2ViMGElMkZ4X2xhcmdlLnBuZyUzRjE3NzA2MzczNjE_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTllZTAxN2FkZDZjNzY3NjNiMDc0ZjIxNWUyYzNlNTE4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D87727cd561b83f62a4c486bf69980d4e?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJThGJUUzJTgzJUJDJUUzJTgzJTg5JUUzJTgyJUE2JUUzJTgyJUE3JUUzJTgyJUEyJUUzJTgzJTkwJUUzJTgzJTg3JUUzJTgyJUEzJUUzJTgxJUE3Q2xhdWRlJUUzJTgxJUE4JUUzJTgxJThBJUUzJTgxJUE4JUUzJTgyJTgyJUUzJTgxJUEwJUUzJTgxJUExJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MWNmZDgxNWE4YjZhMmFhMTAxNjU5ZjUyMDE2ZjNhZjQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBtb3JpdGFsb3VzJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NTE5MDJlZTJlOTExNTEzZmVhMTBjNzY4YjZmNjRkM2I&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=6914482e00f96b511dd19dac5652bb60"
+    },
+    {
+      "id": "19bdcb94ebc973aa",
+      "kind": "news",
+      "title": "化学データをDuckDBで扱えるようにする自作拡張機能を作った",
+      "url": "https://zenn.dev/amana/articles/fb537174583854",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 3,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-02T21:42:59.907+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--9X02fExV--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%258C%2596%25E5%25AD%25A6%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2582%2592DuckDB%25E3%2581%25A7%25E6%2589%25B1%25E3%2581%2588%25E3%2582%258B%25E3%2582%2588%25E3%2581%2586%25E3%2581%25AB%25E3%2581%2599%25E3%2582%258B%25E8%2587%25AA%25E4%25BD%259C%25E6%258B%25A1%25E5%25BC%25B5%25E6%25A9%259F%25E8%2583%25BD%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:nk_work%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzQ1MjJkN2U5MzIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "0f0e1b3d57a49add",
+      "kind": "news",
+      "title": "Ollama をlaunchdで常駐させたら Mac がフル稼働になった話——KeepAlive の罠と2日かかった原因特定",
+      "url": "https://zenn.dev/taito_ichinose/articles/ichinose-post-4487",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 3,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-03T10:00:07.423+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--4b0wiSh8--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Ollama%2520%25E3%2582%2592launchd%25E3%2581%25A7%25E5%25B8%25B8%25E9%25A7%2590%25E3%2581%2595%25E3%2581%259B%25E3%2581%259F%25E3%2582%2589%2520Mac%2520%25E3%2581%258C%25E3%2583%2595%25E3%2583%25AB%25E7%25A8%25BC%25E5%2583%258D%25E3%2581%25AB%25E3%2581%25AA%25E3%2581%25A3%25E3%2581%259F%25E8%25A9%25B1%25E2%2580%2594%25E2%2580%2594KeepAlive%2520%25E3%2581%25AE%25E7%25BD%25A0%25E3%2581%25A82%25E6%2597%25A5%25E3%2581%258B%25E3%2581%258B%25E3%2581%25A3...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E4%25B8%2580%25E3%2583%258E%25E7%2580%25AC%25E6%25B3%25B0%25E6%2596%2597%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzcxOWIxNmRkMGUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "ddea949029162fda",
+      "kind": "news",
+      "title": "JS と Rust/WASM で同じ画像フィルタを走らせたら、ブラウザはどれくらい速くなったか",
+      "url": "https://qiita.com/sen-ltd/items/7ddc076115ef73c1ada2",
+      "summary": "## 気になったこと 「WASM は速い」という話を見るたびに、具体的に *どのくらい* 速いのかが気になっていました。マイクロベンチは見つかるけど、ブラウザで 1024×1024 の画像を 1 枚処理すると **体感で違うのか？** 違うなら何倍？ 違わないなら、境界はどこ？ 同じアルゴリズム・同じメモリレイアウト・同じ RGBA バッファに対して、**JavaScript** と **Rust→WASM** を順番に走らせるだけのページを作って、自分の目で確かめることにし",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-05-05T14:37:51+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDExNzkxJTJGYTZhNGM1MTg4NWFhYjAxNTEzNmVkNTdkN2M0NmE5Zjc1ZjVlOTZkOSUyRnhfbGFyZ2UucG5nJTNGMTc3NjczMzQ3NT9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MTFhY2Q0MmIzMzk2MjAzZTQ5ZjMwMzMwNTlkNDc4MzI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D59dd8e86f63e34196a452305d90aca93?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9SlMlMjAlRTMlODElQTglMjBSdXN0JTJGV0FTTSUyMCVFMyU4MSVBNyVFNSU5MCU4QyVFMyU4MSU5OCVFNyU5NCVCQiVFNSU4MyU4RiVFMyU4MyU5NSVFMyU4MiVBMyVFMyU4MyVBQiVFMyU4MiVCRiVFMyU4MiU5MiVFOCVCNSVCMCVFMyU4MiU4OSVFMyU4MSU5QiVFMyU4MSU5RiVFMyU4MiU4OSVFMyU4MCU4MSVFMyU4MyU5NiVFMyU4MyVBOSVFMyU4MiVBNiVFMyU4MiVCNiVFMyU4MSVBRiVFMyU4MSVBOSVFMyU4MiU4QyVFMyU4MSU4RiVFMyU4MiU4OSVFMyU4MSU4NCVFOSU4MCU5RiVFMyU4MSU4RiVFMyU4MSVBQSVFMyU4MSVBMyVFMyU4MSU5RiVFMyU4MSU4QiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTU2YjJlOGI0NTljOGJmY2M2OWE2OGVmMWQzN2I3OTg3&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBzZW4tbHRkJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NTYyZjRjNmMzNTUzOTZlNjI3MGI1OGE1NzA1MGIzNzM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=0581e7a1a753d7ac3721e202da8b7298"
+    },
+    {
+      "id": "1a9c89a4bb03fefe",
+      "kind": "news",
+      "title": "大量のSkillを効率的に管理する特化型CLIツール「sklock」を作りました",
+      "url": "https://qiita.com/artie/items/980b1b48f943e096b46c",
+      "summary": "## はじめに AI Agentのハーネスまわりの管理には、すでにいろいろな方向性や構造がありますが、 実際に運用してみると、 - いちばん数が増えやすくて - いちばん再利用されやすく - いちばん管理が面倒 になりやすいのは**Skill** で、 数が増えるつれて、単体で完結するよりも、他の Skill を参照しながら組み合わさっていくほうがより効率的になっていきます。 ![](https://static.zenn.studio/user-upload/a04aa11",
+      "tags": [
+        "llm"
+      ],
+      "score": 2,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-05T22:15:45+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDI1NDMzJTJGZjY4MGEwNTEwOTJhYWY1NjBkNjE2ZjUyODk5YTYwNzNlZjVlMGUxMyUyRmxhcmdlLnBuZyUzRjE3Nzc5ODY4NDM_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU3MTRmYjA2MTIwMGY4ZTU2MjBhZDkyNzZhY2UxNmJi%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Db429bd55439aa2b488d5138c3ce5e7c3?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JUE0JUE3JUU5JTg3JThGJUUzJTgxJUFFU2tpbGwlRTMlODIlOTIlRTUlOEElQjklRTclOEUlODclRTclOUElODQlRTMlODElQUIlRTclQUUlQTElRTclOTAlODYlRTMlODElOTklRTMlODIlOEIlRTclODklQjklRTUlOEMlOTYlRTUlOUUlOEJDTEklRTMlODMlODQlRTMlODMlQkMlRTMlODMlQUIlRTMlODAlOENza2xvY2slRTMlODAlOEQlRTMlODIlOTIlRTQlQkQlOUMlRTMlODIlOEElRTMlODElQkUlRTMlODElOTclRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1hZjQ3M2IzYjJkZDA4MjUyZWM2YmEyMDcwYTZmOTg3YQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBhcnRpZSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTM3MDIyZGExZDRlNGM4OTM2MDU2YTQyYjM4YWRjYzM0&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=09475072853223454708873e90580df1"
+    },
+    {
+      "id": "8236de8a9a26b31d",
+      "kind": "news",
+      "title": "Qiitaのトレンドタグを5分で集計してタグ枠を決めるチートシート",
+      "url": "https://qiita.com/Ngen/items/fa54b9918ee08981426b",
+      "summary": "> Claude Cowork を社内AXに使っている私の実践ログです。社内固有名・個人名は伏せています。 Qiita で記事を書くたびに「タグ枠5つ、何にしよう」で5分悩むのが地味に嫌でした。直近1週間で伸びているタグを定量で把握できれば、迷いはゼロにできるはず。私は Claude にプロンプトを投げる前段で、Qiita API → bash + jq → Python の3段で**60秒以内に週間トレンドタグTOP10を出すチートシート**を仕込んでいます。本記事はそのコ",
+      "tags": [
+        "llm"
+      ],
+      "score": 2,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-04T21:05:23+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NDIzNTUwJTJGYTIyZDJiODFmNjdiYWI4ODE1MmVjYWM3ZjRiZmRhZTkzZWIyZmIzYSUyRmxhcmdlLnBuZyUzRjE3Nzc4NzcxODA_aXhsaWI9cmItNC4wLjAmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTlmYjdkMDUyMWY0OTQwZjAzNTU0Zjg1M2VhMzNiYjFj%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbdaf139217293a2a27df7429f2c3254f?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9UWlpdGElRTMlODElQUUlRTMlODMlODglRTMlODMlQUMlRTMlODMlQjMlRTMlODMlODklRTMlODIlQkYlRTMlODIlQjAlRTMlODIlOTI1JUU1JTg4JTg2JUUzJTgxJUE3JUU5JTlCJTg2JUU4JUE4JTg4JUUzJTgxJTk3JUUzJTgxJUE2JUUzJTgyJUJGJUUzJTgyJUIwJUU2JTlFJUEwJUUzJTgyJTkyJUU2JUIxJUJBJUUzJTgyJTgxJUUzJTgyJThCJUUzJTgzJTgxJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgyJUI3JUUzJTgzJUJDJUUzJTgzJTg4JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YjU5ZjgwODIyODI4NDllM2Y2ZTllYTg0MWNjZDVhMmE&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBOZ2VuJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MWQ3OTVjYzgyMDRkZTNjODljMTkwZjg1OWU0NDQwOWM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=b1481353428026710bd5e9d8eb442588"
+    },
+    {
+      "id": "f05c8d736446dbd6",
+      "kind": "news",
+      "title": "AI を「外注エンジニア」として扱う話 — 同僚でも部下でもない第 3 の関係性",
+      "url": "https://qiita.com/JUMP_IN/items/e2e97049723e9c4eeddf",
+      "summary": "## 起点 最近、AI 協業に関する記事を読んでいると、「AI を**同僚**として扱う」という言い回しに出会うことが増えてきました。「同僚として」「ペアプログラマーとして」「右腕として」。耳触りはいい言葉ですが、私はそこに少しずつ違和感を持つようになりました。 私の運用は、もう少し冷たい関係です。AI を**外注エンジニア**として扱っています。同僚でも部下でもない、契約ベースの距離感。これが今の私には一番自然です。 なぜ「同僚」ではなく「外注エンジニア」なのか、を整理して",
+      "tags": [
+        "llm"
+      ],
+      "score": 2,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-04T10:32:11+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZkZDE5NzcxYmM3ZDc4ODI0MjgyN2JmNzViZDNkZmM5Zj9peGxpYj1yYi00LjAuMCZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MmExOGJkNzE4ZGYxOTc0Yjg2Mjg3ZWEwYjJjMTYzOWM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dc458908bb9679c093ff1c648e45b8eb8?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9QUklMjAlRTMlODIlOTIlRTMlODAlOEMlRTUlQTQlOTYlRTYlQjMlQTglRTMlODIlQTglRTMlODMlQjMlRTMlODIlQjglRTMlODMlOEIlRTMlODIlQTIlRTMlODAlOEQlRTMlODElQTglRTMlODElOTclRTMlODElQTYlRTYlODklQjElRTMlODElODYlRTglQTklQjElMjAlRTIlODAlOTQlMjAlRTUlOTAlOEMlRTUlODMlOUElRTMlODElQTclRTMlODIlODIlRTklODMlQTglRTQlQjglOEIlRTMlODElQTclRTMlODIlODIlRTMlODElQUElRTMlODElODQlRTclQUMlQUMlMjAzJTIwJUUzJTgxJUFFJUU5JTk2JUEyJUU0JUJGJTgyJUU2JTgwJUE3JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MmUwNTU4ZWRmMGVmN2M2M2JkMTRlMWIxZWUyOWQxMjU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDBKVU1QX0lOJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OWNhZjFiZjYyNTQxM2YyYTMwODBjMTg1NmFlMTYyNjI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=9364c377d2c6423543d300bc3336a8da"
+    },
+    {
+      "id": "0ef93a22ca07c2d6",
+      "kind": "news",
+      "title": "JavaScriptからRustに入門",
+      "url": "https://zenn.dev/saku1224/articles/660edda9b385b0",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-05T10:35:38.946+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--_RQQuZka--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:JavaScript%25E3%2581%258B%25E3%2582%2589Rust%25E3%2581%25AB%25E5%2585%25A5%25E9%2596%2580%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:saku%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS2JvekpWLVd2OVJ5cmwzaXMzX1NEQV9QcFZMWHZZSWFubVY0d0h4UkJaTmV4b1J3PXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "98bb3f694d0a5b01",
+      "kind": "news",
+      "title": "Rustで自作データベースを作る その34: verifyのnavigation bundleを追加して、最初の数手を案内する",
+      "url": "https://zenn.dev/hmlyn523/articles/a56e0888eb779b",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-04T23:09:25.868+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--464XThxg--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25A7%25E8%2587%25AA%25E4%25BD%259C%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B9%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%2520%25E3%2581%259D%25E3%2581%25AE34%253A%2520verify%25E3%2581%25AEnavigation%2520bundle%25E3%2582%2592%25E8%25BF%25BD%25E5%258A%25A0%25E3%2581%2597%25E3%2581%25A6%25E3%2580%2581%25E6%259C%2580%25E5%2588%259D%25E3%2581%25AE%25E6%2595%25B0...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25B2%25E3%2581%25BE%25E3%2581%25A1%25E3%2582%2583%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzgxNjYzMWZiNDguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6166e939bd2d7c63",
+      "kind": "news",
+      "title": "MCAP をターミナルでざっと眺める TUI ツール を作った",
+      "url": "https://zenn.dev/eduidl/articles/mcaptui-introduction",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-04T09:43:59.178+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--uCAfQ6bq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:MCAP%2520%25E3%2582%2592%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%259F%25E3%2583%258A%25E3%2583%25AB%25E3%2581%25A7%25E3%2581%2596%25E3%2581%25A3%25E3%2581%25A8%25E7%259C%25BA%25E3%2582%2581%25E3%2582%258B%2520TUI%2520%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%2520%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:eduidl%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJkNDMwMDk1NTYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "54d11032d117bffa",
+      "kind": "news",
+      "title": "# 【ローカルLLM】ハルシネーションを「画像」で破壊し、WAFを「生体情報のOS注入」で貫通する自律エージェントを作った",
+      "url": "https://zenn.dev/verantyx/articles/97a47b3d568df7",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-04T23:22:09.913+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--xsfWgNSM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%2523%2520%25E3%2580%2590%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25ABLLM%25E3%2580%2591%25E3%2583%258F%25E3%2583%25AB%25E3%2582%25B7%25E3%2583%258D%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3%25E3%2582%2592%25E3%2580%258C%25E7%2594%25BB%25E5%2583%258F%25E3%2580%258D%25E3%2581%25A7%25E7%25A0%25B4%25E5%25A3%258A%25E3%2581%2597%25E3%2580%2581WAF%25E3%2582%2592%25E3%2580%258C%25E7%2594%259F%25E4%25BD%2593%25E6%2583%2585%25E5%25A0%25B1%25E3%2581%25AEOS%25E6%25B3%25A8%25E5%2585%25A5%25E3%2580%258D%25E3%2581%25A7%25E8%25B2%25AB%25E9%2580%259A%25E3%2581%2599%25E3%2582%258B%25E8%2587%25AA%25E5%25BE%258B%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kofdai%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTHB4UFVOZGNVLTlGRlhucklDTDdLSnVsSWxCOFUyTjdaR2Q2XzFrdXg1N0liUl9RPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "460da07d7a8a8f03",
+      "kind": "news",
+      "title": "変なスタックでポケモン用ツールを作る(DuckDB Wasm / Wasm Component ModelとAIエージェント)",
+      "url": "https://zenn.dev/rail44/articles/f73f4ec4c789eb",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-03T01:48:36.549+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--w37DnmjN--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25A4%2589%25E3%2581%25AA%25E3%2582%25B9%25E3%2582%25BF%25E3%2583%2583%25E3%2582%25AF%25E3%2581%25A7%25E3%2583%259D%25E3%2582%25B1%25E3%2583%25A2%25E3%2583%25B3%25E7%2594%25A8%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%2528DuckDB%2520Wasm%2520%252F%2520Wasm%2520Component%2520Model%25E3%2581%25A8AI%25E3%2582%25A8...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:rail44%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E1NzIxM2E1YzkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6b8b4808c6b56eb2",
+      "kind": "news",
+      "title": "窓口は変わっても、書類の様式は変えられない -- mp3gain互換ツールを作って分かったこと",
+      "url": "https://zenn.dev/jphfa/articles/mp3gain-compatibility-layers",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-02T23:44:44.346+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--_Hfmjzyq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E7%25AA%2593%25E5%258F%25A3%25E3%2581%25AF%25E5%25A4%2589%25E3%2582%258F%25E3%2581%25A3%25E3%2581%25A6%25E3%2582%2582%25E3%2580%2581%25E6%259B%25B8%25E9%25A1%259E%25E3%2581%25AE%25E6%25A7%2598%25E5%25BC%258F%25E3%2581%25AF%25E5%25A4%2589%25E3%2581%2588%25E3%2582%2589%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%2520--%2520mp3gain%25E4%25BA%2592%25E6%258F%259B%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E5%2588%2586%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E3%2581%2593%25E3%2581%25A8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:jphfa%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzlmMGQ1ZWNlNTUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "1cbbb0494806985d",
+      "kind": "news",
+      "title": "Rustで自作データベースを作る その32: verifyのoverviewを追加して、複数tableの不一致を俯瞰する",
+      "url": "https://zenn.dev/hmlyn523/articles/d12d2b8e298e39",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 2,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-02T22:18:10.147+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--NF3H2F1w--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25A7%25E8%2587%25AA%25E4%25BD%259C%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B9%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%2520%25E3%2581%259D%25E3%2581%25AE32%253A%2520verify%25E3%2581%25AEoverview%25E3%2582%2592%25E8%25BF%25BD%25E5%258A%25A0%25E3%2581%2597%25E3%2581%25A6%25E3%2580%2581%25E8%25A4%2587%25E6%2595%25B0table%25E3%2581%25AE%25E4%25B8%258D%25E4%25B8%2580%25E8%2587%25B4%25E3%2582%2592%25E4%25BF%25AF%25E7%259E%25B0%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25B2%25E3%2581%25BE%25E3%2581%25A1%25E3%2582%2583%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzgxNjYzMWZiNDguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "02a674b356c027cc",
+      "kind": "news",
+      "title": "AI Agent Platform（Google Cloud Gemini Enterprise Agent Platform編）",
+      "url": "https://zenn.dev/cozy07/articles/97a0f1cd463cc3",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 2,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-05T19:00:05.440+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--AtmUs_8w--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520Agent%2520Platform%25EF%25BC%2588Google%2520Cloud%2520Gemini%2520Enterprise%2520Agent%2520Pl...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:KojiTsukamoto%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YyMWJkMjdjODUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6bcafca7b5b32054",
+      "kind": "news",
+      "title": "Neo4j × LangChain × Z.aiでRAGチャットボットを作った——農家エンジニアのチャットボット開発記⑤",
+      "url": "https://zenn.dev/hiroakikody/articles/cc88cc89516e22",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 2,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-05T06:54:25.930+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--mX3LzDtt--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Neo4j%2520%25C3%2597%2520LangChain%2520%25C3%2597%2520Z.ai%25E3%2581%25A7RAG%25E3%2583%2581%25E3%2583%25A3%25E3%2583%2583%25E3%2583%2588%25E3%2583%259C%25E3%2583%2583%25E3%2583%2588%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%25E2%2580%2594%25E2%2580%2594%25E8%25BE%25B2%25E5%25AE%25B6%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%25AE%25E3%2583%2581%25E3%2583%25A3%25E3%2583%2583%25E3%2583%2588%25E3%2583%259C%25E3%2583%2583%25E3%2583%2588%25E9%2596%258B%25E7%2599%25BA%25E8%25A8%2598%25E2%2591%25A4%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:hiroakiKody%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzI3YzgzYjM1YmYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "3dcc61fd6f69e370",
+      "kind": "news",
+      "title": "自動売買Botを作って分かった日本の取引所API比較 ── 実装者視点の本音レビュー",
+      "url": "https://zenn.dev/ponfreelance/articles/affiliflow-exchange-api-comparison",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 2,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-05T09:00:18.983+09:00",
+      "fetchedAt": "2026-05-05T22:55:00.325Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--G1U9wuMu--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E8%2587%25AA%25E5%258B%2595%25E5%25A3%25B2%25E8%25B2%25B7Bot%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E5%2588%2586%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E6%2597%25A5%25E6%259C%25AC%25E3%2581%25AE%25E5%258F%2596%25E5%25BC%2595%25E6%2589%2580API%25E6%25AF%2594%25E8%25BC%2583%2520%25E2%2594%2580%25E2%2594%2580%2520%25E5%25AE%259F%25E8%25A3%2585%25E8%2580%2585%25E8%25A6%2596%25E7%2582%25B9%25E3%2581%25AE%25E6%259C%25AC%25E9%259F%25B3%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BC%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25BD%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSURKYWtUQU1QbU1PYmxfWW51cGZBdTk5aG5IdjlLbm9hQmdUNEp3VUo5NFlFZjNBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    }
+  ]
+}
