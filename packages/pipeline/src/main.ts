@@ -5,6 +5,7 @@ import {
   BIG_TAG_GROUP_ORDER,
   HN_QUERIES,
   KEYWORD_WEIGHTS,
+  LANGUAGE_BONUS,
   NEGATIVE_KEYWORDS,
   NEWS_MAX_AGE_HOURS,
   NEWS_MIN_PER_GROUP,
@@ -171,6 +172,28 @@ function primaryGroup(tags: string[]): string | undefined {
   return undefined;
 }
 
+/**
+ * source 文字列から言語/重要度の tier を返す。
+ * 0 = 日本語、1 = 英語の重要/低頻度ソース、2 = それ以外の英語 (HN 等)。
+ * RSS_FEEDS に lang/important を持たせ、Qiita/Zenn/HN は prefix で判定する。
+ */
+function sourceTier(source: string): 0 | 1 | 2 {
+  if (source.startsWith("qiita-api:") || source.startsWith("zenn-api:")) return 0;
+  if (source.startsWith("hn:")) return 2;
+  if (source.startsWith("rss:")) {
+    const id = source.slice(4);
+    const feed = RSS_FEEDS.find((f) => f.id === id);
+    if (!feed) return 2;
+    if (feed.lang === "ja") return 0;
+    return feed.important ? 1 : 2;
+  }
+  return 2;
+}
+
+function languageBonus(source: string): number {
+  return LANGUAGE_BONUS[sourceTier(source)];
+}
+
 const ARXIV_REQUEST_INTERVAL_MS = 3000;
 
 async function collectPapers(): Promise<ArxivPaper[]> {
@@ -215,15 +238,22 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     (r) => !hasNegativeKeyword(r.title, r.description, NEGATIVE_KEYWORDS),
   );
 
-  // 1) スコアリング: 全 item を 共通 popularity スコアで採点する。
-  //    Qiita/Zenn は likes_count から sqrt 正規化、HN は既に正規化済み。
-  //    HN/RSS は keyword score も加算 (人気と関連度の合算)。
+  // 1) スコアリング:
+  //    - merit  = popularity + kwScore (関連度・実力スコア。閾値判定に使う)
+  //    - score  = merit + languageBonus(source)  (ランキングと表示に使う最終スコア)
+  //    日本語ソース (Qiita/Zenn/日本語 RSS) には +15、英語の重要/低頻度ソース
+  //    (Rust 公式 / PEPs / Google Research / Shtetl-Optimized) には +5、
+  //    それ以外の英語 (HN / Quanta) は +0。これで日本語と重要英語を上位に押し上げ、
+  //    HN は枠が余ったときのみ採用されるようになる。
   const scored = filtered.map((r) => {
     const popularity = popularityScore(r.source, r.baseScore ?? 0);
+    const bonus = languageBonus(r.source);
     if (isPopularityOnly(r.source)) {
+      const merit = popularity;
       return {
         r,
-        score: popularity,
+        merit,
+        score: merit + bonus,
         tags: tagsFromSource(r.source),
       };
     }
@@ -232,18 +262,22 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       r.description,
       KEYWORD_WEIGHTS,
     );
+    const merit = popularity + kwScore;
     return {
       r,
-      score: popularity + kwScore,
+      merit,
+      score: merit + bonus,
       tags: canonicalTags(matched),
     };
   });
 
-  // 2) フィルタ: スコア閾値、および大タグ (BIG_TAG_GROUPS) に属さない item を除外。
+  // 2) フィルタ: merit (実力) で閾値判定、および大タグ (BIG_TAG_GROUPS) に属さない item を除外。
+  //    languageBonus は ranking のみに効かせ、低品質記事が bonus だけで通過するのを防ぐ。
   const eligible = scored
     .map((s) => ({ ...s, group: primaryGroup(s.tags) }))
-    .filter((s) => s.score >= NEWS_SCORE_THRESHOLD && s.group !== undefined) as Array<{
+    .filter((s) => s.merit >= NEWS_SCORE_THRESHOLD && s.group !== undefined) as Array<{
       r: typeof scored[number]["r"];
+      merit: number;
       score: number;
       tags: string[];
       group: string;

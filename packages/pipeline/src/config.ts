@@ -202,34 +202,56 @@ export interface RssFeedConfig {
    *   15 超低頻度 (<1/週)       — PEP RSS
    */
   baseScore?: number;
+  /** フィードの主言語。news ランキングで日本語を最優先するために使う。 */
+  lang: "ja" | "en";
+  /**
+   * 英語ソース限定: 公式 / 低頻度の重要発信源として優先する場合 true。
+   * 日本語 RSS は常に最優先 tier なので無関係。
+   * 例: Rust Blog / Inside Rust / This Week in Rust / PEPs / Google Research /
+   *     Shtetl-Optimized は true。Quanta Magazine は false。
+   */
+  important?: boolean;
 }
 
 export const RSS_FEEDS: RssFeedConfig[] = [
   // Qiita / Zenn は専用 API (qiitaApi / zennApi) で liked_count を取得し純人気順にランクする。
   // 中頻度 (~10/週)
-  { id: "greenkeys", url: "https://green-keys.info/feed/", baseScore: 5 },
+  { id: "greenkeys", url: "https://green-keys.info/feed/", baseScore: 5, lang: "ja" },
   // 低頻度 (~1-2/週) — 投稿があった日は上位に押し上げる
-  { id: "talpkeyboard", url: "https://www.talpkeyboard.com/feed", baseScore: 12 },
-  { id: "rust-blog", url: "https://blog.rust-lang.org/feed.xml", baseScore: 12 },
-  { id: "inside-rust", url: "https://blog.rust-lang.org/inside-rust/feed.xml", baseScore: 12 },
-  { id: "this-week-in-rust", url: "https://this-week-in-rust.org/rss.xml", baseScore: 12 },
+  { id: "talpkeyboard", url: "https://www.talpkeyboard.com/feed", baseScore: 12, lang: "ja" },
+  { id: "rust-blog", url: "https://blog.rust-lang.org/feed.xml", baseScore: 12, lang: "en", important: true },
+  { id: "inside-rust", url: "https://blog.rust-lang.org/inside-rust/feed.xml", baseScore: 12, lang: "en", important: true },
+  { id: "this-week-in-rust", url: "https://this-week-in-rust.org/rss.xml", baseScore: 12, lang: "en", important: true },
   // 超低頻度 (<1/週)
-  { id: "peps", url: "https://peps.python.org/peps.rss", baseScore: 15 },
-  { id: "shtetl-optimized", url: "https://scottaaronson.blog/?feed=rss2", baseScore: 15 },
+  { id: "peps", url: "https://peps.python.org/peps.rss", baseScore: 15, lang: "en", important: true },
+  { id: "shtetl-optimized", url: "https://scottaaronson.blog/?feed=rss2", baseScore: 15, lang: "en", important: true },
   // 中頻度 (~5-10/週) — Google Research の研究発表 (OR-Tools / 量子 / アルゴリズム研究を含む)
-  { id: "google-research", url: "https://research.google/blog/rss/", baseScore: 5 },
+  { id: "google-research", url: "https://research.google/blog/rss/", baseScore: 5, lang: "en", important: true },
   // 高頻度 / 広域科学ニュース — キーワード一致した記事のみ採用
-  { id: "quanta-magazine", url: "https://www.quantamagazine.org/feed/" },
-  { id: "nazology", url: "https://nazology.kusuguru.co.jp/feed" },
+  { id: "quanta-magazine", url: "https://www.quantamagazine.org/feed/", lang: "en" },
+  { id: "nazology", url: "https://nazology.kusuguru.co.jp/feed", lang: "ja" },
   // コーヒー (低〜中頻度)
   // 規約確認済み: typica.jp は robots.txt が User-agent: * 全許可 (/for-app/ のみ Disallow)
   // privacy-policy にも転載・商用利用に関する制限なし。RSS 自体が syndication 用途で公開。
-  { id: "typica", url: "https://typica.jp/feed/", baseScore: 12 },
+  { id: "typica", url: "https://typica.jp/feed/", baseScore: 12, lang: "ja" },
   // cafict.com (個人ブログ "コーヒーのある暮らしと道具")
   // 規約確認済み: robots.txt は /wp-admin/ のみ Disallow、privacy-policy に転載/商用制限なし。
   // 投稿頻度は低め (2025-07 が最新) なので、新規投稿があった日にだけ浮かぶ想定で baseScore: 12。
-  { id: "cafict", url: "https://cafict.com/feed/", baseScore: 12 },
+  { id: "cafict", url: "https://cafict.com/feed/", baseScore: 12, lang: "ja" },
 ];
+
+/**
+ * news ランキング時の言語ボーナス。merit (popularity + kwScore) に加算して score を決める。
+ * 0 = 日本語 (Qiita / Zenn / 日本語 RSS): 最優先で押し上げる
+ * 1 = 英語の重要 / 低頻度ソース (Rust 公式 / PEPs / Google Research / Shtetl-Optimized 等):
+ *     Japanese 中位と並ぶ程度に押し上げる
+ * 2 = それ以外の英語 (HN / Quanta Magazine 等): ボーナスなし。日本語/重要英語が枠を埋め切らないときに採用される。
+ */
+export const LANGUAGE_BONUS: Record<0 | 1 | 2, number> = {
+  0: 15,
+  1: 5,
+  2: 0,
+};
 
 /**
  * 巡回する arXiv カテゴリ。GAS 版 URL_LIST 準拠。
