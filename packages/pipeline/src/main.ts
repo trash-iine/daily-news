@@ -1,14 +1,16 @@
 import type { BaseItem } from "@daily-news/shared";
 import {
   ARXIV_CATEGORIES,
+  BIG_TAG_GROUPS,
+  BIG_TAG_GROUP_ORDER,
   HN_QUERIES,
   KEYWORD_WEIGHTS,
   NEGATIVE_KEYWORDS,
   NEWS_MAX_AGE_HOURS,
-  NEWS_OTHER_TOP_N,
-  NEWS_POPULAR_TOP_N,
+  NEWS_MIN_PER_GROUP,
   NEWS_SCORE_THRESHOLD,
   NEWS_SEEN_LOOKBACK_DAYS,
+  NEWS_TOP_N,
   PAPERS_TOP_N,
   PAPER_KEYWORDS,
   PAPER_PRIORITY_KEYWORDS,
@@ -146,6 +148,29 @@ function tagsFromSource(source: string): string[] {
   return canonicalTags([m[1] as string]);
 }
 
+/**
+ * 各ソースの人気指標 (Qiita LGTM / Zenn いいね / HN points / RSS baseScore) を
+ * 共通レンジに正規化する。
+ * - Qiita / Zenn は生 likes_count を sqrt スケール (3 * sqrt) で 0〜30 程度に圧縮
+ * - HN は sources/hackerNews.ts:pointsToBaseScore で既に sqrt 正規化済み (cap 15)
+ * - RSS の baseScore はフィード重みなのでそのまま使う
+ */
+function popularityScore(source: string, baseScore: number): number {
+  if (baseScore <= 0) return 0;
+  if (source.startsWith("qiita-api:") || source.startsWith("zenn-api:")) {
+    return Math.round(3 * Math.sqrt(baseScore));
+  }
+  return baseScore;
+}
+
+function primaryGroup(tags: string[]): string | undefined {
+  for (const t of tags) {
+    const g = BIG_TAG_GROUPS[t];
+    if (g) return g;
+  }
+  return undefined;
+}
+
 const ARXIV_REQUEST_INTERVAL_MS = 3000;
 
 async function collectPapers(): Promise<ArxivPaper[]> {
@@ -176,27 +201,30 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     const t = Date.parse(r.publishedAt);
     return Number.isFinite(t) && t >= cutoff;
   });
-  // 同一 URL が複数フィードから流れてくるため URL で重複除外 (Qiita popular ⇄ qiita-api タグ等)
+  // 同一 URL が複数フィードから流れてくるため URL で重複除外
   const seenUrl = new Set<string>();
   const deduped = fresh.filter((r) => {
     if (!r.url || seenUrl.has(r.url)) return false;
     seenUrl.add(r.url);
     return true;
   });
-  // 過去 NEWS_SEEN_LOOKBACK_DAYS 日の bundle に出た記事を除外 (lookback を伸ばした分の再掲防止)
+  // 過去 NEWS_SEEN_LOOKBACK_DAYS 日の bundle に出た記事を除外
   const unseen = deduped.filter((r) => !seenIds.has(hashId(r.url)));
   // ネガティブキーワード（プロモ等）を除外
   const filtered = unseen.filter(
     (r) => !hasNegativeKeyword(r.title, r.description, NEGATIVE_KEYWORDS),
   );
+
+  // 1) スコアリング: 全 item を 共通 popularity スコアで採点する。
+  //    Qiita/Zenn は likes_count から sqrt 正規化、HN は既に正規化済み。
+  //    HN/RSS は keyword score も加算 (人気と関連度の合算)。
   const scored = filtered.map((r) => {
+    const popularity = popularityScore(r.source, r.baseScore ?? 0);
     if (isPopularityOnly(r.source)) {
-      // Qiita / Zenn は likes_count を生値でスコアにし、キーワードマッチは行わない。
       return {
         r,
-        score: r.baseScore ?? 0,
-        matched: [] as string[],
-        fromPopularity: true,
+        score: popularity,
+        tags: tagsFromSource(r.source),
       };
     }
     const { score: kwScore, matched } = scoreFields(
@@ -206,42 +234,90 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     );
     return {
       r,
-      score: kwScore + (r.baseScore ?? 0),
-      matched,
-      fromPopularity: false,
+      score: popularity + kwScore,
+      tags: canonicalTags(matched),
     };
   });
 
-  // 2 バケット (popular = qiita+zenn / other = それ以外) で別々にソート・cap する。
-  // 生 likes_count による押し出しを防ぎ、各バケット内では純粋に score 降順。
-  const popular = scored
-    .filter((s) => s.fromPopularity && s.score >= NEWS_SCORE_THRESHOLD)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, NEWS_POPULAR_TOP_N);
+  // 2) フィルタ: スコア閾値、および大タグ (BIG_TAG_GROUPS) に属さない item を除外。
+  const eligible = scored
+    .map((s) => ({ ...s, group: primaryGroup(s.tags) }))
+    .filter((s) => s.score >= NEWS_SCORE_THRESHOLD && s.group !== undefined) as Array<{
+      r: typeof scored[number]["r"];
+      score: number;
+      tags: string[];
+      group: string;
+    }>;
 
-  // github.com 直リンクはタグごとに最高スコア 1 件まで (HN 由来のレポ紹介で
-  // rust/python/algorithm 系が埋まるのを防ぐ)。先にスコア降順で並べてから filter する。
+  const droppedNoGroup = scored.length - eligible.length;
+  if (droppedNoGroup > 0) {
+    console.log(
+      `[main] dropped ${droppedNoGroup} news items (no big-tag group / below threshold)`,
+    );
+  }
+
+  // 3) 既存ルール: github.com 直リンクは canonical タグごと最大 1 件 (HN 由来の
+  //    レポ紹介で同タグが埋まるのを防ぐ既存挙動を維持)。スコア降順で並べてから filter。
   const ghPerTag = new Map<string, number>();
-  const other = scored
-    .filter((s) => !s.fromPopularity && s.score >= NEWS_SCORE_THRESHOLD)
+  const ghFiltered = eligible
+    .slice()
     .sort((a, b) => b.score - a.score)
     .filter((s) => {
       if (!/github\.com/.test(s.r.url)) return true;
-      const key = canonicalTags(s.matched)[0] ?? "";
+      const key = s.tags[0] ?? "";
       const n = ghPerTag.get(key) ?? 0;
       if (n >= 1) return false;
       ghPerTag.set(key, n + 1);
       return true;
-    })
-    .slice(0, NEWS_OTHER_TOP_N);
+    });
 
-  return [...popular, ...other].map(({ r, score, matched, fromPopularity }) => ({
+  // 4) 配分: 大タグごとに最低 NEWS_MIN_PER_GROUP 件を確保し、残りは全体 popularity 降順で埋める。
+  const byGroup = new Map<string, typeof ghFiltered>();
+  for (const s of ghFiltered) {
+    const arr = byGroup.get(s.group) ?? [];
+    arr.push(s);
+    byGroup.set(s.group, arr);
+  }
+  for (const arr of byGroup.values()) {
+    arr.sort((a, b) => b.score - a.score);
+  }
+
+  const picked = new Set<string>(); // dedup by URL
+  const ordered: typeof ghFiltered = [];
+
+  // 4a) 各 group から min 件ずつ採用
+  for (let round = 0; round < NEWS_MIN_PER_GROUP; round++) {
+    for (const group of BIG_TAG_GROUP_ORDER) {
+      const arr = byGroup.get(group);
+      if (!arr) continue;
+      const next = arr.find((s) => !picked.has(s.r.url));
+      if (!next) continue;
+      ordered.push(next);
+      picked.add(next.r.url);
+      if (ordered.length >= NEWS_TOP_N) break;
+    }
+    if (ordered.length >= NEWS_TOP_N) break;
+  }
+
+  // 4b) 残り枠を全体 popularity 降順で埋める
+  if (ordered.length < NEWS_TOP_N) {
+    const remaining = ghFiltered.filter((s) => !picked.has(s.r.url));
+    // ghFiltered は既に score 降順だが、念のため再ソート
+    remaining.sort((a, b) => b.score - a.score);
+    for (const s of remaining) {
+      if (ordered.length >= NEWS_TOP_N) break;
+      ordered.push(s);
+      picked.add(s.r.url);
+    }
+  }
+
+  return ordered.map(({ r, score, tags }) => ({
     id: hashId(r.url),
     kind: "news",
     title: r.title,
     url: r.url,
     summary: r.description.slice(0, 240),
-    tags: fromPopularity ? tagsFromSource(r.source) : canonicalTags(matched),
+    tags,
     score,
     source: r.source,
     publishedAt: r.publishedAt,

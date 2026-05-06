@@ -43,6 +43,32 @@ export const KEYWORD_WEIGHTS: Record<string, number> = {
   "幾何": 3,
   "代数": 3,
   "トポロジー": 3,
+  // アルゴリズム/最適化の追加
+  "dynamic programming": 3,
+  "graph algorithm": 3,
+  "data structure": 2,
+  // キーボード関連の追加
+  "ergonomic keyboard": 4,
+  "key switch": 3,
+  "キースイッチ": 3,
+  "キーキャップ": 3,
+  // コーヒー (趣味)
+  "coffee": 4,
+  "espresso": 4,
+  "latte": 2,
+  "pour over": 4,
+  "single origin": 4,
+  "specialty coffee": 5,
+  "barista": 3,
+  "roaster": 3,
+  "コーヒー": 4,
+  "珈琲": 4,
+  "エスプレッソ": 4,
+  "ハンドドリップ": 4,
+  "ラテアート": 3,
+  "スペシャルティコーヒー": 5,
+  "焙煎": 4,
+  "バリスタ": 3,
 };
 
 /**
@@ -99,7 +125,19 @@ export const TAG_ALIASES: Record<string, string> = {
   "algorithms": "algorithm",
   "アルゴリズム": "algorithm",
   "競技プログラミング": "algorithm",
+  "dynamic programming": "algorithm",
+  "graph algorithm": "algorithm",
+  "data structure": "algorithm",
   "自作キーボード": "キーボード",
+  "メカニカルキーボード": "キーボード",
+  "mechanical keyboard": "キーボード",
+  "split keyboard": "キーボード",
+  "ergonomic keyboard": "キーボード",
+  "qmk": "キーボード",
+  "zmk": "キーボード",
+  "key switch": "キーボード",
+  "キースイッチ": "キーボード",
+  "キーキャップ": "キーボード",
   "mathematics": "math",
   "数学": "math",
   "数論": "math",
@@ -109,7 +147,46 @@ export const TAG_ALIASES: Record<string, string> = {
   "トポロジー": "math",
   "geometry": "math",
   "number theory": "math",
+  // コーヒー (canonical: coffee)
+  "espresso": "coffee",
+  "latte": "coffee",
+  "pour over": "coffee",
+  "single origin": "coffee",
+  "specialty coffee": "coffee",
+  "barista": "coffee",
+  "roaster": "coffee",
+  "珈琲": "coffee",
+  "エスプレッソ": "coffee",
+  "ハンドドリップ": "coffee",
+  "ラテアート": "coffee",
+  "スペシャルティコーヒー": "coffee",
+  "焙煎": "coffee",
+  "バリスタ": "coffee",
+  "コーヒー": "coffee",
 };
+
+/**
+ * canonical タグ → 大タグ (BIG_TAG) のグループ。
+ * news ランキングで「大タグごとに最低 1 件」枠を確保するために使う。
+ * ここに無い canonical タグの item は news 採用候補から除外される。
+ */
+export const BIG_TAG_GROUPS: Record<string, string> = {
+  rust: "language",
+  python: "language",
+  llm: "ai",
+  optimization: "algorithm",
+  algorithm: "algorithm",
+  quantum: "algorithm",
+  math: "hobby",
+  "キーボード": "hobby",
+  coffee: "hobby",
+};
+
+/**
+ * 各大タグからの最低採用枠を埋める順序。
+ * 並び替えや空 group のスキップに使う。
+ */
+export const BIG_TAG_GROUP_ORDER = ["language", "ai", "algorithm", "hobby"] as const;
 
 export interface RssFeedConfig {
   id: string;
@@ -144,6 +221,14 @@ export const RSS_FEEDS: RssFeedConfig[] = [
   // 高頻度 / 広域科学ニュース — キーワード一致した記事のみ採用
   { id: "quanta-magazine", url: "https://www.quantamagazine.org/feed/" },
   { id: "nazology", url: "https://nazology.kusuguru.co.jp/feed" },
+  // コーヒー (低〜中頻度)
+  // 規約確認済み: typica.jp は robots.txt が User-agent: * 全許可 (/for-app/ のみ Disallow)
+  // privacy-policy にも転載・商用利用に関する制限なし。RSS 自体が syndication 用途で公開。
+  { id: "typica", url: "https://typica.jp/feed/", baseScore: 12 },
+  // cafict.com (個人ブログ "コーヒーのある暮らしと道具")
+  // 規約確認済み: robots.txt は /wp-admin/ のみ Disallow、privacy-policy に転載/商用制限なし。
+  // 投稿頻度は低め (2025-07 が最新) なので、新規投稿があった日にだけ浮かぶ想定で baseScore: 12。
+  { id: "cafict", url: "https://cafict.com/feed/", baseScore: 12 },
 ];
 
 /**
@@ -185,6 +270,7 @@ export const QIITA_API_TAGS: string[] = [
   "アルゴリズム",
   "競技プログラミング",
   "量子コンピュータ",
+  "数理最適化",
 ];
 
 /**
@@ -199,6 +285,7 @@ export const ZENN_API_TOPICS: string[] = [
   "algorithm",
   "競技プログラミング",
   "quantum",
+  "optimization",
 ];
 
 /**
@@ -214,19 +301,23 @@ export const HN_QUERIES: string[] = [
   "mechanical keyboard",
   "qmk",
   "zmk",
+  "ergonomic keyboard",
+  "split keyboard",
   "combinatorial optimization",
   "quantum computing",
   "quantum algorithm",
   "algorithm",
+  "dynamic programming",
+  "np hard",
 ];
 
 /**
- * 1 日の news 採用件数。
- * - POPULAR: Qiita / Zenn (人気指標で純粋にランク) の合計上限
- * - OTHER:   それ以外 (RSS feeds, Hacker News) の合計上限
+ * 1 日の news 採用件数 (合計)。
+ * 採用ロジックは `BIG_TAG_GROUPS` の各 group から最低 `NEWS_MIN_PER_GROUP` 件を確保し、
+ * 残り枠を全体の人気スコア降順で埋める。
  */
-export const NEWS_POPULAR_TOP_N = 20;
-export const NEWS_OTHER_TOP_N = 5;
+export const NEWS_TOP_N = 25;
+export const NEWS_MIN_PER_GROUP = 1;
 
 /**
  * ニュースの最大配信遅延 (時間)。`publishedAt` がこの値より古い item は採用しない。
