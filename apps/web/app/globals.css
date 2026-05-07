@@ -31,16 +31,11 @@
   --fam-github: oklch(0.5 0.04 270);
   --fam-other: oklch(0.55 0.02 60);
 
-  --tagcat-ai: oklch(0.6 0.16 295);
-  --tagcat-rust: oklch(0.58 0.18 35);
-  --tagcat-python: oklch(0.58 0.15 230);
-  --tagcat-lang: oklch(0.6 0.14 160);
-  --tagcat-theory: oklch(0.55 0.14 15);
-  --tagcat-algo: oklch(0.6 0.14 75);
-  --tagcat-hw: oklch(0.6 0.14 320);
-  --tagcat-web: oklch(0.6 0.14 195);
-  --tagcat-devops: oklch(0.58 0.13 145);
-  --tagcat-default: oklch(0.5 0.02 60);
+  --tagcat-language:  oklch(0.58 0.15 230);
+  --tagcat-ai:        oklch(0.6 0.16 295);
+  --tagcat-algorithm: oklch(0.6 0.14 75);
+  --tagcat-hobby:     oklch(0.6 0.14 320);
+  --tagcat-default:   oklch(0.5 0.02 60);
 
   --font-sans: "Inter", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
   --font-serif: "Source Serif 4", "Noto Serif JP", Georgia, serif;
@@ -511,15 +506,10 @@ a { color: inherit; text-decoration: none; }
 .chip.chip-all.is-active { background: var(--fg); border-color: var(--fg); }
 .chip-count { font-size: 10px; opacity: 0.75; font-feature-settings: "tnum"; }
 
-.chip.tag-cat-ai     { --tc: var(--tagcat-ai); }
-.chip.tag-cat-rust   { --tc: var(--tagcat-rust); }
-.chip.tag-cat-python { --tc: var(--tagcat-python); }
-.chip.tag-cat-lang   { --tc: var(--tagcat-lang); }
-.chip.tag-cat-theory { --tc: var(--tagcat-theory); }
-.chip.tag-cat-algo   { --tc: var(--tagcat-algo); }
-.chip.tag-cat-hw     { --tc: var(--tagcat-hw); }
-.chip.tag-cat-web    { --tc: var(--tagcat-web); }
-.chip.tag-cat-devops { --tc: var(--tagcat-devops); }
+.chip.tag-cat-language  { --tc: var(--tagcat-language); }
+.chip.tag-cat-ai        { --tc: var(--tagcat-ai); }
+.chip.tag-cat-algorithm { --tc: var(--tagcat-algorithm); }
+.chip.tag-cat-hobby     { --tc: var(--tagcat-hobby); }
 
 /* ============ groups ============ */
 .content { display: flex; flex-direction: column; gap: var(--gap, 32px); }
@@ -804,15 +794,10 @@ a { color: inherit; text-decoration: none; }
 }
 .ed-tag:hover::before { background: white; }
 
-.tag-cat-ai     { --tc: var(--tagcat-ai); }
-.tag-cat-rust   { --tc: var(--tagcat-rust); }
-.tag-cat-python { --tc: var(--tagcat-python); }
-.tag-cat-lang   { --tc: var(--tagcat-lang); }
-.tag-cat-theory { --tc: var(--tagcat-theory); }
-.tag-cat-algo   { --tc: var(--tagcat-algo); }
-.tag-cat-hw     { --tc: var(--tagcat-hw); }
-.tag-cat-web    { --tc: var(--tagcat-web); }
-.tag-cat-devops { --tc: var(--tagcat-devops); }
+.tag-cat-language  { --tc: var(--tagcat-language); }
+.tag-cat-ai        { --tc: var(--tagcat-ai); }
+.tag-cat-algorithm { --tc: var(--tagcat-algorithm); }
+.tag-cat-hobby     { --tc: var(--tagcat-hobby); }
 
 /* ============ footer ============ */
 .foot {

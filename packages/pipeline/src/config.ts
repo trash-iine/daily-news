@@ -89,7 +89,6 @@ export const PAPER_KEYWORDS: Record<string, number> = {
   "integer programming": 3,
   "approximation algorithm": 3,
   "scheduling": 2,
-  "routing": 2,
   "graph algorithm": 2,
 };
 
@@ -165,28 +164,9 @@ export const TAG_ALIASES: Record<string, string> = {
   "コーヒー": "coffee",
 };
 
-/**
- * canonical タグ → 大タグ (BIG_TAG) のグループ。
- * news ランキングで「大タグごとに最低 1 件」枠を確保するために使う。
- * ここに無い canonical タグの item は news 採用候補から除外される。
- */
-export const BIG_TAG_GROUPS: Record<string, string> = {
-  rust: "language",
-  python: "language",
-  llm: "ai",
-  optimization: "algorithm",
-  algorithm: "algorithm",
-  quantum: "algorithm",
-  math: "hobby",
-  "キーボード": "hobby",
-  coffee: "hobby",
-};
-
-/**
- * 各大タグからの最低採用枠を埋める順序。
- * 並び替えや空 group のスキップに使う。
- */
-export const BIG_TAG_GROUP_ORDER = ["language", "ai", "algorithm", "hobby"] as const;
+// BIG_TAG_GROUPS / BIG_TAG_GROUP_ORDER は web 側でも使うため @daily-news/shared に置き、
+// 既存 import 互換のためここから re-export する。
+export { BIG_TAG_GROUPS, BIG_TAG_GROUP_ORDER } from "@daily-news/shared";
 
 export interface RssFeedConfig {
   id: string;
