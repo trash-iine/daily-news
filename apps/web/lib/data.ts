@@ -45,6 +45,16 @@ export async function getAllItems(): Promise<BaseItem[]> {
   return bundles.flatMap((b) => b?.items ?? []);
 }
 
+export async function getAllBundles(): Promise<Record<string, DailyBundle>> {
+  const idx = await getIndex();
+  const entries = await Promise.all(
+    idx.dates.map(async (d) => [d, await getDaily(d)] as const),
+  );
+  const out: Record<string, DailyBundle> = {};
+  for (const [d, b] of entries) if (b) out[d] = b;
+  return out;
+}
+
 export async function getAllTags(): Promise<string[]> {
   const items = await getAllItems();
   const set = new Set<string>();
