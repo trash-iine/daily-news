@@ -42,8 +42,8 @@ input:focus { outline: 1px solid var(--fg-faint); }
   width: 100%;
   max-width: 440px;
   margin: 0 auto;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   background: var(--bg);
   display: flex;
   flex-direction: column;

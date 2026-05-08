@@ -43,6 +43,19 @@ export const FAM_COLOR: Record<string, string> = {
   other: "oklch(0.55 0.02 60)",
 };
 
+export const FAM_GLYPH: Record<string, string> = {
+  zenn: "Z",
+  qiita: "Q",
+  arxiv: "α",
+  hn: "Y",
+  rust: "R",
+  python: "py",
+  reddit: "r/",
+  github: "gh",
+  kbd: "⌨",
+  other: "·",
+};
+
 const SOURCE_LABELS: Record<string, string> = {
   hn: "Hacker News",
   "hn:claude": "HN · Claude",

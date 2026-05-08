@@ -1,7 +1,7 @@
 "use client";
-import type { CSSProperties } from "react";
-import type { BigTagGroup } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, bigTagOf } from "./lib";
+import { useState, type CSSProperties } from "react";
+import type { BaseItem, BigTagGroup } from "@daily-news/shared";
+import { BIG_COLOR, BIG_TAGS, FAM_COLOR, FAM_GLYPH, bigTagOf, sourceFamily } from "./lib";
 
 export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
   const t = BIG_TAGS.find((x) => x.id === id);
@@ -26,6 +26,86 @@ export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
       <span style={{ width: 5, height: 5, borderRadius: 999, background: t.color }} />
       {t.label}
     </span>
+  );
+}
+
+export function Thumb({
+  item,
+  size = 56,
+}: {
+  item: Pick<BaseItem, "thumbnail" | "source">;
+  size?: number;
+}) {
+  const fam = sourceFamily(item.source);
+  const c = FAM_COLOR[fam] ?? FAM_COLOR.other;
+  const glyph = FAM_GLYPH[fam] ?? FAM_GLYPH.other;
+  const [failed, setFailed] = useState(false);
+  const radius = Math.round(size * 0.18);
+  const baseStyle: CSSProperties = {
+    width: size,
+    height: size,
+    flexShrink: 0,
+    borderRadius: radius,
+    overflow: "hidden",
+    position: "relative",
+    border: `0.5px solid color-mix(in oklch, ${c} 22%, var(--border))`,
+  };
+  if (item.thumbnail && !failed) {
+    return (
+      <div style={baseStyle}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.thumbnail}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+          onError={() => setFailed(true)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: 4,
+            bottom: 4,
+            padding: "1px 5px",
+            borderRadius: 3,
+            background: `color-mix(in oklch, ${c} 90%, black)`,
+            color: "white",
+            fontFamily: "var(--font-mono)",
+            fontSize: 8.5,
+            fontWeight: 700,
+            letterSpacing: 0.2,
+            lineHeight: 1.2,
+          }}
+        >
+          {glyph}
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div
+      style={{
+        ...baseStyle,
+        background: `linear-gradient(135deg, color-mix(in oklch, ${c} 18%, var(--bg-elev)), color-mix(in oklch, ${c} 8%, var(--bg-sunken)))`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: "var(--font-mono)",
+          fontSize: size * 0.42,
+          fontWeight: 700,
+          color: c,
+          letterSpacing: -0.5,
+        }}
+      >
+        {glyph}
+      </span>
+    </div>
   );
 }
 
