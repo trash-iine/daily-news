@@ -29,6 +29,10 @@ export function ArticleCard({
         borderTop: "0.5px solid var(--rule)",
         background: expanded ? "var(--bg-sunken)" : "transparent",
         borderLeft: `2px solid ${big ? bigColor : "transparent"}`,
+        display: "grid",
+        gridTemplateColumns: "1fr auto",
+        gap: 12,
+        alignItems: "start",
       }}
     >
       <button
@@ -40,13 +44,10 @@ export function ArticleCard({
           padding: 0,
           textAlign: "left",
           width: "100%",
+          minWidth: 0,
           cursor: "pointer",
           color: "inherit",
           fontFamily: "inherit",
-          display: "grid",
-          gridTemplateColumns: "1fr auto",
-          gap: 12,
-          alignItems: "start",
         }}
       >
         <div style={{ minWidth: 0 }}>
@@ -123,10 +124,18 @@ export function ArticleCard({
             </span>
           </div>
         </div>
-        <Thumb item={item} size={64} />
       </button>
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noreferrer noopener"
+        aria-label={`元記事を開く: ${item.title}`}
+        style={{ display: "block", lineHeight: 0 }}
+      >
+        <Thumb item={item} size={64} />
+      </a>
       {expanded && (
-        <div style={{ marginTop: 14, paddingTop: 14, borderTop: "1px dashed var(--border)" }}>
+        <div style={{ gridColumn: "1 / -1", marginTop: 14, paddingTop: 14, borderTop: "1px dashed var(--border)" }}>
           {item.summary && (
             <div
               style={{

@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import type { BaseItem, BigTagGroup, DailyBundle, ItemKind } from "@daily-news/shared";
+import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { BIG_TAGS, itemBigTags } from "./lib";
 import { BigTagFilter, DateStrip } from "./atoms";
 import { ArticleCard } from "./ArticleCard";
@@ -23,9 +23,7 @@ export function TodayScreen({
   nowMs: number;
 }) {
   const [bigFilter, setBigFilter] = useState<BigTagGroup | null>(null);
-  const [kindFilter, setKindFilter] = useState<ItemKind | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
-  const [q, setQ] = useState("");
 
   const counts = useMemo<Record<string, number>>(() => {
     const c: Record<string, number> = { all: bundle?.items.length || 0 };
@@ -37,18 +35,11 @@ export function TodayScreen({
 
   const filtered: BaseItem[] = useMemo(() => {
     if (!bundle) return [];
-    const qq = q.trim().toLowerCase();
     return bundle.items.filter((it) => {
-      if (kindFilter && it.kind !== kindFilter) return false;
       if (bigFilter && !itemBigTags(it).includes(bigFilter)) return false;
-      if (!qq) return true;
-      return (
-        it.title.toLowerCase().includes(qq) ||
-        (it.summary || "").toLowerCase().includes(qq) ||
-        it.tags.some((t) => t.toLowerCase().includes(qq))
-      );
+      return true;
     });
-  }, [bundle, q, bigFilter, kindFilter]);
+  }, [bundle, bigFilter]);
 
   const groups = useMemo(() => {
     const papers = filtered.filter((i) => i.kind === "paper");
@@ -122,68 +113,6 @@ export function TodayScreen({
         }}
       />
       <BigTagFilter value={bigFilter} onChange={setBigFilter} counts={counts} />
-
-      <div style={{ padding: "0 16px 12px", display: "flex", gap: 8 }}>
-        <div style={{ flex: 1, position: "relative" }}>
-          <span
-            style={{
-              position: "absolute",
-              left: 12,
-              top: "50%",
-              transform: "translateY(-50%)",
-              color: "var(--fg-faint)",
-              fontSize: 14,
-            }}
-          >
-            ⌕
-          </span>
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="絞り込み"
-            style={{
-              width: "100%",
-              padding: "10px 14px 10px 32px",
-              background: "var(--bg-sunken)",
-              borderRadius: 10,
-              border: 0,
-              fontSize: 13,
-              color: "var(--fg)",
-              fontFamily: "var(--font-sans)",
-            }}
-          />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            background: "var(--bg-sunken)",
-            borderRadius: 10,
-            padding: 2,
-            gap: 0,
-          }}
-        >
-          {([null, "paper", "news"] as const).map((k) => (
-            <button
-              key={k ?? "all"}
-              onClick={() => setKindFilter(k)}
-              style={{
-                padding: "8px 10px",
-                border: 0,
-                borderRadius: 8,
-                cursor: "pointer",
-                fontSize: 12,
-                fontWeight: 500,
-                background: kindFilter === k ? "var(--bg-elev)" : "transparent",
-                color: kindFilter === k ? "var(--fg)" : "var(--fg-muted)",
-                fontFamily: "var(--font-sans)",
-                boxShadow: kindFilter === k ? "0 1px 2px rgba(0,0,0,0.05)" : "none",
-              }}
-            >
-              {k === null ? "All" : k === "paper" ? "論文" : "NEWS"}
-            </button>
-          ))}
-        </div>
-      </div>
 
       <div style={{ flex: 1, overflow: "auto", paddingBottom: 8 }}>
         {groups.map((g) => (
