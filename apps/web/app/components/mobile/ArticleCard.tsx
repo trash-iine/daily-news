@@ -2,6 +2,19 @@
 import type { BaseItem } from "@daily-news/shared";
 import { BIG_COLOR, FAM_COLOR, fmtRel, hostFromUrl, itemBigTags, sourceFamily, sourceLabel } from "./lib";
 import { BigTagPill, Tag, Thumb } from "./atoms";
+import { SummaryMarkdown } from "./SummaryMarkdown";
+
+function stripForPreview(s: string): string {
+  return s
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/`+/g, "")
+    .replace(/\*\*|__/g, "")
+    .replace(/\$([^$]+)\$/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
 export function ArticleCard({
   item,
@@ -105,7 +118,7 @@ export function ArticleCard({
                 overflow: "hidden",
               }}
             >
-              {item.summary}
+              {stripForPreview(item.summary)}
             </p>
           )}
           <div style={{ display: "flex", gap: 5, alignItems: "center", flexWrap: "wrap" }}>
@@ -161,9 +174,7 @@ export function ArticleCard({
               >
                 {isPaper ? "✦ AI 要約" : "概要"}
               </div>
-              <p style={{ fontFamily: "var(--font-serif)", fontSize: 14, lineHeight: 1.7, margin: 0 }}>
-                {item.summary}
-              </p>
+              <SummaryMarkdown source={item.summary} />
             </div>
           )}
           <div style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--fg-faint)", marginBottom: 12 }}>
