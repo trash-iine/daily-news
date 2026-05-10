@@ -70,35 +70,6 @@ export async function loadRecentNewsIds(
   return seen;
 }
 
-/**
- * 直近の過去 bundle から論文を取得する。
- * arXiv RSS は土日 (skipDays) に空配信となり、当日 0 件のことがあるため、
- * パイプライン側で直近の論文を引き継いで表示できるようにする。
- */
-export async function loadRecentPapers(beforeDate: string): Promise<BaseItem[]> {
-  const indexPath = join(DATA_DIR, "index.json");
-  let dates: string[] = [];
-  try {
-    const idx = JSON.parse(await readFile(indexPath, "utf-8")) as DailyIndex;
-    dates = idx.dates;
-  } catch {
-    return [];
-  }
-  const candidates = dates.filter((d) => d < beforeDate).sort().reverse();
-  for (const d of candidates) {
-    try {
-      const bundle = JSON.parse(
-        await readFile(join(DATA_DIR, `${d}.json`), "utf-8"),
-      ) as DailyBundle;
-      const papers = bundle.items.filter((i) => i.kind === "paper");
-      if (papers.length > 0) return papers;
-    } catch {
-      // skip missing/broken file
-    }
-  }
-  return [];
-}
-
 export async function updateIndex(date: string): Promise<void> {
   const path = join(DATA_DIR, "index.json");
   let dates: string[] = [];

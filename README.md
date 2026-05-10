@@ -53,7 +53,7 @@
 
 `PAPER_KEYWORDS` をタイトル + abstract に当てたスコアで降順、`PAPER_PRIORITY_KEYWORDS` (`np-hard` / `np hard`) を含むものを最優先、`PAPERS_TOP_N` (= 5) 件を採用し、`OPENAI_MODEL` (gpt-4o-mini) で日本語要約。`announceType === "new"` のみ採用 (cross-listing / replace は除外)。
 
-arXiv RSS は土日に空配信になるため、当日 0 件のときは直近の bundle から論文を引き継いで表示する。
+arXiv RSS が空配信となる日 (土日など、当日 publish された論文が無い日) は論文セクションを空のまま出力する。
 
 ### サムネイル
 

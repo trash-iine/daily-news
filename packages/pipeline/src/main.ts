@@ -31,7 +31,6 @@ import { fetchZennTopic } from "./sources/zennApi.js";
 import type { RawItem } from "./sources/types.js";
 import {
   loadRecentNewsIds,
-  loadRecentPapers,
   updateIndex,
   writeDaily,
 } from "./store.js";
@@ -436,16 +435,11 @@ async function main() {
   );
 
   const news = rankNews(rawNews, seenNewsIds);
-  let papers = await rankPapers(rawPapers);
+  const papers = await rankPapers(rawPapers);
   console.log(`[main] selected ${news.length} news / ${papers.length} papers`);
 
-  // arXiv RSS は土日 (skipDays) に空配信になるため、当日 0 件なら直近の論文を引き継ぐ
   if (papers.length === 0) {
-    const fallback = await loadRecentPapers(date);
-    if (fallback.length > 0) {
-      papers = fallback;
-      console.log(`[main] arxiv empty — carried over ${fallback.length} papers from prior bundle`);
-    }
+    console.log("[main] no fresh papers today — leaving papers section empty");
   }
 
   const items = [...papers, ...news];
