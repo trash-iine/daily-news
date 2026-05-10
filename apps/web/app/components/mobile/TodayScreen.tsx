@@ -60,13 +60,13 @@ export function TodayScreen({
 
   return (
     <>
-      <div style={{ padding: "8px 18px 14px" }}>
+      <div style={{ padding: "6px 18px 8px" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
           <div>
             <div
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: 10,
+                fontSize: 9,
                 letterSpacing: "0.12em",
                 color: "var(--fg-faint)",
                 textTransform: "uppercase",
@@ -78,10 +78,10 @@ export function TodayScreen({
             <h1
               style={{
                 fontFamily: "var(--font-serif)",
-                fontSize: 28,
+                fontSize: 20,
                 fontWeight: 500,
                 letterSpacing: "-0.02em",
-                margin: "2px 0 0",
+                margin: "1px 0 0",
                 lineHeight: 1.1,
               }}
             >
@@ -91,13 +91,13 @@ export function TodayScreen({
           <div
             style={{
               fontFamily: "var(--font-mono)",
-              fontSize: 11,
+              fontSize: 10,
               color: "var(--fg-muted)",
               textAlign: "right",
             }}
           >
             <div>{bundle.items.length} items</div>
-            <div style={{ fontSize: 10, color: "var(--fg-faint)" }}>
+            <div style={{ fontSize: 9, color: "var(--fg-faint)" }}>
               {bundle.items.length - paperCount} N · {paperCount} P
             </div>
           </div>
