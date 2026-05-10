@@ -1,10 +1,34 @@
 "use client";
-import { useMemo } from "react";
-import type { DailyBundle } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, fmtDateBadge, itemBigTags } from "./lib";
+import { useMemo, useState, type ReactNode } from "react";
+import type { BigTagGroup, DailyBundle } from "@daily-news/shared";
+import {
+  BIG_COLOR,
+  BIG_TAGS,
+  DELTA_DOWN,
+  DELTA_UP,
+  bigTagCountsByDate,
+  dateRange,
+  fmtDateBadge,
+  itemBigTags,
+  type RecapPeriod,
+  type RisingTag,
+  type TagFreqEntry,
+  risingTags,
+  tagFrequency,
+} from "./lib";
 import { BigTagPill } from "./atoms";
 
-function Spark({ values, color, w = 64, h = 22 }: { values: number[]; color: string; w?: number; h?: number }) {
+function Spark({
+  values,
+  color,
+  w = 64,
+  h = 22,
+}: {
+  values: number[];
+  color: string;
+  w?: number;
+  h?: number;
+}) {
   if (!values.length) return null;
   const last = values[values.length - 1] ?? 0;
   const max = Math.max(...values, 1);
@@ -23,6 +47,413 @@ function Spark({ values, color, w = 64, h = 22 }: { values: number[]; color: str
   );
 }
 
+function PeriodToggle({
+  value,
+  onChange,
+}: {
+  value: RecapPeriod;
+  onChange: (v: RecapPeriod) => void;
+}) {
+  const opts: RecapPeriod[] = [7, 14, 30];
+  return (
+    <div
+      style={{
+        margin: "0 18px 8px",
+        display: "inline-grid",
+        gridTemplateColumns: `repeat(${opts.length}, 1fr)`,
+        gap: 2,
+        padding: 2,
+        background: "var(--bg-sunken)",
+        borderRadius: 8,
+      }}
+    >
+      {opts.map((o) => {
+        const active = o === value;
+        return (
+          <button
+            key={o}
+            onClick={() => onChange(o)}
+            style={{
+              padding: "6px 14px",
+              border: 0,
+              borderRadius: 6,
+              background: active ? "var(--fg)" : "transparent",
+              color: active ? "var(--bg)" : "var(--fg-muted)",
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              cursor: "pointer",
+            }}
+          >
+            {o}d
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function Heatmap({
+  dates,
+  counts,
+  bundles,
+}: {
+  dates: string[];
+  counts: Record<BigTagGroup, number[]>;
+  bundles: Record<string, DailyBundle>;
+}) {
+  const cellMin = dates.length > 14 ? 14 : 22;
+  const labelEvery = dates.length > 20 ? 5 : dates.length > 10 ? 3 : 1;
+  const emptyCount = dates.filter((d) => !bundles[d]).length;
+  const sparse = emptyCount >= dates.length / 2;
+  return (
+    <div style={{ padding: "0 16px", marginBottom: 4 }}>
+      <div style={{ overflowX: "auto", scrollbarWidth: "none" }}>
+        <div style={{ minWidth: 16 + dates.length * cellMin + 12 }}>
+          {BIG_TAGS.map((t) => {
+            const series = counts[t.id];
+            const max = Math.max(...series, 1);
+            return (
+              <div
+                key={t.id}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: `18px repeat(${dates.length}, minmax(${cellMin}px, 1fr))`,
+                  gap: 2,
+                  marginBottom: 3,
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                    color: t.color,
+                    fontWeight: 700,
+                    textAlign: "left",
+                  }}
+                  title={t.label}
+                >
+                  {t.emoji}
+                </span>
+                {series.map((v, i) => {
+                  const has = !!bundles[dates[i] ?? ""];
+                  const alpha = v === 0 ? (has ? 6 : 3) : Math.round(8 + 80 * (v / max));
+                  return (
+                    <div
+                      key={i}
+                      title={`${dates[i]} · ${t.label} · ${v} 件`}
+                      style={{
+                        height: cellMin,
+                        borderRadius: 3,
+                        background: `color-mix(in oklch, ${t.color} ${alpha}%, var(--bg-sunken))`,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: `18px repeat(${dates.length}, minmax(${cellMin}px, 1fr))`,
+              gap: 2,
+              marginTop: 6,
+            }}
+          >
+            <span />
+            {dates.map((d, i) => {
+              const dt = new Date(`${d}T00:00:00Z`);
+              const show = i % labelEvery === 0 || i === dates.length - 1;
+              return (
+                <div
+                  key={d}
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 8.5,
+                    color: "var(--fg-faint)",
+                    textAlign: "center",
+                    fontFeatureSettings: '"tnum"',
+                    visibility: show ? "visible" : "hidden",
+                  }}
+                >
+                  {dt.getUTCMonth() + 1}/{dt.getUTCDate()}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      {sparse && (
+        <div
+          style={{
+            marginTop: 8,
+            fontFamily: "var(--font-mono)",
+            fontSize: 10,
+            color: "var(--fg-faint)",
+          }}
+        >
+          ※ {emptyCount} 日分はデータ蓄積中
+        </div>
+      )}
+    </div>
+  );
+}
+
+function RisingChips({ rising }: { rising: RisingTag[] }) {
+  if (!rising.length) {
+    return (
+      <div
+        style={{
+          padding: "12px 18px",
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          color: "var(--fg-faint)",
+        }}
+      >
+        まだ十分な傾向が見えていません
+      </div>
+    );
+  }
+  return (
+    <div
+      style={{
+        padding: "0 16px",
+        display: "flex",
+        gap: 8,
+        overflowX: "auto",
+        scrollbarWidth: "none",
+      }}
+    >
+      {rising.map((r) => {
+        const c = r.bigGroup ? BIG_COLOR[r.bigGroup] : "var(--fg-faint)";
+        return (
+          <div
+            key={r.tag}
+            style={{
+              flex: "0 0 auto",
+              padding: "8px 10px",
+              borderRadius: 10,
+              background: `color-mix(in oklch, ${c} 8%, var(--bg-sunken))`,
+              border: `0.5px solid color-mix(in oklch, ${c} 28%, transparent)`,
+              minWidth: 92,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                marginBottom: 4,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: `color-mix(in oklch, ${c} 70%, var(--fg))`,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                #{r.tag}
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 6,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  color: c,
+                  letterSpacing: "0.02em",
+                }}
+              >
+                ×{r.ratio.toFixed(1)}↑
+              </span>
+              <Spark values={r.series} color={c} w={36} h={14} />
+            </div>
+            <div
+              style={{
+                marginTop: 3,
+                fontFamily: "var(--font-mono)",
+                fontSize: 9,
+                color: "var(--fg-faint)",
+                fontFeatureSettings: '"tnum"',
+              }}
+            >
+              {r.prior} → {r.recent}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function TagBars({ entries }: { entries: TagFreqEntry[] }) {
+  if (!entries.length) {
+    return (
+      <div
+        style={{
+          padding: "12px 18px",
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          color: "var(--fg-faint)",
+        }}
+      >
+        タグデータがありません
+      </div>
+    );
+  }
+  const max = Math.max(...entries.map((e) => e.count), 1);
+  return (
+    <div style={{ padding: "0 18px" }}>
+      {entries.map((e) => {
+        const c = e.bigGroup ? BIG_COLOR[e.bigGroup] : "oklch(0.55 0.02 60)";
+        const w = (e.count / max) * 100;
+        let deltaNode: ReactNode = null;
+        if (e.isNew) {
+          deltaNode = (
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 9,
+                fontWeight: 700,
+                color: DELTA_UP,
+                padding: "1px 5px",
+                borderRadius: 3,
+                border: `0.5px solid color-mix(in oklch, ${DELTA_UP} 35%, transparent)`,
+              }}
+            >
+              新
+            </span>
+          );
+        } else if (e.delta !== 0) {
+          const up = e.delta > 0;
+          deltaNode = (
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 10,
+                fontWeight: 700,
+                color: up ? DELTA_UP : DELTA_DOWN,
+                fontFeatureSettings: '"tnum"',
+              }}
+            >
+              {up ? "+" : ""}
+              {e.delta}
+            </span>
+          );
+        }
+        return (
+          <div
+            key={e.tag}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 110px) 1fr auto auto",
+              gap: 8,
+              alignItems: "center",
+              padding: "6px 0",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                minWidth: 0,
+              }}
+            >
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: 999,
+                  background: c,
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11.5,
+                  fontWeight: 600,
+                  color: "var(--fg)",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+                title={e.tag}
+              >
+                #{e.tag}
+              </span>
+            </div>
+            <div
+              style={{
+                height: 6,
+                borderRadius: 999,
+                background: `color-mix(in oklch, ${c} 10%, var(--bg-sunken))`,
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  height: "100%",
+                  width: `${w}%`,
+                  background: c,
+                  borderRadius: 999,
+                }}
+              />
+            </div>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+                fontWeight: 700,
+                color: "var(--fg)",
+                fontFeatureSettings: '"tnum"',
+                minWidth: 18,
+                textAlign: "right",
+              }}
+            >
+              {e.count}
+            </span>
+            <span style={{ minWidth: 24, textAlign: "right" }}>{deltaNode}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function SectionLabel({ children }: { children: ReactNode }) {
+  return (
+    <div
+      style={{
+        padding: "20px 18px 8px",
+        fontFamily: "var(--font-mono)",
+        fontSize: 10,
+        letterSpacing: "0.12em",
+        color: "var(--fg-faint)",
+        textTransform: "uppercase",
+        fontWeight: 600,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export function RecapScreen({
   allBundles,
   archive,
@@ -30,11 +461,24 @@ export function RecapScreen({
   allBundles: Record<string, DailyBundle>;
   archive: string[];
 }) {
-  const last7 = useMemo(() => archive.slice(0, 7), [archive]);
+  const [period, setPeriod] = useState<RecapPeriod>(7);
+
+  const dates = useMemo(() => {
+    const latest = archive[0];
+    if (!latest) return [];
+    return dateRange(latest, period);
+  }, [archive, period]);
+
+  const prevDates = useMemo(() => {
+    const latest = archive[0];
+    if (!latest) return [];
+    const all = dateRange(latest, period * 2);
+    return all.slice(0, period);
+  }, [archive, period]);
 
   const allItems = useMemo(
-    () => last7.flatMap((d) => allBundles[d]?.items ?? []),
-    [allBundles, last7],
+    () => dates.flatMap((d) => allBundles[d]?.items ?? []),
+    [allBundles, dates],
   );
 
   const totals = {
@@ -43,33 +487,51 @@ export function RecapScreen({
     news: allItems.filter((i) => i.kind === "news").length,
   };
 
+  const bigCounts = useMemo(
+    () => bigTagCountsByDate(allBundles, dates),
+    [allBundles, dates],
+  );
+
+  const rising = useMemo(
+    () =>
+      risingTags(allBundles, dates, {
+        minRecent: period === 7 ? 1 : 2,
+        topN: 6,
+      }),
+    [allBundles, dates, period],
+  );
+
+  const tagTop = useMemo(
+    () => tagFrequency(allBundles, dates, prevDates, 8),
+    [allBundles, dates, prevDates],
+  );
+
   const groupBreakdown = useMemo(() => {
     return BIG_TAGS.map((t) => {
       const items = allItems.filter((it) => itemBigTags(it).includes(t.id));
       const top = [...items].sort((a, b) => b.score - a.score).slice(0, 3);
-      const counts = last7
-        .slice()
-        .reverse()
-        .map((d) => (allBundles[d]?.items ?? []).filter((it) => itemBigTags(it).includes(t.id)).length);
-      return { ...t, n: items.length, top, counts };
+      return { ...t, n: items.length, top, counts: bigCounts[t.id] };
     });
-  }, [allItems, allBundles, last7]);
+  }, [allItems, bigCounts]);
 
-  const bestOfWeek = useMemo(
+  const bestOfPeriod = useMemo(
     () => [...allItems].sort((a, b) => b.score - a.score).slice(0, 5),
     [allItems],
   );
 
-  const firstD = last7[0];
-  const lastD = last7[last7.length - 1];
+  const firstD = dates[0];
+  const lastD = dates[dates.length - 1];
+
   if (!firstD || !lastD) {
     return (
-      <div style={{ padding: 40, textAlign: "center", color: "var(--fg-faint)" }}>データがありません</div>
+      <div style={{ padding: 40, textAlign: "center", color: "var(--fg-faint)" }}>
+        データがありません
+      </div>
     );
   }
 
-  const startD = new Date(lastD);
-  const endD = new Date(firstD);
+  const startD = new Date(`${firstD}T00:00:00Z`);
+  const endD = new Date(`${lastD}T00:00:00Z`);
 
   return (
     <>
@@ -83,7 +545,7 @@ export function RecapScreen({
             textTransform: "uppercase",
           }}
         >
-          WEEK · {last7.length}日
+          RECAP · {period}日
         </div>
         <h1
           style={{
@@ -95,15 +557,20 @@ export function RecapScreen({
             lineHeight: 1.1,
           }}
         >
-          {startD.getMonth() + 1}/{startD.getDate()} — {endD.getMonth() + 1}/{endD.getDate()}
+          {startD.getUTCMonth() + 1}/{startD.getUTCDate()} — {endD.getUTCMonth() + 1}/
+          {endD.getUTCDate()}
         </h1>
-        <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-muted)" }}>今週のまとめ</div>
+        <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-muted)" }}>
+          直近 {period} 日のトレンド
+        </div>
       </div>
 
       <div style={{ flex: 1, overflow: "auto", paddingBottom: 12 }}>
+        <PeriodToggle value={period} onChange={setPeriod} />
+
         <div
           style={{
-            padding: "12px 16px",
+            padding: "8px 16px 4px",
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
             gap: 8,
@@ -115,7 +582,9 @@ export function RecapScreen({
             { n: totals.news, l: "NEWS" },
           ].map((s) => (
             <div key={s.l} style={{ padding: 12, background: "var(--bg-sunken)", borderRadius: 10 }}>
-              <div style={{ fontFamily: "var(--font-serif)", fontSize: 26, fontWeight: 500, lineHeight: 1 }}>
+              <div
+                style={{ fontFamily: "var(--font-serif)", fontSize: 26, fontWeight: 500, lineHeight: 1 }}
+              >
                 {s.n}
               </div>
               <div
@@ -134,20 +603,16 @@ export function RecapScreen({
           ))}
         </div>
 
-        <div style={{ padding: "16px 18px 6px" }}>
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 10,
-              letterSpacing: "0.12em",
-              color: "var(--fg-faint)",
-              textTransform: "uppercase",
-              fontWeight: 600,
-            }}
-          >
-            大タグ別
-          </div>
-        </div>
+        <SectionLabel>大タグ × 日 ヒートマップ</SectionLabel>
+        <Heatmap dates={dates} counts={bigCounts} bundles={allBundles} />
+
+        <SectionLabel>急上昇タグ</SectionLabel>
+        <RisingChips rising={rising} />
+
+        <SectionLabel>タグ頻度 Top {tagTop.length || 8}</SectionLabel>
+        <TagBars entries={tagTop} />
+
+        <SectionLabel>大タグ別</SectionLabel>
         <div style={{ padding: "0 16px" }}>
           {groupBreakdown
             .filter((g) => g.n > 0)
@@ -182,7 +647,9 @@ export function RecapScreen({
                       {g.emoji}
                     </span>
                     <span style={{ fontSize: 14, fontWeight: 600 }}>{g.label}</span>
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-faint)" }}>
+                    <span
+                      style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-faint)" }}
+                    >
                       {g.n} 件
                     </span>
                   </div>
@@ -248,21 +715,8 @@ export function RecapScreen({
             ))}
         </div>
 
-        <div style={{ padding: "20px 18px 6px" }}>
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 10,
-              letterSpacing: "0.12em",
-              color: "var(--fg-faint)",
-              textTransform: "uppercase",
-              fontWeight: 600,
-            }}
-          >
-            今週のベスト 5
-          </div>
-        </div>
-        {bestOfWeek.map((it, i) => {
+        <SectionLabel>{period === 7 ? "今週" : `直近 ${period} 日`}のベスト 5</SectionLabel>
+        {bestOfPeriod.map((it, i) => {
           const big = itemBigTags(it)[0];
           const c = big ? BIG_COLOR[big] : "var(--fg)";
           return (
