@@ -13,6 +13,7 @@ export const KEYWORD_WEIGHTS: Record<string, number> = {
   "anthropic": 3,
   "llm": 2,
   "agent": 2,
+  "model context protocol": 4,
   // アルゴリズム / 組合せ最適化
   "algorithm": 3,
   "algorithms": 3,
@@ -101,52 +102,62 @@ export const PAPER_PRIORITY_KEYWORDS = ["np-hard", "np hard"];
 /**
  * KEYWORD_WEIGHTS / PAPER_KEYWORDS のキーから canonical なタグ名へのマッピング。
  * ここに無いキーはそのまま (lowercase で) タグになる。
+ *
+ * 方針: Recap タブのトレンド分析で細粒度タグが見えるよう、AI / キーボード /
+ * algorithm / quantum 系は個別 canonical に分離する。BIG_TAG (4 種) は据え置き。
+ * matched 値そのままを canonical にする場合はエントリ省略可 (例: claude / qmk / rust)。
  */
 export const TAG_ALIASES: Record<string, string> = {
-  "claude": "llm",
-  "claude code": "llm",
-  "anthropic": "llm",
-  "agent": "llm",
+  // === AI ===
+  // claude / anthropic / agent / llm はそのまま canonical (matched 値を使う)
+  "claude code": "claude-code",
+  "model context protocol": "mcp",
+
+  // === optimization (集約維持) ===
   "combinatorial": "optimization",
   "combinatorial optimization": "optimization",
-  "heuristic": "optimization",
-  "metaheuristic": "optimization",
   "np-hard": "optimization",
   "np hard": "optimization",
   "組合せ最適化": "optimization",
   "組み合わせ最適化": "optimization",
   "数理最適化": "optimization",
-  "quantum computing": "quantum",
-  "quantum computer": "quantum",
-  "quantum algorithm": "quantum",
-  "量子コンピュータ": "quantum",
-  "量子コンピューティング": "quantum",
+  // heuristic 表記揺れ吸収 (heuristic は canonical のまま、metaheuristic を寄せる)
+  "metaheuristic": "heuristic",
+
+  // === algorithm 系 (個別化) ===
   "algorithms": "algorithm",
   "アルゴリズム": "algorithm",
   "競技プログラミング": "algorithm",
-  "dynamic programming": "algorithm",
-  "graph algorithm": "algorithm",
-  "data structure": "algorithm",
-  "自作キーボード": "キーボード",
-  "メカニカルキーボード": "キーボード",
-  "mechanical keyboard": "キーボード",
-  "split keyboard": "キーボード",
-  "ergonomic keyboard": "キーボード",
-  "qmk": "キーボード",
-  "zmk": "キーボード",
-  "key switch": "キーボード",
-  "キースイッチ": "キーボード",
-  "キーキャップ": "キーボード",
+  "dynamic programming": "dynamic-programming",
+  "graph algorithm": "graph-algorithm",
+  "data structure": "data-structure",
+
+  // === quantum (2 種に分離) ===
+  "quantum computing": "quantum-computing",
+  "quantum computer": "quantum-computing",
+  "量子コンピュータ": "quantum-computing",
+  "量子コンピューティング": "quantum-computing",
+  "quantum algorithm": "quantum-algorithm",
+
+  // === キーボード (個別化、qmk / zmk / 自作キーボード / キーボード / キーキャップ はそのまま canonical) ===
+  "メカニカルキーボード": "mechanical-keyboard",
+  "mechanical keyboard": "mechanical-keyboard",
+  "split keyboard": "split-keyboard",
+  "ergonomic keyboard": "ergonomic-keyboard",
+  "key switch": "key-switch",
+  "キースイッチ": "key-switch",
+
+  // === math (集約 + 一部個別化) ===
   "mathematics": "math",
   "数学": "math",
-  "数論": "math",
-  "幾何": "math",
   "代数": "math",
-  "topology": "math",
-  "トポロジー": "math",
-  "geometry": "math",
-  "number theory": "math",
-  // コーヒー (canonical: coffee)
+  "number theory": "number-theory",
+  "数論": "number-theory",
+  "トポロジー": "topology",
+  "幾何": "geometry",
+  // topology / geometry はそのまま canonical
+
+  // === coffee (集約維持) ===
   "espresso": "coffee",
   "latte": "coffee",
   "pour over": "coffee",
