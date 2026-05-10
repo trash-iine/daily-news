@@ -200,7 +200,7 @@ export function BigTagFilter({
       style={{
         padding: "0 16px 12px",
         display: "flex",
-        gap: 6,
+        gap: 4,
         overflowX: "auto",
         scrollbarWidth: "none",
       }}
@@ -209,7 +209,7 @@ export function BigTagFilter({
         onClick={() => onChange(null)}
         style={{
           flexShrink: 0,
-          padding: "8px 14px",
+          padding: "7px 10px",
           borderRadius: 999,
           background: value === null ? "var(--fg)" : "var(--bg-sunken)",
           color: value === null ? "var(--bg)" : "var(--fg-muted)",
@@ -220,11 +220,11 @@ export function BigTagFilter({
           cursor: "pointer",
           display: "inline-flex",
           alignItems: "center",
-          gap: 6,
+          gap: 4,
         }}
       >
         ALL{" "}
-        <span style={{ fontSize: 10, opacity: 0.7, fontFeatureSettings: '"tnum"' }}>
+        <span style={{ fontSize: 9, opacity: 0.7, fontFeatureSettings: '"tnum"' }}>
           {counts.all}
         </span>
       </button>
@@ -246,7 +246,7 @@ export function BigTagFilter({
             disabled={dim}
             style={{
               flexShrink: 0,
-              padding: "8px 14px",
+              padding: "7px 10px",
               borderRadius: 999,
               fontSize: 12,
               fontWeight: 600,
@@ -254,14 +254,14 @@ export function BigTagFilter({
               opacity: dim ? 0.4 : 1,
               display: "inline-flex",
               alignItems: "center",
-              gap: 6,
+              gap: 4,
               whiteSpace: "nowrap",
               ...bgStyle,
             }}
           >
             <span style={{ fontSize: 11, fontFamily: "var(--font-mono)", opacity: 0.85 }}>{t.emoji}</span>
             {t.label}
-            <span style={{ fontSize: 10, opacity: 0.75, fontFeatureSettings: '"tnum"' }}>{n}</span>
+            <span style={{ fontSize: 9, opacity: 0.75, fontFeatureSettings: '"tnum"' }}>{n}</span>
           </button>
         );
       })}
