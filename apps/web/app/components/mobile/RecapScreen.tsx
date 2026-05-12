@@ -17,6 +17,7 @@ import {
   tagFrequency,
 } from "./lib";
 import { BigTagPill } from "./atoms";
+import { ExternalLink } from "./ExternalLink";
 
 function Spark({
   values,
@@ -659,11 +660,9 @@ export function RecapScreen({
                   {g.desc}
                 </div>
                 {g.top.map((it, i) => (
-                  <a
+                  <ExternalLink
                     key={it.id}
                     href={it.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
                     style={{
                       display: "grid",
                       gridTemplateColumns: "auto 1fr auto",
@@ -709,7 +708,7 @@ export function RecapScreen({
                     >
                       ★{it.score}
                     </span>
-                  </a>
+                  </ExternalLink>
                 ))}
               </div>
             ))}
@@ -720,11 +719,9 @@ export function RecapScreen({
           const big = itemBigTags(it)[0];
           const c = big ? BIG_COLOR[big] : "var(--fg)";
           return (
-            <a
+            <ExternalLink
               key={it.id}
               href={it.url}
-              target="_blank"
-              rel="noreferrer noopener"
               style={{
                 display: "grid",
                 gridTemplateColumns: "30px 1fr auto",
@@ -771,7 +768,7 @@ export function RecapScreen({
               <div style={{ fontFamily: "var(--font-serif)", fontSize: 16, color: c, fontWeight: 500 }}>
                 ★{it.score}
               </div>
-            </a>
+            </ExternalLink>
           );
         })}
       </div>

@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import { ExternalLink } from "./ExternalLink";
 
 const baseText: CSSProperties = {
   fontFamily: "var(--font-serif)",
@@ -54,14 +55,12 @@ export function SummaryMarkdown({ source }: { source: string }) {
           ),
           li: ({ children }) => <li style={{ margin: "2px 0" }}>{children}</li>,
           a: ({ href, children }) => (
-            <a
+            <ExternalLink
               href={href}
-              target="_blank"
-              rel="noreferrer noopener"
               style={{ color: "var(--fg)", textDecoration: "underline" }}
             >
               {children}
-            </a>
+            </ExternalLink>
           ),
           img: ({ src, alt }) => (
             // eslint-disable-next-line @next/next/no-img-element

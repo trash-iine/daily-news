@@ -2,6 +2,7 @@
 import type { BaseItem } from "@daily-news/shared";
 import { BIG_COLOR, FAM_COLOR, fmtRel, hostFromUrl, itemBigTags, sourceFamily, sourceLabel } from "./lib";
 import { BigTagPill, Tag, Thumb } from "./atoms";
+import { ExternalLink } from "./ExternalLink";
 import { SummaryMarkdown } from "./SummaryMarkdown";
 
 function stripForPreview(s: string): string {
@@ -138,15 +139,13 @@ export function ArticleCard({
           </div>
         </div>
       </button>
-      <a
+      <ExternalLink
         href={item.url}
-        target="_blank"
-        rel="noreferrer noopener"
         aria-label={`元記事を開く: ${item.title}`}
         style={{ display: "block", lineHeight: 0 }}
       >
         <Thumb item={item} size={64} />
-      </a>
+      </ExternalLink>
       {expanded && (
         <div style={{ gridColumn: "1 / -1", marginTop: 14, paddingTop: 14, borderTop: "1px dashed var(--border)" }}>
           {item.summary && (
@@ -181,10 +180,8 @@ export function ArticleCard({
             {hostFromUrl(item.url)}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 8 }}>
-            <a
+            <ExternalLink
               href={item.url}
-              target="_blank"
-              rel="noreferrer noopener"
               style={{
                 padding: "11px 14px",
                 background: "var(--fg)",
@@ -197,7 +194,7 @@ export function ArticleCard({
               }}
             >
               ↗ 元記事を開く
-            </a>
+            </ExternalLink>
             <button
               onClick={onSave}
               style={{
