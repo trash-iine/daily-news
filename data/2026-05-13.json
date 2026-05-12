@@ -1,0 +1,463 @@
+{
+  "date": "2026-05-13",
+  "generatedAt": "2026-05-12T23:01:10.226Z",
+  "items": [
+    {
+      "id": "b41d436785c6bd69",
+      "kind": "news",
+      "title": "トラックボールがついた市販キーボードを調べました｜2026年5月最新版",
+      "url": "https://www.talpkeyboard.com/entry/2021/10/11/155714?utm_source=feed",
+      "summary": "トラックボールがついた市販キーボードを調べました（2025年3月版）",
+      "tags": [
+        "キーボード"
+      ],
+      "score": 36,
+      "source": "rss:talpkeyboard",
+      "publishedAt": "2026-05-12T15:00:00.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/44a1fb953f49a13209231430901ac06f0eb7748c/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTALPKEYBOARD%2F20260513%2F20260513000312.jpg"
+    },
+    {
+      "id": "25f5368053085c26",
+      "kind": "news",
+      "title": "Claude Platform on AWSをエンタープライズ企業で利用する上での考慮点と、Amazon Bedrockとの違いを知る",
+      "url": "https://qiita.com/nasuvitz/items/d0ad5d691790ff0eca71",
+      "summary": "## はじめに AWSは2026年5月11日、**[Claude Platform on AWSの一般提供開始](https://aws.amazon.com/jp/about-aws/whats-new/2026/05/claude-platform-aws/)を発表**しました。東京リージョンでも利用可能になっています。 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/211",
+      "tags": [
+        "claude"
+      ],
+      "score": 32,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-12T09:11:46+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyMTE5ODYlMkYwMzYzMjk3M2Y3N2JiNmVlN2RiYWJiMDBlODdiYjgwNmI0MmUyYWIyJTJGeF9sYXJnZS5wbmclM0YxNzczNDczMzUxP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jZGViOWI1ODA2YTlkODI4YzgwNjRlY2I2NDBjYTA5NA%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY1NzU5MTM3NDIzNTEyYzljNTA1OTUzYjFmMjQ1Yzg0NzExMjVjMWE5JTJGb3JpZ2luYWwuanBnJTNGMTYxOTYwNDY4Mj9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1jZGQxODBjM2NhYzYxNDJkY2VhY2NhMmI1ODRhNWVhMQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D23745926a5706b46825f4fab6d255af1?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwUGxhdGZvcm0lMjBvbiUyMEFXUyVFMyU4MiU5MiVFMyU4MiVBOCVFMyU4MyVCMyVFMyU4MiVCRiVFMyU4MyVCQyVFMyU4MyU5NyVFMyU4MyVBOSVFMyU4MiVBNCVFMyU4MiVCQSVFNCVCQyU4MSVFNiVBNSVBRCVFMyU4MSVBNyVFNSU4OCVBOSVFNyU5NCVBOCVFMyU4MSU5OSVFMyU4MiU4QiVFNCVCOCU4QSVFMyU4MSVBNyVFMyU4MSVBRSVFOCU4MCU4MyVFNiU4NSVBRSVFNyU4MiVCOSVFMyU4MSVBOCVFMyU4MCU4MUFtYXpvbiUyMEJlZHJvY2slRTMlODElQTglRTMlODElQUUlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0wYzgwYzI0NWVkYWI5ZjYwMjNjZjA2ODJjMTQ0ZmExZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBuYXN1dml0eiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWM1Yjg0OTlkNTVlM2ZjNTU0NWZiMjkzNmYxYjhlM2Yy&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=VElT5qCq5byP5Lya56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=8837deeb31ba53c500ebc026812a0ab1"
+    },
+    {
+      "id": "66c9a26a962ce13c",
+      "kind": "paper",
+      "title": "AHD Agent: Agentic Reinforcement Learning for Automatic Heuristic Design",
+      "url": "https://arxiv.org/abs/2605.08756",
+      "summary": "自動ヒューリスティック設計（AHD）は、NP困難な組合せ最適化問題（COP）を解決するための有望なパラダイムとして浮上しています。最近の研究では、大規模言語モデル（LLM）を適切に設計されたフレームワーク（LLM-AHD）に統合することで、LLMが自律的に高性能なヒューリスティックを発見できることが示されています。しかし、既存のLLM-AHDフレームワークは通常、LLMを固定されたワークフロー内の受動的な生成者として扱い、モデルが手動で設計された限られたコンテキストからヒューリスティックを生成します。このようなコンテキストは、状態依存情報（例えば、特定の失敗モード）を捉えられず、非効率的な試行錯誤探索を引き起こす可能性があります。これらの制限を克服するために、我々はAHDエージェントを提案します。これは、ツールを統合した新しいマルチターンフレームワークであり、LLMがヒューリスティックを生成するか、解決環境からターゲットとなる証拠を取得するためにツールを呼び出すかを自発的に決定できるようにします。このような動的な意思決定エージェントを効果的に訓練するために、我々はエージェント強化学習（RL）システムを導入し、新しい環境合成パイプラインを活用して、コンパクトなモデルの一般化可能なAHD能力を最適化します。8つの多様なドメイン（4つの保持されたタスクを含む）での実験により、我々の4Bパラメータエージェントは、はるかに大きなモデルを使用した最先端のベースラインと同等またはそれを上回る性能を示し、評価回数を大幅に削減することができました。モデルと推論のスケーリング分析は、AHDエージェントが真に自律的なヒューリスティック設計に向けた効果的な軌道を提供することを明らかにしています。",
+      "tags": [
+        "optimization",
+        "optimize",
+        "heuristic"
+      ],
+      "score": 28,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-12T04:00:00.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.186Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "efa00db6a7e2e72f",
+      "kind": "news",
+      "title": "「うちのAIは喋るぞ」音声MCPを作って公開してみた【Codex・Claude Code】",
+      "url": "https://zenn.dev/forward/articles/38a9a5bf2e114b",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 26,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-11T06:06:05.026+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--HHVYe2Jj--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258C%25E3%2581%2586%25E3%2581%25A1%25E3%2581%25AEAI%25E3%2581%25AF%25E5%2596%258B%25E3%2582%258B%25E3%2581%259E%25E3%2580%258D%25E9%259F%25B3%25E5%25A3%25B0MCP%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%25A6%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25E3%2580%2590Codex%25E3%2583%25BBClaude%2520Code%25E3%2580%2591%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2583%259F%25E3%2583%25A2%2520%2520%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AF%25E3%2583%25BC%25E3%2583%2589CTO%25E3%2583%25BBCPO%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2I2ZDdhNjExYzYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AF%25E3%2583%25BC%25E3%2583%2589%2520%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FiZTYwOGM4MzYuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "e86ce50422b88c1f",
+      "kind": "news",
+      "title": "コンパニオンAIの記憶を、普通のRAGじゃない設計にした話",
+      "url": "https://zenn.dev/haru0416/articles/843c6c29c04c7c",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 25,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-12T11:05:57.657+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--m0l4ZqbX--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2591%25E3%2583%258B%25E3%2582%25AA%25E3%2583%25B3AI%25E3%2581%25AE%25E8%25A8%2598%25E6%2586%25B6%25E3%2582%2592%25E3%2580%2581%25E6%2599%25AE%25E9%2580%259A%25E3%2581%25AERAG%25E3%2581%2598%25E3%2582%2583%25E3%2581%25AA%25E3%2581%2584%25E8%25A8%25AD%25E8%25A8%2588%25E3%2581%25AB%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Haru%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZhMWMzZjlmNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "b343e0b611e40099",
+      "kind": "news",
+      "title": "ここがすごいよClaude Platform on AWS",
+      "url": "https://qiita.com/moritalous/items/6ccba964655e83336f96",
+      "summary": "Claude Platform on AWSがGAしました。 すでに綺麗にまとまっている記事がありますので、詳細はそちらを参照ください。 https://qiita.com/nasuvitz/items/d0ad5d691790ff0eca71 https://dev.classmethod.jp/articles/claude-platform-on-aws-ga-setup/ とにかくやってみた！ :::note Claude Platform on AWSの全貌は私も把",
+      "tags": [
+        "claude"
+      ],
+      "score": 25,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-12T21:47:26+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MTU3NCUyRjhkMWYzYTM2ZjI1ZmZjMTA2ZDE0NTJjZmU0Zjk2Mjc5MDk3Y2ViMGElMkZ4X2xhcmdlLnBuZyUzRjE3NzA2MzczNjE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTdhOWNjMjUwMWM2ZmZiZmNhZmM5NTEwZjQwZjViYzM4%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D60296874e17883f883fdb186867f6579?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgxJTkzJUUzJTgxJTkzJUUzJTgxJThDJUUzJTgxJTk5JUUzJTgxJTk0JUUzJTgxJTg0JUUzJTgyJTg4Q2xhdWRlJTIwUGxhdGZvcm0lMjBvbiUyMEFXUyZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPThmM2Y2Y2FiYjIyYmIwZmRjZjdlZGMxOWMzNWEyZWQ3&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtb3JpdGFsb3VzJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YzM1ZTM5NWJhYTMxYTNlMzhmZDk4MWE0YWRiOTY5YmY&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=2321975158dc54f36b379f8b24f90ea6"
+    },
+    {
+      "id": "5a36ef465e34ee36",
+      "kind": "paper",
+      "title": "Forge: Quality-Aware Reinforcement Learning for NP-Hard Optimization in LLMs",
+      "url": "https://arxiv.org/abs/2605.08905",
+      "summary": "大規模言語モデル（LLM）は、検証可能な報酬を用いた強化学習（RLVR）を通じて、推論ベンチマークで顕著な成功を収めており、数学、コーディング、論理、パズルなどのタスクにおいて優れた成果を上げています。しかし、既存のベンチマークは正確性のみを評価しており、制約の下で最適な解を見つける能力、すなわち最適性を見落としています。そこで、私たちはOPT-BENCHを提案します。これは、NP困難な最適化問題に対してLLMを訓練・評価するための初の包括的なフレームワークであり、質を意識したRLVRを通じて実現されています。\n\nOPT-BENCHは、以下の三つの主要な要素を提供します。まず、10のタスクにわたるインスタンス生成器、質の検証器、および最適なベースラインを備えたスケーラブルな訓練インフラストラクチャです。次に、成功率（Success Rate）によって測定される実現可能性と、質比（Quality Ratio）によって測定される質の両方を評価する1,000のインスタンスを用いた厳密なベンチマークです。そして最後に、二項の正確性を超えた継続的な改善を可能にする質を意識した報酬です。\n\nQwen2.5-7B-Instruct-1Mを用いて15,000の例で訓練した結果、成功率93.1%、質比46.6%を達成し、GPT-4oの成功率29.6%、質比14.6%を大幅に上回りました。最適化を超えて、OPT-BENCHでの訓練は数学（+2.2%）、論理（+1.2%）、知識（+4.1%）、指示に従う能力（+6.1%）など多様なタスクに転移します。私たちの分析によれば、質を意識した報酬は二項報酬に比べて解の質を28.8%向上させ、タスクの多様性がデータの量よりも一般化を促進することが明らかになりました。これにより、複雑な推論のためのRLVRのスケーリングに関する洞察が得られます。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 24,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-12T04:00:00.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.186Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "a482a315f7b22204",
+      "kind": "news",
+      "title": "Claude Codeのスレッド名を日本語にしたくて内部構造を調べたら、過去スレッドが全部消えた話【解決策求む】",
+      "url": "https://qiita.com/gmo-connect-ogawa/items/4bc7387a02db123f396a",
+      "summary": "Claude Code（デスクトップアプリ）を使っていると、サイドバーのスレッド名がすべて英語で生成されます😇 「GAS spreadsheet date navigation」とか「Fix SSH permission denied error」とか。 日本語にしたくていろいろ試した結果、**過去スレッドが全部消えました。** タイトル問題は未解決です。ご存知の方はコメントで教えてください。 ## 先にまとめ | 試した方法 | 結果 | |---|---| | `set",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-12T11:36:38+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MjAyNDc5JTJGNzA0MTcyMzhhMThjMWIwN2RkZTIzZjZkMDI2ZDkzOTUxNzFhYzAzNSUyRnhfbGFyZ2UucG5nJTNGMTc2NDQxOTk4Nj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YjRlNmNjMmZlYjk3ZDY4NDYzY2FmNWY4OGEyMzYxM2Y%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZlYmQ5Njg3Yjk0MzAwMWI5NzlkNmU0YWY1MGFiYWU4YTc5MWE4ZGE1JTJGb3JpZ2luYWwuanBnJTNGMTc1NjE4NjM1Mz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1hOTMyMDU4NWNlNzJmY2QyNGJiNGQ0MDNkYTA2MGM1OA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D87f9a4afa7667155059bc67c33354aa1?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBRSVFMyU4MiVCOSVFMyU4MyVBQyVFMyU4MyU4MyVFMyU4MyU4OSVFNSU5MCU4RCVFMyU4MiU5MiVFNiU5NyVBNSVFNiU5QyVBQyVFOCVBQSU5RSVFMyU4MSVBQiVFMyU4MSU5NyVFMyU4MSU5RiVFMyU4MSU4RiVFMyU4MSVBNiVFNSU4NiU4NSVFOSU4MyVBOCVFNiVBNyU4QiVFOSU4MCVBMCVFMyU4MiU5MiVFOCVBQSVCRiVFMyU4MSVCOSVFMyU4MSU5RiVFMyU4MiU4OSVFMyU4MCU4MSVFOSU4MSU4RSVFNSU4RSVCQiVFMyU4MiVCOSVFMyU4MyVBQyVFMyU4MyU4MyVFMyU4MyU4OSVFMyU4MSU4QyVFNSU4NSVBOCVFOSU4MyVBOCVFNiVCNiU4OCVFMyU4MSU4OCVFMyU4MSU5RiVFOCVBOSVCMSVFMyU4MCU5MCVFOCVBNyVBMyVFNiVCMSVCQSVFNyVBRCU5NiVFNiVCMSU4MiVFMiU4MCVBNiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTM2YjdiMGNjN2EzYzAyNTEzY2E5MDA1YjQ3MWY1NTE3&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBnbW8tY29ubmVjdC1vZ2F3YSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTQ4YmQ4ZDc0MGFmMDcxMTk3MmY5ZGEyYjdmMDRjYjBm&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=R01P44Kz44ON44Kv44OI5qCq5byP5Lya56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=3bdc290c5dd7b1564b1c64f5f4105a7f"
+    },
+    {
+      "id": "247c09f58a6f4eb5",
+      "kind": "news",
+      "title": "30日後にサービスをリリースして不労所得を得る開発者 (1日目) ― Claude Code 全活用で楽したい開発者の基盤構築",
+      "url": "https://zenn.dev/tempeso/articles/900ea8ade4c165",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T08:50:57.276+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--riFBpr8A--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:30%25E6%2597%25A5%25E5%25BE%258C%25E3%2581%25AB%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2593%25E3%2582%25B9%25E3%2582%2592%25E3%2583%25AA%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25B9%25E3%2581%2597%25E3%2581%25A6%25E4%25B8%258D%25E5%258A%25B4%25E6%2589%2580%25E5%25BE%2597%25E3%2582%2592%25E5%25BE%2597%25E3%2582%258B%25E9%2596%258B%25E7%2599%25BA%25E8%2580%2585%2520%25281%25E6%2597%25A5%25E7%259B%25AE%2529%2520%25E2%2580%2595%2520Claude%2520Code%2520%25E5%2585%25A8%25E6%25B4%25BB%25E7%2594%25A8%25E3%2581%25A7%25E6%25A5%25BD%25E3%2581%2597%25E3%2581%259F%25E3%2581%2584%25E9%2596%258B%25E7%2599%25BA...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25A6%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS0VZSG0yQ282emNNYUhTUW9UV0lzN0s0NEgtT01lRFJWblp6NVdKellhODd3QlphZz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "199a11c3704c1496",
+      "kind": "news",
+      "title": "手を動かして学ぶ Claude Code 入門ワークショップを公開しました〜！",
+      "url": "https://zenn.dev/aws_japan/articles/introduction-to-claude-code-workshop",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T10:45:14.535+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--dLMtR4sq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E6%2589%258B%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E5%25AD%25A6%25E3%2581%25B6%2520Claude%2520Code%2520%25E5%2585%25A5%25E9%2596%2580%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%2583%25E3%2583%2597%25E3%2582%2592%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2597%25E3%2581%25BE%25E3%2581%2597%25E3%2581%259F%25E3%2580%259C%25EF%25BC%2581%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Yamary%2520%2520%252F%2520%2520Ryosuke...%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzZmZTY2NGI3N2IuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25A2%25E3%2583%259E%25E3%2582%25BE%25E3%2583%25B3%2520%25E3%2582%25A6%25E3%2582%25A7%25E3%2583%2596%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2593%25E3%2582%25B9%2520%25E3%2582%25B8%25E3%2583%25A3%25E3%2583%2591%25E3%2583%25B3%2520%2528%25E6%259C%2589%25E5%25BF%2597%2529%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YxMTE2OGEyNDMuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "872a81c0d993af66",
+      "kind": "news",
+      "title": "サクラエディタのGREPが遅くて、AIと自作したら chardet に何度もハマった話",
+      "url": "https://qiita.com/hoshi-gmoconnect/items/387ce2e9b1b4c87adc41",
+      "summary": "# はじめに GMOコネクトの星です。 大規模なJavaプロジェクトの横断調査で、エディタ標準のGREP機能が重くて作業が止まる、という状況に陥っていました。「ちょっと文字列の出現箇所を確認したい」だけなのに数十秒待たされ、しかも条件を変えてやり直す、というのを1日に何度もやると、それだけで時間が溶けます。 そこで「AIに業務特化の使い捨てツールを作らせる」というアプローチで、自分専用のGREPツールを自作してみました。やってみると思ったよりたくさんの落とし穴があり、特に `",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-12T11:48:44+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MjAyNTY2JTJGYzlhZTk4YTMwZjBkODUxYmM5N2NmMjQ5MzcyMTM1YTk3OGQ3N2NiMiUyRnhfbGFyZ2UucG5nJTNGMTc2NTg2NDIwND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MGYzYWM0YWViN2MwZjNkZGE3YjcyODg2MzNjYTQ0MGU%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZlYmQ5Njg3Yjk0MzAwMWI5NzlkNmU0YWY1MGFiYWU4YTc5MWE4ZGE1JTJGb3JpZ2luYWwuanBnJTNGMTc1NjE4NjM1Mz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1hOTMyMDU4NWNlNzJmY2QyNGJiNGQ0MDNkYTA2MGM1OA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Ddacd14b1c3e3fc1af0a978cf08a30609?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUI1JUUzJTgyJUFGJUUzJTgzJUE5JUUzJTgyJUE4JUUzJTgzJTg3JUUzJTgyJUEzJUUzJTgyJUJGJUUzJTgxJUFFR1JFUCVFMyU4MSU4QyVFOSU4MSU4NSVFMyU4MSU4RiVFMyU4MSVBNiVFMyU4MCU4MUFJJUUzJTgxJUE4JUU4JTg3JUFBJUU0JUJEJTlDJUUzJTgxJTk3JUUzJTgxJTlGJUUzJTgyJTg5JTIwY2hhcmRldCUyMCVFMyU4MSVBQiVFNCVCRCU5NSVFNSVCQSVBNiVFMyU4MiU4MiVFMyU4MyU4RiVFMyU4MyU5RSVFMyU4MSVBMyVFMyU4MSU5RiVFOCVBOSVCMSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTI0YmExZjI3YTQxOTRiMWI3YzhmZmU4ODFmYzVhN2Mx&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBob3NoaS1nbW9jb25uZWN0JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YTVmN2ZmZDkwMjUyMzQ4NmUzYjFkN2I2ZWY4MDM3MmY&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=R01P44Kz44ON44Kv44OI5qCq5byP5Lya56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=c876b0f669c91e03e34209f36345ed6d"
+    },
+    {
+      "id": "6bc3f2c03e20f943",
+      "kind": "news",
+      "title": "商用リリース手順書作成をハックする — openpyxlでの構造解析と「当日作業だけ」を抽出する設計",
+      "url": "https://qiita.com/kane_ryu/items/d9137daf8807a2202476",
+      "summary": "# はじめに 商用リリースの手順書作成って、地味な割に**事故ったら一発で延期**になる、リスクと労力が釣り合わない工程です。 - STG検証は完璧に通した - でも当日手順書を書く段階で疲弊して、書式合わせや切り戻し手順がおざなりになる - レビューで「フォーマットが標準と違います」「切り戻しが薄いです」と差し戻し 何より辛いのが、**「書式の体裁を合わせるために何時間も溶ける」**こと。これを openpyxl による構造解析と、AI を使った「当日作業だけの抽出」という",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-12T11:46:51+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MjAxNzM2JTJGNmZmYWQ1YTRhMjhkNjE0ZmVlODQxMzdhMGIwMjA2OTkxOTA1NWI3NCUyRmxhcmdlLnBuZyUzRjE3NzYxMzQ4NTQ_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWYyYzRmMmFjNzMxNzIzMzUwYzhjYWRkMmY2Y2M1NTBl%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZlYmQ5Njg3Yjk0MzAwMWI5NzlkNmU0YWY1MGFiYWU4YTc5MWE4ZGE1JTJGb3JpZ2luYWwuanBnJTNGMTc1NjE4NjM1Mz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1hOTMyMDU4NWNlNzJmY2QyNGJiNGQ0MDNkYTA2MGM1OA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Df541ef53219cd0ebb3dc39a50efebf34?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JTk1JTg2JUU3JTk0JUE4JUUzJTgzJUFBJUUzJTgzJUFBJUUzJTgzJUJDJUUzJTgyJUI5JUU2JTg5JThCJUU5JUEwJTg2JUU2JTlCJUI4JUU0JUJEJTlDJUU2JTg4JTkwJUUzJTgyJTkyJUUzJTgzJThGJUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgxJTk5JUUzJTgyJThCJTIwJUUyJTgwJTk0JTIwb3BlbnB5eGwlRTMlODElQTclRTMlODElQUUlRTYlQTclOEIlRTklODAlQTAlRTglQTclQTMlRTYlOUUlOTAlRTMlODElQTglRTMlODAlOEMlRTUlQkQlOTMlRTYlOTclQTUlRTQlQkQlOUMlRTYlQTUlQUQlRTMlODElQTAlRTMlODElOTElRTMlODAlOEQlRTMlODIlOTIlRTYlOEElQkQlRTUlODclQkElRTMlODElOTklRTMlODIlOEIlRTglQTglQUQlRTglQTglODgmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz01NTcyNjVkNWRjZjExZmQ1MmJiMGVkNWVlNGVlZGRkNw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrYW5lX3J5dSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTJkM2ZiOWE3ODNhZGUyNDc1OWU0MmNlZDYwNWU4NTFj&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=R01P44Kz44ON44Kv44OI5qCq5byP5Lya56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=43c390323a9d4126c312421fbe36e373"
+    },
+    {
+      "id": "d339c8cfc8783284",
+      "kind": "news",
+      "title": "Javaの複雑な処理フローを1発で抽出する！設計書生成プロンプトに必ず入れるべき4つの指示",
+      "url": "https://qiita.com/inaba-yoshiko/items/96a8fa217a56e187bb67",
+      "summary": "# はじめに 既存のJavaコードから設計書を起こしたくて、AIに「このメソッドの仕様をまとめて」と投げてみたことがあります。帰ってくる出力は正確ではあるのですが、なんとなく物足りない。具体的なコード値が出てこない、例外スローはあるのにメッセージコードが書かれていない、条件分岐が別セクションに分離されていて処理の流れが追いにくい。 結局、人間が読んで補完して、また聞き直して……という往復が発生します。原因はAIではなく、プロンプトの設計でした。Javaの多層アーキテクチャを解",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-12T11:55:16+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhJTJGQUNnOG9jTEpGRWJvOUFjVEtzOHp6eFlIWEJha0o0dWMwSC0zUE5EajREd1dqQjdWdWY2ZlJBJTNEczk2LWM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWU5NGQ4ZGNlNDJlNDMxZGExNjMyY2RjYjQ3OThlNzI1%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZlYmQ5Njg3Yjk0MzAwMWI5NzlkNmU0YWY1MGFiYWU4YTc5MWE4ZGE1JTJGb3JpZ2luYWwuanBnJTNGMTc1NjE4NjM1Mz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1hOTMyMDU4NWNlNzJmY2QyNGJiNGQ0MDNkYTA2MGM1OA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dfd2cfd068ec8302e6bc90d4c5c55cbf0?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9SmF2YSVFMyU4MSVBRSVFOCVBNCU4NyVFOSU5QiU5MSVFMyU4MSVBQSVFNSU4NyVBNiVFNyU5MCU4NiVFMyU4MyU5NSVFMyU4MyVBRCVFMyU4MyVCQyVFMyU4MiU5MjElRTclOTklQkElRTMlODElQTclRTYlOEElQkQlRTUlODclQkElRTMlODElOTklRTMlODIlOEIlRUYlQkMlODElRTglQTglQUQlRTglQTglODglRTYlOUIlQjglRTclOTQlOUYlRTYlODglOTAlRTMlODMlOTclRTMlODMlQUQlRTMlODMlQjMlRTMlODMlOTclRTMlODMlODglRTMlODElQUIlRTUlQkYlODUlRTMlODElOUElRTUlODUlQTUlRTMlODIlOEMlRTMlODIlOEIlRTMlODElQjklRTMlODElOEQ0JUUzJTgxJUE0JUUzJTgxJUFFJUU2JThDJTg3JUU3JUE0JUJBJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzE0Nzk5NGFiNmY4ZTMyMTAyMmFiNDlhYWYwNjA3YzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBpbmFiYS15b3NoaWtvJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MmNjNGU5ODQ2NGU5Zjk1NmI1ODk5NGY0MmU1MjNhOTg&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=R01P44Kz44ON44Kv44OI5qCq5byP5Lya56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=1d1936e80e10a18d81e68ce02fa9a5af"
+    },
+    {
+      "id": "d85fe4301e5a599a",
+      "kind": "news",
+      "title": "コンパニオンAIの感情を、ラベルじゃなく経路で作った話",
+      "url": "https://zenn.dev/haru0416/articles/d107ea122be434",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 22,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-12T20:07:32.632+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--BzkKoq2D--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2591%25E3%2583%258B%25E3%2582%25AA%25E3%2583%25B3AI%25E3%2581%25AE%25E6%2584%259F%25E6%2583%2585%25E3%2582%2592%25E3%2580%2581%25E3%2583%25A9%25E3%2583%2599%25E3%2583%25AB%25E3%2581%2598%25E3%2582%2583%25E3%2581%25AA%25E3%2581%258F%25E7%25B5%258C%25E8%25B7%25AF%25E3%2581%25A7%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Haru%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZhMWMzZjlmNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "d05c519d37e6c3db",
+      "kind": "news",
+      "title": "【Claude Code】instinctを駆使したチームハーネスの完全自動改善システム",
+      "url": "https://zenn.dev/einperience/articles/cc8d468209c937",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T09:21:39.229+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--NE666VYD--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590Claude%2520Code%25E3%2580%2591instinct%25E3%2582%2592%25E9%25A7%2586%25E4%25BD%25BF%25E3%2581%2597%25E3%2581%259F%25E3%2583%2581%25E3%2583%25BC%25E3%2583%25A0%25E3%2583%258F%25E3%2583%25BC%25E3%2583%258D%25E3%2582%25B9%25E3%2581%25AE%25E5%25AE%258C%25E5%2585%25A8%25E8%2587%25AA%25E5%258B%2595%25E6%2594%25B9%25E5%2596%2584%25E3%2582%25B7%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25A0%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:artie%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzdkMjc5MmIxNmIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "f8f62a8a9e9dc72e",
+      "kind": "news",
+      "title": "馬具の話はもういい。馬と乗り手の話をしよう — StoreHero の AI 組織導入 4ヶ月",
+      "url": "https://zenn.dev/storehero/articles/a04cc7ac1bd8c4",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T12:06:15.248+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--k6fRvYY---/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E9%25A6%25AC%25E5%2585%25B7%25E3%2581%25AE%25E8%25A9%25B1%25E3%2581%25AF%25E3%2582%2582%25E3%2581%2586%25E3%2581%2584%25E3%2581%2584%25E3%2580%2582%25E9%25A6%25AC%25E3%2581%25A8%25E4%25B9%2597%25E3%2582%258A%25E6%2589%258B%25E3%2581%25AE%25E8%25A9%25B1%25E3%2582%2592%25E3%2581%2597%25E3%2582%2588%25E3%2581%2586%2520%25E2%2580%2594%2520StoreHero%2520%25E3%2581%25AE%2520AI%2520%25E7%25B5%2584%25E7%25B9%2594%25E5%25B0%258E%25E5%2585%25A5%25204%25E3%2583%25B6%25E6%259C%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:kazukinagata%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Y0YjMwZDU1ZmQuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BEStoreHero%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzgyYTYyYzRjMDQuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "77298b30ce5d9e42",
+      "kind": "news",
+      "title": "Figmaは本当に危ないのか？Claude Designを試してみた",
+      "url": "https://zenn.dev/itsuki_y/articles/19a01320315c7f",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T10:36:03.192+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--vI-Kz3tm--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Figma%25E3%2581%25AF%25E6%259C%25AC%25E5%25BD%2593%25E3%2581%25AB%25E5%258D%25B1%25E3%2581%25AA%25E3%2581%2584%25E3%2581%25AE%25E3%2581%258B%25EF%25BC%259FClaude%2520Design%25E3%2582%2592%25E8%25A9%25A6%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%2584%25E3%2581%25A4%25E3%2581%258D%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzQ2OTA2MDI3OGYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "110a395cc2c0f966",
+      "kind": "news",
+      "title": "Show HN: Dragoman – Multi-model routing for Claude Code via sub-agents",
+      "url": "https://github.com/asakin/dragoman",
+      "summary": "I use Claude Code and also pay for Perplexity, OpenAI, Gemini, and run Ollama locally. Got tired of switching tabs when the right model for a question wasn't Claude. Dragoman is a small CLI (~800 lines) that plugs into Claude Code's sub-age",
+      "tags": [
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 22,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-12T16:10:12.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://opengraph.githubassets.com/9abdeae1a7e0b717b6d06e8f3309407d43b75f5e6debe4834293a610cfe2a084/asakin/dragoman"
+    },
+    {
+      "id": "23e9da76ef2dad28",
+      "kind": "news",
+      "title": "Show HN: Kimiflare, Kimi K2.6 as a Coding Agent on Cloudflare Workers AI",
+      "url": "https://news.ycombinator.com/item?id=48108407",
+      "summary": "hey HN, this is sina. i've had some cloudflare credits expiring on may 14 and was wondering what to do with them. when kimi k2.6 dropped and it was available on workers ai, i figured i'd build an open-source claude code clone with it. didn'",
+      "tags": [
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 22,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-12T13:57:27.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.159Z"
+    },
+    {
+      "id": "c3ee4b71e44cce58",
+      "kind": "news",
+      "title": "「顔を検出するAI」から紐解くCNN",
+      "url": "https://zenn.dev/ringo_acid/articles/3ebcc64dae7d90",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-10T12:00:08.252+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--faQ9Z9xM--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258C%25E9%25A1%2594%25E3%2582%2592%25E6%25A4%259C%25E5%2587%25BA%25E3%2581%2599%25E3%2582%258BAI%25E3%2580%258D%25E3%2581%258B%25E3%2582%2589%25E7%25B4%2590%25E8%25A7%25A3%25E3%2581%258FCNN%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B4%25E9%2585%25B8%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJjNjIxNzM0ZTQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "7f07d24b7b659692",
+      "kind": "news",
+      "title": "Claude Code Routines で Issue の自動対応をチームで回している話",
+      "url": "https://zenn.dev/notahotel/articles/claude-routine-auto-fix-issue",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T11:30:05.081+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--1jXWSsEx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520Routines%2520%25E3%2581%25A7%2520Issue%2520%25E3%2581%25AE%25E8%2587%25AA%25E5%258B%2595%25E5%25AF%25BE%25E5%25BF%259C%25E3%2582%2592%25E3%2583%2581%25E3%2583%25BC%25E3%2583%25A0%25E3%2581%25A7%25E5%259B%259E%25E3%2581%2597%25E3%2581%25A6%25E3%2581%2584%25E3%2582%258B%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:uji%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzAxOGNjZTA4NTYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:NOT%2520A%2520HOTEL%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2pjOXNFeTZFWFJ6MV9femRzc2h0OENhei1XcjJ5NWVjNDhnQTluPXMyNTAtYw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "3f1f44e4f45dd195",
+      "kind": "news",
+      "title": "「これAIに入れていい？」と聞かれる前に、社内AIガイドラインで決めておきたいこと",
+      "url": "https://zenn.dev/linkedge/articles/1ebe85f104726c",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T12:39:55.093+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--edaPT1b0--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258C%25E3%2581%2593%25E3%2582%258CAI%25E3%2581%25AB%25E5%2585%25A5%25E3%2582%258C%25E3%2581%25A6%25E3%2581%2584%25E3%2581%2584%25EF%25BC%259F%25E3%2580%258D%25E3%2581%25A8%25E8%2581%259E%25E3%2581%258B%25E3%2582%258C%25E3%2582%258B%25E5%2589%258D%25E3%2581%25AB%25E3%2580%2581%25E7%25A4%25BE%25E5%2586%2585AI%25E3%2582%25AC%25E3%2582%25A4%25E3%2583%2589%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%25B3%25E3%2581%25A7%25E6%25B1%25BA%25E3%2582%2581%25E3%2581%25A6%25E3%2581%258A%25E3%2581%258D%25E3%2581%259F%25E3%2581%2584%25E3%2581%2593%25E3%2581%25A8%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Misugi%2520Takeru%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNmZmE4YTI1NWMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BEL%2526E%2520Group%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzYwOWMxZjVhYzcuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "80b39c1c48316653",
+      "kind": "news",
+      "title": "あなたの MCP server、実は Tools しか使ってない (5 blocks 全実装 / v0.3.0)",
+      "url": "https://zenn.dev/kanseilink/articles/linksee-memory-mcp-five-blocks-20260507",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-11T22:43:38.973+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--GA2ojyjk--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2581%2582%25E3%2581%25AA%25E3%2581%259F%25E3%2581%25AE%2520MCP%2520server%25E3%2580%2581%25E5%25AE%259F%25E3%2581%25AF%2520Tools%2520%25E3%2581%2597%25E3%2581%258B%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25AA%25E3%2581%2584%2520%25285%2520blocks%2520%25E5%2585%25A8%25E5%25AE%259F%25E8%25A3%2585%2520%252F%2520v0.3.0%2529%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Michie%2540Linksee_Memory%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzRlNTAyYzJjNzIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "eeee86329d7d8bbd",
+      "kind": "news",
+      "title": "Claude Codeのlearning modeを活用して学習目的でRustアプリを構築した過程まとめ",
+      "url": "https://zenn.dev/octabird/articles/d512ef11a5580e",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-09T18:10:34.134+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--hR30S9Jb--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AElearning%2520mode%25E3%2582%2592%25E6%25B4%25BB%25E7%2594%25A8%25E3%2581%2597%25E3%2581%25A6%25E5%25AD%25A6%25E7%25BF%2592%25E7%259B%25AE%25E7%259A%2584%25E3%2581%25A7Rust%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2582%2592%25E6%25A7%258B%25E7%25AF%2589%25E3%2581%2597%25E3%2581%259F%25E9%2581%258E%25E7%25A8%258B%25E3%2581%25BE%25E3%2581%25A8%25E3%2582%2581%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:cafenoctia%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJlYzAwYWUyYzUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "f2afe6b1b5ba9f31",
+      "kind": "news",
+      "title": "PDFの自動ページ分割をユーザー修正から学習させてみた",
+      "url": "https://zenn.dev/kurojica/articles/df96fc947cacb2",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 20,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-12T15:47:53.189+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--M_q2O0QI--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:PDF%25E3%2581%25AE%25E8%2587%25AA%25E5%258B%2595%25E3%2583%259A%25E3%2583%25BC%25E3%2582%25B8%25E5%2588%2586%25E5%2589%25B2%25E3%2582%2592%25E3%2583%25A6%25E3%2583%25BC%25E3%2582%25B6%25E3%2583%25BC%25E4%25BF%25AE%25E6%25AD%25A3%25E3%2581%258B%25E3%2582%2589%25E5%25AD%25A6%25E7%25BF%2592%25E3%2581%2595%25E3%2581%259B%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Taku%2520Dojo%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzVkY2ZlYzM0ZjguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2582%25AF%25E3%2583%25AD%25E3%2582%25B8%25E3%2582%25AB%2520AI%2520Lab%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzBjNDg5Mjg0Y2UuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "b66ce83d741dbc1d",
+      "kind": "news",
+      "title": "あの「Opus と Opus (1M context)」の3か月後 — Opus 4.7 リリースと Anthropic 公式ポストモーテム",
+      "url": "https://zenn.dev/kimkiyong/articles/7ba6385803a8f3",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 20,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-12T11:35:09.923+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--fYInBBBY--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2581%2582%25E3%2581%25AE%25E3%2580%258COpus%2520%25E3%2581%25A8%2520Opus%2520%25281M%2520context%2529%25E3%2580%258D%25E3%2581%25AE3%25E3%2581%258B%25E6%259C%2588%25E5%25BE%258C%2520%25E2%2580%2594%2520Opus%25204.7%2520%25E3%2583%25AA%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25B9%25E3%2581%25A8%2520Anthro...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%258D%25E3%2582%2587%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzRmOTU1YzJiZTcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "e7b8c21a91506b60",
+      "kind": "news",
+      "title": "「100兆通りの投資判断」を1秒で解く ― 量子ポートフォリオ最適化（QUBO + QAOA）をPythonで実装する",
+      "url": "https://qiita.com/AIRoboticsQuantumLab/items/45fd7ba3a93cc0bee880",
+      "summary": "# はじめに 100銘柄から30銘柄を選ぶ組合せだけで **2京9000兆通り**。さらに比率・リバランス・税金・流動性まで考慮すれば、現代のスーパーコンピュータでも厳密解には到達できません。資産運用業界はこの30年、**「近似解で妥協する」** ことを前提にしてきました。 その妥協を終わらせようとしているのが、**量子ポートフォリオ最適化** です。組合せ最適化は量子コンピュータがもっとも得意な領域のひとつ。**量子アニーリング** や **QAOA（Quantum App",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 18,
+      "source": "qiita-api:量子コンピュータ",
+      "publishedAt": "2026-05-07T17:33:50+09:00",
+      "fetchedAt": "2026-05-12T23:00:56.159Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0Mzg1Njk3JTJGMWYwMDM3MDg5NzdhNjU3NDc0MDdiMGViYWQ5MTAwNzU1YTc2NzExNCUyRmxhcmdlLnBuZyUzRjE3NzQzMzY4NTM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWUxMTJjZDdhNGZjNGE0ODkzNjc5MzFhN2MxMWJiOWQw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbedeead26999fb6291e0b0d7f6772c02?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJThDMTAwJUU1JTg1JTg2JUU5JTgwJTlBJUUzJTgyJThBJUUzJTgxJUFFJUU2JThBJTk1JUU4JUIzJTg3JUU1JTg4JUE0JUU2JTk2JUFEJUUzJTgwJThEJUUzJTgyJTkyMSVFNyVBNyU5MiVFMyU4MSVBNyVFOCVBNyVBMyVFMyU4MSU4RiUyMCVFMiU4MCU5NSUyMCVFOSU4NyU4RiVFNSVBRCU5MCVFMyU4MyU5RCVFMyU4MyVCQyVFMyU4MyU4OCVFMyU4MyU5NSVFMyU4MiVBOSVFMyU4MyVBQSVFMyU4MiVBQSVFNiU5QyU4MCVFOSU4MSVBOSVFNSU4QyU5NiVFRiVCQyU4OFFVQk8lMjAlMkIlMjBRQU9BJUVGJUJDJTg5JUUzJTgyJTkyUHl0aG9uJUUzJTgxJUE3JUU1JUFFJTlGJUU4JUEzJTg1JUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzRmOWFkMGNkMDAwOGVkMzBlMDM3NzFlZThlM2I3MTI&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBBSVJvYm90aWNzUXVhbnR1bUxhYiZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTM5MzI3NDI3NmJiMjQ5OWYzNTc3YTQwOTYzMTNjM2M3&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=669cb6380a708f28693cccc6a24e03ae"
+    },
+    {
+      "id": "959302c704aa56ee",
+      "kind": "paper",
+      "title": "Randomized Max-Vertex-Cover Interdiction with Matroid Constraints",
+      "url": "https://arxiv.org/abs/2605.10526",
+      "summary": "新しい二層最適化問題である「ランダム化最大頂点被覆妨害（RMVCI）」問題を、マトロイド制約の下で研究します。この問題は、リーダーとフォロワーの間でネットワーク上のゼロサムスタッケルベルグゲームとしてモデル化できます。リーダーは、マトロイド制約に従って保護する頂点の部分集合をランダムに選択します。一方、フォロワーはリーダーの保護確率分布を推測した後、攻撃する頂点の部分集合を選びます。この際、フォロワーは攻撃されたが保護されていない頂点に接続する辺の期待総重みを最大化することを目指します。リーダーの目的は、フォロワーの期待報酬を最小化する最適なランダム妨害戦略を決定することです。フォロワーの応答問題はNP困難であるため、結果として得られる二層プログラムは計算上の課題となります。私たちは、一般的な二層妨害問題に対処するための概念的な近似フレームワークを開発しました。RMVCI問題においては、まずフォロワーの問題を整数線形プログラムとして定式化し、その線形緩和が$\\tfrac{4}{3}$の厳密な整数ギャップを持つことを示します。近似フレームワーク内では、フォロワーの問題をその線形緩和に置き換え、結果として得られる二層プログラムを研究します。集合に対する分布から頂点に対する分布にシフトし、私たちの近似フレームワークを適用することで、この緩和された二層問題に対して多項式時間の2近似アルゴリズムを設計することに成功しました。これらの要素を組み合わせることで、マトロイド制約下のRMVCIに対して多項式時間の$\\tfrac{8}{3}$近似アルゴリズムを得ることができます。",
+      "tags": [
+        "optimization",
+        "approximation algorithm"
+      ],
+      "score": 14,
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-05-12T04:00:00.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.186Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "4482081cd290cdf2",
+      "kind": "paper",
+      "title": "Computational and Combinatorial Results on Conflict-free Choosability",
+      "url": "https://arxiv.org/abs/2605.10776",
+      "summary": "グラフ \\( G = (V,E) \\) の「コンフリクトフリー閉近傍（CFCN$^*$）彩色数」とは、グラフの頂点の部分集合を \\( k \\) 色で彩色する方法が存在する最小の正の整数 \\( k \\) であり、その際、すべての頂点 \\( v \\in V \\) に対して、その閉近傍においてちょうど一度現れる色が存在することを要求します。同様に、「コンフリクトフリー開近傍（CFON$^*$）彩色数」も定義されます。本論文では、上記の彩色パラメータの「リスト変種」を研究します。グラフ \\( G = (V,E) \\) の「コンフリクトフリー閉近傍（CFCN$^*$）選択数」とは、すべての頂点にサイズ \\( k \\) のリストが割り当てられたときに、ある頂点の部分集合 \\( V' \\) を彩色する方法が存在する最小の正の整数 \\( k \\) であり、その際、(i) \\( V' \\) のすべての頂点が自分のリストから色を受け取り、(ii) すべての頂点 \\( v \\in V \\) に対して、その閉近傍においてちょうど一度現れる色が存在することが求められます。CFON$^*$選択数も同様に定義されます。\n\nD\\k{e}bski と Przyby\\l o [Journal of Graph Theory, 2022] は、最大次数 \\( \\Delta \\) を持つ任意のグラフ \\( G \\) の CFCN$^*$ 彩色数が \\( O(\\ln \\Delta) \\) であることを示しました。この結果は、Bhyravarapu ら [Journal of Graph Theory, 2025] によってクロー・フリーグラフに拡張され、すべての \\( K_{1,k} \\)-フリーグラフ \\( G \\) は \\( O(k\\ln \\Delta) \\) 色を用いた CFCN$^*$ 彩色を持つことが証明されました。本論文では、この結果をリスト設定に一般化し、すべての \\( K_{1,k} \\)-フリーグラフ \\( G \\) の CFCN$^*$ 選択数が \\( O(k\\ln \\Delta) \\) であることを示します。さらに、Gupta と Mathew [SOFSEM, 2026] によって提起された CFCN$^*$/CFON$^*$ 選択数の計算の難しさに関するいくつかの質問に答えます。特に、グラフの CFCN$^*$/CFON$^*$ 選択数が \\( k \\)（\\( k=1,2 \\) の場合）に等しいかどうかを決定することが NP困難であることを示します。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 13,
+      "source": "arxiv:math.CO",
+      "publishedAt": "2026-05-12T04:00:00.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.186Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "6134e6925256c22c",
+      "kind": "paper",
+      "title": "OPT-BENCH: Evaluating the Iterative Self-Optimization of LLM Agents in Large-Scale Search Spaces",
+      "url": "https://arxiv.org/abs/2605.08904",
+      "summary": "大規模言語モデル（LLMs）は、推論やツールの使用において優れた能力を示しています。しかし、問題解決に不可欠な基本的な認知能力、すなわち知覚、推論、記憶は、知性の安定した核心を成しています。特定のパターンを記憶するのとは異なり、人間はこれらの内在的な能力を活用して新しい環境に適応し、最適化することで成功します。しかし、LLMsがこの重要な能力、すなわち動的な環境からのフィードバックに応じて解決策を継続的に洗練する能力を持っているかどうかは、十分に探求されていません。この課題に対処するために、私たちはOPT-BENCHを導入します。これは、大規模な探索空間における自己改善能力を評価するためのベンチマークです。OPT-BENCHは、20の機械学習タスクと10の古典的なNP困難問題を組み合わせており、エージェントが rote（単純な反復）ツールの適用ではなく、内在的な自己反省を通じて適応できるかどうかを厳密に評価するための設定を提供します。さらに、私たちはOPT-Agentというフレームワークを提案します。これは、人間のような認知的適応を模倣するもので、一般的な知覚、記憶、推論のループを通じて機能し、環境からのフィードバックに基づいて解決策を反復的に洗練します。7つのモデルファミリーからの19のLLMに対する広範な実験を通じて、推論モデル、一般モデル、オープンソースモデルを含む3Bから235Bパラメータのモデルにおいて、より強力なモデルが自己改善のためにフィードバック信号をより効果的に活用できることを示しました。しかし、この上限適応性はモデルの基本的な能力によって根本的に制約されており、最も進んだLLMでさえも人間の専門家のパフォーマンスには及びません。",
+      "tags": [
+        "optimize",
+        "optimization"
+      ],
+      "score": 13,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-12T04:00:00.000Z",
+      "fetchedAt": "2026-05-12T23:00:56.186Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    }
+  ]
+}
