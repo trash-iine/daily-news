@@ -1,0 +1,460 @@
+{
+  "date": "2026-05-15",
+  "generatedAt": "2026-05-14T22:56:32.705Z",
+  "items": [
+    {
+      "id": "3d85c7d0d17ca781",
+      "kind": "paper",
+      "title": "Neural QAOA$^{2}$: Differentiable Joint Graph Partitioning and Parameter Initialization for Quantum Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/2605.13072",
+      "summary": "量子近似最適化アルゴリズム（QAOA）は、組合せ最適化において有望ですが、限られた量子ビット（キュービット）によって制約を受けています。QAOA$^{2}$のような分割統治フレームワークは、グラフを部分グラフに分割することでスケーラビリティの問題に対処しますが、既存の手法には二つの根本的な制約があります。第一に、ヒューリスティックな分割指標と量子最適化の目標との間に不整合があること、第二に、トポロジーに無関心なパラメータ初期化が最適化の冷却スタートを引き起こすことです。これらのギャップを埋めるために、私たちはNeural QAOA$^{2}$を提案します。これは、グラフの分割と初期パラメータを共同で生成するエンドツーエンドの微分可能なフレームワークです。生成評価ネットワーク（GEN）を統合することで、私たちの手法は、高忠実度の性能代理として微分可能な量子評価器を利用し、直接的な勾配ガイダンスを提供します。これにより、共同生成器はグラフのトポロジーから高品質な分割とパラメータ設定への内在的なマッピングを学習することが可能になります。183のQUBO、イジング、MaxCutインスタンス（21から1000の変数）に対する広範な実験により、私たちの勾配駆動型アプローチはヒューリスティックなベースラインを広く上回り、101のインスタンスで第一位を獲得しました。また、分布外のグラフトポロジーに対してゼロショットの一般化を示し、スケーラビリティも実現しています。",
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 42,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-14T04:00:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.424Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "7509f6e4f13c919e",
+      "kind": "news",
+      "title": "This Week in Rust 651",
+      "url": "https://this-week-in-rust.org/blog/2026/05/13/this-week-in-rust-651/",
+      "summary": "Hello and welcome to another issue of This Week in Rust! Rust is a programming language empowering everyone to build reliable and efficient software. This is a weekly summary of its progress and community. Want something mentioned? Tag us a",
+      "tags": [
+        "rust"
+      ],
+      "score": 32,
+      "source": "rss:this-week-in-rust",
+      "publishedAt": "2026-05-13T04:00:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z"
+    },
+    {
+      "id": "e80f3ae908abb913",
+      "kind": "news",
+      "title": "beekeeb.jp、新作分割キーボードでULPスイッチ採用を検討。Cherry MX ULP / Kailh PG1316S ULPでアンケート実施",
+      "url": "https://green-keys.info/beekeeb-20260515/",
+      "summary": "2026年5月、beekeeb.jpは開発中の新作分割キーボードについて、超薄型キースイッチ（ULP）の採用を検討していることを公式Xで案内しました。 薄型キーボードに関する投稿は2日連続。 前日にはApple Magi […] 投稿 beekeeb.jp、新作分割キーボードでULPスイッチ採用を検討。Cherry MX ULP / Kailh PG1316S ULPでアンケート実施 は Greenkeys(グリーンキーズ) に最初に表示されました。",
+      "tags": [
+        "キーボード",
+        "key-switch"
+      ],
+      "score": 32,
+      "source": "rss:greenkeys",
+      "publishedAt": "2026-05-14T21:59:34.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://eynmoy2bh9v.exactdn.com/wp-content/uploads/2026/05/89c842474ab417196ee3e30b91e7a868.jpg"
+    },
+    {
+      "id": "88bfc306bafc01bb",
+      "kind": "news",
+      "title": "要件定義書いて寝てる間にアプリができてた話 (CoDD v2.17 マイルストーン、起きて感想言えば継続改善も自動)",
+      "url": "https://zenn.dev/shio_shoppaize/articles/codd-v2-17-milestone",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 28,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-13T21:46:47.794+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--yfDpUVZW--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E8%25A6%2581%25E4%25BB%25B6%25E5%25AE%259A%25E7%25BE%25A9%25E6%259B%25B8%25E3%2581%2584%25E3%2581%25A6%25E5%25AF%259D%25E3%2581%25A6%25E3%2582%258B%25E9%2596%2593%25E3%2581%25AB%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2581%258C%25E3%2581%25A7%25E3%2581%258D%25E3%2581%25A6%25E3%2581%259F%25E8%25A9%25B1%2520%2528CoDD%2520v2.17%2520%25E3%2583%259E%25E3%2582%25A4%25E3%2583%25AB%25E3%2582%25B9%25E3%2583%2588%25E3%2583%25BC%25E3%2583%25B3%25E3%2580%2581%25E8%25B5%25B7%25E3%2581%258D%25E3%2581%25A6%25E6%2584%259F%25E6%2583%25B3%25E8%25A8%2580%25E3%2581%2588%25E3%2581%25B0%25E7%25B6%2599%25E7%25B6%259A%25E6%2594%25B9%25E5%2596%2584%25E3%2582%2582%25E8%2587%25AA%25E5%258B%2595%2529%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%258A%25E3%2581%2597%25E3%2581%258A%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E2NjUxYjFhMDUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "810b7fb3b998504e",
+      "kind": "news",
+      "title": "Anthropic moves Claude Code SDK and claude -p out of subscription plans",
+      "url": "https://twitter.com/ClaudeDevs/status/2054610152817619388",
+      "summary": "",
+      "tags": [
+        "claude",
+        "claude-code",
+        "anthropic"
+      ],
+      "score": 27,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-14T18:37:01.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://pbs.twimg.com/profile_images/2044472418815893504/xf14RxM8_200x200.png"
+    },
+    {
+      "id": "128a4049a813f488",
+      "kind": "news",
+      "title": "Claude Codeにリポジトリを1枚のワークフロー図にしてもらうプロンプト",
+      "url": "https://zenn.dev/acntechjp/articles/b82cebfa0e4d50",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 26,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T05:01:31.742+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--W_KvtTpN--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AB%25E3%2583%25AA%25E3%2583%259D%25E3%2582%25B8%25E3%2583%2588%25E3%2583%25AA%25E3%2582%25921%25E6%259E%259A%25E3%2581%25AE%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25BC%25E5%259B%25B3%25E3%2581%25AB%25E3%2581%2597%25E3%2581%25A6%25E3%2582%2582%25E3%2582%2589%25E3%2581%2586%25E3%2583%2597%25E3%2583%25AD%25E3%2583%25B3%25E3%2583%2597%25E3%2583%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:shinya.hara%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U2ZDA4MDY5ODcuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Accenture%2520Japan%2520%2528%25E6%259C%2589%25E5%25BF%2597%2529%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzU4NWRkYWRjODQuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "dc003f47dc23c012",
+      "kind": "news",
+      "title": "Show HN: Full Stack HQ – Claude.md and Agent Stack for Claude Code",
+      "url": "https://github.com/sabahattink/antigravity-fullstack-hq",
+      "summary": "Permission-first config kit for Claude Code and Google Antigravity IDE. Installs CLAUDE.md + GEMINI.md + 10 specialist agents + 28 skills with one command. MIT license.",
+      "tags": [
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 25,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-14T20:55:30.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://opengraph.githubassets.com/c63669ec9eeb34b68331bbe87c633b210fa9da170bceb4e5054b81ba8e15cadc/sabahattink/antigravity-fullstack-hq"
+    },
+    {
+      "id": "e828a96776276709",
+      "kind": "news",
+      "title": "Bun's Rust rewrite has been merged",
+      "url": "https://old.reddit.com/r/rust/comments/1tcrmjs/rewrite_bun_in_rust_has_been_merged/",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 25,
+      "source": "hn:rust",
+      "publishedAt": "2026-05-14T17:37:39.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z"
+    },
+    {
+      "id": "ce5f162887369016",
+      "kind": "news",
+      "title": "Non-interactive Claude Code usage ejected from subscriptions",
+      "url": "https://news.ycombinator.com/item?id=48133373",
+      "summary": "Received via email: Starting June 15, Pro plan subscribers can claim a $20 monthly credit for using the Claude Agent SDK and claude -p, including third-party tools built on the Agent SDK. As part of this change, Agent SDK and other programm",
+      "tags": [
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 23,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-14T10:18:40.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z"
+    },
+    {
+      "id": "517dc8d403b1a045",
+      "kind": "news",
+      "title": "初心者でもわかる！ Python で学ぶマクロ経済学入門 全80回 総復習",
+      "url": "https://qiita.com/maskot1977/items/dd76864328b8e8910108",
+      "summary": "# **user**: 「Pythonで学ぶ マクロ経済学入門」も 80 回目まで連載しました。ここでまた、これまでの内容の振り返りをしたいと思います。 ## 第1回〜第10回 まず第1回〜第10回は、 「初心者でもわかる！Pythonで学ぶマクロ経済学入門 全10回 総復習」 https://qiita.com/maskot1977/items/76ebb3b7b3df54a113b5 としてまとめました。 * 第1回「30年分のGDPと政府支出推移を日本と米国で比較」 *",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-15T00:00:57+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyMTExNjIlMkY5Y2U4ZWVjZTk1NTAyN2RlODg5ZDUxMjBkNDA2OGJkNDkzNjY4NTdmJTJGeF9sYXJnZS5wbmclM0YxNzMyNTUzMDI1P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz02NTMxZThhZTVlNDU1ZWVkNjM3NTc2Nzk3OGI1ZDJhMQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De652a775c298ccfc8e2af634cc54c5bc?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JTg4JTlEJUU1JUJGJTgzJUU4JTgwJTg1JUUzJTgxJUE3JUUzJTgyJTgyJUUzJTgyJThGJUUzJTgxJThCJUUzJTgyJThCJUVGJUJDJTgxJTIwUHl0aG9uJTIwJUUzJTgxJUE3JUU1JUFEJUE2JUUzJTgxJUI2JUUzJTgzJTlFJUUzJTgyJUFGJUUzJTgzJUFEJUU3JUI1JThDJUU2JUI4JTg4JUU1JUFEJUE2JUU1JTg1JUE1JUU5JTk2JTgwJTIwJUU1JTg1JUE4ODAlRTUlOUIlOUUlMjAlRTclQjclOEYlRTUlQkUlQTklRTclQkYlOTImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kNTVjYjEzOGI4N2UxYzM1NTg0OTE4MzJjN2FiOTg0Ng&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYXNrb3QxOTc3JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjA2OWI3NWQ1NDYwZDY3NDAyMWEyNzcyYzUyY2M0MDI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=cadeccc3485a1db5824c356ccc5eb527"
+    },
+    {
+      "id": "2a2718d33729aa23",
+      "kind": "news",
+      "title": "【Claude Code】7年前の自分に教えたい。1ヶ月かけたテレビゲーム売上分析、2026年は10分で終わる（が、落とし穴もあった）",
+      "url": "https://qiita.com/hamham/items/b64e4e51d75b6b0525f3",
+      "summary": "## はじめに 2019年、東大松尾研究室のデータサイエンティスト育成講座（全5日間）を受けて、テレビゲームの売上データセットを分析する記事をQiitaに投稿しました。 https://qiita.com/hamham/items/eb1a1f276631bb9334aa あの時は、Google Colab（Jupyter Notebook）で、Pandasの使い方をググりながら、試行錯誤を繰り返して、約1ヶ月かけて回帰モデルや分類モデルを作りました。コーディング自体に苦手意",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-14T07:01:56+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMjcyNzUzJTJGcHJvZmlsZS1pbWFnZXMlMkYxNTMxODkzMjU2P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1jNmQwMjExMGE1NWVmOTI4YTc0NGI1Y2ZjYzEwY2MwOQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D6c3e608e94100b18262c191824883894?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwQ2xhdWRlJTIwQ29kZSVFMyU4MCU5MTclRTUlQjklQjQlRTUlODklOEQlRTMlODElQUUlRTglODclQUElRTUlODglODYlRTMlODElQUIlRTYlOTUlOTklRTMlODElODglRTMlODElOUYlRTMlODElODQlRTMlODAlODIxJUUzJTgzJUI2JUU2JTlDJTg4JUUzJTgxJThCJUUzJTgxJTkxJUUzJTgxJTlGJUUzJTgzJTg2JUUzJTgzJUFDJUUzJTgzJTkzJUUzJTgyJUIyJUUzJTgzJUJDJUUzJTgzJUEwJUU1JUEzJUIyJUU0JUI4JThBJUU1JTg4JTg2JUU2JTlFJTkwJUUzJTgwJTgxMjAyNiVFNSVCOSVCNCVFMyU4MSVBRjEwJUU1JTg4JTg2JUUzJTgxJUE3JUU3JUI1JTgyJUUzJTgyJThGJUUzJTgyJThCJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzI4ODVmNDliYTUwY2FhYzU2N2VkMmQ5OWNmYjNlY2M&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBoYW1oYW0mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz02MDYwZDMzMDkwZmY4MWIxNDBmMDY3MDljM2RlMTc0OA&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=3bd4a2ebe511e994aa04aec047820d0b"
+    },
+    {
+      "id": "2970356c6137b1cc",
+      "kind": "news",
+      "title": "KV キャッシュで Transformer の自己回帰復号を 7〜22× 高速化する — ONNX Runtime 実践記",
+      "url": "https://zenn.dev/ux_xu/articles/kv-cache-onnx-transformer",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-12T15:10:06.771+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--PukvEV8Y--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:KV%2520%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E3%2581%25A7%2520Transformer%2520%25E3%2581%25AE%25E8%2587%25AA%25E5%25B7%25B1%25E5%259B%259E%25E5%25B8%25B0%25E5%25BE%25A9%25E5%258F%25B7%25E3%2582%2592%25207%25E3%2580%259C22%25C3%2597%2520%25E9%25AB%2598%25E9%2580%259F%25E5%258C%2596%25E3%2581%2599%25E3%2582%258B%2520%25E2%2580%2594%2520ONNX%2520Runtime...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%2586%25E3%2582%258B%25E3%2581%2584%25E3%2581%2596%25E3%2581%258B%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzk3MWQ0MWFkNDEuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%25A6%25E3%2582%25AB%25E3%2582%25A4%25E5%25B7%25A5%25E5%25AD%25A6%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS240R2liQnBxbGtZemtRdGhaYjlxaFBMM3FZVElMV1g2NlVFZUdDV2xWVUdxVXV4TT1zMjUwLWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "7420f78804dfad9e",
+      "kind": "news",
+      "title": "AIを触ったことがなかったQAエンジニアが、ClaudeとGeminiで業務効率化に挑戦してみた話",
+      "url": "https://zenn.dev/yamada_shintaro/articles/5vbz5kxsfaon0n",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T14:12:01.263+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--6Q3kQF11--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%2592%25E8%25A7%25A6%25E3%2581%25A3%25E3%2581%259F%25E3%2581%2593%25E3%2581%25A8%25E3%2581%258C%25E3%2581%25AA%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259FQA%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%258C%25E3%2580%2581Claude%25E3%2581%25A8Gemini%25E3%2581%25A7%25E6%25A5%25AD%25E5%258B%2599%25E5%258A%25B9%25E7%258E%2587%25E5%258C%2596%25E3%2581%25AB%25E6%258C%2591%25E6%2588%25A6%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yamada%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2RhcmsveS5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "992a2414e4d2dadd",
+      "kind": "news",
+      "title": "あなたの Claude Code/Cursor/Codex/Gemini、5LLM 横断して記憶する方法",
+      "url": "https://zenn.dev/kanseilink/articles/linksee-memory-claude-cross-llm-20260511",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T09:38:07.690+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--YGrVoe6v--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2581%2582%25E3%2581%25AA%25E3%2581%259F%25E3%2581%25AE%2520Claude%2520Code%252FCursor%252FCodex%252FGemini%25E3%2580%25815LLM%2520%25E6%25A8%25AA%25E6%2596%25AD%25E3%2581%2597%25E3%2581%25A6%25E8%25A8%2598%25E6%2586%25B6%25E3%2581%2599%25E3%2582%258B%25E6%2596%25B9%25E6%25B3%2595%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Michie%2540Linksee_Memory%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzRlNTAyYzJjNzIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "f79bc7b9b76b7306",
+      "kind": "news",
+      "title": "Bitcoin trader recovers wallet with help of Claude",
+      "url": "https://www.tomshardware.com/tech-industry/cryptocurrency/bitcoin-trader-recovers-usd400-000-using-claude-ai-after-losing-wallet-password-11-years-ago-bot-tried-3-5-trillion-passwords-before-decrypting-an-old-wallet-backup",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-14T14:49:48.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://cdn.mos.cms.futurecdn.net/3jd3yz7VBpd9cM9AFR5C8A-2000-80.jpg"
+    },
+    {
+      "id": "c4e9818a10570c0a",
+      "kind": "news",
+      "title": "Claude Account Suspended Seconds After Purchase?",
+      "url": "https://news.ycombinator.com/item?id=48134808",
+      "summary": "I literally created a new account, pressed submit on the credit card dialog, the purchase goes through and i get logged out. I try to log in, and it says I'm banned. I check my mail box and I see an email with an invoice and another that I'",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-14T13:01:52.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z"
+    },
+    {
+      "id": "82ccf6abe5fcd41f",
+      "kind": "news",
+      "title": "Anthropic forms $200M partnership with the Gates Foundation",
+      "url": "https://www.anthropic.com/news/gates-foundation-partnership",
+      "summary": "",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-14T15:15:05.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z"
+    },
+    {
+      "id": "b539d006c0020c0e",
+      "kind": "news",
+      "title": "The Whole Anthropic Kerfuffle",
+      "url": "https://twitter.com/josevalim/status/2054887621336174799",
+      "summary": "",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-14T13:08:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://pbs.twimg.com/profile_images/667973757181431808/IdQgSAH__200x200.jpg"
+    },
+    {
+      "id": "abaf5b2f201f07a9",
+      "kind": "news",
+      "title": "Claude subscriptions no longer include Agent SDK and Claude -p usage",
+      "url": "https://www.xda-developers.com/anthropics-claude-subscriptions-no-longer-include-agent-sdk-and-claude-p-usage/",
+      "summary": "",
+      "tags": [
+        "claude",
+        "agent"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-14T08:24:40.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://static0.xdaimages.com/wordpress/wp-content/uploads/wm/2026/05/claude-projects.jpeg?w=1600&h=900&fit=crop"
+    },
+    {
+      "id": "a9ef977b8a8403f8",
+      "kind": "news",
+      "title": "Claude for Small Business",
+      "url": "https://www.anthropic.com/news/claude-for-small-business",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-14T03:59:35.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.397Z"
+    },
+    {
+      "id": "3d6278e2eb8fe253",
+      "kind": "paper",
+      "title": "Graph Neural Networks with Triangle-Based Messages for the Multicut Problem",
+      "url": "https://arxiv.org/abs/2605.13673",
+      "summary": "マルチカット問題は、バイオインフォマティクス、データマイニング、コンピュータビジョンなどの分野で多様な応用があるNP困難な組合せ最適化問題です。マルチカット問題に対してグラフニューラルネットワークが定義されていますが、特定の目的関数や制約に応じてさらに適応させることが可能です。本稿では、エッジのみに特徴を割り当て、基盤となるグラフの三角形に基づいてメッセージの計算を行う適応型グラフニューラルネットワークアーキテクチャを紹介します。200ノードまでの合成データおよび実世界のインスタンスを用いた実験では、我々の手法が解の質において最先端のヒューリスティックソルバーを上回り、実行時間も適切に保たれることが示されました。いくつかのインスタンスでは、我々の手法が数秒で最適解を見つけるのに対し、正確なソルバーは最適解を見つけて認証するのに数時間を要します。",
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 20,
+      "source": "arxiv:cs.LG",
+      "publishedAt": "2026-05-14T04:00:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.424Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "1db793d96ea030a9",
+      "kind": "news",
+      "title": "Python 100行で作る Streamlit 株価アプリ ― SNS発信で使えるチャート・サムネイル・AIプロンプト",
+      "url": "https://qiita.com/tomo_account/items/82773a314b3694839d4e",
+      "summary": "# ⬜️ 本記事について `Streamlit` と AI コーディングを活用すれば、HTML / CSS / JavaScript の知識がなくても、自分専用のツールが簡単に作れます。 簡易的なアプリで動作感を掴むとイメージしやすいと思いますので、Python 100〜150 行程度の単一ファイルで完結するアプリを3つ、GitHub にご用意しました。 - https://github.com/tomo-account/00_sample_app | | アプリ | 主な機",
+      "tags": [
+        "python"
+      ],
+      "score": 20,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-14T02:29:07+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzIxMDcwJTJGNmFiOWViYjhjMmQ1OWRiZmJiZGRjZmMxMGY0MTI5MTc1MWI1NzJhOCUyRnhfbGFyZ2UucG5nJTNGMTc3ODYwNjIwMj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ZDEwOGY2NWQyMmFhZWY0MDc4MjJjMjczN2VjYWVlMGQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd2725ed764f01f8e68a35c38f0421229?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9UHl0aG9uJTIwMTAwJUU4JUExJThDJUUzJTgxJUE3JUU0JUJEJTlDJUUzJTgyJThCJTIwU3RyZWFtbGl0JTIwJUU2JUEwJUFBJUU0JUJFJUExJUUzJTgyJUEyJUUzJTgzJTk3JUUzJTgzJUFBJTIwJUUyJTgwJTk1JTIwU05TJUU3JTk5JUJBJUU0JUJGJUExJUUzJTgxJUE3JUU0JUJEJUJGJUUzJTgxJTg4JUUzJTgyJThCJUUzJTgzJTgxJUUzJTgzJUEzJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgzJUJCJUUzJTgyJUI1JUUzJTgzJUEwJUUzJTgzJThEJUUzJTgyJUE0JUUzJTgzJUFCJUUzJTgzJUJCQUklRTMlODMlOTclRTMlODMlQUQlRTMlODMlQjMlRTMlODMlOTclRTMlODMlODgmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yYTlhMmEwNTNkZWJmMWVmZTY0NDhiZmU5MTMxNDI0Mw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0b21vX2FjY291bnQmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mNmM3MGNhNTIxZWU4OTg3Zjk0N2EzM2ZlNDlmNmI1MQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=72c5827205381f1d1fb12f9317aeeacf"
+    },
+    {
+      "id": "e13a1903ba2c6d7c",
+      "kind": "news",
+      "title": "Claude Code を使うなら知っておきたい 6 つのオープンソースツール",
+      "url": "https://qiita.com/TianqiYuan/items/e1d27a1b8d2f3d13f779",
+      "summary": "オリジナルの公開場所:https://www.nocobase.com/ja/blog/open-source-tools-after-claude-code ## TLDR Claude Code は、コード生成や機能実装に強いツールです。ただし、長期的に保守できる企業向けシステムを作るには、明確な構造の境界が必要です。この記事では、Claude Code と組み合わせて使いやすい、実績のある 6 つのオープンソースツールを紹介します。業務システム、自動化、ナレッジベース、",
+      "tags": [
+        "claude"
+      ],
+      "score": 20,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-14T02:52:59+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzY4ODI4JTJGZDI4Y2JlZjJmOGE0ODJlNTBjMmY2NThkNjUwYjgzODRiM2ZlZGQ4MCUyRmxhcmdlLnBuZyUzRjE3NzIyNjA3NDM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWMyNTYyZGVjYmU2NGQ2YmEyMDVmN2RhYmRhMjVlZTJj%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D622b2d2ad834214b61c98436569f6a61?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSUyMCVFMyU4MiU5MiVFNCVCRCVCRiVFMyU4MSU4NiVFMyU4MSVBQSVFMyU4MiU4OSVFNyU5RiVBNSVFMyU4MSVBMyVFMyU4MSVBNiVFMyU4MSU4QSVFMyU4MSU4RCVFMyU4MSU5RiVFMyU4MSU4NCUyMDYlMjAlRTMlODElQTQlRTMlODElQUUlRTMlODIlQUElRTMlODMlQkMlRTMlODMlOTclRTMlODMlQjMlRTMlODIlQkQlRTMlODMlQkMlRTMlODIlQjklRTMlODMlODQlRTMlODMlQkMlRTMlODMlQUImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0zZTJhYTE3YWNiOTNiMTk2ZWFjZmM3NWEzOTdlNmEzMQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBUaWFucWlZdWFuJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YzMzZTUzZTc2NzJjMDFlNGZkNDkwZGM3NmRlZGZiYTM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=a2cb45ed3bbe6b8962f3ec11e0bf42e2"
+    },
+    {
+      "id": "f8f9138ef66fcd54",
+      "kind": "news",
+      "title": "ChatGPT PlusのProjectsだけでプログラミング言語を作り始めて早3週間",
+      "url": "https://zenn.dev/tkithrta/articles/a82c376b9d6613",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-14T00:05:05.094+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--hG-qrzra--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:ChatGPT%2520Plus%25E3%2581%25AEProjects%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E8%25A8%2580%25E8%25AA%259E%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258A%25E5%25A7%258B%25E3%2582%2581%25E3%2581%25A6%25E6%2597%25A93%25E9%2580%25B1%25E9%2596%2593%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%25BB%2592%25E3%2583%25B0%25E6%25A8%25B9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E0NDRlMTA4ZjkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "da54b98d1e435e4f",
+      "kind": "news",
+      "title": "【Rustで自作】無人の市役所を実現するブロックチェーン「Leviathan」の社会実装ポテンシャル",
+      "url": "https://zenn.dev/nezu511/articles/2275d80cf513e4",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-13T22:01:54.175+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--MkcsyQko--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590Rust%25E3%2581%25A7%25E8%2587%25AA%25E4%25BD%259C%25E3%2580%2591%25E7%2584%25A1%25E4%25BA%25BA%25E3%2581%25AE%25E5%25B8%2582%25E5%25BD%25B9%25E6%2589%2580%25E3%2582%2592%25E5%25AE%259F%25E7%258F%25BE%25E3%2581%2599%25E3%2582%258B%25E3%2583%2596%25E3%2583%25AD%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2581%25E3%2582%25A7%25E3%2583%25BC%25E3%2583%25B3%25E3%2580%258CLeviathan%25E3%2580%258D%25E3%2581%25AE%25E7%25A4%25BE%25E4%25BC%259A%25E5%25AE%259F%25E8%25A3%2585%25E3%2583%259D%25E3%2583%2586%25E3%2583%25B3%25E3%2582%25B7%25E3%2583%25A3%25E3%2583%25AB%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Leviathan%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2I3NzYxZGIxNGYuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "2a26d19ba284b763",
+      "kind": "news",
+      "title": "【Dawn紹介】Q.マイニングに最も必要なハードは何？ A.温度計",
+      "url": "https://zenn.dev/yuzu_mikan/articles/7e5df1520f183a",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-12T20:08:56.073+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--mYtyDJCy--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590Dawn%25E7%25B4%25B9%25E4%25BB%258B%25E3%2580%2591Q.%25E3%2583%259E%25E3%2582%25A4%25E3%2583%258B%25E3%2583%25B3%25E3%2582%25B0%25E3%2581%25AB%25E6%259C%2580%25E3%2582%2582%25E5%25BF%2585%25E8%25A6%2581%25E3%2581%25AA%25E3%2583%258F%25E3%2583%25BC%25E3%2583%2589%25E3%2581%25AF%25E4%25BD%2595%25EF%25BC%259F%2520A.%25E6%25B8%25A9%25E5%25BA%25A6%25E8%25A8%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:yuzu_mikan%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FkNmU0ZjFhM2QuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "40f0b8cf7ae4ad10",
+      "kind": "news",
+      "title": "中間テーブルにUPDATEは必要か？",
+      "url": "https://qiita.com/OtsukaTomoaki/items/32f3f2a174df210a4811",
+      "summary": "## はじめに リンクアンドモチベーションの大塚です。 先日、自分のチームが見ているサービスで、こんな構造のバグに当たりました。 > 既存の紐付けを一括変更する処理で、**「玉突き」で値を入れ替える操作だけが** `Duplicate entry` エラーで落ちる。 ※ ここで言う「玉突き」とは、たとえば3人の担当者が A→B→C→A のように、複数の値が連鎖的にぐるっと入れ替わるパターンのことです 最初は「テストケースが足りなかった」で片付けようとしたのですが、深掘りしてみ",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 19,
+      "source": "qiita-api:アルゴリズム",
+      "publishedAt": "2026-05-12T20:52:25+09:00",
+      "fetchedAt": "2026-05-14T22:56:17.397Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjUyNzk0MiUyRnByb2ZpbGUtaW1hZ2VzJTJGMTY5OTg0OTQ2Mj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NTRkMTcxYjk2Y2M5NDA5YWZkZjE3MzVlMGYzZmE5ZWM%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY4ZTg5MDE1NzkxNDQ3NzAxZWIyOTYzMzIwYmQzMDMwNDI4ZDFhOTdhJTJGb3JpZ2luYWwuanBnJTNGMTU0MjI0NTkwOT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz04MmY1ZjRiZDAwMDQwZWNhOTIxZjkxODgxZTg2NDRjOA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D0826d15925b9d668aa191d65ec33e741?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU0JUI4JUFEJUU5JTk2JTkzJUUzJTgzJTg2JUUzJTgzJUJDJUUzJTgzJTk2JUUzJTgzJUFCJUUzJTgxJUFCVVBEQVRFJUUzJTgxJUFGJUU1JUJGJTg1JUU4JUE2JTgxJUUzJTgxJThCJUVGJUJDJTlGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9M2E3NWJiYjUyMDM3MmU4YjdmODkyYWUyOGNlY2ViNTQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBPdHN1a2FUb21vYWtpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MzBiZGEzMzU3OWFjOGUxOWNkYTYwMmIwNGVjMzEyYjE&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-44Oq44Oz44Kv44Ki44Oz44OJ44Oi44OB44OZ44O844K344On44OzIA&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=8eb4b7d002fce7a5f70b0f376d55b8cd"
+    },
+    {
+      "id": "2562ef2104ba6c65",
+      "kind": "paper",
+      "title": "On the Complexity of the Minimum-($k,\\rho$)-Shortcut Problem",
+      "url": "https://arxiv.org/abs/2605.13474",
+      "summary": "最小$(k,\\rho)$-ショートカット問題（$\\min(k,\\rho)\\text{-}\\mathrm{Shortcut}$）を考えます。この問題の目的は、与えられたグラフのすべての頂点が、最大$k$本の辺を使った経路で$\\rho$個の最も近い頂点に到達できるようにするための最小のショートカット辺の集合を見つけることです。これは、並列最短経路アルゴリズムを加速するために用いられる基本的なグラフ最適化問題です。$k=1$および$k\\geq\\rho$の場合、この問題は自明に解決可能であることが知られています。最近のLeonhardt、Meyer、Penschuckによる研究（ESA 2024）では、無向グラフにおいて$\\min(k,\\rho)\\text{-}\\mathrm{Shortcut}$が$k\\geq 3$かつ$\\rho=\\Theta(n^\\epsilon)$の場合にNP困難であることが示されましたが、この問題が多項式時間で解決可能からNP困難に移行する境界は未解決でした。本論文では、このギャップを大幅に狭めます。ヒッティングセット問題からのより簡潔で直接的な還元を提示し、$\\min(k,\\rho)\\text{-}\\mathrm{Shortcut}$が有向および無向グラフにおいて$k\\geq2$かつ$\\rho\\geq k+2$の場合にNP困難であることを確立します。これに加えて、無向の場合の対称性を利用して、$\\rho=k+1$が多項式時間で解決可能であることを示します。この範囲では、有向版はNP困難の候補として残ります。したがって、$\\min(k,\\rho)\\text{-}\\mathrm{Shortcut}$の複雑性のほぼ完全な特徴付けを得ることができ、唯一残る未解決のケースは、有向設定における$\\rho = k+1$です。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 18,
+      "source": "arxiv:cs.CC",
+      "publishedAt": "2026-05-14T04:00:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.424Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "134d4c340a5bb2e4",
+      "kind": "paper",
+      "title": "Feedback-based quantum optimization and its classical counterpart: quantum advantage and the power of classical algorithms",
+      "url": "https://arxiv.org/abs/2605.13082",
+      "summary": "フィードバックに基づく量子最適化は、組合せ最適化に対する量子アプローチです。本論文では、スピン系の量子-古典対応を利用して、フィードバックに基づく量子最適化の古典的対応物を紹介し、量子優位性の可能性について議論します。これにより、以前提案されたフィードバックに基づく量子最適化への古典的アプローチの高次理論を発展させることが可能になります。まず、量子最適化のためのフィードバックに基づくアルゴリズム（FALQON）とそのバリエーションを、古典的な対応物と比較します。次に、小規模なインスタンスに対してさまざまな量子および古典アルゴリズムのベンチマークテストを実施し、大規模なインスタンスに対して古典アルゴリズムをテストします。主な発見は、(i) 量子アルゴリズムは解の質において古典アルゴリズムに対して優位性を持つ可能性がある一方で、古典アルゴリズムは量子アルゴリズムよりも収束が速い傾向があること、(ii) 本論文で議論された古典アルゴリズムの一つは、高次の制約のない二値最適化問題に対して顕著なスケーラビリティを示すことです。これらの発見は、量子性の重要性と古典的アプローチの有用性を強調しています。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 18,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-14T04:00:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.424Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "c01e9924a06bc093",
+      "kind": "paper",
+      "title": "Tighter relaxations for MAP-MRF optimization via Singleton Arc Consistency",
+      "url": "https://arxiv.org/abs/2605.13392",
+      "summary": "MAP-MRF推論タスク、すなわち、単項および対項の項を合計した離散変数の関数を最小化する問題を考察します。このNP困難問題に対処するための有力なアプローチは、自然な線形計画（LP）緩和を解決し、その後、クラスタを追加することで緩和を反復的に強化することです。いくつかの理論的観察に基づき、私たちはそのようなクラスタを特定するための新しい手法を提案します。この手法は、特定の制約充足問題（CSP）インスタンスにおいて、シングルトンアーク整合性アルゴリズムを実行することで機能します。実験結果は、新しい強化手法が、フラストレーションサイクルを探索する[Sontag et al. UAI 2012]による従来のアプローチよりも優れていることを示しています。私たちのコードは、https://github.com/vnk-ist/MAP-MRF/で公開される予定です。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 11,
+      "source": "arxiv:cs.DS",
+      "publishedAt": "2026-05-14T04:00:00.000Z",
+      "fetchedAt": "2026-05-14T22:56:17.424Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    }
+  ]
+}
