@@ -1,0 +1,459 @@
+{
+  "date": "2026-05-16",
+  "generatedAt": "2026-05-15T22:54:32.976Z",
+  "items": [
+    {
+      "id": "038d96bdfcf200d9",
+      "kind": "paper",
+      "title": "An Amortized Efficiency Threshold for Comparing Neural and Heuristic Solvers in Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/2605.14624",
+      "summary": "神経コンビナトリアル最適化ソルバーに対する一般的な批判は、GPUでのトレーニングにかかる運用エネルギーコストを考慮すると、CPUメタヒューリスティックよりもエネルギー効率が悪いという点です。本論文では、「トレーニングは高コストである」というステップから「神経ソルバーは総じて非効率である」という結論に至る過程を検証しますが、ここで批判が誤っている理由を明らかにします。ネットワークのトレーニングには大量のGPUエネルギーが固定的に必要ですが、メタヒューリスティックの実行には、ソルバーが稼働している限り、各インスタンスごとに少量のCPUエネルギーがかかります。したがって、両者はデプロイメントのボリュームが固定されるまで比較できません。私たちは、アモチュライズド・エフィシエンシー・スレッショルド（AET）を定義し、これは神経ソルバーがヒューリスティックのベースラインと総エネルギーまたは炭素排出量において均衡を保つためのデプロイメントボリュームを示します。この論文では、ネットワークがインスタンスごとに勝つ場合、二つのソルバー間の累積エネルギー比が常に1未満の一定値に収束することを示し、この限界はトレーニングコストの測定方法には依存しないことを明らかにします。また、ハードウェア製造に伴う炭素排出量は、両者の間で対称的にアモチュライズされます。私たちは、19の問題バリアントにわたる20人の顧客を持つマルチタスクVRP（MTVRP）環境にこのフレームワークを適用し、ヒューリスティックのベースラインとしてPyVRPを用いたHGSを使用しました。測定されたクロスオーバーは約$1.58 \\times 10^5$のデプロイメントインスタンスに位置し、インスタンスごとの比率は0.41であり、これはテストされたインスタンスのサイズが中程度であることを反映しています。本研究の貢献は、フレームワーク、オープンな計測手法、および測定プロトコルです。より大きな問題サイズにおける比率の構造的収束については、今後の実証研究に委ねます。",
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 44,
+      "source": "arxiv:cs.LG",
+      "publishedAt": "2026-05-15T04:00:00.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.893Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "bdcd6597555c1a5e",
+      "kind": "news",
+      "title": "beekeebが新作キーボードのキーキャップイメージを公開｜Grey o Whiteがミニマムで可愛い",
+      "url": "https://green-keys.info/beekeeb-20260516/",
+      "summary": "2026年5月15日、beekeeb.jpは公式Xを更新し、新たに新作キーボードのキーキャップ装着イメージを公開しました。 白のキーキャップに刻印を入れてみました、というコメントからも、これはレンダリングではなく実写の可 […] 投稿 beekeebが新作キーボードのキーキャップイメージを公開｜Grey o Whiteがミニマムで可愛い は Greenkeys(グリーンキーズ) に最初に表示されました。",
+      "tags": [
+        "キーボード",
+        "キーキャップ"
+      ],
+      "score": 38,
+      "source": "rss:greenkeys",
+      "publishedAt": "2026-05-15T21:47:13.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://eynmoy2bh9v.exactdn.com/wp-content/uploads/2026/05/HIVtkv2aQAE1ih9-1.jpeg"
+    },
+    {
+      "id": "ad5469be26f6391a",
+      "kind": "news",
+      "title": "MZ Studio Keygeek Y2 リニアキースイッチ｜特徴的なワッフル構造のステム",
+      "url": "https://www.talpkeyboard.com/entry/mz-studio-keygeek-y2?utm_source=feed",
+      "summary": "MZ Studio Keygeek Y2は、MZ StudioとKeygeekのコラボレーションによって開発されたリニアキースイッチです。ステムにはU5素材を採用し、ステム末端には独自のワッフル形状を備えています。この構造により接触面積を減らし、雑音を抑える設計となっています。",
+      "tags": [
+        "key-switch"
+      ],
+      "score": 36,
+      "source": "rss:talpkeyboard",
+      "publishedAt": "2026-05-15T22:27:29.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/6c6078e699bd9b9ef6de8e9e975189c8ec309d2a/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTALPKEYBOARD%2F20260516%2F20260516072537.jpg"
+    },
+    {
+      "id": "5da23d9d8fd00543",
+      "kind": "news",
+      "title": "MZ Studio Keygeek Y3x リニアキースイッチ｜低価格リニアが素材をアップデート",
+      "url": "https://www.talpkeyboard.com/entry/mzstudio-keygeek-y3x?utm_source=feed",
+      "summary": "- MZ StudioとKeygeekのコラボレーションによるリニアスイッチ - ステムにM5と呼ばれる専用素材を採用 - トップ／ボトムハウジングはPA66構成 - アクチュエーションフォース40g、ボトムアウト45gの軽量仕様 - 22mmシングルステージスプリングを採用した5ピンスイッチ",
+      "tags": [
+        "key-switch"
+      ],
+      "score": 33,
+      "source": "rss:talpkeyboard",
+      "publishedAt": "2026-05-14T23:23:30.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://cdn.image.st-hatena.com/image/scale/160a06f8406608e929d2f531c7f984bff0431af2/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2FT%2FTALPKEYBOARD%2F20260515%2F20260515082103.jpg"
+    },
+    {
+      "id": "f27584245b835a76",
+      "kind": "news",
+      "title": "Bun Rust rewrite: \"codebase fails basic miri checks, allows for UB in safe rust\"",
+      "url": "https://github.com/oven-sh/bun/issues/30719",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 30,
+      "source": "hn:rust",
+      "publishedAt": "2026-05-15T16:51:25.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://opengraph.githubassets.com/427fba4dc723eabcde82665aa205921beeaffd509535e7282d79d15d57f53d59/oven-sh/bun/issues/30719"
+    },
+    {
+      "id": "7cac4519f4b547db",
+      "kind": "news",
+      "title": "NocFreeが予約販売中のキーボード「NocFree &」の実写真を公開｜発送開始が待たれる",
+      "url": "https://green-keys.info/nocfree-20260516/",
+      "summary": "2026年5月15日、NocFreeは公式Xを更新し、予約販売受付中の左右分割型ロープロファイル75％レイアウトキーボード「NocFree &」の実写真画像を公開しました。 投稿では下記のように記載されています。 […] 投稿 NocFreeが予約販売中のキーボード「NocFree &」の実写真を公開｜発送開始が待たれる は Greenkeys(グリーンキーズ) に最初に表示されました。",
+      "tags": [
+        "キーボード"
+      ],
+      "score": 29,
+      "source": "rss:greenkeys",
+      "publishedAt": "2026-05-15T22:07:45.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://eynmoy2bh9v.exactdn.com/wp-content/uploads/2026/05/HIXCxGPXsAAj8ch.jpeg"
+    },
+    {
+      "id": "15e06b0a1ec545ad",
+      "kind": "news",
+      "title": "TacType、ジルコニアセラミック製キーキャップを5月19日に発売。Cerakeyとは異なる素材と価格で新たな選択肢に",
+      "url": "https://green-keys.info/tactype-white-release-2026may/",
+      "summary": "これはかなりいいかも。 2026年5月15日、ジルコニアセラミックを用いたキーキャップを販売する「TacType」は公式Xを更新し、白色のキーキャップの発売日を発表しました。 UTC-4で5月19日午前10時となっている […] 投稿 TacType、ジルコニアセラミック製キーキャップを5月19日に発売。Cerakeyとは異なる素材と価格で新たな選択肢に は Greenkeys(グリーンキーズ) に最初に表示されました。",
+      "tags": [
+        "キーキャップ"
+      ],
+      "score": 29,
+      "source": "rss:greenkeys",
+      "publishedAt": "2026-05-15T21:19:06.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://eynmoy2bh9v.exactdn.com/wp-content/uploads/2026/05/a93bdf9067fdc2eaa6b1b0be03140691.jpg"
+    },
+    {
+      "id": "9391776bba6f9c41",
+      "kind": "news",
+      "title": "TacType Ceramic Keycapsレビュー｜ジルコニアセラミックという選択肢",
+      "url": "https://green-keys.info/tactype-ceramic-keycaps-review/",
+      "summary": "最近では、キーキャップ素材に「セラミック」という選択肢が加わりつつあります。 セラミック素材を使ったキーキャップは、ABSやPBTといった一般的な樹脂製キーキャップとは異なる硬質な触感、ひんやりとした質感、そして独特の打 […] 投稿 TacType Ceramic Keycapsレビュー｜ジルコニアセラミックという選択肢 は Greenkeys(グリーンキーズ) に最初に表示されました。",
+      "tags": [
+        "キーキャップ"
+      ],
+      "score": 29,
+      "source": "rss:greenkeys",
+      "publishedAt": "2026-05-15T21:17:08.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://eynmoy2bh9v.exactdn.com/wp-content/uploads/2026/05/tactype-mv.jpg"
+    },
+    {
+      "id": "9a6e06920fa83183",
+      "kind": "news",
+      "title": "Rust で型を渡すだけで実装が選ばれる仕組みを理解する",
+      "url": "https://zenn.dev/estie/articles/76bb030f8a9f87",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 27,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-14T10:00:43.235+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Q02MFdAX--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%2520%25E3%2581%25A7%25E5%259E%258B%25E3%2582%2592%25E6%25B8%25A1%25E3%2581%2599%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%25E5%25AE%259F%25E8%25A3%2585%25E3%2581%258C%25E9%2581%25B8%25E3%2581%25B0%25E3%2582%258C%25E3%2582%258B%25E4%25BB%2595%25E7%25B5%2584%25E3%2581%25BF%25E3%2582%2592%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:mosson%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUwYzZlODUxOGQuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:estie%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTHVrMEpmcENrSktjYzNhM19NS1BrUUl2dFV1TGhJRnVVaEhPQzMtRHVaSnBZVEJXanM9czI1MC1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "85c172cf499a77be",
+      "kind": "news",
+      "title": "Ask HN: Conductor vs. native Claude Code. Same single-agent performance?",
+      "url": "https://news.ycombinator.com/item?id=48154390",
+      "summary": "Now that people have been running it for a few months, what's the verdict on single-agent performance vs native terminal Claude Code? One thing I noticed is that Conductor bundles its own (pinned) version of Claude Code and Codex instead of",
+      "tags": [
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 26,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-15T21:52:25.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z"
+    },
+    {
+      "id": "6d5249bd1e78f65d",
+      "kind": "news",
+      "title": "Bun が 6 日で Rust に書き換わった件",
+      "url": "https://zenn.dev/ashunar0/articles/55a669c10e6a8d",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 24,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-15T15:08:40.012+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--M1IK0kSO--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Bun%2520%25E3%2581%258C%25206%2520%25E6%2597%25A5%25E3%2581%25A7%2520Rust%2520%25E3%2581%25AB%25E6%259B%25B8%25E3%2581%258D%25E6%258F%259B%25E3%2582%258F%25E3%2581%25A3%25E3%2581%259F%25E4%25BB%25B6%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%2582%25E3%2581%2595%25E3%2581%25B2%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzZhN2JkYzMxMjIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "ac5d79056aa1a17f",
+      "kind": "news",
+      "title": "Andrej Karpathy氏のLLM Wikiを1ヶ月運用してわかった、LLMの知識を『繋げる力』",
+      "url": "https://zenn.dev/tsurubee/articles/llm-wiki-connecting-knowledge",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-15T09:14:18.923+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--FWOGbjlO--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Andrej%2520Karpathy%25E6%25B0%258F%25E3%2581%25AELLM%2520Wiki%25E3%2582%25921%25E3%2583%25B6%25E6%259C%2588%25E9%2581%258B%25E7%2594%25A8%25E3%2581%2597%25E3%2581%25A6%25E3%2582%258F%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259F%25E3%2580%2581LLM%25E3%2581%25AE%25E7%259F%25A5%25E8%25AD%2598%25E3%2582%2592%25E3%2580%258E%25E7%25B9%258B%25E3%2581%2592%25E3%2582%258B%25E5%258A%259B%25E3%2580%258F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:tsurubee%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSjlLMlZ2SXJ2SDZkUlp3SjdoUEx1Rjl0eGdJeHFQMXlCeXNJYldTVFFGZlZ4d3huaz1zOTYtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "4fc0cbe90240a138",
+      "kind": "news",
+      "title": "Claudeに魂を吹き込む人 —Amanda Askellという哲学者の眼差し",
+      "url": "https://zenn.dev/noah33/articles/amanda-askell-claude-soul",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-15T00:15:39.640+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--EUxpWyE2--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%25E3%2581%25AB%25E9%25AD%2582%25E3%2582%2592%25E5%2590%25B9%25E3%2581%258D%25E8%25BE%25BC%25E3%2582%2580%25E4%25BA%25BA%2520%25E2%2580%2594Amanda%2520Askell%25E3%2581%25A8%25E3%2581%2584%25E3%2581%2586%25E5%2593%25B2%25E5%25AD%25A6%25E8%2580%2585%25E3%2581%25AE%25E7%259C%25BC%25E5%25B7%25AE%25E3%2581%2597%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:noah%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2RiMjNmNzc0ZDguanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "ec66e9a616f7dc84",
+      "kind": "news",
+      "title": "AIを触ったことがなかったQAエンジニアが、ClaudeとGeminiで業務効率化に挑戦してみた話",
+      "url": "https://zenn.dev/rehabforjapan/articles/5vbz5kxsfaon0n",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T14:12:01.263+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Gz9WZswt--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%2592%25E8%25A7%25A6%25E3%2581%25A3%25E3%2581%259F%25E3%2581%2593%25E3%2581%25A8%25E3%2581%258C%25E3%2581%25AA%25E3%2581%258B%25E3%2581%25A3%25E3%2581%259FQA%25E3%2582%25A8%25E3%2583%25B3%25E3%2582%25B8%25E3%2583%258B%25E3%2582%25A2%25E3%2581%258C%25E3%2580%2581Claude%25E3%2581%25A8Gemini%25E3%2581%25A7%25E6%25A5%25AD%25E5%258B%2599%25E5%258A%25B9%25E7%258E%2587%25E5%258C%2596%25E3%2581%25AB%25E6%258C%2591%25E6%2588%25A6%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:yamada%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNkYzExOTgzNjguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Rehab%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2RhcmsveS5wbmc=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "cac1d103ae76194a",
+      "kind": "news",
+      "title": "Mini Shai-Hulud 第二波をきっかけに、個人開発向けの npm / OSS サプライチェーン攻撃対策を整理した話",
+      "url": "https://zenn.dev/n_tong/articles/3e1ed84f54c827",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-13T12:50:35.586+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--z4XWm0-l--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Mini%2520Shai-Hulud%2520%25E7%25AC%25AC%25E4%25BA%258C%25E6%25B3%25A2%25E3%2582%2592%25E3%2581%258D%25E3%2581%25A3%25E3%2581%258B%25E3%2581%2591%25E3%2581%25AB%25E3%2580%2581%25E5%2580%258B%25E4%25BA%25BA%25E9%2596%258B%25E7%2599%25BA%25E5%2590%2591%25E3%2581%2591%25E3%2581%25AE%2520npm%2520%252F%2520OSS%2520%25E3%2582%25B5%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2581%25E3%2582%25A7%25E3%2583%25BC%25E3%2583%25B3%25E6%2594%25BB%25E6%2592%2583%25E5%25AF%25BE%25E7%25AD%2596%25E3%2582%2592...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E6%25B5%25B7%25E8%2580%2581%25E3%2581%25AE%25E3%2581%2597%25E3%2581%25A3%25E3%2581%25BD%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2M0YjQ1N2I2MWMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "2635f97eb25790ba",
+      "kind": "news",
+      "title": "OpenMythosがローカル環境で動くか検証してみた",
+      "url": "https://zenn.dev/aiforall/articles/726668a035a148",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-15T17:50:03.126+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--c3xosR1q--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:OpenMythos%25E3%2581%258C%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25AB%25E7%2592%25B0%25E5%25A2%2583%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258F%25E3%2581%258B%25E6%25A4%259C%25E8%25A8%25BC%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%259A%25E3%2582%2593%25E3%2581%25A0%25E3%2582%2582%25E3%2581%25A1%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA3ODlkYTQ2NWIuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2583%25A1%25E3%2583%25B3%25E3%2583%2590%25E3%2583%25BC%25E3%2582%25BA%2520AI%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25BC%25E3%2582%25AA%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%25AB%25E3%2583%25B3%25E3%2583%2591%25E3%2583%258B%25E3%2583%25BC%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzMwZWM5YjRiNjUuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "36222576d8c0d43d",
+      "kind": "news",
+      "title": "PyMCで段階反応モデル（GRM）を実装する",
+      "url": "https://zenn.dev/gatechnologies/articles/2026-05-01-grm-with-pymc",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-15T18:10:19.646+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LX4JUW-C--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:PyMC%25E3%2581%25A7%25E6%25AE%25B5%25E9%259A%258E%25E5%258F%258D%25E5%25BF%259C%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%25EF%25BC%2588GRM%25EF%25BC%2589%25E3%2582%2592%25E5%25AE%259F%25E8%25A3%2585%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:mitama%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzA1OTcyZGY4ODAuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BEGA%2520technologies%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2gwZHZiWTg0aVd4ZGU4cU1Db2FFTWZ0Zk9SVWJncko1cDFtTjlSR3c9czk2LWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "86eee5be54151a2a",
+      "kind": "news",
+      "title": "Claude Codeに『組織』のコンテキストをSkillとして与えて活用を進ませる",
+      "url": "https://zenn.dev/tanoshima/articles/7221e546a1d455",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T02:27:43.630+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--p94QXBse--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25AB%25E3%2580%258E%25E7%25B5%2584%25E7%25B9%2594%25E3%2580%258F%25E3%2581%25AE%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2586%25E3%2582%25AD%25E3%2582%25B9%25E3%2583%2588%25E3%2582%2592Skill%25E3%2581%25A8%25E3%2581%2597%25E3%2581%25A6%25E4%25B8%258E%25E3%2581%2588%25E3%2581%25A6%25E6%25B4%25BB%25E7%2594%25A8%25E3%2582%2592%25E9%2580%25B2%25E3%2581%25BE%25E3%2581%259B%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:tano%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2JiNTg1YTc5NTQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "832c4834b285b8eb",
+      "kind": "news",
+      "title": "Where's Ed: Anthropic Told Court $5B but Public $19B",
+      "url": "https://www.flyingpenguin.com/wheres-ed-anthropic-told-court-5-billion-but-public-19-billion/",
+      "summary": "",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-15T08:16:39.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z"
+    },
+    {
+      "id": "eb0c24c6c0e15c3f",
+      "kind": "news",
+      "title": "Claude for Legal",
+      "url": "https://github.com/anthropics/claude-for-legal",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-14T21:05:05.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://opengraph.githubassets.com/d5f09632b4b97aef705d5916d02b5dd0cb71008774730f3c57e279f948c7018d/anthropics/claude-for-legal"
+    },
+    {
+      "id": "282586a8af392a14",
+      "kind": "news",
+      "title": "Show HN: Torrix, self hosted, LLM Observability,(no Postgres, no Redis)",
+      "url": "https://github.com/torrix-ai/install",
+      "summary": "I work as a SAP Integration consultant and built this as a side project. Friction point: Most self hosted LLM observability tools require Postgres, Redis and non trivial infrastructure. Teams just want to see what their agents are actually ",
+      "tags": [
+        "llm"
+      ],
+      "score": 21,
+      "source": "hn:python",
+      "publishedAt": "2026-05-13T12:14:26.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://repository-images.githubusercontent.com/1215453504/6becdad5-823c-4d4e-a24b-2e24f7fa1fe1"
+    },
+    {
+      "id": "fede8a0bdfb08c90",
+      "kind": "news",
+      "title": "AIキャッチアップがしんどいので、毎朝SlackにAI朝刊を届けるGitHub Actionsを作った",
+      "url": "https://zenn.dev/esta_dev/articles/a11b5c05cc6d69",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 20,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T12:38:12.048+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--FnRrmF-G--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2583%2581%25E3%2582%25A2%25E3%2583%2583%25E3%2583%2597%25E3%2581%258C%25E3%2581%2597%25E3%2582%2593%25E3%2581%25A9%25E3%2581%2584%25E3%2581%25AE%25E3%2581%25A7%25E3%2580%2581%25E6%25AF%258E%25E6%259C%259DSlack%25E3%2581%25ABAI%25E6%259C%259D%25E5%2588%258A%25E3%2582%2592%25E5%25B1%258A%25E3%2581%2591%25E3%2582%258BGitHub%2520Actions%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%2584%25E3%2582%258F%25E3%2581%25AE%25E3%2581%2599%25E3%2581%2591%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Y1NGQ3Y2VmNGEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "d5bf1fd0566cd816",
+      "kind": "news",
+      "title": "Claude Platform on AWS 試してみた",
+      "url": "https://zenn.dev/fusic/articles/90502c102133f8",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 20,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-14T10:42:44.233+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0XFfEsTo--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Platform%2520on%2520AWS%2520%25E8%25A9%25A6%25E3%2581%2597%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:xthixsl_ml%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzNhNDgxMzQ3YjkuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Fusic%2520%25E6%258A%2580%25E8%25A1%2593%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzIzOGE3MzVjMDIuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "937e899129fab710",
+      "kind": "news",
+      "title": "ハーネスの理想設計 — 10 層のコンポーネントモデル",
+      "url": "https://zenn.dev/k_k_p/articles/harness-architecture",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 20,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-15T11:17:44.340+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--qgE8rf1Z--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%258F%25E3%2583%25BC%25E3%2583%258D%25E3%2582%25B9%25E3%2581%25AE%25E7%2590%2586%25E6%2583%25B3%25E8%25A8%25AD%25E8%25A8%2588%2520%25E2%2580%2594%252010%2520%25E5%25B1%25A4%25E3%2581%25AE%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%259D%25E3%2583%25BC%25E3%2583%258D%25E3%2583%25B3%25E3%2583%2588%25E3%2583%25A2%25E3%2583%2587%25E3%2583%25AB%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Kenji%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUxtNXd1MlN4cjktQkZsdTRfQU8tMlNuT0wwSUJwRkhSX0RlTXc5MXN0a1c9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "3940a79668df1701",
+      "kind": "news",
+      "title": "Show HN: Message other Claude Code users with your Claude Code",
+      "url": "https://pavanmadiraju91.github.io/answering-machine/",
+      "summary": "I spend a lot of my time in Claude Code so wondered if it would make sense to also do messaging from here with the retro vibes of an answering machine. Thoughts?",
+      "tags": [
+        "claude",
+        "claude-code"
+      ],
+      "score": 20,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-15T11:34:05.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.866Z"
+    },
+    {
+      "id": "df74d3b75883a6ec",
+      "kind": "paper",
+      "title": "Distribution-Aware Algorithm Design with LLM Agents",
+      "url": "https://arxiv.org/abs/2605.14141",
+      "summary": "学習対象が予測器ではなく実行可能なソルバーコードである場合の学習について研究します。この設定では、正確性だけでは不十分です。2つのソルバーがどちらも展開分布において有効な解を返す可能性がありますが、実行時間において大きく異なることがあります。未知のタスク分布からのサンプルを基に、学習者は新しいインスタンスに対して解の質と実行時間の両方で評価されたコードを返します。私たちの中心的な抽象概念は「ソルバーヒント」であり、これはサンプルから推測され、特化したソルバーコードにコンパイルされる再利用可能な構造です。固定ライブラリからの経験的に最も速いサンプル一貫性のあるソルバーは、正確性と実行時間の両方において一般化することを証明し、統計的に識別可能なヒントは多項式的に多くのサンプルから回収しコンパイルできることを示します。実証的には、私たちは7つの問題クラスにわたる21の構造的組合せ最適化ターゲット分布に対してLLMコードエージェントを用いてこのフレームワークを実装しました。合成されたソルバーは、平均正規化品質0.971を達成し、平均的なヒューリスティックプールに対して+0.224、最高品質のヒューリスティックに対して+0.098の改善を示し、品質最良のヒューリスティック、Gurobi、および選択された時間制限付き正確バックエンドに対してそれぞれ336.9倍、342.8倍、16.1倍速く動作します。公開されたPACE 2025 Dominating Setのプライベートインスタンスにおいて、合成されたソルバーはすべての100グラフで有効であり、トップ競合ソルバーよりも約2桁速く動作し、品質のギャップは中程度です。検査の結果、多くの改善は計算スケールの変更から生じていることがわかりました。具体的には、一般的な最適化や環境的な指数探索を、コンパイルされた分布特有の計算に置き換えることによって得られています。",
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 19,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-15T04:00:00.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.893Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "2e2cd2dd4eba081e",
+      "kind": "news",
+      "title": "【3回目】AtCoder Beginner Contest 457 に出てみた",
+      "url": "https://qiita.com/Kauz/items/67ad28ddbfc51f1d4687",
+      "summary": "## はじめに 2026年5月9日、Polaris.AI プログラミングコンテスト 2026（AtCoder Beginner Contest 457）に参加しました。3回目の参加です。 今回は時間の都合でA問題のみの挑戦となりました。 --- ## 結果 | 項目 | 内容 | |------|------| | 順位 | 9,289位 | | パフォーマンス | 115 | | Rating | 38（+11） | | 参加回数 | 3回目 | Rating は少しずつ上",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 19,
+      "source": "qiita-api:競技プログラミング",
+      "publishedAt": "2026-05-12T01:55:09+09:00",
+      "fetchedAt": "2026-05-15T22:54:18.866Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxMjg1NjgzJTJGMTYxNWVkMjliM2UyNzIxYjgxZDgwNzZhYjdlM2E1OWU3MTRmYjI4ZiUyRnhfbGFyZ2UucG5nJTNGMTc3Njc3OTUwNT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9OWU3MmRiZGViODcyMjAwNDc2MTkwNDE5YTIwN2E2OTI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbc4e6ca496c2d3e7f4e67138722e82c9?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwMyVFNSU5QiU5RSVFNyU5QiVBRSVFMyU4MCU5MUF0Q29kZXIlMjBCZWdpbm5lciUyMENvbnRlc3QlMjA0NTclMjAlRTMlODElQUIlRTUlODclQkElRTMlODElQTYlRTMlODElQkYlRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz0yNTI5YzFmNTJkNGU4NzIyMWVjNzI5ZmRiYTZiOTRlMw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLYXV6JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OWZhMWEwOTlhZDVkNjUxMTVjMzNlNzk0MzRiNzgwYzA&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=2b2dc4e69fe4421bdb94926bd765a17c"
+    },
+    {
+      "id": "f97ef299448dac7c",
+      "kind": "paper",
+      "title": "A Unified Knowledge Embedded Reinforcement Learning-based Framework for Generalized Capacitated Vehicle Routing Problems",
+      "url": "https://arxiv.org/abs/2605.14416",
+      "summary": "キャパシタブル車両ルーティング問題（CVRP）は、物流や輸送に広く応用される基本的なNP困難問題です。実際のCVRPでは、時間制約やバックホール要件など、多様な目的や複雑な制約が関与することが多く、統一的な解決フレームワークの開発が求められています。最近の強化学習（RL）アプローチは組合せ最適化において有望な結果を示していますが、エンドツーエンドの学習に依存し、明示的な問題解決の知識が不足しているため、解の質が制限されています。本論文では、ルートファースト・クラスタセカンドのヒューリスティックに触発された知識組み込みフレームワークを提案します。このフレームワークは、二つのレベルで知識を組み込みます。第一に、CVRPをルートファーストとクラスタセカンドのサブプロブレムに分解し、第二に、動的計画法を用いて第二のサブプロブレムを解決し、その結果を基にRLベースの構築的ソルバーが第一の問題を解決するように導きます。問題の分解によって生じる部分的な観測可能性を軽減するために、統一的な履歴強化コンテキスト処理モジュールを導入しています。広範な実験により、このフレームワークは最新の学習ベースの手法と比較して優れた解の質を達成し、古典的なヒューリスティックとのギャップも小さく、多様なCVRPのバリエーションに対して強い一般化能力を示しています。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 17,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-15T04:00:00.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.893Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "7241b8b7a34642e9",
+      "kind": "paper",
+      "title": "Computing Lower Bounds on the Nonnegative Rank via Non-Convex Optimization Solvers",
+      "url": "https://arxiv.org/abs/2605.14058",
+      "summary": "非負行列 $X$ の非負ランクは、$X$ に合計して非負のランク1因子の最小数を指します。非負ランクの計算はNP困難であるため、通常はこの問題を回避するために下限と上限を計算します。本論文では、非負ランクに対する重要な4つの下限、すなわち、欺瞞集合下限（Fooling Set Bound, FSB）、長方形被覆下限（Rectangle Covering Bound, RCB）、超平面分離下限（Hyperplane Separation Bound, HSB）、および自己スケーリング下限（Self-Scaled Bound, SSB）のための非凸定式化と実用的な実装を提案します。特に、SSBを計算するための我々のアルゴリズムは、文献において利用可能な最初のものであると考えられます。このアルゴリズムにより、いくつかの行列に対して非負ランクの既知の最良下限を改善することができます。場合によっては、これらの下限が既知の最良上限と一致し、初めてその正確な非負ランクを確立します。さらに、標準的なベンチマークにおいて、我々の非凸アプローチが意味のある、しばしば競争力のある代替手段を提供することを示します。本論文はまた、多くのベンチマーク行列に対するいくつかの古典的下限の現在の状態に関する統合された参考文献を提供します。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 11,
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-05-15T04:00:00.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.893Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "65b924e87cc44cd5",
+      "kind": "paper",
+      "title": "Nonlinear Hamiltonians and Boolean satisfiability",
+      "url": "https://arxiv.org/abs/2605.14822",
+      "summary": "量子計算の拡張モデルを考察します。このモデルでは、スケーラブルでフォールトトレラントな量子コンピュータが、非線形シュレーディンガー方程式に従って進化する1つ以上のアンシラ量子ビットと結合しています。AbramsとLloydのアプローチに従い、論理和標準形（conjunctive normal form）で表現されたnビットのブール関数を評価する効率的な量子回路を用いて、アンシラがその満足する割り当ての数s（0 ≤ s ≤ 2^n）をエンコードするように準備します。その後、アンシラ量子ビットに対して非線形量子状態識別ゲートを適用し、sの特性を学習します。ここでは、異なる非線形ハミルトニアンによって生成される3種類の状態識別器を考えます。まず、満足する割り当てが最大1つであるという約束がある制限付きブール充足可能性問題に対して、非線形性が$\\langle \\sigma^z \\rangle \\sigma^z$である量子ビットを用いることで、sが0か1かを効率的に判定できることを示し、UNIQUE SAT問題を解決します。ここで、$\\langle A \\rangle := \\langle \\psi | A |\\psi \\rangle $は現在の状態における期待値を示します。UNIQUE SATは、ランダム化された多項式時間削減の下でNP困難です（もちろん、複雑性に関する議論はスケーラブルでフォールトトレラントな実装を前提としています）。次に、sが0から2^nまでの制限のない充足可能性問題に対して、非線形性が$\\langle \\sigma^x \\rangle \\sigma^y - \\langle \\sigma^y \\rangle \\sigma^x$であるハミルトニアンを用いることで、sが0かそれ以上かを効率的に判定でき、これにより3SAT問題を解決します。3SATはNP完全です。最後に、非線形性が$\\langle \\sigma^y \\rangle \\langle \\sigma^z \\rangle \\sigma^x - \\langle \\sigma^x \\rangle \\langle \\sigma^z \\rangle \\sigma^y$であることを示し、sを効率的に測定し、#SAT問題を解決します。#SATは#P完全です。これらの非線形モデルは平均場型であり、超冷却原子を用いてシミュレーションできる可能性があります。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 5,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-15T04:00:00.000Z",
+      "fetchedAt": "2026-05-15T22:54:18.893Z",
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    }
+  ]
+}
