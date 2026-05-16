@@ -91,13 +91,28 @@ export const PAPER_KEYWORDS: Record<string, number> = {
   "approximation algorithm": 3,
   "scheduling": 2,
   "graph algorithm": 2,
+  // 量子コンピューティング
+  "quantum computing": 5,
+  "quantum computer": 5,
+  "quantum algorithm": 5,
+  "quantum information": 4,
+  "qubit": 3,
+  "quantum error correction": 4,
+  "variational quantum": 3,
+  "qaoa": 4,
+  "vqe": 3,
 };
 
 /**
  * 強い興味があるキーワード（GAS 版 PRIORITIZED_KEYWORD 準拠）。
  * これを含む論文は他の候補より優先して採用する。
  */
-export const PAPER_PRIORITY_KEYWORDS = ["np-hard", "np hard"];
+export const PAPER_PRIORITY_KEYWORDS = [
+  "np-hard",
+  "np hard",
+  "quantum computing",
+  "quantum algorithm",
+];
 
 /**
  * KEYWORD_WEIGHTS / PAPER_KEYWORDS のキーから canonical なタグ名へのマッピング。
@@ -137,6 +152,12 @@ export const TAG_ALIASES: Record<string, string> = {
   "quantum computer": "quantum-computing",
   "量子コンピュータ": "quantum-computing",
   "量子コンピューティング": "quantum-computing",
+  "qubit": "quantum-computing",
+  "quantum information": "quantum-computing",
+  "quantum error correction": "quantum-computing",
+  "qaoa": "quantum-computing",
+  "vqe": "quantum-computing",
+  "variational quantum": "quantum-computing",
   "quantum algorithm": "quantum-algorithm",
 
   // === キーボード (個別化、qmk / zmk / 自作キーボード / キーボード / キーキャップ はそのまま canonical) ===
@@ -259,6 +280,34 @@ export const ARXIV_CATEGORIES = [
 ];
 
 /**
+ * 巡回する APS (Physical Review) RSS フィード。
+ *
+ * 規約確認 (CLAUDE.md ルール):
+ * - feeds.aps.org は APS が読者向け配信を意図する purpose-built endpoint
+ *   (`journals.aps.org/rss_lib.html` に掲載)。
+ * - journals.aps.org の robots.txt は Disallow: / だが、対象は journals 本体の
+ *   スクレイピング向け。本実装は別ホスト feeds.aps.org の RSS のみ叩く。
+ * - 用途: daily aggregator (title + RSS 提供 abstract + DOI link + 出所明示)。
+ *   本文 PDF は保存しない。
+ *
+ * quantumOnly === true のフィードは title + abstract に量子関連語が含まれる
+ * item のみ採用 (PRL/PRA/PRX/PRResearch は分野が広いため)。
+ */
+export const APS_FEEDS: { id: string; url: string; quantumOnly: boolean }[] = [
+  { id: "prxquantum", url: "http://feeds.aps.org/rss/recent/prxquantum.xml", quantumOnly: false },
+  { id: "prl", url: "http://feeds.aps.org/rss/recent/prl.xml", quantumOnly: true },
+  { id: "pra", url: "http://feeds.aps.org/rss/recent/pra.xml", quantumOnly: true },
+  { id: "prx", url: "http://feeds.aps.org/rss/recent/prx.xml", quantumOnly: true },
+  { id: "prresearch", url: "http://feeds.aps.org/rss/recent/prresearch.xml", quantumOnly: true },
+];
+
+/**
+ * APS フィードは arXiv の announce_type=new 相当のフィルタが無いため、
+ * 直近 N 日以内に published された item のみ採用する。
+ */
+export const APS_PAPER_MAX_AGE_DAYS = 14;
+
+/**
  * タイトル or 本文にいずれかが含まれる item は除外する。
  * プロモーション系 / アフィリエイト記事を切り捨てる用途。
  * ASCII / 非 ASCII の両方を扱える (score.ts と同じ規約)。
@@ -344,7 +393,14 @@ export const NEWS_MAX_AGE_HOURS = 168;
  * 「過去に取得済み」と見做す範囲の日数。`main` の seen 構築で使う。
  */
 export const NEWS_SEEN_LOOKBACK_DAYS = 7;
-export const PAPERS_TOP_N = 5;
+
+/**
+ * 1 日の論文採用件数 (arXiv + APS 合算)。
+ * 上位スコア順で `PAPERS_TOP_N` 件を選び、APS 由来が `PAPER_APS_MIN` 件未満
+ * なら最低スコア非 APS を追い出して APS を 1 件以上確保する (main.ts:rankPapers)。
+ */
+export const PAPERS_TOP_N = 10;
+export const PAPER_APS_MIN = 1;
 
 export const NEWS_SCORE_THRESHOLD = 1;
 export const PAPER_SCORE_THRESHOLD = 1;

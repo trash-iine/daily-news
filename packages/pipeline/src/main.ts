@@ -1,5 +1,7 @@
 import type { BaseItem } from "@daily-news/shared";
 import {
+  APS_FEEDS,
+  APS_PAPER_MAX_AGE_DAYS,
   ARXIV_CATEGORIES,
   BIG_TAG_GROUPS,
   BIG_TAG_GROUP_ORDER,
@@ -12,7 +14,6 @@ import {
   NEWS_SCORE_THRESHOLD,
   NEWS_SEEN_LOOKBACK_DAYS,
   NEWS_TOP_N,
-  PAPERS_TOP_N,
   PAPER_KEYWORDS,
   PAPER_PRIORITY_KEYWORDS,
   PAPER_SCORE_THRESHOLD,
@@ -23,7 +24,12 @@ import {
 } from "./config.js";
 import { hasNegativeKeyword, scoreFields } from "./score.js";
 import { appendHealth } from "./cache.js";
+import {
+  selectFinalists,
+  type ScoredPaper,
+} from "./paperFinalists.js";
 import { fetchArxivCategory, type ArxivPaper } from "./sources/arxiv.js";
+import { fetchAPSFeed } from "./sources/physicalReview.js";
 import { fetchHackerNewsQuery } from "./sources/hackerNews.js";
 import { fetchQiitaTag } from "./sources/qiitaApi.js";
 import { fetchRssFeed, type FeedFetchResult } from "./sources/rssFeeds.js";
@@ -207,6 +213,20 @@ async function collectPapers(): Promise<ArxivPaper[]> {
       await new Promise((r) => setTimeout(r, ARXIV_REQUEST_INTERVAL_MS));
     }
   }
+  // APS (Physical Review) RSS は feeds.aps.org の syndication 用エンドポイント。
+  // rate-limit の公開規定はないので 5 件を並列 fetch する。
+  const apsBatches = await Promise.all(
+    APS_FEEDS.map((f) =>
+      safe(
+        `aps:${f.id}`,
+        fetchAPSFeed(f.id, f.url, {
+          quantumOnly: f.quantumOnly,
+          maxAgeDays: APS_PAPER_MAX_AGE_DAYS,
+        }),
+      ),
+    ),
+  );
+  for (const batch of apsBatches) out.push(...batch);
   return out;
 }
 
@@ -358,21 +378,15 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
   }));
 }
 
-interface ScoredPaper {
-  p: ArxivPaper;
-  score: number;
-  matched: string[];
-  priority: boolean;
-}
-
 async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
   const fetchedAt = new Date().toISOString();
 
   // 新規投稿のみを採用（cross-listing / replace は除外）— GAS 版で API 検証していた挙動を
-  // arXiv RSS の announce_type で代替する。
+  // arXiv RSS の announce_type で代替する。APS は常に "new" なので通過する。
   const newOnly = raw.filter((p) => p.announceType === "new");
 
-  // タイトル単位の重複除外（GAS 版 seen Set と同じ）
+  // タイトル単位の重複除外（GAS 版 seen Set と同じ）— arXiv preprint と
+  // 同タイトルの APS 出版が両方流れてきた場合、先頭 (= arXiv) を残す。
   const seen = new Set<string>();
   const unique = newOnly.filter((p) => {
     if (seen.has(p.title)) return false;
@@ -401,7 +415,7 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
     return b.p.publishedAt.localeCompare(a.p.publishedAt);
   });
 
-  const finalists = scored.slice(0, PAPERS_TOP_N);
+  const finalists = selectFinalists(scored);
 
   const summaries = await Promise.all(
     finalists.map(({ p }) => summarizePaper(p.title, p.abstract)),
