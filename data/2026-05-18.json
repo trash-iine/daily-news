@@ -1,0 +1,554 @@
+{
+  "date": "2026-05-18",
+  "generatedAt": "2026-05-17T22:53:56.203Z",
+  "items": [
+    {
+      "id": "3735b635436fa197",
+      "kind": "paper",
+      "title": "Approximate quadratization of high-order Hamiltonians for combinatorial quantum optimization",
+      "url": "https://doi.org/10.1103/9rc4-vj11",
+      "summary": "組合せ最適化問題は、産業界や学術界で幅広く応用されています。量子コンピュータは、適切に準備されたアンサッツ量子回路からサンプリングすることで、これらの問題を解決する手助けをする可能性があります。しかし、現在の量子コンピュータは、量子ビット（qubit）の数、接続性、ノイズに制約があります。この制約により、実用的な問題を解決する能力が制限されています。",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 29,
+      "source": "aps:prresearch",
+      "publishedAt": "2026-05-12T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z",
+      "authors": [
+        "Sabina Drăgoi",
+        "Alberto Baiardi",
+        "Daniel J"
+      ]
+    },
+    {
+      "id": "d00d066764c4dd3a",
+      "kind": "news",
+      "title": "Give every tool LLM wiki and bypass Claude Code SSH Throttle",
+      "url": "https://news.ycombinator.com/item?id=48169701",
+      "summary": "So I get from a security perspective this is a terrible idea, but it works great! I wanted to give every tool I had access to LLM wiki and didn’t want to pay Mem0 or congee $100 a month for saving text files. Every AI I use hits the same wa",
+      "tags": [
+        "claude",
+        "claude-code",
+        "llm"
+      ],
+      "score": 26,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-17T15:18:17.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.080Z"
+    },
+    {
+      "id": "242bebd0e004630e",
+      "kind": "news",
+      "title": "国会図書館のOCRをWebサービス化してみた - NDLOCR-Lite × Docker × FastAPI",
+      "url": "https://qiita.com/ohtsuka-shota/items/b4ab80e6bc9f12549cad",
+      "summary": "# はじめに 本記事では、国立国会図書館が公開するNDLOCR-LiteをDocker環境で REST API化し、PDFや画像からテキストを抽出するWebサービスを 構築していきます。 # 用語 ## NDLOCR-Liteとは >NDLOCR-Liteは、NDLOCRの軽量版を目指して開発したOCRであり、ノートパソコン等の一般的な家庭用コンピュータやOS環境で、図書や雑誌といった資料のデジタル化画像からテキストデータが作成できるOCRです。 >GPU（Graphics ",
+      "tags": [
+        "python"
+      ],
+      "score": 25,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-16T22:48:30+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzMjE5Mzg1JTJGMmJiOTZiZTI0ZTU3ZmY4MzNjY2MxOTI2OWEzOTViNzVlNzg0NjUzNSUyRmxhcmdlLnBuZyUzRjE3NzIwMjYxNTE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThjZGQyNDg1ZmM0YzY2ODZjNDk5N2QzN2ExZjBmZDhm%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0OWI2ZjgzMjQyMjA5MjU5NzBmODljNjlhNjAyM2Y5ZDI0MzYwZjFlJTJGb3JpZ2luYWwuanBnJTNGMTY2NDQ5NjAwMz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz00ZTMyZWE4NDM3MjY1MTA5M2YzYzI1MjQ1NGFmMTJkMw%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dbf0351c9cbfdc1e493e46bb17f5d301b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JTlCJUJEJUU0JUJDJTlBJUU1JTlCJUIzJUU2JTlCJUI4JUU5JUE0JUE4JUUzJTgxJUFFT0NSJUUzJTgyJTkyV2ViJUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkzJUUzJTgyJUI5JUU1JThDJTk2JUUzJTgxJTk3JUUzJTgxJUE2JUUzJTgxJUJGJUUzJTgxJTlGJTIwLSUyME5ETE9DUi1MaXRlJTIwJUMzJTk3JTIwRG9ja2VyJTIwJUMzJTk3JTIwRmFzdEFQSSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTZlYTc5M2Y4MzE1ODZiNzk3ZTQwODMxY2VmOTQ0YTM2&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBvaHRzdWthLXNob3RhJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZWVlYjNkYzVkMDE5MjBhYzU3ZjdmNGMyYmExY2IxMjY&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-44Kv44Op44K544Ki44Kv44OI&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=f0c1f8a6cd8651ee909d45140e80dd2b"
+    },
+    {
+      "id": "61e475944a0f228e",
+      "kind": "news",
+      "title": "AIに同じ質問を3経路で投げたら、入力トークンが約1,200倍違った — Claudeの「プログラム利用専用クレジット」と構造化APIの関係",
+      "url": "https://zenn.dev/edinetdb/articles/ai-cost-input-tokens-structured-db",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 24,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-16T15:54:19.189+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s---jICN8tv--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2581%25AB%25E5%2590%258C%25E3%2581%2598%25E8%25B3%25AA%25E5%2595%258F%25E3%2582%25923%25E7%25B5%258C%25E8%25B7%25AF%25E3%2581%25A7%25E6%258A%2595%25E3%2581%2592%25E3%2581%259F%25E3%2582%2589%25E3%2580%2581%25E5%2585%25A5%25E5%258A%259B%25E3%2583%2588%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%25B3%25E3%2581%258C%25E7%25B4%25841%252C200%25E5%2580%258D%25E9%2581%2595%25E3%2581%25A3%25E3%2581%259F%2520%25E2%2580%2594%2520Claude%25E3%2581%25AE%25E3%2580%258C%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%25A0%25E5%2588%25A9%25E7%2594%25A8%25E5%25B0%2582%25E7%2594%25A8%25E3%2582%25AF%25E3%2583%25AC%25E3%2582%25B8...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:EDINET%2520DB%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzU3OGVhNjUyYzcuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "b4010d4ddda21145",
+      "kind": "news",
+      "title": "AHC065参加記・1位解法",
+      "url": "https://qiita.com/tanaka-a/items/c286e1d03fd7d7b419ac",
+      "summary": "本記事はAtCoder Heuristic Contest 065(AHC065)の参加記です。 今回、初めて念願の1位を取ることができたので、記念も兼ねてコンテスト中に考えていたことを書いてみようと思います。 # 問題概要 $N\\times N$マスの倉庫にベルトコンベアを設置・操作し、倉庫に置かれた箱を番号順に搬出口に運ぶ問題です。 - 各ターンで1つのコンベアを1マス回転 - 搬出口に最小番号の箱が来ると自動で搬出 - 長さ2以上のベルトコンベアを最大$N^2$個まで設",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 23,
+      "source": "qiita-api:競技プログラミング",
+      "publishedAt": "2026-05-17T21:23:39+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjAyOTQ1JTJGcHJvZmlsZS1pbWFnZXMlMkYxNjI5NjM4NTE1P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0zYzdiN2U1NGQwZmEyNDhlOGJiNjViZmU4MDM1MDhlYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dfb2aebf696293c251e6369dfb8e93c8f?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUhDMDY1JUU1JThGJTgyJUU1JThBJUEwJUU4JUE4JTk4JUUzJTgzJUJCMSVFNCVCRCU4RCVFOCVBNyVBMyVFNiVCMyU5NSZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPThkOTljMjM2MzU4NzUwZTIyODM1NDI2Y2Y2ZGU3ODk2&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0YW5ha2EtYSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTk4NzhlMjg2OWQ5M2ViNDdkNzIyZTMwZDIzZWM0MjVk&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=2f65d039b1f33fbf207af1d93da6a342"
+    },
+    {
+      "id": "08bc7366fef32abd",
+      "kind": "news",
+      "title": "Chosfox「Geonix Rev.2.5」、5月22日に予約開始。Vial対応とセミアルミ / フルアルミ仕様にアップデート",
+      "url": "https://green-keys.info/chosfoxgeonix-rev-2-5-20260517/",
+      "summary": "2026年5月16日、Chosfoxは小型キーボード「Geonix Rev.2.5」の詳細ページを公開したことを公式Xにて告知しました。 予約開始日は2026年5月22日で、エクストラディスカウントと無料ギフトが同梱され […] 投稿 Chosfox「Geonix Rev.2.5」、5月22日に予約開始。Vial対応とセミアルミ / フルアルミ仕様にアップデート は Greenkeys(グリーンキーズ) に最初に表示されました。",
+      "tags": [
+        "キーボード"
+      ],
+      "score": 23,
+      "source": "rss:greenkeys",
+      "publishedAt": "2026-05-17T02:14:53.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://eynmoy2bh9v.exactdn.com/wp-content/uploads/2026/05/e03a69bacf326bd865cebcacf59ec8c7.webp"
+    },
+    {
+      "id": "b59873d5231e0179",
+      "kind": "news",
+      "title": "Show HN: Semble – Code search for agents that uses 98% fewer tokens than grep",
+      "url": "https://github.com/MinishLab/semble",
+      "summary": "Hey HN! We (Stephan and Thomas) recently open-sourced Semble. We kept running into the same problem while using Claude Code on large codebases: when the agent can't find something directly, it falls back to grep, reading full files or launc",
+      "tags": [
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 23,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-17T15:37:07.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://opengraph.githubassets.com/04424cf0128dffd29c789a7d73d0bf4dacb4602f530bd675e2a1f4d140606658/MinishLab/semble"
+    },
+    {
+      "id": "7f3804b502dba8b7",
+      "kind": "news",
+      "title": "“税は財源”ではないなら、なぜ税金は必要なのか？ ― 富裕層課税とインフレの本当の関係 : Pythonで学ぶ マクロ経済学入門 (81)",
+      "url": "https://qiita.com/maskot1977/items/289047becc0a75108672",
+      "summary": "# **user**: 「Pythonで学ぶマクロ経済学入門」、第81回を始めましょう。まず 「初心者でもわかる！Pythonで学ぶマクロ経済学入門 全80回 総復習」 https://qiita.com/maskot1977/items/dd76864328b8e8910108 をよく読み込んで、その内容の復習をしてください。ここで導き出されていた結論やキーメッセージも示してください。 # **assistant**: ## 「Pythonで学ぶマクロ経済学入門」第81回へ",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-18T00:34:32+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyMTExNjIlMkY5Y2U4ZWVjZTk1NTAyN2RlODg5ZDUxMjBkNDA2OGJkNDkzNjY4NTdmJTJGeF9sYXJnZS5wbmclM0YxNzMyNTUzMDI1P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz02NTMxZThhZTVlNDU1ZWVkNjM3NTc2Nzk3OGI1ZDJhMQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De652a775c298ccfc8e2af634cc54c5bc?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUyJTgwJTlDJUU3JUE4JThFJUUzJTgxJUFGJUU4JUIyJUExJUU2JUJBJTkwJUUyJTgwJTlEJUUzJTgxJUE3JUUzJTgxJUFGJUUzJTgxJUFBJUUzJTgxJTg0JUUzJTgxJUFBJUUzJTgyJTg5JUUzJTgwJTgxJUUzJTgxJUFBJUUzJTgxJTlDJUU3JUE4JThFJUU5JTg3JTkxJUUzJTgxJUFGJUU1JUJGJTg1JUU4JUE2JTgxJUUzJTgxJUFBJUUzJTgxJUFFJUUzJTgxJThCJUVGJUJDJTlGJTIwJUUyJTgwJTk1JTIwJUU1JUFGJThDJUU4JUEzJTk1JUU1JUIxJUE0JUU4JUFBJUIyJUU3JUE4JThFJUUzJTgxJUE4JUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgzJTk1JUUzJTgzJUFDJUUzJTgxJUFFJUU2JTlDJUFDJUU1JUJEJTkzJUUzJTgxJUFFJUU5JTk2JUEyJUU0JUJGJTgyJTIwJTNBJTIwUHl0aG9uJUUzJTgxJUE3JUU1JUFEJUE2JUUzJTgxJUI2JUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MDI2MGFkZTIxNzM0N2JhNTFjNzExMDVkMWVmNmRjYzU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYXNrb3QxOTc3JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjA2OWI3NWQ1NDYwZDY3NDAyMWEyNzcyYzUyY2M0MDI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=d0245ff3aae3125b87f33a99586e230e"
+    },
+    {
+      "id": "ace81440bda3f72f",
+      "kind": "news",
+      "title": "クオンツトレーダーは「買われすぎ・売られすぎ」をどう判断するのか?",
+      "url": "https://qiita.com/tikeda123/items/8dfcc1c09e34d5304d49",
+      "summary": "## ― VWAP乖離とリターン分布で見る、感覚ではない相場判断 ― ![qb0.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/3910017/c188bcac-d68c-401a-8972-37d2f4c228a8.png) ## はじめに 相場を見ていると、多くの投資家は次のように感じる。 - さすがに下がりすぎではないか - そろそろ反発しそうだ - これは買われすぎではないか - ここ",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-17T08:00:19+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjY2NDkyNiUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz01OWQ1NWRmZmJiYzJkNjA1NWFhYjFhZTBmZTdhNGZkNQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D9079a4d53629542f4c1a3a662c8843a2?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgyJUFGJUUzJTgyJUFBJUUzJTgzJUIzJUUzJTgzJTg0JUUzJTgzJTg4JUUzJTgzJUFDJUUzJTgzJUJDJUUzJTgzJTgwJUUzJTgzJUJDJUUzJTgxJUFGJUUzJTgwJThDJUU4JUIyJUI3JUUzJTgyJThGJUUzJTgyJThDJUUzJTgxJTk5JUUzJTgxJThFJUUzJTgzJUJCJUU1JUEzJUIyJUUzJTgyJTg5JUUzJTgyJThDJUUzJTgxJTk5JUUzJTgxJThFJUUzJTgwJThEJUUzJTgyJTkyJUUzJTgxJUE5JUUzJTgxJTg2JUU1JTg4JUE0JUU2JTk2JUFEJUUzJTgxJTk5JUUzJTgyJThCJUUzJTgxJUFFJUUzJTgxJThCJTNGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NzAzNThjYjYzNWFmMWY1NzExNTkyZTdjMDRkMzFjYTE&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB0aWtlZGExMjMmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz00YjJkZjdjOTg1MzZjNmVlOWQwZTM3MGU4ZWQ2NDhhOA&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=551c2e8782fc1bb605f4114fc09f8cbb"
+    },
+    {
+      "id": "e29f83b8c15019e5",
+      "kind": "news",
+      "title": "【色変記事】AtCoderで入茶しました",
+      "url": "https://qiita.com/Prrapp/items/09c7c9fdba05354b88f3",
+      "summary": "## 1. 自己紹介と前提 こんにちは、Prrappです。 2026/04/25のABC455で入茶しましたので、色変記事を書くことにしました。 灰色停滞コーダーの勉強になれば幸いです。 ### 1-1. この記事で書くこと - 入茶できた理由 - 入茶するためにやったこと - 効果が大きかったこと - 私がつまずいたところとその対策 - 入茶までの再現手順 - 次の目標 - まとめ ### 1-2. この記事の対象読者 - 灰色Rating(1~399)停滞コーダー ###",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 21,
+      "source": "qiita-api:競技プログラミング",
+      "publishedAt": "2026-05-17T07:51:27+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMuZ2l0aHVidXNlcmNvbnRlbnQuY29tJTJGdSUyRjE5MDgyOTYyNSUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0wMGQ4NTNmMjFlMjAzNmM0NzE3YTcyYThiYTBlYWFmZg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dab8e432fbb34222d5c46fd918a3a0a7b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU4JTg5JUIyJUU1JUE0JTg5JUU4JUE4JTk4JUU0JUJBJThCJUUzJTgwJTkxQXRDb2RlciVFMyU4MSVBNyVFNSU4NSVBNSVFOCU4QyVCNiVFMyU4MSU5NyVFMyU4MSVCRSVFMyU4MSU5NyVFMyU4MSU5RiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWMzYmE5NjM5MjM0MTk3MDE0NzBlYmU4NjljNjcxODI3&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBQcnJhcHAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jYjUyZDViZTI4OWM5M2FkZmU4YWJjMjg0N2I2Nzg2MQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=53eae602dbba449d987884b5c8254e77"
+    },
+    {
+      "id": "744600f0fa051f4f",
+      "kind": "news",
+      "title": "取り消し線って使っても大丈夫？",
+      "url": "https://zenn.dev/acntechjp/articles/claude-striketag-test",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-16T15:06:43.398+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LmWv2Za3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%258F%2596%25E3%2582%258A%25E6%25B6%2588%25E3%2581%2597%25E7%25B7%259A%25E3%2581%25A3%25E3%2581%25A6%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2582%2582%25E5%25A4%25A7%25E4%25B8%2588%25E5%25A4%25AB%25EF%25BC%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:yosuke.yasuda%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U2ZDA4MDY5ODcuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/g_south_west%2Ch_34%2Cl_default:og-publication-pro-mark-xcosax%2Cw_34%2Cx_217%2Cy_158/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Accenture%2520Japan%2520%2528%25E6%259C%2589%25E5%25BF%2597%2529%2Cx_255%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzUwZjU2MzJlNjguanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "bf71d6b462674b47",
+      "kind": "news",
+      "title": "Pure RustのPDF編集ライブラリ「harumi」を開発した。",
+      "url": "https://zenn.dev/kent_kamome/articles/6711c9efe37d1b",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-17T08:08:27.239+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--8jTxiH_c--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Pure%2520Rust%25E3%2581%25AEPDF%25E7%25B7%25A8%25E9%259B%2586%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2596%25E3%2583%25A9%25E3%2583%25AA%25E3%2580%258Charumi%25E3%2580%258D%25E3%2582%2592%25E9%2596%258B%25E7%2599%25BA%25E3%2581%2597%25E3%2581%259F%25E3%2580%2582%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kent-tokyo%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNHp4SkREelhpYmxkWDRPeGRfT0lSZzI2cV9zN1R1dDhoLVd5aXo9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "67f2befaf743a52f",
+      "kind": "news",
+      "title": "RustのエラーハンドリングをResult/Option/thiserrorで理解する",
+      "url": "https://zenn.dev/tar0/articles/rust-feature-03-error",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T23:41:26.763+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--CF--CxGd--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25AE%25E3%2582%25A8%25E3%2583%25A9%25E3%2583%25BC%25E3%2583%258F%25E3%2583%25B3%25E3%2583%2589%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25B0%25E3%2582%2592Result%252FOption%252Fthiserror%25E3%2581%25A7%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:taro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEhVM2VqMlhwYlctNnJLMHUxY3BZODVaOUF2NXNoOHZVTkppS1c1MVlULUNFaTdBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "5b566b5b94be0321",
+      "kind": "news",
+      "title": "The latest X algorithm has been published to GitHub",
+      "url": "https://twitter.com/elonmusk/status/2055277918633562153",
+      "summary": "",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 20,
+      "source": "hn:algorithm",
+      "publishedAt": "2026-05-17T03:31:29.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://pbs.twimg.com/profile_images/2053244804520427520/m8mdWZCG_200x200.jpg"
+    },
+    {
+      "id": "46817f0783fe5163",
+      "kind": "news",
+      "title": "”あるケトル”を使った「最初の一杯」には数十億のナノプラスチックが混入する可能性",
+      "url": "https://nazology.kusuguru.co.jp/archives/195209",
+      "summary": "紅茶やコーヒーをいれる際に活躍するのが電気ケトルです。 忙しい朝でもすぐにお湯を沸かせる便利な家電ですが、もしその“最初の一杯”の中に、数十億個規模のナノサイズプラスチックが含まれる可能性があるとしたら、少し見方が変わるかもしれません。 オーストラリア・クイーンズランド大学（University of Queensland）の研究チームは、内側にポリプロピレン（PP）樹脂を含むプラスチック製ケトルを調べ、加熱時にナノプラスチックやマイクロプラスチックが水中へ放出されることを報",
+      "tags": [
+        "coffee"
+      ],
+      "score": 19,
+      "source": "rss:nazology",
+      "publishedAt": "2026-05-17T03:00:43.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://nazology.kusuguru.co.jp/wp-content/uploads/2026/05/ef10e69f1dbd44fec7bf309efcbfaf31.jpg"
+    },
+    {
+      "id": "5f8c80967336bace",
+      "kind": "news",
+      "title": "Claude Codeの「Skills」は個人設定がプロジェクトに勝つ",
+      "url": "https://qiita.com/yohei-aoki/items/8a98a630c98e7d0d4990",
+      "summary": "## 背景 [Claude Certified Architect](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request)について[こちらのGitHubでまとめられた学習ガイドライン](https://github.com/paullarionov/claude-certified-architect/blob/main/guide_ja.md#%E5%95%",
+      "tags": [
+        "claude"
+      ],
+      "score": 19,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-17T12:54:44+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnNlY3VyZS5ncmF2YXRhci5jb20lMkZhdmF0YXIlMkZiZDQ2MTc2OTBiZWJmMzBkZjVlOWM4MTgxZGRiMWEzOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MzA5NWE2NTRhZGQ0ZDJiNDMzYTEyMjEwMmFhNTI3YWI%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0M2Q5ZDBkOWYwNWM3ZDg4ZTk0OGQ2YjU0ZjdiMDcyNjg2MzM2MDg3JTJGb3JpZ2luYWwuanBnJTNGMTcyMDQwNzIxND9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz02MGM5YjEyZGUwOWI2MWYyMTAwYmM3N2JhZjkzYzQ2MA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D059ceae9795554d42e008fe42d790aa2?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9Q2xhdWRlJTIwQ29kZSVFMyU4MSVBRSVFMyU4MCU4Q1NraWxscyVFMyU4MCU4RCVFMyU4MSVBRiVFNSU4MCU4QiVFNCVCQSVCQSVFOCVBOCVBRCVFNSVBRSU5QSVFMyU4MSU4QyVFMyU4MyU5NyVFMyU4MyVBRCVFMyU4MiVCOCVFMyU4MiVBNyVFMyU4MiVBRiVFMyU4MyU4OCVFMyU4MSVBQiVFNSU4QiU5RCVFMyU4MSVBNCZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTkwYzhjMmQ3ZTY0MDFkNzZkOGZhNTE2YzZlNzMxOTdh&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5b2hlaS1hb2tpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9Yzk1YTY3Mjc1OWEyODNkNTY5ODg4ZWRmM2UxZWE5YjU&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-6YeO5p2R57eP5ZCI56CU56m25omA&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=22f775fccb0ee0d83094137af8d813f3"
+    },
+    {
+      "id": "f641e92fab6bb3db",
+      "kind": "news",
+      "title": "ヒューリスティックの入水記事",
+      "url": "https://qiita.com/siooisi/items/9e933346dde38f4d7cea",
+      "summary": "## はじめに こんにちは。siooisiです。(Twitter:https://x.com/siooisi) 先日のAHC065にて入水を達成して、そこまで何かがわかったわけでもないですが、キリがいいので書いています。 ![スクリーンショット 2026-05-17 195250.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4389946/c0d6ac97-bd5f-4b67-b788-03",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 19,
+      "source": "qiita-api:競技プログラミング",
+      "publishedAt": "2026-05-18T00:17:32+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0Mzg5OTQ2JTJGY2JiMTE1NWNmZTdkNjQ4Y2NkNDVlNTJiYTU2NjI4MDI2NTFjMGI1YSUyRnhfbGFyZ2UucG5nJTNGMTc3NDc1NTYwND9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NDEzMTMwNjAwYmE2NGQ0MWU4YmFjZGQxMjAwNmUzYjI%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De727af96e512bcc942d38c1d51239341?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTkyJUUzJTgzJUE1JUUzJTgzJUJDJUUzJTgzJUFBJUUzJTgyJUI5JUUzJTgzJTg2JUUzJTgyJUEzJUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgxJUFFJUU1JTg1JUE1JUU2JUIwJUI0JUU4JUE4JTk4JUU0JUJBJThCJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OTdkZGRlYzMyZmQ4MjE2MjZlZWJhZGRkMDc0ZTgyMmI&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzaW9vaXNpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OGVhOTE0ZWJjNjlmNDczY2IxZWIxMzBjMTc4MjM3YTc&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=1c4127b002966ea95a17d30dc7946f30"
+    },
+    {
+      "id": "1b195a71de7a8670",
+      "kind": "news",
+      "title": "デジタル回路のタイミングチャートをテキストから描く tchart-rust を作った",
+      "url": "https://zenn.dev/nodamushi/articles/e5b85d48265ca9",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-17T21:42:02.394+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--qx1GIdXL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2583%2587%25E3%2582%25B8%25E3%2582%25BF%25E3%2583%25AB%25E5%259B%259E%25E8%25B7%25AF%25E3%2581%25AE%25E3%2582%25BF%25E3%2582%25A4%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E3%2583%2581%25E3%2583%25A3%25E3%2583%25BC%25E3%2583%2588%25E3%2582%2592%25E3%2583%2586%25E3%2582%25AD%25E3%2582%25B9%25E3%2583%2588%25E3%2581%258B%25E3%2582%2589%25E6%258F%258F%25E3%2581%258F%2520tchart-rust%2520%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:nodamushi%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Y1OGJmMTkwNjEuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6877e4dfe69489c1",
+      "kind": "news",
+      "title": "AI compiler + runtime (inference) のようなものを作った",
+      "url": "https://zenn.dev/jame443/articles/3f25e6f3aa0ef0",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T19:41:33.374+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--fYs4z3yj--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520compiler%2520%252B%2520runtime%2520%2528inference%2529%2520%25E3%2581%25AE%25E3%2582%2588%25E3%2581%2586%25E3%2581%25AA%25E3%2582%2582%25E3%2581%25AE%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:jame443%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2Rhcmsvai5wbmc=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "38c7971abde86d5b",
+      "kind": "news",
+      "title": "Sporaを解説したい",
+      "url": "https://zenn.dev/korphere/articles/fd456e28ffdc36",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-17T13:00:45.062+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--m8s9gV7T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Spora%25E3%2582%2592%25E8%25A7%25A3%25E8%25AA%25AC%25E3%2581%2597%25E3%2581%259F%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:KoHaRxnP%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E2Njg2NGNlMjguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Korphere%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTHJ4MjMwNW1xaldfeWU5LVZBbEtQeVVWSVhBRTI1T2tTUWhFVFNlZm9HZWhjczNNVFg9czI1MC1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "d762951590b9ae9b",
+      "kind": "news",
+      "title": "コンテナから、Cloudflare Workersにデプロイする",
+      "url": "https://zenn.dev/rururu/articles/0b238f57e3b027",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-17T22:19:46.660+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--9EGusg-7--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2586%25E3%2583%258A%25E3%2581%258B%25E3%2582%2589%25E3%2580%2581Cloudflare%2520Workers%25E3%2581%25AB%25E3%2583%2587%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25A4%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:u-na-gi%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2VlY2E4N2JhNWIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "db9da2e47c9c71e8",
+      "kind": "news",
+      "title": "Rustのイテレータとクロージャを手を動かして理解する",
+      "url": "https://zenn.dev/tar0/articles/rust-feature-04-iterators",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T23:41:27.091+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--6j0mKwMa--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25AE%25E3%2582%25A4%25E3%2583%2586%25E3%2583%25AC%25E3%2583%25BC%25E3%2582%25BF%25E3%2581%25A8%25E3%2582%25AF%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%25B8%25E3%2583%25A3%25E3%2582%2592%25E6%2589%258B%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:taro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEhVM2VqMlhwYlctNnJLMHUxY3BZODVaOUF2NXNoOHZVTkppS1c1MVlULUNFaTdBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "6d9b8b459d1e5360",
+      "kind": "news",
+      "title": "Rustの所有権・借用・ライフタイムを手を動かして理解する",
+      "url": "https://zenn.dev/tar0/articles/rust-feature-01-ownership",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T23:27:42.980+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--GiNonjiU--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25AE%25E6%2589%2580%25E6%259C%2589%25E6%25A8%25A9%25E3%2583%25BB%25E5%2580%259F%25E7%2594%25A8%25E3%2583%25BB%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2595%25E3%2582%25BF%25E3%2582%25A4%25E3%2583%25A0%25E3%2582%2592%25E6%2589%258B%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:taro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEhVM2VqMlhwYlctNnJLMHUxY3BZODVaOUF2NXNoOHZVTkppS1c1MVlULUNFaTdBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "fda82d7f8664a47c",
+      "kind": "news",
+      "title": "Rustのモジュールシステムとクレート管理を手を動かして理解する",
+      "url": "https://zenn.dev/tar0/articles/rust-feature-06-modules",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T23:41:27.707+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--pso1uEIF--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25AE%25E3%2583%25A2%25E3%2582%25B8%25E3%2583%25A5%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%25B7%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25A0%25E3%2581%25A8%25E3%2582%25AF%25E3%2583%25AC%25E3%2583%25BC%25E3%2583%2588%25E7%25AE%25A1%25E7%2590%2586%25E3%2582%2592%25E6%2589%258B%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:taro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEhVM2VqMlhwYlctNnJLMHUxY3BZODVaOUF2NXNoOHZVTkppS1c1MVlULUNFaTdBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "8d2880415e71e914",
+      "kind": "news",
+      "title": "RustのスマートポインタBox/Rc/Arcを手を動かして理解する",
+      "url": "https://zenn.dev/tar0/articles/rust-feature-05-smart-ptr",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T23:41:27.396+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--5eNZdQbx--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25AE%25E3%2582%25B9%25E3%2583%259E%25E3%2583%25BC%25E3%2583%2588%25E3%2583%259D%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25BFBox%252FRc%252FArc%25E3%2582%2592%25E6%2589%258B%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:taro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEhVM2VqMlhwYlctNnJLMHUxY3BZODVaOUF2NXNoOHZVTkppS1c1MVlULUNFaTdBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "38a9a5c0878c27e6",
+      "kind": "news",
+      "title": "Rustのトレイトとジェネリクスを手を動かして理解する",
+      "url": "https://zenn.dev/tar0/articles/rust-feature-02-traits",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-16T23:27:43.415+09:00",
+      "fetchedAt": "2026-05-17T22:53:51.080Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--omWCi2Ux--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25AE%25E3%2583%2588%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%2588%25E3%2581%25A8%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%258D%25E3%2583%25AA%25E3%2582%25AF%25E3%2582%25B9%25E3%2582%2592%25E6%2589%258B%25E3%2582%2592%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E7%2590%2586%25E8%25A7%25A3%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:taro%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTEhVM2VqMlhwYlctNnJLMHUxY3BZODVaOUF2NXNoOHZVTkppS1c1MVlULUNFaTdBPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "672a58452de961d5",
+      "kind": "paper",
+      "title": "Quantum Error Correction with Superpositions of Squeezed Fock States",
+      "url": "https://doi.org/10.1103/hr5f-lvy7",
+      "summary": "ボソニックコードは、冗長性のために無限次元のヒルベルト空間を利用し、量子情報を符号化するための大きな可能性を提供します。しかし、光子の損失と位相の脱調（デコヒーレンス）エラーの両方を同時に修正できる実用的な連続変数ボソニックコードは、まだ高い適合性を達成することができていません。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 12,
+      "source": "aps:prl",
+      "publishedAt": "2026-05-15T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z",
+      "authors": [
+        "Yexiong Zeng",
+        "Fernando Quijandría",
+        "Clemens Gneiting",
+        "+3"
+      ]
+    },
+    {
+      "id": "430c8a39c287677d",
+      "kind": "paper",
+      "title": "Scaling Laws of Quantum Information Lifetime in Monitored Quantum Dynamics",
+      "url": "https://doi.org/10.1103/7717-1mw2",
+      "summary": "研究者たちは、中回路測定からデータを記録することで、量子情報を指数関数的に長い時間保持できることを発見しました。この発見は、脆弱なデータを保護するための戦略を提供し、近い将来の量子コンピュータやアルゴリズムの性能を向上させる可能性があります。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 12,
+      "source": "aps:prx",
+      "publishedAt": "2026-05-06T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z",
+      "authors": [
+        "Bingzhi Zhang",
+        "Fangjun Hu",
+        "Runzhe Mo",
+        "+3"
+      ]
+    },
+    {
+      "id": "7de5b6bfed4a7776",
+      "kind": "paper",
+      "title": "Hybrid variational quantum circuit approach for stabilizer-state classifiers",
+      "url": "https://doi.org/10.1103/tl4h-vs8y",
+      "summary": "純粋な多体量子状態のエンタングルメント（量子もつれ）の分類は、量子情報理論における難しい問題です。この問題は、周囲のヒルベルト空間に対する特定の群作用に基づく軌道分類として数学的に表現できます。群作用は、期待される粒度の分類に依存します。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 10,
+      "source": "aps:pra",
+      "publishedAt": "2026-05-13T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z"
+    },
+    {
+      "id": "4dd7532bf026a1aa",
+      "kind": "paper",
+      "title": "Correlated Phase Error Bursts in a Gap-Engineered Superconducting Qubit Array",
+      "url": "https://doi.org/10.1103/1bl4-b2f7",
+      "summary": "イオン化放射線が超伝導量子プロセッサにおいて新たな種類の相関エラー、すなわち位相エラーバーストを引き起こすことが示されています。このエラーは、最先端の放射線防護が施されていても、量子誤り訂正の効果を損なうものです。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 10,
+      "source": "aps:prx",
+      "publishedAt": "2026-05-04T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z",
+      "authors": [
+        "Vladislav D"
+      ]
+    },
+    {
+      "id": "54f4162cd7520201",
+      "kind": "paper",
+      "title": "High-fidelity single-qubit quantum state tomography of electron-$^{14}\\mathrm{N}$ nuclear hybrid spin register in diamond using Rabi oscillations",
+      "url": "https://doi.org/10.1103/j1s1-w37c",
+      "summary": "我々は、量子状態の特性評価手法であるRabiベースの量子状態トモグラフィー（RQST）について報告します。この手法は、特にダイヤモンド中の単一の窒素空孔（NV）センターの電子スピンおよび核スピンに対して、単一量子ビットの量子状態に対して検証され、高い忠実度を示しました。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 9,
+      "source": "aps:prresearch",
+      "publishedAt": "2026-05-11T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z"
+    },
+    {
+      "id": "60df69d97e4d06df",
+      "kind": "paper",
+      "title": "Concatenated dual displacement code for continuous-variable quantum error correction",
+      "url": "https://doi.org/10.1103/d1zs-cy4t",
+      "summary": "連続変数（CV）ガウスのノーゴー定理は、ガウスゲートと状態のみを使用してガウスの変位誤差を抑制することに根本的な制限を設けています。これまでの研究では、Gottesman-Kitaev-Preskill（GKP）状態を補助的な量子モードとして用いて、小さなガウスの変位誤差を抑制する試みが行われてきました。しかし、…",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 8,
+      "source": "aps:prresearch",
+      "publishedAt": "2026-05-12T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z",
+      "authors": [
+        "Fucheng Guo",
+        "Frank Mueller",
+        "Yuan Liu The continuous-variable (CV) Gaussian no-go theorem fundamentally limits the suppression of Gaussian displacement errors using only Gaussian gates",
+        "+1"
+      ]
+    },
+    {
+      "id": "60eaa4a59a5e3bcc",
+      "kind": "paper",
+      "title": "Simulation of thermal-relaxation noise for quantum error correction",
+      "url": "https://doi.org/10.1103/hgnj-v4j7",
+      "summary": "量子誤り訂正コードの安定器に基づくシミュレーションは、通常、ポーリ・ツイリング近似（PTA）に依存して、ノンクリフォードノイズを古典的に扱いやすくしています。しかし、PTAは熱緩和のような物理的に関連するチャネルの挙動を歪める可能性があります。物理的に正確なノイズシミュレーションが求められています。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 8,
+      "source": "aps:prresearch",
+      "publishedAt": "2026-05-07T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z",
+      "authors": [
+        "Sean R"
+      ]
+    },
+    {
+      "id": "b00304ab936515e4",
+      "kind": "paper",
+      "title": "Ultracold Mechanical Quantum Sensor for Tests of New Physics",
+      "url": "https://doi.org/10.1103/1bk5-zgvj",
+      "summary": "機械的モードを量子基底状態で初期化することは、量子情報処理や量子センシングのプロトコルにおいて重要です。量子プロセッサにおいては、モードの初期状態の不純物が、その後の量子アルゴリズムの不正確さ（インフィデリティ）に影響を与えます。量子センサーにおいては、基底状態からの励起が…",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 4,
+      "source": "aps:prl",
+      "publishedAt": "2026-05-06T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z"
+    },
+    {
+      "id": "011a0e13c0aad2af",
+      "kind": "paper",
+      "title": "Holonomic multicontrolled gates for single-photon states",
+      "url": "https://doi.org/10.1103/hs1t-64zm",
+      "summary": "制御された量子ゲートおよび多重制御量子ゲートは、ターゲット量子ビットに対する作用が複数の制御量子ビットの状態に依存するものであり、複雑な量子アルゴリズムの基本的な論理構成要素を表します。本研究では、変調された非アーベルホロノミーに基づいて、このクラスのゲートを実現するためのスキームを提案します。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 3,
+      "source": "aps:pra",
+      "publishedAt": "2026-05-08T10:00:00.000Z",
+      "fetchedAt": "2026-05-17T22:53:51.102Z"
+    }
+  ]
+}
