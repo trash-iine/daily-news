@@ -40,7 +40,7 @@ describe("parseAPSXml", () => {
     assert.equal(first.title, "Maximizing the Nondemolition Nature of a Quantum Measurement");
     assert.equal(first.source, "aps:prxquantum");
     assert.equal(first.announceType, "new");
-    assert.equal(first.absUrl, "http://link.aps.org/doi/10.1103/jtn1-wzyl");
+    assert.equal(first.absUrl, "https://doi.org/10.1103/jtn1-wzyl");
     assert.equal(first.arxivId, "10.1103/jtn1-wzyl");
     assert.equal(first.publishedAt, "2026-05-15T10:00:00.000Z");
   });

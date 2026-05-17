@@ -99,6 +99,9 @@ export function parseAPSXml(xml: string, sourceId: string): ArxivPaper[] {
     if (!abstract) continue;
     const authors = extractAPSAuthors(it["content:encoded"], it.description);
     const doi = it["prism:doi"] ?? link.split("/").pop() ?? link;
+    const url = /^10\./.test(doi)
+      ? `https://doi.org/${doi}`
+      : link.replace(/^http:/, "https:");
     const dateRaw = it["dc:date"] ?? "";
     const parsed = dateRaw ? new Date(dateRaw) : new Date(NaN);
     const publishedAt = Number.isFinite(parsed.getTime())
@@ -109,8 +112,8 @@ export function parseAPSXml(xml: string, sourceId: string): ArxivPaper[] {
       title,
       abstract,
       authors,
-      absUrl: link,
-      pdfUrl: link,
+      absUrl: url,
+      pdfUrl: url,
       source: `aps:${sourceId}`,
       announceType: "new",
       publishedAt,
