@@ -128,6 +128,31 @@ export const hostFromUrl = (u: string): string => {
   }
 };
 
+/**
+ * 論文の PDF URL を返す。
+ * - arXiv: abs URL → pdf URL ("/abs/..." → "/pdf/....pdf")
+ * - APS:   PDF 直リンクが取れないので null (abs ページのみ)
+ * - news:  null
+ */
+export const pdfUrlOf = (it: BaseItem): string | null => {
+  if (it.kind !== "paper") return null;
+  if (it.source.startsWith("arxiv:")) {
+    // arXiv の abs URL: https://arxiv.org/abs/2401.12345
+    if (it.url.includes("/abs/")) {
+      return `${it.url.replace("/abs/", "/pdf/")}.pdf`;
+    }
+  }
+  return null;
+};
+
+/** 表示用の著者短縮。データに authors[] が無い場合は null。 */
+export const displayAuthors = (it: BaseItem, max = 3): string[] | null => {
+  if (it.kind !== "paper") return null;
+  if (!it.authors || it.authors.length === 0) return null;
+  if (it.authors.length <= max) return it.authors;
+  return [...it.authors.slice(0, max), `+${it.authors.length - max}`];
+};
+
 export type RecapPeriod = 7 | 14 | 30;
 
 export const DELTA_UP = "oklch(0.62 0.15 150)";

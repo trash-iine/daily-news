@@ -1,9 +1,12 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { BIG_TAGS, itemBigTags } from "./lib";
-import { BigTagFilter, DateStrip } from "./atoms";
+import { BigTagFilter, DateStrip, TodayTabs, type TodayTab } from "./atoms";
 import { ArticleCard } from "./ArticleCard";
+import { BriefCarousel } from "./BriefCarousel";
+
+const HIGHLIGHT_MS = 1600;
 
 export function TodayScreen({
   archive,
@@ -22,41 +25,101 @@ export function TodayScreen({
   toggleSave: (id: string) => void;
   nowMs: number;
 }) {
+  const [tab, setTab] = useState<TodayTab>("all");
   const [bigFilter, setBigFilter] = useState<BigTagGroup | null>(null);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [highlighted, setHighlighted] = useState<string | null>(null);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const highlightTimer = useRef<number | null>(null);
 
   const counts = useMemo<Record<string, number>>(() => {
-    const c: Record<string, number> = { all: bundle?.items.length || 0 };
+    const items = bundle?.items ?? [];
+    const c: Record<string, number> = {
+      all: items.length,
+      paper: items.filter((i) => i.kind === "paper").length,
+      news: items.filter((i) => i.kind === "news").length,
+    };
     for (const t of BIG_TAGS) {
-      c[t.id] = bundle?.items.filter((it) => itemBigTags(it).includes(t.id)).length || 0;
+      c[t.id] = items.filter((it) => itemBigTags(it).includes(t.id)).length;
     }
     return c;
+  }, [bundle]);
+
+  /** 5-MIN BRIEF: 論文 top 2 + ニュース top 3 をスコア降順で混ぜた 5 件 (All タブのみ表示)。 */
+  const briefItems = useMemo<BaseItem[]>(() => {
+    if (!bundle) return [];
+    const papers = bundle.items.filter((i) => i.kind === "paper").slice(0, 2);
+    const news = bundle.items.filter((i) => i.kind === "news").slice(0, 3);
+    return [...papers, ...news].sort((a, b) => b.score - a.score).slice(0, 5);
   }, [bundle]);
 
   const filtered: BaseItem[] = useMemo(() => {
     if (!bundle) return [];
     return bundle.items.filter((it) => {
+      if (tab === "paper" && it.kind !== "paper") return false;
+      if (tab === "news" && it.kind !== "news") return false;
       if (bigFilter && !itemBigTags(it).includes(bigFilter)) return false;
       return true;
     });
-  }, [bundle, bigFilter]);
+  }, [bundle, tab, bigFilter]);
 
   const groups = useMemo(() => {
+    if (tab !== "all") {
+      return [
+        {
+          key: tab,
+          label: tab === "paper" ? "論文" : "ニュース",
+          sub: `${filtered.length} 件`,
+          items: filtered,
+        },
+      ];
+    }
     const papers = filtered.filter((i) => i.kind === "paper");
     const news = filtered.filter((i) => i.kind === "news");
     return [
       papers.length && { key: "papers", label: "論文", sub: `${papers.length} 本`, items: papers },
       news.length && { key: "news", label: "ニュース", sub: `${news.length} 件`, items: news },
     ].filter(Boolean) as { key: string; label: string; sub: string; items: BaseItem[] }[];
-  }, [filtered]);
+  }, [filtered, tab]);
+
+  /**
+   * Brief カード → 該当タブを開き、対象カードへスクロール + 1.6s ハイライト。
+   * paper なら "paper" タブへ、news なら "news" タブへ移動する (文脈が薄れない範囲で)。
+   */
+  const jumpTo = useCallback((id: string, kind: BaseItem["kind"]) => {
+    setTab(kind === "paper" ? "paper" : "news");
+    setBigFilter(null);
+    setExpanded(id);
+    setHighlighted(id);
+
+    // タブ切替で再レンダリングされるため次フレームでスクロール。
+    requestAnimationFrame(() => {
+      const scroller = scrollerRef.current;
+      const el = scroller?.querySelector<HTMLElement>(`#item-${CSS.escape(id)}`);
+      if (scroller && el) {
+        const top = el.offsetTop - 12;
+        scroller.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+
+    if (highlightTimer.current !== null) {
+      window.clearTimeout(highlightTimer.current);
+    }
+    highlightTimer.current = window.setTimeout(() => {
+      setHighlighted(null);
+      highlightTimer.current = null;
+    }, HIGHLIGHT_MS);
+  }, []);
 
   if (!bundle) {
-    return <div style={{ padding: 40, textAlign: "center", color: "var(--fg-faint)" }}>読み込み中…</div>;
+    return (
+      <div style={{ padding: 40, textAlign: "center", color: "var(--fg-faint)" }}>読み込み中…</div>
+    );
   }
 
   const date = new Date(bundle.date);
   const wd = ["日", "月", "火", "水", "木", "金", "土"][date.getDay()];
-  const paperCount = bundle.items.filter((i) => i.kind === "paper").length;
+  const paperCount = counts.paper ?? 0;
 
   return (
     <>
@@ -104,6 +167,15 @@ export function TodayScreen({
         </div>
       </div>
 
+      <TodayTabs
+        tab={tab}
+        onChange={(t) => {
+          setTab(t);
+          setExpanded(null);
+        }}
+        counts={{ all: counts.all ?? 0, paper: counts.paper ?? 0, news: counts.news ?? 0 }}
+      />
+
       <DateStrip
         archive={archive}
         currentDate={currentDate}
@@ -112,40 +184,50 @@ export function TodayScreen({
           setExpanded(null);
         }}
       />
-      <BigTagFilter value={bigFilter} onChange={setBigFilter} counts={counts} />
 
-      <div style={{ flex: 1, overflow: "auto", paddingBottom: 8 }}>
+      <div ref={scrollerRef} style={{ flex: 1, overflow: "auto", paddingBottom: 8 }}>
+        {tab === "all" && briefItems.length > 0 && (
+          <BriefCarousel items={briefItems} nowMs={nowMs} onJump={jumpTo} />
+        )}
+
+        <BigTagFilter value={bigFilter} onChange={setBigFilter} counts={counts} />
+
         {groups.map((g) => (
           <section key={g.key}>
-            <header
-              style={{
-                padding: "16px 18px 8px",
-                display: "flex",
-                alignItems: "baseline",
-                gap: 10,
-                justifyContent: "space-between",
-              }}
-            >
-              <h2
+            {tab === "all" && (
+              <header
                 style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: 18,
-                  fontWeight: 500,
-                  margin: 0,
-                  letterSpacing: "-0.01em",
+                  padding: "16px 18px 8px",
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: 10,
+                  justifyContent: "space-between",
                 }}
               >
-                {g.label}
-              </h2>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--fg-faint)" }}>
-                {g.sub}
-              </span>
-            </header>
+                <h2
+                  style={{
+                    fontFamily: "var(--font-serif)",
+                    fontSize: 18,
+                    fontWeight: 500,
+                    margin: 0,
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {g.label}
+                </h2>
+                <span
+                  style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--fg-faint)" }}
+                >
+                  {g.sub}
+                </span>
+              </header>
+            )}
             {g.items.map((it) => (
               <ArticleCard
                 key={it.id}
                 item={it}
                 expanded={expanded === it.id}
+                highlighted={highlighted === it.id}
                 onToggle={() => setExpanded(expanded === it.id ? null : it.id)}
                 saved={saved.has(it.id)}
                 onSave={() => toggleSave(it.id)}
@@ -154,8 +236,16 @@ export function TodayScreen({
             ))}
           </section>
         ))}
+
         {filtered.length === 0 && (
-          <div style={{ padding: "60px 20px", textAlign: "center", color: "var(--fg-faint)", fontSize: 13 }}>
+          <div
+            style={{
+              padding: "60px 20px",
+              textAlign: "center",
+              color: "var(--fg-faint)",
+              fontSize: 13,
+            }}
+          >
             該当する記事はありません
           </div>
         )}

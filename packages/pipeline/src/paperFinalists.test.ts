@@ -8,6 +8,7 @@ function mkPaper(source: string, idx: number): ArxivPaper {
     arxivId: `${source}-${idx}`,
     title: `${source} paper ${idx}`,
     abstract: "abstract",
+    authors: [],
     absUrl: `https://example.com/${source}/${idx}`,
     pdfUrl: `https://example.com/${source}/${idx}.pdf`,
     source,

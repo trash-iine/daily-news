@@ -432,6 +432,7 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
     source: p.source,
     publishedAt: p.publishedAt,
     fetchedAt,
+    ...(p.authors.length > 0 ? { authors: p.authors } : {}),
   }));
 }
 

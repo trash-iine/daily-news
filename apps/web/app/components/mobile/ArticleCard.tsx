@@ -1,6 +1,16 @@
 "use client";
 import type { BaseItem } from "@daily-news/shared";
-import { BIG_COLOR, FAM_COLOR, fmtRel, hostFromUrl, itemBigTags, sourceFamily, sourceLabel } from "./lib";
+import {
+  BIG_COLOR,
+  FAM_COLOR,
+  displayAuthors,
+  fmtRel,
+  hostFromUrl,
+  itemBigTags,
+  pdfUrlOf,
+  sourceFamily,
+  sourceLabel,
+} from "./lib";
 import { BigTagPill, Tag, Thumb } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
 import { SummaryMarkdown } from "./SummaryMarkdown";
@@ -24,6 +34,7 @@ export function ArticleCard({
   saved,
   onSave,
   nowMs,
+  highlighted,
 }: {
   item: BaseItem;
   expanded: boolean;
@@ -31,22 +42,34 @@ export function ArticleCard({
   saved: boolean;
   onSave: () => void;
   nowMs: number;
+  /** Brief カルーセルから jump してきた直後の一時ハイライト。 */
+  highlighted?: boolean;
 }) {
   const fam = sourceFamily(item.source);
   const big = itemBigTags(item)[0];
   const bigColor = big ? BIG_COLOR[big] : "var(--border)";
   const isPaper = item.kind === "paper";
+  const pdf = pdfUrlOf(item);
+  const authors = displayAuthors(item);
   return (
     <article
+      id={`item-${item.id}`}
+      data-kind={item.kind}
       style={{
         padding: "14px 18px",
         borderTop: "0.5px solid var(--rule)",
-        background: expanded ? "var(--bg-sunken)" : "transparent",
+        background: highlighted
+          ? `color-mix(in oklch, ${bigColor} 9%, transparent)`
+          : expanded
+            ? "var(--bg-sunken)"
+            : "transparent",
         borderLeft: `2px solid ${big ? bigColor : "transparent"}`,
         display: "grid",
         gridTemplateColumns: "1fr auto",
         gap: 12,
         alignItems: "start",
+        transition: "background 0.4s",
+        scrollMarginTop: 12,
       }}
     >
       <button
@@ -122,6 +145,39 @@ export function ArticleCard({
               {stripForPreview(item.summary)}
             </p>
           )}
+          {/* 論文: 著者行 + abs/PDF ボタン (コラプス時のみ) */}
+          {isPaper && !expanded && (authors || pdf) && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                flexWrap: "wrap",
+                margin: "0 0 6px",
+                fontFamily: "var(--font-mono)",
+                fontSize: 10.5,
+                color: "var(--fg-faint)",
+              }}
+            >
+              {authors && (
+                <span
+                  style={{
+                    color: "var(--fg-muted)",
+                    minWidth: 0,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {authors.join(" · ")}
+                </span>
+              )}
+              <span style={{ marginLeft: "auto", display: "inline-flex", gap: 4 }}>
+                <PaperLinkButton href={item.url} variant="abs" label="abs" />
+                {pdf && <PaperLinkButton href={pdf} variant="pdf" label="PDF" />}
+              </span>
+            </div>
+          )}
           <div style={{ display: "flex", gap: 5, alignItems: "center", flexWrap: "wrap" }}>
             {item.tags.slice(0, 4).map((t) => (
               <Tag key={t} t={t} sm />
@@ -148,6 +204,29 @@ export function ArticleCard({
       </ExternalLink>
       {expanded && (
         <div style={{ gridColumn: "1 / -1", marginTop: 14, paddingTop: 14, borderTop: "1px dashed var(--border)" }}>
+          {isPaper && (authors || pdf) && (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                flexWrap: "wrap",
+                marginBottom: 12,
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+              }}
+            >
+              {authors && (
+                <span style={{ color: "var(--fg-muted)", lineHeight: 1.4 }}>
+                  {authors.join(" · ")}
+                </span>
+              )}
+              <span style={{ marginLeft: "auto", display: "inline-flex", gap: 6 }}>
+                <PaperLinkButton href={item.url} variant="abs" label="abs" />
+                {pdf && <PaperLinkButton href={pdf} variant="pdf" label="PDF" />}
+              </span>
+            </div>
+          )}
           {item.summary && (
             <div
               style={{
@@ -215,5 +294,43 @@ export function ArticleCard({
         </div>
       )}
     </article>
+  );
+}
+
+/**
+ * 論文カードの abs / PDF ボタン。親の <button onClick={onToggle}> の中で click されても
+ * トグルしないよう stopPropagation する。
+ */
+function PaperLinkButton({
+  href,
+  variant,
+  label,
+}: {
+  href: string;
+  variant: "abs" | "pdf";
+  label: string;
+}) {
+  const isPdf = variant === "pdf";
+  const base = isPdf ? "oklch(0.55 0.18 25)" : "oklch(0.58 0.13 50)";
+  const fg = isPdf ? "oklch(0.5 0.18 25)" : "oklch(0.5 0.13 50)";
+  return (
+    <ExternalLink
+      href={href}
+      onClick={(e) => e.stopPropagation()}
+      style={{
+        padding: "2px 8px",
+        borderRadius: 4,
+        border: `0.5px solid color-mix(in oklch, ${base} 35%, transparent)`,
+        color: `color-mix(in oklch, ${fg} 80%, var(--fg))`,
+        background: `color-mix(in oklch, ${base} 10%, transparent)`,
+        textDecoration: "none",
+        fontSize: 10.5,
+        fontWeight: 700,
+        fontFamily: "var(--font-mono)",
+        letterSpacing: "0.02em",
+      }}
+    >
+      {label}
+    </ExternalLink>
   );
 }

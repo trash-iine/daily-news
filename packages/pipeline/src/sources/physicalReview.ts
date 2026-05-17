@@ -1,6 +1,7 @@
 import { XMLParser } from "fast-xml-parser";
 import { cleanText, fetchText } from "../util.js";
 import type { ArxivPaper } from "./arxiv.js";
+import { shortenAuthors, splitAuthorList } from "./arxiv.js";
 
 const rdfParser = new XMLParser({
   ignoreAttributes: false,
@@ -52,6 +53,21 @@ function extractAbstract(
   return null;
 }
 
+/**
+ * APS RSS の content:encoded または description から Author(s) リストを抽出する。
+ * フォーマット: "Author(s): F. Last, A. Other and X. Y"
+ */
+function extractAPSAuthors(
+  contentEncoded: string | undefined,
+  description: string | undefined,
+): string[] {
+  const hay = `${contentEncoded ?? ""} ${description ?? ""}`;
+  const cleaned = cleanText(hay);
+  const m = cleaned.match(/Author\(s\):\s*([^\n\r\[]+?)(?=\s{2,}|\.\s+[A-Z][a-z]{3,}|$)/);
+  if (!m || !m[1]) return [];
+  return shortenAuthors(splitAuthorList(m[1]));
+}
+
 interface RawRdfItem {
   title?: string;
   link?: string;
@@ -81,6 +97,7 @@ export function parseAPSXml(xml: string, sourceId: string): ArxivPaper[] {
     if (!title) continue;
     const abstract = extractAbstract(it["content:encoded"], it.description);
     if (!abstract) continue;
+    const authors = extractAPSAuthors(it["content:encoded"], it.description);
     const doi = it["prism:doi"] ?? link.split("/").pop() ?? link;
     const dateRaw = it["dc:date"] ?? "";
     const parsed = dateRaw ? new Date(dateRaw) : new Date(NaN);
@@ -91,6 +108,7 @@ export function parseAPSXml(xml: string, sourceId: string): ArxivPaper[] {
       arxivId: doi,
       title,
       abstract,
+      authors,
       absUrl: link,
       pdfUrl: link,
       source: `aps:${sourceId}`,
