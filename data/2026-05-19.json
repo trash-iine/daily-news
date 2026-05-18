@@ -1,0 +1,584 @@
+{
+  "date": "2026-05-19",
+  "generatedAt": "2026-05-18T23:01:30.970Z",
+  "items": [
+    {
+      "id": "9a49c80f8be7264d",
+      "kind": "paper",
+      "title": "Improving the trainability of variational quantum eigensolvers on noisy intermediate-scale quantum computers for solving portfolio optimization using convex interpolation",
+      "url": "https://doi.org/10.1103/2p4m-5mt8",
+      "summary": "組合せ最適化問題を変分量子アルゴリズム（VQAs）を用いて解決することは、NISQ（ノイズの多い中規模量子）時代において有望な応用となる可能性があります。しかし、VQAsの限られた訓練可能性は、大規模な問題サイズへのスケーラビリティを妨げる可能性があります。本論文では、変分量子アルゴリズムの訓練可能性を改善する方法を提案します。",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 27,
+      "source": "aps:pra",
+      "publishedAt": "2026-05-18T10:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Shengbin Wang",
+        "Guihui Li",
+        "Zhimin Wang",
+        "+5"
+      ]
+    },
+    {
+      "id": "79825e48bb8ad41e",
+      "kind": "paper",
+      "title": "Mutually Unbiased Bases for Variational Quantum Initialization: Basis-Union Optimality and Adaptive Family Search",
+      "url": "https://arxiv.org/abs/2605.16060",
+      "summary": "我々は、変分量子アルゴリズムのための構造化された有限初期化および適応ファミリーとして、相互非偏基底（MUB）を研究します。主な理論的結果は、完全なMUBのセットを持つすべての次元において、完全なMUBアンサンブルがC^d内のd+1個の直交基底のすべての和集合の中で、等方的ガウス乱数ハミルトニアン幅を最大化することです。言い換えれば、この基底和集合の中で、ランダムハミルトニアン最小化に対する期待される最良のセットの最小値を最小にします。証明では、各直交基底を正則単体ガウスブロックとして表現し、中心化された凸ガウス相関不等式を用いて、完全なMUBによって実現される独立ブロックの場合が確率的に極端であることを示します。また、Rが非負かつ独立なハミルトニアンH=RGに対する放射状の拡張と、完全なキュービットMUBが任意の六状態アンサンブルの中でグローバルに最適である無制限のキュービットの場合についても記録します。次に、このカバレッジ定理を変分トレーニングダイナミクスから分離します。対角QUBOコストに対して、完全に一致した構造のMUBファミリー依存性は崩壊します；標準的なb=0ラベルの場合、これは通常のXミキサーQAOAに縮小します。したがって、経験的手法は、標準的な一致ミキサーMUB-QAOAではなく、適応型MUB-XRotウォームスタートQAOAです。MaxCut、加重MaxCut、MIS、加重MIS、ナップサックに関するクロス問題ベンチマークでは、適応型MUB-XRotは1500のペアケースの80.0%で標準QAOAよりも劣らず、勝ち/引き分け/負けは829/371/300、平均デコード比の改善は+0.1616です。別のQRAO MaxCut研究では、ビットフリップMUBファミリー探索が平均緩和比0.921に達し、X変分ベースラインに対して+0.0608の改善を示します。証拠は質重視であり、かなりの実行時間のオーバーヘッドが発生しますが、量子優位性の主張は行っていません。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 27,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Abed Semre",
+        "Steven Frankel"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "72b7ec1e66cf1c22",
+      "kind": "news",
+      "title": "「Claude Code」を使ってみた：環境構築から基本の操作まで初心者向けに解説",
+      "url": "https://zenn.dev/secondselection/articles/claude_code_tips",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-18T06:00:07.015+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--WQ408Jkd--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258CClaude%2520Code%25E3%2580%258D%25E3%2582%2592%25E4%25BD%25BF%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%25EF%25BC%259A%25E7%2592%25B0%25E5%25A2%2583%25E6%25A7%258B%25E7%25AF%2589%25E3%2581%258B%25E3%2582%2589%25E5%259F%25BA%25E6%259C%25AC%25E3%2581%25AE%25E6%2593%258D%25E4%25BD%259C%25E3%2581%25BE%25E3%2581%25A7%25E5%2588%259D%25E5%25BF%2583%25E8%2580%2585%25E5%2590%2591%25E3%2581%2591%25E3%2581%25AB%25E8%25A7%25A3%25E8%25AA%25AC%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Hide%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzljNTA3MDMwNTguanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25BB%25E3%2582%25AB%25E3%2583%25B3%25E3%2583%2589%25E3%2582%25BB%25E3%2583%25AC%25E3%2582%25AF%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2JmYTNlZmU0NGQuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "fbe1425f9a362ab1",
+      "kind": "news",
+      "title": "Project goals update — April 2026 (end of 2025H2)",
+      "url": "https://blog.rust-lang.org/2026/05/18/project-goals-2026-04/",
+      "summary": "The 2025H2 Project Goal period has now concluded. Over these months, the Rust Project pursued 41 Project Goals, 13 of which were designated as Flagship Goals. This post contains curated updates on our progress since the last post and the fi",
+      "tags": [
+        "rust"
+      ],
+      "score": 22,
+      "source": "rss:rust-blog",
+      "publishedAt": "2026-05-18T00:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://www.rust-lang.org/static/images/rust-social-wide.jpg"
+    },
+    {
+      "id": "b42fadb1babfab6d",
+      "kind": "news",
+      "title": "国会図書館OCRにAI補正機能を追加した - NDLOCR-Lite × AWS Bedrock",
+      "url": "https://qiita.com/ohtsuka-shota/items/7f8747293cfa36c82456",
+      "summary": "以下の環境を補強します。 AWS Bedrock(ClaudeやNova)とAPI連携して、OCRの出力を補正します。 https://qiita.com/ohtsuka-shota/items/08612360548876be08b7 # リポジトリ https://github.com/ohtsuka-shota/ndlocr-lite-app # 料金について AWS Bedrockは従量課金です。Claude Haiku 4.5の場合: - 入力: \\$0.80 / ",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-17T18:31:25+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYzMjE5Mzg1JTJGMmJiOTZiZTI0ZTU3ZmY4MzNjY2MxOTI2OWEzOTViNzVlNzg0NjUzNSUyRmxhcmdlLnBuZyUzRjE3NzIwMjYxNTE_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThjZGQyNDg1ZmM0YzY2ODZjNDk5N2QzN2ExZjBmZDhm%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0OWI2ZjgzMjQyMjA5MjU5NzBmODljNjlhNjAyM2Y5ZDI0MzYwZjFlJTJGb3JpZ2luYWwuanBnJTNGMTY2NDQ5NjAwMz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz00ZTMyZWE4NDM3MjY1MTA5M2YzYzI1MjQ1NGFmMTJkMw%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3Dbf0351c9cbfdc1e493e46bb17f5d301b?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU1JTlCJUJEJUU0JUJDJTlBJUU1JTlCJUIzJUU2JTlCJUI4JUU5JUE0JUE4T0NSJUUzJTgxJUFCQUklRTglQTMlOUMlRTYlQUQlQTMlRTYlQTklOUYlRTglODMlQkQlRTMlODIlOTIlRTglQkYlQkQlRTUlOEElQTAlRTMlODElOTclRTMlODElOUYlMjAtJTIwTkRMT0NSLUxpdGUlMjAlQzMlOTclMjBBV1MlMjBCZWRyb2NrJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9OTY4ZGJhYjg4ZmU5MTdmNDcyOTkzYjA2OWVlMzUzZWE&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBvaHRzdWthLXNob3RhJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9ZWVlYjNkYzVkMDE5MjBhYzU3ZjdmNGMyYmExY2IxMjY&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-44Kv44Op44K544Ki44Kv44OI&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=c94ca74dcadf45dc4abb0d46b9195637"
+    },
+    {
+      "id": "f2a4545fbf0b923e",
+      "kind": "news",
+      "title": "Show HN: AnyFrame – Sandboxes for AI Agents",
+      "url": "https://anyfrm.com",
+      "summary": "Hey HN! we built https://anyfrm.com , a way to point Claude Code or Codex at any repo and get a fresh sandbox running it in seconds. Python SDK + demo: https://github.com/tinyhq/anyframe-python AnyFrame has three key features - define an ag",
+      "tags": [
+        "python",
+        "claude",
+        "claude-code",
+        "agent"
+      ],
+      "score": 22,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-18T03:30:36.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://anyfrm.com/og-image.png"
+    },
+    {
+      "id": "530b515ceb5ff751",
+      "kind": "news",
+      "title": "【Claude Code】Routinesで自動でコードレビューTipsを投稿する",
+      "url": "https://zenn.dev/sonicgarden/articles/34d085cb8f8b30",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-17T10:00:08.805+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--YA_Ea5jR--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%2590Claude%2520Code%25E3%2580%2591Routines%25E3%2581%25A7%25E8%2587%25AA%25E5%258B%2595%25E3%2581%25A7%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2583%25AC%25E3%2583%2593%25E3%2583%25A5%25E3%2583%25BCTips%25E3%2582%2592%25E6%258A%2595%25E7%25A8%25BF%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:yatsuhashi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzQ3ZjRiNGZjZmIuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25BD%25E3%2583%258B%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25AC%25E3%2583%25BC%25E3%2583%2587%25E3%2583%25B3%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSmNueUVHQU9uSXVzX2NHdXZjMGxPYkxreEtvV3BpTE9jbVY5a0N0blVQSEpnNUN5dz1zMjUwLWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "9c0ddb2d59a6955e",
+      "kind": "news",
+      "title": "Anthropic acquires Stainless",
+      "url": "https://www.anthropic.com/news/anthropic-acquires-stainless",
+      "summary": "",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 21,
+      "source": "hn:anthropic",
+      "publishedAt": "2026-05-18T17:01:21.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z"
+    },
+    {
+      "id": "0ec690d7c029990d",
+      "kind": "news",
+      "title": "A Rust-Python thing I am working on. Apache 2 licence",
+      "url": "https://github.com/KevinKenya/nairobi-connector-open-source",
+      "summary": "",
+      "tags": [
+        "rust",
+        "python"
+      ],
+      "score": 21,
+      "source": "hn:python",
+      "publishedAt": "2026-05-18T16:06:05.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://opengraph.githubassets.com/b49c5633e4d86608150898abe7d2814f6706d8071f6469eaea634581e5f44c6f/KevinKenya/nairobi-connector-open-source"
+    },
+    {
+      "id": "e105a34ec359dfc5",
+      "kind": "news",
+      "title": "VSCode上でC++実行時に warning: GDB: Failed to set controlling terminal: Operation not permitted が出た人へ",
+      "url": "https://qiita.com/igeeeeee/items/884daa943b0f900fb362",
+      "summary": "# 症状 VSCode上でC++のファイルを実行しようとすると ``` &\"warning: GDB: Failed to set controlling terminal: Operation not permitted\\n\" ``` が出て実行ができない． ``` g++ -g main.cpp -o main gdb ./main ``` とかでGDBを起動して実行とかは普通にできる． # 対処法 ### C/C++の拡張を1.29.3以前に戻す VSCodeの拡張機能",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 20,
+      "source": "qiita-api:競技プログラミング",
+      "publishedAt": "2026-05-18T00:23:53+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyNjAwODEyJTJGZWEzZjAyODYwNGY0MjcwYTg3ZWFkYmQ5MjZmYzYyYzFlMzliM2FjNCUyRnhfbGFyZ2UucG5nJTNGMTc2NTg4MTgxOT9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9YWM0MjM4ZmVmZThhOTMxMDc5NjQ4MWNjYjk0MjZjZDM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Df6cc374ab871fceb6fd58c99bc15b7a5?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNDb2RlJUU0JUI4JThBJUUzJTgxJUE3QyUyQiUyQiVFNSVBRSU5RiVFOCVBMSU4QyVFNiU5OSU4MiVFMyU4MSVBQiUyMHdhcm5pbmclM0ElMjBHREIlM0ElMjBGYWlsZWQlMjB0byUyMHNldCUyMGNvbnRyb2xsaW5nJTIwdGVybWluYWwlM0ElMjBPcGVyYXRpb24lMjBub3QlMjBwZXIlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz00NjE2MjY5ZDcyOTdhNmVlYjFkZTIxZjRiNjBiODcyYw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBpZ2VlZWVlZSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTU0NDYyYjU0ZWEyZGRlYTEzNDQxZjUxYTFlZWRiZGMy&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=391dec285aa864fbfcf4be7985d6c0de"
+    },
+    {
+      "id": "160d9b10accf89b6",
+      "kind": "news",
+      "title": "Claudeの『性格のようなもの』を形作る、いくつかの葛藤について",
+      "url": "https://zenn.dev/tokoi/articles/260516_claude_personality_tensions",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 20,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-17T00:28:19.028+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--YDaL736X--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%25E3%2581%25AE%25E3%2580%258E%25E6%2580%25A7%25E6%25A0%25BC%25E3%2581%25AE%25E3%2582%2588%25E3%2581%2586%25E3%2581%25AA%25E3%2582%2582%25E3%2581%25AE%25E3%2580%258F%25E3%2582%2592%25E5%25BD%25A2%25E4%25BD%259C%25E3%2582%258B%25E3%2580%2581%25E3%2581%2584%25E3%2581%258F%25E3%2581%25A4%25E3%2581%258B%25E3%2581%25AE%25E8%2591%259B%25E8%2597%25A4%25E3%2581%25AB%25E3%2581%25A4%25E3%2581%2584%25E3%2581%25A6%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:tokoi%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U5Y2NiZGRkODIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "93df4e14d0b852b4",
+      "kind": "news",
+      "title": "Show HN: Claude Soul – cross-session learning engine for Claude Code",
+      "url": "https://news.ycombinator.com/item?id=48184763",
+      "summary": "Claude Code has no memory between sessions. I wanted to fix that, but not by just saving facts to a file — I wanted it to actually get better over time. Claude Soul is an MCP server + hooks that extracts signals from your interactions (corr",
+      "tags": [
+        "claude",
+        "claude-code"
+      ],
+      "score": 20,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-18T20:00:10.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z"
+    },
+    {
+      "id": "bfa7a83b31750cf2",
+      "kind": "news",
+      "title": "Ask HN: Which AI harness comes close to Claude Code?",
+      "url": "https://news.ycombinator.com/item?id=48176033",
+      "summary": "I really want to try deepseek V4, but harnesss which I have previously used are inferior than Claude Code. Please suggest some Harnesses here. I have tried, roo, cline, opencode",
+      "tags": [
+        "claude",
+        "claude-code"
+      ],
+      "score": 20,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-18T06:00:24.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z"
+    },
+    {
+      "id": "eb75e33e56379912",
+      "kind": "news",
+      "title": "【Python】ロックマンエグゼのネットナビを本気で実現する（プロダクト草案）",
+      "url": "https://qiita.com/K_san0219/items/5de8bef170effd362785",
+      "summary": "「もしも、自分だけのネットナビが相棒としてPCに常駐してくれたら……」 そんな少年時代の熱い妄想を、現代のテクノロジーで本気で具現化するためのプロダクト草案です。 ChatGPTのような巨大なクラウドAI（LLM）にお金を払えば、それっぽい会話はすぐに作れます。しかし、それは「あらかじめ用意された超巨大な知能」を借りてきているに過ぎません。私たちが求めているネットナビは、「最初は何も喋れない真っ白な状態から、オペレーター（あなた）の言葉だけを吸収して、あなただけの相棒に育って",
+      "tags": [
+        "python"
+      ],
+      "score": 19,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-18T09:58:18+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGNzg5OTc5JTJGcHJvZmlsZS1pbWFnZXMlMkYxNjA5ODA5MTY4P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0yMGZkZTMwM2Y1ZTIzNmMwNzZkN2JmOGU1M2I1ODQ3YQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dbcd68fc9bbbdd0fc306ac3420f8ed7a0?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwUHl0aG9uJUUzJTgwJTkxJUUzJTgzJUFEJUUzJTgzJTgzJUUzJTgyJUFGJUUzJTgzJTlFJUUzJTgzJUIzJUUzJTgyJUE4JUUzJTgyJUIwJUUzJTgyJUJDJUUzJTgxJUFFJUUzJTgzJThEJUUzJTgzJTgzJUUzJTgzJTg4JUUzJTgzJThBJUUzJTgzJTkzJUUzJTgyJTkyJUU2JTlDJUFDJUU2JUIwJTk3JUUzJTgxJUE3JUU1JUFFJTlGJUU3JThGJUJFJUUzJTgxJTk5JUUzJTgyJThCJUVGJUJDJTg4JUUzJTgzJTk3JUUzJTgzJUFEJUUzJTgzJTgwJUUzJTgyJUFGJUUzJTgzJTg4JUU4JThEJTg5JUU2JUExJTg4JUVGJUJDJTg5JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MWQ4YTU0MWZlNDYyYWI4OWI5OTk1ZDFlZmRlY2M1ZWQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLX3NhbjAyMTkmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz04ZTU3MjgxYTJiNzU3ZDA1YjI4ZmQ3ODBiYzA5YTZkMg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=7939c644ff17446af798300490cdd98e"
+    },
+    {
+      "id": "8ab6476526e51a1e",
+      "kind": "news",
+      "title": "育児相談に乗ってくれる平成ギャル風botを作って夫婦で育児を楽しんでいる話",
+      "url": "https://qiita.com/satoshi-sugiyama/items/b52712fe2f1be82c02ad",
+      "summary": "「育児相談に乗ってくれる平成ギャル」というLINE Botを作り、妻とBotの三人が入ったLINEグループで育児トークするようになりました。 育児に関するちょっとした報告や第三者に話すまでもない相談をここで行って楽しんでいます。 先日のトーク風景はこんな感じです。 ![image.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/4367856/60d7e95f-f8bb-458b-bb93-23",
+      "tags": [
+        "python"
+      ],
+      "score": 19,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-17T21:34:18+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MzY3ODU2JTJGYzAyMTgyOWE3ZGRiNzkzNDZiMDJkNzRjOTAzYmI5YzQ4NjY1YzY2ZSUyRmxhcmdlLnBuZyUzRjE3NzU5OTI2ODU_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTQ2ZGY1NjEzZTliZDc2OGI0ZjE0ODNmNGUyZjYxYjE3%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY0M2Q5ZDBkOWYwNWM3ZDg4ZTk0OGQ2YjU0ZjdiMDcyNjg2MzM2MDg3JTJGb3JpZ2luYWwuanBnJTNGMTcyMDQwNzIxND9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz02MGM5YjEyZGUwOWI2MWYyMTAwYmM3N2JhZjkzYzQ2MA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D9c3afdc047daaeb7e2db1401b31d0f26?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JTgyJUIyJUU1JTg1JTkwJUU3JTlCJUI4JUU4JUFCJTg3JUUzJTgxJUFCJUU0JUI5JTk3JUUzJTgxJUEzJUUzJTgxJUE2JUUzJTgxJThGJUUzJTgyJThDJUUzJTgyJThCJUU1JUI5JUIzJUU2JTg4JTkwJUUzJTgyJUFFJUUzJTgzJUEzJUUzJTgzJUFCJUU5JUEyJUE4Ym90JUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgxJUEzJUUzJTgxJUE2JUU1JUE0JUFCJUU1JUE5JUE2JUUzJTgxJUE3JUU4JTgyJUIyJUU1JTg1JTkwJUUzJTgyJTkyJUU2JUE1JUJEJUUzJTgxJTk3JUUzJTgyJTkzJUUzJTgxJUE3JUUzJTgxJTg0JUUzJTgyJThCJUU4JUE5JUIxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MWFjZWJmYzBiMjRmMWMwNjg0N2ZmNDhlMjE3ZGQzMDQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzYXRvc2hpLXN1Z2l5YW1hJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MWJjMDlmYzgwMDMwMWU4YjFlOTgzZDg0MTM4MTA5NGI&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-6YeO5p2R57eP5ZCI56CU56m25omA&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=14cd2720a8028d4925b7d3ea410d9110"
+    },
+    {
+      "id": "eb94b2bf23d245ff",
+      "kind": "news",
+      "title": "【macOS版】Claude Desktopでローカルファイルを直接操作！filesystem MCPの設定手順",
+      "url": "https://qiita.com/kooohei/items/3c7291036d9a9e68fcad",
+      "summary": "# はじめに 最近話題の**MCP（Model Context Protocol）**。その中でも、ローカルPCのファイルを直接AIに操作させることができる `filesystem` サーバーは、開発体験を劇的に向上させる強力なツールです。 先日、Claude DesktopアプリがMCPに対応し、この `filesystem` サーバーを簡単に組み込めるようになりました。 本記事では、macOS環境のClaude Desktopに `@modelcontextprotoco",
+      "tags": [
+        "claude"
+      ],
+      "score": 19,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-18T09:46:50+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGODIwOTAlMkZwcm9maWxlLWltYWdlcyUyRjE3MDAxODQwODM_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWQ1YWVlNWVkODdiZDBjNmJlZGUxYjhlM2E5NjY3NTYz%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY5NDQ5Y2MxZGYzZDNiNGNjZWRkOTA1MDQzZGNiMDAyZTVjOGMxZmVjJTJGb3JpZ2luYWwuanBnJTNGMTYxMzM2NzQ1NT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz0wZDIyYjhhMjYyZWY2YzAxMWI0M2MyNzVmNmQ5NTM1NQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D907ce2b76905b12c00bc494ba192cd7e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwbWFjT1MlRTclODklODglRTMlODAlOTFDbGF1ZGUlMjBEZXNrdG9wJUUzJTgxJUE3JUUzJTgzJUFEJUUzJTgzJUJDJUUzJTgyJUFCJUUzJTgzJUFCJUUzJTgzJTk1JUUzJTgyJUExJUUzJTgyJUE0JUUzJTgzJUFCJUUzJTgyJTkyJUU3JTlCJUI0JUU2JThFJUE1JUU2JTkzJThEJUU0JUJEJTlDJUVGJUJDJTgxZmlsZXN5c3RlbSUyME1DUCVFMyU4MSVBRSVFOCVBOCVBRCVFNSVBRSU5QSVFNiU4OSU4QiVFOSVBMCU4NiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPTg3MTkxZGJjNzRmMTQzYzU3Njc3M2ZlNTFiMzFiYzgx&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrb29vaGVpJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9OTM5ODgxODJjMWIzNjE2MzNjMDc5ZTNiNzQ1ZGZlODY&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=44OP44Oz44K444Ol5qCq5byP5Lya56S-&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=f61ab1d8d27ac05fe85d8563eefb2e5f"
+    },
+    {
+      "id": "00fc6fe818492b19",
+      "kind": "news",
+      "title": "私が code-first を選んだ理由 — Rust + Kotlin/JS で動かして見えた『ツールチェーン視点』",
+      "url": "https://zenn.dev/toguri/articles/graphql-code-first-vs-schema-first-toolchain",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-18T22:38:00.651+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--3TZqzARi--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E7%25A7%2581%25E3%2581%258C%2520code-first%2520%25E3%2582%2592%25E9%2581%25B8%25E3%2582%2593%25E3%2581%25A0%25E7%2590%2586%25E7%2594%25B1%2520%25E2%2580%2594%2520Rust%2520%252B%2520Kotlin%252FJS%2520%25E3%2581%25A7%25E5%258B%2595%25E3%2581%258B%25E3%2581%2597%25E3%2581%25A6%25E8%25A6%258B%25E3%2581%2588%25E3%2581%259F%25E3%2580%258E%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2583%2581%25E3%2582%25A7%25E3%2583%25BC%25E3%2583%25B3%25E8%25A6%2596%25E7%2582%25B9%25E3%2580%258F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:toguri%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUxtNXd1MnpWQ2VUU2xDc2dSak1ULUZDd3J6RWZ2d094YkhLajhKQ1cwZDVuQT1zOTYtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "b104f2b26130ae98",
+      "kind": "news",
+      "title": "Microsoft SmartScreenの警告課題に、JSZipオンメモリ解凍とRust自律型インフラで立ち向かう「会員制地下ショーケース",
+      "url": "https://zenn.dev/zdna/articles/74e1667ae7f7c2",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-18T13:57:58.673+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--SfWQNIi8--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Microsoft%2520SmartScreen%25E3%2581%25AE%25E8%25AD%25A6%25E5%2591%258A%25E8%25AA%25B2%25E9%25A1%258C%25E3%2581%25AB%25E3%2580%2581JSZip%25E3%2582%25AA%25E3%2583%25B3%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E8%25A7%25A3%25E5%2587%258D%25E3%2581%25A8Rust%25E8%2587%25AA%25E5%25BE%258B%25E5%259E%258B%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2595%25E3%2583%25A9%25E3%2581%25A7%25E7%25AB%258B%25E3%2581%25A1%25E5%2590%2591%25E3%2581%258B...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ZeNx%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSmNBOWU0N2JTbEZOX2Y3a1ZCOTk3cEZ2RE92RnNTck9uX1VsMjktcWJhMk5CaDdPVT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "2fb7d12c8f4297d3",
+      "kind": "news",
+      "title": "AppleとGoogleが捻じ曲げた「歪んだモダン開発」と、私たちが取り戻すべき「真のモダン開発」",
+      "url": "https://zenn.dev/kenjiigarashi/articles/d4099c68e0f621",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-19T05:00:05.271+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--R1fQFXei--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Apple%25E3%2581%25A8Google%25E3%2581%258C%25E6%258D%25BB%25E3%2581%2598%25E6%259B%25B2%25E3%2581%2592%25E3%2581%259F%25E3%2580%258C%25E6%25AD%25AA%25E3%2582%2593%25E3%2581%25A0%25E3%2583%25A2%25E3%2583%2580%25E3%2583%25B3%25E9%2596%258B%25E7%2599%25BA%25E3%2580%258D%25E3%2581%25A8%25E3%2580%2581%25E7%25A7%2581%25E3%2581%259F%25E3%2581%25A1%25E3%2581%258C%25E5%258F%2596%25E3%2582%258A%25E6%2588%25BB%25E3%2581%2599%25E3%2581%25B9%25E3%2581%258D%25E3%2580%258C%25E7%259C%259F%25E3%2581%25AE%25E3%2583%25A2%25E3%2583%2580%25E3%2583%25B3%25E9%2596%258B%25E7%2599%25BA%25E3%2580%258D%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Kenji%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSVBMQmJVbk02SEF1TzhlLUxpUV93VW1sX0IxWXVvQkdQTm9LeUtFTXBRYTdMVjBnPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "398a5a9b91ae2fd4",
+      "kind": "news",
+      "title": "Rust×Geminiで画面を完全に消し去る。タスクトレイの深淵に常駐する影のメール補佐官『Z-Md』を開発した話",
+      "url": "https://zenn.dev/zdna/articles/94939daaf672b0",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-17T11:56:54.402+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--bbayh4RZ--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25C3%2597Gemini%25E3%2581%25A7%25E7%2594%25BB%25E9%259D%25A2%25E3%2582%2592%25E5%25AE%258C%25E5%2585%25A8%25E3%2581%25AB%25E6%25B6%2588%25E3%2581%2597%25E5%258E%25BB%25E3%2582%258B%25E3%2580%2582%25E3%2582%25BF%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%2588%25E3%2583%25AC%25E3%2582%25A4%25E3%2581%25AE%25E6%25B7%25B1%25E6%25B7%25B5%25E3%2581%25AB%25E5%25B8%25B8%25E9%25A7%2590%25E3%2581%2599%25E3%2582%258B%25E5%25BD%25B1%25E3%2581%25AE%25E3%2583%25A1%25E3%2583%25BC%25E3%2583%25AB%25E8%25A3%259C%25E4%25BD%2590%25E5%25AE%2598%25E3%2580%258EZ-Md%25E3%2580%258F%25E3%2582%2592%25E9%2596%258B%25E7%2599%25BA%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ZeNx%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSmNBOWU0N2JTbEZOX2Y3a1ZCOTk3cEZ2RE92RnNTck9uX1VsMjktcWJhMk5CaDdPVT1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "4c90c6adde76fa32",
+      "kind": "news",
+      "title": "コンパニオンAIの「黙る」を、default として設計した話",
+      "url": "https://zenn.dev/haru0416/articles/companion-ai-silence-default",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-14T21:32:42.621+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--aVixBx-L--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25B3%25E3%2583%25B3%25E3%2583%2591%25E3%2583%258B%25E3%2582%25AA%25E3%2583%25B3AI%25E3%2581%25AE%25E3%2580%258C%25E9%25BB%2599%25E3%2582%258B%25E3%2580%258D%25E3%2582%2592%25E3%2580%2581default%2520%25E3%2581%25A8%25E3%2581%2597%25E3%2581%25A6%25E8%25A8%25AD%25E8%25A8%2588%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Haru%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ZhMWMzZjlmNGMuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "61078f022b937fb4",
+      "kind": "news",
+      "title": "AGENTS.md とシンボリックリンクで、JetBrains AI の Junie、Codex、Claude Agent をまとめて運用",
+      "url": "https://zenn.dev/nattosystem_jp/articles/e85432144350ef",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 19,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-18T15:16:20.026+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--Wo3a6gGl--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AGENTS.md%2520%25E3%2581%25A8%25E3%2582%25B7%25E3%2583%25B3%25E3%2583%259C%25E3%2583%25AA%25E3%2583%2583%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%25B3%25E3%2582%25AF%25E3%2581%25A7%25E3%2580%2581JetBrains%2520AI%2520%25E3%2581%25AE%2520Junie%25E3%2580%2581Codex%25E3%2580%2581Claude%2520A...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%25AD%25E3%2581%25B0%25E3%2581%25AD%25E3%2581%25B0%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2RiYWQxMDhjNTMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BENATTOSYSTEM%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly96ZW5uLWRldi5naXRodWIuaW8vZGVmYXVsdC1hdmF0YXJzL2Rhcmsvbi5wbmc=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "cce9f47d12d663c9",
+      "kind": "news",
+      "title": "Claudeは夢を見る｜「メモリー」と「dreaming」の正体を時系列で整理する",
+      "url": "https://zenn.dev/yamato_snow/articles/45edb2b07b2cee",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 19,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-17T01:34:20.495+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--k1UIrT4e--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%25E3%2581%25AF%25E5%25A4%25A2%25E3%2582%2592%25E8%25A6%258B%25E3%2582%258B%25EF%25BD%259C%25E3%2580%258C%25E3%2583%25A1%25E3%2583%25A2%25E3%2583%25AA%25E3%2583%25BC%25E3%2580%258D%25E3%2581%25A8%25E3%2580%258Cdreaming%25E3%2580%258D%25E3%2581%25AE%25E6%25AD%25A3%25E4%25BD%2593%25E3%2582%2592%25E6%2599%2582%25E7%25B3%25BB%25E5%2588%2597%25E3%2581%25A7%25E6%2595%25B4%25E7%2590%2586%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2582%2584%25E3%2581%25BE%25E3%2581%25A8%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2UxMTY0YzRhNDUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "a30c40a84826e9bf",
+      "kind": "news",
+      "title": "30日後にサービスをリリースして不労所得を得る開発者 (3日目) ― Obsidianで仕様書を視覚的に管理しやすくする",
+      "url": "https://zenn.dev/tempeso/articles/1ec7f24f1d9875",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 19,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-16T20:03:51.570+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0zUck5ZB--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:30%25E6%2597%25A5%25E5%25BE%258C%25E3%2581%25AB%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2593%25E3%2582%25B9%25E3%2582%2592%25E3%2583%25AA%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25B9%25E3%2581%2597%25E3%2581%25A6%25E4%25B8%258D%25E5%258A%25B4%25E6%2589%2580%25E5%25BE%2597%25E3%2582%2592%25E5%25BE%2597%25E3%2582%258B%25E9%2596%258B%25E7%2599%25BA%25E8%2580%2585%2520%25283%25E6%2597%25A5%25E7%259B%25AE%2529%2520%25E2%2580%2595%2520Obsidian%25E3%2581%25A7%25E4%25BB%2595%25E6%25A7%2598%25E6%259B%25B8%25E3%2582%2592%25E8%25A6%2596%25E8%25A6%259A%25E7%259A%2584%25E3%2581%25AB%25E7%25AE%25A1%25E7%2590%2586%25E3%2581%2597%25E3%2582%2584%25E3%2581%2599%25E3%2581%258F%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%25A6%25E3%2582%2593%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jS0VZSG0yQ282emNNYUhTUW9UV0lzN0s0NEgtT01lRFJWblp6NVdKellhODd3QlphZz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "e571b663c7715228",
+      "kind": "news",
+      "title": "Show HN: X open sourced their algorithm",
+      "url": "https://www.xalgorithm.xyz/en",
+      "summary": "X open sourced their algorithm so i read through it and used claude code to write a plain english breakdown of all steps",
+      "tags": [
+        "claude",
+        "claude-code",
+        "algorithm"
+      ],
+      "score": 19,
+      "source": "hn:algorithm",
+      "publishedAt": "2026-05-15T19:10:23.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://xalgorithm.xyz/en/opengraph-image?ab2568e5a41db490"
+    },
+    {
+      "id": "aa554fccf839793b",
+      "kind": "news",
+      "title": "Rust「よく使う文法」だけ押さえると一気にわかる",
+      "url": "https://qiita.com/softbase/items/44c83315311793a5154b",
+      "summary": "## 1. 変数と不変 / 可変（Rustの基本思想） ```rust let x = 10; // 不変（デフォルト） let mut y = 20; // 可変 y += 5; ``` ・`mut`を付けないと変更不可 ・「勝手に変わらない」＝バグを防ぎやすい --- ## 2. 型指定（省略できるが重要） ```rust let a: i32 = 100; let b = 3.14; // f64と推論される ``` 型が曖昧なときは明示するとエラー回避しやすい。 --",
+      "tags": [
+        "rust"
+      ],
+      "score": 18,
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-05-17T00:55:30+09:00",
+      "fetchedAt": "2026-05-18T23:01:14.038Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxMjU3NDYlMkYxM2Q3NGUwNzkzZWNiZDU1NjYwNGIzZTBmMDM1Y2RhY2VhN2MyOWRiJTJGbGFyZ2UucG5nJTNGMTc0NjE5MjIyNj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9NzU4YWE1MjRiMDNlZmU2ZWZhN2VkM2ZlMmIzN2I0MTc%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De75f545fdd39d0207ceed9496afa02b2?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9UnVzdCVFMyU4MCU4QyVFMyU4MiU4OCVFMyU4MSU4RiVFNCVCRCVCRiVFMyU4MSU4NiVFNiU5NiU4NyVFNiVCMyU5NSVFMyU4MCU4RCVFMyU4MSVBMCVFMyU4MSU5MSVFNiU4QSVCQyVFMyU4MSU5NSVFMyU4MSU4OCVFMyU4MiU4QiVFMyU4MSVBOCVFNCVCOCU4MCVFNiVCMCU5NyVFMyU4MSVBQiVFMyU4MiU4RiVFMyU4MSU4QiVFMyU4MiU4QiZ0eHQtYWxpZ249bGVmdCUyQ3RvcCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTU2JnR4dC1wYWQ9MCZzPWNhNDhkODdmMzBlZTdhOTYzNTllNjVjYmEzZTRlNzBj&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzb2Z0YmFzZSZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPTQ3MGViOGFmZjdmZDY0OGJmYjNkNmFkZDJlNTc5ZTFh&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=27ec8a1548f5f693d9424d6ea13af570"
+    },
+    {
+      "id": "1e1b67aad17388ad",
+      "kind": "paper",
+      "title": "Fire and ice: Partially fault-tolerant quantum computing with selective state filtering",
+      "url": "https://arxiv.org/abs/2605.15344",
+      "summary": "私たちは、五量子ビットのラフラムコードを四量子ビットのアイスバーグコードに連結させたエラー訂正量子計算の手法を開発しました。このアプローチは微妙なバランスを保っています。具体的には、故障耐性がないため、論理的なエラー率が高くなるリスクがあります。また、エラー訂正のために符号化された状態を準備する際に選択的フィルタリングに依存しており、これも大きなオーバーヘッドを伴う可能性があります。しかし、現実的なシミュレーションノイズ率においては、この手法は信頼性が高く、資源効率も良好です。この研究は、スケーラブルな量子計算に向けた実用的な道筋を示しています。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 16,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Ben W. Reichardt",
+        "David Aasen",
+        "Rui Chao"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "131fd7aaa697c9f8",
+      "kind": "paper",
+      "title": "Control-Plane Openness in Near-Term Quantum Computing: A Survey of Vendor Stacks and Field Implications",
+      "url": "https://arxiv.org/abs/2605.15233",
+      "summary": "商業量子コンピューティングにおけるパルスレベルおよび制御電子機器インターフェースへの公共アクセスは二分化しています。最大の超伝導クラウドプラットフォームはこの層へのアクセスを閉鎖しており、IBMは2025年2月にすべての生産用量子プロセッサユニット（QPU）からパルスレベル制御を削除しました。一方、中堅の超伝導ベンダーやよりオープンな中性原子プラットフォームは逆の方向に進んでいます。私たちは、超伝導、トラップイオン、中性原子、フォトニックの各モダリティにわたる13の商業ベンダーを調査し、ゲートレベルの回路仕様と物理的制御電子機器の間にある「制御プレーン」と呼ばれる層におけるオープン性の6つの軸でそれぞれを評価しました。このカタログは、CC-BY-4.0の下で別の機械可読アーティファクトとして提供されます（DOI: https://doi.org/10.5281/zenodo.20163276）。二分化の状況は行ごとに文書化されており、再現性、ハードウェアを意識した研究、ベンダー間のベンチマーキングに対する影響が示されています。私たちはアーキテクチャやリファレンス実装を提案するのではなく、アクセスの状況が変化する中で分野が失ったものと、この層における最小限のオープンアクセスがどのようなものであるべきかを説明しています。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 15,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Rylan Malarchick"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "4d65254e39cd09f2",
+      "kind": "paper",
+      "title": "Efficient quantum algorithm for linear matrix differential equations and applications to open quantum systems",
+      "url": "https://arxiv.org/abs/2605.16195",
+      "summary": "効率的でほぼ最適な量子アルゴリズムを提案します。このアルゴリズムは線形行列微分方程式を解くためのもので、開放量子系のシミュレーションなどに応用できます。ユニタリ（単位的）または非ユニタリ（散逸的）な動力学に対して、アルゴリズムは解行列の要素を計算する際に、クエリの複雑さが $\\widetilde{\\mathcal{O}}(\\nu \\mathcal{L} t/\\epsilon)$ となります。ここで、定数 $\\nu$ は問題のパラメータに依存し、$\\mathcal{L}$ は進化演算子のノルムの上限に関する時間積分を含み、$\\epsilon$ は誤差を表します。特に、ユニタリ動力学の場合、$\\nu \\mathcal{L}$ は時間 $t$ に対して線形であり、散逸的動力学の場合は定数となることがあります。この結果は、量子状態へのエンコーディングによって指数的な時間を必要とする従来の微分方程式に対する量子アプローチと対照的です。このエンコーディングは、指数的に小さな振幅を引き起こす可能性があります。アルゴリズムの有用性を、相互作用のないフェルミオンの散逸的動力学のシミュレーションという具体的な応用を通じて示します。この手法は他の量子系や古典系にも拡張可能です。古典的なアルゴリズムと比較し、格子内の系に対して多項式の量子スピードアップの証拠を示します。このスピードアップは、長距離相互作用を持つ系においてより顕著になり、一般的には指数的であることが示されます。また、ユニタリまたは散逸的動力学に対して、$\\Omega(\\nu \\mathcal{L} t/\\epsilon)$ の下限を提供し、我々のアルゴリズムが対数因子まで最適であることを証明します。",
+      "tags": [
+        "quantum-algorithm"
+      ],
+      "score": 15,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Sophia Simon",
+        "Dominic W. Berry",
+        "Rolando D. Somma"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "37887b5891b1dfc0",
+      "kind": "news",
+      "title": "Show HN: GreenType – That Mechanical Keyboard You've Always Wanted",
+      "url": "https://greentype.lamdera.app/",
+      "summary": "",
+      "tags": [
+        "mechanical-keyboard"
+      ],
+      "score": 13,
+      "source": "hn:mechanical keyboard",
+      "publishedAt": "2026-05-13T12:24:09.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.038Z"
+    },
+    {
+      "id": "47336029fcee3f0f",
+      "kind": "paper",
+      "title": "Diagonal Adaptive Non-local Observables on Quantum Neural Networks",
+      "url": "https://arxiv.org/abs/2605.15410",
+      "summary": "適応型非局所可観測量（ANO）は、量子可観測量を動的にすることで変分量子アルゴリズムの機能空間を大幅に拡大できることを示しています。これにより、ハードウェアの要求が回路合成から測定設計に部分的にシフトします。しかし、この利点には、一般的なエルミート可観測量の変化に伴うパラメータの数の急激な増加や、古典的最適化コストの増加が伴います。私たちは、量子回路と組み合わせた対角可観測量のみを考慮することで、この負担を大幅に軽減する特別な形のANOを提案します。数学的には、これは大きなパラメータ空間の完全なANOと同等であり、対角行列はユニタリ相似性に関するANO空間の標準的な代表です。その結果、対角ANOは完全なANOと同じ能力を保持しつつ、$k$-局所可観測量の複雑さを$O(4^k)$から$O(2^k)$に減少させ、対応する測定側の古典的計算を軽減します。この意味において、対角ANOは完全なANOの多くの利点を保持しながら、従来の変分量子回路（VQC）を特別なケースとして包含しています。",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 6,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Huan-Hsin Tseng",
+        "Yan Li",
+        "Hsin-Yi Lin",
+        "+1"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "07cd9d17261277f0",
+      "kind": "paper",
+      "title": "Beyond Unitary Quantum Simulation: Open-System Approaches to Quantum Chemistry toward Quantum Advantage",
+      "url": "https://arxiv.org/abs/2605.15277",
+      "summary": "量子シミュレーションは、真の量子優位性を得るための最も有望な手段の一つと広く考えられていますが、既存の量子化学に関するアプローチの多くは、閉じた系におけるユニタリー（単位的）ダイナミクスと、ボルン・オッペンハイマー近似に基づく基底状態の準備に焦点を当てています。このレビューでは、自然に存在する量子系はほとんど孤立しておらず、リラクゼーション（緩和）、デコヒーレンス（量子状態の崩壊）、および熱化を通じてのみ物理的に関連する状態に到達することが多いという観察に基づいて、より広い視点を考察します。まず、化学における指数的な量子優位性について、何が知られていて何が知られていないのかを検討し、コヒーレントハミルトニアンシミュレーション（相互作用のないエネルギー準位を持つ系のシミュレーション）が速度向上の最も明確な形式的ケースを提供することを強調しますが、現実的な問題に関しては多くの未解決の疑問が残っています。次に、故障耐性のある量子コンピュータ上で量子化学における消散（エネルギーの散逸）を理想的に統合する方法について議論し、化学的に動機づけられた動的シミュレーションに関する最近の提案を指針として用います。一般的に、このアプローチが量子アルゴリズムの堅牢性を高める実用的な魅力を持つことを強調します。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 5,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Michael Marthaler",
+        "Elias Zapusek",
+        "Florentin Reiter"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "735e5ce0becba41e",
+      "kind": "paper",
+      "title": "HOPPER: A Hop-by-hop Entanglement Distribution Protocol for Asynchronous Quantum Networks",
+      "url": "https://arxiv.org/abs/2605.15869",
+      "summary": "量子インターネットは、量子メモリを持つエンドノード間でエンタングルされた量子ビット（エビット）を配布する能力に依存しており、これにより盲目的または分散型の量子計算といった、古典的なネットワーク（非量子ネットワーク）では不可能なアプリケーションを実現します。この必要性は、エンタングルメントの脆弱な性質から新たな課題を生み出します。エンタングルメントは短い時間スケールでデコヒーレンス（量子状態が外部環境と相互作用して崩れる現象）を起こし、増幅、バッファリング、再送信ができません。科学文献では、特定の経路におけるエンタングルメントの配布を実現するために、2つの大きなアプローチが提案されています。一つは同期時間スロットモデルに基づくもので、もう一つは中間ノードが非同期に相互作用するものです。しかし、どちらのアプローチも、エビットが確立されてエンドノードのアプリケーションに利用可能になる前に新しいエビットを作成するという直列操作を暗黙のうちに前提としています。このため、長距離ネットワークや高い伝送遅延がある場合には非効率的です。特に、中間ノードが並行して使用できる複数のメモリキュービットを持っている場合はそうです。この制限を克服するために、本論文では、同期および非同期の両方の操作において、同じ量子上での同時エビット要求の多重化の影響を研究します。さらに、非同期操作に関しては、エビットを確立する際に中間ノードが自律的にリソースを使用するためのホップごとの決定を行う新しい配布プロトコル「HOPPER」を定義します。数値シミュレーションにより、HOPPERが複数のエビット要求を並行して処理するのに効果的であり、さまざまなシナリオにおいて同期的な代替手段よりも著しく優れた性能を示すことを示します。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 5,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Claudio Cicconetti"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "b7451ba657bcff6e",
+      "kind": "paper",
+      "title": "Hybrid Quantum-Classical Density Functional Theory: A Structured Framework",
+      "url": "https://arxiv.org/abs/2605.15979",
+      "summary": "密度汎関数理論（DFT）は、原子レベルのシミュレーションに広く利用されています。しかし、正確な交換相関汎関数の欠如や、コストのかかるO(N^3)の対角化が必要であるなど、いくつかの制約により、その適用範囲は限られています。量子コンピューティングは、変分法、埋め込み戦略、量子線形ソルバーなどの手法を通じて前進の道を提供しますが、議論は散発的です。共通の用語や構造がないため、ハイブリッド量子古典DFTの進展を評価することは困難です。この混乱を整理するために、我々はDFTとの接続点に基づく三軸の枠組みを提案します。具体的には、量子部分が精度を向上させるのか、時間を短縮するのか、さらに現在のノイズの多い機械か将来の誤り訂正された機械かという観点から分類します。このように既知のアプローチを整理することで、埋め込みフレームワークが現代のツールにより適している理由が明らかになり、一方で、より高度なシステムが待たれる中で、迅速な線形代数の手法が求められていることが示されます。",
+      "tags": [
+        "quantum-computing"
+      ],
+      "score": 5,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Namrata Manglani",
+        "Samrit Kumar Maity",
+        "Shashank Sharma",
+        "+2"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "1087e5c48e49624f",
+      "kind": "paper",
+      "title": "Quantum Solvers for Nonlinear Matrix Equations in Quantum Chemistry",
+      "url": "https://arxiv.org/abs/2605.16189",
+      "summary": "代数リカッティ方程式を解くための量子アルゴリズムを提案します。このアルゴリズムは、量子化学におけるランダム位相近似（RPA）や高次RPA理論に応用されます。私たちの方法は、関連する非正規行列の不変部分空間に対するリース射影子を用いて、安定化リカッティ解をブロックエンコードします。これは、輪郭積分の残差と量子特異値変換を用いて実装されます。$m$粒子、$m$ホールRPAに適用すると、我々のアルゴリズムは振幅解のブロックエンコーディングを生成し、それを用いて電子相関エネルギー密度を推定します。局所化された軌道のスパース性の仮定の下では、エンドツーエンドのコストは系のサイズに対して線形に、励起ランク$m$に対して多項式的にスケールするため、妥当な古典的局所相関ヒューリスティックに対して$m$において指数的な利点を示唆しています。より広く、この研究は量子化学における非線形行列方程式のための量子アルゴリズムの枠組みを提供し、カップルクラスター理論のための量子アルゴリズム開発への道を開く可能性があります。",
+      "tags": [
+        "quantum-algorithm"
+      ],
+      "score": 5,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-18T04:00:00.000Z",
+      "fetchedAt": "2026-05-18T23:01:14.066Z",
+      "authors": [
+        "Pablo Rodenas-Ruiz",
+        "Andrew Zhao",
+        "Joonho Lee"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    }
+  ]
+}
