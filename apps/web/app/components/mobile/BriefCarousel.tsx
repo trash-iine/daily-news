@@ -10,21 +10,10 @@ import {
   pdfUrlOf,
   sourceLabel,
   sourceFamily,
+  stripForPreview,
 } from "./lib";
 import { BigTagPill } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
-
-function stripForPreview(s: string): string {
-  return s
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/`+/g, "")
-    .replace(/\*\*|__/g, "")
-    .replace(/\$([^$]+)\$/g, "$1")
-    .replace(/\s+/g, " ")
-    .trim();
-}
 
 /**
  * 「5-MIN BRIEF」横スワイプカルーセル。

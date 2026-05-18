@@ -1,7 +1,7 @@
 "use client";
 import { useState, type CSSProperties } from "react";
 import type { BaseItem, BigTagGroup } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, FAM_COLOR, FAM_GLYPH, bigTagOf, sourceFamily } from "./lib";
+import { BIG_COLOR, BIG_TAGS, FAM_COLOR, FAM_GLYPH, bigTagOf, sourceFamily, weekdayJa } from "./lib";
 
 export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
   const t = BIG_TAGS.find((x) => x.id === id);
@@ -364,7 +364,7 @@ export function DateStrip({
     >
       {archive.map((d) => {
         const dt = new Date(d);
-        const wd = ["日", "月", "火", "水", "木", "金", "土"][dt.getDay()];
+        const wd = weekdayJa(dt);
         const active = d === currentDate;
         return (
           <button

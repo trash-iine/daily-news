@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { cleanText, fetchText } from "../util.js";
+import { cleanText, fetchText, toISOorNow } from "../util.js";
 import type { ArxivPaper } from "./arxiv.js";
 import { shortenAuthors, splitAuthorList } from "./arxiv.js";
 
@@ -102,11 +102,7 @@ export function parseAPSXml(xml: string, sourceId: string): ArxivPaper[] {
     const url = /^10\./.test(doi)
       ? `https://doi.org/${doi}`
       : link.replace(/^http:/, "https:");
-    const dateRaw = it["dc:date"] ?? "";
-    const parsed = dateRaw ? new Date(dateRaw) : new Date(NaN);
-    const publishedAt = Number.isFinite(parsed.getTime())
-      ? parsed.toISOString()
-      : new Date().toISOString();
+    const publishedAt = toISOorNow(it["dc:date"]);
     out.push({
       arxivId: doi,
       title,

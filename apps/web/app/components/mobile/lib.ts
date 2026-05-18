@@ -106,6 +106,18 @@ export const sourceFamily = (s: string): string => {
   return "other";
 };
 
+export function stripForPreview(s: string): string {
+  return s
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/`+/g, "")
+    .replace(/\*\*|__/g, "")
+    .replace(/\$([^$]+)\$/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export const fmtRel = (iso: string, nowMs: number): string => {
   const d = new Date(iso).getTime();
   const h = Math.round((nowMs - d) / 36e5);
@@ -114,10 +126,13 @@ export const fmtRel = (iso: string, nowMs: number): string => {
   return `${Math.round(h / 24)}日前`;
 };
 
+export const WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"] as const;
+
+export const weekdayJa = (d: Date): string => WEEKDAY_JA[d.getDay()] ?? "";
+
 export const fmtDateBadge = (iso: string): string => {
   const d = new Date(iso);
-  const wd = ["日", "月", "火", "水", "木", "金", "土"][d.getDay()];
-  return `${d.getMonth() + 1}/${d.getDate()} ${wd}`;
+  return `${d.getMonth() + 1}/${d.getDate()} ${weekdayJa(d)}`;
 };
 
 export const hostFromUrl = (u: string): string => {

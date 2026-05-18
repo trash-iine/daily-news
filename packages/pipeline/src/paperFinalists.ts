@@ -8,7 +8,7 @@ export interface ScoredPaper {
   priority: boolean;
 }
 
-export function isAPSSource(source: string): boolean {
+function isAPSSource(source: string): boolean {
   return source.startsWith("aps:");
 }
 

@@ -10,22 +10,11 @@ import {
   pdfUrlOf,
   sourceFamily,
   sourceLabel,
+  stripForPreview,
 } from "./lib";
 import { BigTagPill, Tag, Thumb } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
 import { SummaryMarkdown } from "./SummaryMarkdown";
-
-function stripForPreview(s: string): string {
-  return s
-    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
-    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
-    .replace(/^#{1,6}\s+/gm, "")
-    .replace(/`+/g, "")
-    .replace(/\*\*|__/g, "")
-    .replace(/\$([^$]+)\$/g, "$1")
-    .replace(/\s+/g, " ")
-    .trim();
-}
 
 export function ArticleCard({
   item,

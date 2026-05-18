@@ -27,16 +27,28 @@ const NAMED_ENTITIES: Record<string, string> = {
   nbsp: " ",
 };
 
-export function cleanText(input: string): string {
+export function decodeHtmlEntities(input: string): string {
   if (!input) return "";
-  let s = input
+  return input
     .replace(/&#x([0-9a-fA-F]+);/g, (_m, h) =>
       String.fromCodePoint(parseInt(h as string, 16)),
     )
     .replace(/&#(\d+);/g, (_m, d) => String.fromCodePoint(parseInt(d as string, 10)))
     .replace(/&([a-zA-Z]+);/g, (m, n) => NAMED_ENTITIES[n as string] ?? m);
-  s = s.replace(/<[^>]+>/g, " ");
-  return s.replace(/\s+/g, " ").trim();
+}
+
+export function cleanText(input: string): string {
+  if (!input) return "";
+  const decoded = decodeHtmlEntities(input);
+  return decoded.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+/** 与えられた日付文字列を ISO 8601 に正規化する。パース不能なら現在時刻にフォールバック。 */
+export function toISOorNow(raw: string | undefined): string {
+  if (!raw) return new Date().toISOString();
+  const t = Date.parse(raw);
+  if (!Number.isFinite(t)) return new Date().toISOString();
+  return new Date(t).toISOString();
 }
 
 export async function fetchText(url: string, init?: RequestInit): Promise<string> {

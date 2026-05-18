@@ -1,5 +1,5 @@
 import { XMLParser } from "fast-xml-parser";
-import { cleanText, fetchText } from "../util.js";
+import { cleanText, fetchText, toISOorNow } from "../util.js";
 
 const rssParser = new XMLParser({
   ignoreAttributes: false,
@@ -148,9 +148,7 @@ export async function fetchArxivCategory(category: string): Promise<ArxivPaper[]
     const abstract = extractAbstract(it.description ?? "");
     if (!abstract) continue;
     const announceType = parseAnnounceType(pickText(it["arxiv:announce_type"]));
-    const pubIso = it.pubDate
-      ? new Date(it.pubDate).toISOString()
-      : new Date().toISOString();
+    const pubIso = toISOorNow(it.pubDate);
     out.push({
       arxivId,
       title: cleanText(it.title ?? ""),

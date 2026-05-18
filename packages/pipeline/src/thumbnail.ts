@@ -1,4 +1,4 @@
-import { USER_AGENT } from "./util.js";
+import { USER_AGENT, decodeHtmlEntities } from "./util.js";
 
 const FETCH_TIMEOUT_MS = 5000;
 const MAX_BYTES = 512 * 1024;
@@ -12,36 +12,12 @@ const META_PATTERNS: RegExp[] = [
   /<link[^>]+rel=["']image_src["'][^>]*href=["']([^"']+)["'][^>]*>/i,
 ];
 
-const ENTITIES: Record<string, string> = {
-  amp: "&",
-  lt: "<",
-  gt: ">",
-  quot: '"',
-  apos: "'",
-  "#x2F": "/",
-  "#47": "/",
-};
-
-function decodeAttr(s: string): string {
-  return s.replace(/&([a-zA-Z]+|#x?[0-9a-fA-F]+);/g, (m, name) => {
-    const key = name as string;
-    if (ENTITIES[key]) return ENTITIES[key];
-    if (key.startsWith("#x") || key.startsWith("#X")) {
-      return String.fromCodePoint(parseInt(key.slice(2), 16));
-    }
-    if (key.startsWith("#")) {
-      return String.fromCodePoint(parseInt(key.slice(1), 10));
-    }
-    return m;
-  });
-}
-
 export function extractOgImage(html: string, baseUrl: string): string | undefined {
   const head = html.slice(0, 64 * 1024);
   for (const re of META_PATTERNS) {
     const m = head.match(re);
     if (!m || !m[1]) continue;
-    const raw = decodeAttr(m[1].trim());
+    const raw = decodeHtmlEntities(m[1].trim());
     if (!raw) continue;
     try {
       return new URL(raw, baseUrl).href;

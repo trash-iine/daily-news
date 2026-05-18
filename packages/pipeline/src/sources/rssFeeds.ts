@@ -1,7 +1,9 @@
 import Parser from "rss-parser";
-import { isFresh, readFeedCache, writeFeedCache } from "../cache.js";
+import { isFresh, readFeedCache, writeFeedCache, type FeedFetchResult } from "../cache.js";
 import { USER_AGENT } from "../util.js";
 import type { RawItem } from "./types.js";
+
+export type { FeedFetchResult };
 
 const parser = new Parser();
 const FETCH_TIMEOUT_MS = 10_000;
@@ -76,17 +78,6 @@ function toRawItems(
     publishedAt: item.isoDate ?? item.pubDate ?? new Date().toISOString(),
     baseScore,
   }));
-}
-
-/**
- * 戻り値の `cached` フラグは呼び出し側 (main.ts の safe()) で
- * 健全性ログの status 判定に使われる。
- *  - cached: true     => 304 Not Modified、または失敗 → last-good フォールバック
- *  - cached: false    => 200 OK で新規パース
- */
-export interface FeedFetchResult {
-  items: RawItem[];
-  cached: boolean;
 }
 
 export async function fetchRssFeed(

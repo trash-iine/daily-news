@@ -65,3 +65,37 @@ export async function appendHealth(record: FeedHealthRecord): Promise<void> {
   await mkdir(CACHE_DIR, { recursive: true });
   await appendFile(HEALTH_LOG_PATH, JSON.stringify(record) + "\n", "utf-8");
 }
+
+export interface FeedFetchResult {
+  items: RawItem[];
+  cached: boolean;
+}
+
+/**
+ * 「外部 API を 1 回叩いてレスポンスをパースし、結果をキャッシュに書き戻す」
+ * 共通フロー。fetch が失敗したら直近のキャッシュ (7 日以内) にフォールバックする。
+ */
+export async function fetchWithFeedCache(
+  cacheId: string,
+  label: string,
+  fetcher: () => Promise<string>,
+  parse: (body: string) => RawItem[],
+): Promise<FeedFetchResult> {
+  let body: string;
+  try {
+    body = await fetcher();
+  } catch (err) {
+    const prior = await readFeedCache(cacheId);
+    if (prior && isFresh(prior)) {
+      console.warn(
+        `[${label}] fetch failed (${(err as Error).message}); using last-good cache`,
+      );
+      return { items: prior.items, cached: true };
+    }
+    throw err;
+  }
+
+  const items = parse(body);
+  await writeFeedCache(cacheId, { items, fetchedAt: new Date().toISOString() });
+  return { items, cached: false };
+}

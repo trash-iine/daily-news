@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useMemo, useRef, useState } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { BIG_TAGS, itemBigTags } from "./lib";
+import { BIG_TAGS, itemBigTags, weekdayJa } from "./lib";
 import { BigTagFilter, DateStrip, TodayTabs, type TodayTab } from "./atoms";
 import { ArticleCard } from "./ArticleCard";
 import { BriefCarousel } from "./BriefCarousel";
@@ -118,7 +118,7 @@ export function TodayScreen({
   }
 
   const date = new Date(bundle.date);
-  const wd = ["日", "月", "火", "水", "木", "金", "土"][date.getDay()];
+  const wd = weekdayJa(date);
   const paperCount = counts.paper ?? 0;
 
   return (
