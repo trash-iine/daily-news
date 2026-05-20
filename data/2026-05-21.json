@@ -1,0 +1,627 @@
+{
+  "date": "2026-05-21",
+  "generatedAt": "2026-05-20T23:13:17.042Z",
+  "items": [
+    {
+      "id": "d10c7bcf18ec584e",
+      "kind": "paper",
+      "title": "Projecting Latent RL Actions: Towards Generalizable and Scalable Graph Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/2605.19721",
+      "summary": "グラフ組合せ最適化（GCO）は、NP困難な問題が自然にグラフの形式を持つため、注目を集めていますが、その組合せ爆発により、正確な手法は計算上実行不可能になります。最近の強化学習（RL）とグラフニューラルネットワーク（GNN）の組み合わせの進展により、学習ベースのGCOソルバーが大幅に改善されました。しかし、既存のアプローチは、多様なグラフインスタンスに対する一般化能力や、アクション空間が拡大する際の計算スケーラビリティに制限があります。これらの課題に対処するために、我々はプロジェクションエージェントを導入します。これは、連続的なGNNベースのアクション埋め込み空間で直接動作する新しいRL-GCOアプローチで、単一のフォワードパスで望ましい潜在アクションを予測し、それを有効な離散アクションにデコードします。さらに、観測とアクションの両方に対して共有埋め込み空間を用いることで、RL手法間の公平な比較を可能にします。多様なベンチマークにおいて、我々のアプローチは、単純な最近傍デコーディングを使用する既存の解法に比べて、最大16.2倍の高速推論と最大40%の一般化性能の向上を達成しました。また、複数の相互依存変数を持つ超線形決定空間における強力なRL性能の可能性を開きます。最後に、我々はLaGCO-RLというPythonライブラリを公開し、潜在アクション空間の構築を自動化し、既存のRL-GCOソリューションをサポートすることで、再現性と新しいGCOベンチマークへの適応を促進します。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 41,
+      "popularity": 0,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Franco Terranova (UL",
+        "LORIA",
+        "Inria)",
+        "+6"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "a4fc81f1908a1558",
+      "kind": "paper",
+      "title": "Detrimental Agnostic Entanglement: The Case Against Hardware-Efficient Ans\\\"atze for Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/2605.19827",
+      "summary": "変分量子アルゴリズム（VQA）は、組合せ最適化のためにエンタングルメントゲートをデフォルトの設計選択として使用しますが、エンタングルメントの量や構造の役割は十分に理解されていません。このギャップは、対角ハミルトニアンに支配される問題にとって特に重要です。これらの問題では基底状態が古典的な積状態であり、原理的にはエンタングルメントを必要としないため、エンタングルメントゲートが変分探索にどのように寄与するのか、あるいは妨げるのかという根本的な疑問が生じます。本研究では、MaxCut問題に対してこの疑問を探求し、ハードウェア効率的なアンサッツ（HEA）のエンタングルメントを、Meyer-Wallach測度$Q$によって定量化し、QAOA（量子近似最適化アルゴリズム）を問題構造に基づく基準として比較するための2つの補完的な制御メカニズムを導入します。VQAのトレーニング中にエンタングルメントの軌跡$Q(t)$を追跡すると、アンサッツが最適化者に間接的にエンタングルメントを制御させる場合、エンタングルメントが一貫して減少することが明らかになります。この傾向に沿って、完全に分離可能なアンサッツは、すべてのエンタングルしたハードウェア効率的構成よりも優れた性能を示し、問題に依存しないエンタングルメントが少ないほどパフォーマンスが向上するという単調な関係を確立します。一方、QAOAは、エンタングルメントが問題のハミルトニアンから構造的に導出されているため、高いエンタングルメントを維持しつつ競争力のある解の質を達成します。これは、エンタングルメントの構造がその有用性を決定することを示しています。これらの結果は、対角ハミルトニアンに対するHEAが不適切であり、組合せ最適化に対する変分アプローチは問題構造に基づく回路設計を優先すべきであることを示唆しています。",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 41,
+      "popularity": 0,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Tobias Rohe",
+        "Markus Baumann",
+        "Federico Harjes Ruiloba",
+        "+3"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "a49ab33d68381829",
+      "kind": "paper",
+      "title": "Towards Distillation Guarantees under Algorithmic Alignment for Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/2605.20074",
+      "summary": "蒸留は、広範なデータで訓練された大規模モデルから、展開に適したより小さく効率的なモデルに知識を移転するプロセスです。構造化予測の設定においては、タスクに関する事前知識が、基盤となる問題とアルゴリズム的に整合したターゲットアーキテクチャの選択を導くことができます。最近の決定木（DT）蒸留に関する学習理論的分析（Boix-Adsera, 2024）を基に、組合せ最適化タスクにおいて蒸留が成功する条件を検討します。ここでは、ターゲットモデルがタスクに対する動的計画法（DP）アルゴリズムと整合したグラフニューラルネットワークである場合に焦点を当てます。ソースモデルが十分に豊富であると仮定し、これは線形表現仮説（LRH）を通じて形式化されます（Elhage et al., 2022; Park et al., 2024）。私たちは、蒸留問題がDP遷移関数の複雑性パラメータにおいて効率的に解決できることを示します。この遷移関数は決定木として表現されます。私たちの結果は、アルゴリズム的整合性の観点から、成功する蒸留のための厳密な十分条件を提供します。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 36,
+      "popularity": 0,
+      "source": "arxiv:cs.LG",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Thien Le",
+        "Melanie Weber"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "431c22fe30d478f8",
+      "kind": "news",
+      "title": "育休中エンジニアがClaude Coworkで「あかちゃんカレンダー🍼」を作った話",
+      "url": "https://qiita.com/yuzinet/items/323bc76cf2d31d9f4d42",
+      "summary": "# 育休中エンジニアがClaude Coworkで「あかちゃんカレンダー🍼」を作った話 ## はじめに 先日、第2子が生まれ現在育休中です。毎日ミルクとオムツ交換に忙殺されています。 …と書くと優雅に聞こえますが、実態はこうです。 - 🍼 3時間ごとのミルク（深夜も容赦なし） - 💩 オムツ交換 × 無限ループ - 😭 泣き止まない理由が毎回わからない そこに追い打ちをかけるように「やるべきこと」が押し寄せてきます。 - お宮参りっていつ？ - お食い初めの時期は？ ",
+      "tags": [
+        "claude"
+      ],
+      "score": 28,
+      "popularity": 13,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-20T13:57:30+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMTk4NTY0OSUyRnByb2ZpbGUtaW1hZ2VzJTJGMTcwMzEyODMwMj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9Zjg3MWQ0MDNkZjVhNzJhNTg0YTBlNWQxNTdjODA1NTg%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZmMGY5ODM4NGQzMDM0Y2QwMTMwZDIyOTAxMzQzNTcxYTZlYTMyYjgxJTJGb3JpZ2luYWwuanBnJTNGMTY0NzI3NjcyOT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz0xNzNhMzdmM2JlYWU5ZDU3ODBlMmQ5OTE1N2E2YTQxZQ%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D9c2187e8cfe74896a4abda913bc4379c?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JTgyJUIyJUU0JUJDJTkxJUU0JUI4JUFEJUUzJTgyJUE4JUUzJTgzJUIzJUUzJTgyJUI4JUUzJTgzJThCJUUzJTgyJUEyJUUzJTgxJThDQ2xhdWRlJTIwQ293b3JrJUUzJTgxJUE3JUUzJTgwJThDJUUzJTgxJTgyJUUzJTgxJThCJUUzJTgxJUExJUUzJTgyJTgzJUUzJTgyJTkzJUUzJTgyJUFCJUUzJTgzJUFDJUUzJTgzJUIzJUUzJTgzJTgwJUUzJTgzJUJDJUYwJTlGJThEJUJDJUUzJTgwJThEJUUzJTgyJTkyJUU0JUJEJTlDJUUzJTgxJUEzJUUzJTgxJTlGJUU4JUE5JUIxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTUxM2E5MjhjYTE2YjIzYzUzMzBhNTVkN2I1ZmNlNzM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5dXppbmV0JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YzM0ZWMxYTJkYWFjMWIwNzA4MTc3YzE1Y2M1YTVhNzg&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=5qCq5byP5Lya56S-V29ya3MgSHVtYW4gSW50ZWxsaWdlbmNl&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=33e00fc5ee7bcb08b31c26678745c843"
+    },
+    {
+      "id": "3735b635436fa197",
+      "kind": "paper",
+      "title": "Approximate quadratization of high-order Hamiltonians for combinatorial quantum optimization",
+      "url": "https://doi.org/10.1103/9rc4-vj11",
+      "summary": "組合せ最適化問題は、産業界や学術界で広く応用されています。量子コンピュータは、適切に準備されたアンザッツ量子回路からサンプリングすることで、これらの問題を解決する手助けをする可能性があります。しかし、現在の量子コンピュータは、キュービットの数、接続性、ノイズといった制約に直面しています。これは…",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 27,
+      "popularity": 0,
+      "source": "aps:prresearch",
+      "publishedAt": "2026-05-12T10:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Sabina Drăgoi",
+        "Alberto Baiardi",
+        "Daniel J"
+      ]
+    },
+    {
+      "id": "4a9ea8c9649fd6f0",
+      "kind": "news",
+      "title": "Learnings from 100K lines of Rust with AI (2025)",
+      "url": "https://zfhuang99.github.io/rust/claude%20code/codex/contracts/spec-driven%20development/2025/12/01/rust-with-ai.html",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 25,
+      "popularity": 15,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-20T10:04:28.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.821Z"
+    },
+    {
+      "id": "d7e0b0d46256da88",
+      "kind": "news",
+      "title": "「Claude Coworkって使うことなくね？」と思ってたけど地味に便利だった話",
+      "url": "https://qiita.com/nobu34/items/ed289f266f81c5de4061",
+      "summary": "# 正直、Coworkの存在を軽視してました 「これ、結局ファイル操作をClaude経由でやるだけじゃないの...？」 Claude Coworkがリリースされたとき、私はそんな風に思っていました。Claude Codeでがりがり開発して...という日々の中で、Coworkの立ち位置がいまいちピンとこなかったのです。 ところが最近、少しずつ触り始めたら「あれ、これ地味に便利じゃん」となってきました。 特に **Scheduled（タスクのスケジュール実行）** 機能、ここが刺",
+      "tags": [
+        "claude"
+      ],
+      "score": 25,
+      "popularity": 10,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-20T09:30:04+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0MDkzMjczJTJGZWU4NzczNWI0MTgzY2IzODRlMDA0ZDRjMDE0YTFjNDc2NmM1YzUyYSUyRmxhcmdlLnBuZyUzRjE3NDgzMzAzOTI_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPTEyMTAwMjNiOTVlZjE5Y2U1ZDc5MTFkYWZmNTU0NWRi%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkZlYzNmNjg0OWI0ZjZlMTQ0YzgwYzQ1MGIyYjc4MDFhOTM0N2VkZDgyJTJGb3JpZ2luYWwuanBnJTNGMTc0Nzk1NDYyMT9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz1lZmI4ZDk1MWQwYzkwZWNkYzE1YWQyOTMwMTEwYzJlNw%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D5c137c7149cccd97a3a493249e439841?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJThDQ2xhdWRlJTIwQ293b3JrJUUzJTgxJUEzJUUzJTgxJUE2JUU0JUJEJUJGJUUzJTgxJTg2JUUzJTgxJTkzJUUzJTgxJUE4JUUzJTgxJUFBJUUzJTgxJThGJUUzJTgxJUFEJUVGJUJDJTlGJUUzJTgwJThEJUUzJTgxJUE4JUU2JTgwJTlEJUUzJTgxJUEzJUUzJTgxJUE2JUUzJTgxJTlGJUUzJTgxJTkxJUUzJTgxJUE5JUU1JTlDJUIwJUU1JTkxJUIzJUUzJTgxJUFCJUU0JUJFJUJGJUU1JTg4JUE5JUUzJTgxJUEwJUUzJTgxJUEzJUUzJTgxJTlGJUU4JUE5JUIxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9Njg2YjUxM2IxMjhkYjhiMDJkMGMxZWEyMGNmOTgyNmY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBub2J1MzQmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz01Y2MzNDRjMzUzYzk1YWIxNTU4ZTc1MDNlZTY4MWJlZQ&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=S2Fv44Ko44Oz44K444OL44Ki44Kz44Of44Ol44OL44OG44KjzrI&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=2cb6160c8eb6c51a619b363616e96379"
+    },
+    {
+      "id": "0a0b63a80074262a",
+      "kind": "paper",
+      "title": "Transforming Constraint Programs to Input for Local Search",
+      "url": "https://arxiv.org/abs/2605.19671",
+      "summary": "組合せ最適化問題に対して局所探索アルゴリズムを適用することは容易ではありません。通常、メタヒューリスティックアルゴリズムに入力するための制約をまとめるには、人間の介入が必要です。本論文では、制約最適化問題の対称性の特性と局所探索の近傍との関連性を確立し、この関連性を利用してIDPシステムの文脈において制約仕様から自動的に近傍を生成する方法を提案します。得られた近傍を6つの古典的な最適化問題に対して評価した結果、この手法の実行可能性を支持する観察結果が得られました。",
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 22,
+      "popularity": 0,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Jo Devriendt",
+        "Patrick De Causmaecker",
+        "Marc Denecker"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "84d1df6a96db3320",
+      "kind": "news",
+      "title": "相続税は本当に格差是正になるのか？― 資産循環・成長・中間層をシミュレーションで考える : Pythonで学ぶ マクロ経済学入門 (82)",
+      "url": "https://qiita.com/maskot1977/items/d95b55e78e1258dabdd5",
+      "summary": "# **user**: 「Pythonで学ぶマクロ経済学入門」、第82回を始めましょう。まず 「“税は財源”ではないなら、なぜ税金は必要なのか？ ― 富裕層課税とインフレの本当の関係 : Pythonで学ぶ マクロ経済学入門 (81)」 https://qiita.com/maskot1977/items/289047becc0a75108672 をよく読み込んで、その内容の復習をしてください。ここで導き出されていた結論やキーメッセージも示してください。 # **assist",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "popularity": 7,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-21T00:02:03+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYyMTExNjIlMkY5Y2U4ZWVjZTk1NTAyN2RlODg5ZDUxMjBkNDA2OGJkNDkzNjY4NTdmJTJGeF9sYXJnZS5wbmclM0YxNzMyNTUzMDI1P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz02NTMxZThhZTVlNDU1ZWVkNjM3NTc2Nzk3OGI1ZDJhMQ%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3De652a775c298ccfc8e2af634cc54c5bc?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU3JTlCJUI4JUU3JUI2JTlBJUU3JUE4JThFJUUzJTgxJUFGJUU2JTlDJUFDJUU1JUJEJTkzJUUzJTgxJUFCJUU2JUEwJUJDJUU1JUI3JUFFJUU2JTk4JUFGJUU2JUFEJUEzJUUzJTgxJUFCJUUzJTgxJUFBJUUzJTgyJThCJUUzJTgxJUFFJUUzJTgxJThCJUVGJUJDJTlGJUUyJTgwJTk1JTIwJUU4JUIzJTg3JUU3JTk0JUEzJUU1JUJFJUFBJUU3JTkyJUIwJUUzJTgzJUJCJUU2JTg4JTkwJUU5JTk1JUI3JUUzJTgzJUJCJUU0JUI4JUFEJUU5JTk2JTkzJUU1JUIxJUE0JUUzJTgyJTkyJUUzJTgyJUI3JUUzJTgzJTlGJUUzJTgzJUE1JUUzJTgzJUFDJUUzJTgzJUJDJUUzJTgyJUI3JUUzJTgzJUE3JUUzJTgzJUIzJUUzJTgxJUE3JUU4JTgwJTgzJUUzJTgxJTg4JUUzJTgyJThCJTIwJTNBJTIwUHl0aG9uJUUzJTgxJUE3JUU1JUFEJUE2JUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZTYwNjg5YTY5MjU1ZGJiYTQyNGY0Zjg2NDBhYzIyZmY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtYXNrb3QxOTc3JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9MjA2OWI3NWQ1NDYwZDY3NDAyMWEyNzcyYzUyY2M0MDI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ab95cb41c8d9adf644c1b695458e6593"
+    },
+    {
+      "id": "6759afef143c19cb",
+      "kind": "news",
+      "title": "脳科学から見る、AIが効率化してもあなたが休まらない理由",
+      "url": "https://qiita.com/kt19934645/items/60d5a05f87dadae60e52",
+      "summary": "# 現代に蔓延する新しい病 「AIを活用して作業が圧倒的に早くなったはずなのに、なぜか一日が終わると以前よりぐったり疲れている……」 「リモートワークで移動時間が減り、複数のプロジェクトを並列で回せるようになったけれど、最近どうしても集中力が続かない……」 現代のビジネスパーソン、特に生成AIやマルチエージェントなどの最新テクノロジーを乗りこなそうとしている先進的な人ほど、このような **「謎の脳疲労」や「集中力の低下」** に直面しています。 なぜ、テクノロジーによって効率",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "popularity": 7,
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-05-20T11:03:44+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmxoMy5nb29nbGV1c2VyY29udGVudC5jb20lMkZhLSUyRkFPaDE0R2djcEtoWkxzMEtxVGYzWjVXbUx1NEhXSEpXMTRkaEZHak1vX0xwJTNEczUwP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0zN2MwNTcyZTQxZjMzZDg5ODQ4YzcxZDE1MTQwNzU3Yg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D54b5a50e19d9f5e921747386d27e45db?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUU4JTg0JUIzJUU3JUE3JTkxJUU1JUFEJUE2JUUzJTgxJThCJUUzJTgyJTg5JUU4JUE2JThCJUUzJTgyJThCJUUzJTgwJTgxQUklRTMlODElOEMlRTUlOEElQjklRTclOEUlODclRTUlOEMlOTYlRTMlODElOTclRTMlODElQTYlRTMlODIlODIlRTMlODElODIlRTMlODElQUElRTMlODElOUYlRTMlODElOEMlRTQlQkMlOTElRTMlODElQkUlRTMlODIlODklRTMlODElQUElRTMlODElODQlRTclOTAlODYlRTclOTQlQjEmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz02NTE0NDNlZDkxNjRiZDBlOWZhYzM3ZWU1ODhkOTliMw&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrdDE5OTM0NjQ1JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YWY0NDRmOTAwZTE3ZTQ3MGVhNzZkNDMwNTZhMTA0MGM&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=9a29d6a0e987c90fe845cb8e69976efa"
+    },
+    {
+      "id": "f4b85877796843f3",
+      "kind": "news",
+      "title": "微細な有意差を検出する手法 \"PWTAB\" の検証",
+      "url": "https://zenn.dev/dmmdata/articles/e230af2cb91692",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 22,
+      "popularity": 7,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-20T07:49:05.906+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--aPKJGTZ3--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%25BE%25AE%25E7%25B4%25B0%25E3%2581%25AA%25E6%259C%2589%25E6%2584%258F%25E5%25B7%25AE%25E3%2582%2592%25E6%25A4%259C%25E5%2587%25BA%25E3%2581%2599%25E3%2582%258B%25E6%2589%258B%25E6%25B3%2595%2520%2522PWTAB%2522%2520%25E3%2581%25AE%25E6%25A4%259C%25E8%25A8%25BC%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Kureishi%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzU4MjQ4ZWRhNzUuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:DMM%2520Data%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzBmYWQ0M2FkMTUuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "091c73b62f2a4c91",
+      "kind": "news",
+      "title": "Claude Code のハーネスをチームでGit管理する",
+      "url": "https://zenn.dev/forward/articles/be82a1bc3e2948",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 22,
+      "popularity": 7,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-20T19:08:07.571+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0liBeSKq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25AE%25E3%2583%258F%25E3%2583%25BC%25E3%2583%258D%25E3%2582%25B9%25E3%2582%2592%25E3%2583%2581%25E3%2583%25BC%25E3%2583%25A0%25E3%2581%25A7Git%25E7%25AE%25A1%25E7%2590%2586%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2583%259F%25E3%2583%25A2%2520%2520%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AF%25E3%2583%25BC%25E3%2583%2589CTO%25E3%2583%25BBCPO%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2I2ZDdhNjExYzYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25AF%25E3%2583%25BC%25E3%2583%2589%2520%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2FiZTYwOGM4MzYuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "51fb0f45f372156c",
+      "kind": "paper",
+      "title": "Heuristic approaches for solving a bilevel optimistic scheduling problem on parallel machines",
+      "url": "https://arxiv.org/abs/2605.19760",
+      "summary": "本研究は、楽観的な二層最適化フレームワーク内での均一並列機械スケジューリング問題に取り組んでいます。リーダーは遅延した仕事の重み付き数を最小化しようとし、フォロワーは均一な機械群全体の総完了時間を最小化することを目指します。二層問題の階層的な意思決定プロセスは、効果的なヒューリスティック（経験則に基づく解法）の設計を難しくします。これに対処するために、フォロワーの特性を利用して最適なスケジュールを構築する方法を探ります。この特性から、リーダーとフォロワーの両方の意思決定を同時に考慮する効果的な分岐スキームを導出します。この分岐スキームにより、回復ビーム探索（RBS）を設計することが可能になり、これは二層の観点から重要な貢献となります。次に、RBSと局所探索（LS）を組み合わせた革新的なスキームに基づくマルチスタート局所探索（MSLS）アルゴリズムを提案します。私たちの知る限り、ビーム探索と局所探索をハイブリッド化することは他の文脈で知られていますが、二層特有の分岐スキームを利用して探索空間を効率的に探るアプローチは新しいものです。さらに、ベイズ最適化を通じてヒューリスティックパラメータを自動的に決定する方法を提案します。これにより、計算資源の要求が減少し、通常の経験的アプローチよりも優れたパラメータが得られます。最後に、最大500の仕事と10の機械を持つインスタンスに対する計算実験を示します。",
+      "tags": [
+        "optimization",
+        "heuristic",
+        "scheduling"
+      ],
+      "score": 21,
+      "popularity": 0,
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Quentin Schau (LIFAT",
+        "DIGEP)",
+        "Federico Della Croce (DIGEP)",
+        "+2"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "9a49c80f8be7264d",
+      "kind": "paper",
+      "title": "Improving the trainability of variational quantum eigensolvers on noisy intermediate-scale quantum computers for solving portfolio optimization using convex interpolation",
+      "url": "https://doi.org/10.1103/2p4m-5mt8",
+      "summary": "組合せ最適化問題を変分量子アルゴリズム（VQAs）を用いて解決することは、NISQ（ノイズの多い中間規模量子）時代において有望な応用の一つと考えられています。しかし、VQAsの限られた訓練能力が、大規模な問題へのスケーラビリティを妨げる可能性があります。本論文では、変分量子アルゴリズムの訓練能力を向上させる方法について述べます。",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 21,
+      "popularity": 0,
+      "source": "aps:pra",
+      "publishedAt": "2026-05-18T10:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Shengbin Wang",
+        "Guihui Li",
+        "Zhimin Wang",
+        "+5"
+      ]
+    },
+    {
+      "id": "334c02f2b0db76b4",
+      "kind": "news",
+      "title": "Rust バイナリを 73% 削減した後、残った 19MB はどこから来るのか",
+      "url": "https://zenn.dev/ar1/articles/rust-binary-size-where-does-it-come-from",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 21,
+      "popularity": 6,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T19:51:32.367+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--9MNHC_qA--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%2520%25E3%2583%2590%25E3%2582%25A4%25E3%2583%258A%25E3%2583%25AA%25E3%2582%2592%252073%2525%2520%25E5%2589%258A%25E6%25B8%259B%25E3%2581%2597%25E3%2581%259F%25E5%25BE%258C%25E3%2580%2581%25E6%25AE%258B%25E3%2581%25A3%25E3%2581%259F%252019MB%2520%25E3%2581%25AF%25E3%2581%25A9%25E3%2581%2593%25E3%2581%258B%25E3%2582%2589%25E6%259D%25A5%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ar1%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2hRUmVQdXAxR3M5S0YzUm9tNGs2bjA4YVpmTXExWFBGeWVYeW1tbDRvPXM5Ni1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "2f41f8cacc56c87d",
+      "kind": "news",
+      "title": "RustでCJKサポートが難しい理由",
+      "url": "https://zenn.dev/kent_kamome/articles/47eb3c96851446",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 21,
+      "popularity": 6,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T20:33:49.830+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--eIN3nGVL--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%25E3%2581%25A7CJK%25E3%2582%25B5%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%25E3%2581%258C%25E9%259B%25A3%25E3%2581%2597%25E3%2581%2584%25E7%2590%2586%25E7%2594%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kent-tokyo%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNHp4SkREelhpYmxkWDRPeGRfT0lSZzI2cV9zN1R1dDhoLVd5aXo9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "dfb7b4f445477f6b",
+      "kind": "news",
+      "title": "CSV更新→PDF自動生成→印刷会社へ。社員名刺の発注ワークフローをコード化した",
+      "url": "https://zenn.dev/minedia/articles/business-card-pdf-generator",
+      "summary": "",
+      "tags": [
+        "python"
+      ],
+      "score": 21,
+      "popularity": 6,
+      "source": "zenn-api:python",
+      "publishedAt": "2026-05-19T05:28:45.232+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--vxIMbe47--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:CSV%25E6%259B%25B4%25E6%2596%25B0%25E2%2586%2592PDF%25E8%2587%25AA%25E5%258B%2595%25E7%2594%259F%25E6%2588%2590%25E2%2586%2592%25E5%258D%25B0%25E5%2588%25B7%25E4%25BC%259A%25E7%25A4%25BE%25E3%2581%25B8%25E3%2580%2582%25E7%25A4%25BE%25E5%2593%25A1%25E5%2590%258D%25E5%2588%25BA%25E3%2581%25AE%25E7%2599%25BA%25E6%25B3%25A8%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%2592%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E5%258C%2596%25E3%2581%2597%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Matsukura%2520Yuki%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzlmZDc5YzllMGYuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2583%259E%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2587%25E3%2582%25A3%25E3%2582%25A2%2520%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2diQWZWd2dLbmhzWjJZdGgyY2k1c2hveDdQWHl5UUVaN0MyV2JkQ0E9czk2LWM=%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "21cead5b6d19fcc6",
+      "kind": "news",
+      "title": "LLMは発散させ、人間は収束させる — LLMはアイデアを思い付けない",
+      "url": "https://zenn.dev/n314/articles/f73eddf02c28cb",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "popularity": 6,
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-05-17T16:21:49.440+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--AqiTYf06--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:LLM%25E3%2581%25AF%25E7%2599%25BA%25E6%2595%25A3%25E3%2581%2595%25E3%2581%259B%25E3%2580%2581%25E4%25BA%25BA%25E9%2596%2593%25E3%2581%25AF%25E5%258F%258E%25E6%259D%259F%25E3%2581%2595%25E3%2581%259B%25E3%2582%258B%2520%25E2%2580%2594%2520LLM%25E3%2581%25AF%25E3%2582%25A2%25E3%2582%25A4%25E3%2583%2587%25E3%2582%25A2%25E3%2582%2592%25E6%2580%259D%25E3%2581%2584%25E4%25BB%2598%25E3%2581%2591%25E3%2581%25AA%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:nishimura%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2ExYmFiYzVhY2EuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "5f97892668757014",
+      "kind": "news",
+      "title": "Anthropic Claude Code sandbox bypass allows second data exfiltration exploit",
+      "url": "https://oddguan.com/blog/second-time-same-sandbox-anthropic-claude-code-network-allowlist-bypass-data-exfiltration/",
+      "summary": "",
+      "tags": [
+        "claude",
+        "claude-code",
+        "anthropic"
+      ],
+      "score": 21,
+      "popularity": 3,
+      "source": "hn:claude",
+      "publishedAt": "2026-05-20T17:36:55.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://oddguan.com/images/blog/claude-code-sandbox-2/cover-headline.png"
+    },
+    {
+      "id": "754f887a49f1f056",
+      "kind": "paper",
+      "title": "Beyond Mode Collapse: Distribution Matching for Diverse Reasoning",
+      "url": "https://arxiv.org/abs/2605.19461",
+      "summary": "オンポリシー強化学習手法であるGRPOは、モード崩壊に悩まされます。これは、解の多様性が減少し、一度発見された単一の解に確率質量が集中し、代替戦略の探索が停止する現象です。この問題は、逆KL最小化のモード追求の特性に起因しており、最初に見つかった高報酬の軌道を強化する一方で、複数の多様な解に対する分布を維持しません。私たちは、DMPO（分布マッチングポリシー最適化）を提案します。これは、前向きKL最小化の原則に基づく近似を通じてモード崩壊を防ぎます。DMPOは、サンプリングされた軌道に対して報酬に比例したグループレベルのターゲット分布を構築し、そのターゲットにポリシー分布を合わせます。これにより、扱いが難しいグローバルターゲット分布からのサンプリングを必要とせず、トレーニング全体を通じて持続的な探索を可能にします。私たちは、指数関数的に多くの実行可能な解が存在するが、最適解に近づくものはわずかであるNP困難な組合せ最適化問題においてDMPOを検証しました。DMPOは、テキストベースのNP-Benchで43.9%の品質比を達成し（GRPOの40.1%と比較）、視覚ベースのNP-Benchでは43.1%を達成しました（38.4%と比較）、それぞれ9%および12%の相対的改善を示しました。これらの成果は、数学的推論（+2.0%）やドメイン外タスク（+2.3%）にも一般化され、多様性を保つトレーニングがさまざまなモダリティにおける一般的な推論能力を向上させることを示しています。私たちの研究は、オンポリシー強化学習におけるモード崩壊を防ぐための実用的かつ原則に基づいたアプローチとして分布マッチングを確立し、一貫した品質向上が多様な推論タスクにおける持続的な探索を示すことを明らかにしました。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 20,
+      "popularity": 0,
+      "source": "arxiv:cs.AI",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Xiaozhe Li",
+        "Yang Li",
+        "Xinyu Fang",
+        "+10"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "bcadeefca220ff3b",
+      "kind": "news",
+      "title": "LLMから自律型エージェントへ：RAGと外部ツール連携の仕組み",
+      "url": "https://qiita.com/jjking/items/05c84dbd491e694d07a7",
+      "summary": "## はじめに 近年の生成AIの進化は目覚ましく、単なる「文章生成モデル」としてのLLM（大規模言語モデル）から、ツールを駆使してタスクを解決する「自律型エージェント」へとパラダイムシフトが起きています。LLMを単体で用いる場合、モデルが学習した知識の範囲内に回答が限定され、情報の鮮度や正確性に限界がありました。本稿では、モデルの再学習なしに外部知識を補完する「RAG（検索拡張生成）」と、AIが外部ツールと連携して自律的に行動するための理論的基盤を深掘りします。 ## RAG",
+      "tags": [
+        "python"
+      ],
+      "score": 20,
+      "popularity": 5,
+      "source": "qiita-api:python",
+      "publishedAt": "2026-05-20T07:48:16+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGNTQwMzElMkZwcm9maWxlLWltYWdlcyUyRjE0NzM2OTMyNDc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWY2N2U1Njk4NmYyMmU0NTQzNWI5N2IwODRlNDI2NjEw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd5e98833d72813a38ceded1345157bde?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9TExNJUUzJTgxJThCJUUzJTgyJTg5JUU4JTg3JUFBJUU1JUJFJThCJUU1JTlFJThCJUUzJTgyJUE4JUUzJTgzJUJDJUUzJTgyJUI4JUUzJTgyJUE3JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgxJUI4JUVGJUJDJTlBUkFHJUUzJTgxJUE4JUU1JUE0JTk2JUU5JTgzJUE4JUUzJTgzJTg0JUUzJTgzJUJDJUUzJTgzJUFCJUU5JTgwJUEzJUU2JTkwJUJBJUUzJTgxJUFFJUU0JUJCJTk1JUU3JUI1JTg0JUUzJTgxJUJGJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MjM4N2YxZTA4NzIxZThkNzhlOTVhNDgwODdkZTgxYzY&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBqamtpbmcmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1lZGY3MzQyZDA5NTcwYjMxMDU0MjRhZTkyZGEzNzY5Mg&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=896dc7ef8b652a78d36d6fd2b5bb9ed7"
+    },
+    {
+      "id": "c30adb77eaa65b72",
+      "kind": "news",
+      "title": "個人開発 OSS など大抵は見向きもされないが、それでも4年かけて開発した地図アプリを今日、俺は公開する",
+      "url": "https://zenn.dev/marudev/articles/12e14d4f67c5b1",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "popularity": 5,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T17:00:07.585+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--6t6uZwwl--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E5%2580%258B%25E4%25BA%25BA%25E9%2596%258B%25E7%2599%25BA%2520OSS%2520%25E3%2581%25AA%25E3%2581%25A9%25E5%25A4%25A7%25E6%258A%25B5%25E3%2581%25AF%25E8%25A6%258B%25E5%2590%2591%25E3%2581%258D%25E3%2582%2582%25E3%2581%2595%25E3%2582%258C%25E3%2581%25AA%25E3%2581%2584%25E3%2581%258C%25E3%2580%2581%25E3%2581%259D%25E3%2582%258C%25E3%2581%25A7%25E3%2582%25824%25E5%25B9%25B4%25E3%2581%258B%25E3%2581%2591%25E3%2581%25A6%25E9%2596%258B%25E7%2599%25BA%25E3%2581%2597%25E3%2581%259F%25E5%259C%25B0%25E5%259B%25B3%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E3%2582%2592%25E4%25BB%258A%25E6%2597%25A5%25E3%2580%2581%25E4%25BF%25BA%25E3%2581%25AF%25E5%2585%25AC%25E9%2596%258B%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:itsuki%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSlBYYTFwU2RKNDl4dUVGcXBRcnlfYkY0a0tEX19CNDdiRjh5bWdYTFhkUkt3Sm5faz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "71f40eaffe9443d9",
+      "kind": "news",
+      "title": "Rust のバイナリサイズを 35% 削減するまで",
+      "url": "https://zenn.dev/ar1/articles/sasurahime-v016-min-sized-rust",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "popularity": 5,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T19:51:34.137+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--0PubkDQC--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Rust%2520%25E3%2581%25AE%25E3%2583%2590%25E3%2582%25A4%25E3%2583%258A%25E3%2583%25AA%25E3%2582%25B5%25E3%2582%25A4%25E3%2582%25BA%25E3%2582%2592%252035%2525%2520%25E5%2589%258A%25E6%25B8%259B%25E3%2581%2599%25E3%2582%258B%25E3%2581%25BE%25E3%2581%25A7%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ar1%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2hRUmVQdXAxR3M5S0YzUm9tNGs2bjA4YVpmTXExWFBGeWVYeW1tbDRvPXM5Ni1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "35ba78b27c045439",
+      "kind": "news",
+      "title": "GPUI TestAppContextの全貌 ── AIエージェント時代のデスクトップアプリ開発テスト戦略",
+      "url": "https://zenn.dev/syuya2036/articles/gpui-testing-guide",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "popularity": 5,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T04:19:39.424+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--uXBz0Gkh--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:GPUI%2520TestAppContext%25E3%2581%25AE%25E5%2585%25A8%25E8%25B2%258C%2520%25E2%2594%2580%25E2%2594%2580%2520AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AE%25E3%2583%2587%25E3%2582%25B9%25E3%2582%25AF%25E3%2583%2588%25E3%2583%2583%25E3%2583%2597%25E3%2582%25A2%25E3%2583%2597%25E3%2583%25AA%25E9%2596%258B%25E7%2599%25BA%25E3%2583%2586%25E3%2582%25B9%25E3%2583%2588%25E6%2588%25A6%25E7%2595%25A5%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:sh%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2JhNGYyNjRjNmUuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "206b7d5cacd35a87",
+      "kind": "news",
+      "title": "sasurahime: Rust 製 macOS キャッシュクリーナーの哲学と全機能",
+      "url": "https://zenn.dev/ar1/articles/sasurahime-v016-full",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T19:51:33.620+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--wi3Y1Gll--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:sasurahime%253A%2520Rust%2520%25E8%25A3%25BD%2520macOS%2520%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E3%2582%25AF%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%258A%25E3%2583%25BC%25E3%2581%25AE%25E5%2593%25B2%25E5%25AD%25A6%25E3%2581%25A8%25E5%2585%25A8%25E6%25A9%259F%25E8%2583%25BD%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ar1%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2hRUmVQdXAxR3M5S0YzUm9tNGs2bjA4YVpmTXExWFBGeWVYeW1tbDRvPXM5Ni1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "9214449eb1cd0891",
+      "kind": "news",
+      "title": "AI エージェント時代に GitLens を立ち上げるのが面倒で、トレイ常駐の git glance ツールを作った",
+      "url": "https://zenn.dev/vargg/articles/eab5779b161de4",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T15:55:09.120+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--i32SO690--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%2520%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AB%2520GitLens%2520%25E3%2582%2592%25E7%25AB%258B%25E3%2581%25A1%25E4%25B8%258A%25E3%2581%2592%25E3%2582%258B%25E3%2581%25AE%25E3%2581%258C%25E9%259D%25A2%25E5%2580%2592%25E3%2581%25A7%25E3%2580%2581%25E3%2583%2588%25E3%2583%25AC%25E3%2582%25A4%25E5%25B8%25B8%25E9%25A7%2590%25E3%2581%25AE%2520git%2520glance%2520%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2582%2592%25E4%25BD%259C%25E3%2581%25A3%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:K%25C5%258Dshin%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jTExnc2dfVFFBRU9od09WaXJhNURzbXV1MmdraGFGb2I4TUU1SUwtTDFheVl1a3Z5bWE9czI1MC1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "62229856a80c447d",
+      "kind": "news",
+      "title": "ChatGPT PlusのProjectsだけでプログラミング言語を作り始めて早4週間",
+      "url": "https://zenn.dev/tkithrta/articles/dd39848cfef527",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-21T00:05:05.130+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--jNPUM1No--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:ChatGPT%2520Plus%25E3%2581%25AEProjects%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7%25E3%2583%2597%25E3%2583%25AD%25E3%2582%25B0%25E3%2583%25A9%25E3%2583%259F%25E3%2583%25B3%25E3%2582%25B0%25E8%25A8%2580%25E8%25AA%259E%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258A%25E5%25A7%258B%25E3%2582%2581%25E3%2581%25A6%25E6%2597%25A94%25E9%2580%25B1%25E9%2596%2593%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%25BB%2592%25E3%2583%25B0%25E6%25A8%25B9%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2E0NDRlMTA4ZjkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "40d7558e27584019",
+      "kind": "news",
+      "title": "C言語で書いたコードをRustから呼んでみたい",
+      "url": "https://zenn.dev/sha3/articles/7f27b7a0d668ff",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T17:44:47.116+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--UtKcMceo--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:C%25E8%25A8%2580%25E8%25AA%259E%25E3%2581%25A7%25E6%259B%25B8%25E3%2581%2584%25E3%2581%259F%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2582%2592Rust%25E3%2581%258B%25E3%2582%2589%25E5%2591%25BC%25E3%2582%2593%25E3%2581%25A7%25E3%2581%25BF%25E3%2581%259F%25E3%2581%2584%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E3%2581%2597%25E3%2582%2584%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzQ1Mzk3ODliZTIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "a82d3ff80080510f",
+      "kind": "news",
+      "title": "Pure RustでブラウザだけでSMILES→SVG変換できる分子解析ライブラリ「chem-wasm-lens」を作った",
+      "url": "https://zenn.dev/kent_kamome/articles/21817542e6c46d",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T06:00:06.750+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--50bS4I7s--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Pure%2520Rust%25E3%2581%25A7%25E3%2583%2596%25E3%2583%25A9%25E3%2582%25A6%25E3%2582%25B6%25E3%2581%25A0%25E3%2581%2591%25E3%2581%25A7SMILES%25E2%2586%2592SVG%25E5%25A4%2589%25E6%258F%259B%25E3%2581%25A7%25E3%2581%258D%25E3%2582%258B%25E5%2588%2586%25E5%25AD%2590%25E8%25A7%25A3%25E6%259E%2590%25E3%2583%25A9%25E3%2582%25A4%25E3%2583%2596%25E3%2583%25A9%25E3%2583%25AA%25E3%2580%258Cchem-wasm-lens%25E3%2580%258D...%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:kent-tokyo%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUVkRlRwNHp4SkREelhpYmxkWDRPeGRfT0lSZzI2cV9zN1R1dDhoLVd5aXo9czk2LWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "753b60e6aa733f7d",
+      "kind": "news",
+      "title": "sasurahime で Mac 開発キャッシュをサッと掃除する",
+      "url": "https://zenn.dev/ar1/articles/sasurahime-v016-compact",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-20T19:51:32.907+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--udVfrvZh--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:sasurahime%2520%25E3%2581%25A7%2520Mac%2520%25E9%2596%258B%25E7%2599%25BA%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2582%25B7%25E3%2583%25A5%25E3%2582%2592%25E3%2582%25B5%25E3%2583%2583%25E3%2581%25A8%25E6%258E%2583%25E9%2599%25A4%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:ar1%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2hRUmVQdXAxR3M5S0YzUm9tNGs2bjA4YVpmTXExWFBGeWVYeW1tbDRvPXM5Ni1j%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "52b0dee160062830",
+      "kind": "news",
+      "title": "🔐 Rustバックエンド入門 #4 Axum + PostgreSQLでJWT認証を実装する",
+      "url": "https://zenn.dev/ibukinagase/articles/e7f5b8d6c36901",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 19,
+      "popularity": 4,
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-05-18T21:43:33.598+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--mCzAAICw--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%2520%2520Rust%25E3%2583%2590%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25A8%25E3%2583%25B3%25E3%2583%2589%25E5%2585%25A5%25E9%2596%2580%2520%25234%2520Axum%2520%252B%2520PostgreSQL%25E3%2581%25A7JWT%25E8%25AA%258D%25E8%25A8%25BC%25E3%2582%2592%25E5%25AE%259F%25E8%25A3%2585%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:Ibuki%2520Nagase%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzM1Y2Y5MzkzYTQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACAGSGT"
+    },
+    {
+      "id": "067854fd955be8c7",
+      "kind": "news",
+      "title": "ABC458回答メモ",
+      "url": "https://qiita.com/Konini64/items/ce6bb8a561e5edad469b",
+      "summary": "# 0.はじめに アレルギーっぽい体調が悪さが続く今日この頃。 その割に回答の調子は良くABCDは順調にとけました。 Eはさすがに難しく考えているうちに眠くなり終了。 それでもレートは+43と躍進し814に。 2か月ぶりの緑復帰となりました。 ちなみにEは翌日解説を見ましたが自力で 解ける気はしない感じでした。 # 1. A - Chompers 文字列の問題。 SとNを入力し、Sの前と後ろからN文字ずつ 省いて出力して終了。 https://atcoder.jp/conte",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 18,
+      "popularity": 3,
+      "source": "qiita-api:アルゴリズム",
+      "publishedAt": "2026-05-17T14:06:39+09:00",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnBicy50d2ltZy5jb20lMkZwcm9maWxlX2ltYWdlcyUyRjEwMTU0MzI2NDkxMTA4MzkyOTYlMkZFaG5OQ0I0LV9iaWdnZXIuanBnP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0wNDVmN2JkMjQxOGYzZTFmNWZhODZiZjJiNmFhOWEyYw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D5dd10d205393f9cf2174f0165b2c1447?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9QUJDNDU4JUU1JTlCJTlFJUU3JUFEJTk0JUUzJTgzJUExJUUzJTgzJUEyJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9YzkwZTc0MGNkNzVmN2QwODNiYWYxNDJjYjY0NjliNDE&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBLb25pbmk2NCZ0eHQtY29sb3I9JTIzMUUyMTIxJnR4dC1mb250PUhpcmFnaW5vJTIwU2FucyUyMFc2JnR4dC1zaXplPTM2JnR4dC1wYWQ9MCZzPWRkZmEzNWViMTA5YWYxZjM1YmNjYzFkMTkyMmYxMWI4&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=76b5d0f1c095d78f8c78c12b7ef65325"
+    },
+    {
+      "id": "01ef2afb6b33bba9",
+      "kind": "paper",
+      "title": "Efficient Fourier-Based Linear Combination of Unitaries and Applications in Quantum Optimization",
+      "url": "https://arxiv.org/abs/2605.18985",
+      "summary": "我々は、補助量子ビットを使用しないユニタリの線形結合（LCU）を、複雑な量子回路を近似するための枠組みとして調査します。このアプローチは、特に量子最適化アルゴリズムにおいて効果的で、候補解を古典的に評価できるため、全出力分布を再現するのではなく、高品質なビット列をサンプリングすることが求められます。我々は、フーリエに基づくLCU構成が、広範な対角および非対角のユニタリを効率的に分解できることを示します。これにより、高度に接続された量子ビットの相互作用を、単一量子ビットゲートの層や、より単純な構造に置き換えることができ、その代償として多項式的なサンプリングオーバーヘッドが発生します。この手法をQAOA（量子近似最適化アルゴリズム）などのアルゴリズムに適用すると、例えば、カーディナリティ制約ペナルティや完全に接続されたXYミキサーの効率的でハードウェアに優しい分解が得られ、完全にコヒーレントな実装と比較して厳密な性能保証を維持します。さらに、フーリエに基づく量子ペナルティとラグランジュ緩和との間に正式な関連性を確立し、制約処理に関する統一的な視点を提供します。我々は、12量子ビット回路の正確な状態ベクトルシミュレーションと、106超伝導量子ビットにおける大規模実験を用いてアプローチを検証しました。我々の結果は、LCUを介した近似サンプリングが、回路の複雑さをサンプリングオーバーヘッドと体系的に交換する方法を示し、近い将来の量子最適化の実用的な範囲を拡大することを示しています。",
+      "tags": [
+        "optimization",
+        "quantum-computing"
+      ],
+      "score": 14,
+      "popularity": 0,
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Almudena Carrera Vazquez",
+        "Daniel J. Egger",
+        "Stefan Woerner"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "fe94895b97e73873",
+      "kind": "news",
+      "title": "Two Researchers Are Rebuilding Mathematics From the Ground Up",
+      "url": "https://www.quantamagazine.org/two-researchers-are-rebuilding-mathematics-from-the-ground-up-20260520/",
+      "summary": "By replacing the most fundamental concept in topology, Peter Scholze and Dustin Clausen are taking the first step in a far bigger program to understand why numbers behave the way they do. The post Two Researchers Are Rebuilding Mathematics ",
+      "tags": [
+        "math",
+        "topology"
+      ],
+      "score": 12,
+      "popularity": 0,
+      "source": "rss:quanta-magazine",
+      "publishedAt": "2026-05-20T14:52:19.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.821Z",
+      "thumbnail": "https://www.quantamagazine.org/wp-content/uploads/2026/05/TearInTopology-crKristinaArmitage-Social.jpg"
+    },
+    {
+      "id": "8f72f7a96e50c244",
+      "kind": "paper",
+      "title": "Optimizing for Fairness in Generalized Kidney Exchange: Theory and Computations",
+      "url": "https://arxiv.org/abs/2605.20070",
+      "summary": "Roth、Sönmez、Unverの先駆的な研究は、非二部マッチングに対するエドモンズ-ガライ構造定理を活用し、腎臓交換における患者-ドナーペアのマッチングに非常に強力な特性を持つランダム化アルゴリズムを提供できることを示しました。この画期的な成果により、個々の公平性の目標を最大化する最大カーディナリティマッチングを見つけるためのランダム化された多項式時間アルゴリズムが実現されました。個々の公平性は、ノードがマッチングされる確率によって測定され、ナッシュ社会的福祉などが含まれます。しかし、実際に許可される交換はカーディナリティマッチングを超え、重み付きのバリアントに一般化され、パスや3サイクルといった構造を許可します。私たちは、重み付き設定においてマッチングと2パスに対して同様の公平性特性を保証する強い多項式アルゴリズムを得られることを示します。サイクルや長さが3以上のパスを含む最大カーディナリティカバレッジはNP困難であるにもかかわらず、どのような構造が許可されても最適化サブルーチンを多項式回数呼び出すことでブートストラップできる一般的な結果を提供し、マッチングに対して得られる公平性特性に類似したメカニズムを生成できます。これらの理論的結果を補完するために、よく研究された合成データセットや実データから抽出したサンプルに基づく計算結果を示し、より一般的な腎臓交換メカニズムに公平性の考慮を追加することの顕著な利点を実証します。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 8,
+      "popularity": 0,
+      "source": "arxiv:cs.DS",
+      "publishedAt": "2026-05-20T04:00:00.000Z",
+      "fetchedAt": "2026-05-20T23:13:03.847Z",
+      "authors": [
+        "Claire Chang",
+        "Arin Khare",
+        "David Shmoys"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    }
+  ]
+}
