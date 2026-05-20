@@ -95,6 +95,59 @@ function PeriodToggle({
   );
 }
 
+type RankMode = "personal" | "world";
+
+function ModeToggle({
+  value,
+  onChange,
+}: {
+  value: RankMode;
+  onChange: (v: RankMode) => void;
+}) {
+  const opts: Array<{ id: RankMode; label: string }> = [
+    { id: "personal", label: "あなた向け" },
+    { id: "world", label: "世間のトレンド" },
+  ];
+  return (
+    <div
+      style={{
+        margin: "0 18px 8px",
+        display: "inline-grid",
+        gridTemplateColumns: `repeat(${opts.length}, auto)`,
+        gap: 2,
+        padding: 2,
+        background: "var(--bg-sunken)",
+        borderRadius: 8,
+      }}
+    >
+      {opts.map((o) => {
+        const active = o.id === value;
+        return (
+          <button
+            key={o.id}
+            onClick={() => onChange(o.id)}
+            style={{
+              padding: "6px 12px",
+              border: 0,
+              borderRadius: 6,
+              background: active ? "var(--fg)" : "transparent",
+              color: active ? "var(--bg)" : "var(--fg-muted)",
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              cursor: "pointer",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {o.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 function Heatmap({
   dates,
   counts,
@@ -463,6 +516,10 @@ export function RecapScreen({
   archive: string[];
 }) {
   const [period, setPeriod] = useState<RecapPeriod>(7);
+  const [mode, setMode] = useState<RankMode>("personal");
+  const rankKey = (it: { score: number; popularity?: number }) =>
+    mode === "world" ? it.popularity ?? 0 : it.score;
+  const rankSymbol = mode === "world" ? "♡" : "★";
 
   const dates = useMemo(() => {
     const latest = archive[0];
@@ -510,15 +567,16 @@ export function RecapScreen({
   const groupBreakdown = useMemo(() => {
     return BIG_TAGS.map((t) => {
       const items = allItems.filter((it) => itemBigTags(it).includes(t.id));
-      const top = [...items].sort((a, b) => b.score - a.score).slice(0, 3);
+      const sortable = mode === "world" ? items.filter((it) => it.kind !== "paper") : items;
+      const top = [...sortable].sort((a, b) => rankKey(b) - rankKey(a)).slice(0, 3);
       return { ...t, n: items.length, top, counts: bigCounts[t.id] };
     });
-  }, [allItems, bigCounts]);
+  }, [allItems, bigCounts, mode]);
 
-  const bestOfPeriod = useMemo(
-    () => [...allItems].sort((a, b) => b.score - a.score).slice(0, 5),
-    [allItems],
-  );
+  const bestOfPeriod = useMemo(() => {
+    const pool = mode === "world" ? allItems.filter((it) => it.kind !== "paper") : allItems;
+    return [...pool].sort((a, b) => rankKey(b) - rankKey(a)).slice(0, 5);
+  }, [allItems, mode]);
 
   const firstD = dates[0];
   const lastD = dates[dates.length - 1];
@@ -562,12 +620,18 @@ export function RecapScreen({
           {endD.getUTCDate()}
         </h1>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-muted)" }}>
-          直近 {period} 日のトレンド
+          直近 {period} 日のトレンド ·{" "}
+          {mode === "world"
+            ? "各ソースのフェイバリット数ベース"
+            : "あなたの興味キーワードを加味"}
         </div>
       </div>
 
       <div style={{ flex: 1, overflow: "auto", paddingBottom: 12 }}>
-        <PeriodToggle value={period} onChange={setPeriod} />
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center" }}>
+          <PeriodToggle value={period} onChange={setPeriod} />
+          <ModeToggle value={mode} onChange={setMode} />
+        </div>
 
         <div
           style={{
@@ -706,7 +770,7 @@ export function RecapScreen({
                         fontWeight: 600,
                       }}
                     >
-                      ★{it.score}
+                      {rankSymbol}{rankKey(it)}
                     </span>
                   </ExternalLink>
                 ))}
@@ -714,7 +778,10 @@ export function RecapScreen({
             ))}
         </div>
 
-        <SectionLabel>{period === 7 ? "今週" : `直近 ${period} 日`}のベスト 5</SectionLabel>
+        <SectionLabel>
+          {period === 7 ? "今週" : `直近 ${period} 日`}の
+          {mode === "world" ? "人気ニュース Top 5" : "ベスト 5"}
+        </SectionLabel>
         {bestOfPeriod.map((it, i) => {
           const big = itemBigTags(it)[0];
           const c = big ? BIG_COLOR[big] : "var(--fg)";
@@ -766,7 +833,7 @@ export function RecapScreen({
                 </div>
               </div>
               <div style={{ fontFamily: "var(--font-serif)", fontSize: 16, color: c, fontWeight: 500 }}>
-                ★{it.score}
+                {rankSymbol}{rankKey(it)}
               </div>
             </ExternalLink>
           );

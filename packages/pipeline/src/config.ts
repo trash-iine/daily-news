@@ -92,15 +92,15 @@ export const PAPER_KEYWORDS: Record<string, number> = {
   "scheduling": 2,
   "graph algorithm": 2,
   // 量子コンピューティング
-  "quantum computing": 5,
-  "quantum computer": 5,
-  "quantum algorithm": 5,
-  "quantum information": 4,
-  "qubit": 3,
-  "quantum error correction": 4,
-  "variational quantum": 3,
-  "qaoa": 4,
-  "vqe": 3,
+  "quantum computing": 3,
+  "quantum computer": 3,
+  "quantum algorithm": 3,
+  "quantum information": 2,
+  "qubit": 1,
+  "quantum error correction": 2,
+  "variational quantum": 1,
+  "qaoa": 2,
+  "vqe": 1,
 };
 
 /**
@@ -110,8 +110,23 @@ export const PAPER_KEYWORDS: Record<string, number> = {
 export const PAPER_PRIORITY_KEYWORDS = [
   "np-hard",
   "np hard",
+];
+
+/**
+ * 採用上限カウント用の quantum 判定キーワード (大文字小文字無視・部分一致)。
+ * `PAPER_KEYWORDS` の quantum 系を編集した際はこちらも追従させる。
+ * `PAPER_KEYWORDS` から完全に除いても上限ロジックが機能するよう別管理にしている。
+ */
+export const PAPER_QUANTUM_KEYWORDS: readonly string[] = [
   "quantum computing",
+  "quantum computer",
   "quantum algorithm",
+  "quantum information",
+  "quantum error correction",
+  "qubit",
+  "variational quantum",
+  "qaoa",
+  "vqe",
 ];
 
 /**
@@ -401,6 +416,13 @@ export const NEWS_SEEN_LOOKBACK_DAYS = 7;
  */
 export const PAPERS_TOP_N = 10;
 export const PAPER_APS_MIN = 1;
+
+/**
+ * 1 日に採用する quantum 系論文の上限。`selectFinalists` で score top-N から
+ * quantum 系の比率が `PAPERS_QUANTUM_MAX` を超えた場合、最下位の非 APS quantum
+ * を未選抜の非 quantum 論文と入れ替える (paperFinalists.ts)。
+ */
+export const PAPERS_QUANTUM_MAX = 4;
 
 export const NEWS_SCORE_THRESHOLD = 1;
 export const PAPER_SCORE_THRESHOLD = 1;

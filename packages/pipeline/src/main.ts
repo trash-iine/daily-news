@@ -273,6 +273,7 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
         r,
         merit,
         score: merit + bonus,
+        popularity,
         tags: tagsFromSource(r.source),
       };
     }
@@ -286,6 +287,7 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       r,
       merit,
       score: merit + bonus,
+      popularity,
       tags: canonicalTags(matched),
     };
   });
@@ -298,6 +300,7 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       r: typeof scored[number]["r"];
       merit: number;
       score: number;
+      popularity: number;
       tags: string[];
       group: string;
     }>;
@@ -364,7 +367,7 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     }
   }
 
-  return ordered.map(({ r, score, tags }) => ({
+  return ordered.map(({ r, score, popularity, tags }) => ({
     id: hashId(r.url),
     kind: "news",
     title: r.title,
@@ -372,6 +375,7 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     summary: r.description.slice(0, 240),
     tags,
     score,
+    popularity,
     source: r.source,
     publishedAt: r.publishedAt,
     fetchedAt,
@@ -429,6 +433,7 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
     summary: summaries[i] ?? "",
     tags: canonicalTags(matched),
     score,
+    popularity: 0,
     source: p.source,
     publishedAt: p.publishedAt,
     fetchedAt,

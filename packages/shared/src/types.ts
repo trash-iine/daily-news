@@ -18,6 +18,12 @@ export interface BaseItem {
    * news kind では基本的に undefined。
    */
   authors?: string[];
+  /**
+   * ソース固有の人気指標 (Qiita LGTM / Zenn いいね / HN points / RSS feed weight) を
+   * 共通レンジに正規化した値。キーワード加点・言語ボーナスは含まない世間ベースのスコア。
+   * Recap タブの「世間のトレンド」モード用。2026-05-20 以降の bundle に付与される。
+   */
+  popularity?: number;
 }
 
 export interface DailyBundle {
