@@ -312,3 +312,88 @@ export function tagFrequency(
   entries.sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
   return entries.slice(0, topN);
 }
+
+export interface TagPopEntry {
+  tag: string;
+  /** popularity 合計 (世間人気スコアの和) */
+  popSum: number;
+  /** 該当 item 件数 */
+  count: number;
+  /** 1 item 平均人気スコア (世間平均熱量) */
+  avg: number;
+  bigGroup: BigTagGroup | null;
+}
+
+/**
+ * タグごとの popularity 合計で並べる。出現件数ではなく世間人気量で評価する集計。
+ * popularity 未設定の古い item は 0 扱い。
+ */
+export function tagPopularity(
+  bundles: Record<string, DailyBundle>,
+  dates: string[],
+  topN: number,
+): TagPopEntry[] {
+  const popSum = new Map<string, number>();
+  const count = new Map<string, number>();
+  for (const d of dates) {
+    for (const it of bundles[d]?.items ?? []) {
+      const p = it.popularity ?? 0;
+      if (p <= 0) continue;
+      for (const t of it.tags) {
+        popSum.set(t, (popSum.get(t) ?? 0) + p);
+        count.set(t, (count.get(t) ?? 0) + 1);
+      }
+    }
+  }
+  const entries: TagPopEntry[] = [];
+  for (const [tag, sum] of popSum) {
+    const n = count.get(tag) ?? 0;
+    entries.push({
+      tag,
+      popSum: sum,
+      count: n,
+      avg: n > 0 ? sum / n : 0,
+      bigGroup: bigTagOf(tag),
+    });
+  }
+  entries.sort((a, b) => b.popSum - a.popSum || b.count - a.count);
+  return entries.slice(0, topN);
+}
+
+export interface SourceTopEntry {
+  family: string;
+  label: string;
+  items: BaseItem[];
+}
+
+/** ソースファミリ別の popularity 上位 item を抽出する。 */
+export function topItemsBySource(
+  items: BaseItem[],
+  topPerSource: number,
+  familyLabels: Record<string, string>,
+): SourceTopEntry[] {
+  const byFamily = new Map<string, BaseItem[]>();
+  for (const it of items) {
+    const p = it.popularity ?? 0;
+    if (p <= 0) continue;
+    const fam = sourceFamily(it.source);
+    const arr = byFamily.get(fam) ?? [];
+    arr.push(it);
+    byFamily.set(fam, arr);
+  }
+  const entries: SourceTopEntry[] = [];
+  for (const [fam, arr] of byFamily) {
+    arr.sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0));
+    entries.push({
+      family: fam,
+      label: familyLabels[fam] ?? fam,
+      items: arr.slice(0, topPerSource),
+    });
+  }
+  entries.sort((a, b) => {
+    const sa = a.items.reduce((s, it) => s + (it.popularity ?? 0), 0);
+    const sb = b.items.reduce((s, it) => s + (it.popularity ?? 0), 0);
+    return sb - sa;
+  });
+  return entries;
+}

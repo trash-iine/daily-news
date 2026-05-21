@@ -24,6 +24,28 @@ export interface BaseItem {
    * Recap タブの「世間のトレンド」モード用。2026-05-20 以降の bundle に付与される。
    */
   popularity?: number;
+  /**
+   * KEYWORD_WEIGHTS / PAPER_KEYWORDS によるキーワードマッチ加点 (title 2x ブースト後の合計)。
+   * 興味バイアスの寄与分。2026-05-21 以降の bundle に付与される。
+   */
+  keywordScore?: number;
+  /**
+   * ソース言語/重要度ボーナス。日本語 +15 / 英語重要 +5 / それ以外 0。
+   * 2026-05-21 以降の bundle に付与される。
+   */
+  languageBonus?: number;
+  /**
+   * 採点時に実際にマッチした canonical キーワード一覧。
+   * popularity-only ソース (HN / 一部 RSS) では空配列。
+   * 2026-05-21 以降の bundle に付与される。
+   */
+  matchedKeywords?: string[];
+  /**
+   * 人気指標の生値表示用ラベル (例: "Qiita LGTM 17", "HN 64pt", "Zenn ♥ 23")。
+   * popularity と組み合わせて UI のバッジに使う。生値が取れないソースでは undefined。
+   * 2026-05-21 以降の bundle に付与される。
+   */
+  popularityLabel?: string;
 }
 
 export interface DailyBundle {

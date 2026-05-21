@@ -169,6 +169,18 @@ function popularityScore(source: string, baseScore: number): number {
   return baseScore;
 }
 
+/**
+ * バッジ表示用の生値ラベル。Qiita / Zenn は baseScore が生 LGTM/いいね 数なのでそのまま使う。
+ * HN は baseScore が pointsToBaseScore で既に正規化済みなので生 points を復元できず undefined。
+ * RSS は baseScore がフィード重みなので意味のあるラベルにならず undefined。
+ */
+function popularityLabel(source: string, baseScore: number): string | undefined {
+  if (baseScore <= 0) return undefined;
+  if (source.startsWith("qiita-api:")) return `Qiita LGTM ${baseScore}`;
+  if (source.startsWith("zenn-api:")) return `Zenn ♥ ${baseScore}`;
+  return undefined;
+}
+
 function primaryGroup(tags: string[]): string | undefined {
   for (const t of tags) {
     const g = BIG_TAG_GROUPS[t];
@@ -267,6 +279,7 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
   const scored = filtered.map((r) => {
     const popularity = popularityScore(r.source, r.baseScore ?? 0);
     const bonus = languageBonus(r.source);
+    const popLabel = popularityLabel(r.source, r.baseScore ?? 0);
     if (isPopularityOnly(r.source)) {
       const merit = popularity;
       return {
@@ -274,6 +287,10 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
         merit,
         score: merit + bonus,
         popularity,
+        keywordScore: 0,
+        languageBonus: bonus,
+        matchedKeywords: [] as string[],
+        popularityLabel: popLabel,
         tags: tagsFromSource(r.source),
       };
     }
@@ -283,12 +300,17 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       KEYWORD_WEIGHTS,
     );
     const merit = popularity + kwScore;
+    const canonMatched = canonicalTags(matched);
     return {
       r,
       merit,
       score: merit + bonus,
       popularity,
-      tags: canonicalTags(matched),
+      keywordScore: kwScore,
+      languageBonus: bonus,
+      matchedKeywords: canonMatched,
+      popularityLabel: popLabel,
+      tags: canonMatched,
     };
   });
 
@@ -301,6 +323,10 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       merit: number;
       score: number;
       popularity: number;
+      keywordScore: number;
+      languageBonus: number;
+      matchedKeywords: string[];
+      popularityLabel: string | undefined;
       tags: string[];
       group: string;
     }>;
@@ -367,17 +393,21 @@ function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     }
   }
 
-  return ordered.map(({ r, score, popularity, tags }) => ({
-    id: hashId(r.url),
+  return ordered.map((s) => ({
+    id: hashId(s.r.url),
     kind: "news",
-    title: r.title,
-    url: r.url,
-    summary: r.description.slice(0, 240),
-    tags,
-    score,
-    popularity,
-    source: r.source,
-    publishedAt: r.publishedAt,
+    title: s.r.title,
+    url: s.r.url,
+    summary: s.r.description.slice(0, 240),
+    tags: s.tags,
+    score: s.score,
+    popularity: s.popularity,
+    keywordScore: s.keywordScore,
+    languageBonus: s.languageBonus,
+    matchedKeywords: s.matchedKeywords,
+    ...(s.popularityLabel ? { popularityLabel: s.popularityLabel } : {}),
+    source: s.r.source,
+    publishedAt: s.r.publishedAt,
     fetchedAt,
   }));
 }
@@ -425,20 +455,26 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
     finalists.map(({ p }) => summarizePaper(p.title, p.abstract)),
   );
 
-  return finalists.map(({ p, score, matched }, i) => ({
-    id: hashId(p.absUrl),
-    kind: "paper",
-    title: p.title,
-    url: p.absUrl,
-    summary: summaries[i] ?? "",
-    tags: canonicalTags(matched),
-    score,
-    popularity: 0,
-    source: p.source,
-    publishedAt: p.publishedAt,
-    fetchedAt,
-    ...(p.authors.length > 0 ? { authors: p.authors } : {}),
-  }));
+  return finalists.map(({ p, score, matched }, i) => {
+    const canonMatched = canonicalTags(matched);
+    return {
+      id: hashId(p.absUrl),
+      kind: "paper",
+      title: p.title,
+      url: p.absUrl,
+      summary: summaries[i] ?? "",
+      tags: canonMatched,
+      score,
+      popularity: 0,
+      keywordScore: score,
+      languageBonus: 0,
+      matchedKeywords: canonMatched,
+      source: p.source,
+      publishedAt: p.publishedAt,
+      fetchedAt,
+      ...(p.authors.length > 0 ? { authors: p.authors } : {}),
+    };
+  });
 }
 
 async function main() {

@@ -109,6 +109,88 @@ export function Thumb({
   );
 }
 
+/**
+ * 採択理由バッジ (世間人気)。popularity が >0 のときだけ表示。
+ * tooltip に popularityLabel (Qiita LGTM N など) を載せる。
+ */
+export function PopularityBadge({
+  value,
+  label,
+  sm,
+}: {
+  value: number;
+  label?: string;
+  sm?: boolean;
+}) {
+  if (value <= 0) return null;
+  const c = "oklch(0.62 0.18 15)";
+  return (
+    <span
+      title={label ? `世間人気: ${label} (正規化スコア ${value})` : `世間人気スコア ${value}`}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 2,
+        padding: sm ? "1px 5px" : "2px 7px",
+        borderRadius: 4,
+        fontFamily: "var(--font-mono)",
+        fontSize: sm ? 10 : 11,
+        fontWeight: 700,
+        background: `color-mix(in oklch, ${c} 12%, transparent)`,
+        color: `color-mix(in oklch, ${c} 70%, var(--fg))`,
+        border: `0.5px solid color-mix(in oklch, ${c} 30%, transparent)`,
+        whiteSpace: "nowrap",
+        fontFeatureSettings: '"tnum"',
+      }}
+    >
+      ♡{value}
+    </span>
+  );
+}
+
+/**
+ * 採択理由バッジ (自分の興味)。keywordScore が >0 のときだけ表示。
+ * tooltip にマッチした keyword を載せる。
+ */
+export function InterestBadge({
+  value,
+  matched,
+  sm,
+}: {
+  value: number;
+  matched?: string[];
+  sm?: boolean;
+}) {
+  if (value <= 0) return null;
+  const c = "oklch(0.68 0.16 80)";
+  const tip =
+    matched && matched.length > 0
+      ? `興味マッチ: ${matched.join(", ")} (加点 ${value})`
+      : `興味スコア ${value}`;
+  return (
+    <span
+      title={tip}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: 2,
+        padding: sm ? "1px 5px" : "2px 7px",
+        borderRadius: 4,
+        fontFamily: "var(--font-mono)",
+        fontSize: sm ? 10 : 11,
+        fontWeight: 700,
+        background: `color-mix(in oklch, ${c} 14%, transparent)`,
+        color: `color-mix(in oklch, ${c} 65%, var(--fg))`,
+        border: `0.5px solid color-mix(in oklch, ${c} 32%, transparent)`,
+        whiteSpace: "nowrap",
+        fontFeatureSettings: '"tnum"',
+      }}
+    >
+      ★{value}
+    </span>
+  );
+}
+
 export function Tag({ t, sm }: { t: string; sm?: boolean }) {
   const big = bigTagOf(t);
   const c = big ? BIG_COLOR[big] : "oklch(0.5 0.02 60)";

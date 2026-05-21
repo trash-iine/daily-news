@@ -6,17 +6,23 @@ import {
   BIG_TAGS,
   DELTA_DOWN,
   DELTA_UP,
+  FAM_COLOR,
   bigTagCountsByDate,
   dateRange,
   fmtDateBadge,
   itemBigTags,
+  sourceLabel,
   type RecapPeriod,
   type RisingTag,
+  type SourceTopEntry,
   type TagFreqEntry,
+  type TagPopEntry,
   risingTags,
   tagFrequency,
+  tagPopularity,
+  topItemsBySource,
 } from "./lib";
-import { BigTagPill } from "./atoms";
+import { BigTagPill, PopularityBadge } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
 
 function Spark({
@@ -490,6 +496,199 @@ function TagBars({ entries }: { entries: TagFreqEntry[] }) {
   );
 }
 
+function PopTagBars({ entries }: { entries: TagPopEntry[] }) {
+  if (!entries.length) {
+    return (
+      <div
+        style={{
+          padding: "12px 18px",
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          color: "var(--fg-faint)",
+        }}
+      >
+        世間人気データがまだありません (2026-05-20 以降の bundle から計測開始)
+      </div>
+    );
+  }
+  const max = Math.max(...entries.map((e) => e.popSum), 1);
+  return (
+    <div style={{ padding: "0 18px" }}>
+      {entries.map((e) => {
+        const c = e.bigGroup ? BIG_COLOR[e.bigGroup] : "oklch(0.62 0.18 15)";
+        const w = (e.popSum / max) * 100;
+        return (
+          <div
+            key={e.tag}
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 110px) 1fr auto auto",
+              gap: 8,
+              alignItems: "center",
+              padding: "6px 0",
+            }}
+            title={`popularity 合計 ${e.popSum} / ${e.count} 件 / 平均 ${e.avg.toFixed(1)}`}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0 }}>
+              <span
+                style={{
+                  width: 6,
+                  height: 6,
+                  borderRadius: 999,
+                  background: c,
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11.5,
+                  fontWeight: 600,
+                  color: "var(--fg)",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                #{e.tag}
+              </span>
+            </div>
+            <div
+              style={{
+                height: 6,
+                borderRadius: 999,
+                background: `color-mix(in oklch, ${c} 10%, var(--bg-sunken))`,
+                overflow: "hidden",
+              }}
+            >
+              <div style={{ height: "100%", width: `${w}%`, background: c, borderRadius: 999 }} />
+            </div>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+                fontWeight: 700,
+                color: "var(--fg)",
+                fontFeatureSettings: '"tnum"',
+                minWidth: 28,
+                textAlign: "right",
+              }}
+            >
+              ♡{e.popSum}
+            </span>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 10,
+                color: "var(--fg-faint)",
+                fontFeatureSettings: '"tnum"',
+                minWidth: 28,
+                textAlign: "right",
+              }}
+            >
+              {e.count}件
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+function SourceTopList({ entries }: { entries: SourceTopEntry[] }) {
+  if (!entries.length) {
+    return (
+      <div
+        style={{
+          padding: "12px 18px",
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          color: "var(--fg-faint)",
+        }}
+      >
+        ソース別データがまだありません
+      </div>
+    );
+  }
+  return (
+    <div style={{ padding: "0 16px" }}>
+      {entries.map((e) => {
+        const c = FAM_COLOR[e.family] ?? FAM_COLOR.other ?? "var(--fg)";
+        return (
+          <div
+            key={e.family}
+            style={{
+              marginBottom: 10,
+              padding: 12,
+              borderRadius: 12,
+              background: `color-mix(in oklch, ${c} 5%, var(--bg-sunken))`,
+              borderLeft: `3px solid ${c}`,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: 6,
+                fontFamily: "var(--font-mono)",
+                fontSize: 11,
+              }}
+            >
+              <span style={{ color: c, fontWeight: 700 }}>{e.label}</span>
+              <span style={{ color: "var(--fg-faint)", fontSize: 10 }}>
+                Top {e.items.length}
+              </span>
+            </div>
+            {e.items.map((it, i) => (
+              <ExternalLink
+                key={it.id}
+                href={it.url}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "14px 1fr auto",
+                  gap: 8,
+                  alignItems: "center",
+                  padding: "6px 0",
+                  borderTop: "0.5px solid color-mix(in oklch, var(--border) 60%, transparent)",
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 10,
+                    color: "var(--fg-faint)",
+                    textAlign: "right",
+                  }}
+                >
+                  {i + 1}
+                </span>
+                <span
+                  style={{
+                    fontSize: 12.5,
+                    fontWeight: 500,
+                    lineHeight: 1.4,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                  title={sourceLabel(it.source)}
+                >
+                  {it.title}
+                </span>
+                <PopularityBadge value={it.popularity ?? 0} label={it.popularityLabel} sm />
+              </ExternalLink>
+            ))}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <div
@@ -562,6 +761,25 @@ export function RecapScreen({
   const tagTop = useMemo(
     () => tagFrequency(allBundles, dates, prevDates, 8),
     [allBundles, dates, prevDates],
+  );
+
+  const tagPop = useMemo(() => tagPopularity(allBundles, dates, 8), [allBundles, dates]);
+
+  const sourceTop = useMemo(
+    () =>
+      topItemsBySource(allItems, 3, {
+        qiita: "Qiita",
+        zenn: "Zenn",
+        hn: "Hacker News",
+        rust: "Rust 公式",
+        python: "Python PEP",
+        arxiv: "arXiv",
+        github: "GitHub",
+        reddit: "Reddit",
+        kbd: "Keyboard",
+        other: "その他 RSS",
+      }),
+    [allItems],
   );
 
   const groupBreakdown = useMemo(() => {
@@ -674,8 +892,14 @@ export function RecapScreen({
         <SectionLabel>急上昇タグ</SectionLabel>
         <RisingChips rising={rising} />
 
-        <SectionLabel>タグ頻度 Top {tagTop.length || 8}</SectionLabel>
+        <SectionLabel>タグ頻度 Top {tagTop.length || 8} (件数ベース)</SectionLabel>
         <TagBars entries={tagTop} />
+
+        <SectionLabel>世間人気タグ Top {tagPop.length || 8} (♡ 合計)</SectionLabel>
+        <PopTagBars entries={tagPop} />
+
+        <SectionLabel>ソース別 世間人気 Top 3</SectionLabel>
+        <SourceTopList entries={sourceTop} />
 
         <SectionLabel>大タグ別</SectionLabel>
         <div style={{ padding: "0 16px" }}>
