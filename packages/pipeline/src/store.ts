@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { BaseItem, DailyBundle, DailyIndex } from "@daily-news/shared";
+import type { BaseItem, DailyBundle, DailyIndex, TrendingItem } from "@daily-news/shared";
 
 const here = dirname(fileURLToPath(import.meta.url));
 export const DATA_DIR = join(here, "..", "..", "..", "data");
@@ -13,20 +13,30 @@ function dedupe(items: BaseItem[]): BaseItem[] {
   return [...map.values()];
 }
 
-export async function writeDaily(date: string, items: BaseItem[]): Promise<void> {
+export async function writeDaily(
+  date: string,
+  items: BaseItem[],
+  trending?: TrendingItem[],
+): Promise<void> {
   await mkdir(DATA_DIR, { recursive: true });
   const path = join(DATA_DIR, `${date}.json`);
   let merged = items;
+  let existingTrending: TrendingItem[] | undefined;
   try {
     const existing = JSON.parse(await readFile(path, "utf-8")) as DailyBundle;
     merged = dedupe([...existing.items, ...items]);
+    existingTrending = existing.trending;
   } catch {
     // file does not exist yet
   }
+  // 同日 2 回目以降の実行で trending を未指定にされた場合は既存値を温存する
+  // (テスト時や再実行で trending 取得をスキップしても過去スナップショットを壊さない)
+  const nextTrending = trending ?? existingTrending;
   const bundle: DailyBundle = {
     date,
     generatedAt: new Date().toISOString(),
     items: merged.sort((a, b) => b.score - a.score),
+    ...(nextTrending && nextTrending.length > 0 ? { trending: nextTrending } : {}),
   };
   await writeFile(path, JSON.stringify(bundle, null, 2) + "\n", "utf-8");
 }

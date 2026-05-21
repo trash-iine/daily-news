@@ -1,4 +1,10 @@
-import { BIG_TAG_GROUPS, type BaseItem, type BigTagGroup, type DailyBundle } from "@daily-news/shared";
+import {
+  BIG_TAG_GROUPS,
+  type BaseItem,
+  type BigTagGroup,
+  type DailyBundle,
+  type TrendingItem,
+} from "@daily-news/shared";
 
 export interface BigTagDef {
   id: BigTagGroup;
@@ -325,17 +331,28 @@ export function tagFrequency(
  * 数値レンジは popularity と同じオーダーに収まる。
  * publishedAt / fetchedAt が無効な場合は popularity をそのまま返す。
  */
-export function trendScore(item: BaseItem): number {
-  const pop = item.popularity ?? 0;
-  if (pop <= 0) return 0;
-  const pub = Date.parse(item.publishedAt);
-  const fetched = Date.parse(item.fetchedAt);
+/**
+ * velocityScore — popularity を「発行 → 計測」までの経過時間で時間正規化する。
+ * BaseItem と TrendingItem の両方から呼べるよう、引数で popularity / publishedAt / fetchedAt を受ける。
+ */
+export function velocityScore(
+  popularity: number,
+  publishedAt: string,
+  fetchedAt: string,
+): number {
+  if (popularity <= 0) return 0;
+  const pub = Date.parse(publishedAt);
+  const fetched = Date.parse(fetchedAt);
   if (!Number.isFinite(pub) || !Number.isFinite(fetched) || fetched <= pub) {
-    return pop;
+    return popularity;
   }
   const ageHours = Math.max(1, (fetched - pub) / 3_600_000);
   const factor = Math.sqrt(8 / (ageHours + 4));
-  return Math.round(pop * factor);
+  return Math.round(popularity * factor);
+}
+
+export function trendScore(item: BaseItem): number {
+  return velocityScore(item.popularity ?? 0, item.publishedAt, item.fetchedAt);
 }
 
 export interface TrendTagEntry {
@@ -363,6 +380,44 @@ export function trendTags(
   for (const d of dates) {
     for (const it of bundles[d]?.items ?? []) {
       const t = trendScore(it);
+      if (t <= 0) continue;
+      for (const tag of it.tags) {
+        trendSum.set(tag, (trendSum.get(tag) ?? 0) + t);
+        count.set(tag, (count.get(tag) ?? 0) + 1);
+      }
+    }
+  }
+  const entries: TrendTagEntry[] = [];
+  for (const [tag, sum] of trendSum) {
+    const n = count.get(tag) ?? 0;
+    entries.push({
+      tag,
+      trendSum: sum,
+      count: n,
+      avg: n > 0 ? sum / n : 0,
+      bigGroup: bigTagOf(tag),
+    });
+  }
+  entries.sort((a, b) => b.trendSum - a.trendSum || b.count - a.count);
+  return entries.slice(0, topN);
+}
+
+/**
+ * site-wide 週間トレンド (bundle.trending) を元に集計するトレンドタグ。
+ * ユーザー興味で絞り込んでいない Qiita / Zenn の生タグを使うため、世間のトレンドに近い。
+ * trending データが無い bundle (2026-05-22 以前) は単純にスキップする。
+ */
+export function worldTrendTags(
+  bundles: Record<string, DailyBundle>,
+  dates: string[],
+  topN: number,
+): TrendTagEntry[] {
+  const trendSum = new Map<string, number>();
+  const count = new Map<string, number>();
+  for (const d of dates) {
+    const trending: TrendingItem[] = bundles[d]?.trending ?? [];
+    for (const it of trending) {
+      const t = velocityScore(it.popularity, it.publishedAt, it.fetchedAt);
       if (t <= 0) continue;
       for (const tag of it.tags) {
         trendSum.set(tag, (trendSum.get(tag) ?? 0) + t);

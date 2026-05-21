@@ -1,4 +1,4 @@
-import type { BaseItem } from "@daily-news/shared";
+import type { BaseItem, TrendingItem } from "@daily-news/shared";
 import {
   APS_FEEDS,
   APS_PAPER_MAX_AGE_DAYS,
@@ -20,6 +20,7 @@ import {
   QIITA_API_TAGS,
   RSS_FEEDS,
   TAG_ALIASES,
+  TRENDING_LOOKBACK_HOURS,
   ZENN_API_TOPICS,
 } from "./config.js";
 import { hasNegativeKeyword, scoreFields } from "./score.js";
@@ -31,9 +32,12 @@ import {
 import { fetchArxivCategory, type ArxivPaper } from "./sources/arxiv.js";
 import { fetchAPSFeed } from "./sources/physicalReview.js";
 import { fetchHackerNewsQuery } from "./sources/hackerNews.js";
+import { fetchHnTrending } from "./sources/hnTrending.js";
 import { fetchQiitaTag } from "./sources/qiitaApi.js";
+import { fetchQiitaTrending } from "./sources/qiitaTrending.js";
 import { fetchRssFeed, type FeedFetchResult } from "./sources/rssFeeds.js";
 import { fetchZennTopic } from "./sources/zennApi.js";
+import { fetchZennTrending } from "./sources/zennTrending.js";
 import type { RawItem } from "./sources/types.js";
 import {
   loadRecentNewsIds,
@@ -144,6 +148,39 @@ async function collectNews(): Promise<RawItem[]> {
   return all.flat();
 }
 
+async function collectTrending(): Promise<TrendingItem[]> {
+  const sinceISO = new Date(
+    Date.now() - TRENDING_LOOKBACK_HOURS * 3600 * 1000,
+  ).toISOString();
+  const fetchedAt = new Date().toISOString();
+  const tasks: Array<Promise<RawItem[]>> = [
+    safeFeed("qiita-trending", () => fetchQiitaTrending(sinceISO)),
+    safeFeed("zenn-trending", () => fetchZennTrending(sinceISO)),
+    safeFeed("hn-trending", () => fetchHnTrending()),
+  ];
+  const batches = await Promise.all(tasks);
+  const out: TrendingItem[] = [];
+  for (const batch of batches) {
+    for (const r of batch) {
+      const rawScore = r.baseScore ?? 0;
+      const popularity = popularityScore(r.source, rawScore);
+      const tags = canonicalTags(r.rawTags ?? []);
+      const item: TrendingItem = {
+        source: r.source,
+        title: r.title,
+        url: r.url,
+        publishedAt: r.publishedAt,
+        fetchedAt,
+        popularity,
+        tags,
+        ...(rawScore > 0 ? { popularityRaw: rawScore } : {}),
+      };
+      out.push(item);
+    }
+  }
+  return out;
+}
+
 function isPopularityOnly(source: string): boolean {
   return source.startsWith("qiita-api:") || source.startsWith("zenn-api:");
 }
@@ -163,8 +200,17 @@ function tagsFromSource(source: string): string[] {
  */
 function popularityScore(source: string, baseScore: number): number {
   if (baseScore <= 0) return 0;
-  if (source.startsWith("qiita-api:") || source.startsWith("zenn-api:")) {
+  if (
+    source.startsWith("qiita-api:") ||
+    source.startsWith("zenn-api:") ||
+    source === "qiita-trending" ||
+    source === "zenn-trending"
+  ) {
     return Math.round(3 * Math.sqrt(baseScore));
+  }
+  // hn-trending は生 points を保存しているので、ニュースランキングと同じ sqrt cap 15 を当てる。
+  if (source === "hn-trending") {
+    return Math.min(15, Math.round(2 * Math.sqrt(baseScore)));
   }
   return baseScore;
 }
@@ -481,13 +527,14 @@ async function main() {
   const date = todayString();
   console.log(`[main] running for ${date}`);
 
-  const [rawNews, rawPapers, seenNewsIds] = await Promise.all([
+  const [rawNews, rawPapers, seenNewsIds, trending] = await Promise.all([
     collectNews(),
     collectPapers(),
     loadRecentNewsIds(date, NEWS_SEEN_LOOKBACK_DAYS),
+    collectTrending(),
   ]);
   console.log(
-    `[main] collected ${rawNews.length} news / ${rawPapers.length} papers; ${seenNewsIds.size} previously-seen news ids`,
+    `[main] collected ${rawNews.length} news / ${rawPapers.length} papers / ${trending.length} trending; ${seenNewsIds.size} previously-seen news ids`,
   );
 
   const news = rankNews(rawNews, seenNewsIds);
@@ -508,7 +555,7 @@ async function main() {
   const withThumbs = enriched.filter((i) => i.thumbnail).length;
   console.log(`[main] enriched ${withThumbs}/${enriched.length} items with thumbnails`);
 
-  await writeDaily(date, enriched);
+  await writeDaily(date, enriched, trending);
   await updateIndex(date);
   console.log(`[main] wrote data/${date}.json`);
 }

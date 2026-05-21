@@ -48,10 +48,38 @@ export interface BaseItem {
   popularityLabel?: string;
 }
 
+/**
+ * site-wide 週間トレンド (Qiita / Zenn / Hacker News) のスナップショット。
+ * `BaseItem` と違い興味タグ・KEYWORD_WEIGHTS で絞らない世間ベースのデータで、
+ * Recap タブ「トレンドタグ」の集計に使う。2026-05-22 以降の bundle に付与される。
+ *
+ * BaseItem 流用は `kind / summary / score / keywordScore` 等が無意味になり JSON が
+ * 肥大するため別型にしている。
+ */
+export interface TrendingItem {
+  /** `qiita-trending` | `zenn-trending` | `hn-trending` */
+  source: string;
+  title: string;
+  url: string;
+  publishedAt: string;
+  fetchedAt: string;
+  /** popularityScore (sqrt スケール) で正規化済みの人気指標。BaseItem.popularity と同 scale */
+  popularity: number;
+  /** Qiita LGTM / Zenn ♥ の生値 (HN は points が cap 後の値なので未設定) */
+  popularityRaw?: number;
+  /** canonical 化済みタグ (TAG_ALIASES のみ通し、KEYWORD_WEIGHTS マッチは通さない)。HN は常に空配列 */
+  tags: string[];
+}
+
 export interface DailyBundle {
   date: string;
   generatedAt: string;
   items: BaseItem[];
+  /**
+   * site-wide 週間トレンドのスナップショット。Recap 「トレンドタグ」セクション専用。
+   * 2026-05-22 以降の bundle に付与される。それ以前の bundle では undefined。
+   */
+  trending?: TrendingItem[];
 }
 
 export interface DailyIndex {

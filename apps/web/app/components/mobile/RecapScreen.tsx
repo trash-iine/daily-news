@@ -21,7 +21,7 @@ import {
   tagFrequency,
   topItemsBySource,
   trendScore,
-  trendTags,
+  worldTrendTags,
 } from "./lib";
 import { BigTagPill, PopularityBadge } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
@@ -508,7 +508,7 @@ function TrendTagBars({ entries }: { entries: TrendTagEntry[] }) {
           color: "var(--fg-faint)",
         }}
       >
-        トレンドデータがまだありません (2026-05-20 以降の bundle から計測開始)
+        世間トレンドデータがまだありません (2026-05-23 以降の bundle から計測開始)
       </div>
     );
   }
@@ -763,7 +763,10 @@ export function RecapScreen({
     [allBundles, dates, prevDates],
   );
 
-  const tagTrend = useMemo(() => trendTags(allBundles, dates, 8), [allBundles, dates]);
+  // トレンドタグは bundle.trending (site-wide Qiita / Zenn 週間 top) から集計し、
+  // ユーザー興味で絞り込んでいない世間トレンドを反映する。bundle.trending が無い過去日は
+  // 自動的にスキップされる。
+  const tagTrend = useMemo(() => worldTrendTags(allBundles, dates, 8), [allBundles, dates]);
 
   const sourceTop = useMemo(
     () =>
@@ -895,7 +898,7 @@ export function RecapScreen({
         <SectionLabel>タグ頻度 Top {tagTop.length || 8} (件数ベース)</SectionLabel>
         <TagBars entries={tagTop} />
 
-        <SectionLabel>トレンドタグ Top {tagTrend.length || 8} (♡ 合計)</SectionLabel>
+        <SectionLabel>世間トレンドタグ Top {tagTrend.length || 8} (Qiita / Zenn 週間)</SectionLabel>
         <TrendTagBars entries={tagTrend} />
 
         <SectionLabel>ソース別 トレンド Top 3</SectionLabel>

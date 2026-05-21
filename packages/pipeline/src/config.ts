@@ -428,3 +428,16 @@ export const NEWS_SCORE_THRESHOLD = 1;
 export const PAPER_SCORE_THRESHOLD = 1;
 
 export const OPENAI_MODEL = "gpt-4o-mini";
+
+/**
+ * site-wide 週間トレンド (Qiita / Zenn / HN) のスナップショット設定。
+ * Recap 「トレンドタグ」セクションで使う。`bundle.items` (個人嗜好で絞り込み済み) とは
+ * 独立した別データ。
+ *
+ * - `TRENDING_PER_SOURCE`: 各サイトから取得する 1 日あたりの件数
+ * - `TRENDING_LOOKBACK_HOURS`: lookback 期間 (HN の Algolia は時刻フィルタ、Qiita は created:>YYYY-MM-DD)
+ * - `QIITA_TRENDING_MIN_STOCKS`: Qiita の `stocks:>N` 閾値。ノイズ除外用の弱フィルタ
+ */
+export const TRENDING_PER_SOURCE = 30;
+export const TRENDING_LOOKBACK_HOURS = 168;
+export const QIITA_TRENDING_MIN_STOCKS = 1;
