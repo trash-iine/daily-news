@@ -313,50 +313,75 @@ export function tagFrequency(
   return entries.slice(0, topN);
 }
 
-export interface TagPopEntry {
+/**
+ * トレンド指標 = popularity ÷ √経過時間
+ *
+ * `popularity` は fetchedAt 時点での正規化された人気指標 (Qiita LGTM / Zenn ♥ / HN points)。
+ * 発行 (publishedAt) から fetchedAt までの経過時間が短いほど「短時間で多くの favorite を集めた」
+ * = 勢いがあるとみなし、ageHours の平方根で割って velocity 寄りのランキング指標にする。
+ *
+ * - 4h あたりを基準 (係数 sqrt(8/(4+4)) = 1.0) として
+ * - 24h: ×0.53 / 48h: ×0.39 / 1h: ×1.26
+ * 数値レンジは popularity と同じオーダーに収まる。
+ * publishedAt / fetchedAt が無効な場合は popularity をそのまま返す。
+ */
+export function trendScore(item: BaseItem): number {
+  const pop = item.popularity ?? 0;
+  if (pop <= 0) return 0;
+  const pub = Date.parse(item.publishedAt);
+  const fetched = Date.parse(item.fetchedAt);
+  if (!Number.isFinite(pub) || !Number.isFinite(fetched) || fetched <= pub) {
+    return pop;
+  }
+  const ageHours = Math.max(1, (fetched - pub) / 3_600_000);
+  const factor = Math.sqrt(8 / (ageHours + 4));
+  return Math.round(pop * factor);
+}
+
+export interface TrendTagEntry {
   tag: string;
-  /** popularity 合計 (世間人気スコアの和) */
-  popSum: number;
+  /** trendScore の合計 (トレンド総量) */
+  trendSum: number;
   /** 該当 item 件数 */
   count: number;
-  /** 1 item 平均人気スコア (世間平均熱量) */
+  /** 1 item あたりの平均トレンド指標 */
   avg: number;
   bigGroup: BigTagGroup | null;
 }
 
 /**
- * タグごとの popularity 合計で並べる。出現件数ではなく世間人気量で評価する集計。
- * popularity 未設定の古い item は 0 扱い。
+ * タグごとの trendScore 合計で並べる。popularity を獲得速度で時間正規化した値の和を使う。
+ * trendScore=0 の item は集計対象外。
  */
-export function tagPopularity(
+export function trendTags(
   bundles: Record<string, DailyBundle>,
   dates: string[],
   topN: number,
-): TagPopEntry[] {
-  const popSum = new Map<string, number>();
+): TrendTagEntry[] {
+  const trendSum = new Map<string, number>();
   const count = new Map<string, number>();
   for (const d of dates) {
     for (const it of bundles[d]?.items ?? []) {
-      const p = it.popularity ?? 0;
-      if (p <= 0) continue;
-      for (const t of it.tags) {
-        popSum.set(t, (popSum.get(t) ?? 0) + p);
-        count.set(t, (count.get(t) ?? 0) + 1);
+      const t = trendScore(it);
+      if (t <= 0) continue;
+      for (const tag of it.tags) {
+        trendSum.set(tag, (trendSum.get(tag) ?? 0) + t);
+        count.set(tag, (count.get(tag) ?? 0) + 1);
       }
     }
   }
-  const entries: TagPopEntry[] = [];
-  for (const [tag, sum] of popSum) {
+  const entries: TrendTagEntry[] = [];
+  for (const [tag, sum] of trendSum) {
     const n = count.get(tag) ?? 0;
     entries.push({
       tag,
-      popSum: sum,
+      trendSum: sum,
       count: n,
       avg: n > 0 ? sum / n : 0,
       bigGroup: bigTagOf(tag),
     });
   }
-  entries.sort((a, b) => b.popSum - a.popSum || b.count - a.count);
+  entries.sort((a, b) => b.trendSum - a.trendSum || b.count - a.count);
   return entries.slice(0, topN);
 }
 
@@ -366,7 +391,7 @@ export interface SourceTopEntry {
   items: BaseItem[];
 }
 
-/** ソースファミリ別の popularity 上位 item を抽出する。 */
+/** ソースファミリ別の trendScore 上位 item を抽出する。 */
 export function topItemsBySource(
   items: BaseItem[],
   topPerSource: number,
@@ -374,8 +399,7 @@ export function topItemsBySource(
 ): SourceTopEntry[] {
   const byFamily = new Map<string, BaseItem[]>();
   for (const it of items) {
-    const p = it.popularity ?? 0;
-    if (p <= 0) continue;
+    if (trendScore(it) <= 0) continue;
     const fam = sourceFamily(it.source);
     const arr = byFamily.get(fam) ?? [];
     arr.push(it);
@@ -383,7 +407,7 @@ export function topItemsBySource(
   }
   const entries: SourceTopEntry[] = [];
   for (const [fam, arr] of byFamily) {
-    arr.sort((a, b) => (b.popularity ?? 0) - (a.popularity ?? 0));
+    arr.sort((a, b) => trendScore(b) - trendScore(a));
     entries.push({
       family: fam,
       label: familyLabels[fam] ?? fam,
@@ -391,8 +415,8 @@ export function topItemsBySource(
     });
   }
   entries.sort((a, b) => {
-    const sa = a.items.reduce((s, it) => s + (it.popularity ?? 0), 0);
-    const sb = b.items.reduce((s, it) => s + (it.popularity ?? 0), 0);
+    const sa = a.items.reduce((s, it) => s + trendScore(it), 0);
+    const sb = b.items.reduce((s, it) => s + trendScore(it), 0);
     return sb - sa;
   });
   return entries;

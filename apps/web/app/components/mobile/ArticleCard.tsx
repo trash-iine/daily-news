@@ -11,6 +11,7 @@ import {
   sourceFamily,
   sourceLabel,
   stripForPreview,
+  trendScore,
 } from "./lib";
 import { BigTagPill, InterestBadge, PopularityBadge, Tag, Thumb } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
@@ -113,7 +114,7 @@ export function ArticleCard({
               }}
             >
               {item.popularity !== undefined && item.popularity > 0 && (
-                <PopularityBadge value={item.popularity} label={item.popularityLabel} sm />
+                <PopularityBadge value={trendScore(item)} label={item.popularityLabel} sm />
               )}
               {item.keywordScore !== undefined && item.keywordScore > 0 && (
                 <InterestBadge value={item.keywordScore} matched={item.matchedKeywords} sm />
@@ -315,14 +316,20 @@ function hasBreakdown(item: BaseItem): boolean {
 
 /**
  * 採択理由 (なぜこの記事が選ばれたか) を内訳で示すブロック。
- * 世間人気 / 興味マッチ / 言語ボーナスの寄与を読み取れるようにする。
+ * トレンド / 興味マッチ / 言語ボーナスの寄与を読み取れるようにする。
  */
 function ScoreBreakdown({ item }: { item: BaseItem }) {
   const pop = item.popularity ?? 0;
   const kw = item.keywordScore ?? 0;
   const lang = item.languageBonus ?? 0;
   const total = pop + kw + lang;
+  const trend = trendScore(item);
   const matched = item.matchedKeywords ?? [];
+  const popSub = pop > 0
+    ? item.popularityLabel
+      ? `${item.popularityLabel} (正規化 ${pop} / 速度補正 ${trend})`
+      : `正規化 ${pop} / 速度補正 ${trend}`
+    : "人気シグナル無し";
   return (
     <div
       style={{
@@ -350,9 +357,9 @@ function ScoreBreakdown({ item }: { item: BaseItem }) {
       <BreakdownRow
         symbol="♡"
         color="oklch(0.62 0.18 15)"
-        label={item.popularityLabel ?? "世間人気"}
+        label="トレンド"
         value={pop}
-        sub={pop > 0 ? "ソース固有の人気指標を正規化" : "人気シグナル無し"}
+        sub={popSub}
       />
       <BreakdownRow
         symbol="★"

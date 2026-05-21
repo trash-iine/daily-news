@@ -110,7 +110,8 @@ export function Thumb({
 }
 
 /**
- * 採択理由バッジ (世間人気)。popularity が >0 のときだけ表示。
+ * 採択理由バッジ (トレンド指標)。value が >0 のときだけ表示。
+ * 呼び出し側が popularity (生の人気) か trendScore (時間正規化済み) を選んで渡す。
  * tooltip に popularityLabel (Qiita LGTM N など) を載せる。
  */
 export function PopularityBadge({
@@ -126,7 +127,7 @@ export function PopularityBadge({
   const c = "oklch(0.62 0.18 15)";
   return (
     <span
-      title={label ? `世間人気: ${label} (正規化スコア ${value})` : `世間人気スコア ${value}`}
+      title={label ? `トレンド: ${label} (指標 ${value})` : `トレンド指標 ${value}`}
       style={{
         display: "inline-flex",
         alignItems: "center",

@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState, type ReactNode } from "react";
-import type { BigTagGroup, DailyBundle } from "@daily-news/shared";
+import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import {
   BIG_COLOR,
   BIG_TAGS,
@@ -16,11 +16,12 @@ import {
   type RisingTag,
   type SourceTopEntry,
   type TagFreqEntry,
-  type TagPopEntry,
+  type TrendTagEntry,
   risingTags,
   tagFrequency,
-  tagPopularity,
   topItemsBySource,
+  trendScore,
+  trendTags,
 } from "./lib";
 import { BigTagPill, PopularityBadge } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
@@ -112,7 +113,7 @@ function ModeToggle({
 }) {
   const opts: Array<{ id: RankMode; label: string }> = [
     { id: "personal", label: "あなた向け" },
-    { id: "world", label: "世間のトレンド" },
+    { id: "world", label: "トレンド" },
   ];
   return (
     <div
@@ -496,7 +497,7 @@ function TagBars({ entries }: { entries: TagFreqEntry[] }) {
   );
 }
 
-function PopTagBars({ entries }: { entries: TagPopEntry[] }) {
+function TrendTagBars({ entries }: { entries: TrendTagEntry[] }) {
   if (!entries.length) {
     return (
       <div
@@ -507,16 +508,16 @@ function PopTagBars({ entries }: { entries: TagPopEntry[] }) {
           color: "var(--fg-faint)",
         }}
       >
-        世間人気データがまだありません (2026-05-20 以降の bundle から計測開始)
+        トレンドデータがまだありません (2026-05-20 以降の bundle から計測開始)
       </div>
     );
   }
-  const max = Math.max(...entries.map((e) => e.popSum), 1);
+  const max = Math.max(...entries.map((e) => e.trendSum), 1);
   return (
     <div style={{ padding: "0 18px" }}>
       {entries.map((e) => {
         const c = e.bigGroup ? BIG_COLOR[e.bigGroup] : "oklch(0.62 0.18 15)";
-        const w = (e.popSum / max) * 100;
+        const w = (e.trendSum / max) * 100;
         return (
           <div
             key={e.tag}
@@ -527,7 +528,7 @@ function PopTagBars({ entries }: { entries: TagPopEntry[] }) {
               alignItems: "center",
               padding: "6px 0",
             }}
-            title={`popularity 合計 ${e.popSum} / ${e.count} 件 / 平均 ${e.avg.toFixed(1)}`}
+            title={`トレンド合計 ${e.trendSum} / ${e.count} 件 / 平均 ${e.avg.toFixed(1)}`}
           >
             <div style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0 }}>
               <span
@@ -574,7 +575,7 @@ function PopTagBars({ entries }: { entries: TagPopEntry[] }) {
                 textAlign: "right",
               }}
             >
-              ♡{e.popSum}
+              ♡{e.trendSum}
             </span>
             <span
               style={{
@@ -679,7 +680,7 @@ function SourceTopList({ entries }: { entries: SourceTopEntry[] }) {
                 >
                   {it.title}
                 </span>
-                <PopularityBadge value={it.popularity ?? 0} label={it.popularityLabel} sm />
+                <PopularityBadge value={trendScore(it)} label={it.popularityLabel} sm />
               </ExternalLink>
             ))}
           </div>
@@ -716,8 +717,7 @@ export function RecapScreen({
 }) {
   const [period, setPeriod] = useState<RecapPeriod>(7);
   const [mode, setMode] = useState<RankMode>("personal");
-  const rankKey = (it: { score: number; popularity?: number }) =>
-    mode === "world" ? it.popularity ?? 0 : it.score;
+  const rankKey = (it: BaseItem) => (mode === "world" ? trendScore(it) : it.score);
   const rankSymbol = mode === "world" ? "♡" : "★";
 
   const dates = useMemo(() => {
@@ -763,7 +763,7 @@ export function RecapScreen({
     [allBundles, dates, prevDates],
   );
 
-  const tagPop = useMemo(() => tagPopularity(allBundles, dates, 8), [allBundles, dates]);
+  const tagTrend = useMemo(() => trendTags(allBundles, dates, 8), [allBundles, dates]);
 
   const sourceTop = useMemo(
     () =>
@@ -840,7 +840,7 @@ export function RecapScreen({
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-muted)" }}>
           直近 {period} 日のトレンド ·{" "}
           {mode === "world"
-            ? "各ソースのフェイバリット数ベース"
+            ? "フェイバリット数 ÷ 経過時間 (獲得速度)"
             : "あなたの興味キーワードを加味"}
         </div>
       </div>
@@ -895,10 +895,10 @@ export function RecapScreen({
         <SectionLabel>タグ頻度 Top {tagTop.length || 8} (件数ベース)</SectionLabel>
         <TagBars entries={tagTop} />
 
-        <SectionLabel>世間人気タグ Top {tagPop.length || 8} (♡ 合計)</SectionLabel>
-        <PopTagBars entries={tagPop} />
+        <SectionLabel>トレンドタグ Top {tagTrend.length || 8} (♡ 合計)</SectionLabel>
+        <TrendTagBars entries={tagTrend} />
 
-        <SectionLabel>ソース別 世間人気 Top 3</SectionLabel>
+        <SectionLabel>ソース別 トレンド Top 3</SectionLabel>
         <SourceTopList entries={sourceTop} />
 
         <SectionLabel>大タグ別</SectionLabel>
@@ -1004,7 +1004,7 @@ export function RecapScreen({
 
         <SectionLabel>
           {period === 7 ? "今週" : `直近 ${period} 日`}の
-          {mode === "world" ? "人気ニュース Top 5" : "ベスト 5"}
+          {mode === "world" ? "トレンド Top 5" : "ベスト 5"}
         </SectionLabel>
         {bestOfPeriod.map((it, i) => {
           const big = itemBigTags(it)[0];
