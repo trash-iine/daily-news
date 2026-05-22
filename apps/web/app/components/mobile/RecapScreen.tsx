@@ -6,24 +6,19 @@ import {
   BIG_TAGS,
   DELTA_DOWN,
   DELTA_UP,
-  FAM_COLOR,
   bigTagCountsByDate,
   dateRange,
   fmtDateBadge,
   itemBigTags,
   sourceLabel,
   type RecapPeriod,
-  type RisingTag,
-  type SourceTopEntry,
-  type TagFreqEntry,
-  type TrendTagEntry,
   risingTags,
+  tagCountsByDate,
   tagFrequency,
-  topItemsBySource,
   trendScore,
   worldTrendTags,
 } from "./lib";
-import { BigTagPill, PopularityBadge } from "./atoms";
+import { BigTagPill } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
 
 function Spark({
@@ -155,214 +150,19 @@ function ModeToggle({
   );
 }
 
-function Heatmap({
-  dates,
-  counts,
-  bundles,
-}: {
-  dates: string[];
-  counts: Record<BigTagGroup, number[]>;
-  bundles: Record<string, DailyBundle>;
-}) {
-  const cellMin = dates.length > 14 ? 14 : 22;
-  const labelEvery = dates.length > 20 ? 5 : dates.length > 10 ? 3 : 1;
-  const emptyCount = dates.filter((d) => !bundles[d]).length;
-  const sparse = emptyCount >= dates.length / 2;
-  return (
-    <div style={{ padding: "0 16px", marginBottom: 4 }}>
-      <div style={{ overflowX: "auto", scrollbarWidth: "none" }}>
-        <div style={{ minWidth: 16 + dates.length * cellMin + 12 }}>
-          {BIG_TAGS.map((t) => {
-            const series = counts[t.id];
-            const max = Math.max(...series, 1);
-            return (
-              <div
-                key={t.id}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: `18px repeat(${dates.length}, minmax(${cellMin}px, 1fr))`,
-                  gap: 2,
-                  marginBottom: 3,
-                  alignItems: "center",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 11,
-                    color: t.color,
-                    fontWeight: 700,
-                    textAlign: "left",
-                  }}
-                  title={t.label}
-                >
-                  {t.emoji}
-                </span>
-                {series.map((v, i) => {
-                  const has = !!bundles[dates[i] ?? ""];
-                  const alpha = v === 0 ? (has ? 6 : 3) : Math.round(8 + 80 * (v / max));
-                  return (
-                    <div
-                      key={i}
-                      title={`${dates[i]} · ${t.label} · ${v} 件`}
-                      style={{
-                        height: cellMin,
-                        borderRadius: 3,
-                        background: `color-mix(in oklch, ${t.color} ${alpha}%, var(--bg-sunken))`,
-                      }}
-                    />
-                  );
-                })}
-              </div>
-            );
-          })}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: `18px repeat(${dates.length}, minmax(${cellMin}px, 1fr))`,
-              gap: 2,
-              marginTop: 6,
-            }}
-          >
-            <span />
-            {dates.map((d, i) => {
-              const dt = new Date(`${d}T00:00:00Z`);
-              const show = i % labelEvery === 0 || i === dates.length - 1;
-              return (
-                <div
-                  key={d}
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 8.5,
-                    color: "var(--fg-faint)",
-                    textAlign: "center",
-                    fontFeatureSettings: '"tnum"',
-                    visibility: show ? "visible" : "hidden",
-                  }}
-                >
-                  {dt.getUTCMonth() + 1}/{dt.getUTCDate()}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      {sparse && (
-        <div
-          style={{
-            marginTop: 8,
-            fontFamily: "var(--font-mono)",
-            fontSize: 10,
-            color: "var(--fg-faint)",
-          }}
-        >
-          ※ {emptyCount} 日分はデータ蓄積中
-        </div>
-      )}
-    </div>
-  );
+interface TagRow {
+  tag: string;
+  bigGroup: BigTagGroup | null;
+  count: number;
+  delta: number;
+  isNew: boolean;
+  series: number[];
+  ratio: number;
+  worldSum: number;
 }
 
-function RisingChips({ rising }: { rising: RisingTag[] }) {
-  if (!rising.length) {
-    return (
-      <div
-        style={{
-          padding: "12px 18px",
-          fontFamily: "var(--font-mono)",
-          fontSize: 11,
-          color: "var(--fg-faint)",
-        }}
-      >
-        まだ十分な傾向が見えていません
-      </div>
-    );
-  }
-  return (
-    <div
-      style={{
-        padding: "0 16px",
-        display: "flex",
-        gap: 8,
-        overflowX: "auto",
-        scrollbarWidth: "none",
-      }}
-    >
-      {rising.map((r) => {
-        const c = r.bigGroup ? BIG_COLOR[r.bigGroup] : "var(--fg-faint)";
-        return (
-          <div
-            key={r.tag}
-            style={{
-              flex: "0 0 auto",
-              padding: "8px 10px",
-              borderRadius: 10,
-              background: `color-mix(in oklch, ${c} 8%, var(--bg-sunken))`,
-              border: `0.5px solid color-mix(in oklch, ${c} 28%, transparent)`,
-              minWidth: 92,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 6,
-                marginBottom: 4,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11,
-                  fontWeight: 700,
-                  color: `color-mix(in oklch, ${c} 70%, var(--fg))`,
-                  whiteSpace: "nowrap",
-                }}
-              >
-                #{r.tag}
-              </span>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                gap: 6,
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 12,
-                  fontWeight: 700,
-                  color: c,
-                  letterSpacing: "0.02em",
-                }}
-              >
-                ×{r.ratio.toFixed(1)}↑
-              </span>
-              <Spark values={r.series} color={c} w={36} h={14} />
-            </div>
-            <div
-              style={{
-                marginTop: 3,
-                fontFamily: "var(--font-mono)",
-                fontSize: 9,
-                color: "var(--fg-faint)",
-                fontFeatureSettings: '"tnum"',
-              }}
-            >
-              {r.prior} → {r.recent}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function TagBars({ entries }: { entries: TagFreqEntry[] }) {
-  if (!entries.length) {
+function TagsTable({ rows }: { rows: TagRow[] }) {
+  if (!rows.length) {
     return (
       <div
         style={{
@@ -376,14 +176,14 @@ function TagBars({ entries }: { entries: TagFreqEntry[] }) {
       </div>
     );
   }
-  const max = Math.max(...entries.map((e) => e.count), 1);
+  const maxCount = Math.max(...rows.map((r) => r.count), 1);
   return (
     <div style={{ padding: "0 18px" }}>
-      {entries.map((e) => {
-        const c = e.bigGroup ? BIG_COLOR[e.bigGroup] : "oklch(0.55 0.02 60)";
-        const w = (e.count / max) * 100;
+      {rows.map((r) => {
+        const c = r.bigGroup ? BIG_COLOR[r.bigGroup] : "oklch(0.55 0.02 60)";
+        const w = (r.count / maxCount) * 100;
         let deltaNode: ReactNode = null;
-        if (e.isNew) {
+        if (r.isNew) {
           deltaNode = (
             <span
               style={{
@@ -399,8 +199,22 @@ function TagBars({ entries }: { entries: TagFreqEntry[] }) {
               新
             </span>
           );
-        } else if (e.delta !== 0) {
-          const up = e.delta > 0;
+        } else if (r.ratio >= 1.5) {
+          deltaNode = (
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 10,
+                fontWeight: 700,
+                color: DELTA_UP,
+                fontFeatureSettings: '"tnum"',
+              }}
+            >
+              ×{r.ratio.toFixed(1)}↑
+            </span>
+          );
+        } else if (r.delta !== 0) {
+          const up = r.delta > 0;
           deltaNode = (
             <span
               style={{
@@ -412,133 +226,29 @@ function TagBars({ entries }: { entries: TagFreqEntry[] }) {
               }}
             >
               {up ? "+" : ""}
-              {e.delta}
+              {r.delta}
             </span>
           );
         }
         return (
           <div
-            key={e.tag}
+            key={r.tag}
             style={{
               display: "grid",
-              gridTemplateColumns: "minmax(0, 110px) 1fr auto auto",
+              gridTemplateColumns: "minmax(0, 100px) 1fr 48px 36px 40px",
               gap: 8,
               alignItems: "center",
               padding: "6px 0",
             }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 5,
-                minWidth: 0,
-              }}
-            >
-              <span
-                style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: 999,
-                  background: c,
-                  flexShrink: 0,
-                }}
-              />
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11.5,
-                  fontWeight: 600,
-                  color: "var(--fg)",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                }}
-                title={e.tag}
-              >
-                #{e.tag}
-              </span>
-            </div>
-            <div
-              style={{
-                height: 6,
-                borderRadius: 999,
-                background: `color-mix(in oklch, ${c} 10%, var(--bg-sunken))`,
-                overflow: "hidden",
-              }}
-            >
-              <div
-                style={{
-                  height: "100%",
-                  width: `${w}%`,
-                  background: c,
-                  borderRadius: 999,
-                }}
-              />
-            </div>
-            <span
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 11,
-                fontWeight: 700,
-                color: "var(--fg)",
-                fontFeatureSettings: '"tnum"',
-                minWidth: 18,
-                textAlign: "right",
-              }}
-            >
-              {e.count}
-            </span>
-            <span style={{ minWidth: 24, textAlign: "right" }}>{deltaNode}</span>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function TrendTagBars({ entries }: { entries: TrendTagEntry[] }) {
-  if (!entries.length) {
-    return (
-      <div
-        style={{
-          padding: "12px 18px",
-          fontFamily: "var(--font-mono)",
-          fontSize: 11,
-          color: "var(--fg-faint)",
-        }}
-      >
-        世間トレンドデータがまだありません (2026-05-23 以降の bundle から計測開始)
-      </div>
-    );
-  }
-  const max = Math.max(...entries.map((e) => e.trendSum), 1);
-  return (
-    <div style={{ padding: "0 18px" }}>
-      {entries.map((e) => {
-        const c = e.bigGroup ? BIG_COLOR[e.bigGroup] : "oklch(0.62 0.18 15)";
-        const w = (e.trendSum / max) * 100;
-        return (
-          <div
-            key={e.tag}
-            style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(0, 110px) 1fr auto auto",
-              gap: 8,
-              alignItems: "center",
-              padding: "6px 0",
-            }}
-            title={`トレンド合計 ${e.trendSum} / ${e.count} 件 / 平均 ${e.avg.toFixed(1)}`}
+            title={
+              r.worldSum > 0
+                ? `${r.count} 件 · 世間トレンド ${r.worldSum}`
+                : `${r.count} 件`
+            }
           >
             <div style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0 }}>
               <span
-                style={{
-                  width: 6,
-                  height: 6,
-                  borderRadius: 999,
-                  background: c,
-                  flexShrink: 0,
-                }}
+                style={{ width: 6, height: 6, borderRadius: 999, background: c, flexShrink: 0 }}
               />
               <span
                 style={{
@@ -550,139 +260,53 @@ function TrendTagBars({ entries }: { entries: TrendTagEntry[] }) {
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
                 }}
+                title={r.tag}
               >
-                #{e.tag}
+                #{r.tag}
               </span>
             </div>
-            <div
-              style={{
-                height: 6,
-                borderRadius: 999,
-                background: `color-mix(in oklch, ${c} 10%, var(--bg-sunken))`,
-                overflow: "hidden",
-              }}
-            >
-              <div style={{ height: "100%", width: `${w}%`, background: c, borderRadius: 999 }} />
-            </div>
-            <span
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 11,
-                fontWeight: 700,
-                color: "var(--fg)",
-                fontFeatureSettings: '"tnum"',
-                minWidth: 28,
-                textAlign: "right",
-              }}
-            >
-              ♡{e.trendSum}
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 10,
-                color: "var(--fg-faint)",
-                fontFeatureSettings: '"tnum"',
-                minWidth: 28,
-                textAlign: "right",
-              }}
-            >
-              {e.count}件
-            </span>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function SourceTopList({ entries }: { entries: SourceTopEntry[] }) {
-  if (!entries.length) {
-    return (
-      <div
-        style={{
-          padding: "12px 18px",
-          fontFamily: "var(--font-mono)",
-          fontSize: 11,
-          color: "var(--fg-faint)",
-        }}
-      >
-        ソース別データがまだありません
-      </div>
-    );
-  }
-  return (
-    <div style={{ padding: "0 16px" }}>
-      {entries.map((e) => {
-        const c = FAM_COLOR[e.family] ?? FAM_COLOR.other ?? "var(--fg)";
-        return (
-          <div
-            key={e.family}
-            style={{
-              marginBottom: 10,
-              padding: 12,
-              borderRadius: 12,
-              background: `color-mix(in oklch, ${c} 5%, var(--bg-sunken))`,
-              borderLeft: `3px solid ${c}`,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginBottom: 6,
-                fontFamily: "var(--font-mono)",
-                fontSize: 11,
-              }}
-            >
-              <span style={{ color: c, fontWeight: 700 }}>{e.label}</span>
-              <span style={{ color: "var(--fg-faint)", fontSize: 10 }}>
-                Top {e.items.length}
-              </span>
-            </div>
-            {e.items.map((it, i) => (
-              <ExternalLink
-                key={it.id}
-                href={it.url}
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <div
                 style={{
-                  display: "grid",
-                  gridTemplateColumns: "14px 1fr auto",
-                  gap: 8,
-                  alignItems: "center",
-                  padding: "6px 0",
-                  borderTop: "0.5px solid color-mix(in oklch, var(--border) 60%, transparent)",
-                  textDecoration: "none",
-                  color: "inherit",
+                  flex: 1,
+                  height: 6,
+                  borderRadius: 999,
+                  background: `color-mix(in oklch, ${c} 10%, var(--bg-sunken))`,
+                  overflow: "hidden",
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 10,
-                    color: "var(--fg-faint)",
-                    textAlign: "right",
-                  }}
-                >
-                  {i + 1}
-                </span>
-                <span
-                  style={{
-                    fontSize: 12.5,
-                    fontWeight: 500,
-                    lineHeight: 1.4,
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                  title={sourceLabel(it.source)}
-                >
-                  {it.title}
-                </span>
-                <PopularityBadge value={trendScore(it)} label={it.popularityLabel} sm />
-              </ExternalLink>
-            ))}
+                <div style={{ height: "100%", width: `${w}%`, background: c, borderRadius: 999 }} />
+              </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  color: "var(--fg)",
+                  fontFeatureSettings: '"tnum"',
+                  minWidth: 18,
+                  textAlign: "right",
+                }}
+              >
+                {r.count}
+              </span>
+            </div>
+            <span style={{ display: "flex", justifyContent: "center" }}>
+              {r.series.length > 0 ? <Spark values={r.series} color={c} w={44} h={14} /> : null}
+            </span>
+            <span style={{ textAlign: "right" }}>{deltaNode}</span>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: 10.5,
+                color: r.worldSum > 0 ? "oklch(0.62 0.18 15)" : "transparent",
+                fontWeight: 600,
+                fontFeatureSettings: '"tnum"',
+                textAlign: "right",
+              }}
+            >
+              {r.worldSum > 0 ? `♡${r.worldSum}` : ""}
+            </span>
           </div>
         );
       })}
@@ -749,41 +373,34 @@ export function RecapScreen({
     [allBundles, dates],
   );
 
-  const rising = useMemo(
-    () =>
-      risingTags(allBundles, dates, {
-        minRecent: period === 7 ? 1 : 2,
-        topN: 6,
-      }),
-    [allBundles, dates, period],
-  );
-
-  const tagTop = useMemo(
-    () => tagFrequency(allBundles, dates, prevDates, 8),
-    [allBundles, dates, prevDates],
-  );
-
-  // トレンドタグは bundle.trending (site-wide Qiita / Zenn 週間 top) から集計し、
-  // ユーザー興味で絞り込んでいない世間トレンドを反映する。bundle.trending が無い過去日は
-  // 自動的にスキップされる。
-  const tagTrend = useMemo(() => worldTrendTags(allBundles, dates, 8), [allBundles, dates]);
-
-  const sourceTop = useMemo(
-    () =>
-      topItemsBySource(allItems, 3, {
-        qiita: "Qiita",
-        zenn: "Zenn",
-        hn: "Hacker News",
-        rust: "Rust 公式",
-        python: "Python PEP",
-        arxiv: "arXiv",
-        github: "GitHub",
-        reddit: "Reddit",
-        kbd: "Keyboard",
-        other: "その他 RSS",
-      }),
-    [allItems],
-  );
+  const tagRows = useMemo<TagRow[]>(() => {
+    const freq = tagFrequency(allBundles, dates, prevDates, 200);
+    const series = tagCountsByDate(allBundles, dates);
+    const rising = risingTags(allBundles, dates, {
+      minRecent: period === 7 ? 1 : 2,
+      topN: 200,
+    });
+    const ratioByTag = new Map(rising.map((r) => [r.tag, r.ratio]));
+    const world = worldTrendTags(allBundles, dates, 200);
+    const worldByTag = new Map(world.map((w) => [w.tag, w.trendSum]));
+    const rows: TagRow[] = freq.map((f) => ({
+      tag: f.tag,
+      bigGroup: f.bigGroup,
+      count: f.count,
+      delta: f.delta,
+      isNew: f.isNew,
+      series: series[f.tag] ?? [],
+      ratio: ratioByTag.get(f.tag) ?? 0,
+      worldSum: worldByTag.get(f.tag) ?? 0,
+    }));
+    rows.sort((a, b) => {
+      const aPin = a.ratio >= 2.0 ? 1 : 0;
+      const bPin = b.ratio >= 2.0 ? 1 : 0;
+      if (aPin !== bPin) return bPin - aPin;
+      return b.count - a.count || a.tag.localeCompare(b.tag);
+    });
+    return rows.slice(0, 10);
+  }, [allBundles, dates, prevDates, period]);
 
   const groupBreakdown = useMemo(() => {
     return BIG_TAGS.map((t) => {
@@ -841,7 +458,7 @@ export function RecapScreen({
           {endD.getUTCDate()}
         </h1>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-muted)" }}>
-          直近 {period} 日のトレンド ·{" "}
+          直近 {period} 日 · {totals.items} 件 (論文 {totals.papers} · ニュース {totals.news}) ·{" "}
           {mode === "world"
             ? "フェイバリット数 ÷ 経過時間 (獲得速度)"
             : "あなたの興味キーワードを加味"}
@@ -854,55 +471,8 @@ export function RecapScreen({
           <ModeToggle value={mode} onChange={setMode} />
         </div>
 
-        <div
-          style={{
-            padding: "8px 16px 4px",
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: 8,
-          }}
-        >
-          {[
-            { n: totals.items, l: "ITEMS" },
-            { n: totals.papers, l: "PAPERS" },
-            { n: totals.news, l: "NEWS" },
-          ].map((s) => (
-            <div key={s.l} style={{ padding: 12, background: "var(--bg-sunken)", borderRadius: 10 }}>
-              <div
-                style={{ fontFamily: "var(--font-serif)", fontSize: 26, fontWeight: 500, lineHeight: 1 }}
-              >
-                {s.n}
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 9,
-                  letterSpacing: "0.08em",
-                  color: "var(--fg-faint)",
-                  marginTop: 4,
-                  fontWeight: 600,
-                }}
-              >
-                {s.l}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <SectionLabel>大タグ × 日 ヒートマップ</SectionLabel>
-        <Heatmap dates={dates} counts={bigCounts} bundles={allBundles} />
-
-        <SectionLabel>急上昇タグ</SectionLabel>
-        <RisingChips rising={rising} />
-
-        <SectionLabel>タグ頻度 Top {tagTop.length || 8} (件数ベース)</SectionLabel>
-        <TagBars entries={tagTop} />
-
-        <SectionLabel>世間トレンドタグ Top {tagTrend.length || 8} (Qiita / Zenn 週間)</SectionLabel>
-        <TrendTagBars entries={tagTrend} />
-
-        <SectionLabel>ソース別 トレンド Top 3</SectionLabel>
-        <SourceTopList entries={sourceTop} />
+        <SectionLabel>タグ動向 Top {tagRows.length || 10} · 件数 / 推移 / Δ / 世間 ♡</SectionLabel>
+        <TagsTable rows={tagRows} />
 
         <SectionLabel>大タグ別</SectionLabel>
         <div style={{ padding: "0 16px" }}>
@@ -1043,6 +613,9 @@ export function RecapScreen({
                   {big && <BigTagPill id={big} sm />}
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--fg-faint)" }}>
                     {fmtDateBadge(it.publishedAt)}
+                  </span>
+                  <span style={{ fontFamily: "var(--font-mono)", fontSize: 10, color: "var(--fg-faint)" }}>
+                    · {sourceLabel(it.source)}
                   </span>
                 </div>
                 <div
