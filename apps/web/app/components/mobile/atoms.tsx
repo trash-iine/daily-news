@@ -427,21 +427,23 @@ export function TodayTabs({
 }
 
 /**
- * Mon-Sun 固定 7 スロットの週ストリップ。currentDate を末尾とする直近 7 日を
+ * Mon-Sun 固定 7 スロットの週ストリップ。archive[0] (最新日) を末尾とする直近 7 日を
  * 各曜日スロットに配置するリングバッファ表示。archive に無い日は disabled。
  */
 const WEEKDAY_MON_SUN = ["月", "火", "水", "木", "金", "土", "日"] as const;
 
-interface WeekSlot {
+export interface WeekSlot {
   iso: string;
   date: number;
   inArchive: boolean;
 }
 
-function buildWeekSlots(currentDate: string, archive: string[]): WeekSlot[] {
+export function buildWeekSlots(archive: string[]): WeekSlot[] {
+  const anchor = archive[0];
+  if (!anchor) return [];
   const archiveSet = new Set(archive);
   const slots: (WeekSlot | null)[] = new Array(7).fill(null);
-  const base = new Date(`${currentDate}T00:00:00Z`);
+  const base = new Date(`${anchor}T00:00:00Z`);
   if (Number.isNaN(base.getTime())) return [];
   for (let i = 0; i < 7; i++) {
     const d = new Date(base);
@@ -467,7 +469,7 @@ export function WeekStrip({
   onChange: (d: string) => void;
 }) {
   if (!currentDate) return null;
-  const slots = buildWeekSlots(currentDate, archive);
+  const slots = buildWeekSlots(archive);
   if (slots.length !== 7) return null;
   return (
     <div

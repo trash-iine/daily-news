@@ -12,7 +12,7 @@ import {
 import { flushSync } from "react-dom";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { DayPanel } from "./DayPanel";
-import type { TodayTab } from "./atoms";
+import { buildWeekSlots, type TodayTab, type WeekSlot } from "./atoms";
 
 const SWIPE_AXIS_DECIDE_PX = 6;
 const SWIPE_COMMIT_RATIO = 0.28;
@@ -24,13 +24,24 @@ export type DayCarouselHandle = {
 };
 
 /**
- * archive (newest-first) 上で current の隣を返す。delta=-1 で newer、+1 で older。
+ * Mon-Sun 固定リング上で currentDate の隣 (inArchive=true のみ) を返す。
+ * dir=+1 は曜日順で次 (later), -1 は前 (earlier)。リングは archive[0] アンカー。
  */
-function adjacentDate(archive: string[], current: string, delta: -1 | 1): string | null {
-  const i = archive.indexOf(current);
-  if (i < 0) return null;
-  const j = i + delta;
-  return j >= 0 && j < archive.length ? archive[j] ?? null : null;
+function ringNeighbor(
+  slots: WeekSlot[],
+  currentDate: string,
+  dir: -1 | 1,
+): string | null {
+  const n = slots.length;
+  if (n === 0) return null;
+  const idx = slots.findIndex((s) => s.iso === currentDate);
+  if (idx < 0) return null;
+  for (let step = 1; step <= n; step++) {
+    const j = ((idx + dir * step) % n + n) % n;
+    const slot = slots[j];
+    if (slot && slot.inArchive && slot.iso !== currentDate) return slot.iso;
+  }
+  return null;
 }
 
 export const DayCarousel = forwardRef<DayCarouselHandle, {
@@ -68,10 +79,11 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
     onJump,
   } = props;
 
-  const prevDate = useMemo(() => adjacentDate(archive, currentDate, -1), [archive, currentDate]);
-  const nextDate = useMemo(() => adjacentDate(archive, currentDate, 1), [archive, currentDate]);
-  const prevBundle = prevDate ? bundles[prevDate] ?? null : null;
-  const nextBundle = nextDate ? bundles[nextDate] ?? null : null;
+  const slots = useMemo(() => buildWeekSlots(archive), [archive]);
+  const earlierDate = useMemo(() => ringNeighbor(slots, currentDate, -1), [slots, currentDate]);
+  const laterDate = useMemo(() => ringNeighbor(slots, currentDate, 1), [slots, currentDate]);
+  const earlierBundle = earlierDate ? bundles[earlierDate] ?? null : null;
+  const laterBundle = laterDate ? bundles[laterDate] ?? null : null;
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const currentPanelRef = useRef<HTMLDivElement | null>(null);
@@ -134,11 +146,11 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
       if (axisRef.current !== "x") return;
       // 境界クランプ: 隣の日が無い方向はゼロ
       let clamped = dx;
-      if (clamped > 0 && !prevDate) clamped = 0;
-      if (clamped < 0 && !nextDate) clamped = 0;
+      if (clamped > 0 && !earlierDate) clamped = 0;
+      if (clamped < 0 && !laterDate) clamped = 0;
       setDragPx(clamped);
     },
-    [prevDate, nextDate],
+    [earlierDate, laterDate],
   );
 
   const onTouchEnd = useCallback(() => {
@@ -152,30 +164,30 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
     axisRef.current = "undecided";
     const width = widthRef.current || 1;
     const threshold = Math.max(SWIPE_COMMIT_MIN_PX, width * SWIPE_COMMIT_RATIO);
-    if (dragPx <= -threshold && nextDate) {
-      // 左スワイプ完走 → 過去 (older=archive[i+1])
+    if (dragPx <= -threshold && laterDate) {
+      // 右→左スワイプ完走 → 次の曜日 (Mon-Sun リング上の次スロット)
       setTransition(true);
       setDragPx(-width);
-    } else if (dragPx >= threshold && prevDate) {
-      // 右スワイプ完走 → 未来 (newer=archive[i-1])
+    } else if (dragPx >= threshold && earlierDate) {
+      // 左→右スワイプ完走 → 前の曜日 (Mon-Sun リング上の前スロット)
       setTransition(true);
       setDragPx(width);
     } else {
       setTransition(true);
       setDragPx(0);
     }
-  }, [dragPx, nextDate, prevDate]);
+  }, [dragPx, laterDate, earlierDate]);
 
   const onTransitionEnd = useCallback(() => {
     const width = widthRef.current || 1;
-    if (dragPx <= -width + 1 && nextDate) {
-      commitNeighbor(nextDate);
-    } else if (dragPx >= width - 1 && prevDate) {
-      commitNeighbor(prevDate);
+    if (dragPx <= -width + 1 && laterDate) {
+      commitNeighbor(laterDate);
+    } else if (dragPx >= width - 1 && earlierDate) {
+      commitNeighbor(earlierDate);
     } else if (dragPx === 0) {
       setTransition(false);
     }
-  }, [commitNeighbor, dragPx, nextDate, prevDate]);
+  }, [commitNeighbor, dragPx, laterDate, earlierDate]);
 
   // touchmove は passive デフォルトなので preventDefault が効かない端末がある。
   // 横軸ロック中の縦スクロール抑制のため non-passive で再登録。
@@ -189,15 +201,15 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
     return () => el.removeEventListener("touchmove", handler);
   }, []);
 
-  // 中央パネルが常に translateX(-100%) 位置に来るよう、prevDate の有無で base offset を変える。
-  // panels 配列は左から prev?, current, next? の順で並べる。
+  // 中央パネルが常に translateX(-100%) 位置に来るよう、earlier の有無で base offset を変える。
+  // panels 配列は左から earlier(前の曜日)?, current, later(次の曜日)? の順で並べる。
   const panels: Array<{ key: string; bundle: DailyBundle; isCurrent: boolean }> = [];
-  if (prevBundle) panels.push({ key: prevBundle.date, bundle: prevBundle, isCurrent: false });
+  if (earlierBundle) panels.push({ key: earlierBundle.date, bundle: earlierBundle, isCurrent: false });
   panels.push({ key: bundle.date, bundle, isCurrent: true });
-  if (nextBundle) panels.push({ key: nextBundle.date, bundle: nextBundle, isCurrent: false });
+  if (laterBundle) panels.push({ key: laterBundle.date, bundle: laterBundle, isCurrent: false });
 
   // current パネルのインデックス。base offset は % で表すことで初期幅 0 でも正しく揃う。
-  const currentIndex = prevBundle ? 1 : 0;
+  const currentIndex = earlierBundle ? 1 : 0;
 
   return (
     <div
