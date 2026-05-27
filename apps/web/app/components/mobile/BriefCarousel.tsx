@@ -1,18 +1,10 @@
 "use client";
 import { useMemo } from "react";
 import type { BaseItem } from "@daily-news/shared";
-import {
-  BIG_COLOR,
-  FAM_COLOR,
-  displayAuthors,
-  fmtRel,
-  itemBigTags,
-  pdfUrlOf,
-  sourceLabel,
-  sourceFamily,
-  stripForPreview,
-} from "./lib";
-import { BigTagPill } from "./atoms";
+import { BIG_COLOR, itemBigTags } from "./lib/bigTags";
+import { FAM_COLOR, sourceFamily, sourceLabel } from "./lib/sources";
+import { displayAuthors, fmtRel, pdfUrlOf, stripForPreview } from "./lib/format";
+import { BigTagPill } from "./atoms/badges";
 import { ExternalLink } from "./ExternalLink";
 
 /**
@@ -34,7 +26,7 @@ export function BriefCarousel({
   onJump: (id: string, kind: BaseItem["kind"]) => void;
 }) {
   if (!items.length) return null;
-  const totalMin = Math.max(3, Math.round(items.length * 1.0));
+  const totalMin = Math.max(3, items.length);
 
   return (
     <section

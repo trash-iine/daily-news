@@ -1,6 +1,6 @@
 import { readFile, readdir } from "node:fs/promises";
 import { join } from "node:path";
-import type { BaseItem, DailyBundle, DailyIndex } from "@daily-news/shared";
+import type { DailyBundle, DailyIndex } from "@daily-news/shared";
 
 const DATA_DIR = join(process.cwd(), "..", "..", "data");
 
@@ -24,7 +24,7 @@ export async function getIndex(): Promise<DailyIndex> {
   }
 }
 
-export async function getDaily(date: string): Promise<DailyBundle | null> {
+async function readBundle(date: string): Promise<DailyBundle | null> {
   try {
     const raw = await readFile(join(DATA_DIR, `${date}.json`), "utf-8");
     return JSON.parse(raw) as DailyBundle;
@@ -33,31 +33,12 @@ export async function getDaily(date: string): Promise<DailyBundle | null> {
   }
 }
 
-export async function getLatest(): Promise<DailyBundle | null> {
-  const idx = await getIndex();
-  const latest = idx.dates[0];
-  return latest ? getDaily(latest) : null;
-}
-
-export async function getAllItems(): Promise<BaseItem[]> {
-  const idx = await getIndex();
-  const bundles = await Promise.all(idx.dates.map((d) => getDaily(d)));
-  return bundles.flatMap((b) => b?.items ?? []);
-}
-
 export async function getAllBundles(): Promise<Record<string, DailyBundle>> {
   const idx = await getIndex();
   const entries = await Promise.all(
-    idx.dates.map(async (d) => [d, await getDaily(d)] as const),
+    idx.dates.map(async (d) => [d, await readBundle(d)] as const),
   );
   const out: Record<string, DailyBundle> = {};
   for (const [d, b] of entries) if (b) out[d] = b;
   return out;
-}
-
-export async function getAllTags(): Promise<string[]> {
-  const items = await getAllItems();
-  const set = new Set<string>();
-  for (const it of items) for (const t of it.tags) set.add(t);
-  return [...set].sort();
 }

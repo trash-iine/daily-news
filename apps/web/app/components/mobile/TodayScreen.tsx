@@ -1,8 +1,9 @@
 "use client";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { BIG_TAGS, itemBigTags, weekdayJa } from "./lib";
-import { TodayTabs, WeekStrip, type TodayTab } from "./atoms";
+import { weekdayJa } from "./lib/format";
+import { bundleCounts } from "./lib/bundle";
+import { TodayTabs, WeekStrip, type TodayTab } from "./atoms/today-controls";
 import { DayCarousel, type DayCarouselHandle } from "./DayCarousel";
 
 const HIGHLIGHT_MS = 1600;
@@ -33,20 +34,7 @@ export function TodayScreen({
   const carouselRef = useRef<DayCarouselHandle | null>(null);
   const highlightTimer = useRef<number | null>(null);
 
-  // TodayTabs / 日付タイトル用に現在日の counts を再計算 (DayPanel 側でも同じ式で算出するが
-  // ここでは Tabs ヘッダの数字だけに使う)。
-  const counts = useMemo<Record<string, number>>(() => {
-    const items = bundle?.items ?? [];
-    const c: Record<string, number> = {
-      all: items.length,
-      paper: items.filter((i) => i.kind === "paper").length,
-      news: items.filter((i) => i.kind === "news").length,
-    };
-    for (const t of BIG_TAGS) {
-      c[t.id] = items.filter((it) => itemBigTags(it).includes(t.id)).length;
-    }
-    return c;
-  }, [bundle]);
+  const counts = useMemo(() => bundleCounts(bundle?.items ?? []), [bundle]);
 
   /**
    * Brief カード → 該当タブを開き、対象カードへスクロール + 1.6s ハイライト。
@@ -74,6 +62,12 @@ export function TodayScreen({
       setHighlighted(null);
       highlightTimer.current = null;
     }, HIGHLIGHT_MS);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (highlightTimer.current !== null) window.clearTimeout(highlightTimer.current);
+    };
   }, []);
 
   if (!bundle || !currentDate) {

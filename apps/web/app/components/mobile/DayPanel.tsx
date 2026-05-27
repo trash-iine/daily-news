@@ -1,9 +1,10 @@
 "use client";
 import { forwardRef, useMemo } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { BIG_TAGS, itemBigTags } from "./lib";
+import { itemBigTags } from "./lib/bigTags";
+import { bundleCounts } from "./lib/bundle";
 import { ArticleCard } from "./ArticleCard";
-import { BigTagFilter, type TodayTab } from "./atoms";
+import { BigTagFilter, type TodayTab } from "./atoms/today-controls";
 import { BriefCarousel } from "./BriefCarousel";
 import { SeriesCard } from "./SeriesCard";
 
@@ -41,18 +42,7 @@ export const DayPanel = forwardRef<HTMLDivElement, {
   },
   ref,
 ) {
-  const counts = useMemo<Record<string, number>>(() => {
-    const items = bundle.items;
-    const c: Record<string, number> = {
-      all: items.length,
-      paper: items.filter((i) => i.kind === "paper").length,
-      news: items.filter((i) => i.kind === "news").length,
-    };
-    for (const t of BIG_TAGS) {
-      c[t.id] = items.filter((it) => itemBigTags(it).includes(t.id)).length;
-    }
-    return c;
-  }, [bundle]);
+  const counts = useMemo(() => bundleCounts(bundle.items), [bundle]);
 
   const briefItems = useMemo<BaseItem[]>(() => {
     const papers = bundle.items.filter((i) => i.kind === "paper").slice(0, 2);

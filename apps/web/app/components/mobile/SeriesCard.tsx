@@ -5,18 +5,11 @@ import type {
   BigTagGroup,
   DailyBundle,
 } from "@daily-news/shared";
-import {
-  BIG_COLOR,
-  bigTagOf,
-  dateRange,
-  fmtDateBadge,
-  itemBigTags,
-  risingTags,
-  sourceFamily,
-  sourceLabel,
-  type RisingTag,
-} from "./lib";
-import { Tag } from "./atoms";
+import { BIG_COLOR, bigTagOf } from "./lib/bigTags";
+import { sourceLabel } from "./lib/sources";
+import { fmtDateBadge } from "./lib/format";
+import { dateRange, risingTags, type RisingTag } from "./lib/trend";
+import { Tag } from "./atoms/badges";
 
 /**
  * 続いている話題カード (改善案 ⑤)。

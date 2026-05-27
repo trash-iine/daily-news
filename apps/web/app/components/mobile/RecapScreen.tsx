@@ -1,24 +1,22 @@
 "use client";
 import { useMemo, useState, type ReactNode } from "react";
 import type { BigTagGroup, DailyBundle } from "@daily-news/shared";
+import { BIG_COLOR, BIG_TAGS, itemBigTags } from "./lib/bigTags";
+import { sourceLabel } from "./lib/sources";
+import { fmtDateBadge } from "./lib/format";
 import {
-  BIG_COLOR,
-  BIG_TAGS,
   DELTA_DOWN,
   DELTA_UP,
   bigTagCountsByDate,
   dateRange,
-  fmtDateBadge,
-  itemBigTags,
-  sourceLabel,
   type RecapPeriod,
   risingTags,
   tagCountsByDate,
   tagFrequency,
   trendScore,
   worldTrendTags,
-} from "./lib";
-import { BigTagPill, PopularityBadge } from "./atoms";
+} from "./lib/trend";
+import { BigTagPill, PopularityBadge } from "./atoms/badges";
 import { ExternalLink } from "./ExternalLink";
 
 function Spark({

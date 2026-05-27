@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import type { DailyBundle } from "@daily-news/shared";
-import { TabBar, type TabId } from "./atoms";
+import { TabBar, type TabId } from "./atoms/navigation";
 import { TodayScreen } from "./TodayScreen";
 import { SavedScreen } from "./SavedScreen";
 import { RecapScreen } from "./RecapScreen";
