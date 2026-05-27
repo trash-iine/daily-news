@@ -16,6 +16,7 @@ import {
 import { BigTagPill, InterestBadge, PopularityBadge, Tag, Thumb } from "./atoms";
 import { ExternalLink } from "./ExternalLink";
 import { SummaryMarkdown } from "./SummaryMarkdown";
+import { PaperSummaryStruct } from "./PaperSummaryStruct";
 
 export function ArticleCard({
   item,
@@ -260,7 +261,11 @@ export function ArticleCard({
               >
                 {isPaper ? "✦ AI 要約" : "概要"}
               </div>
-              <SummaryMarkdown source={item.summary} />
+              {isPaper && item.summaryStruct ? (
+                <PaperSummaryStruct s={item.summaryStruct} />
+              ) : (
+                <SummaryMarkdown source={item.summary} />
+              )}
             </div>
           )}
           {hasBreakdown(item) && <ScoreBreakdown item={item} />}

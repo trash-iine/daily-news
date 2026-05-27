@@ -503,12 +503,14 @@ async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
 
   return finalists.map(({ p, score, matched }, i) => {
     const canonMatched = canonicalTags(matched);
+    const r = summaries[i];
     return {
       id: hashId(p.absUrl),
       kind: "paper",
       title: p.title,
       url: p.absUrl,
-      summary: summaries[i] ?? "",
+      summary: r?.summary ?? "",
+      ...(r?.struct ? { summaryStruct: r.struct } : {}),
       tags: canonMatched,
       score,
       popularity: 0,

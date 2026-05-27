@@ -1,5 +1,21 @@
 export type ItemKind = "news" | "paper";
 
+/**
+ * 論文要約の構造化版。問題 / 手法 / 結果 / 限界 の 4 ブロックで OpenAI から JSON で受け取る。
+ * abstract が取れなかった/JSON parse に失敗した場合は undefined のまま
+ * (UI は従来の summary フィールドを表示)。2026-05-27 以降の bundle に付与される。
+ */
+export interface PaperSummaryStruct {
+  /** 解こうとしている問題・課題 (1〜2 文)。 */
+  problem: string;
+  /** 提案手法の核となるアイデアと、なぜそれが問題に効くのか (2〜3 文)。 */
+  method: string;
+  /** 得られた定量的な成果・評価結果 (1〜2 文)。 */
+  result: string;
+  /** 限界・未解決の課題 (1 文)。記載なしの場合は固定文字列。 */
+  limit: string;
+}
+
 export interface BaseItem {
   id: string;
   kind: ItemKind;
@@ -18,6 +34,12 @@ export interface BaseItem {
    * news kind では基本的に undefined。
    */
   authors?: string[];
+  /**
+   * 論文 (kind: "paper") の構造化要約。問題/手法/結果/限界 の 4 セクション。
+   * 旧データには無いので optional。UI は struct があればそちらを優先表示し、
+   * 無ければ summary を表示する (後方互換)。
+   */
+  summaryStruct?: PaperSummaryStruct;
   /**
    * ソース固有の人気指標 (Qiita LGTM / Zenn いいね / HN points / RSS feed weight) を
    * 共通レンジに正規化した値。キーワード加点・言語ボーナスは含まない世間ベースのスコア。
