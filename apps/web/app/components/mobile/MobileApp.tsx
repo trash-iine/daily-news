@@ -39,6 +39,7 @@ export function MobileApp({
             currentDate={currentDate}
             setCurrentDate={setCurrentDate}
             bundle={bundle}
+            bundles={bundles}
             saved={saved}
             toggleSave={toggle}
             nowMs={nowMs}
