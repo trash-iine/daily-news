@@ -1,6 +1,7 @@
 import { QIITA_TRENDING_MIN_STOCKS, TRENDING_PER_SOURCE } from "../config.js";
 import { fetchWithFeedCache, type FeedFetchResult } from "../cache.js";
 import { fetchText } from "../util.js";
+import { parseJsonOr } from "./popularity.js";
 import type { RawItem } from "./types.js";
 
 const API_BASE = "https://qiita.com/api/v2/items";
@@ -39,7 +40,7 @@ export async function fetchQiitaTrending(sinceISO: string): Promise<FeedFetchRes
     "qiita-trending",
     () => fetchText(url, { headers: { accept: "application/json" } }),
     (body) => {
-      const json = JSON.parse(body) as QiitaItem[];
+      const json = parseJsonOr<QiitaItem[]>(body, "qiita-trending");
       const out: RawItem[] = [];
       for (const it of json) {
         const title = (it.title ?? "").trim();

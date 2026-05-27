@@ -1,5 +1,6 @@
 import { fetchWithFeedCache, type FeedFetchResult } from "../cache.js";
 import { cleanText, fetchText } from "../util.js";
+import { parseJsonOr } from "./popularity.js";
 import type { RawItem } from "./types.js";
 
 const API_BASE = "https://qiita.com/api/v2/items";
@@ -34,7 +35,7 @@ export async function fetchQiitaTag(
     `qiita-api:${tag}`,
     () => fetchText(url, { headers: { accept: "application/json" } }),
     (body) => {
-      const json = JSON.parse(body) as QiitaItem[];
+      const json = parseJsonOr<QiitaItem[]>(body, `qiita-api:${tag}`);
       const items: RawItem[] = [];
       for (const it of json) {
         const title = (it.title ?? "").trim();

@@ -1,6 +1,7 @@
 import { TRENDING_LOOKBACK_HOURS, TRENDING_PER_SOURCE } from "../config.js";
 import { fetchWithFeedCache, type FeedFetchResult } from "../cache.js";
 import { fetchText } from "../util.js";
+import { parseJsonOr } from "./popularity.js";
 import type { RawItem } from "./types.js";
 
 interface HnHit {
@@ -35,7 +36,7 @@ export async function fetchHnTrending(): Promise<FeedFetchResult> {
     "hn-trending",
     () => fetchText(url),
     (body) => {
-      const json = JSON.parse(body) as HnResponse;
+      const json = parseJsonOr<HnResponse>(body, "hn-trending");
       const hits = json.hits ?? [];
       const out: RawItem[] = [];
       for (const h of hits) {

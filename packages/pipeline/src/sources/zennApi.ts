@@ -1,5 +1,6 @@
 import { fetchWithFeedCache, type FeedFetchResult } from "../cache.js";
 import { fetchText } from "../util.js";
+import { parseJsonOr } from "./popularity.js";
 import type { RawItem } from "./types.js";
 
 const API_BASE = "https://zenn.dev/api/articles";
@@ -36,7 +37,7 @@ export async function fetchZennTopic(
     `zenn-api:${topic}`,
     () => fetchText(url, { headers: { accept: "application/json" } }),
     (body) => {
-      const json = JSON.parse(body) as ZennListResponse;
+      const json = parseJsonOr<ZennListResponse>(body, `zenn-api:${topic}`);
       const articles = json.articles ?? [];
       const items: RawItem[] = [];
       for (const a of articles) {
