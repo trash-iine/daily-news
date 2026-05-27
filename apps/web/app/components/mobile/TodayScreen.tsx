@@ -1,18 +1,33 @@
 "use client";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState, type TouchEvent as ReactTouchEvent } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { BIG_TAGS, itemBigTags, weekdayJa } from "./lib";
-import { BigTagFilter, DateStrip, TodayTabs, type TodayTab } from "./atoms";
+import { BigTagFilter, TodayTabs, WeekStrip, type TodayTab } from "./atoms";
 import { ArticleCard } from "./ArticleCard";
 import { BriefCarousel } from "./BriefCarousel";
+import { SeriesCard } from "./SeriesCard";
 
 const HIGHLIGHT_MS = 1600;
+const SWIPE_THRESHOLD_PX = 60;
+const SWIPE_AXIS_RATIO = 1.5;
+
+/**
+ * archive (newest-first) 上で current の隣を返す。delta=-1 で newer、+1 で older。
+ * archive にギャップがあっても次に存在する日付に「スキップ」される。
+ */
+function adjacentDate(archive: string[], current: string, delta: -1 | 1): string | null {
+  const i = archive.indexOf(current);
+  if (i < 0) return null;
+  const j = i + delta;
+  return j >= 0 && j < archive.length ? archive[j] ?? null : null;
+}
 
 export function TodayScreen({
   archive,
   currentDate,
   setCurrentDate,
   bundle,
+  bundles,
   saved,
   toggleSave,
   nowMs,
@@ -21,6 +36,7 @@ export function TodayScreen({
   currentDate: string | null;
   setCurrentDate: (d: string) => void;
   bundle: DailyBundle | null;
+  bundles: Record<string, DailyBundle>;
   saved: Set<string>;
   toggleSave: (id: string) => void;
   nowMs: number;
@@ -31,6 +47,34 @@ export function TodayScreen({
   const [highlighted, setHighlighted] = useState<string | null>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const highlightTimer = useRef<number | null>(null);
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const onTouchStart = useCallback((e: ReactTouchEvent<HTMLDivElement>) => {
+    const t = e.touches[0];
+    if (!t) return;
+    touchStartRef.current = { x: t.clientX, y: t.clientY };
+  }, []);
+
+  const onTouchEnd = useCallback(
+    (e: ReactTouchEvent<HTMLDivElement>) => {
+      const start = touchStartRef.current;
+      touchStartRef.current = null;
+      if (!start || !currentDate) return;
+      const t = e.changedTouches[0];
+      if (!t) return;
+      const dx = t.clientX - start.x;
+      const dy = t.clientY - start.y;
+      if (Math.abs(dx) < SWIPE_THRESHOLD_PX) return;
+      if (Math.abs(dx) < Math.abs(dy) * SWIPE_AXIS_RATIO) return;
+      // 左スワイプ (dx<0) → 過去 (older=archive[i+1]) / 右スワイプ → 未来 (newer=archive[i-1])
+      const next = adjacentDate(archive, currentDate, dx < 0 ? 1 : -1);
+      if (next) {
+        setCurrentDate(next);
+        setExpanded(null);
+      }
+    },
+    [archive, currentDate, setCurrentDate],
+  );
 
   const counts = useMemo<Record<string, number>>(() => {
     const items = bundle?.items ?? [];
@@ -176,7 +220,7 @@ export function TodayScreen({
         counts={{ all: counts.all ?? 0, paper: counts.paper ?? 0, news: counts.news ?? 0 }}
       />
 
-      <DateStrip
+      <WeekStrip
         archive={archive}
         currentDate={currentDate}
         onChange={(d) => {
@@ -185,7 +229,20 @@ export function TodayScreen({
         }}
       />
 
-      <div ref={scrollerRef} style={{ flex: 1, overflow: "auto", paddingBottom: 8 }}>
+      <div
+        ref={scrollerRef}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        style={{ flex: 1, overflow: "auto", paddingBottom: 8 }}
+      >
+        {tab === "all" && (
+          <SeriesCard
+            bundles={bundles}
+            latestDate={bundle.date}
+            todayItems={bundle.items}
+            onJump={jumpTo}
+          />
+        )}
         {tab === "all" && briefItems.length > 0 && (
           <BriefCarousel items={briefItems} nowMs={nowMs} onJump={jumpTo} />
         )}

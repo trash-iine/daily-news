@@ -1,7 +1,7 @@
 "use client";
 import { useState, type CSSProperties } from "react";
 import type { BaseItem, BigTagGroup } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, FAM_COLOR, FAM_GLYPH, bigTagOf, sourceFamily, weekdayJa } from "./lib";
+import { BIG_COLOR, BIG_TAGS, FAM_COLOR, FAM_GLYPH, bigTagOf, sourceFamily } from "./lib";
 
 export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
   const t = BIG_TAGS.find((x) => x.id === id);
@@ -426,7 +426,38 @@ export function TodayTabs({
   );
 }
 
-export function DateStrip({
+/**
+ * Mon-Sun 固定 7 スロットの週ストリップ。currentDate を末尾とする直近 7 日を
+ * 各曜日スロットに配置するリングバッファ表示。archive に無い日は disabled。
+ */
+const WEEKDAY_MON_SUN = ["月", "火", "水", "木", "金", "土", "日"] as const;
+
+interface WeekSlot {
+  iso: string;
+  date: number;
+  inArchive: boolean;
+}
+
+function buildWeekSlots(currentDate: string, archive: string[]): WeekSlot[] {
+  const archiveSet = new Set(archive);
+  const slots: (WeekSlot | null)[] = new Array(7).fill(null);
+  const base = new Date(`${currentDate}T00:00:00Z`);
+  if (Number.isNaN(base.getTime())) return [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(base);
+    d.setUTCDate(d.getUTCDate() - i);
+    const yyyy = d.getUTCFullYear();
+    const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+    const dd = String(d.getUTCDate()).padStart(2, "0");
+    const iso = `${yyyy}-${mm}-${dd}`;
+    const dayIdx = d.getUTCDay(); // 0=Sun..6=Sat
+    const slotIdx = dayIdx === 0 ? 6 : dayIdx - 1; // Mon=0..Sun=6
+    slots[slotIdx] = { iso, date: d.getUTCDate(), inArchive: archiveSet.has(iso) };
+  }
+  return slots.filter((s): s is WeekSlot => s !== null);
+}
+
+export function WeekStrip({
   archive,
   currentDate,
   onChange,
@@ -435,27 +466,27 @@ export function DateStrip({
   currentDate: string | null;
   onChange: (d: string) => void;
 }) {
+  if (!currentDate) return null;
+  const slots = buildWeekSlots(currentDate, archive);
+  if (slots.length !== 7) return null;
   return (
     <div
       style={{
         padding: "0 16px 12px",
-        display: "flex",
+        display: "grid",
+        gridTemplateColumns: "repeat(7, 1fr)",
         gap: 6,
-        overflowX: "auto",
-        scrollbarWidth: "none",
       }}
     >
-      {archive.map((d) => {
-        const dt = new Date(d);
-        const wd = weekdayJa(dt);
-        const active = d === currentDate;
+      {slots.map((slot, i) => {
+        const active = slot.iso === currentDate;
         return (
           <button
-            key={d}
-            onClick={() => onChange(d)}
+            key={slot.iso}
+            disabled={!slot.inArchive}
+            onClick={() => onChange(slot.iso)}
             style={{
-              flex: "0 0 auto",
-              padding: "8px 12px",
+              padding: "8px 0",
               borderRadius: 10,
               background: active ? "var(--fg)" : "var(--bg-sunken)",
               color: active ? "var(--bg)" : "var(--fg-muted)",
@@ -463,16 +494,16 @@ export function DateStrip({
               fontFamily: "var(--font-mono)",
               fontSize: 12,
               fontWeight: 500,
-              cursor: "pointer",
+              cursor: slot.inArchive ? "pointer" : "default",
+              opacity: slot.inArchive ? 1 : 0.35,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               gap: 2,
-              minWidth: 48,
             }}
           >
-            <span style={{ fontSize: 10, opacity: 0.7 }}>{wd}</span>
-            <span style={{ fontSize: 13, fontWeight: 700 }}>{dt.getDate()}</span>
+            <span style={{ fontSize: 10, opacity: 0.7 }}>{WEEKDAY_MON_SUN[i]}</span>
+            <span style={{ fontSize: 13, fontWeight: 700 }}>{slot.date}</span>
           </button>
         );
       })}
