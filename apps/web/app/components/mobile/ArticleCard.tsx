@@ -31,7 +31,7 @@ export function ArticleCard({
   saved: boolean;
   onSave: () => void;
   nowMs: number;
-  /** Brief カルーセルから jump してきた直後の一時ハイライト。 */
+  /** 続いている話題カードから jump してきた直後の一時ハイライト。 */
   highlighted?: boolean;
 }) {
   const fam = sourceFamily(item.source);
@@ -136,7 +136,9 @@ export function ArticleCard({
           >
             {item.title}
           </h3>
-          {!expanded && item.summary && (
+          {/* コラプス時プレビュー: 論文で topic があれば「技術と問題」の 1 文を、
+              無ければ従来どおり summary の冒頭を表示する。 */}
+          {!expanded && (item.summaryStruct?.topic || item.summary) && (
             <p
               style={{
                 fontSize: 12.5,
@@ -149,7 +151,7 @@ export function ArticleCard({
                 overflow: "hidden",
               }}
             >
-              {stripForPreview(item.summary)}
+              {item.summaryStruct?.topic ?? stripForPreview(item.summary)}
             </p>
           )}
           {/* 論文: 著者行 + abs/PDF ボタン (コラプス時のみ) */}

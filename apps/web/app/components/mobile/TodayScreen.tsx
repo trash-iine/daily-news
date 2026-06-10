@@ -37,7 +37,7 @@ export function TodayScreen({
   const counts = useMemo(() => bundleCounts(bundle?.items ?? []), [bundle]);
 
   /**
-   * Brief カード → 該当タブを開き、対象カードへスクロール + 1.6s ハイライト。
+   * 続いている話題カード → 該当タブを開き、対象カードへスクロール + 1.6s ハイライト。
    * paper なら "paper" タブへ、news なら "news" タブへ移動する (文脈が薄れない範囲で)。
    */
   const jumpTo = useCallback((id: string, kind: BaseItem["kind"]) => {

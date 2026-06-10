@@ -21,7 +21,8 @@ export interface SummarizeResult {
 
 /**
  * 構造化プロンプト。GAS 版の要約方針 (平文・推測排除・専門用語の説明) は
- * note セクションに残しつつ、出力を 4 セクションの JSON に固定する。
+ * note セクションに残しつつ、出力を 技術と問題/問題/手法/結果 の JSON に固定する。
+ * topic は一覧でひと目で内容がつかめるよう「どの技術で何の問題を扱うか」を 1 文で。
  */
 function buildPrompt(abstract: string): string {
   return `<paper_summary_request>
@@ -31,10 +32,10 @@ function buildPrompt(abstract: string): string {
 次の JSON スキーマで出力してください。
 
 {
+  "topic": "この論文が扱う技術と問題を簡潔に 1 文で (例: 「拡散モデル (画像生成手法) を用いた動画生成の高速化」)。一覧でひと目で内容がつかめるように。",
   "problem": "この論文が解こうとしている問題・課題 (1〜2 文)。背景を 1 文で補ってよい。",
   "method": "提案手法の核となるアイデアと、なぜそれが問題に効くのか (2〜3 文)。",
-  "result": "得られた定量的な成果や評価結果 (1〜2 文)。具体的な数値があれば残す。",
-  "limit": "論文が認める限界・未解決の課題・応用範囲の制約 (1 文)。書かれていない場合は \\"abstract には記載なし\\"。"
+  "result": "得られた定量的な成果や評価結果 (1〜2 文)。具体的な数値があれば残す。"
 }
 </output_schema>
 
@@ -53,12 +54,10 @@ ${abstract}
 
 /** struct を旧 UI 用の平文 (1 ブロック) にフォールバック整形する。 */
 function structToPlain(s: PaperSummaryStruct): string {
-  return [
-    `**問題** ${s.problem}`,
-    `**手法** ${s.method}`,
-    `**結果** ${s.result}`,
-    `**限界** ${s.limit}`,
-  ].join("\n\n");
+  const parts: string[] = [];
+  if (s.topic) parts.push(`**技術と問題** ${s.topic}`);
+  parts.push(`**問題** ${s.problem}`, `**手法** ${s.method}`, `**結果** ${s.result}`);
+  return parts.join("\n\n");
 }
 
 function parseStruct(raw: string): PaperSummaryStruct | null {
@@ -70,14 +69,20 @@ function parseStruct(raw: string): PaperSummaryStruct | null {
   }
   if (typeof j !== "object" || j === null) return null;
   const o = j as Record<string, unknown>;
-  const keys = ["problem", "method", "result", "limit"] as const;
+  // problem / method / result は必須。1 つでも欠ければ struct 不成立 (summary に fallback)。
+  const required = ["problem", "method", "result"] as const;
   const out: Partial<PaperSummaryStruct> = {};
-  for (const k of keys) {
+  for (const k of required) {
     const v = o[k];
     if (typeof v !== "string") return null;
     const trimmed = v.trim();
     if (trimmed.length === 0) return null;
     out[k] = trimmed;
+  }
+  // topic は任意。string かつ非空なら採用、無ければ省略する。
+  if (typeof o.topic === "string") {
+    const t = o.topic.trim();
+    if (t.length > 0) out.topic = t;
   }
   return out as PaperSummaryStruct;
 }

@@ -5,7 +5,6 @@ import { itemBigTags } from "./lib/bigTags";
 import { bundleCounts } from "./lib/bundle";
 import { ArticleCard } from "./ArticleCard";
 import { BigTagFilter, type TodayTab } from "./atoms/today-controls";
-import { BriefCarousel } from "./BriefCarousel";
 import { SeriesCard } from "./SeriesCard";
 
 /**
@@ -43,12 +42,6 @@ export const DayPanel = forwardRef<HTMLDivElement, {
   ref,
 ) {
   const counts = useMemo(() => bundleCounts(bundle.items), [bundle]);
-
-  const briefItems = useMemo<BaseItem[]>(() => {
-    const papers = bundle.items.filter((i) => i.kind === "paper").slice(0, 2);
-    const news = bundle.items.filter((i) => i.kind === "news").slice(0, 3);
-    return [...papers, ...news].sort((a, b) => b.score - a.score).slice(0, 5);
-  }, [bundle]);
 
   const filtered: BaseItem[] = useMemo(() => {
     return bundle.items.filter((it) => {
@@ -97,9 +90,6 @@ export const DayPanel = forwardRef<HTMLDivElement, {
           todayItems={bundle.items}
           onJump={onJump}
         />
-      )}
-      {tab === "all" && briefItems.length > 0 && (
-        <BriefCarousel items={briefItems} nowMs={nowMs} onJump={onJump} />
       )}
 
       <BigTagFilter value={bigFilter} onChange={setBigFilter} counts={counts} />
