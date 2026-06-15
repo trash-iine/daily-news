@@ -91,16 +91,8 @@ export const PAPER_KEYWORDS: Record<string, number> = {
   "approximation algorithm": 3,
   "scheduling": 2,
   "graph algorithm": 2,
-  // 量子コンピューティング
-  "quantum computing": 3,
-  "quantum computer": 3,
-  "quantum algorithm": 3,
-  "quantum information": 2,
-  "qubit": 1,
-  "quantum error correction": 2,
-  "variational quantum": 1,
-  "qaoa": 2,
-  "vqe": 1,
+  // 量子コンピューティングは重みづけしない（採択は最低1本保証のみ）。
+  // 判定キーワードは PAPER_QUANTUM_KEYWORDS で別管理。
 };
 
 /**
@@ -113,9 +105,10 @@ export const PAPER_PRIORITY_KEYWORDS = [
 ];
 
 /**
- * 採用上限カウント用の quantum 判定キーワード (大文字小文字無視・部分一致)。
- * `PAPER_KEYWORDS` の quantum 系を編集した際はこちらも追従させる。
- * `PAPER_KEYWORDS` から完全に除いても上限ロジックが機能するよう別管理にしている。
+ * quantum 判定キーワード (大文字小文字無視・部分一致)。
+ * 最低1本保証 (`PAPERS_QUANTUM_MIN`) の候補抽出と、量子論文への
+ * `quantum-computing` タグ付け直しに使う (paperFinalists.ts / ranking.ts)。
+ * quantum は重みづけしない方針のため `PAPER_KEYWORDS` には含めず、ここで別管理する。
  */
 export const PAPER_QUANTUM_KEYWORDS: readonly string[] = [
   "quantum computing",
@@ -418,11 +411,12 @@ export const PAPERS_TOP_N = 10;
 export const PAPER_APS_MIN = 1;
 
 /**
- * 1 日に採用する quantum 系論文の上限。`selectFinalists` で score top-N から
- * quantum 系の比率が `PAPERS_QUANTUM_MAX` を超えた場合、最下位の非 APS quantum
- * を未選抜の非 quantum 論文と入れ替える (paperFinalists.ts)。
+ * 1 日に最低限採用する quantum 系論文の件数。quantum は重みづけしない方針のため
+ * 自然採択ではゼロになりうる。`selectFinalists` で finalists に quantum が
+ * `PAPERS_QUANTUM_MIN` 件未満なら、閾値前の quantum 候補から補充して floor を
+ * 満たす (paperFinalists.ts)。
  */
-export const PAPERS_QUANTUM_MAX = 4;
+export const PAPERS_QUANTUM_MIN = 1;
 
 export const NEWS_SCORE_THRESHOLD = 1;
 export const PAPER_SCORE_THRESHOLD = 1;

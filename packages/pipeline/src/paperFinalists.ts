@@ -1,7 +1,7 @@
 import {
   PAPERS_TOP_N,
   PAPER_APS_MIN,
-  PAPERS_QUANTUM_MAX,
+  PAPERS_QUANTUM_MIN,
   PAPER_QUANTUM_KEYWORDS,
 } from "./config.js";
 import type { ArxivPaper } from "./sources/arxiv.js";
@@ -17,35 +17,49 @@ function isAPSSource(source: string): boolean {
   return source.startsWith("aps:");
 }
 
-function isQuantumPaper(s: ScoredPaper): boolean {
-  const hay = `${s.p.title} ${s.p.abstract}`.toLowerCase();
+/**
+ * quantum 系論文か判定する。quantum は重みづけ対象外でキーワードに依らず
+ * スコア 0 になりうるため、source カテゴリ (quant-ph / prxquantum) も併用して
+ * 確実に拾えるようにする。
+ */
+export function isQuantumPaper(p: ArxivPaper): boolean {
+  if (p.source === "arxiv:quant-ph" || p.source === "aps:prxquantum") return true;
+  const hay = `${p.title} ${p.abstract}`.toLowerCase();
   return PAPER_QUANTUM_KEYWORDS.some((k) => hay.includes(k));
 }
 
 /**
- * quantum 系論文が `PAPERS_QUANTUM_MAX` を超えていれば、最下位の非 APS
- * quantum を未選抜の非 quantum 論文と入れ替えて偏りを緩和する。
- * APS quantum (prxquantum 等) は APS 最小保証を尊重するため swap 対象から外す。
- * 候補が枯渇したら上限を満たせないまま終了する (ログのみ)。
+ * finalists 内の quantum 件数が `PAPERS_QUANTUM_MIN` に満たない場合、
+ * `quantumPool` (閾値前を含む quantum 候補をスコア順ソート済み) から finalists
+ * 未収録の論文を補充して floor を満たす。
+ * finalists が `PAPERS_TOP_N` 未満なら末尾に push、満杯なら最下位の非 APS
+ * finalist と入れ替える (APS 最小保証を壊さない)。候補が枯渇したら満たせない
+ * まま終了する (ログのみ)。
  */
-function enforceQuantumCap(
+function enforceQuantumMin(
   finalists: ScoredPaper[],
-  scored: ScoredPaper[],
+  quantumPool: ScoredPaper[],
 ): void {
-  const isQ = finalists.map(isQuantumPaper);
-  let qCount = isQ.filter(Boolean).length;
-  if (qCount <= PAPERS_QUANTUM_MAX) return;
+  let qCount = finalists.filter((s) => isQuantumPaper(s.p)).length;
+  if (qCount >= PAPERS_QUANTUM_MIN) return;
 
-  const replacements = scored
-    .slice(PAPERS_TOP_N)
-    .filter((s) => !isQuantumPaper(s));
+  const inFinal = new Set(finalists.map((s) => s.p.absUrl));
+  const candidates = quantumPool.filter((s) => !inFinal.has(s.p.absUrl));
 
-  for (const repl of replacements) {
-    if (qCount <= PAPERS_QUANTUM_MAX) break;
+  for (const cand of candidates) {
+    if (qCount >= PAPERS_QUANTUM_MIN) break;
+    if (finalists.length < PAPERS_TOP_N) {
+      finalists.push(cand);
+      qCount++;
+      console.log(
+        `[main] enforced quantum minimum (${PAPERS_QUANTUM_MIN}): appended "${cand.p.title}"`,
+      );
+      continue;
+    }
     let swapIdx = -1;
     for (let i = finalists.length - 1; i >= 0; i--) {
-      const candidate = finalists[i];
-      if (candidate && isQ[i] && !isAPSSource(candidate.p.source)) {
+      const f = finalists[i];
+      if (f && !isAPSSource(f.p.source) && !isQuantumPaper(f.p)) {
         swapIdx = i;
         break;
       }
@@ -53,11 +67,10 @@ function enforceQuantumCap(
     if (swapIdx === -1) break;
     const removed = finalists[swapIdx];
     if (!removed) break;
-    finalists[swapIdx] = repl;
-    isQ[swapIdx] = false;
-    qCount--;
+    finalists[swapIdx] = cand;
+    qCount++;
     console.log(
-      `[main] enforced quantum cap (${PAPERS_QUANTUM_MAX}): swapped in "${repl.p.title}" (replaced "${removed.p.title}")`,
+      `[main] enforced quantum minimum (${PAPERS_QUANTUM_MIN}): swapped in "${cand.p.title}" (replaced "${removed.p.title}")`,
     );
   }
 }
@@ -66,11 +79,15 @@ function enforceQuantumCap(
  * sort 済み候補から `PAPERS_TOP_N` 件を選抜する。
  * (1) APS 由来が `PAPER_APS_MIN` 件に満たない場合、未選抜の最上位 APS 論文を
  *     最下位の非 APS と入れ替えて APS 最小保証を満たす。
- * (2) その後、quantum 比率が `PAPERS_QUANTUM_MAX` を超えていれば
- *     `enforceQuantumCap` で非 quantum 論文と入れ替える。
+ * (2) その後、quantum が `PAPERS_QUANTUM_MIN` 件に満たない場合、`quantumPool`
+ *     (閾値前を含む quantum 候補) から `enforceQuantumMin` で補充する。
+ *     APS 最小保証で prxquantum が入った場合は (2) で充足扱いになる。
  * 入れ替えはログに出して可視化する。
  */
-export function selectFinalists(scored: ScoredPaper[]): ScoredPaper[] {
+export function selectFinalists(
+  scored: ScoredPaper[],
+  quantumPool: ScoredPaper[],
+): ScoredPaper[] {
   const finalists = scored.slice(0, PAPERS_TOP_N);
   const apsInFinal = finalists.filter((s) => isAPSSource(s.p.source)).length;
   if (apsInFinal < PAPER_APS_MIN) {
@@ -99,6 +116,6 @@ export function selectFinalists(scored: ScoredPaper[]): ScoredPaper[] {
     }
   }
 
-  enforceQuantumCap(finalists, scored);
+  enforceQuantumMin(finalists, quantumPool);
   return finalists;
 }

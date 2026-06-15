@@ -21,7 +21,11 @@ import {
   primaryGroup,
   tagsFromSource,
 } from "./scoreModel.js";
-import { selectFinalists, type ScoredPaper } from "./paperFinalists.js";
+import {
+  isQuantumPaper,
+  selectFinalists,
+  type ScoredPaper,
+} from "./paperFinalists.js";
 import type { ArxivPaper } from "./sources/arxiv.js";
 import type { RawItem } from "./sources/types.js";
 import { summarizePaper } from "./summarize.js";
@@ -216,25 +220,33 @@ export async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
   // タイトル + abstract で照合 (タイトル一致は scoreFields 内で加重される)。
   // 元の GAS 実装は abstract のみだったが、タイトルにキーワードが入る論文は
   // 強い信号なので採用する。
-  const scored: ScoredPaper[] = unique
-    .map((p) => {
-      const { score, matched } = scoreFields(p.title, p.abstract, PAPER_KEYWORDS);
-      const haystack = `${p.title} ${p.abstract}`.toLowerCase();
-      const priority = PAPER_PRIORITY_KEYWORDS.some((k) =>
-        haystack.includes(k.toLowerCase()),
-      );
-      return { p, score, matched, priority };
-    })
-    .filter((s) => s.score >= PAPER_SCORE_THRESHOLD);
+  const scoredAll: ScoredPaper[] = unique.map((p) => {
+    const { score, matched } = scoreFields(p.title, p.abstract, PAPER_KEYWORDS);
+    const haystack = `${p.title} ${p.abstract}`.toLowerCase();
+    const priority = PAPER_PRIORITY_KEYWORDS.some((k) =>
+      haystack.includes(k.toLowerCase()),
+    );
+    return { p, score, matched, priority };
+  });
 
   // 優先キーワード → スコア降順 → 投稿日新しい順（GAS 版のソート規則）
-  scored.sort((a, b) => {
+  const bySortRule = (a: ScoredPaper, b: ScoredPaper) => {
     if (a.priority !== b.priority) return a.priority ? -1 : 1;
     if (a.score !== b.score) return b.score - a.score;
     return b.p.publishedAt.localeCompare(a.p.publishedAt);
-  });
+  };
 
-  const finalists = selectFinalists(scored);
+  const scored = scoredAll
+    .filter((s) => s.score >= PAPER_SCORE_THRESHOLD)
+    .sort(bySortRule);
+
+  // quantum は重みづけしないため閾値で落ちうる。最低1本保証用に閾値前から
+  // quantum 候補を別プールとして用意する (selectFinalists で補充に使う)。
+  const quantumPool = scoredAll
+    .filter((s) => isQuantumPaper(s.p))
+    .sort(bySortRule);
+
+  const finalists = selectFinalists(scored, quantumPool);
 
   const summaries = await Promise.all(
     finalists.map(({ p }) => summarizePaper(p.title, p.abstract)),
@@ -242,6 +254,14 @@ export async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
 
   return finalists.map(({ p, score, matched }, i) => {
     const canonMatched = canonicalTags(matched);
+    // quantum は重みづけ対象外で matched に乗らないため、量子論文には
+    // quantum-computing タグを付け直して UI 上のラベルを維持する。
+    const tags =
+      isQuantumPaper(p) &&
+      !canonMatched.includes("quantum-computing") &&
+      !canonMatched.includes("quantum-algorithm")
+        ? [...canonMatched, "quantum-computing"]
+        : canonMatched;
     const r = summaries[i];
     return {
       id: hashId(p.absUrl),
@@ -250,12 +270,12 @@ export async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
       url: p.absUrl,
       summary: r?.summary ?? "",
       ...(r?.struct ? { summaryStruct: r.struct } : {}),
-      tags: canonMatched,
+      tags,
       score,
       popularity: 0,
       keywordScore: score,
       languageBonus: 0,
-      matchedKeywords: canonMatched,
+      matchedKeywords: tags,
       source: p.source,
       publishedAt: p.publishedAt,
       fetchedAt,

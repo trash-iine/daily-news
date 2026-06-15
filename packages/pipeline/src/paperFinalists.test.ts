@@ -1,6 +1,10 @@
 import { strict as assert } from "node:assert";
 import { describe, it } from "node:test";
-import { selectFinalists, type ScoredPaper } from "./paperFinalists.js";
+import {
+  isQuantumPaper,
+  selectFinalists,
+  type ScoredPaper,
+} from "./paperFinalists.js";
 import type { ArxivPaper } from "./sources/arxiv.js";
 
 function mkPaper(
@@ -43,7 +47,7 @@ describe("selectFinalists", () => {
       ...Array.from({ length: 8 }, (_, i) => mkScored("arxiv:cs.LG", i, 80 - i)),
       mkScored("arxiv:cs.LG", 99, 1), // 11 番目、落ちる
     ];
-    const out = selectFinalists(scored);
+    const out = selectFinalists(scored, []);
     assert.equal(out.length, 10);
     const apsCount = out.filter((s) => s.p.source.startsWith("aps:")).length;
     assert.equal(apsCount, 1);
@@ -58,7 +62,7 @@ describe("selectFinalists", () => {
       ...Array.from({ length: 10 }, (_, i) => mkScored("arxiv:cs.LG", i, 100 - i)),
       mkScored("aps:prxquantum", 1, 5),
     ];
-    const out = selectFinalists(scored);
+    const out = selectFinalists(scored, []);
     assert.equal(out.length, 10);
     const apsCount = out.filter((s) => s.p.source.startsWith("aps:")).length;
     assert.equal(apsCount, 1, "APS が 1 件確保されるべき");
@@ -74,7 +78,7 @@ describe("selectFinalists", () => {
     const scored: ScoredPaper[] = Array.from({ length: 12 }, (_, i) =>
       mkScored("arxiv:cs.LG", i, 100 - i),
     );
-    const out = selectFinalists(scored);
+    const out = selectFinalists(scored, []);
     assert.equal(out.length, 10);
     const apsCount = out.filter((s) => s.p.source.startsWith("aps:")).length;
     assert.equal(apsCount, 0);
@@ -85,105 +89,91 @@ describe("selectFinalists", () => {
       mkScored("arxiv:cs.LG", 1, 50),
       mkScored("aps:prxquantum", 1, 40),
     ];
-    const out = selectFinalists(scored);
+    const out = selectFinalists(scored, []);
     assert.equal(out.length, 2);
   });
 
-  it("quantum 論文が PAPERS_QUANTUM_MAX 以下なら入れ替えは起きない", () => {
-    const scored: ScoredPaper[] = [
-      ...Array.from({ length: 4 }, (_, i) =>
-        mkScored("arxiv:quant-ph", i, 100 - i, { quantum: true }),
-      ),
-      ...Array.from({ length: 6 }, (_, i) =>
-        mkScored("arxiv:cs.LG", i, 50 - i),
-      ),
-      mkScored("arxiv:cs.LG", 99, 1),
+  it("finalists に quantum が無く quantumPool に候補があれば、最下位の非 APS と入れ替えて最低 1 本確保する", () => {
+    // top 10 すべて non-quantum、quantumPool に閾値落ちの quantum 1 件
+    const scored: ScoredPaper[] = Array.from({ length: 10 }, (_, i) =>
+      mkScored("arxiv:cs.LG", i, 100 - i),
+    );
+    const quantumPool: ScoredPaper[] = [
+      mkScored("arxiv:quant-ph", 1, 0, { quantum: true }),
     ];
-    const out = selectFinalists(scored);
+    const out = selectFinalists(scored, quantumPool);
     assert.equal(out.length, 10);
-    const qCount = out.filter((s) =>
-      `${s.p.title} ${s.p.abstract}`.toLowerCase().includes("quantum computing"),
-    ).length;
-    assert.equal(qCount, 4);
-    // 元の sort 順を尊重
+    const qCount = out.filter((s) => isQuantumPaper(s.p)).length;
+    assert.equal(qCount, 1, "quantum が最低 1 本確保されること");
+    // 最下位 (score 91) が quantum に置き換わる
+    assert.equal(out[9]?.p.source, "arxiv:quant-ph");
+    // top 9 は不変
+    for (let i = 0; i < 9; i++) {
+      assert.equal(out[i]?.p.source, "arxiv:cs.LG");
+    }
+  });
+
+  it("finalists に既に quantum があれば補充しない", () => {
+    const scored: ScoredPaper[] = [
+      mkScored("arxiv:quant-ph", 0, 100, { quantum: true }),
+      ...Array.from({ length: 9 }, (_, i) => mkScored("arxiv:cs.LG", i, 90 - i)),
+    ];
+    const quantumPool: ScoredPaper[] = [
+      mkScored("arxiv:quant-ph", 0, 100, { quantum: true }),
+      mkScored("arxiv:quant-ph", 99, 0, { quantum: true }),
+    ];
+    const out = selectFinalists(scored, quantumPool);
+    assert.equal(out.length, 10);
+    const qCount = out.filter((s) => isQuantumPaper(s.p)).length;
+    assert.equal(qCount, 1, "既存 quantum 1 本で充足し追加されないこと");
+    // 元の構成を維持
     assert.equal(out[0]?.p.source, "arxiv:quant-ph");
     assert.equal(out[9]?.p.source, "arxiv:cs.LG");
   });
 
-  it("quantum が上限超過のとき、最下位の非 APS quantum が未選抜 non-quantum と入れ替わる", () => {
-    // top 10 のうち 7 件が quantum (idx 0-6, scores 100-94)、3 件が non-quantum (scores 93-91)
-    // 未選抜に non-quantum が 3 件 (scores 90, 89, 88)
+  it("APS 最小保証で入った prxquantum は quantum としてカウントされ追加補充されない", () => {
+    // top 10 すべて非 APS non-quantum、未選抜に APS quantum (prxquantum)
     const scored: ScoredPaper[] = [
-      ...Array.from({ length: 7 }, (_, i) =>
-        mkScored("arxiv:quant-ph", i, 100 - i, { quantum: true }),
-      ),
-      ...Array.from({ length: 3 }, (_, i) =>
-        mkScored("arxiv:cs.LG", i, 93 - i),
-      ),
-      ...Array.from({ length: 3 }, (_, i) =>
-        mkScored("arxiv:cs.LG", 10 + i, 90 - i),
-      ),
+      ...Array.from({ length: 10 }, (_, i) => mkScored("arxiv:cs.LG", i, 100 - i)),
+      mkScored("aps:prxquantum", 1, 5, { quantum: true }),
     ];
-    const out = selectFinalists(scored);
-    assert.equal(out.length, 10);
-    const qCount = out.filter((s) =>
-      `${s.p.title} ${s.p.abstract}`.toLowerCase().includes("quantum computing"),
-    ).length;
-    assert.equal(qCount, 4, "quantum 件数が PAPERS_QUANTUM_MAX(=4) まで減ること");
-    // top4 (quantum) は不変
-    for (let i = 0; i < 4; i++) {
-      assert.equal(out[i]?.p.source, "arxiv:quant-ph");
-    }
-    // 未選抜 3 件が swap-in されている
-    const titles = out.map((s) => s.p.title);
-    assert.ok(titles.includes("arxiv:cs.LG paper 10"));
-    assert.ok(titles.includes("arxiv:cs.LG paper 11"));
-    assert.ok(titles.includes("arxiv:cs.LG paper 12"));
-  });
-
-  it("未選抜に non-quantum が足りないときは可能な範囲で swap、残りは quantum のまま", () => {
-    // top 10 すべて quantum、未選抜に non-quantum が 1 件のみ
-    const scored: ScoredPaper[] = [
-      ...Array.from({ length: 10 }, (_, i) =>
-        mkScored("arxiv:quant-ph", i, 100 - i, { quantum: true }),
-      ),
-      mkScored("arxiv:cs.LG", 99, 5),
+    const quantumPool: ScoredPaper[] = [
+      mkScored("aps:prxquantum", 1, 5, { quantum: true }),
+      mkScored("arxiv:quant-ph", 99, 0, { quantum: true }),
     ];
-    const out = selectFinalists(scored);
+    const out = selectFinalists(scored, quantumPool);
     assert.equal(out.length, 10);
-    const qCount = out.filter((s) =>
-      `${s.p.title} ${s.p.abstract}`.toLowerCase().includes("quantum computing"),
-    ).length;
-    // 1 件だけ swap できたので quantum は 9 件 (cap 4 を満たせないが許容)
-    assert.equal(qCount, 9);
-    assert.equal(out[9]?.p.source, "arxiv:cs.LG");
-  });
-
-  it("APS swap-in された quantum (prxquantum) は cap 適用時に保護される", () => {
-    // top 10 すべて arXiv quantum (cap 超過確実)、未選抜に APS quantum 1 件 + 非 quantum 6 件
-    // APS 最小保証で prxquantum が swap-in 後、cap 適用で arXiv quantum 6 件が cs.LG に置換される
-    const scored: ScoredPaper[] = [
-      ...Array.from({ length: 10 }, (_, i) =>
-        mkScored("arxiv:quant-ph", i, 100 - i, { quantum: true }),
-      ),
-      mkScored("aps:prxquantum", 1, 50, { quantum: true }),
-      ...Array.from({ length: 6 }, (_, i) =>
-        mkScored("arxiv:cs.LG", i, 40 - i),
-      ),
-    ];
-    const out = selectFinalists(scored);
-    assert.equal(out.length, 10);
-    // APS 最小保証で prxquantum が必ず残る
     const apsCount = out.filter((s) => s.p.source.startsWith("aps:")).length;
-    assert.equal(apsCount, 1, "APS 最小保証で prxquantum が残ること");
-    const qCount = out.filter((s) =>
-      `${s.p.title} ${s.p.abstract}`.toLowerCase().includes("quantum computing"),
-    ).length;
-    assert.equal(qCount, 4, "quantum 件数が PAPERS_QUANTUM_MAX(=4) まで減ること");
-    // prxquantum は cap swap 対象から除外され、残っている
-    assert.ok(
-      out.some((s) => s.p.source === "aps:prxquantum"),
-      "prxquantum が cap 適用後も残っていること",
+    assert.equal(apsCount, 1, "APS 最小保証で prxquantum が入ること");
+    const qCount = out.filter((s) => isQuantumPaper(s.p)).length;
+    assert.equal(qCount, 1, "prxquantum が quantum を兼ね、追加補充されないこと");
+  });
+
+  it("quantumPool が空なら何もしない (壊れない)", () => {
+    const scored: ScoredPaper[] = Array.from({ length: 10 }, (_, i) =>
+      mkScored("arxiv:cs.LG", i, 100 - i),
     );
+    const out = selectFinalists(scored, []);
+    assert.equal(out.length, 10);
+    const qCount = out.filter((s) => isQuantumPaper(s.p)).length;
+    assert.equal(qCount, 0, "候補が無ければ floor を満たせないまま終了");
+  });
+
+  it("finalists が TOP_N 未満なら quantum は swap でなく push される", () => {
+    const scored: ScoredPaper[] = Array.from({ length: 3 }, (_, i) =>
+      mkScored("arxiv:cs.LG", i, 100 - i),
+    );
+    const quantumPool: ScoredPaper[] = [
+      mkScored("arxiv:quant-ph", 1, 0, { quantum: true }),
+    ];
+    const out = selectFinalists(scored, quantumPool);
+    assert.equal(out.length, 4, "swap せず push されて 4 件になること");
+    const qCount = out.filter((s) => isQuantumPaper(s.p)).length;
+    assert.equal(qCount, 1);
+    // 既存 3 件は不変
+    for (let i = 0; i < 3; i++) {
+      assert.equal(out[i]?.p.source, "arxiv:cs.LG");
+    }
+    assert.equal(out[3]?.p.source, "arxiv:quant-ph");
   });
 });
