@@ -460,6 +460,20 @@ export const NEWS_SCORE_THRESHOLD = 1;
 export const PAPER_SCORE_THRESHOLD = 1;
 
 /**
+ * 世間トレンド (Qiita / Zenn / HN trending) から「今日のニュース」に追加する高トレンド枠の件数。
+ * 興味タグに無関係でも velocity (勢い) 上位の item を NEWS_TOP_N とは別枠で append する
+ * (main.ts: selectTrendingNews)。興味ニュースの枠は奪わない。
+ */
+export const NEWS_TRENDING_TOP_N = 3;
+
+/**
+ * トレンド枠の velocityScore 下限。勢いの弱い日に無理に枠を埋めないためのフロア。
+ * 0 にすると実質 velocity > 0 の全件が候補になる。velocity は概ね 0〜30 のレンジ
+ * (3*√likes / HN cap 15 由来)。
+ */
+export const NEWS_TRENDING_MIN_VELOCITY = 5;
+
+/**
  * 論文スコアに加える多様性ボーナス。異なるキーワードに複数ヒットした論文
  * （複数テーマに合致＝関連度が高い）を、単一語を連投しているだけの論文より
  * 上位に押し上げる。`rankPapers` で `(matched.length - 1) * この値` を加算する

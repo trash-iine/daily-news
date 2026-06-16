@@ -1,5 +1,6 @@
 "use client";
 import type { BaseItem } from "@daily-news/shared";
+import { TRENDING_TAG } from "@daily-news/shared";
 import { BIG_COLOR, itemBigTags } from "./lib/bigTags";
 import { FAM_COLOR, sourceFamily, sourceLabel } from "./lib/sources";
 import {
@@ -36,6 +37,7 @@ export function ArticleCard({
 }) {
   const fam = sourceFamily(item.source);
   const big = itemBigTags(item)[0];
+  const isTrending = item.tags.includes(TRENDING_TAG);
   const bigColor = big ? BIG_COLOR[big] : "var(--border)";
   const isPaper = item.kind === "paper";
   const pdf = pdfUrlOf(item);
@@ -103,6 +105,19 @@ export function ArticleCard({
             >
               {isPaper ? "論文" : "NEWS"}
             </span>
+            {isTrending && (
+              <span
+                style={{
+                  padding: "1px 6px",
+                  borderRadius: 3,
+                  fontWeight: 700,
+                  background: "color-mix(in oklch, oklch(0.65 0.17 35) 16%, transparent)",
+                  color: "oklch(0.52 0.17 35)",
+                }}
+              >
+                話題
+              </span>
+            )}
             <span style={{ color: FAM_COLOR[fam], fontWeight: 500 }}>{sourceLabel(item.source)}</span>
             <span
               style={{
@@ -188,9 +203,12 @@ export function ArticleCard({
             </div>
           )}
           <div style={{ display: "flex", gap: 5, alignItems: "center", flexWrap: "wrap" }}>
-            {item.tags.slice(0, 4).map((t) => (
-              <Tag key={t} t={t} sm />
-            ))}
+            {item.tags
+              .filter((t) => t !== TRENDING_TAG)
+              .slice(0, 4)
+              .map((t) => (
+                <Tag key={t} t={t} sm />
+              ))}
             <span
               style={{
                 marginLeft: "auto",

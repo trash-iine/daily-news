@@ -1,4 +1,5 @@
-import type { BaseItem } from "@daily-news/shared";
+import type { BaseItem, TrendingItem } from "@daily-news/shared";
+import { TRENDING_TAG } from "@daily-news/shared";
 import {
   BIG_TAG_GROUP_ORDER,
   KEYWORD_WEIGHTS,
@@ -7,6 +8,7 @@ import {
   NEWS_MIN_PER_GROUP,
   NEWS_SCORE_THRESHOLD,
   NEWS_TOP_N,
+  NEWS_TRENDING_MIN_VELOCITY,
   PAPER_KEYWORDS,
   PAPER_MULTI_MATCH_BONUS,
   PAPER_PRIORITY_KEYWORDS,
@@ -21,6 +23,7 @@ import {
   popularityScore,
   primaryGroup,
   tagsFromSource,
+  velocityScore,
 } from "./scoreModel.js";
 import {
   isQuantumPaper,
@@ -198,6 +201,77 @@ export function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     ...(s.popularityLabel ? { popularityLabel: s.popularityLabel } : {}),
     source: s.r.source,
     publishedAt: s.r.publishedAt,
+    fetchedAt,
+  }));
+}
+
+/**
+ * トレンド枠 item のバッジ用ラベル。trending ソースは popularityLabel の prefix 判定
+ * (qiita-api: / zenn-api:) に該当しないため専用に組む。HN は生 points を持たないので undefined。
+ */
+function trendingPopularityLabel(
+  source: string,
+  raw: number | undefined,
+): string | undefined {
+  if (!raw || raw <= 0) return undefined;
+  if (source === "qiita-trending") return `Qiita LGTM ${raw}`;
+  if (source === "zenn-trending") return `Zenn ♥ ${raw}`;
+  return undefined;
+}
+
+/**
+ * 興味タグに無関係でも世間トレンド (Qiita / Zenn / HN trending) で勢いのある item を
+ * 「今日のニュース」に追加するセレクタ。`rankNews` の枠とは独立した別レーンで、velocity
+ * (popularity ÷ √経過時間) 上位 `n` 件を選ぶ。
+ *
+ * - `excludeUrls`: 既に news 採用済みの url (curated news との重複を除外。Qiita trending と
+ *   Qiita-api の被りなどをここで吸収する)。
+ * - `seenIds`: 過去 N 日に出た news id (`store.loadRecentNewsIds`)。返す item は kind "news" なので
+ *   翌日以降は自動で seen に入り、同じ話題が連日出続けない (cross-day dedup)。
+ *
+ * トレンドプールは本文を持たないため `summary` は空 (タイトル + サムネのカードになる)。
+ */
+export function selectTrendingNews(
+  trending: TrendingItem[],
+  excludeUrls: Set<string>,
+  seenIds: Set<string>,
+  n: number,
+): BaseItem[] {
+  const fetchedAt = new Date().toISOString();
+  const seenUrl = new Set<string>();
+  const scored = trending
+    .map((t) => ({
+      t,
+      v: velocityScore(t.popularity, t.publishedAt, t.fetchedAt),
+    }))
+    .filter(({ t, v }) => {
+      if (v < NEWS_TRENDING_MIN_VELOCITY) return false;
+      if (!t.url || excludeUrls.has(t.url) || seenUrl.has(t.url)) return false;
+      if (seenIds.has(hashId(t.url))) return false;
+      if (hasNegativeKeyword(t.title, "", NEGATIVE_KEYWORDS)) return false;
+      seenUrl.add(t.url);
+      return true;
+    })
+    .sort((a, b) => b.v - a.v)
+    .slice(0, n);
+
+  return scored.map(({ t, v }) => ({
+    id: hashId(t.url),
+    kind: "news",
+    title: t.title,
+    url: t.url,
+    summary: "",
+    tags: [TRENDING_TAG, ...t.tags],
+    score: v,
+    popularity: t.popularity,
+    keywordScore: 0,
+    languageBonus: 0,
+    matchedKeywords: [],
+    ...(trendingPopularityLabel(t.source, t.popularityRaw)
+      ? { popularityLabel: trendingPopularityLabel(t.source, t.popularityRaw) as string }
+      : {}),
+    source: t.source,
+    publishedAt: t.publishedAt,
     fetchedAt,
   }));
 }

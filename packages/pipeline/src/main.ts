@@ -1,6 +1,6 @@
-import { NEWS_SEEN_LOOKBACK_DAYS } from "./config.js";
+import { NEWS_SEEN_LOOKBACK_DAYS, NEWS_TRENDING_TOP_N } from "./config.js";
 import { collectNews, collectPapers, collectTrending } from "./collect.js";
-import { rankNews, rankPapers } from "./ranking.js";
+import { rankNews, rankPapers, selectTrendingNews } from "./ranking.js";
 import { enrichWithThumbnails } from "./enrichment.js";
 import { loadRecentNewsIds, updateIndex, writeDaily } from "./store.js";
 import { todayString } from "./util.js";
@@ -21,13 +21,24 @@ async function main() {
 
   const news = rankNews(rawNews, seenNewsIds);
   const papers = await rankPapers(rawPapers);
-  console.log(`[main] selected ${news.length} news / ${papers.length} papers`);
+  // 興味タグに無関係でも世間トレンドで勢いのある item を別枠で追加する
+  // (curated news / 過去既出を除外してから velocity 上位を採用)。
+  const selectedUrls = new Set(news.map((n) => n.url));
+  const trendingNews = selectTrendingNews(
+    trending,
+    selectedUrls,
+    seenNewsIds,
+    NEWS_TRENDING_TOP_N,
+  );
+  console.log(
+    `[main] selected ${news.length} news / ${papers.length} papers / ${trendingNews.length} trending extras`,
+  );
 
   if (papers.length === 0) {
     console.log("[main] no fresh papers today — leaving papers section empty");
   }
 
-  const items = [...papers, ...news];
+  const items = [...papers, ...news, ...trendingNews];
   if (items.length === 0) {
     console.warn("[main] no items selected; nothing to write");
     return;

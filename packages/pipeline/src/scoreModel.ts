@@ -94,3 +94,26 @@ export function sourceTier(source: string): 0 | 1 | 2 {
 export function languageBonus(source: string): number {
   return LANGUAGE_BONUS[sourceTier(source)];
 }
+
+/**
+ * トレンド指標 = popularity ÷ √経過時間。
+ * web 側 (apps/web/.../lib/trend.ts:velocityScore) と同一ロジックの pipeline 用コピー
+ * (web は app 配下のため import 不可)。発行 (publishedAt) から fetchedAt までが短いほど
+ * 「短時間で多くの favorite を集めた = 勢いがある」とみなす。4h を基準 (factor 1.0)、
+ * 24h ×0.53 / 48h ×0.39 / 1h ×1.26。publishedAt / fetchedAt が無効なら popularity をそのまま返す。
+ */
+export function velocityScore(
+  popularity: number,
+  publishedAt: string,
+  fetchedAt: string,
+): number {
+  if (popularity <= 0) return 0;
+  const pub = Date.parse(publishedAt);
+  const fetched = Date.parse(fetchedAt);
+  if (!Number.isFinite(pub) || !Number.isFinite(fetched) || fetched <= pub) {
+    return popularity;
+  }
+  const ageHours = Math.max(1, (fetched - pub) / 3_600_000);
+  const factor = Math.sqrt(8 / (ageHours + 4));
+  return Math.round(popularity * factor);
+}

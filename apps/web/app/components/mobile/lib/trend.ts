@@ -1,4 +1,5 @@
 import type { BaseItem, BigTagGroup, DailyBundle, TrendingItem } from "@daily-news/shared";
+import { TRENDING_TAG } from "@daily-news/shared";
 import { bigTagOf, itemBigTags } from "./bigTags";
 
 export type RecapPeriod = 7 | 14 | 30;
@@ -24,13 +25,16 @@ export function dateRange(latestDate: string, period: number): string[] {
 export function tagCountsByDate(
   bundles: Record<string, DailyBundle>,
   dates: string[],
+  filter?: (it: BaseItem) => boolean,
 ): Record<string, number[]> {
   const out: Record<string, number[]> = {};
   for (let i = 0; i < dates.length; i++) {
     const d = dates[i];
     if (!d) continue;
     for (const it of bundles[d]?.items ?? []) {
+      if (filter && !filter(it)) continue;
       for (const t of it.tags) {
+        if (t === TRENDING_TAG) continue;
         let arr = out[t];
         if (!arr) {
           arr = new Array<number>(dates.length).fill(0);
@@ -77,11 +81,15 @@ export interface RisingTag {
 export function risingTags(
   bundles: Record<string, DailyBundle>,
   dates: string[],
-  opts: { minRecent?: number; topN?: number } = {},
+  opts: {
+    minRecent?: number;
+    topN?: number;
+    filter?: (it: BaseItem) => boolean;
+  } = {},
 ): RisingTag[] {
-  const { minRecent = 2, topN = 6 } = opts;
+  const { minRecent = 2, topN = 6, filter } = opts;
   if (dates.length < 2) return [];
-  const counts = tagCountsByDate(bundles, dates);
+  const counts = tagCountsByDate(bundles, dates, filter);
   const splitAt = Math.floor(dates.length / 2);
   const result: RisingTag[] = [];
   for (const [tag, series] of Object.entries(counts)) {
@@ -115,7 +123,10 @@ export function tagFrequency(
     const m = new Map<string, number>();
     for (const d of ds) {
       for (const it of bundles[d]?.items ?? []) {
-        for (const t of it.tags) m.set(t, (m.get(t) ?? 0) + 1);
+        for (const t of it.tags) {
+          if (t === TRENDING_TAG) continue;
+          m.set(t, (m.get(t) ?? 0) + 1);
+        }
       }
     }
     return m;

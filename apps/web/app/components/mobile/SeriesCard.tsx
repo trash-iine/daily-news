@@ -77,16 +77,22 @@ function detectSeries(
   const dates = dateRange(latestDate, 7);
   if (dates.length < 3) return [];
 
-  // 今日のタグ集合 (jump 先の存在保証 + 「今もホット」のフィルタ)
+  // 今日のタグ集合 (jump 先の存在保証 + 「今もホット」のフィルタ)。
+  // 「続いている話題」はニュース記事ベースで判定するため論文は数えない。
   const todayTags = new Set<string>();
   for (const it of todayItems) {
+    if (it.kind === "paper") continue;
     for (const t of it.tags) todayTags.add(t);
   }
 
   // risingTags は「直近 N/2 日 vs それ以前」で比較するので、minRecent=2 だと
   // 今日 + 昨日に 1 件ずつ出ただけでも拾ってしまう。連続性を担保するため
   // 3 日以上で minRecent=2 を満たし、かつ今日に存在するものに絞る。
-  const rising = risingTags(bundles, dates, { minRecent: 2, topN: 16 });
+  const rising = risingTags(bundles, dates, {
+    minRecent: 2,
+    topN: 16,
+    filter: (it) => it.kind !== "paper",
+  });
   const candidates = rising.filter((r): r is RisingTag => {
     if (!todayTags.has(r.tag)) return false;
     // big タグ ID そのもの (ai / hobby など) は粒度が粗いので除外
@@ -117,10 +123,11 @@ function detectSeries(
   return out;
 }
 
-/** タグを含む item のうち score 最大のものを返す。 */
+/** タグを含むニュース記事のうち score 最大のものを返す (論文は代表にしない)。 */
 function pickRepresentative(items: BaseItem[], tag: string): BaseItem | null {
   let best: BaseItem | null = null;
   for (const it of items) {
+    if (it.kind === "paper") continue;
     if (!it.tags.includes(tag)) continue;
     if (!best || it.score > best.score) best = it;
   }
