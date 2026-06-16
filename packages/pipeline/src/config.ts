@@ -79,18 +79,55 @@ export const KEYWORD_WEIGHTS: Record<string, number> = {
 export const PAPER_KEYWORDS: Record<string, number> = {
   // GAS 版から取り込み
   "combinatorial": 4,
-  "optimize": 2,
+  "optimize": 1, // 汎用語。ノイズ源なので低め
   "np-hard": 5,
   // 既存の関連キーワード
   "combinatorial optimization": 5,
   "np hard": 5,
-  "optimization": 3,
-  "heuristic": 3,
-  "metaheuristic": 4,
+  "optimization": 2, // 汎用語（ML 論文が多用）。低め
+  "heuristic": 4, // 注力テーマ
+  "metaheuristic": 5, // 注力テーマ
   "integer programming": 3,
   "approximation algorithm": 3,
   "scheduling": 2,
-  "graph algorithm": 2,
+  "graph algorithm": 3,
+  // === 拾う範囲を広げる拡充キーワード ===
+  // 具体語（手法名・問題名）はノイズが少ないので weight 高め。
+  // メタヒューリスティクス具体手法
+  "simulated annealing": 5,
+  "tabu search": 5,
+  "ant colony": 5,
+  "genetic algorithm": 4,
+  "particle swarm": 4,
+  "evolutionary algorithm": 4,
+  "local search": 3,
+  // 古典的組合せ最適化問題
+  "traveling salesman": 5,
+  "vehicle routing": 5,
+  "knapsack": 5,
+  "graph coloring": 5,
+  "max-cut": 5,
+  "maxcut": 5,
+  "bin packing": 5,
+  "set cover": 4,
+  "tsp": 4,
+  "satisfiability": 4,
+  "sat solver": 5, // "sat" 単体は誤一致が多いので採らない
+  // 数理最適化・ソルバー系
+  "constraint programming": 5,
+  "branch and bound": 5,
+  "column generation": 5,
+  "mixed integer programming": 5,
+  "mixed-integer": 4,
+  "linear programming": 4,
+  "cutting plane": 4,
+  // 計算量・厳密アルゴリズム理論
+  "parameterized complexity": 5,
+  "np-complete": 5,
+  "fixed-parameter": 4,
+  "exact algorithm": 4,
+  "dynamic programming": 3,
+  "polynomial-time": 2,
   // 量子コンピューティングは重みづけしない（採択は最低1本保証のみ）。
   // 判定キーワードは PAPER_QUANTUM_KEYWORDS で別管理。
 };
@@ -102,6 +139,8 @@ export const PAPER_KEYWORDS: Record<string, number> = {
 export const PAPER_PRIORITY_KEYWORDS = [
   "np-hard",
   "np hard",
+  "metaheuristic",
+  "heuristic",
 ];
 
 /**
@@ -404,11 +443,10 @@ export const NEWS_SEEN_LOOKBACK_DAYS = 7;
 
 /**
  * 1 日の論文採用件数 (arXiv + APS 合算)。
- * 上位スコア順で `PAPERS_TOP_N` 件を選び、APS 由来が `PAPER_APS_MIN` 件未満
- * なら最低スコア非 APS を追い出して APS を 1 件以上確保する (main.ts:rankPapers)。
+ * 上位スコア順で `PAPERS_TOP_N` 件を選ぶ (main.ts:rankPapers)。
+ * APS 最低保証は撤廃し、APS もスコア競争で採否を決める。
  */
-export const PAPERS_TOP_N = 10;
-export const PAPER_APS_MIN = 1;
+export const PAPERS_TOP_N = 5;
 
 /**
  * 1 日に最低限採用する quantum 系論文の件数。quantum は重みづけしない方針のため
@@ -420,6 +458,14 @@ export const PAPERS_QUANTUM_MIN = 1;
 
 export const NEWS_SCORE_THRESHOLD = 1;
 export const PAPER_SCORE_THRESHOLD = 1;
+
+/**
+ * 論文スコアに加える多様性ボーナス。異なるキーワードに複数ヒットした論文
+ * （複数テーマに合致＝関連度が高い）を、単一語を連投しているだけの論文より
+ * 上位に押し上げる。`rankPapers` で `(matched.length - 1) * この値` を加算する
+ * (ranking.ts)。news スコアには効かせない。
+ */
+export const PAPER_MULTI_MATCH_BONUS = 2;
 
 export const OPENAI_MODEL = "gpt-4o-mini";
 

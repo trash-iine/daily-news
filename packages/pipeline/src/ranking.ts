@@ -8,6 +8,7 @@ import {
   NEWS_SCORE_THRESHOLD,
   NEWS_TOP_N,
   PAPER_KEYWORDS,
+  PAPER_MULTI_MATCH_BONUS,
   PAPER_PRIORITY_KEYWORDS,
   PAPER_SCORE_THRESHOLD,
 } from "./config.js";
@@ -221,7 +222,16 @@ export async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
   // 元の GAS 実装は abstract のみだったが、タイトルにキーワードが入る論文は
   // 強い信号なので採用する。
   const scoredAll: ScoredPaper[] = unique.map((p) => {
-    const { score, matched } = scoreFields(p.title, p.abstract, PAPER_KEYWORDS);
+    const { score: baseScore, matched } = scoreFields(
+      p.title,
+      p.abstract,
+      PAPER_KEYWORDS,
+    );
+    // 複数の異なるキーワードに合致した論文（複数テーマに関連＝関連度が高い）を
+    // 単一語連投の論文より上へ押し上げる多様性ボーナス。
+    const diversityBonus =
+      Math.max(0, matched.length - 1) * PAPER_MULTI_MATCH_BONUS;
+    const score = baseScore + diversityBonus;
     const haystack = `${p.title} ${p.abstract}`.toLowerCase();
     const priority = PAPER_PRIORITY_KEYWORDS.some((k) =>
       haystack.includes(k.toLowerCase()),
