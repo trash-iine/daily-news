@@ -433,7 +433,7 @@ export const HN_QUERIES: string[] = [
  * 採用ロジックは `BIG_TAG_GROUPS` の各 group から最低 `NEWS_MIN_PER_GROUP` 件を確保し、
  * 残り枠を全体の人気スコア降順で埋める。
  */
-export const NEWS_TOP_N = 25;
+export const NEWS_TOP_N = 17;
 export const NEWS_MIN_PER_GROUP = 1;
 
 /**
