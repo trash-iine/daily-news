@@ -3,6 +3,7 @@ import {
   APS_FEEDS,
   APS_PAPER_MAX_AGE_DAYS,
   ARXIV_CATEGORIES,
+  ARXIV_MAX_AGE_DAYS,
   HN_QUERIES,
   NEWS_MAX_AGE_HOURS,
   QIITA_API_TAGS,
@@ -133,7 +134,10 @@ export async function collectPapers(): Promise<ArxivPaper[]> {
   const out: ArxivPaper[] = [];
   for (let i = 0; i < ARXIV_CATEGORIES.length; i++) {
     const c = ARXIV_CATEGORIES[i] as string;
-    const items = await safe(`arxiv:${c}`, fetchArxivCategory(c));
+    const items = await safe(
+      `arxiv:${c}`,
+      fetchArxivCategory(c, ARXIV_MAX_AGE_DAYS),
+    );
     out.push(...items);
     if (i < ARXIV_CATEGORIES.length - 1) {
       await new Promise((r) => setTimeout(r, ARXIV_REQUEST_INTERVAL_MS));

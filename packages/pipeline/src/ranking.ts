@@ -276,7 +276,10 @@ export function selectTrendingNews(
   }));
 }
 
-export async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
+export async function rankPapers(
+  raw: ArxivPaper[],
+  seenPaperIds: Set<string> = new Set(),
+): Promise<BaseItem[]> {
   const fetchedAt = new Date().toISOString();
 
   // 新規投稿のみを採用（cross-listing / replace は除外）— GAS 版で API 検証していた挙動を
@@ -286,11 +289,16 @@ export async function rankPapers(raw: ArxivPaper[]): Promise<BaseItem[]> {
   // タイトル単位の重複除外（GAS 版 seen Set と同じ）— arXiv preprint と
   // 同タイトルの APS 出版が両方流れてきた場合、先頭 (= arXiv) を残す。
   const seen = new Set<string>();
-  const unique = newOnly.filter((p) => {
+  const deduped = newOnly.filter((p) => {
     if (seen.has(p.title)) return false;
     seen.add(p.title);
     return true;
   });
+
+  // 過去 N 日の bundle に出た論文を除外（cross-day dedup）。id は hashId(absUrl)。
+  // quantumPool / finalists を組む前に落とすことで、enforceQuantumMin による
+  // 「昨日出た量子論文の拾い直し」も塞ぐ。
+  const unique = deduped.filter((p) => !seenPaperIds.has(hashId(p.absUrl)));
 
   // タイトル + abstract で照合 (タイトル一致は scoreFields 内で加重される)。
   // 元の GAS 実装は abstract のみだったが、タイトルにキーワードが入る論文は

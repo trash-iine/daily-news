@@ -2,25 +2,32 @@ import { NEWS_SEEN_LOOKBACK_DAYS, NEWS_TRENDING_TOP_N } from "./config.js";
 import { collectNews, collectPapers, collectTrending } from "./collect.js";
 import { rankNews, rankPapers, selectTrendingNews } from "./ranking.js";
 import { enrichWithThumbnails } from "./enrichment.js";
-import { loadRecentNewsIds, updateIndex, writeDaily } from "./store.js";
+import {
+  loadRecentNewsIds,
+  loadRecentPaperIds,
+  updateIndex,
+  writeDaily,
+} from "./store.js";
 import { todayString } from "./util.js";
 
 async function main() {
   const date = todayString();
   console.log(`[main] running for ${date}`);
 
-  const [rawNews, rawPapers, seenNewsIds, trending] = await Promise.all([
-    collectNews(),
-    collectPapers(),
-    loadRecentNewsIds(date, NEWS_SEEN_LOOKBACK_DAYS),
-    collectTrending(),
-  ]);
+  const [rawNews, rawPapers, seenNewsIds, seenPaperIds, trending] =
+    await Promise.all([
+      collectNews(),
+      collectPapers(),
+      loadRecentNewsIds(date, NEWS_SEEN_LOOKBACK_DAYS),
+      loadRecentPaperIds(date, NEWS_SEEN_LOOKBACK_DAYS),
+      collectTrending(),
+    ]);
   console.log(
     `[main] collected ${rawNews.length} news / ${rawPapers.length} papers / ${trending.length} trending; ${seenNewsIds.size} previously-seen news ids`,
   );
 
   const news = rankNews(rawNews, seenNewsIds);
-  const papers = await rankPapers(rawPapers);
+  const papers = await rankPapers(rawPapers, seenPaperIds);
   // 興味タグに無関係でも世間トレンドで勢いのある item を別枠で追加する
   // (curated news / 過去既出を除外してから velocity 上位を採用)。
   const selectedUrls = new Set(news.map((n) => n.url));

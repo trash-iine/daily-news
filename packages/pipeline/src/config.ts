@@ -327,6 +327,14 @@ export const ARXIV_CATEGORIES = [
 ];
 
 /**
+ * arXiv Atom API は新着順で返すが、カテゴリによっては 1 回の取得で数日前まで
+ * 遡ることがある。publishedAt がこの日数より古い論文を除外して鮮度を担保する。
+ * 週末は arXiv のアナウンスが無いため、月曜の取得で金曜投稿 (最大 ~3 日前) を
+ * 拾えるよう少し余裕を持たせる。
+ */
+export const ARXIV_MAX_AGE_DAYS = 4;
+
+/**
  * 巡回する APS (Physical Review) RSS フィード。
  *
  * 規約確認 (CLAUDE.md ルール):
@@ -352,7 +360,7 @@ export const APS_FEEDS: { id: string; url: string; quantumOnly: boolean }[] = [
  * APS フィードは arXiv の announce_type=new 相当のフィルタが無いため、
  * 直近 N 日以内に published された item のみ採用する。
  */
-export const APS_PAPER_MAX_AGE_DAYS = 14;
+export const APS_PAPER_MAX_AGE_DAYS = 7;
 
 /**
  * タイトル or 本文にいずれかが含まれる item は除外する。

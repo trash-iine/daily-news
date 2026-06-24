@@ -42,14 +42,15 @@ export async function writeDaily(
 }
 
 /**
- * 直近 daysBack 日の bundle から news の id を集めて返す。
- * lookback を 24h から伸ばしたとき、過去日に既に上位入りした記事が翌日以降の bundle に
- * 再掲されるのを防ぐため、main の rankNews 前にこの Set でフィルタする。
+ * 直近 daysBack 日の bundle から指定 kind の item id を集めて返す。
+ * lookback を 24h から伸ばしたとき、過去日に既に上位入りした item が翌日以降の bundle に
+ * 再掲されるのを防ぐため、main の rank 前にこの Set でフィルタする。
  * id は `hashId(url)` (SHA1[:16]) なので、生 URL からも `hashId` で照合できる。
  */
-export async function loadRecentNewsIds(
+async function loadRecentIds(
   beforeDate: string,
   daysBack: number,
+  kind: BaseItem["kind"],
 ): Promise<Set<string>> {
   const seen = new Set<string>();
   const indexPath = join(DATA_DIR, "index.json");
@@ -71,13 +72,29 @@ export async function loadRecentNewsIds(
         await readFile(join(DATA_DIR, `${d}.json`), "utf-8"),
       ) as DailyBundle;
       for (const item of bundle.items) {
-        if (item.kind === "news") seen.add(item.id);
+        if (item.kind === kind) seen.add(item.id);
       }
     } catch {
       // skip missing/broken file
     }
   }
   return seen;
+}
+
+/** 直近 daysBack 日の bundle に出た news の id 集合 (rankNews の cross-day dedup 用)。 */
+export function loadRecentNewsIds(
+  beforeDate: string,
+  daysBack: number,
+): Promise<Set<string>> {
+  return loadRecentIds(beforeDate, daysBack, "news");
+}
+
+/** 直近 daysBack 日の bundle に出た paper の id 集合 (rankPapers の cross-day dedup 用)。 */
+export function loadRecentPaperIds(
+  beforeDate: string,
+  daysBack: number,
+): Promise<Set<string>> {
+  return loadRecentIds(beforeDate, daysBack, "paper");
 }
 
 export async function updateIndex(date: string): Promise<void> {
