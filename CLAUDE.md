@@ -33,7 +33,7 @@
 | Hacker News クエリ追加 | 同 `HN_QUERIES` |
 | arXiv カテゴリ追加 | 同 `ARXIV_CATEGORIES` |
 | キーワード重み調整 | 同 `KEYWORD_WEIGHTS`（ニュース）/ `PAPER_KEYWORDS` / `PAPER_PRIORITY_KEYWORDS`（論文） |
-| 採用件数調整 | 同 `NEWS_POPULAR_TOP_N` / `NEWS_OTHER_TOP_N` / `PAPERS_TOP_N` |
+| 採用件数調整 | 同 `NEWS_TOP_N` / `NEWS_MIN_PER_GROUP` / `NEWS_TRENDING_TOP_N` / `PAPERS_TOP_N` |
 | タグ正規化 | 同 `TAG_ALIASES` |
 | big tag グループ追加・並び替え | `packages/shared/src/big-tag-groups.ts` |
 | Web UI 変更 | `apps/web/app/`(ページ) / `apps/web/app/components/`(コンポーネント) |
