@@ -27,13 +27,17 @@ const NAMED_ENTITIES: Record<string, string> = {
   nbsp: " ",
 };
 
+/** 0x10FFFF 超などの不正な数値文字参照は fromCodePoint が throw するため、元の文字列を返す。 */
+function codePointOr(match: string, code: number): string {
+  if (!Number.isInteger(code) || code < 0 || code > 0x10ffff) return match;
+  return String.fromCodePoint(code);
+}
+
 export function decodeHtmlEntities(input: string): string {
   if (!input) return "";
   return input
-    .replace(/&#x([0-9a-fA-F]+);/g, (_m, h) =>
-      String.fromCodePoint(parseInt(h as string, 16)),
-    )
-    .replace(/&#(\d+);/g, (_m, d) => String.fromCodePoint(parseInt(d as string, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (m, h) => codePointOr(m, parseInt(h as string, 16)))
+    .replace(/&#(\d+);/g, (m, d) => codePointOr(m, parseInt(d as string, 10)))
     .replace(/&([a-zA-Z]+);/g, (m, n) => NAMED_ENTITIES[n as string] ?? m);
 }
 

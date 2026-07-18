@@ -5,7 +5,8 @@ import type {
   BigTagGroup,
   DailyBundle,
 } from "@daily-news/shared";
-import { BIG_COLOR, bigTagOf } from "./lib/bigTags";
+import { BIG_TAG_GROUP_ORDER } from "@daily-news/shared";
+import { BIG_COLOR } from "./lib/bigTags";
 import { sourceLabel } from "./lib/sources";
 import { fmtDateBadge } from "./lib/format";
 import { dateRange, risingTags, type RisingTag } from "./lib/trend";
@@ -95,8 +96,8 @@ function detectSeries(
   });
   const candidates = rising.filter((r): r is RisingTag => {
     if (!todayTags.has(r.tag)) return false;
-    // big タグ ID そのもの (ai / hobby など) は粒度が粗いので除外
-    if (bigTagOf(r.tag) && (r.tag === "ai" || r.tag === "hobby")) return false;
+    // 大タググループ名と同名の canonical タグ (algorithm / game) は粒度が粗いので除外
+    if ((BIG_TAG_GROUP_ORDER as readonly string[]).includes(r.tag)) return false;
     // 直近 3 日 (= series 末尾 3 要素) のうち 2 日以上に出現することを要求
     const last3 = r.series.slice(-3);
     const daysActive = last3.filter((c) => c > 0).length;
@@ -203,7 +204,7 @@ function SeriesRow({
             lineHeight: 1.4,
           }}
         >
-          直近 {countActiveDays(s.days)} 日で {s.days.length} 件続けて登場
+          直近 {s.days.length} 日で {countActiveDays(s.days)} 件続けて登場
         </span>
       </div>
 

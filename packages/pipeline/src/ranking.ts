@@ -36,6 +36,16 @@ import type { RawItem } from "./sources/types.js";
 import { summarizePaper } from "./summarize.js";
 import { cleanText, hashId } from "./util.js";
 
+/** hostname が github.com (サブドメイン含む) の URL のみ true。パス/クエリ中の文字列には反応しない。 */
+function isGithubUrl(url: string): boolean {
+  try {
+    const host = new URL(url).hostname;
+    return host === "github.com" || host.endsWith(".github.com");
+  } catch {
+    return false;
+  }
+}
+
 export function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
   const fetchedAt = new Date().toISOString();
   const cleaned = raw.map((r) => ({
@@ -146,7 +156,7 @@ export function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     .slice()
     .sort((a, b) => b.score - a.score)
     .filter((s) => {
-      if (!/github\.com/.test(s.r.url)) return true;
+      if (!isGithubUrl(s.r.url)) return true;
       const key = s.tags[0] ?? "";
       const n = ghPerTag.get(key) ?? 0;
       if (n >= 1) return false;
@@ -182,7 +192,7 @@ export function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     if (ordered.length >= NEWS_TOP_N) break;
   }
 
-  // 4b) 残り枠を全体 popularity 降順で埋める
+  // 4b) 残り枠を全体 score 降順で埋める
   if (ordered.length < NEWS_TOP_N) {
     const remaining = ghFiltered.filter((s) => !picked.has(s.r.url));
     // ghFiltered は既に score 降順だが、念のため再ソート

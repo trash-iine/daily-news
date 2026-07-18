@@ -26,54 +26,71 @@ export const FAM_GLYPH: Record<string, string> = {
   other: "·",
 };
 
+/**
+ * source 文字列の固定ラベル。RSS フィードの表示名と、prefix 生成 (下記 sourceLabel)
+ * で賄えない特殊 ID をここに置く。旧 bundle にのみ現れる legacy ID
+ * (rss:zenn-all / rss:qiita-popular / reddit:* / github-trending:* 等) も
+ * 過去日表示のために残している。
+ */
 const SOURCE_LABELS: Record<string, string> = {
   hn: "Hacker News",
-  "hn:claude": "HN · Claude",
-  "hn:anthropic": "HN · Anthropic",
-  "hn:rust": "HN · Rust",
-  "hn:python": "HN · Python",
-  "hn:qmk": "HN · QMK",
-  "hn:algorithm": "HN · Algorithm",
-  "rss:zenn-all": "Zenn",
-  "zenn-api:claude": "Zenn · Claude",
-  "zenn-api:rust": "Zenn · Rust",
-  "zenn-api:python": "Zenn · Python",
-  "rss:qiita-popular": "Qiita",
-  "qiita-api:claude": "Qiita · Claude",
-  "qiita-api:rust": "Qiita · Rust",
-  "qiita-api:python": "Qiita · Python",
+  "hn-trending": "HN · Trending",
+  "qiita-trending": "Qiita · Trending",
+  "zenn-trending": "Zenn · Trending",
   "rss:greenkeys": "Greenkeys",
   "rss:talpkeyboard": "TALPKEYBOARD",
   "rss:rust-blog": "Rust Blog",
   "rss:inside-rust": "Inside Rust",
   "rss:this-week-in-rust": "This Week in Rust",
-  "rss:twir": "This Week in Rust",
   "rss:thinky-games": "Thinky Games",
-  "rss:pep": "PEP RSS",
+  "rss:peps": "PEP RSS",
+  "rss:quanta-magazine": "Quanta Magazine",
+  "rss:nazology": "Nazology",
+  "rss:google-research": "Google Research",
+  "rss:shtetl-optimized": "Shtetl-Optimized",
+  "rss:typica": "TYPICA",
+  "rss:cafict": "CAFICT",
+  "aps:prl": "APS · PRL",
+  "aps:pra": "APS · PRA",
+  "aps:prx": "APS · PRX",
+  "aps:prxquantum": "APS · PRX Quantum",
+  "aps:prresearch": "APS · PRResearch",
+  // legacy (旧 bundle 専用)
+  "rss:zenn-all": "Zenn",
+  "rss:qiita-popular": "Qiita",
   "github-trending:rust": "GitHub · Rust",
   "reddit:Python": "Reddit · Python",
   "reddit:ClaudeAI": "Reddit · ClaudeAI",
-  "arxiv:cs.DS": "arXiv · cs.DS",
-  "arxiv:cs.CC": "arXiv · cs.CC",
-  "arxiv:cs.AI": "arXiv · cs.AI",
-  "arxiv:cs.LG": "arXiv · cs.LG",
-  "arxiv:math.OC": "arXiv · math.OC",
-  "arxiv:math.CO": "arXiv · math.CO",
-  "arxiv:quant-ph": "arXiv · quant-ph",
 };
 
-export const sourceLabel = (s: string): string => SOURCE_LABELS[s] ?? s;
+/**
+ * 表示ラベル。固定マップ優先、無ければ prefix からの自動生成
+ * (qiita-api:rust → "Qiita · rust" 等)。config.ts のタグ/クエリ追加のたびに
+ * ここへ列挙しなくて済むようにする。
+ */
+export const sourceLabel = (s: string): string => {
+  const fixed = SOURCE_LABELS[s];
+  if (fixed) return fixed;
+  const prefixed = /^(qiita-api|zenn-api|hn|arxiv):(.+)$/.exec(s);
+  if (prefixed) {
+    const head = { "qiita-api": "Qiita", "zenn-api": "Zenn", hn: "HN", arxiv: "arXiv" }[
+      prefixed[1] as "qiita-api" | "zenn-api" | "hn" | "arxiv"
+    ];
+    return `${head} · ${prefixed[2]}`;
+  }
+  return s;
+};
 
 export const sourceFamily = (s: string): string => {
-  if (s === "hn" || s.startsWith("hn:")) return "hn";
-  if (s.startsWith("arxiv:")) return "arxiv";
-  if (s.startsWith("rss:zenn") || s.startsWith("zenn-api:")) return "zenn";
-  if (s.startsWith("rss:qiita") || s.startsWith("qiita-api:")) return "qiita";
+  if (s === "hn" || s === "hn-trending" || s.startsWith("hn:")) return "hn";
+  if (s.startsWith("arxiv:") || s.startsWith("aps:")) return "arxiv";
+  if (s === "zenn-trending" || s.startsWith("rss:zenn") || s.startsWith("zenn-api:")) return "zenn";
+  if (s === "qiita-trending" || s.startsWith("rss:qiita") || s.startsWith("qiita-api:")) return "qiita";
   if (s.startsWith("reddit:")) return "reddit";
   if (s.startsWith("github-trending")) return "github";
   if (s.startsWith("rss:greenkeys") || s.startsWith("rss:talpkeyboard")) return "kbd";
-  if (s === "rss:rust-blog" || s === "rss:inside-rust" || s === "rss:this-week-in-rust" || s === "rss:twir") return "rust";
-  if (s === "rss:pep") return "python";
+  if (s === "rss:rust-blog" || s === "rss:inside-rust" || s === "rss:this-week-in-rust") return "rust";
+  if (s === "rss:peps") return "python";
   if (s === "rss:thinky-games") return "game";
   return "other";
 };
