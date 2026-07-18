@@ -1,7 +1,7 @@
 import { strict as assert } from "node:assert";
 import { describe, it } from "node:test";
 import { BIG_TAG_GROUPS } from "@daily-news/shared";
-import { KEYWORD_WEIGHTS, TAG_ALIASES } from "./config.js";
+import { KEYWORD_WEIGHTS, RSS_FEEDS, TAG_ALIASES } from "./config.js";
 
 function canonicalOf(matched: string): string {
   const k = matched.toLowerCase();
@@ -50,5 +50,15 @@ describe("tag config: KEYWORD_WEIGHTS → canonical → BIG_TAG_GROUPS", () => {
   it("旧 canonical `quantum` は後方互換のため hobby/algorithm マッピングを保持する", () => {
     // 蓄積済み data/*.json には旧 alias 結果の "quantum" が残る
     assert.equal(BIG_TAG_GROUPS["quantum"], "algorithm");
+  });
+
+  it("RSS_FEEDS の defaultTags はすべて BIG_TAG_GROUPS に登録されている (news で除外されない)", () => {
+    const missing: string[] = [];
+    for (const f of RSS_FEEDS) {
+      for (const t of f.defaultTags ?? []) {
+        if (!(t in BIG_TAG_GROUPS)) missing.push(`${f.id} -> ${t}`);
+      }
+    }
+    assert.deepEqual(missing, []);
   });
 });

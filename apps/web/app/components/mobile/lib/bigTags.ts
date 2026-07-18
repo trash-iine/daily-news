@@ -13,6 +13,7 @@ export const BIG_TAGS: BigTagDef[] = [
   { id: "ai",        label: "AI",           color: "oklch(0.6 0.16 295)",  emoji: "✦",   desc: "LLM・Claude・MCP・エージェント" },
   { id: "algorithm", label: "アルゴリズム", color: "oklch(0.6 0.14 75)",   emoji: "∑",   desc: "最適化・量子計算・理論" },
   { id: "hobby",     label: "趣味",         color: "oklch(0.6 0.14 320)",  emoji: "♥",   desc: "キーボード・数学・コーヒー" },
+  { id: "game",      label: "ゲーム",       color: "oklch(0.6 0.15 160)",  emoji: "▦",   desc: "パズル・シンキーゲーム" },
 ];
 
 export const BIG_COLOR: Record<BigTagGroup, string> = Object.fromEntries(

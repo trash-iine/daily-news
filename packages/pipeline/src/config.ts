@@ -270,6 +270,12 @@ export interface RssFeedConfig {
    *     Shtetl-Optimized は true。Quanta Magazine は false。
    */
   important?: boolean;
+  /**
+   * ソース単位で無条件付与する canonical タグ。キーワード非一致でも
+   * BIG_TAG_GROUPS の関門 (ranking.ts: primaryGroup) を通すために使う。
+   * 値は BIG_TAG_GROUPS 登録済みの canonical であること (tags.test.ts で検証)。
+   */
+  defaultTags?: string[];
 }
 
 export const RSS_FEEDS: RssFeedConfig[] = [
@@ -297,6 +303,12 @@ export const RSS_FEEDS: RssFeedConfig[] = [
   // 規約確認済み: robots.txt は /wp-admin/ のみ Disallow、privacy-policy に転載/商用制限なし。
   // 投稿頻度は低め (2025-07 が最新) なので、新規投稿があった日にだけ浮かぶ想定で baseScore: 12。
   { id: "cafict", url: "https://cafict.com/feed/", baseScore: 12, lang: "ja" },
+  // thinkygames.com (パズル/シンキーゲーム専門メディア、低頻度 ~2-3/週)
+  // 規約確認済み: robots.txt は /admin/ のみ Disallow。ToS ページなし、Privacy/Editorial
+  // Policy に転載制限なし。RSS はフッターで公式掲載され要約+リンク形式の syndication 用途。
+  // タイトルにジャンル語が入らない記事が多いため defaultTags で puzzle-game を強制付与し、
+  // game グループの最低 1 枠保証 (NEWS_MIN_PER_GROUP) で新着日に必ず表示する。
+  { id: "thinky-games", url: "https://thinkygames.com/feed/", baseScore: 12, lang: "en", important: true, defaultTags: ["puzzle-game"] },
 ];
 
 /**

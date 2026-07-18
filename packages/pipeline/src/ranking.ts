@@ -17,6 +17,7 @@ import {
 import { hasNegativeKeyword, scoreFields } from "./score.js";
 import {
   canonicalTags,
+  defaultTagsFromSource,
   isPopularityOnly,
   languageBonus,
   popularityLabel,
@@ -94,6 +95,13 @@ export function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
     );
     const merit = popularity + kwScore;
     const canonMatched = canonicalTags(matched);
+    // フィード設定の defaultTags は matched の後ろに append する。先頭を matched に
+    // 保つことで github per-tag 制限 (s.tags[0]) 等の既存挙動を変えず、キーワード
+    // 非一致の記事だけを big-tag 関門から救う。
+    const tags = [...canonMatched];
+    for (const t of defaultTagsFromSource(r.source)) {
+      if (!tags.includes(t)) tags.push(t);
+    }
     return {
       r,
       merit,
@@ -103,7 +111,7 @@ export function rankNews(raw: RawItem[], seenIds: Set<string>): BaseItem[] {
       languageBonus: bonus,
       matchedKeywords: canonMatched,
       popularityLabel: popLabel,
-      tags: canonMatched,
+      tags,
     };
   });
 

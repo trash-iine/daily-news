@@ -30,6 +30,16 @@ export function tagsFromSource(source: string): string[] {
 }
 
 /**
+ * rss:<id> ソースの feed 設定 defaultTags を返す。キーワード非一致の記事にも
+ * ソース単位で canonical タグを付与し、big-tag 関門 (primaryGroup) を通すための機構。
+ */
+export function defaultTagsFromSource(source: string): string[] {
+  if (!source.startsWith("rss:")) return [];
+  const id = source.slice(4);
+  return RSS_FEEDS.find((f) => f.id === id)?.defaultTags ?? [];
+}
+
+/**
  * 各ソースの人気指標 (Qiita LGTM / Zenn いいね / HN points / RSS baseScore) を
  * 共通レンジに正規化する。
  * - Qiita / Zenn は生 likes_count を sqrt スケール (3 * sqrt) で 0〜30 程度に圧縮

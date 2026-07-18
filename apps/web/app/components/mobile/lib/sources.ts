@@ -8,6 +8,7 @@ export const FAM_COLOR: Record<string, string> = {
   reddit: "oklch(0.65 0.21 20)",
   github: "oklch(0.5 0.04 270)",
   kbd: "oklch(0.58 0.16 300)",
+  game: "oklch(0.6 0.15 160)",
   other: "oklch(0.55 0.02 60)",
 };
 
@@ -21,6 +22,7 @@ export const FAM_GLYPH: Record<string, string> = {
   reddit: "r/",
   github: "gh",
   kbd: "⌨",
+  game: "▦",
   other: "·",
 };
 
@@ -46,6 +48,7 @@ const SOURCE_LABELS: Record<string, string> = {
   "rss:inside-rust": "Inside Rust",
   "rss:this-week-in-rust": "This Week in Rust",
   "rss:twir": "This Week in Rust",
+  "rss:thinky-games": "Thinky Games",
   "rss:pep": "PEP RSS",
   "github-trending:rust": "GitHub · Rust",
   "reddit:Python": "Reddit · Python",
@@ -71,5 +74,6 @@ export const sourceFamily = (s: string): string => {
   if (s.startsWith("rss:greenkeys") || s.startsWith("rss:talpkeyboard")) return "kbd";
   if (s === "rss:rust-blog" || s === "rss:inside-rust" || s === "rss:this-week-in-rust" || s === "rss:twir") return "rust";
   if (s === "rss:pep") return "python";
+  if (s === "rss:thinky-games") return "game";
   return "other";
 };

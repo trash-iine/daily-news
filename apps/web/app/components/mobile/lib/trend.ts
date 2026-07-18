@@ -56,6 +56,7 @@ export function bigTagCountsByDate(
     ai: new Array<number>(dates.length).fill(0),
     algorithm: new Array<number>(dates.length).fill(0),
     hobby: new Array<number>(dates.length).fill(0),
+    game: new Array<number>(dates.length).fill(0),
   };
   for (let i = 0; i < dates.length; i++) {
     const d = dates[i];

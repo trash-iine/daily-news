@@ -1,4 +1,4 @@
-export type BigTagGroup = "language" | "ai" | "algorithm" | "hobby";
+export type BigTagGroup = "language" | "ai" | "algorithm" | "hobby" | "game";
 
 /**
  * 興味タグに無関係でも世間トレンドの勢いで「今日のニュース」に追加された item を
@@ -50,10 +50,12 @@ export const BIG_TAG_GROUPS: Record<string, BigTagGroup> = {
   topology: "hobby",
   geometry: "hobby",
   coffee: "hobby",
+  // === game ===
+  "puzzle-game": "game",
 };
 
 /**
  * 各大タグからの最低採用枠を埋める順序。
  * 並び替えや空 group のスキップに使う。
  */
-export const BIG_TAG_GROUP_ORDER = ["language", "ai", "algorithm", "hobby"] as const;
+export const BIG_TAG_GROUP_ORDER = ["language", "ai", "algorithm", "hobby", "game"] as const;
