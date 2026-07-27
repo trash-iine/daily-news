@@ -3,6 +3,7 @@ import { useState, type CSSProperties } from "react";
 import type { BaseItem, BigTagGroup } from "@daily-news/shared";
 import { BIG_COLOR, BIG_TAGS, bigTagOf } from "../lib/bigTags";
 import { FAM_COLOR, FAM_GLYPH, sourceFamily } from "../lib/sources";
+import { SCORE_COLOR } from "../lib/scoreColors";
 
 export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
   const t = BIG_TAGS.find((x) => x.id === id);
@@ -125,7 +126,7 @@ export function PopularityBadge({
   sm?: boolean;
 }) {
   if (value <= 0) return null;
-  const c = "oklch(0.62 0.18 15)";
+  const c = SCORE_COLOR.popularity;
   return (
     <span
       title={label ? `トレンド: ${label} (指標 ${value})` : `トレンド指標 ${value}`}
@@ -164,7 +165,7 @@ export function InterestBadge({
   sm?: boolean;
 }) {
   if (value <= 0) return null;
-  const c = "oklch(0.68 0.16 80)";
+  const c = SCORE_COLOR.keyword;
   const tip =
     matched && matched.length > 0
       ? `興味マッチ: ${matched.join(", ")} (加点 ${value})`

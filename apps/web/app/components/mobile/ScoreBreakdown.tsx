@@ -1,6 +1,7 @@
 "use client";
 import type { BaseItem } from "@daily-news/shared";
 import { trendScore } from "./lib/trend";
+import { SCORE_COLOR } from "./lib/scoreColors";
 
 export function hasBreakdown(item: BaseItem): boolean {
   return (
@@ -52,21 +53,21 @@ export function ScoreBreakdown({ item }: { item: BaseItem }) {
       </div>
       <BreakdownRow
         symbol="♡"
-        color="oklch(0.62 0.18 15)"
+        color={SCORE_COLOR.popularity}
         label="トレンド"
         value={pop}
         sub={popSub}
       />
       <BreakdownRow
         symbol="★"
-        color="oklch(0.68 0.16 80)"
+        color={SCORE_COLOR.keyword}
         label="興味マッチ"
         value={kw}
         sub={matched.length > 0 ? matched.map((k) => `#${k}`).join(" ") : "マッチ無し"}
       />
       <BreakdownRow
         symbol="ja/en"
-        color="oklch(0.6 0.1 200)"
+        color={SCORE_COLOR.language}
         label="言語ボーナス"
         value={lang}
         sub={lang === 15 ? "日本語ソース" : lang === 5 ? "英語の重要ソース" : "通常"}
