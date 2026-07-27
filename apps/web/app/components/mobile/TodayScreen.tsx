@@ -39,11 +39,12 @@ export function TodayScreen({
   /**
    * 続いている話題カード → 該当タブを開き、対象カードへスクロール + 1.6s ハイライト。
    * paper なら "paper" タブへ、news なら "news" タブへ移動する (文脈が薄れない範囲で)。
+   * 展開は論文だけの機能なので、news へ飛ぶときはスクロール + ハイライトのみ。
    */
   const jumpTo = useCallback((id: string, kind: BaseItem["kind"]) => {
     setTab(kind === "paper" ? "paper" : "news");
     setBigFilter(null);
-    setExpanded(id);
+    setExpanded(kind === "paper" ? id : null);
     setHighlighted(id);
 
     requestAnimationFrame(() => {

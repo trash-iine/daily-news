@@ -16,3 +16,15 @@ export function bundleCounts(items: BaseItem[]): Record<string, number> {
   }
   return c;
 }
+
+/** 評価バーのスケール下限。低スコアな日に全バーが満杯に見えるのを防ぐ。 */
+const NEWS_SCORE_SCALE_MIN = 30;
+
+/**
+ * ニュースカード最下部の評価バーの分母。リスト内 news の最大 score (下限つき)。
+ * フィルタ後ではなく bundle 全体から取ることで、タブ/大タグ切り替えでバー長が動かないようにする。
+ */
+export function newsScoreScale(items: BaseItem[]): number {
+  const scores = items.filter((i) => i.kind === "news").map((i) => i.score);
+  return Math.max(NEWS_SCORE_SCALE_MIN, ...scores);
+}

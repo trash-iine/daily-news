@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import type { BaseItem, DailyBundle } from "@daily-news/shared";
+import { newsScoreScale } from "./lib/bundle";
 import { ArticleCard } from "./ArticleCard";
 
 export function SavedScreen({
@@ -25,6 +26,8 @@ export function SavedScreen({
       (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     );
   }, [allBundles, saved]);
+
+  const scoreScale = useMemo(() => newsScoreScale(items), [items]);
 
   const [expanded, setExpanded] = useState<string | null>(null);
 
@@ -60,9 +63,9 @@ export function SavedScreen({
           <div style={{ padding: "60px 24px", textAlign: "center" }}>
             <div style={{ fontSize: 32, marginBottom: 10 }}>★</div>
             <div style={{ fontSize: 13.5, color: "var(--fg-muted)", lineHeight: 1.6 }}>
-              Today 画面で記事を開き、
+              Today 画面のカード右の「★」で、
               <br />
-              「★ 保存」で全期間横断のキューに追加されます。
+              全期間横断のキューに追加されます。
             </div>
           </div>
         ) : (
@@ -75,6 +78,7 @@ export function SavedScreen({
               saved={true}
               onSave={() => toggleSave(it.id)}
               nowMs={nowMs}
+              scoreScale={scoreScale}
             />
           ))
         )}

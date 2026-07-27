@@ -2,7 +2,7 @@
 import { forwardRef, useMemo } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { itemBigTags } from "./lib/bigTags";
-import { bundleCounts } from "./lib/bundle";
+import { bundleCounts, newsScoreScale } from "./lib/bundle";
 import { ArticleCard } from "./ArticleCard";
 import { BigTagFilter, type TodayTab } from "./atoms/today-controls";
 import { SeriesCard } from "./SeriesCard";
@@ -42,6 +42,8 @@ export const DayPanel = forwardRef<HTMLDivElement, {
   ref,
 ) {
   const counts = useMemo(() => bundleCounts(bundle.items), [bundle]);
+  /** 評価バーの分母。フィルタ結果ではなく日次全体から取り、タブ切り替えでバー長が動かないようにする。 */
+  const scoreScale = useMemo(() => newsScoreScale(bundle.items), [bundle]);
 
   const filtered: BaseItem[] = useMemo(() => {
     return bundle.items.filter((it) => {
@@ -134,6 +136,7 @@ export const DayPanel = forwardRef<HTMLDivElement, {
               saved={saved.has(it.id)}
               onSave={() => toggleSave(it.id)}
               nowMs={nowMs}
+              scoreScale={scoreScale}
             />
           ))}
         </section>
