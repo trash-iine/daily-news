@@ -23,8 +23,6 @@ export function ArticleCard({
   item,
   expanded,
   onToggle,
-  saved,
-  onSave,
   nowMs,
   highlighted,
   scoreScale,
@@ -33,8 +31,6 @@ export function ArticleCard({
   /** 論文のみ有効。ニュースは展開を持たないので無視される。 */
   expanded: boolean;
   onToggle: () => void;
-  saved: boolean;
-  onSave: () => void;
   nowMs: number;
   /** 続いている話題カードから jump してきた直後の一時ハイライト。 */
   highlighted?: boolean;
@@ -255,8 +251,6 @@ export function ArticleCard({
         >
           <Thumb item={item} size={64} />
         </ExternalLink>
-        {/* ニュースは展開部を持たないので、保存ボタンをカードに常設する。 */}
-        {!isPaper && <SaveIconButton saved={saved} onSave={onSave} />}
       </div>
       {!isPaper && (
         <ScoreBar
@@ -327,7 +321,7 @@ export function ArticleCard({
           <div style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--fg-faint)", marginBottom: 12 }}>
             {hostFromUrl(item.url)}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 8 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 8 }}>
             <ExternalLink
               href={item.url}
               style={{
@@ -343,57 +337,9 @@ export function ArticleCard({
             >
               ↗ 元記事を開く
             </ExternalLink>
-            <button
-              onClick={onSave}
-              style={{
-                padding: "11px 16px",
-                background: saved ? "oklch(0.7 0.16 80)" : "var(--bg-elev)",
-                border: `0.5px solid ${saved ? "oklch(0.7 0.16 80)" : "var(--border)"}`,
-                color: saved ? "white" : "var(--fg)",
-                borderRadius: 10,
-                fontSize: 13,
-                fontWeight: 600,
-                fontFamily: "var(--font-sans)",
-                cursor: "pointer",
-              }}
-            >
-              {saved ? "★ 保存済" : "★ 保存"}
-            </button>
           </div>
         </div>
       )}
     </article>
-  );
-}
-
-/**
- * ニュースカードの常設保存ボタン。本文リンクの外 (サムネイル下) に置いてあるので
- * クリックが元記事リンクに吸われることはない。
- */
-function SaveIconButton({ saved, onSave }: { saved: boolean; onSave: () => void }) {
-  const c = "oklch(0.7 0.16 80)";
-  return (
-    <button
-      onClick={onSave}
-      aria-pressed={saved}
-      aria-label={saved ? "保存済み" : "保存"}
-      title={saved ? "保存済み" : "保存"}
-      style={{
-        width: 64,
-        height: 24,
-        padding: 0,
-        borderRadius: 6,
-        background: saved ? c : "var(--bg-elev)",
-        border: `0.5px solid ${saved ? c : "var(--border)"}`,
-        color: saved ? "white" : "var(--fg-faint)",
-        fontFamily: "var(--font-mono)",
-        fontSize: 12,
-        fontWeight: 700,
-        lineHeight: 1,
-        cursor: "pointer",
-      }}
-    >
-      ★
-    </button>
   );
 }

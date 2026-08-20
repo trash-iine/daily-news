@@ -80,7 +80,7 @@ input:focus { outline: 1px solid var(--fg-faint); }
   margin: 0 auto;
   background: var(--bg);
 }
-/* Saved / Recap は詳細ペインを使わないので 2 カラムに畳む。 */
+/* Recap は詳細ペインを使わないので 2 カラムに畳む。 */
 .desktop-shell.is-single {
   grid-template-columns: 236px minmax(0, 1fr);
 }
@@ -98,7 +98,7 @@ input:focus { outline: 1px solid var(--fg-faint); }
   min-height: 0;
   overflow-y: auto;
 }
-/* SavedScreen / RecapScreen は「ヘッダー + flex:1 のスクローラ」構成なので高さを渡す。 */
+/* RecapScreen は「ヘッダー + flex:1 のスクローラ」構成なので高さを渡す。 */
 .desktop-narrow {
   flex: 1;
   min-height: 0;

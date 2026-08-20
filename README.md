@@ -64,16 +64,22 @@ arXiv のアナウンスが無い日 (土日など、当日 publish された論
 
 ## Web UI
 
-Today / Saved / Recap の 3 タブ構成。スマホ版とデスクトップ版の両方を SSR で描画し、`globals.css` の
+Today / Recap の 2 タブ構成。スマホ版とデスクトップ版の両方を SSR で描画し、`globals.css` の
 `.viewport-mobile` / `.viewport-desktop` (境界 **1024px**) で出し分ける。表示状態 (タブ・表示中の日付・
-★ 保存・現在時刻) は `app/components/AppRoot.tsx` が一括で持つので、ウィンドウ幅を跨いでも状態は保たれる。
+現在時刻) は `app/components/AppRoot.tsx` が一括で持つので、ウィンドウ幅を跨いでも状態は保たれる。
+
+サーバがクライアントに渡すのは **直近 7 日の bundle と Recap の集計結果だけ** (`lib/data.ts` /
+`lib/recap.ts`)。日次 JSON は毎日 1 ファイル増え続けるので、履歴全体を client component の props に
+渡すと 1 ページの RSC ペイロードが日数に比例し、`/d/[date]` のページ数と掛け算になって
+ビルド出力が破綻する。UI が日付として触れるのは `buildWeekSlots` の Mon-Sun リング (直近 7 日) だけなので、
+渡す窓もそれに揃えている。Recap は最大 60 日を参照するが、集計は `lib/recap.ts` がサーバ側で済ませる。
 
 ```
 app/components/
   AppRoot.tsx    共有状態 + 出し分け
-  shared/        両レイアウトが使う部品 (ArticleCard / SavedScreen / RecapScreen / SeriesCard /
+  shared/        両レイアウトが使う部品 (ArticleCard / RecapScreen / SeriesCard /
                  badges / ScoreBar / ScoreBreakdown / PaperSummaryStruct / SummaryMarkdown /
-                 TodayTabs / useSaved / lib/*)
+                 TodayTabs / lib/*)
   mobile/        スマホ固有 = 下部 TabBar + スワイプ日送り (DayCarousel / DayPanel / WeekStrip)
   desktop/       PC 固有 = 3 ペイン (Sidebar / DayList / ListCard / DetailPane)
 ```
@@ -81,16 +87,20 @@ app/components/
 **スマホ (< 1024px)** — 下部タブバー + 1 カラム。
 
 - **Today** — All / 論文 / ニュースのタブ (`TodayTabs`)、大タグフィルタ (`BigTagFilter`)、Mon-Sun 週ストリップ (`WeekStrip`)、左右スワイプの日送り (`DayCarousel`)。カード (`ArticleCard`) はタップで展開し、論文は構造化要約 (`PaperSummaryStruct`)、「なぜ採択された?」の内訳 (`ScoreBreakdown`)、続いている話題 (`SeriesCard`) を表示
-- **Saved** — ★ 保存した記事の全期間キュー (localStorage、`useSaved`)
-- **Recap** — 直近 7/14/30 日のタグ動向・大タグ別集計・トレンド Top 5 (`RecapScreen` / `lib/trend.ts`)
+- **Recap** — 直近 7/14/30 日のタグ動向・大タグ別集計・トレンド Top 5 (`RecapScreen`。集計は `lib/recap.ts` + `shared/lib/trend.ts`)
 
 **PC (>= 1024px)** — 左サイドバー / 中央リスト / 右詳細ペインの 3 ペイン (`DesktopApp`)。
 
 - **サイドバー** (`Sidebar`) — ブランドと件数、縦ナビ、Mon-Sun 週カレンダー (`buildWeekSlots` を共有)、大タグフィルタ (縦積み)
 - **中央リスト** (`DayList` / `ListCard`) — 論文 / ニュースのセクション分けはスマホ版と同じ。カードのクリックは論文・ニュースを問わず「右ペインで開く」に統一
-- **詳細ペイン** (`DetailPane`) — 要約 (論文は構造化要約)、採択理由の内訳、全タグ、元記事リンクと ★ 保存
-- **キーボード** — `↑`/`↓` (`k`/`j`) で選択移動、`←`/`→` で日送り、`Enter` で元記事を別タブ、`s` で ★ 保存
-- Saved / Recap タブは詳細ペインを畳んで 2 カラムにし、共有の `SavedScreen` / `RecapScreen` を中央に流用する
+- **詳細ペイン** (`DetailPane`) — 要約 (論文は構造化要約)、採択理由の内訳、全タグ、元記事リンク
+- **キーボード** — `↑`/`↓` (`k`/`j`) で選択移動、`←`/`→` で日送り (週リング内を巡回)、`Enter` で元記事を別タブ
+- Recap タブは詳細ペインを畳んで 2 カラムにし、共有の `RecapScreen` を中央に流用する
+
+**ルーティング** — 入口は `/` (最新日)。`/d/YYYY-MM-DD` は直リンク用で、**静的生成は直近 30 日のみ**
+(`d/[date]/page.tsx` の `STATIC_DAYS` / `dynamicParams = false`)。UI からこのルートへのリンクは無く、
+日付の移動はクライアント状態なので、履歴全日分をプリレンダしてもページ数が増えるだけで得がない。
+それより古い日付 URL は 404。
 
 ## ローカル実行
 

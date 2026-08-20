@@ -12,7 +12,7 @@ import {
 import { flushSync } from "react-dom";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { DayPanel } from "./DayPanel";
-import { buildWeekSlots, type TodayTab, type WeekSlot } from "../shared/lib/today";
+import { buildWeekSlots, ringNeighbor, type TodayTab, type WeekSlot } from "../shared/lib/today";
 
 const SWIPE_AXIS_DECIDE_PX = 6;
 const SWIPE_COMMIT_RATIO = 0.28;
@@ -22,27 +22,6 @@ const SNAP_MS = 240;
 export type DayCarouselHandle = {
   getCurrentScroller: () => HTMLDivElement | null;
 };
-
-/**
- * Mon-Sun 固定リング上で currentDate の隣 (inArchive=true のみ) を返す。
- * dir=+1 は曜日順で次 (later), -1 は前 (earlier)。リングは archive[0] アンカー。
- */
-function ringNeighbor(
-  slots: WeekSlot[],
-  currentDate: string,
-  dir: -1 | 1,
-): string | null {
-  const n = slots.length;
-  if (n === 0) return null;
-  const idx = slots.findIndex((s) => s.iso === currentDate);
-  if (idx < 0) return null;
-  for (let step = 1; step <= n; step++) {
-    const j = ((idx + dir * step) % n + n) % n;
-    const slot = slots[j];
-    if (slot && slot.inArchive && slot.iso !== currentDate) return slot.iso;
-  }
-  return null;
-}
 
 export const DayCarousel = forwardRef<DayCarouselHandle, {
   archive: string[];
@@ -56,8 +35,6 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
   expanded: string | null;
   setExpanded: (id: string | null) => void;
   highlighted: string | null;
-  saved: Set<string>;
-  toggleSave: (id: string) => void;
   nowMs: number;
   onJump: (id: string, kind: BaseItem["kind"]) => void;
 }>(function DayCarousel(props, ref) {
@@ -73,8 +50,6 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
     expanded,
     setExpanded,
     highlighted,
-    saved,
-    toggleSave,
     nowMs,
     onJump,
   } = props;
@@ -248,8 +223,6 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
             expanded={expanded}
             setExpanded={setExpanded}
             highlighted={highlighted}
-            saved={saved}
-            toggleSave={toggleSave}
             nowMs={nowMs}
             onJump={onJump}
           />

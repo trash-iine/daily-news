@@ -177,7 +177,10 @@ export function velocityScore(
   return Math.round(popularity * factor);
 }
 
-export function trendScore(item: BaseItem): number {
+/** popularity と時刻しか見ないので、Recap 用の射影 (RecapItem) でも渡せる。 */
+export function trendScore(
+  item: Pick<BaseItem, "popularity" | "publishedAt" | "fetchedAt">,
+): number {
   return velocityScore(item.popularity ?? 0, item.publishedAt, item.fetchedAt);
 }
 

@@ -20,9 +20,14 @@ export const BIG_COLOR: Record<BigTagGroup, string> = Object.fromEntries(
   BIG_TAGS.map((t) => [t.id, t.color]),
 ) as Record<BigTagGroup, string>;
 
+export const BIG_TAG_DEF: Record<BigTagGroup, BigTagDef> = Object.fromEntries(
+  BIG_TAGS.map((t) => [t.id, t]),
+) as Record<BigTagGroup, BigTagDef>;
+
 export const bigTagOf = (t: string): BigTagGroup | null => BIG_TAG_GROUPS[t] ?? null;
 
-export const itemBigTags = (it: BaseItem): BigTagGroup[] => {
+/** tags しか見ないので、BaseItem でも Recap 用の射影 (RecapItem) でも渡せる。 */
+export const itemBigTags = (it: Pick<BaseItem, "tags">): BigTagGroup[] => {
   const set = new Set<BigTagGroup>();
   for (const t of it.tags) {
     const g = bigTagOf(t);
