@@ -64,11 +64,33 @@ arXiv のアナウンスが無い日 (土日など、当日 publish された論
 
 ## Web UI
 
-モバイル前提の 3 タブ構成 (`apps/web/app/components/mobile/`):
+Today / Saved / Recap の 3 タブ構成。スマホ版とデスクトップ版の両方を SSR で描画し、`globals.css` の
+`.viewport-mobile` / `.viewport-desktop` (境界 **1024px**) で出し分ける。表示状態 (タブ・表示中の日付・
+★ 保存・現在時刻) は `app/components/AppRoot.tsx` が一括で持つので、ウィンドウ幅を跨いでも状態は保たれる。
 
-- **Today** — 日次 bundle の閲覧。All / 論文 / ニュースのタブ (`TodayTabs`)、大タグフィルタ (`BigTagFilter`)、Mon-Sun 週ストリップ (`WeekStrip`)、左右スワイプの日送り (`DayCarousel`)。カード (`ArticleCard`) はタップで展開し、論文は構造化要約 (`PaperSummaryStruct`)、「なぜ採択された?」の内訳 (`ScoreBreakdown`)、続いている話題 (`SeriesCard`) を表示
+```
+app/components/
+  AppRoot.tsx    共有状態 + 出し分け
+  shared/        両レイアウトが使う部品 (ArticleCard / SavedScreen / RecapScreen / SeriesCard /
+                 badges / ScoreBar / ScoreBreakdown / PaperSummaryStruct / SummaryMarkdown /
+                 TodayTabs / useSaved / lib/*)
+  mobile/        スマホ固有 = 下部 TabBar + スワイプ日送り (DayCarousel / DayPanel / WeekStrip)
+  desktop/       PC 固有 = 3 ペイン (Sidebar / DayList / ListCard / DetailPane)
+```
+
+**スマホ (< 1024px)** — 下部タブバー + 1 カラム。
+
+- **Today** — All / 論文 / ニュースのタブ (`TodayTabs`)、大タグフィルタ (`BigTagFilter`)、Mon-Sun 週ストリップ (`WeekStrip`)、左右スワイプの日送り (`DayCarousel`)。カード (`ArticleCard`) はタップで展開し、論文は構造化要約 (`PaperSummaryStruct`)、「なぜ採択された?」の内訳 (`ScoreBreakdown`)、続いている話題 (`SeriesCard`) を表示
 - **Saved** — ★ 保存した記事の全期間キュー (localStorage、`useSaved`)
 - **Recap** — 直近 7/14/30 日のタグ動向・大タグ別集計・トレンド Top 5 (`RecapScreen` / `lib/trend.ts`)
+
+**PC (>= 1024px)** — 左サイドバー / 中央リスト / 右詳細ペインの 3 ペイン (`DesktopApp`)。
+
+- **サイドバー** (`Sidebar`) — ブランドと件数、縦ナビ、Mon-Sun 週カレンダー (`buildWeekSlots` を共有)、大タグフィルタ (縦積み)
+- **中央リスト** (`DayList` / `ListCard`) — 論文 / ニュースのセクション分けはスマホ版と同じ。カードのクリックは論文・ニュースを問わず「右ペインで開く」に統一
+- **詳細ペイン** (`DetailPane`) — 要約 (論文は構造化要約)、採択理由の内訳、全タグ、元記事リンクと ★ 保存
+- **キーボード** — `↑`/`↓` (`k`/`j`) で選択移動、`←`/`→` で日送り、`Enter` で元記事を別タブ、`s` で ★ 保存
+- Saved / Recap タブは詳細ペインを畳んで 2 カラムにし、共有の `SavedScreen` / `RecapScreen` を中央に流用する
 
 ## ローカル実行
 
@@ -192,8 +214,9 @@ export const KEYWORD_WEIGHTS: Record<string, number> = {
 ### 7. UI / 見た目を変える
 
 - サイトタイトル・ヘッダー文言: `apps/web/app/layout.tsx` / `apps/web/app/components/mobile/TodayScreen.tsx`
-- カラートークン: `apps/web/app/globals.css` (CSS 変数)。big tag グループ別の色・ラベルは `apps/web/app/components/mobile/lib/bigTags.ts`、ソース別の色・表示名は同 `lib/sources.ts`
-- カード表示・要約展開挙動: `apps/web/app/components/mobile/ArticleCard.tsx`
+- カラートークン: `apps/web/app/globals.css` (CSS 変数)。big tag グループ別の色・ラベルは `apps/web/app/components/shared/lib/bigTags.ts`、ソース別の色・表示名は同 `lib/sources.ts`
+- カード表示・要約展開挙動: スマホは `apps/web/app/components/shared/ArticleCard.tsx`、PC は `apps/web/app/components/desktop/{ListCard,DetailPane}.tsx`
+- スマホ / PC の切替境界: `apps/web/app/globals.css` の `.viewport-mobile` / `.viewport-desktop` (1024px)
 
 ### 8. パイプラインのテストを走らせる
 

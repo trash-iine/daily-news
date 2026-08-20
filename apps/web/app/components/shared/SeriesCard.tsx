@@ -10,7 +10,7 @@ import { BIG_COLOR } from "./lib/bigTags";
 import { sourceLabel } from "./lib/sources";
 import { fmtDateBadge } from "./lib/format";
 import { dateRange, risingTags, type RisingTag } from "./lib/trend";
-import { Tag } from "./atoms/badges";
+import { Tag } from "./badges";
 
 /**
  * 続いている話題カード (改善案 ⑤)。
