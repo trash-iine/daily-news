@@ -12,7 +12,7 @@ import {
 import { flushSync } from "react-dom";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { DayPanel } from "./DayPanel";
-import { buildWeekSlots, type TodayTab, type WeekSlot } from "./atoms/today-controls";
+import { buildWeekSlots, type TodayTab, type WeekSlot } from "../shared/lib/today";
 
 const SWIPE_AXIS_DECIDE_PX = 6;
 const SWIPE_COMMIT_RATIO = 0.28;

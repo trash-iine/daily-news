@@ -1,6 +1,5 @@
 "use client";
-
-export type TabId = "today" | "saved" | "recap";
+import { NAV_ITEMS, type TabId } from "../../shared/lib/nav";
 
 export function TabBar({
   active,
@@ -9,11 +8,7 @@ export function TabBar({
   active: TabId;
   onChange: (id: TabId) => void;
 }) {
-  const tabs: { id: TabId; glyph: string; label: string }[] = [
-    { id: "today", glyph: "◧", label: "Today" },
-    { id: "saved", glyph: "★", label: "Saved" },
-    { id: "recap", glyph: "▤", label: "Recap" },
-  ];
+  const tabs = NAV_ITEMS;
   return (
     <div
       style={{

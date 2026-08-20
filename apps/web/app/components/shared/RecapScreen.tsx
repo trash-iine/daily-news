@@ -16,7 +16,7 @@ import {
   trendScore,
   worldTrendTags,
 } from "./lib/trend";
-import { BigTagPill, PopularityBadge } from "./atoms/badges";
+import { BigTagPill, PopularityBadge } from "./badges";
 import { ExternalLink } from "./ExternalLink";
 
 function Spark({

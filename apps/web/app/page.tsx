@@ -1,5 +1,5 @@
 import { getAllBundles, getIndex } from "@/lib/data";
-import { MobileApp } from "./components/mobile/MobileApp";
+import { AppRoot } from "./components/AppRoot";
 
 export default async function HomePage() {
   const [idx, bundles] = await Promise.all([getIndex(), getAllBundles()]);
@@ -16,7 +16,7 @@ export default async function HomePage() {
   }
 
   return (
-    <MobileApp
+    <AppRoot
       archive={archive}
       bundles={bundles}
       initialDate={initialDate}

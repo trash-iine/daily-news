@@ -1,11 +1,12 @@
 "use client";
 import { forwardRef, useMemo } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { itemBigTags } from "./lib/bigTags";
-import { bundleCounts, newsScoreScale } from "./lib/bundle";
-import { ArticleCard } from "./ArticleCard";
-import { BigTagFilter, type TodayTab } from "./atoms/today-controls";
-import { SeriesCard } from "./SeriesCard";
+import { itemBigTags } from "../shared/lib/bigTags";
+import { bundleCounts, newsScoreScale } from "../shared/lib/bundle";
+import { ArticleCard } from "../shared/ArticleCard";
+import { BigTagFilter } from "./atoms/today-controls";
+import type { TodayTab } from "../shared/lib/today";
+import { SeriesCard } from "../shared/SeriesCard";
 
 /**
  * 1 日分のスクロール可能ビュー。DayCarousel から prev/current/next の 3 枚として描画される。

@@ -60,3 +60,58 @@ input:focus { outline: 1px solid var(--fg-faint); }
     box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.04);
   }
 }
+
+/* ============ viewport switch ============ */
+/* mobile / desktop 両ツリーを SSR し、CSS だけで出し分ける (hydration mismatch を避ける)。 */
+@media (min-width: 1024px) {
+  .viewport-mobile { display: none; }
+}
+@media (max-width: 1023.98px) {
+  .viewport-desktop { display: none; }
+}
+
+/* ============ desktop shell ============ */
+.desktop-shell {
+  display: grid;
+  grid-template-columns: 236px minmax(400px, 1fr) minmax(400px, 560px);
+  height: 100vh;
+  height: 100dvh;
+  max-width: 1680px;
+  margin: 0 auto;
+  background: var(--bg);
+}
+/* Saved / Recap は詳細ペインを使わないので 2 カラムに畳む。 */
+.desktop-shell.is-single {
+  grid-template-columns: 236px minmax(0, 1fr);
+}
+.desktop-col {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.desktop-col + .desktop-col {
+  border-left: 0.5px solid var(--rule);
+}
+.desktop-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+/* SavedScreen / RecapScreen は「ヘッダー + flex:1 のスクローラ」構成なので高さを渡す。 */
+.desktop-narrow {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.dlist-row:hover {
+  background: color-mix(in oklch, var(--bg-sunken) 55%, transparent) !important;
+}
+.dlist-row[data-selected="true"]:hover {
+  background: var(--bg-sunken) !important;
+}

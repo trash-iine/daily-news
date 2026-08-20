@@ -1,9 +1,11 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { weekdayJa } from "./lib/format";
-import { bundleCounts } from "./lib/bundle";
-import { TodayTabs, WeekStrip, type TodayTab } from "./atoms/today-controls";
+import { weekdayJa } from "../shared/lib/format";
+import { bundleCounts } from "../shared/lib/bundle";
+import { WeekStrip } from "./atoms/today-controls";
+import { TodayTabs } from "../shared/TodayTabs";
+import type { TodayTab } from "../shared/lib/today";
 import { DayCarousel, type DayCarouselHandle } from "./DayCarousel";
 
 const HIGHLIGHT_MS = 1600;

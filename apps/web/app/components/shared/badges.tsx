@@ -1,9 +1,9 @@
 "use client";
 import { useState, type CSSProperties } from "react";
 import type { BaseItem, BigTagGroup } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, bigTagOf } from "../lib/bigTags";
-import { FAM_COLOR, FAM_GLYPH, sourceFamily } from "../lib/sources";
-import { SCORE_COLOR } from "../lib/scoreColors";
+import { BIG_COLOR, BIG_TAGS, bigTagOf } from "./lib/bigTags";
+import { FAM_COLOR, FAM_GLYPH, sourceFamily } from "./lib/sources";
+import { SCORE_COLOR } from "./lib/scoreColors";
 
 export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
   const t = BIG_TAGS.find((x) => x.id === id);

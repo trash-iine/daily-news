@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getAllBundles, getIndex } from "@/lib/data";
-import { MobileApp } from "@/app/components/mobile/MobileApp";
+import { AppRoot } from "@/app/components/AppRoot";
 
 export async function generateStaticParams() {
   const idx = await getIndex();
@@ -18,7 +18,7 @@ export default async function DatePage({
   if (!bundle) notFound();
 
   return (
-    <MobileApp
+    <AppRoot
       archive={idx.dates}
       bundles={bundles}
       initialDate={date}
