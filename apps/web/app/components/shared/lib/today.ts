@@ -37,3 +37,28 @@ export function buildWeekSlots(archive: string[]): WeekSlot[] {
   }
   return slots.filter((s): s is WeekSlot => s !== null);
 }
+
+/**
+ * Mon-Sun 固定リング上で currentDate の隣 (inArchive=true のみ) を返す。
+ * dir=+1 は曜日順で次 (later), -1 は前 (earlier)。リングは archive[0] アンカー。
+ *
+ * mobile のスワイプ (DayCarousel) と desktop の ← → キー (DesktopApp) で共有する。
+ * サーバから渡る bundle はこのリングと同じ直近 7 日の窓なので、日付移動をこの関数に
+ * 通しておけば窓外に出て bundle が無い状態にならない。
+ */
+export function ringNeighbor(
+  slots: WeekSlot[],
+  currentDate: string,
+  dir: -1 | 1,
+): string | null {
+  const n = slots.length;
+  if (n === 0) return null;
+  const idx = slots.findIndex((s) => s.iso === currentDate);
+  if (idx < 0) return null;
+  for (let step = 1; step <= n; step++) {
+    const j = ((idx + dir * step) % n + n) % n;
+    const slot = slots[j];
+    if (slot && slot.inArchive && slot.iso !== currentDate) return slot.iso;
+  }
+  return null;
+}

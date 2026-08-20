@@ -19,8 +19,6 @@ export function DayList({
   items,
   selectedId,
   onSelect,
-  saved,
-  toggleSave,
   nowMs,
   scoreScale,
   onJump,
@@ -34,8 +32,6 @@ export function DayList({
   items: BaseItem[];
   selectedId: string | null;
   onSelect: (id: string) => void;
-  saved: Set<string>;
-  toggleSave: (id: string) => void;
   nowMs: number;
   scoreScale: number;
   onJump: (id: string, kind: BaseItem["kind"]) => void;
@@ -117,8 +113,6 @@ export function DayList({
                 item={it}
                 selected={selectedId === it.id}
                 onSelect={() => onSelect(it.id)}
-                saved={saved.has(it.id)}
-                onSave={() => toggleSave(it.id)}
                 nowMs={nowMs}
                 scoreScale={scoreScale}
               />

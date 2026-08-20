@@ -1,21 +1,10 @@
 "use client";
-import { useMemo, useState, type ReactNode } from "react";
-import type { BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, itemBigTags } from "./lib/bigTags";
+import { useState, type ReactNode } from "react";
+import type { RecapPayload, RecapTagRow } from "@/lib/recap";
+import { BIG_COLOR, BIG_TAG_DEF, itemBigTags } from "./lib/bigTags";
 import { sourceLabel } from "./lib/sources";
 import { fmtDateBadge } from "./lib/format";
-import {
-  DELTA_DOWN,
-  DELTA_UP,
-  bigTagCountsByDate,
-  dateRange,
-  type RecapPeriod,
-  risingTags,
-  tagCountsByDate,
-  tagFrequency,
-  trendScore,
-  worldTrendTags,
-} from "./lib/trend";
+import { DELTA_DOWN, DELTA_UP, type RecapPeriod, trendScore } from "./lib/trend";
 import { BigTagPill, PopularityBadge } from "./badges";
 import { ExternalLink } from "./ExternalLink";
 
@@ -95,18 +84,7 @@ function PeriodToggle({
   );
 }
 
-interface TagRow {
-  tag: string;
-  bigGroup: BigTagGroup | null;
-  count: number;
-  delta: number;
-  isNew: boolean;
-  series: number[];
-  ratio: number;
-  worldSum: number;
-}
-
-function TagsTable({ rows }: { rows: TagRow[] }) {
+function TagsTable({ rows }: { rows: RecapTagRow[] }) {
   if (!rows.length) {
     return (
       <div
@@ -277,100 +255,17 @@ function SectionLabel({ children }: { children: ReactNode }) {
   );
 }
 
-export function RecapScreen({
-  allBundles,
-  archive,
-}: {
-  allBundles: Record<string, DailyBundle>;
-  archive: string[];
-}) {
+/**
+ * 集計は `lib/recap.ts` (サーバ) 側で済ませてある。以前はここで 60 日分の生 bundle を
+ * `useMemo` で集計していたが、それだと全ページの RSC ペイロードに履歴 60 日分が乗るため、
+ * period 別の集計結果だけを受け取る形にした。
+ */
+export function RecapScreen({ recap }: { recap: RecapPayload }) {
   const [period, setPeriod] = useState<RecapPeriod>(7);
+  const data = recap[period];
 
-  const dates = useMemo(() => {
-    const latest = archive[0];
-    if (!latest) return [];
-    return dateRange(latest, period);
-  }, [archive, period]);
-
-  const prevDates = useMemo(() => {
-    const latest = archive[0];
-    if (!latest) return [];
-    const all = dateRange(latest, period * 2);
-    return all.slice(0, period);
-  }, [archive, period]);
-
-  const allItems = useMemo(
-    () => dates.flatMap((d) => allBundles[d]?.items ?? []),
-    [allBundles, dates],
-  );
-
-  const totals = {
-    items: allItems.length,
-    papers: allItems.filter((i) => i.kind === "paper").length,
-    news: allItems.filter((i) => i.kind === "news").length,
-  };
-
-  const bigCounts = useMemo(
-    () => bigTagCountsByDate(allBundles, dates),
-    [allBundles, dates],
-  );
-
-  const tagRows = useMemo<TagRow[]>(() => {
-    const freq = tagFrequency(allBundles, dates, prevDates, 200);
-    const series = tagCountsByDate(allBundles, dates);
-    const rising = risingTags(allBundles, dates, {
-      minRecent: period === 7 ? 1 : 2,
-      topN: 200,
-    });
-    const ratioByTag = new Map(rising.map((r) => [r.tag, r.ratio]));
-    const world = worldTrendTags(allBundles, dates, 200);
-    const worldByTag = new Map(world.map((w) => [w.tag, w.trendSum]));
-    const rows: TagRow[] = freq.map((f) => ({
-      tag: f.tag,
-      bigGroup: f.bigGroup,
-      count: f.count,
-      delta: f.delta,
-      isNew: f.isNew,
-      series: series[f.tag] ?? [],
-      ratio: ratioByTag.get(f.tag) ?? 0,
-      worldSum: worldByTag.get(f.tag) ?? 0,
-    }));
-    rows.sort((a, b) => {
-      const aPin = a.ratio >= 2.0 ? 1 : 0;
-      const bPin = b.ratio >= 2.0 ? 1 : 0;
-      if (aPin !== bPin) return bPin - aPin;
-      return b.count - a.count || a.tag.localeCompare(b.tag);
-    });
-    return rows.slice(0, 10);
-  }, [allBundles, dates, prevDates, period]);
-
-  const groupBreakdown = useMemo(() => {
-    return BIG_TAGS.map((t) => {
-      const items = allItems.filter((it) => itemBigTags(it).includes(t.id));
-      const sortable = items.filter((it) => it.kind !== "paper");
-      const top = [...sortable].sort((a, b) => trendScore(b) - trendScore(a)).slice(0, 3);
-      return { ...t, n: items.length, top, counts: bigCounts[t.id] };
-    });
-  }, [allItems, bigCounts]);
-
-  const bestOfPeriod = useMemo(() => {
-    const pool = allItems.filter((it) => it.kind !== "paper");
-    return [...pool].sort((a, b) => trendScore(b) - trendScore(a)).slice(0, 5);
-  }, [allItems]);
-
-  const firstD = dates[0];
-  const lastD = dates[dates.length - 1];
-
-  if (!firstD || !lastD) {
-    return (
-      <div style={{ padding: 40, textAlign: "center", color: "var(--fg-faint)" }}>
-        データがありません
-      </div>
-    );
-  }
-
-  const startD = new Date(`${firstD}T00:00:00Z`);
-  const endD = new Date(`${lastD}T00:00:00Z`);
+  const startD = new Date(`${data.firstDate}T00:00:00Z`);
+  const endD = new Date(`${data.lastDate}T00:00:00Z`);
 
   return (
     <>
@@ -400,7 +295,7 @@ export function RecapScreen({
           {endD.getUTCDate()}
         </h1>
         <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-muted)" }}>
-          直近 {period} 日 · {totals.items} 件 (論文 {totals.papers} · ニュース {totals.news}) ·
+          直近 {period} 日 · {data.totals.items} 件 (論文 {data.totals.papers} · ニュース {data.totals.news}) ·
           フェイバリット数 ÷ 経過時間 (獲得速度)
         </div>
       </div>
@@ -410,12 +305,12 @@ export function RecapScreen({
           <PeriodToggle value={period} onChange={setPeriod} />
         </div>
 
-        <SectionLabel>タグ動向 Top {tagRows.length || 10} · 件数 / 推移 / Δ / 世間 ♡</SectionLabel>
-        <TagsTable rows={tagRows} />
+        <SectionLabel>タグ動向 Top {data.tagRows.length || 10} · 件数 / 推移 / Δ / 世間 ♡</SectionLabel>
+        <TagsTable rows={data.tagRows} />
 
         <SectionLabel>大タグ別</SectionLabel>
         <div style={{ padding: "0 16px" }}>
-          {groupBreakdown
+          {data.groups
             .filter((g) => g.n > 0)
             .map((g) => (
               <div
@@ -424,8 +319,8 @@ export function RecapScreen({
                   marginBottom: 10,
                   padding: 14,
                   borderRadius: 12,
-                  background: `color-mix(in oklch, ${g.color} 6%, var(--bg-sunken))`,
-                  borderLeft: `3px solid ${g.color}`,
+                  background: `color-mix(in oklch, ${BIG_TAG_DEF[g.id].color} 6%, var(--bg-sunken))`,
+                  borderLeft: `3px solid ${BIG_TAG_DEF[g.id].color}`,
                 }}
               >
                 <div
@@ -441,23 +336,23 @@ export function RecapScreen({
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: 14,
-                        color: g.color,
+                        color: BIG_TAG_DEF[g.id].color,
                         fontWeight: 700,
                       }}
                     >
-                      {g.emoji}
+                      {BIG_TAG_DEF[g.id].emoji}
                     </span>
-                    <span style={{ fontSize: 14, fontWeight: 600 }}>{g.label}</span>
+                    <span style={{ fontSize: 14, fontWeight: 600 }}>{BIG_TAG_DEF[g.id].label}</span>
                     <span
                       style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-faint)" }}
                     >
                       {g.n} 件
                     </span>
                   </div>
-                  <Spark values={g.counts} color={g.color} />
+                  <Spark values={g.counts} color={BIG_TAG_DEF[g.id].color} />
                 </div>
                 <div style={{ fontSize: 11.5, color: "var(--fg-muted)", lineHeight: 1.5, marginBottom: 8 }}>
-                  {g.desc}
+                  {BIG_TAG_DEF[g.id].desc}
                 </div>
                 {g.top.map((it, i) => (
                   <ExternalLink
@@ -512,7 +407,7 @@ export function RecapScreen({
         <SectionLabel>
           {period === 7 ? "今週" : `直近 ${period} 日`}のトレンド Top 5
         </SectionLabel>
-        {bestOfPeriod.map((it, i) => {
+        {data.best.map((it, i) => {
           const big = itemBigTags(it)[0];
           return (
             <ExternalLink

@@ -1,11 +1,11 @@
 "use client";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
+import type { RecapPayload } from "@/lib/recap";
 import type { TabId } from "../shared/lib/nav";
-import type { TodayTab } from "../shared/lib/today";
+import { buildWeekSlots, ringNeighbor, type TodayTab } from "../shared/lib/today";
 import { itemBigTags } from "../shared/lib/bigTags";
 import { bundleCounts, newsScoreScale } from "../shared/lib/bundle";
-import { SavedScreen } from "../shared/SavedScreen";
 import { RecapScreen } from "../shared/RecapScreen";
 import { Sidebar } from "./Sidebar";
 import { DayList } from "./DayList";
@@ -20,30 +20,28 @@ function revealItem(id: string, behavior: ScrollBehavior = "auto") {
 
 /**
  * デスクトップシェル。左サイドバー / 中央リスト / 右詳細ペインの 3 ペイン。
- * Saved / Recap タブでは既存のモバイル向け画面を中央カラムに流用し、右ペインは畳む。
+ * Recap タブでは既存のモバイル向け画面を中央カラムに流用し、右ペインは畳む。
  *
- * 表示状態 (tab / currentDate / saved) は AppRoot から props で来る。ここで持つのは
+ * 表示状態 (tab / currentDate) は AppRoot から props で来る。ここで持つのは
  * デスクトップ固有の選択状態だけ。
  */
 export function DesktopApp({
   archive,
   bundles,
+  recap,
   currentDate,
   setCurrentDate,
   tab,
   setTab,
-  saved,
-  toggleSave,
   nowMs,
 }: {
   archive: string[];
   bundles: Record<string, DailyBundle>;
+  recap: RecapPayload;
   currentDate: string | null;
   setCurrentDate: (d: string) => void;
   tab: TabId;
   setTab: (t: TabId) => void;
-  saved: Set<string>;
-  toggleSave: (id: string) => void;
   nowMs: number;
 }) {
   const [todayTab, setTodayTab] = useState<TodayTab>("all");
@@ -76,16 +74,22 @@ export function DesktopApp({
     return items.find((i) => i.id === selectedId) ?? items[0] ?? null;
   }, [items, selectedId]);
 
-  /** archive は新しい順。dir=-1 が前日 (より古い)、dir=+1 が翌日。 */
+  const slots = useMemo(() => buildWeekSlots(archive), [archive]);
+
+  /**
+   * dir=-1 が前日 (より古い)、dir=+1 が翌日。
+   *
+   * archive 全体ではなく WeekRail と同じ Mon-Sun リング内で動かす。サーバから渡る
+   * bundle は直近 7 日の窓しかないので、履歴を無制限に遡ると bundle 不在で
+   * 「読み込み中…」のまま固まる。
+   */
   const stepDate = useCallback(
     (dir: -1 | 1) => {
       if (!currentDate) return;
-      const i = archive.indexOf(currentDate);
-      if (i < 0) return;
-      const next = archive[i - dir];
+      const next = ringNeighbor(slots, currentDate, dir);
       if (next) setCurrentDate(next);
     },
-    [archive, currentDate, setCurrentDate],
+    [slots, currentDate, setCurrentDate],
   );
 
   const select = useCallback((id: string) => setSelectedId(id), []);
@@ -145,19 +149,13 @@ export function DesktopApp({
             window.open(selected.url, "_blank", "noreferrer");
           }
           break;
-        case "s":
-          if (selected) {
-            e.preventDefault();
-            toggleSave(selected.id);
-          }
-          break;
         default:
           break;
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [items, selected, stepDate, tab, toggleSave]);
+  }, [items, selected, stepDate, tab]);
 
   return (
     <div className={`desktop-shell${tab === "today" ? "" : " is-single"}`}>
@@ -187,8 +185,6 @@ export function DesktopApp({
               items={items}
               selectedId={selected?.id ?? null}
               onSelect={select}
-              saved={saved}
-              toggleSave={toggleSave}
               nowMs={nowMs}
               scoreScale={scoreScale}
               onJump={jumpTo}
@@ -198,26 +194,16 @@ export function DesktopApp({
               読み込み中…
             </div>
           ))}
-        {tab === "saved" && (
-          <div className="desktop-narrow">
-            <SavedScreen allBundles={bundles} saved={saved} toggleSave={toggleSave} nowMs={nowMs} />
-          </div>
-        )}
         {tab === "recap" && (
           <div className="desktop-narrow">
-            <RecapScreen allBundles={bundles} archive={archive} />
+            <RecapScreen recap={recap} />
           </div>
         )}
       </div>
 
       {tab === "today" && (
         <div className="desktop-col desktop-scroll">
-          <DetailPane
-            item={selected}
-            saved={selected ? saved.has(selected.id) : false}
-            onSave={() => selected && toggleSave(selected.id)}
-            nowMs={nowMs}
-          />
+          <DetailPane item={selected} nowMs={nowMs} />
         </div>
       )}
     </div>

@@ -17,13 +17,9 @@ import { ScoreBreakdown, hasBreakdown } from "../shared/ScoreBreakdown";
  */
 export function DetailPane({
   item,
-  saved,
-  onSave,
   nowMs,
 }: {
   item: BaseItem | null;
-  saved: boolean;
-  onSave: () => void;
   nowMs: number;
 }) {
   if (!item) {
@@ -206,7 +202,7 @@ export function DetailPane({
         </div>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 8 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 8 }}>
         <ExternalLink
           href={item.url}
           style={{
@@ -222,22 +218,6 @@ export function DetailPane({
         >
           ↗ 元記事を開く
         </ExternalLink>
-        <button
-          onClick={onSave}
-          style={{
-            padding: "11px 16px",
-            background: saved ? "oklch(0.7 0.16 80)" : "var(--bg-elev)",
-            border: `0.5px solid ${saved ? "oklch(0.7 0.16 80)" : "var(--border)"}`,
-            color: saved ? "white" : "var(--fg)",
-            borderRadius: 10,
-            fontSize: 13,
-            fontWeight: 600,
-            fontFamily: "var(--font-sans)",
-            cursor: "pointer",
-          }}
-        >
-          {saved ? "★ 保存済" : "★ 保存"}
-        </button>
       </div>
       <div
         aria-hidden

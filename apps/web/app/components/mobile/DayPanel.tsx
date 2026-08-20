@@ -21,8 +21,6 @@ export const DayPanel = forwardRef<HTMLDivElement, {
   expanded: string | null;
   setExpanded: (id: string | null) => void;
   highlighted: string | null;
-  saved: Set<string>;
-  toggleSave: (id: string) => void;
   nowMs: number;
   onJump: (id: string, kind: BaseItem["kind"]) => void;
 }>(function DayPanel(
@@ -35,8 +33,6 @@ export const DayPanel = forwardRef<HTMLDivElement, {
     expanded,
     setExpanded,
     highlighted,
-    saved,
-    toggleSave,
     nowMs,
     onJump,
   },
@@ -134,8 +130,6 @@ export const DayPanel = forwardRef<HTMLDivElement, {
               expanded={expanded === it.id}
               highlighted={highlighted === it.id}
               onToggle={() => setExpanded(expanded === it.id ? null : it.id)}
-              saved={saved.has(it.id)}
-              onSave={() => toggleSave(it.id)}
               nowMs={nowMs}
               scoreScale={scoreScale}
             />

@@ -1,11 +1,10 @@
-import { getAllBundles, getIndex } from "@/lib/data";
+import { DAY_WINDOW_DAYS, getIndex, getClientWindow } from "@/lib/data";
+import { buildRecap } from "@/lib/recap";
 import { AppRoot } from "./components/AppRoot";
 
 export default async function HomePage() {
-  const [idx, bundles] = await Promise.all([getIndex(), getAllBundles()]);
-  const archive = idx.dates;
-  const initialDate = archive[0] ?? null;
-  const generatedAt = (initialDate && bundles[initialDate]?.generatedAt) || idx.updatedAt;
+  const idx = await getIndex();
+  const initialDate = idx.dates[0] ?? null;
 
   if (!initialDate) {
     return (
@@ -15,10 +14,17 @@ export default async function HomePage() {
     );
   }
 
+  const [bundles, recap] = await Promise.all([
+    getClientWindow(initialDate, DAY_WINDOW_DAYS),
+    buildRecap(initialDate),
+  ]);
+  const generatedAt = bundles[initialDate]?.generatedAt || idx.updatedAt;
+
   return (
     <AppRoot
-      archive={archive}
+      archive={Object.keys(bundles).sort().reverse()}
       bundles={bundles}
+      recap={recap}
       initialDate={initialDate}
       generatedAt={generatedAt}
     />

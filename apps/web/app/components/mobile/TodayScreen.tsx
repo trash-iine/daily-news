@@ -16,8 +16,6 @@ export function TodayScreen({
   setCurrentDate,
   bundle,
   bundles,
-  saved,
-  toggleSave,
   nowMs,
 }: {
   archive: string[];
@@ -25,8 +23,6 @@ export function TodayScreen({
   setCurrentDate: (d: string) => void;
   bundle: DailyBundle | null;
   bundles: Record<string, DailyBundle>;
-  saved: Set<string>;
-  toggleSave: (id: string) => void;
   nowMs: number;
 }) {
   const [tab, setTab] = useState<TodayTab>("all");
@@ -163,8 +159,6 @@ export function TodayScreen({
         expanded={expanded}
         setExpanded={setExpanded}
         highlighted={highlighted}
-        saved={saved}
-        toggleSave={toggleSave}
         nowMs={nowMs}
         onJump={jumpTo}
       />

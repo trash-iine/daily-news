@@ -1,5 +1,4 @@
 "use client";
-import type { MouseEvent } from "react";
 import type { BaseItem } from "@daily-news/shared";
 import { TRENDING_TAG } from "@daily-news/shared";
 import { BIG_COLOR, itemBigTags } from "../shared/lib/bigTags";
@@ -20,16 +19,12 @@ export function ListCard({
   item,
   selected,
   onSelect,
-  saved,
-  onSave,
   nowMs,
   scoreScale,
 }: {
   item: BaseItem;
   selected: boolean;
   onSelect: () => void;
-  saved: boolean;
-  onSave: () => void;
   nowMs: number;
   scoreScale: number;
 }) {
@@ -163,13 +158,6 @@ export function ListCard({
       </div>
       <div style={{ display: "grid", gap: 6, justifyItems: "end" }}>
         <Thumb item={item} size={64} />
-        <SaveIconButton
-          saved={saved}
-          onSave={(e) => {
-            e.stopPropagation();
-            onSave();
-          }}
-        />
       </div>
       {!isPaper && (
         <ScoreBar
@@ -180,39 +168,5 @@ export function ListCard({
         />
       )}
     </div>
-  );
-}
-
-function SaveIconButton({
-  saved,
-  onSave,
-}: {
-  saved: boolean;
-  onSave: (e: MouseEvent) => void;
-}) {
-  const c = "oklch(0.7 0.16 80)";
-  return (
-    <button
-      onClick={onSave}
-      aria-pressed={saved}
-      aria-label={saved ? "保存済み" : "保存"}
-      title={saved ? "保存済み" : "保存"}
-      style={{
-        width: 64,
-        height: 24,
-        padding: 0,
-        borderRadius: 6,
-        background: saved ? c : "var(--bg-elev)",
-        border: `0.5px solid ${saved ? c : "var(--border)"}`,
-        color: saved ? "white" : "var(--fg-faint)",
-        fontFamily: "var(--font-mono)",
-        fontSize: 12,
-        fontWeight: 700,
-        lineHeight: 1,
-        cursor: "pointer",
-      }}
-    >
-      ★
-    </button>
   );
 }
