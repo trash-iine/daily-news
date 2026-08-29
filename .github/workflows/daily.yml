@@ -2,8 +2,10 @@ name: daily-news
 
 on:
   schedule:
-    # 22:00 UTC = 07:00 JST
-    - cron: "0 22 * * *"
+    # 21:43 UTC = 06:43 JST
+    # schedule はベストエフォートで高負荷時に遅延するため、cron が集中する
+    # 毎時 00/15/30/45 分を避けて半端な分に置いている。
+    - cron: "43 21 * * *"
   workflow_dispatch:
 
 permissions:
