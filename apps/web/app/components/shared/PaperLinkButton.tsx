@@ -8,11 +8,9 @@ import { ExternalLink } from "./ExternalLink";
 export function PaperLinkButton({
   href,
   variant,
-  label,
 }: {
   href: string;
   variant: "abs" | "pdf";
-  label: string;
 }) {
   const isPdf = variant === "pdf";
   const base = isPdf ? "oklch(0.55 0.18 25)" : "oklch(0.58 0.13 50)";
@@ -34,7 +32,7 @@ export function PaperLinkButton({
         letterSpacing: "0.02em",
       }}
     >
-      {label}
+      {isPdf ? "PDF" : "abs"}
     </ExternalLink>
   );
 }

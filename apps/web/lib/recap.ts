@@ -1,10 +1,12 @@
 import { cache } from "react";
 import type { BaseItem, BigTagGroup } from "@daily-news/shared";
-import { getWindow } from "./data";
+import { getWindow, memoByKey } from "./data";
 import { BIG_TAGS, itemBigTags } from "@/app/components/shared/lib/bigTags";
+import { bundleCounts } from "@/app/components/shared/lib/bundle";
 import {
   bigTagCountsByDate,
   dateRange,
+  RECAP_PERIODS,
   type RecapPeriod,
   risingTags,
   tagCountsByDate,
@@ -12,8 +14,6 @@ import {
   trendScore,
   worldTrendTags,
 } from "@/app/components/shared/lib/trend";
-
-export const RECAP_PERIODS: RecapPeriod[] = [7, 14, 30];
 
 /** Recap の窓幅。period 30 の prevDates が 30 日前まで遡るので 30 × 2。 */
 const RECAP_WINDOW_DAYS = 60;
@@ -88,9 +88,9 @@ const toRecapItem = (it: BaseItem): RecapItem => ({
  * 実際に描画されるのはタグ行 10 件と代表記事 20 件程度なので、集計結果だけを送る。
  * `trend.ts` / `bigTags.ts` は "use client" を持たない純関数なのでサーバから直接呼べる。
  *
- * 基準日は archive[0] (最新日) 固定 = 全ページで同一なので `cache()` が効く。
+ * 基準日は archive[0] (最新日) 固定 = 全ページで同一なので、`memoByKey` でビルド中 1 回だけ集計する。
  */
-export const buildRecap = cache(async (latestDate: string): Promise<RecapPayload> => {
+export const buildRecap = cache(memoByKey(async (latestDate: string): Promise<RecapPayload> => {
   const bundles = await getWindow(latestDate, RECAP_WINDOW_DAYS);
   const out = {} as RecapPayload;
 
@@ -126,30 +126,27 @@ export const buildRecap = cache(async (latestDate: string): Promise<RecapPayload
       return b.count - a.count || a.tag.localeCompare(b.tag);
     });
 
+    const counts = bundleCounts(allItems);
     const bigCounts = bigTagCountsByDate(bundles, dates);
-    const groups: RecapGroup[] = BIG_TAGS.map((t) => {
-      const items = allItems.filter((it) => itemBigTags(it).includes(t.id));
-      const sortable = items.filter((it) => it.kind !== "paper");
-      const top = [...sortable]
-        .sort((a, b) => trendScore(b) - trendScore(a))
+    // 安定ソートなので、先に並べてから大タグで絞っても「絞ってから並べる」と同じ順になる。
+    const newsByTrend = allItems
+      .filter((it) => it.kind !== "paper")
+      .sort((a, b) => trendScore(b) - trendScore(a));
+    const groups: RecapGroup[] = BIG_TAGS.map((t) => ({
+      id: t.id,
+      n: counts[t.id],
+      counts: bigCounts[t.id],
+      top: newsByTrend
+        .filter((it) => itemBigTags(it).includes(t.id))
         .slice(0, 3)
-        .map(toRecapItem);
-      return { id: t.id, n: items.length, counts: bigCounts[t.id], top };
-    });
-
-    const best = [...allItems.filter((it) => it.kind !== "paper")]
-      .sort((a, b) => trendScore(b) - trendScore(a))
-      .slice(0, 5)
-      .map(toRecapItem);
+        .map(toRecapItem),
+    }));
+    const best = newsByTrend.slice(0, 5).map(toRecapItem);
 
     out[period] = {
       firstDate: dates[0] ?? latestDate,
       lastDate: dates[dates.length - 1] ?? latestDate,
-      totals: {
-        items: allItems.length,
-        papers: allItems.filter((i) => i.kind === "paper").length,
-        news: allItems.filter((i) => i.kind === "news").length,
-      },
+      totals: { items: counts.all, papers: counts.paper, news: counts.news },
       tagRows: tagRows.slice(0, 10),
       groups,
       best,
@@ -157,4 +154,4 @@ export const buildRecap = cache(async (latestDate: string): Promise<RecapPayload
   }
 
   return out;
-});
+}));

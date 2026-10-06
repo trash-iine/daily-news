@@ -3,6 +3,8 @@
  * 表示コンポーネント (WeekStrip / WeekRail) は各レイヤー側に置く。
  */
 
+import { isoDate } from "./trend";
+
 export type TodayTab = "all" | "paper" | "news";
 
 export interface WeekSlot {
@@ -27,10 +29,7 @@ export function buildWeekSlots(archive: string[]): WeekSlot[] {
   for (let i = 0; i < 7; i++) {
     const d = new Date(base);
     d.setUTCDate(d.getUTCDate() - i);
-    const yyyy = d.getUTCFullYear();
-    const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
-    const dd = String(d.getUTCDate()).padStart(2, "0");
-    const iso = `${yyyy}-${mm}-${dd}`;
+    const iso = isoDate(d);
     const dayIdx = d.getUTCDay(); // 0=Sun..6=Sat
     const slotIdx = dayIdx === 0 ? 6 : dayIdx - 1; // Mon=0..Sun=6
     slots[slotIdx] = { iso, date: d.getUTCDate(), inArchive: archiveSet.has(iso) };

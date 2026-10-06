@@ -12,7 +12,7 @@ import {
 import { flushSync } from "react-dom";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { DayPanel } from "./DayPanel";
-import { buildWeekSlots, ringNeighbor, type TodayTab, type WeekSlot } from "../shared/lib/today";
+import { buildWeekSlots, ringNeighbor, type TodayTab } from "../shared/lib/today";
 
 const SWIPE_AXIS_DECIDE_PX = 6;
 const SWIPE_COMMIT_RATIO = 0.28;
@@ -55,8 +55,8 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
   } = props;
 
   const slots = useMemo(() => buildWeekSlots(archive), [archive]);
-  const earlierDate = useMemo(() => ringNeighbor(slots, currentDate, -1), [slots, currentDate]);
-  const laterDate = useMemo(() => ringNeighbor(slots, currentDate, 1), [slots, currentDate]);
+  const earlierDate = ringNeighbor(slots, currentDate, -1);
+  const laterDate = ringNeighbor(slots, currentDate, 1);
   const earlierBundle = earlierDate ? bundles[earlierDate] ?? null : null;
   const laterBundle = laterDate ? bundles[laterDate] ?? null : null;
 
@@ -139,16 +139,14 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
     axisRef.current = "undecided";
     const width = widthRef.current || 1;
     const threshold = Math.max(SWIPE_COMMIT_MIN_PX, width * SWIPE_COMMIT_RATIO);
+    setTransition(true);
     if (dragPx <= -threshold && laterDate) {
       // 右→左スワイプ完走 → 次の曜日 (Mon-Sun リング上の次スロット)
-      setTransition(true);
       setDragPx(-width);
     } else if (dragPx >= threshold && earlierDate) {
       // 左→右スワイプ完走 → 前の曜日 (Mon-Sun リング上の前スロット)
-      setTransition(true);
       setDragPx(width);
     } else {
-      setTransition(true);
       setDragPx(0);
     }
   }, [dragPx, laterDate, earlierDate]);

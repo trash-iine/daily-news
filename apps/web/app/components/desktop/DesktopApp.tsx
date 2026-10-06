@@ -4,8 +4,7 @@ import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
 import type { RecapPayload } from "@/lib/recap";
 import type { TabId } from "../shared/lib/nav";
 import { buildWeekSlots, ringNeighbor, type TodayTab } from "../shared/lib/today";
-import { itemBigTags } from "../shared/lib/bigTags";
-import { bundleCounts, newsScoreScale } from "../shared/lib/bundle";
+import { bundleCounts, filterDayItems, newsScoreScale } from "../shared/lib/bundle";
 import { RecapScreen } from "../shared/RecapScreen";
 import { Sidebar } from "./Sidebar";
 import { DayList } from "./DayList";
@@ -38,7 +37,7 @@ export function DesktopApp({
   archive: string[];
   bundles: Record<string, DailyBundle>;
   recap: RecapPayload;
-  currentDate: string | null;
+  currentDate: string;
   setCurrentDate: (d: string) => void;
   tab: TabId;
   setTab: (t: TabId) => void;
@@ -48,21 +47,16 @@ export function DesktopApp({
   const [bigFilter, setBigFilter] = useState<BigTagGroup | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const bundle = currentDate ? bundles[currentDate] ?? null : null;
+  const bundle = bundles[currentDate] ?? null;
 
   const counts = useMemo(() => bundleCounts(bundle?.items ?? []), [bundle]);
   /** 評価バーの分母。フィルタ結果ではなく日次全体から取り、タブ切り替えでバー長が動かないようにする。 */
   const scoreScale = useMemo(() => newsScoreScale(bundle?.items ?? []), [bundle]);
 
-  const items = useMemo(() => {
-    if (!bundle) return [];
-    return bundle.items.filter((it) => {
-      if (todayTab === "paper" && it.kind !== "paper") return false;
-      if (todayTab === "news" && it.kind !== "news") return false;
-      if (bigFilter && !itemBigTags(it).includes(bigFilter)) return false;
-      return true;
-    });
-  }, [bundle, todayTab, bigFilter]);
+  const items = useMemo(
+    () => filterDayItems(bundle?.items ?? [], todayTab, bigFilter),
+    [bundle, todayTab, bigFilter],
+  );
 
   /**
    * 日付・タブ・フィルタが変わって選択が消えたら先頭に寄せ、右ペインが空白にならないようにする。
@@ -85,18 +79,15 @@ export function DesktopApp({
    */
   const stepDate = useCallback(
     (dir: -1 | 1) => {
-      if (!currentDate) return;
       const next = ringNeighbor(slots, currentDate, dir);
       if (next) setCurrentDate(next);
     },
     [slots, currentDate, setCurrentDate],
   );
 
-  const select = useCallback((id: string) => setSelectedId(id), []);
-
   /** 続いている話題カード → 該当タブへ移動し、対象を選択してリストをそこまで送る。 */
   const jumpTo = useCallback((id: string, kind: BaseItem["kind"]) => {
-    setTodayTab(kind === "paper" ? "paper" : "news");
+    setTodayTab(kind);
     setBigFilter(null);
     setSelectedId(id);
     requestAnimationFrame(() => revealItem(id, "smooth"));
@@ -184,7 +175,7 @@ export function DesktopApp({
               counts={counts}
               items={items}
               selectedId={selected?.id ?? null}
-              onSelect={select}
+              onSelect={setSelectedId}
               nowMs={nowMs}
               scoreScale={scoreScale}
               onJump={jumpTo}
