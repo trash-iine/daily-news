@@ -1,14 +1,12 @@
 "use client";
 import type { BaseItem } from "@daily-news/shared";
 import { TRENDING_TAG } from "@daily-news/shared";
-import { BIG_COLOR, itemBigTags } from "../shared/lib/bigTags";
-import { FAM_COLOR, sourceFamily, sourceLabel } from "../shared/lib/sources";
+import { BIG_TAG_DEF, itemBigTags } from "../shared/lib/bigTags";
 import { displayAuthors, fmtRel, hostFromUrl, pdfUrlOf } from "../shared/lib/format";
-import { BigTagPill, Tag, Thumb } from "../shared/badges";
-import { ExternalLink } from "../shared/ExternalLink";
+import { Tag, Thumb } from "../shared/badges";
+import { ItemMetaRow } from "../shared/ItemMetaRow";
+import { OpenOriginalButton, SummaryBox } from "../shared/ItemDetail";
 import { PaperLinkButton } from "../shared/PaperLinkButton";
-import { PaperSummaryStruct } from "../shared/PaperSummaryStruct";
-import { SummaryMarkdown } from "../shared/SummaryMarkdown";
 import { ScoreBreakdown, hasBreakdown } from "../shared/ScoreBreakdown";
 
 /**
@@ -47,11 +45,9 @@ export function DetailPane({
     );
   }
 
-  const fam = sourceFamily(item.source);
   const big = itemBigTags(item)[0];
-  const bigColor = big ? BIG_COLOR[big] : "var(--border)";
+  const bigColor = big ? BIG_TAG_DEF[big].color : "var(--border)";
   const isPaper = item.kind === "paper";
-  const isTrending = item.tags.includes(TRENDING_TAG);
   const pdf = pdfUrlOf(item);
   const authors = displayAuthors(item, 8);
 
@@ -59,49 +55,7 @@ export function DetailPane({
     <div style={{ padding: "20px 24px 32px", minWidth: 0 }}>
       <div style={{ display: "flex", gap: 14, alignItems: "flex-start", marginBottom: 14 }}>
         <div style={{ minWidth: 0, flex: 1 }}>
-          <div
-            style={{
-              display: "flex",
-              gap: 6,
-              alignItems: "center",
-              flexWrap: "wrap",
-              marginBottom: 8,
-              fontFamily: "var(--font-mono)",
-              fontSize: 10.5,
-              color: "var(--fg-faint)",
-            }}
-          >
-            {big && <BigTagPill id={big} />}
-            <span
-              style={{
-                padding: "2px 7px",
-                borderRadius: 3,
-                fontWeight: 700,
-                background: isPaper
-                  ? "color-mix(in oklch, oklch(0.58 0.13 50) 14%, transparent)"
-                  : "color-mix(in oklch, oklch(0.55 0.13 240) 14%, transparent)",
-                color: isPaper ? "oklch(0.5 0.13 50)" : "oklch(0.5 0.13 240)",
-              }}
-            >
-              {isPaper ? "論文" : "NEWS"}
-            </span>
-            {isTrending && (
-              <span
-                style={{
-                  padding: "2px 7px",
-                  borderRadius: 3,
-                  fontWeight: 700,
-                  background: "color-mix(in oklch, oklch(0.65 0.17 35) 16%, transparent)",
-                  color: "oklch(0.52 0.17 35)",
-                }}
-              >
-                話題
-              </span>
-            )}
-            <span style={{ color: FAM_COLOR[fam], fontWeight: 500 }}>
-              {sourceLabel(item.source)}
-            </span>
-          </div>
+          <ItemMetaRow item={item} big={big} detail />
           <h2
             style={{
               fontFamily: "var(--font-serif)",
@@ -151,44 +105,13 @@ export function DetailPane({
             </span>
           )}
           <span style={{ marginLeft: "auto", display: "inline-flex", gap: 6 }}>
-            <PaperLinkButton href={item.url} variant="abs" label="abs" />
-            {pdf && <PaperLinkButton href={pdf} variant="pdf" label="PDF" />}
+            <PaperLinkButton href={item.url} variant="abs" />
+            {pdf && <PaperLinkButton href={pdf} variant="pdf" />}
           </span>
         </div>
       )}
 
-      {item.summary && (
-        <div
-          style={{
-            padding: 16,
-            marginBottom: 12,
-            borderRadius: 10,
-            background: isPaper
-              ? "color-mix(in oklch, oklch(0.58 0.13 50) 6%, var(--bg-elev))"
-              : "var(--bg-elev)",
-            border: "0.5px solid var(--border)",
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 9.5,
-              letterSpacing: "0.12em",
-              color: "var(--fg-faint)",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              marginBottom: 8,
-            }}
-          >
-            {isPaper ? "✦ AI 要約" : "概要"}
-          </div>
-          {isPaper && item.summaryStruct ? (
-            <PaperSummaryStruct s={item.summaryStruct} />
-          ) : (
-            <SummaryMarkdown source={item.summary} />
-          )}
-        </div>
-      )}
+      <SummaryBox item={item} padding={16} />
 
       {hasBreakdown(item) && <ScoreBreakdown item={item} />}
 
@@ -202,23 +125,7 @@ export function DetailPane({
         </div>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 8 }}>
-        <ExternalLink
-          href={item.url}
-          style={{
-            padding: "11px 14px",
-            background: "var(--fg)",
-            color: "var(--bg)",
-            borderRadius: 10,
-            textAlign: "center",
-            fontSize: 13,
-            fontWeight: 600,
-            textDecoration: "none",
-          }}
-        >
-          ↗ 元記事を開く
-        </ExternalLink>
-      </div>
+      <OpenOriginalButton href={item.url} />
       <div
         aria-hidden
         style={{

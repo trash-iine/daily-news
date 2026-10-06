@@ -24,14 +24,12 @@ export function MobileApp({
   archive: string[];
   bundles: Record<string, DailyBundle>;
   recap: RecapPayload;
-  currentDate: string | null;
+  currentDate: string;
   setCurrentDate: (d: string) => void;
   tab: TabId;
   setTab: (t: TabId) => void;
   nowMs: number;
 }) {
-  const bundle = currentDate ? bundles[currentDate] ?? null : null;
-
   return (
     <div className="shell">
       <main className="shell-main">
@@ -40,7 +38,6 @@ export function MobileApp({
             archive={archive}
             currentDate={currentDate}
             setCurrentDate={setCurrentDate}
-            bundle={bundle}
             bundles={bundles}
             nowMs={nowMs}
           />

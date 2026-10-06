@@ -4,7 +4,8 @@ import type { BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { NAV_ITEMS, type TabId } from "../shared/lib/nav";
 import { WEEKDAY_MON_SUN, buildWeekSlots } from "../shared/lib/today";
 import { BIG_TAGS } from "../shared/lib/bigTags";
-import { weekdayJa } from "../shared/lib/format";
+import { fmtDateHeader } from "../shared/lib/format";
+import type { BundleCounts } from "../shared/lib/bundle";
 
 /**
  * デスクトップ左カラム。ブランド + 縦ナビ + 週カレンダー + 大タグフィルタ。
@@ -22,19 +23,15 @@ export function Sidebar({
   setBigFilter,
 }: {
   archive: string[];
-  currentDate: string | null;
+  currentDate: string;
   setCurrentDate: (d: string) => void;
   tab: TabId;
   setTab: (t: TabId) => void;
   bundle: DailyBundle | null;
-  counts: Record<string, number>;
+  counts: BundleCounts;
   bigFilter: BigTagGroup | null;
   setBigFilter: (g: BigTagGroup | null) => void;
 }) {
-  const date = bundle ? new Date(bundle.date) : null;
-  const paperCount = counts.paper ?? 0;
-  const total = counts.all ?? 0;
-
   return (
     <div style={{ padding: "20px 16px 24px", display: "flex", flexDirection: "column", gap: 20 }}>
       <div>
@@ -47,11 +44,7 @@ export function Sidebar({
             textTransform: "uppercase",
           }}
         >
-          {date
-            ? `${date.getFullYear()} · ${String(date.getMonth() + 1).padStart(2, "0")}/${String(
-                date.getDate(),
-              ).padStart(2, "0")} (${weekdayJa(date)})`
-            : "—"}
+          {bundle ? fmtDateHeader(new Date(bundle.date)) : "—"}
         </div>
         <h1
           style={{
@@ -75,7 +68,7 @@ export function Sidebar({
               fontFeatureSettings: '"tnum"',
             }}
           >
-            {total} items · {total - paperCount} N · {paperCount} P
+            {counts.all} items · {counts.news} N · {counts.paper} P
           </div>
         )}
       </div>
@@ -130,11 +123,11 @@ function WeekRail({
   onChange,
 }: {
   archive: string[];
-  currentDate: string | null;
+  currentDate: string;
   onChange: (d: string) => void;
 }) {
   const slots = buildWeekSlots(archive);
-  if (slots.length !== 7 || !currentDate) return null;
+  if (slots.length !== 7) return null;
   return (
     <div>
       <SectionLabel>Week</SectionLabel>
@@ -181,7 +174,7 @@ function BigTagRail({
 }: {
   value: BigTagGroup | null;
   onChange: (v: BigTagGroup | null) => void;
-  counts: Record<string, number>;
+  counts: BundleCounts;
 }) {
   return (
     <div>
@@ -206,12 +199,12 @@ function BigTagRail({
         >
           ALL
           <span style={{ marginLeft: "auto", fontSize: 10, opacity: 0.75, fontFeatureSettings: '"tnum"' }}>
-            {counts.all ?? 0}
+            {counts.all}
           </span>
         </button>
         {BIG_TAGS.map((t) => {
           const active = value === t.id;
-          const n = counts[t.id] || 0;
+          const n = counts[t.id];
           const dim = n === 0;
           const skin: CSSProperties = active
             ? { background: t.color, color: "white", border: `0.5px solid ${t.color}` }

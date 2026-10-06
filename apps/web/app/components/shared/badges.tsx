@@ -1,13 +1,12 @@
 "use client";
 import { useState, type CSSProperties } from "react";
 import type { BaseItem, BigTagGroup } from "@daily-news/shared";
-import { BIG_COLOR, BIG_TAGS, bigTagOf } from "./lib/bigTags";
+import { BIG_TAG_DEF, bigTagOf } from "./lib/bigTags";
 import { FAM_COLOR, FAM_GLYPH, sourceFamily } from "./lib/sources";
 import { SCORE_COLOR } from "./lib/scoreColors";
 
 export function BigTagPill({ id, sm }: { id: BigTagGroup; sm?: boolean }) {
-  const t = BIG_TAGS.find((x) => x.id === id);
-  if (!t) return null;
+  const t = BIG_TAG_DEF[id];
   return (
     <span
       style={{
@@ -196,7 +195,7 @@ export function InterestBadge({
 
 export function Tag({ t, sm }: { t: string; sm?: boolean }) {
   const big = bigTagOf(t);
-  const c = big ? BIG_COLOR[big] : "oklch(0.5 0.02 60)";
+  const c = big ? BIG_TAG_DEF[big].color : "oklch(0.5 0.02 60)";
   return (
     <span
       style={{

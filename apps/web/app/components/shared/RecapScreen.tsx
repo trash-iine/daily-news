@@ -1,10 +1,12 @@
 "use client";
 import { useState, type ReactNode } from "react";
 import type { RecapPayload, RecapTagRow } from "@/lib/recap";
-import { BIG_COLOR, BIG_TAG_DEF, itemBigTags } from "./lib/bigTags";
+import { BIG_TAG_DEF, itemBigTags } from "./lib/bigTags";
 import { sourceLabel } from "./lib/sources";
 import { fmtDateBadge } from "./lib/format";
-import { DELTA_DOWN, DELTA_UP, type RecapPeriod, trendScore } from "./lib/trend";
+import { DELTA_DOWN, DELTA_UP, RECAP_PERIODS, type RecapPeriod, trendScore } from "./lib/trend";
+import { SCORE_COLOR } from "./lib/scoreColors";
+import { NEUTRAL_SCORE_COLOR } from "./ScoreBar";
 import { BigTagPill, PopularityBadge } from "./badges";
 import { ExternalLink } from "./ExternalLink";
 
@@ -44,20 +46,19 @@ function PeriodToggle({
   value: RecapPeriod;
   onChange: (v: RecapPeriod) => void;
 }) {
-  const opts: RecapPeriod[] = [7, 14, 30];
   return (
     <div
       style={{
         margin: "0 18px 8px",
         display: "inline-grid",
-        gridTemplateColumns: `repeat(${opts.length}, 1fr)`,
+        gridTemplateColumns: `repeat(${RECAP_PERIODS.length}, 1fr)`,
         gap: 2,
         padding: 2,
         background: "var(--bg-sunken)",
         borderRadius: 8,
       }}
     >
-      {opts.map((o) => {
+      {RECAP_PERIODS.map((o) => {
         const active = o === value;
         return (
           <button
@@ -103,7 +104,7 @@ function TagsTable({ rows }: { rows: RecapTagRow[] }) {
   return (
     <div style={{ padding: "0 18px" }}>
       {rows.map((r) => {
-        const c = r.bigGroup ? BIG_COLOR[r.bigGroup] : "oklch(0.55 0.02 60)";
+        const c = r.bigGroup ? BIG_TAG_DEF[r.bigGroup].color : NEUTRAL_SCORE_COLOR;
         const w = (r.count / maxCount) * 100;
         let deltaNode: ReactNode = null;
         if (r.isNew) {
@@ -222,7 +223,7 @@ function TagsTable({ rows }: { rows: RecapTagRow[] }) {
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 10.5,
-                color: r.worldSum > 0 ? "oklch(0.62 0.18 15)" : "transparent",
+                color: r.worldSum > 0 ? SCORE_COLOR.popularity : "transparent",
                 fontWeight: 600,
                 fontFeatureSettings: '"tnum"',
                 textAlign: "right",
@@ -312,96 +313,99 @@ export function RecapScreen({ recap }: { recap: RecapPayload }) {
         <div style={{ padding: "0 16px" }}>
           {data.groups
             .filter((g) => g.n > 0)
-            .map((g) => (
-              <div
-                key={g.id}
-                style={{
-                  marginBottom: 10,
-                  padding: 14,
-                  borderRadius: 12,
-                  background: `color-mix(in oklch, ${BIG_TAG_DEF[g.id].color} 6%, var(--bg-sunken))`,
-                  borderLeft: `3px solid ${BIG_TAG_DEF[g.id].color}`,
-                }}
-              >
+            .map((g) => {
+              const def = BIG_TAG_DEF[g.id];
+              return (
                 <div
+                  key={g.id}
                   style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: 8,
+                    marginBottom: 10,
+                    padding: 14,
+                    borderRadius: 12,
+                    background: `color-mix(in oklch, ${def.color} 6%, var(--bg-sunken))`,
+                    borderLeft: `3px solid ${def.color}`,
                   }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <span
-                      style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 14,
-                        color: BIG_TAG_DEF[g.id].color,
-                        fontWeight: 700,
-                      }}
-                    >
-                      {BIG_TAG_DEF[g.id].emoji}
-                    </span>
-                    <span style={{ fontSize: 14, fontWeight: 600 }}>{BIG_TAG_DEF[g.id].label}</span>
-                    <span
-                      style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-faint)" }}
-                    >
-                      {g.n} 件
-                    </span>
-                  </div>
-                  <Spark values={g.counts} color={BIG_TAG_DEF[g.id].color} />
-                </div>
-                <div style={{ fontSize: 11.5, color: "var(--fg-muted)", lineHeight: 1.5, marginBottom: 8 }}>
-                  {BIG_TAG_DEF[g.id].desc}
-                </div>
-                {g.top.map((it, i) => (
-                  <ExternalLink
-                    key={it.id}
-                    href={it.url}
+                  <div
                     style={{
-                      display: "grid",
-                      gridTemplateColumns: "auto 1fr auto",
-                      gap: 8,
+                      display: "flex",
+                      justifyContent: "space-between",
                       alignItems: "center",
-                      padding: "8px 0",
-                      borderTop: "0.5px solid color-mix(in oklch, var(--border) 60%, transparent)",
-                      textDecoration: "none",
-                      color: "inherit",
+                      marginBottom: 8,
                     }}
                   >
-                    <span
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: 14,
+                          color: def.color,
+                          fontWeight: 700,
+                        }}
+                      >
+                        {def.emoji}
+                      </span>
+                      <span style={{ fontSize: 14, fontWeight: 600 }}>{def.label}</span>
+                      <span
+                        style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: "var(--fg-faint)" }}
+                      >
+                        {g.n} 件
+                      </span>
+                    </div>
+                    <Spark values={g.counts} color={def.color} />
+                  </div>
+                  <div style={{ fontSize: 11.5, color: "var(--fg-muted)", lineHeight: 1.5, marginBottom: 8 }}>
+                    {def.desc}
+                  </div>
+                  {g.top.map((it, i) => (
+                    <ExternalLink
+                      key={it.id}
+                      href={it.url}
                       style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 10,
-                        color: "var(--fg-faint)",
-                        width: 14,
-                        textAlign: "right",
+                        display: "grid",
+                        gridTemplateColumns: "auto 1fr auto",
+                        gap: 8,
+                        alignItems: "center",
+                        padding: "8px 0",
+                        borderTop: "0.5px solid color-mix(in oklch, var(--border) 60%, transparent)",
+                        textDecoration: "none",
+                        color: "inherit",
                       }}
                     >
-                      {i + 1}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: 12.5,
-                        fontWeight: 500,
-                        lineHeight: 1.4,
-                        display: "-webkit-box",
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden",
-                      }}
-                    >
-                      {it.title}
-                    </span>
-                    <PopularityBadge
-                      value={trendScore(it)}
-                      label={it.popularityLabel}
-                      sm
-                    />
-                  </ExternalLink>
-                ))}
-              </div>
-            ))}
+                      <span
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: 10,
+                          color: "var(--fg-faint)",
+                          width: 14,
+                          textAlign: "right",
+                        }}
+                      >
+                        {i + 1}
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 12.5,
+                          fontWeight: 500,
+                          lineHeight: 1.4,
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {it.title}
+                      </span>
+                      <PopularityBadge
+                        value={trendScore(it)}
+                        label={it.popularityLabel}
+                        sm
+                      />
+                    </ExternalLink>
+                  ))}
+                </div>
+              );
+            })}
         </div>
 
         <SectionLabel>

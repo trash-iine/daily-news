@@ -6,11 +6,12 @@ import type {
   DailyBundle,
 } from "@daily-news/shared";
 import { BIG_TAG_GROUP_ORDER } from "@daily-news/shared";
-import { BIG_COLOR } from "./lib/bigTags";
+import { BIG_TAG_DEF } from "./lib/bigTags";
 import { sourceLabel } from "./lib/sources";
 import { fmtDateBadge } from "./lib/format";
 import { dateRange, risingTags, type RisingTag } from "./lib/trend";
 import { Tag } from "./badges";
+import { NEUTRAL_SCORE_COLOR } from "./ScoreBar";
 
 /**
  * 続いている話題カード (改善案 ⑤)。
@@ -142,9 +143,7 @@ function SeriesRow({
   s: SeriesEntry;
   onJump: (id: string, kind: BaseItem["kind"]) => void;
 }) {
-  const color = s.bigGroup
-    ? BIG_COLOR[s.bigGroup]
-    : "oklch(0.55 0.02 60)";
+  const color = s.bigGroup ? BIG_TAG_DEF[s.bigGroup].color : NEUTRAL_SCORE_COLOR;
   return (
     <div
       style={{

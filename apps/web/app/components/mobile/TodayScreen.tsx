@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { weekdayJa } from "../shared/lib/format";
+import { fmtDateHeader } from "../shared/lib/format";
 import { bundleCounts } from "../shared/lib/bundle";
 import { WeekStrip } from "./atoms/today-controls";
 import { TodayTabs } from "../shared/TodayTabs";
@@ -14,14 +14,12 @@ export function TodayScreen({
   archive,
   currentDate,
   setCurrentDate,
-  bundle,
   bundles,
   nowMs,
 }: {
   archive: string[];
-  currentDate: string | null;
+  currentDate: string;
   setCurrentDate: (d: string) => void;
-  bundle: DailyBundle | null;
   bundles: Record<string, DailyBundle>;
   nowMs: number;
 }) {
@@ -32,6 +30,7 @@ export function TodayScreen({
   const carouselRef = useRef<DayCarouselHandle | null>(null);
   const highlightTimer = useRef<number | null>(null);
 
+  const bundle = bundles[currentDate] ?? null;
   const counts = useMemo(() => bundleCounts(bundle?.items ?? []), [bundle]);
 
   /**
@@ -40,7 +39,7 @@ export function TodayScreen({
    * 展開は論文だけの機能なので、news へ飛ぶときはスクロール + ハイライトのみ。
    */
   const jumpTo = useCallback((id: string, kind: BaseItem["kind"]) => {
-    setTab(kind === "paper" ? "paper" : "news");
+    setTab(kind);
     setBigFilter(null);
     setExpanded(kind === "paper" ? id : null);
     setHighlighted(id);
@@ -69,15 +68,11 @@ export function TodayScreen({
     };
   }, []);
 
-  if (!bundle || !currentDate) {
+  if (!bundle) {
     return (
       <div style={{ padding: 40, textAlign: "center", color: "var(--fg-faint)" }}>読み込み中…</div>
     );
   }
-
-  const date = new Date(bundle.date);
-  const wd = weekdayJa(date);
-  const paperCount = counts.paper ?? 0;
 
   return (
     <>
@@ -93,8 +88,7 @@ export function TodayScreen({
                 textTransform: "uppercase",
               }}
             >
-              {date.getFullYear()} · {String(date.getMonth() + 1).padStart(2, "0")}/
-              {String(date.getDate()).padStart(2, "0")} ({wd})
+              {fmtDateHeader(new Date(bundle.date))}
             </div>
             <h1
               style={{
@@ -117,9 +111,9 @@ export function TodayScreen({
               textAlign: "right",
             }}
           >
-            <div>{bundle.items.length} items</div>
+            <div>{counts.all} items</div>
             <div style={{ fontSize: 9, color: "var(--fg-faint)" }}>
-              {bundle.items.length - paperCount} N · {paperCount} P
+              {counts.news} N · {counts.paper} P
             </div>
           </div>
         </div>
@@ -131,7 +125,7 @@ export function TodayScreen({
           setTab(t);
           setExpanded(null);
         }}
-        counts={{ all: counts.all ?? 0, paper: counts.paper ?? 0, news: counts.news ?? 0 }}
+        counts={counts}
       />
 
       <WeekStrip

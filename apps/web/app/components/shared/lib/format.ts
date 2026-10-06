@@ -24,6 +24,10 @@ export const WEEKDAY_JA = ["日", "月", "火", "水", "木", "金", "土"] as c
 
 export const weekdayJa = (d: Date): string => WEEKDAY_JA[d.getDay()] ?? "";
 
+/** Today ヘッダーの `YYYY · MM/DD (曜)`。mobile (TodayScreen) / desktop (Sidebar) 共通。 */
+export const fmtDateHeader = (d: Date): string =>
+  `${d.getFullYear()} · ${String(d.getMonth() + 1).padStart(2, "0")}/${String(d.getDate()).padStart(2, "0")} (${weekdayJa(d)})`;
+
 export const fmtDateBadge = (iso: string): string => {
   const d = new Date(iso);
   return `${d.getMonth() + 1}/${d.getDate()} ${weekdayJa(d)}`;

@@ -1,11 +1,22 @@
 import type { BaseItem, BigTagGroup, DailyBundle, TrendingItem } from "@daily-news/shared";
-import { TRENDING_TAG } from "@daily-news/shared";
+import { BIG_TAG_GROUP_ORDER, TRENDING_TAG } from "@daily-news/shared";
 import { bigTagOf, itemBigTags } from "./bigTags";
 
 export type RecapPeriod = 7 | 14 | 30;
 
+/** Recap の期間トグル。サーバ集計 (lib/recap) と UI (RecapScreen) で共有する。 */
+export const RECAP_PERIODS: RecapPeriod[] = [7, 14, 30];
+
 export const DELTA_UP = "oklch(0.62 0.15 150)";
 export const DELTA_DOWN = "oklch(0.6 0.18 25)";
+
+/** UTC 基準の `YYYY-MM-DD`。 */
+export function isoDate(d: Date): string {
+  const yyyy = d.getUTCFullYear();
+  const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const dd = String(d.getUTCDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
+}
 
 export function dateRange(latestDate: string, period: number): string[] {
   const out: string[] = [];
@@ -14,10 +25,7 @@ export function dateRange(latestDate: string, period: number): string[] {
   for (let i = period - 1; i >= 0; i--) {
     const d = new Date(base);
     d.setUTCDate(d.getUTCDate() - i);
-    const yyyy = d.getUTCFullYear();
-    const mm = String(d.getUTCMonth() + 1).padStart(2, "0");
-    const dd = String(d.getUTCDate()).padStart(2, "0");
-    out.push(`${yyyy}-${mm}-${dd}`);
+    out.push(isoDate(d));
   }
   return out;
 }
@@ -51,13 +59,9 @@ export function bigTagCountsByDate(
   bundles: Record<string, DailyBundle>,
   dates: string[],
 ): Record<BigTagGroup, number[]> {
-  const out: Record<BigTagGroup, number[]> = {
-    language: new Array<number>(dates.length).fill(0),
-    ai: new Array<number>(dates.length).fill(0),
-    algorithm: new Array<number>(dates.length).fill(0),
-    hobby: new Array<number>(dates.length).fill(0),
-    game: new Array<number>(dates.length).fill(0),
-  };
+  const out = Object.fromEntries(
+    BIG_TAG_GROUP_ORDER.map((g) => [g, new Array<number>(dates.length).fill(0)]),
+  ) as Record<BigTagGroup, number[]>;
   for (let i = 0; i < dates.length; i++) {
     const d = dates[i];
     if (!d) continue;
@@ -73,7 +77,6 @@ export function bigTagCountsByDate(
 export interface RisingTag {
   tag: string;
   recent: number;
-  prior: number;
   ratio: number;
   series: number[];
   bigGroup: BigTagGroup | null;
@@ -99,7 +102,7 @@ export function risingTags(
     if (recent < minRecent) continue;
     if (recent <= prior) continue;
     const ratio = (recent + 1) / (prior + 1);
-    result.push({ tag, recent, prior, ratio, series, bigGroup: bigTagOf(tag) });
+    result.push({ tag, recent, ratio, series, bigGroup: bigTagOf(tag) });
   }
   result.sort((a, b) => b.ratio - a.ratio || b.recent - a.recent);
   return result.slice(0, topN);
@@ -108,7 +111,6 @@ export function risingTags(
 export interface TagFreqEntry {
   tag: string;
   count: number;
-  prevCount: number;
   delta: number;
   isNew: boolean;
   bigGroup: BigTagGroup | null;
@@ -140,7 +142,6 @@ export function tagFrequency(
     entries.push({
       tag,
       count,
-      prevCount,
       delta: count - prevCount,
       isNew: prevCount === 0 && count > 0,
       bigGroup: bigTagOf(tag),
@@ -190,8 +191,6 @@ export interface TrendTagEntry {
   trendSum: number;
   /** 該当 item 件数 */
   count: number;
-  /** 1 item あたりの平均トレンド指標 */
-  avg: number;
   bigGroup: BigTagGroup | null;
 }
 
@@ -225,7 +224,6 @@ export function worldTrendTags(
       tag,
       trendSum: sum,
       count: n,
-      avg: n > 0 ? sum / n : 0,
       bigGroup: bigTagOf(tag),
     });
   }

@@ -1,9 +1,10 @@
 "use client";
-import { useMemo } from "react";
 import type { BaseItem, DailyBundle } from "@daily-news/shared";
 import type { TodayTab } from "../shared/lib/today";
+import type { BundleCounts } from "../shared/lib/bundle";
 import { TodayTabs } from "../shared/TodayTabs";
 import { SeriesCard } from "../shared/SeriesCard";
+import { KindSections } from "../shared/KindSections";
 import { ListCard } from "./ListCard";
 
 /**
@@ -27,7 +28,7 @@ export function DayList({
   bundles: Record<string, DailyBundle>;
   tab: TodayTab;
   setTab: (t: TodayTab) => void;
-  counts: Record<string, number>;
+  counts: BundleCounts;
   /** DesktopApp 側でタブ + 大タグフィルタを適用済みの items。 */
   items: BaseItem[];
   selectedId: string | null;
@@ -36,31 +37,12 @@ export function DayList({
   scoreScale: number;
   onJump: (id: string, kind: BaseItem["kind"]) => void;
 }) {
-  const groups = useMemo(() => {
-    if (tab !== "all") {
-      return [
-        {
-          key: tab,
-          label: tab === "paper" ? "論文" : "ニュース",
-          sub: `${items.length} 件`,
-          items,
-        },
-      ];
-    }
-    const papers = items.filter((i) => i.kind === "paper");
-    const news = items.filter((i) => i.kind === "news");
-    return [
-      papers.length && { key: "papers", label: "論文", sub: `${papers.length} 本`, items: papers },
-      news.length && { key: "news", label: "ニュース", sub: `${news.length} 件`, items: news },
-    ].filter(Boolean) as { key: string; label: string; sub: string; items: BaseItem[] }[];
-  }, [items, tab]);
-
   return (
     <>
       <TodayTabs
         tab={tab}
         onChange={setTab}
-        counts={{ all: counts.all ?? 0, paper: counts.paper ?? 0, news: counts.news ?? 0 }}
+        counts={counts}
         pad="0 16px"
       />
       <div className="desktop-scroll">
@@ -73,65 +55,21 @@ export function DayList({
           />
         )}
 
-        {groups.map((g) => (
-          <section key={g.key}>
-            {tab === "all" && (
-              <header
-                style={{
-                  padding: "16px 20px 8px",
-                  display: "flex",
-                  alignItems: "baseline",
-                  gap: 10,
-                  justifyContent: "space-between",
-                }}
-              >
-                <h2
-                  style={{
-                    fontFamily: "var(--font-serif)",
-                    fontSize: 18,
-                    fontWeight: 500,
-                    margin: 0,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {g.label}
-                </h2>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: 10.5,
-                    color: "var(--fg-faint)",
-                  }}
-                >
-                  {g.sub}
-                </span>
-              </header>
-            )}
-            {g.items.map((it) => (
-              <ListCard
-                key={it.id}
-                item={it}
-                selected={selectedId === it.id}
-                onSelect={() => onSelect(it.id)}
-                nowMs={nowMs}
-                scoreScale={scoreScale}
-              />
-            ))}
-          </section>
-        ))}
-
-        {items.length === 0 && (
-          <div
-            style={{
-              padding: "60px 20px",
-              textAlign: "center",
-              color: "var(--fg-faint)",
-              fontSize: 13,
-            }}
-          >
-            該当する記事はありません
-          </div>
-        )}
+        <KindSections
+          items={items}
+          tab={tab}
+          padX={20}
+          renderItem={(it) => (
+            <ListCard
+              key={it.id}
+              item={it}
+              selected={selectedId === it.id}
+              onSelect={onSelect}
+              nowMs={nowMs}
+              scoreScale={scoreScale}
+            />
+          )}
+        />
       </div>
     </>
   );

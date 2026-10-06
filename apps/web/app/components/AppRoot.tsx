@@ -31,11 +31,11 @@ export function AppRoot({
   archive: string[];
   bundles: Record<string, DailyBundle>;
   recap: RecapPayload;
-  initialDate: string | null;
+  initialDate: string;
   generatedAt: string;
 }) {
   const [tab, setTab] = useState<TabId>("today");
-  const [currentDate, setCurrentDate] = useState<string | null>(initialDate);
+  const [currentDate, setCurrentDate] = useState(initialDate);
 
   // SSR uses bundle.generatedAt; CSR overrides with real now after mount.
   const [nowMs, setNowMs] = useState<number>(() => new Date(generatedAt).getTime());

@@ -1,4 +1,4 @@
-import { BIG_TAG_GROUPS, type BaseItem, type BigTagGroup } from "@daily-news/shared";
+import { BIG_TAG_GROUPS, BIG_TAG_GROUP_ORDER, type BaseItem, type BigTagGroup } from "@daily-news/shared";
 
 export interface BigTagDef {
   id: BigTagGroup;
@@ -8,21 +8,16 @@ export interface BigTagDef {
   desc: string;
 }
 
-export const BIG_TAGS: BigTagDef[] = [
-  { id: "language",  label: "言語",         color: "oklch(0.58 0.15 230)", emoji: "</>", desc: "Rust / Python など言語・ランタイム" },
-  { id: "ai",        label: "AI",           color: "oklch(0.6 0.16 295)",  emoji: "✦",   desc: "LLM・Claude・MCP・エージェント" },
-  { id: "algorithm", label: "アルゴリズム", color: "oklch(0.6 0.14 75)",   emoji: "∑",   desc: "最適化・量子計算・理論" },
-  { id: "hobby",     label: "趣味",         color: "oklch(0.6 0.14 320)",  emoji: "♥",   desc: "キーボード・数学・コーヒー" },
-  { id: "game",      label: "ゲーム",       color: "oklch(0.6 0.15 160)",  emoji: "▦",   desc: "パズル・シンキーゲーム" },
-];
+/** 全 BigTagGroup を網羅しないとコンパイルが通らないよう Record で定義する。 */
+export const BIG_TAG_DEF: Record<BigTagGroup, BigTagDef> = {
+  language:  { id: "language",  label: "言語",         color: "oklch(0.58 0.15 230)", emoji: "</>", desc: "Rust / Python など言語・ランタイム" },
+  ai:        { id: "ai",        label: "AI",           color: "oklch(0.6 0.16 295)",  emoji: "✦",   desc: "LLM・Claude・MCP・エージェント" },
+  algorithm: { id: "algorithm", label: "アルゴリズム", color: "oklch(0.6 0.14 75)",   emoji: "∑",   desc: "最適化・量子計算・理論" },
+  hobby:     { id: "hobby",     label: "趣味",         color: "oklch(0.6 0.14 320)",  emoji: "♥",   desc: "キーボード・数学・コーヒー" },
+  game:      { id: "game",      label: "ゲーム",       color: "oklch(0.6 0.15 160)",  emoji: "▦",   desc: "パズル・シンキーゲーム" },
+};
 
-export const BIG_COLOR: Record<BigTagGroup, string> = Object.fromEntries(
-  BIG_TAGS.map((t) => [t.id, t.color]),
-) as Record<BigTagGroup, string>;
-
-export const BIG_TAG_DEF: Record<BigTagGroup, BigTagDef> = Object.fromEntries(
-  BIG_TAGS.map((t) => [t.id, t]),
-) as Record<BigTagGroup, BigTagDef>;
+export const BIG_TAGS: BigTagDef[] = BIG_TAG_GROUP_ORDER.map((id) => BIG_TAG_DEF[id]);
 
 export const bigTagOf = (t: string): BigTagGroup | null => BIG_TAG_GROUPS[t] ?? null;
 

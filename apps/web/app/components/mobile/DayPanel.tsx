@@ -1,18 +1,19 @@
 "use client";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, memo, useMemo } from "react";
 import type { BaseItem, BigTagGroup, DailyBundle } from "@daily-news/shared";
-import { itemBigTags } from "../shared/lib/bigTags";
-import { bundleCounts, newsScoreScale } from "../shared/lib/bundle";
+import { bundleCounts, filterDayItems, newsScoreScale } from "../shared/lib/bundle";
 import { ArticleCard } from "../shared/ArticleCard";
 import { BigTagFilter } from "./atoms/today-controls";
 import type { TodayTab } from "../shared/lib/today";
 import { SeriesCard } from "../shared/SeriesCard";
+import { KindSections } from "../shared/KindSections";
 
 /**
  * 1 日分のスクロール可能ビュー。DayCarousel から prev/current/next の 3 枚として描画される。
  * 共有 UI 状態 (tab, bigFilter, expanded, highlighted) は props で受け取り panel ローカルでは保持しない。
+ * スワイプ中は DayCarousel が touchmove ごとに再レンダーされるが、props は不変なので memo で 3 枚の再描画を省く。
  */
-export const DayPanel = forwardRef<HTMLDivElement, {
+export const DayPanel = memo(forwardRef<HTMLDivElement, {
   bundle: DailyBundle;
   bundles: Record<string, DailyBundle>;
   tab: TodayTab;
@@ -42,33 +43,10 @@ export const DayPanel = forwardRef<HTMLDivElement, {
   /** 評価バーの分母。フィルタ結果ではなく日次全体から取り、タブ切り替えでバー長が動かないようにする。 */
   const scoreScale = useMemo(() => newsScoreScale(bundle.items), [bundle]);
 
-  const filtered: BaseItem[] = useMemo(() => {
-    return bundle.items.filter((it) => {
-      if (tab === "paper" && it.kind !== "paper") return false;
-      if (tab === "news" && it.kind !== "news") return false;
-      if (bigFilter && !itemBigTags(it).includes(bigFilter)) return false;
-      return true;
-    });
-  }, [bundle, tab, bigFilter]);
-
-  const groups = useMemo(() => {
-    if (tab !== "all") {
-      return [
-        {
-          key: tab,
-          label: tab === "paper" ? "論文" : "ニュース",
-          sub: `${filtered.length} 件`,
-          items: filtered,
-        },
-      ];
-    }
-    const papers = filtered.filter((i) => i.kind === "paper");
-    const news = filtered.filter((i) => i.kind === "news");
-    return [
-      papers.length && { key: "papers", label: "論文", sub: `${papers.length} 本`, items: papers },
-      news.length && { key: "news", label: "ニュース", sub: `${news.length} 件`, items: news },
-    ].filter(Boolean) as { key: string; label: string; sub: string; items: BaseItem[] }[];
-  }, [filtered, tab]);
+  const filtered = useMemo(
+    () => filterDayItems(bundle.items, tab, bigFilter),
+    [bundle, tab, bigFilter],
+  );
 
   return (
     <div
@@ -93,62 +71,22 @@ export const DayPanel = forwardRef<HTMLDivElement, {
 
       <BigTagFilter value={bigFilter} onChange={setBigFilter} counts={counts} />
 
-      {groups.map((g) => (
-        <section key={g.key}>
-          {tab === "all" && (
-            <header
-              style={{
-                padding: "16px 18px 8px",
-                display: "flex",
-                alignItems: "baseline",
-                gap: 10,
-                justifyContent: "space-between",
-              }}
-            >
-              <h2
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: 18,
-                  fontWeight: 500,
-                  margin: 0,
-                  letterSpacing: "-0.01em",
-                }}
-              >
-                {g.label}
-              </h2>
-              <span
-                style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--fg-faint)" }}
-              >
-                {g.sub}
-              </span>
-            </header>
-          )}
-          {g.items.map((it) => (
-            <ArticleCard
-              key={it.id}
-              item={it}
-              expanded={expanded === it.id}
-              highlighted={highlighted === it.id}
-              onToggle={() => setExpanded(expanded === it.id ? null : it.id)}
-              nowMs={nowMs}
-              scoreScale={scoreScale}
-            />
-          ))}
-        </section>
-      ))}
-
-      {filtered.length === 0 && (
-        <div
-          style={{
-            padding: "60px 20px",
-            textAlign: "center",
-            color: "var(--fg-faint)",
-            fontSize: 13,
-          }}
-        >
-          該当する記事はありません
-        </div>
-      )}
+      <KindSections
+        items={filtered}
+        tab={tab}
+        padX={18}
+        renderItem={(it) => (
+          <ArticleCard
+            key={it.id}
+            item={it}
+            expanded={expanded === it.id}
+            highlighted={highlighted === it.id}
+            onToggle={() => setExpanded(expanded === it.id ? null : it.id)}
+            nowMs={nowMs}
+            scoreScale={scoreScale}
+          />
+        )}
+      />
     </div>
   );
-});
+}));

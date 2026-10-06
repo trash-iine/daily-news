@@ -1,11 +1,11 @@
 "use client";
+import { memo } from "react";
 import type { BaseItem } from "@daily-news/shared";
 import { TRENDING_TAG } from "@daily-news/shared";
-import { BIG_COLOR, itemBigTags } from "../shared/lib/bigTags";
-import { FAM_COLOR, sourceFamily, sourceLabel } from "../shared/lib/sources";
+import { BIG_TAG_DEF, itemBigTags } from "../shared/lib/bigTags";
 import { fmtRel, stripForPreview } from "../shared/lib/format";
-import { trendScore } from "../shared/lib/trend";
-import { BigTagPill, InterestBadge, PopularityBadge, Tag, Thumb } from "../shared/badges";
+import { Tag, Thumb } from "../shared/badges";
+import { ItemMetaRow } from "../shared/ItemMetaRow";
 import { NEUTRAL_SCORE_COLOR, ScoreBar } from "../shared/ScoreBar";
 
 /**
@@ -15,7 +15,7 @@ import { NEUTRAL_SCORE_COLOR, ScoreBar } from "../shared/ScoreBar";
  *
  * DOM id は mobile の ArticleCard (`item-*`) と衝突しないよう `d-item-*`。
  */
-export function ListCard({
+export const ListCard = memo(function ListCard({
   item,
   selected,
   onSelect,
@@ -24,14 +24,13 @@ export function ListCard({
 }: {
   item: BaseItem;
   selected: boolean;
-  onSelect: () => void;
+  /** 行ごとのクロージャを作らず memo を効かせるため、id を受け取る形にしている。 */
+  onSelect: (id: string) => void;
   nowMs: number;
   scoreScale: number;
 }) {
-  const fam = sourceFamily(item.source);
   const big = itemBigTags(item)[0];
-  const bigColor = big ? BIG_COLOR[big] : "var(--border)";
-  const isTrending = item.tags.includes(TRENDING_TAG);
+  const bigColor = big ? BIG_TAG_DEF[big].color : "var(--border)";
   const isPaper = item.kind === "paper";
   const preview = item.summaryStruct?.topic ?? (item.summary ? stripForPreview(item.summary) : "");
 
@@ -39,7 +38,7 @@ export function ListCard({
     <div
       id={`d-item-${item.id}`}
       aria-current={selected ? "true" : undefined}
-      onClick={onSelect}
+      onClick={() => onSelect(item.id)}
       className="dlist-row"
       data-selected={selected ? "true" : undefined}
       style={{
@@ -56,59 +55,7 @@ export function ListCard({
       }}
     >
       <div style={{ minWidth: 0 }}>
-        <div
-          style={{
-            display: "flex",
-            gap: 6,
-            alignItems: "center",
-            marginBottom: 6,
-            fontFamily: "var(--font-mono)",
-            fontSize: 10.5,
-            color: "var(--fg-faint)",
-            flexWrap: "wrap",
-          }}
-        >
-          {big && <BigTagPill id={big} sm />}
-          <span
-            style={{
-              padding: "1px 6px",
-              borderRadius: 3,
-              fontWeight: 700,
-              background: isPaper
-                ? "color-mix(in oklch, oklch(0.58 0.13 50) 14%, transparent)"
-                : "color-mix(in oklch, oklch(0.55 0.13 240) 14%, transparent)",
-              color: isPaper ? "oklch(0.5 0.13 50)" : "oklch(0.5 0.13 240)",
-            }}
-          >
-            {isPaper ? "論文" : "NEWS"}
-          </span>
-          {isTrending && (
-            <span
-              style={{
-                padding: "1px 6px",
-                borderRadius: 3,
-                fontWeight: 700,
-                background: "color-mix(in oklch, oklch(0.65 0.17 35) 16%, transparent)",
-                color: "oklch(0.52 0.17 35)",
-              }}
-            >
-              話題
-            </span>
-          )}
-          <span style={{ color: FAM_COLOR[fam], fontWeight: 500 }}>{sourceLabel(item.source)}</span>
-          <span style={{ marginLeft: "auto", display: "inline-flex", gap: 4, alignItems: "center" }}>
-            {item.popularity !== undefined && item.popularity > 0 && (
-              <PopularityBadge value={trendScore(item)} label={item.popularityLabel} sm />
-            )}
-            {item.keywordScore !== undefined && item.keywordScore > 0 && (
-              <InterestBadge value={item.keywordScore} matched={item.matchedKeywords} sm />
-            )}
-            {/* 旧データには内訳が無いため score のみ表示 */}
-            {item.popularity === undefined && item.keywordScore === undefined && (
-              <span>★{item.score}</span>
-            )}
-          </span>
-        </div>
+        <ItemMetaRow item={item} big={big} />
         <h3
           style={{
             fontFamily: "var(--font-serif)",
@@ -169,4 +116,4 @@ export function ListCard({
       )}
     </div>
   );
-}
+});

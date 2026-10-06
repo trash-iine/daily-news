@@ -10,7 +10,6 @@ export function ExternalLink({ onClick, href, children, ...rest }: Props) {
     if (e.button !== 0) return;
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     if (!href) return;
-    if (typeof window === "undefined") return;
     if (!window.matchMedia("(pointer: coarse)").matches) return;
     e.preventDefault();
     window.location.href = href;

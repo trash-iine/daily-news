@@ -1,8 +1,7 @@
 "use client";
 import type { BaseItem } from "@daily-news/shared";
 import { TRENDING_TAG } from "@daily-news/shared";
-import { BIG_COLOR, itemBigTags } from "./lib/bigTags";
-import { FAM_COLOR, sourceFamily, sourceLabel } from "./lib/sources";
+import { BIG_TAG_DEF, itemBigTags } from "./lib/bigTags";
 import {
   displayAuthors,
   fmtRel,
@@ -10,11 +9,10 @@ import {
   pdfUrlOf,
   stripForPreview,
 } from "./lib/format";
-import { trendScore } from "./lib/trend";
-import { BigTagPill, InterestBadge, PopularityBadge, Tag, Thumb } from "./badges";
+import { Tag, Thumb } from "./badges";
 import { ExternalLink } from "./ExternalLink";
-import { SummaryMarkdown } from "./SummaryMarkdown";
-import { PaperSummaryStruct } from "./PaperSummaryStruct";
+import { ItemMetaRow } from "./ItemMetaRow";
+import { OpenOriginalButton, SummaryBox } from "./ItemDetail";
 import { ScoreBreakdown, hasBreakdown } from "./ScoreBreakdown";
 import { NEUTRAL_SCORE_COLOR, ScoreBar } from "./ScoreBar";
 import { PaperLinkButton } from "./PaperLinkButton";
@@ -37,10 +35,8 @@ export function ArticleCard({
   /** ニュース評価バーの分母 (リスト内の最大 news score)。lib/bundle の newsScoreScale。 */
   scoreScale: number;
 }) {
-  const fam = sourceFamily(item.source);
   const big = itemBigTags(item)[0];
-  const isTrending = item.tags.includes(TRENDING_TAG);
-  const bigColor = big ? BIG_COLOR[big] : "var(--border)";
+  const bigColor = big ? BIG_TAG_DEF[big].color : "var(--border)";
   const isPaper = item.kind === "paper";
   /** 展開は論文だけの機能。ニュースはカードタップで直接元記事へ飛ぶ。 */
   const isOpen = isPaper && expanded;
@@ -50,66 +46,7 @@ export function ArticleCard({
   /** 論文はトグルボタン、ニュースは元記事へのリンクとして包む共通の本文。 */
   const body = (
     <div style={{ minWidth: 0 }}>
-      <div
-        style={{
-          display: "flex",
-          gap: 6,
-          alignItems: "center",
-          marginBottom: 6,
-          fontFamily: "var(--font-mono)",
-          fontSize: 10.5,
-          color: "var(--fg-faint)",
-          flexWrap: "wrap",
-        }}
-      >
-        {big && <BigTagPill id={big} sm />}
-        <span
-          style={{
-            padding: "1px 6px",
-            borderRadius: 3,
-            fontWeight: 700,
-            background: isPaper
-              ? "color-mix(in oklch, oklch(0.58 0.13 50) 14%, transparent)"
-              : "color-mix(in oklch, oklch(0.55 0.13 240) 14%, transparent)",
-            color: isPaper ? "oklch(0.5 0.13 50)" : "oklch(0.5 0.13 240)",
-          }}
-        >
-          {isPaper ? "論文" : "NEWS"}
-        </span>
-        {isTrending && (
-          <span
-            style={{
-              padding: "1px 6px",
-              borderRadius: 3,
-              fontWeight: 700,
-              background: "color-mix(in oklch, oklch(0.65 0.17 35) 16%, transparent)",
-              color: "oklch(0.52 0.17 35)",
-            }}
-          >
-            話題
-          </span>
-        )}
-        <span style={{ color: FAM_COLOR[fam], fontWeight: 500 }}>{sourceLabel(item.source)}</span>
-        <span
-          style={{
-            marginLeft: "auto",
-            display: "inline-flex",
-            gap: 4,
-            alignItems: "center",
-          }}
-        >
-          {item.popularity !== undefined && item.popularity > 0 && (
-            <PopularityBadge value={trendScore(item)} label={item.popularityLabel} sm />
-          )}
-          {item.keywordScore !== undefined && item.keywordScore > 0 && (
-            <InterestBadge value={item.keywordScore} matched={item.matchedKeywords} sm />
-          )}
-          {/* 旧データには内訳が無いため score のみ表示 */}
-          {item.popularity === undefined && item.keywordScore === undefined && (
-            <span>★{item.score}</span>
-          )}
-        </span>
-      </div>
+      <ItemMetaRow item={item} big={big} />
       <h3
         style={{
           fontFamily: "var(--font-serif)",
@@ -168,8 +105,8 @@ export function ArticleCard({
             </span>
           )}
           <span style={{ marginLeft: "auto", display: "inline-flex", gap: 4 }}>
-            <PaperLinkButton href={item.url} variant="abs" label="abs" />
-            {pdf && <PaperLinkButton href={pdf} variant="pdf" label="PDF" />}
+            <PaperLinkButton href={item.url} variant="abs" />
+            {pdf && <PaperLinkButton href={pdf} variant="pdf" />}
           </span>
         </div>
       )}
@@ -262,7 +199,7 @@ export function ArticleCard({
       )}
       {isOpen && (
         <div style={{ gridColumn: "1 / -1", marginTop: 14, paddingTop: 14, borderTop: "1px dashed var(--border)" }}>
-          {isPaper && (authors || pdf) && (
+          {(authors || pdf) && (
             <div
               style={{
                 display: "flex",
@@ -280,64 +217,17 @@ export function ArticleCard({
                 </span>
               )}
               <span style={{ marginLeft: "auto", display: "inline-flex", gap: 6 }}>
-                <PaperLinkButton href={item.url} variant="abs" label="abs" />
-                {pdf && <PaperLinkButton href={pdf} variant="pdf" label="PDF" />}
+                <PaperLinkButton href={item.url} variant="abs" />
+                {pdf && <PaperLinkButton href={pdf} variant="pdf" />}
               </span>
             </div>
           )}
-          {item.summary && (
-            <div
-              style={{
-                padding: 14,
-                marginBottom: 12,
-                borderRadius: 10,
-                background: isPaper
-                  ? "color-mix(in oklch, oklch(0.58 0.13 50) 6%, var(--bg-elev))"
-                  : "var(--bg-elev)",
-                border: "0.5px solid var(--border)",
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 9.5,
-                  letterSpacing: "0.12em",
-                  color: "var(--fg-faint)",
-                  textTransform: "uppercase",
-                  fontWeight: 600,
-                  marginBottom: 8,
-                }}
-              >
-                {isPaper ? "✦ AI 要約" : "概要"}
-              </div>
-              {isPaper && item.summaryStruct ? (
-                <PaperSummaryStruct s={item.summaryStruct} />
-              ) : (
-                <SummaryMarkdown source={item.summary} />
-              )}
-            </div>
-          )}
+          <SummaryBox item={item} padding={14} />
           {hasBreakdown(item) && <ScoreBreakdown item={item} />}
           <div style={{ fontFamily: "var(--font-mono)", fontSize: 10.5, color: "var(--fg-faint)", marginBottom: 12 }}>
             {hostFromUrl(item.url)}
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 8 }}>
-            <ExternalLink
-              href={item.url}
-              style={{
-                padding: "11px 14px",
-                background: "var(--fg)",
-                color: "var(--bg)",
-                borderRadius: 10,
-                textAlign: "center",
-                fontSize: 13,
-                fontWeight: 600,
-                textDecoration: "none",
-              }}
-            >
-              ↗ 元記事を開く
-            </ExternalLink>
-          </div>
+          <OpenOriginalButton href={item.url} />
         </div>
       )}
     </article>

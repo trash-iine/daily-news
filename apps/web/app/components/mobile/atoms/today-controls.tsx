@@ -2,6 +2,7 @@
 import type { CSSProperties } from "react";
 import type { BigTagGroup } from "@daily-news/shared";
 import { BIG_TAGS } from "../../shared/lib/bigTags";
+import type { BundleCounts } from "../../shared/lib/bundle";
 import { WEEKDAY_MON_SUN, buildWeekSlots } from "../../shared/lib/today";
 
 export function BigTagFilter({
@@ -11,7 +12,7 @@ export function BigTagFilter({
 }: {
   value: BigTagGroup | null;
   onChange: (v: BigTagGroup | null) => void;
-  counts: Record<string, number>;
+  counts: BundleCounts;
 }) {
   return (
     <div
@@ -48,7 +49,7 @@ export function BigTagFilter({
       </button>
       {BIG_TAGS.map((t) => {
         const active = value === t.id;
-        const n = counts[t.id] || 0;
+        const n = counts[t.id];
         const dim = n === 0;
         const bgStyle: CSSProperties = active
           ? { background: t.color, color: "white", border: `0.5px solid ${t.color}` }
@@ -97,10 +98,9 @@ export function WeekStrip({
   onChange,
 }: {
   archive: string[];
-  currentDate: string | null;
+  currentDate: string;
   onChange: (d: string) => void;
 }) {
-  if (!currentDate) return null;
   const slots = buildWeekSlots(archive);
   if (slots.length !== 7) return null;
   return (

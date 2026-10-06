@@ -33,19 +33,37 @@ export const getIndex = cache(async (): Promise<DailyIndex> => {
 });
 
 /**
- * 1 日分の bundle を読む。存在しない/壊れている場合は null。
+ * key ごとの結果をプロセス内で使い回す。
  *
- * `cache()` で包んでいるのは、1 ビルドで `/` と直近 N 日分の `/d/[date]` を生成する際に
- * 同じ日の JSON を何度も読み直さないため (Recap の 60 日窓は全ページで共通)。
+ * React `cache()` は 1 レンダー (= 静的生成の 1 ページ) 単位でしか効かないので、それだけだと
+ * `/` と直近 30 日分の `/d/[date]` がそれぞれ Recap の 60 日窓を読み直し・再集計する。
+ * ビルド中の data/ は不変なのでモジュールスコープで持つ。dev では data/ を差し替えて
+ * 確認できるよう素通しにする (リクエスト内の重複は外側の `cache()` が拾う)。
  */
-export const getBundle = cache(async (date: string): Promise<DailyBundle | null> => {
-  try {
-    const raw = await readFile(join(DATA_DIR, `${date}.json`), "utf-8");
-    return JSON.parse(raw) as DailyBundle;
-  } catch {
-    return null;
-  }
-});
+export function memoByKey<T>(fn: (key: string) => Promise<T>): (key: string) => Promise<T> {
+  if (process.env.NODE_ENV !== "production") return fn;
+  const memo = new Map<string, Promise<T>>();
+  return (key) => {
+    let p = memo.get(key);
+    if (!p) {
+      p = fn(key);
+      memo.set(key, p);
+    }
+    return p;
+  };
+}
+
+/** 1 日分の bundle を読む。存在しない/壊れている場合は null。 */
+export const getBundle = cache(
+  memoByKey(async (date: string): Promise<DailyBundle | null> => {
+    try {
+      const raw = await readFile(join(DATA_DIR, `${date}.json`), "utf-8");
+      return JSON.parse(raw) as DailyBundle;
+    } catch {
+      return null;
+    }
+  }),
+);
 
 /**
  * latestDate を末尾とする直近 days 日の bundle を読む (欠損日はスキップ)。

@@ -2,6 +2,7 @@
 import type { CSSProperties } from "react";
 import type { BaseItem } from "@daily-news/shared";
 import { SCORE_COLOR } from "./lib/scoreColors";
+import { hasBreakdown } from "./ScoreBreakdown";
 
 /** 大タグが付いていない item の評価バー色。RecapScreen / Tag と同じ中性色。 */
 export const NEUTRAL_SCORE_COLOR = "oklch(0.55 0.02 60)";
@@ -36,12 +37,8 @@ export function ScoreBar({
   ].filter((p) => p.value > 0);
   const sum = parts.reduce((a, p) => a + p.value, 0);
   const stacked = sum > 0;
-  const hasParts =
-    item.popularity !== undefined ||
-    item.keywordScore !== undefined ||
-    item.languageBonus !== undefined;
   // トレンド枠は score が時間減衰後なので内訳合計と食い違う。ScoreBreakdown と同じ書式で併記する。
-  const tip = hasParts
+  const tip = hasBreakdown(item)
     ? `トレンド ♡${item.popularity ?? 0} / 興味 ★${item.keywordScore ?? 0} / 言語 +${item.languageBonus ?? 0} → 合計 ${item.score}${
         sum !== item.score ? ` (内訳合計 ${sum})` : ""
       }`
