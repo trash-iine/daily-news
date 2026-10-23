@@ -27,6 +27,10 @@ export interface ArxivPaper {
    */
   announceType: AnnounceType;
   publishedAt: string;
+  /** 最新版の更新日時。comments 検索 (lastUpdatedDate 順) の打ち切り判定に使う。 */
+  updatedAt?: string;
+  /** arXiv comments 欄 ("To appear in FOCS 2026" 等)。無ければ undefined。 */
+  comment?: string;
 }
 
 const MAX_DISPLAY_AUTHORS = 3;
@@ -72,6 +76,7 @@ interface AtomEntry {
   link?: AtomLink | AtomLink[];
   author?: AtomAuthor | AtomAuthor[];
   "arxiv:primary_category"?: { "@_term"?: string };
+  "arxiv:comment"?: string | { "#text"?: string };
 }
 
 function asArray<T>(v: T | T[] | undefined): T[] {
@@ -164,6 +169,10 @@ export function parseArxivApiXml(xml: string, category: string): ArxivPaper[] {
       primaryCategory,
       category,
     );
+    const rawComment = e["arxiv:comment"];
+    const comment = cleanText(
+      typeof rawComment === "string" ? rawComment : String(rawComment?.["#text"] ?? ""),
+    );
 
     out.push({
       arxivId,
@@ -175,6 +184,8 @@ export function parseArxivApiXml(xml: string, category: string): ArxivPaper[] {
       source: `arxiv:${category}`,
       announceType,
       publishedAt: toISOorNow(e.published),
+      updatedAt: toISOorNow(e.updated ?? e.published),
+      ...(comment ? { comment } : {}),
     });
   }
   return out;
@@ -208,4 +219,74 @@ export async function fetchArxivCategory(
     const t = Date.parse(p.publishedAt);
     return Number.isFinite(t) && t >= cutoff;
   });
+}
+
+/** 混雑時に 429 / 503 を返すことがあるので、間隔を広げて数回だけやり直す (会議採択論文の取得用)。 */
+const ARXIV_RETRY_WAIT_MS = 15_000;
+const ARXIV_RETRIES = 2;
+
+async function fetchArxivXml(url: string): Promise<string> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await fetchText(url);
+    } catch (err) {
+      const busy = /-> (429|503)$/.test((err as Error).message);
+      if (!busy || attempt >= ARXIV_RETRIES) throw err;
+      await new Promise((r) => setTimeout(r, ARXIV_RETRY_WAIT_MS * (attempt + 1)));
+    }
+  }
+}
+
+/**
+ * arXiv ID をまとめて引く (id_list)。会議採択リストを照合して得た ID の
+ * abstract / 著者を取るのに使う。バージョン無し ID を渡すと最新版が返る。
+ */
+export async function fetchArxivByIds(ids: string[]): Promise<ArxivPaper[]> {
+  if (ids.length === 0) return [];
+  const url =
+    `https://export.arxiv.org/api/query?id_list=${ids.map(encodeURIComponent).join(",")}` +
+    `&max_results=${ids.length}`;
+  // category は announceType 判定にしか使わず、会議採択論文では announceType を見ないので空で渡す
+  return parseArxivApiXml(await fetchArxivXml(url), "");
+}
+
+/**
+ * comments 欄に `<venue> <year>` (または `<venue>-<yy>`) を含む論文を、更新日の新しい順に取る。
+ * 複数会議をまとめて OR で 1 クエリにする。`titleTerms` を渡すとタイトルにそのいずれかを
+ * 含むものに絞る (採択数の多い会議向け)。arXiv の co: 検索はトークン一致なので、隣接して出現するか・
+ * どの会議かの判定は呼び出し側 (venues/arxivComments.ts: matchVenueComment) で行う。
+ */
+export async function fetchArxivByComment(
+  venues: string[],
+  years: number[],
+  sinceMs: number,
+  titleTerms: string[] = [],
+): Promise<ArxivPaper[]> {
+  // "AAAI-26" は arXiv 側で "AAAI 26" と同じトークン列になるので、短縮年はフレーズ "V YY" で引ける
+  const venueQuery = venues
+    .flatMap((v) => years.flatMap((y) => [`co:"${v} ${y}"`, `co:"${v} ${String(y).slice(2)}"`]))
+    .join(" OR ");
+  const query =
+    titleTerms.length > 0
+      ? `(${venueQuery}) AND (${titleTerms.map((t) => `ti:"${t}"`).join(" OR ")})`
+      : venueQuery;
+  const url =
+    `https://export.arxiv.org/api/query?search_query=${encodeURIComponent(query)}` +
+    `&sortBy=lastUpdatedDate&sortOrder=descending&max_results=${ARXIV_API_MAX_RESULTS}`;
+  return parseArxivApiXml(await fetchArxivXml(url), "").filter((p) => {
+    const t = Date.parse(p.updatedAt ?? p.publishedAt);
+    return Number.isFinite(t) && t >= sinceMs;
+  });
+}
+
+/**
+ * タイトルの語で検索する (ti:w1 AND ti:w2 ...)。フレーズ検索 (ti:"...") は記号の扱いで
+ * 取りこぼすので語の AND にし、一致判定は呼び出し側 (venues/match.ts) で行う。
+ */
+export async function searchArxivByTitleWords(words: string[]): Promise<ArxivPaper[]> {
+  if (words.length === 0) return [];
+  const query = words.map((w) => `ti:${w}`).join(" AND ");
+  const url =
+    `https://export.arxiv.org/api/query?search_query=${encodeURIComponent(query)}&max_results=10`;
+  return parseArxivApiXml(await fetchArxivXml(url), "");
 }

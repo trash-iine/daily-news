@@ -49,6 +49,7 @@ export function ItemMetaRow({
       >
         {isPaper ? "論文" : "NEWS"}
       </span>
+      {item.venue && <VenuePill item={item} pad={pillPad} />}
       {item.tags.includes(TRENDING_TAG) && (
         <span
           style={{
@@ -78,5 +79,29 @@ export function ItemMetaRow({
         </span>
       )}
     </div>
+  );
+}
+
+/** 採択会議・掲載誌のピル。会議採択論文は会議別ページ (/venues/{slug}) へのリンクにする。 */
+function VenuePill({ item, pad }: { item: BaseItem; pad: string }) {
+  const color = "oklch(0.55 0.15 300)";
+  const style = {
+    padding: pad,
+    borderRadius: 3,
+    fontWeight: 700,
+    background: `color-mix(in oklch, ${color} 14%, transparent)`,
+    color: `color-mix(in oklch, ${color} 80%, var(--fg))`,
+    textDecoration: "none",
+  } as const;
+  if (!item.venueSlug) return <span style={style}>{item.venue}</span>;
+  return (
+    <a
+      href={`/venues/${item.venueSlug}`}
+      // カード展開 / 選択のクリックと競合させない
+      onClick={(e) => e.stopPropagation()}
+      style={style}
+    >
+      {item.venue}
+    </a>
   );
 }

@@ -18,6 +18,23 @@ export function todayString(): string {
   return fmt.format(new Date());
 }
 
+/** HTML のギリシャ文字実体参照 (&alpha; … &omega; / &Alpha; … &Omega;)。会議の採択リストのタイトルに出る。 */
+const GREEK = [
+  "alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "mu",
+  "nu", "xi", "omicron", "pi", "rho", "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega",
+];
+const GREEK_ENTITIES: Record<string, string> = Object.fromEntries(
+  GREEK.flatMap((name, i) => {
+    // 小文字 α (U+03B1) は sigma の位置で終端形 ς (U+03C2) を挟むので、それ以降を 1 つずらす
+    const lower = 0x3b1 + i + (i >= 17 ? 1 : 0);
+    const upper = 0x391 + i + (i >= 17 ? 1 : 0);
+    return [
+      [name, String.fromCodePoint(lower)],
+      [name[0]!.toUpperCase() + name.slice(1), String.fromCodePoint(upper)],
+    ];
+  }),
+);
+
 const NAMED_ENTITIES: Record<string, string> = {
   amp: "&",
   lt: "<",
@@ -25,6 +42,20 @@ const NAMED_ENTITIES: Record<string, string> = {
   quot: '"',
   apos: "'",
   nbsp: " ",
+  ndash: "–",
+  mdash: "—",
+  lsquo: "‘",
+  rsquo: "’",
+  ldquo: "“",
+  rdquo: "”",
+  hellip: "…",
+  times: "×",
+  le: "≤",
+  ge: "≥",
+  ne: "≠",
+  infin: "∞",
+  sdot: "⋅",
+  ...GREEK_ENTITIES,
 };
 
 /** 0x10FFFF 超などの不正な数値文字参照は fromCodePoint が throw するため、元の文字列を返す。 */

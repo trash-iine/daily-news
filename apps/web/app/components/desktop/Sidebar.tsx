@@ -104,6 +104,25 @@ export function Sidebar({
             </button>
           );
         })}
+        {/* 会議別の採択論文一覧は別ルート (タブ状態ではない) なので通常のリンク */}
+        <a
+          href="/venues"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            padding: "8px 10px",
+            borderRadius: 8,
+            color: "var(--fg-muted)",
+            fontFamily: "var(--font-sans)",
+            fontSize: 13,
+            fontWeight: 600,
+            textDecoration: "none",
+          }}
+        >
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 15, lineHeight: 1 }}>◇</span>
+          Venues
+        </a>
       </nav>
 
       {tab === "today" && (

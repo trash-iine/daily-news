@@ -375,6 +375,221 @@ export const APS_FEEDS: { id: string; url: string; quantumOnly: boolean }[] = [
 export const APS_PAPER_MAX_AGE_DAYS = 7;
 
 /**
+ * 会議の採択論文リストページ。`{year}` は今年と来年で展開し、ページが公開された日に
+ * `data/venues/{slug}.json` を作る (公開タイミングの検知を兼ねる)。
+ *
+ * 形式はどちらも「見出し `<VENUE> <YEAR> Accepted Papers` の後にタイトル行と著者行が交互」
+ * (venues/acceptedList.ts: parseAcceptedList)。見出しの年を検証するので、前年の内容が
+ * 残ったページ (FOCS 2026 サイトの accepted-papers-with-abstracts は 2024 年の内容だった) は採らない。
+ *
+ * 規約確認 (CLAUDE.md ルール):
+ * - acm-stoc.org: robots.txt なし (404)。採択リストは公開ページ。1 日 1〜2 リクエスト。
+ * - focs.computer.org: robots.txt は /wp-admin/ のみ Disallow、Crawl-delay: 10。
+ *   WordPress 標準の公開 REST API (wp-json/wp/v2/pages) で本文を取る。1 日 1〜2 リクエストで、
+ *   同じホストへの連続アクセスは 10 秒空ける (venues/index.ts: ACCEPTED_LIST_HOST_INTERVAL_MS)。
+ * - neurips.cc / icml.cc / iclr.cc: robots.txt は /static (JSON の全件データ) と /virtual/{year}/search を
+ *   Disallow しているので使わず、許可されている /virtual/{year}/papers.html の <noscript> 版タイトル一覧を読む
+ *   (venues/acceptedList.ts: parseMiniconfList)。1 MB 前後あるので refetchDays で週 1 回に抑える。
+ *   /virtual/ を Disallow しているのは GPTBot (学習用クローラ) 向けの節だけ。利用規約ページは公開されていない
+ *   (2026-10 時点で /public/TermsOfUse 等は 404、Privacy Policy のみ)。
+ *   OpenReview API はボット判定 (ChallengeRequiredError) を返すため対象外。
+ * - 保存するのはタイトルと著者名のみ (所属は落とす)。
+ * - SODA (siam.org) は bot に 403 を返すため対象外。arXiv comments 側で拾う。
+ */
+export interface AcceptedListConfig {
+  venue: string;
+  urlTemplate: string;
+  /**
+   * "html": ページをそのまま取る / "wp-json": WordPress REST API の pages 配列から本文を取る /
+   * "miniconf": NeurIPS 系の会議サイト (papers.html の <noscript> にあるタイトルだけの一覧)
+   */
+  format: "html" | "wp-json" | "miniconf";
+  /** 採択数が数千の会議。関心キーワード (VENUE_GATE_MIN_WEIGHT) に一致する論文だけ保存する。 */
+  gated?: boolean;
+  /** リスト取得後の再取得間隔 (日)。未指定は毎日。未公開の年は毎日見て公開を検知する。 */
+  refetchDays?: number;
+}
+
+export const VENUE_ACCEPTED_LISTS: AcceptedListConfig[] = [
+  { venue: "STOC", urlTemplate: "https://acm-stoc.org/stoc{year}/accepted-papers.html", format: "html" },
+  {
+    venue: "FOCS",
+    urlTemplate: "https://focs.computer.org/{year}/wp-json/wp/v2/pages?slug=accepted-papers&_fields=content,link",
+    format: "wp-json",
+  },
+  { venue: "NeurIPS", urlTemplate: "https://neurips.cc/virtual/{year}/papers.html", format: "miniconf", gated: true, refetchDays: 7 },
+  { venue: "ICML", urlTemplate: "https://icml.cc/virtual/{year}/papers.html", format: "miniconf", gated: true, refetchDays: 7 },
+  { venue: "ICLR", urlTemplate: "https://iclr.cc/virtual/{year}/papers.html", format: "miniconf", gated: true, refetchDays: 7 },
+];
+
+/**
+ * arXiv comments の採択表記 ("To appear in SODA 2027" 等) で採択論文を拾う会議。
+ * 採択リストを機械取得できない会議の補完と、リスト公開前の早期検知を兼ねる。
+ * ヒットした論文は会議ごとの `data/venues/{slug}.json` に積み上がる。
+ *
+ * gated: true の会議 (ML / AI の大規模会議) は検索自体を関心キーワードとの AND にし、
+ * 一致した論文だけ保存する。ワークショップ論文 ("ICML 2026 Workshop on ...") は採らない。
+ */
+export interface CommentVenueConfig {
+  venue: string;
+  gated?: boolean;
+}
+
+export const VENUE_COMMENT_VENUES: CommentVenueConfig[] = [
+  // 理論 / アルゴリズム
+  { venue: "FOCS" },
+  { venue: "STOC" },
+  { venue: "SODA" },
+  { venue: "ICALP" },
+  { venue: "ITCS" },
+  { venue: "ESA" },
+  { venue: "APPROX" },
+  { venue: "RANDOM" },
+  { venue: "CCC" },
+  { venue: "IPEC" },
+  { venue: "STACS" },
+  { venue: "SoCG" },
+  { venue: "ISAAC" },
+  { venue: "MFCS" },
+  // 数理最適化 / OR / 実験アルゴリズム
+  { venue: "IPCO" },
+  { venue: "CPAIOR" },
+  { venue: "SEA" },
+  { venue: "ATMOS" },
+  // メタヒューリスティクス / 進化計算
+  { venue: "GECCO" },
+  { venue: "PPSN" },
+  { venue: "EvoCOP" },
+  // 制約 / SAT
+  { venue: "CP" },
+  { venue: "SAT" },
+  // 量子
+  { venue: "QIP" },
+  { venue: "TQC" },
+  // 形式検証
+  { venue: "ITP" },
+  { venue: "CPP" },
+  { venue: "CAV" },
+  // ML / AI (採択数が多いので関心キーワードで絞る)
+  { venue: "NeurIPS", gated: true },
+  { venue: "ICML", gated: true },
+  { venue: "ICLR", gated: true },
+  { venue: "AAAI", gated: true },
+  { venue: "IJCAI", gated: true },
+];
+
+/**
+ * comments 検索は複数会議を 1 クエリの OR にまとめる (arXiv API の 3 秒間隔で会議数ぶん待たないため)。
+ * 結果は更新日の新しい順に最大 100 件なので、1 グループの 1 日あたりのヒットがそれを超えない大きさにする。
+ */
+export const VENUE_COMMENT_GROUP_SIZE = 6;
+
+/**
+ * gated な会議で「関心がある」とみなす条件: PAPER_KEYWORDS のうち重みがこれ以上の語に一致すること。
+ * optimization (2) / scheduling (2) のような汎用語だけの一致 (policy optimization, LLM serving scheduling) は落とす。
+ */
+export const VENUE_GATE_MIN_WEIGHT = 3;
+
+/**
+ * comments 検索で遡る日数 (arXiv の lastUpdatedDate 基準)。採択表記は v2 以降で
+ * 追記されることが多いので submittedDate ではなく更新日で見る。重複は venue ファイルで弾く。
+ */
+export const VENUE_COMMENT_LOOKBACK_DAYS = 7;
+
+/** 採択リストを arXiv と照合し直す期間 (リスト作成日からの日数)。過ぎたら照合をやめる。 */
+export const VENUE_MATCH_WINDOW_DAYS = 240;
+
+/**
+ * arXiv 版が未発見の論文を照合し直す間隔。リスト作成から `VENUE_RECHECK_DAILY_DAYS` 日は毎日、
+ * その後は `VENUE_RECHECK_INTERVAL_DAYS` 日おき (camera-ready 前後に arXiv 版が出揃うまで追う)。
+ */
+export const VENUE_RECHECK_DAILY_DAYS = 14;
+export const VENUE_RECHECK_INTERVAL_DAYS = 7;
+
+/**
+ * 1 回の実行で arXiv と照合する最大件数 (Actions の実行時間の上限対策)。arXiv API は 3 秒間隔なので
+ * 80 件で約 4〜5 分。
+ */
+export const VENUE_MATCH_MAX_PER_RUN = 80;
+
+/** 1 回の実行で要約する会議採択論文の最大件数。採択リスト公開日の一括要約を抑える。 */
+export const VENUE_SUMMARIZE_MAX_PER_RUN = 80;
+
+/**
+ * Crossref REST API (api.crossref.org/journals/{issn}/works) で新着を取る論文誌。
+ * DOI 登録日 (created) で絞るので online-first も拾える。
+ *
+ * 規約確認 (CLAUDE.md ルール): Crossref REST API は認証不要の公開 API で、メタデータの
+ * 機械取得を想定している。User-Agent に連絡先 (リポジトリ URL) を入れ、public pool の制限
+ * (一覧系 1 req/s・同時 1 本) に合わせて逐次・1.1 秒間隔で叩く (venues/index.ts: CROSSREF_INTERVAL_MS)。
+ * abstract は要約生成の入力にだけ使い、bundle には保存しない。
+ *
+ * important: true の誌はキーワードに一致しなくても採用候補に残す (分野のトップ誌を漏らさない)。
+ */
+export interface JournalConfig {
+  id: string;
+  name: string;
+  issn: string;
+  important?: boolean;
+}
+
+export const JOURNALS: JournalConfig[] = [
+  { id: "jacm", name: "J. ACM", issn: "0004-5411", important: true },
+  { id: "sicomp", name: "SIAM J. Comput.", issn: "0097-5397", important: true },
+  { id: "talg", name: "ACM Trans. Algorithms", issn: "1549-6325" },
+  { id: "theoretics", name: "TheoretiCS", issn: "2751-4838", important: true },
+  { id: "combinatorica", name: "Combinatorica", issn: "0209-9683" },
+  { id: "mathprog", name: "Math. Programming", issn: "0025-5610" },
+  { id: "mpc", name: "Math. Programming Computation", issn: "1867-2949" },
+  { id: "mor", name: "Math. of Operations Research", issn: "0364-765X" },
+  { id: "opre", name: "Operations Research", issn: "0030-364X" },
+  { id: "ijoc", name: "INFORMS J. Computing", issn: "1091-9856" },
+  { id: "ijoo", name: "INFORMS J. Optimization", issn: "2575-1484" },
+  { id: "ejor", name: "European J. Operational Research", issn: "0377-2217" },
+  { id: "cor", name: "Computers & Operations Research", issn: "0305-0548" },
+  { id: "siopt", name: "SIAM J. Optimization", issn: "1052-6234" },
+  { id: "sidma", name: "SIAM J. Discrete Math.", issn: "0895-4801" },
+  { id: "algorithmica", name: "Algorithmica", issn: "0178-4617" },
+  { id: "joco", name: "J. Combinatorial Optimization", issn: "1382-6905" },
+  { id: "disopt", name: "Discrete Optimization", issn: "1572-5286" },
+  { id: "optlet", name: "Optimization Letters", issn: "1862-4472" },
+  { id: "networks", name: "Networks", issn: "0028-3045" },
+  // メタヒューリスティクス / 進化計算
+  { id: "jheur", name: "J. Heuristics", issn: "1381-1231" },
+  { id: "evco", name: "Evolutionary Computation", issn: "1063-6560" },
+  { id: "tevc", name: "IEEE Trans. Evolutionary Computation", issn: "1089-778X" },
+  { id: "swevo", name: "Swarm and Evolutionary Computation", issn: "2210-6502" },
+  // 制約 / AI
+  { id: "constraints", name: "Constraints", issn: "1383-7133" },
+  { id: "jair", name: "J. Artificial Intelligence Research", issn: "1076-9757" },
+  { id: "aij", name: "Artificial Intelligence", issn: "0004-3702" },
+  { id: "trsc", name: "Transportation Science", issn: "0041-1655" },
+  // 量子
+  { id: "quantum", name: "Quantum", issn: "2521-327X" },
+  { id: "npjqi", name: "npj Quantum Information", issn: "2056-6387" },
+  { id: "tqc", name: "ACM Trans. Quantum Computing", issn: "2643-6809" },
+  { id: "tqe", name: "IEEE Trans. Quantum Engineering", issn: "2689-1808" },
+  // 形式検証 / 論理
+  { id: "jar", name: "J. Automated Reasoning", issn: "0168-7433" },
+  { id: "tocl", name: "ACM Trans. Computational Logic", issn: "1529-3785" },
+  { id: "lmcs", name: "Logical Methods in Computer Science", issn: "1860-5974" },
+];
+
+/** Crossref の取得窓 (DOI 登録日がこの日数以内)。重複は直近 bundle の id で弾く。 */
+export const JOURNAL_LOOKBACK_DAYS = 3;
+
+/**
+ * ECCC (Electronic Colloquium on Computational Complexity) の新着レポート RSS。
+ * 規約確認: robots.txt は /submit/ /search 等のみ Disallow で、/feeds/ は対象外。
+ * RSS は購読用に公開されている。
+ */
+export const ECCC_FEED_URL = "https://eccc.weizmann.ac.il/feeds/reports/";
+export const ECCC_MAX_AGE_DAYS = 3;
+
+/** 1 日の「採択論文・論文誌」セクションの採用件数。arXiv 新着の `PAPERS_TOP_N` とは別枠。 */
+export const VENUE_PAPERS_TOP_N = 6;
+
+/**
  * タイトル or 本文にいずれかが含まれる item は除外する。
  * プロモーション系 / アフィリエイト記事を切り捨てる用途。
  * ASCII / 非 ASCII の両方を扱える (score.ts と同じ規約)。

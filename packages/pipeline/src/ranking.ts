@@ -294,6 +294,31 @@ export function selectTrendingNews(
   }));
 }
 
+/**
+ * 論文のキーワード関連度。タイトル + abstract で照合し (タイトル一致は scoreFields 内で加重)、
+ * 複数の異なるキーワードに合致した論文 (複数テーマに関連＝関連度が高い) を
+ * 単一語連投の論文より上へ押し上げる多様性ボーナスを足す。
+ * arXiv 新着 (rankPapers) と会議採択論文・論文誌 (venues/index.ts) で共有する。
+ */
+export function paperRelevance(
+  title: string,
+  abstract: string,
+): { score: number; matched: string[] } {
+  const { score: baseScore, matched } = scoreFields(title, abstract, PAPER_KEYWORDS);
+  const diversityBonus = Math.max(0, matched.length - 1) * PAPER_MULTI_MATCH_BONUS;
+  return { score: baseScore + diversityBonus, matched };
+}
+
+/** 論文の表示タグ。量子論文は quantum が重みづけ対象外で matched に乗らないため付け直す。 */
+export function paperTags(matched: string[], quantum: boolean): string[] {
+  const canonMatched = canonicalTags(matched);
+  return quantum &&
+    !canonMatched.includes("quantum-computing") &&
+    !canonMatched.includes("quantum-algorithm")
+    ? [...canonMatched, "quantum-computing"]
+    : canonMatched;
+}
+
 export async function rankPapers(
   raw: ArxivPaper[],
   seenPaperIds: Set<string> = new Set(),
@@ -322,16 +347,7 @@ export async function rankPapers(
   // 元の GAS 実装は abstract のみだったが、タイトルにキーワードが入る論文は
   // 強い信号なので採用する。
   const scoredAll: ScoredPaper[] = unique.map((p) => {
-    const { score: baseScore, matched } = scoreFields(
-      p.title,
-      p.abstract,
-      PAPER_KEYWORDS,
-    );
-    // 複数の異なるキーワードに合致した論文（複数テーマに関連＝関連度が高い）を
-    // 単一語連投の論文より上へ押し上げる多様性ボーナス。
-    const diversityBonus =
-      Math.max(0, matched.length - 1) * PAPER_MULTI_MATCH_BONUS;
-    const score = baseScore + diversityBonus;
+    const { score, matched } = paperRelevance(p.title, p.abstract);
     const haystack = `${p.title} ${p.abstract}`.toLowerCase();
     const priority = PAPER_PRIORITY_KEYWORDS.some((k) =>
       haystack.includes(k.toLowerCase()),
@@ -363,15 +379,7 @@ export async function rankPapers(
   );
 
   return finalists.map(({ p, score, matched }, i) => {
-    const canonMatched = canonicalTags(matched);
-    // quantum は重みづけ対象外で matched に乗らないため、量子論文には
-    // quantum-computing タグを付け直して UI 上のラベルを維持する。
-    const tags =
-      isQuantumPaper(p) &&
-      !canonMatched.includes("quantum-computing") &&
-      !canonMatched.includes("quantum-algorithm")
-        ? [...canonMatched, "quantum-computing"]
-        : canonMatched;
+    const tags = paperTags(matched, isQuantumPaper(p));
     const r = summaries[i];
     return {
       id: hashId(p.absUrl),
