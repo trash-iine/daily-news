@@ -1,5 +1,5 @@
 import { fetchText } from "../util.js";
-import { MIN_TITLE_SIMILARITY, authorsOverlap, titleSimilarity } from "./titles.js";
+import { samePaper } from "./titles.js";
 
 /**
  * 採択リストのタイトルから OpenAlex 経由で arXiv 版を探す (OPENALEX_API_KEY がある場合のみ。venues/match.ts)。
@@ -28,18 +28,17 @@ function arxivIdOf(w: OpenAlexWork): string | null {
   return m ? (m[1] as string) : null;
 }
 
-/** 検索結果から、タイトルが十分一致し著者が重なり arXiv 版を持つ最初の work の arXiv ID を返す。 */
+/** 検索結果から、同じ論文 (titles.ts: samePaper) で arXiv 版を持つ最初の work の arXiv ID を返す。 */
 export function pickArxivMatch(
   works: OpenAlexWork[],
   title: string,
   authors: string[],
 ): string | null {
   for (const w of works) {
-    if (titleSimilarity(title, w.title ?? "") < MIN_TITLE_SIMILARITY) continue;
     const names = (w.authorships ?? [])
       .map((a) => a.author?.display_name ?? "")
       .filter((n) => n.length > 0);
-    if (!authorsOverlap(authors, names)) continue;
+    if (!samePaper({ title, authors }, { title: w.title ?? "", authors: names })) continue;
     const id = arxivIdOf(w);
     if (id) return id;
   }

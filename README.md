@@ -21,9 +21,19 @@
 - **Hacker News** (Algolia Search API, `HN_QUERIES`): `claude` / `anthropic` / `rust` / `python` / `mechanical keyboard` / `qmk` / `zmk` / `ergonomic keyboard` / `split keyboard` / `combinatorial optimization` / `quantum computing` / `quantum algorithm` / `algorithm` / `dynamic programming` / `np hard`
 - **arXiv** (Atom API, `ARXIV_CATEGORIES`): `cs.DS` / `cs.CC` / `math.OC` / `math.CO` / `quant-ph` / `cs.AI` / `cs.LG`
 - **APS (Physical Review)** (`APS_FEEDS`): PRX Quantum / PRL / PRA / PRX / PRResearch — PRX Quantum 以外は量子関連キーワードを含む item のみ採用
-- **会議の採択リスト** (`VENUE_ACCEPTED_LISTS`): STOC (acm-stoc.org) / FOCS (focs.computer.org の WordPress REST API)。今年・来年の URL を毎日叩き、ページが公開された日にリストを取り込む
-- **arXiv comments の採択表記** (`VENUE_COMMENT_VENUES`): FOCS / STOC / SODA / ICALP / IPCO / ITCS / ESA / APPROX / CCC / IPEC / QIP / CPAIOR — "To appear in SODA 2027" のような表記を arXiv API の `co:` 検索で拾う。SODA (siam.org は bot に 403) のようにリストを取れない会議の補完と、リスト公開前の早期検知を兼ねる
-- **論文誌** (`JOURNALS`, Crossref REST API): J. ACM / SIAM J. Comput. / TALG / TheoretiCS / Combinatorica / Math. Programming / MPC / MOR / Operations Research / IJOC / Transportation Science / Quantum / J. Automated Reasoning — DOI 登録日で新着を取る
+- **会議の採択リスト** (`VENUE_ACCEPTED_LISTS`): STOC (acm-stoc.org) / FOCS (focs.computer.org の WordPress REST API) / NeurIPS・ICML・ICLR (会議サイト `/virtual/{year}/papers.html` の noscript 版タイトル一覧)。今年・来年の URL を毎日叩き、ページが公開された日にリストを取り込む。ML 会議は 1 MB 前後あるので取得後は 7 日おき (`refetchDays`)、採択数が数千なので関心キーワードに一致するタイトルだけ保存する (`gated`)
+- **arXiv comments の採択表記** (`VENUE_COMMENT_VENUES`): "To appear in SODA 2027" / "AAAI-26" のような表記を arXiv API の `co:` 検索で拾う。SODA (siam.org は bot に 403) のようにリストを取れない会議の補完と、リスト公開前の早期検知を兼ねる。会議は 6 件ずつ OR でまとめて 1 クエリにし、併設ワークショップの論文は除く
+  - 理論 / アルゴリズム: FOCS / STOC / SODA / ICALP / ITCS / ESA / APPROX / RANDOM / CCC / IPEC / STACS / SoCG / ISAAC / MFCS
+  - 数理最適化 / OR: IPCO / CPAIOR / SEA / ATMOS、進化計算: GECCO / PPSN / EvoCOP、制約 / SAT: CP / SAT
+  - 量子: QIP / TQC、形式検証: ITP / CPP / CAV
+  - ML / AI (`gated`: タイトルが関心キーワードに一致するものだけ): NeurIPS / ICML / ICLR / AAAI / IJCAI
+- **論文誌** (`JOURNALS`, Crossref REST API): DOI 登録日で新着を取る
+  - 理論: J. ACM / SIAM J. Comput. / TALG / TheoretiCS / Combinatorica / SIAM J. Discrete Math. / Algorithmica
+  - 数理最適化 / OR: Math. Programming / MPC / MOR / Operations Research / IJOC / INFORMS J. Optimization / EJOR / Computers & OR / SIAM J. Optimization / J. Combinatorial Optimization / Discrete Optimization / Optimization Letters / Networks / Transportation Science
+  - メタヒューリスティクス / 進化計算: J. Heuristics / Evolutionary Computation / IEEE TEVC / Swarm and Evolutionary Computation
+  - 制約 / AI: Constraints / JAIR / Artificial Intelligence
+  - 量子: Quantum / npj Quantum Information / ACM TQC / IEEE TQE
+  - 形式検証 / 論理: J. Automated Reasoning / ACM TOCL / LMCS
 - **ECCC** (`ECCC_FEED_URL`): 計算量理論のプレプリント RSS
 
 各 RSS は `RssFeedConfig` で `baseScore` / `lang` / `important` を持ち、更新頻度が低い一次情報ほど `baseScore` を高く設定して埋もれを防ぐ (PEP=15, Shtetl-Optimized=15, Rust 公式・TWIR・TALPKEYBOARD・コーヒー系=12, Greenkeys・Google Research=5, Quanta Magazine・Nazology=0)。
@@ -67,7 +77,7 @@ arXiv のアナウンスが無い日 (土日など、当日 publish された論
 arXiv 新着とは別枠の「採択論文・論文誌」セクション (`VENUE_PAPERS_TOP_N` = 6 件)。`src/venues/` が担当する。
 
 1. **採択リスト** を取り込み、`data/venues/{venue}-{year}.json` に保存する。見出しの年を検証し、前年の内容が残ったページは採らない
-2. **arXiv 照合**: リストの各論文の arXiv 版をタイトル語検索 + 著者の姓の一致で探す (`venues/match.ts`)。既定は arXiv API (3 秒間隔、1 回 `VENUE_MATCH_MAX_PER_RUN_ARXIV` = 80 件まで)。Secrets に `OPENALEX_API_KEY` (無料) があれば OpenAlex を使う (速く、1 回 250 件まで)。未発見の論文はリスト作成から 14 日は毎日、以降は 7 日おきに照合し直す
+2. **arXiv 照合**: リストの各論文の arXiv 版をタイトル語検索 + 著者の姓の一致で探す (`venues/match.ts`)。著者が載っていない ML 会議の一覧はタイトルのほぼ一致 (Jaccard 0.9 以上) で判定し、著者は arXiv 側から埋める。既定は arXiv API (3 秒間隔、1 回 `VENUE_MATCH_MAX_PER_RUN_ARXIV` = 80 件まで)。Secrets に `OPENALEX_API_KEY` (無料) があれば OpenAlex を使う (速く、1 回 250 件まで)。未発見の論文はリスト作成から 14 日は毎日、以降は 7 日おきに照合し直す
 3. **comments 採択表記** でヒットした論文も同じ venue ファイルに積む
 4. arXiv 版が **初めて見つかった日** に、その論文が Today の候補になる。abstract で `PAPER_KEYWORDS` 採点し、要約して venue ファイルに保存 (1 回 `VENUE_SUMMARIZE_MAX_PER_RUN` = 80 件まで)
 5. 論文誌 / ECCC の新着も同じキーワード採点で候補に入れ、関連度上位を採用する。会議採択論文と `important` な誌 (JACM / SICOMP / TheoretiCS) はキーワード非一致でも候補に残る

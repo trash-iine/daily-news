@@ -1,7 +1,8 @@
 import { strict as assert } from "node:assert";
 import { describe, it } from "node:test";
-import { pageLines, parseAcceptedList } from "./acceptedList.js";
+import { pageLines, parseAcceptedList, parseMiniconfList } from "./acceptedList.js";
 import { matchVenueComment } from "./arxivComments.js";
+import { passesVenueGate } from "./gate.js";
 import { parseCrossrefWorks, parseEcccRss } from "./journals.js";
 import { pickArxivPaper, titleSearchWords } from "./match.js";
 import { pickArxivMatch } from "./openAlex.js";
@@ -106,6 +107,45 @@ describe("matchVenueComment", () => {
     assert.equal(matchVenueComment("In STOC 2024", "STOC", years), null);
     assert.equal(matchVenueComment(undefined, "STOC", years), null);
   });
+  it("ハイフン区切りの短縮年 (AAAI-26) を読む", () => {
+    assert.equal(matchVenueComment("Accepted by AAAI-26 (oral)", "AAAI", years), 2026);
+  });
+  it("併設ワークショップの論文は本会議の採択とみなさない", () => {
+    assert.equal(matchVenueComment("Accepted at the ICML 2026 Workshop on Efficient Systems", "ICML", years), null);
+    assert.equal(matchVenueComment("Presented at the AI4Math Workshop at NeurIPS 2026", "NeurIPS", years), null);
+    assert.equal(matchVenueComment("Accepted at NeurIPS 2026 (Spotlight)", "NeurIPS", years), 2026);
+  });
+  it("別会議名の一部には一致しない (CP と CPAIOR、SAT と MaxSAT)", () => {
+    assert.equal(matchVenueComment("To appear in CPAIOR 2026", "CP", years), null);
+    assert.equal(matchVenueComment("MaxSAT 2026 Evaluation", "SAT", years), null);
+  });
+});
+
+describe("parseMiniconfList", () => {
+  const page = (year: number, n: number) =>
+    `<noscript class="noscript">Enable Javascript<ul>${Array.from(
+      { length: n },
+      (_, i) => `<li><a href="/virtual/${year}/poster/${100 + i}">Neural Solver &amp; Heuristic ${i}</a></li>`,
+    ).join("\n")}<li><a href="/virtual/${year}/session/1">Oral Session 1</a></li></ul></noscript>`;
+
+  it("noscript のポスター一覧からタイトルを読む (セッションは除く)", () => {
+    const entries = parseMiniconfList(page(2026, 12), 2026);
+    assert.equal(entries?.length, 12);
+    assert.deepEqual(entries?.[0], { title: "Neural Solver & Heuristic 0", authors: [] });
+  });
+  it("別年のリンクや空の一覧 (公開前の来年分サイト) は採らない", () => {
+    assert.equal(parseMiniconfList(page(2026, 12), 2027), null);
+    assert.equal(parseMiniconfList(page(2027, 0), 2027), null);
+  });
+});
+
+describe("passesVenueGate", () => {
+  it("タイトルが重みの大きい関心語を含むか量子の論文だけ通す", () => {
+    assert.ok(passesVenueGate("Diffusion Solvers for Neural Combinatorial Optimization"));
+    assert.ok(passesVenueGate("Neural QAOA Parameter Initialization"));
+    assert.ok(!passesVenueGate("Omni-Perception Policy Optimization for Emotion Reasoning"));
+    assert.ok(!passesVenueGate("Adaptive Request Scheduling for LLM Inference"));
+  });
 });
 
 describe("pickArxivMatch", () => {
@@ -160,6 +200,18 @@ describe("pickArxivPaper", () => {
       ["Jane Doe"],
     );
     assert.equal(hit?.title, "Bellman-Ford in Almost-Linear Time for Dense Graphs");
+  });
+
+  it("著者が分からない (ML 会議の一覧) ときはタイトルのほぼ一致だけで選ぶ", () => {
+    const papers = [
+      paper("Latent Guided Sampling for Combinatorial Optimization", ["Jane Doe"]),
+      paper("Latent Sampling for Combinatorial Optimization Problems", ["John Roe"]),
+    ];
+    assert.equal(
+      pickArxivPaper(papers, "Latent Guided Sampling for Combinatorial Optimization", [])?.authors[0],
+      "Jane Doe",
+    );
+    assert.equal(pickArxivPaper(papers.slice(1), "Latent Guided Sampling for Combinatorial Optimization", []), null);
   });
 
   it("検索語は短い語と LaTeX を除いて最大 6 語", () => {

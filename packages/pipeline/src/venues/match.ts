@@ -1,7 +1,7 @@
 import { VENUE_MATCH_MAX_PER_RUN_ARXIV, VENUE_MATCH_MAX_PER_RUN_OPENALEX } from "../config.js";
 import { searchArxivByTitleWords, type ArxivPaper } from "../sources/arxiv.js";
 import { findArxivIdOnOpenAlex } from "./openAlex.js";
-import { MIN_TITLE_SIMILARITY, authorsOverlap, titleSimilarity, titleTokens } from "./titles.js";
+import { samePaper, titleTokens } from "./titles.js";
 
 export interface MatchResult {
   arxivId: string;
@@ -19,17 +19,13 @@ export interface ArxivMatcher {
 
 const stripVersion = (id: string) => id.replace(/v\d+$/, "");
 
-/** arXiv の検索結果から、タイトルが十分一致し著者が重なる論文を選ぶ。 */
+/** arXiv の検索結果から、同じ論文 (titles.ts: samePaper) を選ぶ。 */
 export function pickArxivPaper(
   papers: ArxivPaper[],
   title: string,
   authors: string[],
 ): ArxivPaper | null {
-  return (
-    papers.find(
-      (p) => titleSimilarity(title, p.title) >= MIN_TITLE_SIMILARITY && authorsOverlap(authors, p.authors),
-    ) ?? null
-  );
+  return papers.find((p) => samePaper({ title, authors }, p)) ?? null;
 }
 
 /** 検索語。短い語 (冠詞・前置詞) を落とし、先頭から最大 6 語。 */

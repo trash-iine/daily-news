@@ -32,8 +32,8 @@
 | Qiita / Zenn のトピック追加 | 同 `QIITA_API_TAGS` / `ZENN_API_TOPICS` |
 | Hacker News クエリ追加 | 同 `HN_QUERIES` |
 | arXiv カテゴリ追加 | 同 `ARXIV_CATEGORIES` |
-| 採択リストを取る会議の追加 | 同 `VENUE_ACCEPTED_LISTS` (形式が「見出し → タイトル行/著者行の交互」でなければ `venues/acceptedList.ts` にパーサを足す) |
-| comments 採択表記で拾う会議 / 論文誌の追加 | 同 `VENUE_COMMENT_VENUES` / `JOURNALS` |
+| 採択リストを取る会議の追加 | 同 `VENUE_ACCEPTED_LISTS` (形式が「見出し → タイトル行/著者行の交互」でも NeurIPS 系の `miniconf` でもなければ `venues/acceptedList.ts` にパーサを足す。採択数が数千なら `gated: true`、ページが重ければ `refetchDays`) |
+| comments 採択表記で拾う会議 / 論文誌の追加 | 同 `VENUE_COMMENT_VENUES` (採択数が多い会議は `gated: true`) / `JOURNALS` (ISSN は `api.crossref.org/journals/{issn}` で確認) |
 | キーワード重み調整 | 同 `KEYWORD_WEIGHTS`（ニュース）/ `PAPER_KEYWORDS` / `PAPER_PRIORITY_KEYWORDS`（論文） |
 | 採用件数調整 | 同 `NEWS_TOP_N` / `NEWS_MIN_PER_GROUP` / `NEWS_TRENDING_TOP_N` / `PAPERS_TOP_N` |
 | タグ正規化 | 同 `TAG_ALIASES` |

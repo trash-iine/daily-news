@@ -115,6 +115,14 @@ export interface VenueList {
   sourceUrl?: string;
   /** 採択リスト本文のハッシュ。変化したときだけ再パースする。 */
   sourceHash?: string;
+  /** 採択リストを最後に取得した日 (JST)。再取得間隔を空ける会議 (refetchDays) だけが持つ。 */
+  sourceCheckedOn?: string;
+  /**
+   * 関心キーワードで絞り込んで保存しているリスト (NeurIPS など採択数が数千の会議)。
+   * `sourceTotal` は絞り込み前の採択リストの件数 (comments 由来のリストでは undefined)。
+   */
+  gated?: boolean;
+  sourceTotal?: number;
   /** このリストを初めて作った日 (JST)。 */
   createdOn: string;
   updatedAt: string;

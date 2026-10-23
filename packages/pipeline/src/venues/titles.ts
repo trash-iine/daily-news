@@ -25,6 +25,12 @@ export function titleKey(title: string): string {
 /** 同一論文とみなすタイトル類似度 (Jaccard) の下限。LaTeX 記号の表記揺れで 1.0 にならない分の余裕。 */
 export const MIN_TITLE_SIMILARITY = 0.75;
 
+/**
+ * 著者が分からない採択リスト (ML 会議の一覧ページはタイトルだけ) を照合するときの下限。
+ * 著者の重なりで誤照合を防げない分、タイトルはほぼ一致を要求する。
+ */
+export const MIN_TITLE_SIMILARITY_NO_AUTHORS = 0.9;
+
 /** トークン集合の Jaccard 係数。 */
 export function titleSimilarity(a: string, b: string): number {
   const sa = new Set(titleTokens(a));
@@ -59,4 +65,17 @@ function surname(name: string): string {
 export function authorsOverlap(a: string[], b: string[]): boolean {
   const sa = new Set(a.map(surname).filter((s) => s.length > 1));
   return b.some((n) => sa.has(surname(n)));
+}
+
+/**
+ * 採択リストの 1 本と照合先の 1 件が同じ論文か。著者が分かっていればタイトル類似 + 著者の重なり、
+ * 分からなければタイトルのほぼ一致で判定する。
+ */
+export function samePaper(
+  q: { title: string; authors: string[] },
+  c: { title: string; authors: string[] },
+): boolean {
+  const sim = titleSimilarity(q.title, c.title);
+  if (q.authors.length === 0) return sim >= MIN_TITLE_SIMILARITY_NO_AUTHORS;
+  return sim >= MIN_TITLE_SIMILARITY && authorsOverlap(q.authors, c.authors);
 }

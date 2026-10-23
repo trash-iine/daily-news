@@ -6,8 +6,10 @@ import {
   JOURNAL_LOOKBACK_DAYS,
   PAPER_SCORE_THRESHOLD,
   VENUE_ACCEPTED_LISTS,
+  VENUE_COMMENT_GROUP_SIZE,
   VENUE_COMMENT_LOOKBACK_DAYS,
   VENUE_COMMENT_VENUES,
+  type CommentVenueConfig,
   VENUE_MATCH_WINDOW_DAYS,
   VENUE_PAPERS_TOP_N,
   VENUE_RECHECK_DAILY_DAYS,
@@ -26,6 +28,7 @@ import { summarizePaper } from "../summarize.js";
 import { hashId } from "../util.js";
 import { fetchAcceptedList } from "./acceptedList.js";
 import { matchVenueComment } from "./arxivComments.js";
+import { passesVenueGate, venueGateTerms } from "./gate.js";
 import { fetchCrossrefJournal, fetchEccc, type JournalPaper } from "./journals.js";
 import { pickMatcher, type MatchResult } from "./match.js";
 import {
@@ -103,36 +106,77 @@ export async function collectVenueItems(
   };
 
   // 1) 採択リストページ。未公開の年は null が返るだけなので毎日叩いて公開を検知する。
+  //    取得済みで refetchDays がある会議 (1 MB 前後ある ML 会議の一覧) は間隔を空ける。
   for (const cfg of VENUE_ACCEPTED_LISTS) {
     for (const year of years) {
+      const existing = lists.get(venueSlug(cfg.venue, year));
+      if (
+        cfg.refetchDays &&
+        existing?.sourceCheckedOn &&
+        daysBetween(existing.sourceCheckedOn, date) < cfg.refetchDays
+      ) {
+        continue;
+      }
       const page = await fetchAcceptedList(cfg, year);
       if (!page) continue;
       const list = getList(cfg.venue, year);
+      if (cfg.refetchDays) {
+        list.sourceCheckedOn = date;
+        touch(list);
+      }
       if (list.sourceHash === page.hash) continue;
-      const added = mergeAcceptedEntries(list, page.entries);
+      const entries = cfg.gated ? page.entries.filter((e) => passesVenueGate(e.title)) : page.entries;
+      const added = mergeAcceptedEntries(list, entries);
       list.sourceUrl = page.url;
       list.sourceHash = page.hash;
+      if (cfg.gated) {
+        list.gated = true;
+        list.sourceTotal = page.entries.length;
+      }
       touch(list);
-      console.log(`[venues] ${list.name}: accepted list has ${page.entries.length} papers (+${added} new)`);
+      console.log(
+        `[venues] ${list.name}: accepted list has ${page.entries.length} papers` +
+          `${cfg.gated ? ` (${entries.length} match interests)` : ""} (+${added} new)`,
+      );
     }
   }
 
   // 2) arXiv comments の採択表記。リストが取れない会議の補完と、リスト公開前の早期検知。
+  //    会議を数件ずつ OR でまとめて 1 クエリにする。gated な会議は関心語との AND で検索する。
   const sinceMs = Date.now() - VENUE_COMMENT_LOOKBACK_DAYS * DAY_MS;
-  for (const venue of VENUE_COMMENT_VENUES) {
+  const groups: CommentVenueConfig[][] = [];
+  for (const gated of [false, true]) {
+    const vs = VENUE_COMMENT_VENUES.filter((v) => !!v.gated === gated);
+    for (let i = 0; i < vs.length; i += VENUE_COMMENT_GROUP_SIZE) {
+      groups.push(vs.slice(i, i + VENUE_COMMENT_GROUP_SIZE));
+    }
+  }
+  for (const group of groups) {
+    const gated = !!group[0]?.gated;
+    const names = group.map((v) => v.venue);
     await sleep(ARXIV_INTERVAL_MS);
     let papers: ArxivPaper[];
     try {
-      papers = await fetchArxivByComment(venue, years, sinceMs);
+      papers = await fetchArxivByComment(names, years, sinceMs, gated ? venueGateTerms() : []);
     } catch (err) {
-      console.warn(`[venues] arxiv comments ${venue} failed:`, (err as Error).message);
+      console.warn(`[venues] arxiv comments ${names.join("/")} failed:`, (err as Error).message);
       continue;
     }
     for (const p of papers) {
-      const year = matchVenueComment(p.comment, venue, years);
-      if (year === null) continue;
+      let venue: string | undefined;
+      let year: number | null = null;
+      for (const name of names) {
+        year = matchVenueComment(p.comment, name, years);
+        if (year !== null) {
+          venue = name;
+          break;
+        }
+      }
+      if (venue === undefined || year === null) continue;
+      if (gated && !passesVenueGate(p.title)) continue;
       const id = stripVersion(p.arxivId);
       const list = getList(venue, year);
+      if (gated) list.gated = true;
       const existing = findVenuePaper(list, { arxivId: id, title: p.title });
       if (existing?.arxivId) continue;
       meta.set(id, p);

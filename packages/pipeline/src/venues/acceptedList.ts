@@ -72,6 +72,21 @@ export function parseAcceptedList(
 }
 
 /**
+ * NeurIPS / ICML / ICLR の会議サイト (papers.html) の <noscript> にあるタイトル一覧を読む。
+ * 著者は載っていないので空 (arXiv 照合ではタイトルのほぼ一致で判定し、著者は arXiv 側から埋める)。
+ * リンクのパスに年が入っている (`/virtual/2026/poster/123`) ので、別年のページは一致しない。
+ * 来年分のサイトは公開前でも 200 で空の一覧を返す (ICLR) ので、件数の下限で弾く。
+ */
+export function parseMiniconfList(raw: string, year: number): AcceptedEntry[] | null {
+  const re = new RegExp(`<li><a href="/virtual/${year}/poster/\\d+">([^<]+)</a>`, "g");
+  const entries = [...raw.matchAll(re)].map((m) => ({
+    title: decodeHtmlEntities(m[1] as string).replace(/\s+/g, " ").trim(),
+    authors: [],
+  }));
+  return entries.length >= MIN_ENTRIES ? entries : null;
+}
+
+/**
  * 1 会議 1 年分の採択リストを取る。ページ未公開 (404 等) / 形式不一致なら null。
  * 未公開は毎日起こる正常系なので throw しない。
  */
@@ -86,13 +101,16 @@ export async function fetchAcceptedList(
   } catch {
     return null;
   }
-  let lines: string[];
-  try {
-    lines = pageLines(raw, cfg.format);
-  } catch {
-    return null;
+  let entries: AcceptedEntry[] | null;
+  if (cfg.format === "miniconf") {
+    entries = parseMiniconfList(raw, year);
+  } else {
+    try {
+      entries = parseAcceptedList(pageLines(raw, cfg.format), cfg.venue, year);
+    } catch {
+      return null;
+    }
   }
-  const entries = parseAcceptedList(lines, cfg.venue, year);
   if (!entries) return null;
   const pageUrl = cfg.format === "wp-json" ? wpPageLink(raw) ?? url : url;
   return { url: pageUrl, hash: hashId(JSON.stringify(entries)), entries };

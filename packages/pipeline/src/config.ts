@@ -386,14 +386,25 @@ export const APS_PAPER_MAX_AGE_DAYS = 7;
  * - acm-stoc.org: robots.txt なし (404)。採択リストは公開ページ。1 日 1〜2 リクエスト。
  * - focs.computer.org: robots.txt は /wp-admin/ のみ Disallow、Crawl-delay: 10。
  *   WordPress 標準の公開 REST API (wp-json/wp/v2/pages) で本文を取る。1 日 1〜2 リクエスト。
+ * - neurips.cc / icml.cc / iclr.cc: robots.txt は /static (JSON の全件データ) を Disallow しているので
+ *   使わず、許可されている /virtual/{year}/papers.html の <noscript> 版タイトル一覧を読む
+ *   (venues/acceptedList.ts: parseMiniconfList)。1 MB 前後あるので refetchDays で週 1 回に抑える。
+ *   OpenReview API はボット判定 (ChallengeRequiredError) を返すため対象外。
  * - 保存するのはタイトルと著者名のみ (所属は落とす)。
  * - SODA (siam.org) は bot に 403 を返すため対象外。arXiv comments 側で拾う。
  */
 export interface AcceptedListConfig {
   venue: string;
   urlTemplate: string;
-  /** "html": ページをそのまま取る / "wp-json": WordPress REST API の pages 配列から本文を取る */
-  format: "html" | "wp-json";
+  /**
+   * "html": ページをそのまま取る / "wp-json": WordPress REST API の pages 配列から本文を取る /
+   * "miniconf": NeurIPS 系の会議サイト (papers.html の <noscript> にあるタイトルだけの一覧)
+   */
+  format: "html" | "wp-json" | "miniconf";
+  /** 採択数が数千の会議。関心キーワード (VENUE_GATE_MIN_WEIGHT) に一致する論文だけ保存する。 */
+  gated?: boolean;
+  /** リスト取得後の再取得間隔 (日)。未指定は毎日。未公開の年は毎日見て公開を検知する。 */
+  refetchDays?: number;
 }
 
 export const VENUE_ACCEPTED_LISTS: AcceptedListConfig[] = [
@@ -403,27 +414,78 @@ export const VENUE_ACCEPTED_LISTS: AcceptedListConfig[] = [
     urlTemplate: "https://focs.computer.org/{year}/wp-json/wp/v2/pages?slug=accepted-papers&_fields=content,link",
     format: "wp-json",
   },
+  { venue: "NeurIPS", urlTemplate: "https://neurips.cc/virtual/{year}/papers.html", format: "miniconf", gated: true, refetchDays: 7 },
+  { venue: "ICML", urlTemplate: "https://icml.cc/virtual/{year}/papers.html", format: "miniconf", gated: true, refetchDays: 7 },
+  { venue: "ICLR", urlTemplate: "https://iclr.cc/virtual/{year}/papers.html", format: "miniconf", gated: true, refetchDays: 7 },
 ];
 
 /**
  * arXiv comments の採択表記 ("To appear in SODA 2027" 等) で採択論文を拾う会議。
  * 採択リストを機械取得できない会議の補完と、リスト公開前の早期検知を兼ねる。
  * ヒットした論文は会議ごとの `data/venues/{slug}.json` に積み上がる。
+ *
+ * gated: true の会議 (ML / AI の大規模会議) は検索自体を関心キーワードとの AND にし、
+ * 一致した論文だけ保存する。ワークショップ論文 ("ICML 2026 Workshop on ...") は採らない。
  */
-export const VENUE_COMMENT_VENUES: string[] = [
-  "FOCS",
-  "STOC",
-  "SODA",
-  "ICALP",
-  "IPCO",
-  "ITCS",
-  "ESA",
-  "APPROX",
-  "CCC",
-  "IPEC",
-  "QIP",
-  "CPAIOR",
+export interface CommentVenueConfig {
+  venue: string;
+  gated?: boolean;
+}
+
+export const VENUE_COMMENT_VENUES: CommentVenueConfig[] = [
+  // 理論 / アルゴリズム
+  { venue: "FOCS" },
+  { venue: "STOC" },
+  { venue: "SODA" },
+  { venue: "ICALP" },
+  { venue: "ITCS" },
+  { venue: "ESA" },
+  { venue: "APPROX" },
+  { venue: "RANDOM" },
+  { venue: "CCC" },
+  { venue: "IPEC" },
+  { venue: "STACS" },
+  { venue: "SoCG" },
+  { venue: "ISAAC" },
+  { venue: "MFCS" },
+  // 数理最適化 / OR / 実験アルゴリズム
+  { venue: "IPCO" },
+  { venue: "CPAIOR" },
+  { venue: "SEA" },
+  { venue: "ATMOS" },
+  // メタヒューリスティクス / 進化計算
+  { venue: "GECCO" },
+  { venue: "PPSN" },
+  { venue: "EvoCOP" },
+  // 制約 / SAT
+  { venue: "CP" },
+  { venue: "SAT" },
+  // 量子
+  { venue: "QIP" },
+  { venue: "TQC" },
+  // 形式検証
+  { venue: "ITP" },
+  { venue: "CPP" },
+  { venue: "CAV" },
+  // ML / AI (採択数が多いので関心キーワードで絞る)
+  { venue: "NeurIPS", gated: true },
+  { venue: "ICML", gated: true },
+  { venue: "ICLR", gated: true },
+  { venue: "AAAI", gated: true },
+  { venue: "IJCAI", gated: true },
 ];
+
+/**
+ * comments 検索は複数会議を 1 クエリの OR にまとめる (arXiv API の 3 秒間隔で会議数ぶん待たないため)。
+ * 結果は更新日の新しい順に最大 100 件なので、1 グループの 1 日あたりのヒットがそれを超えない大きさにする。
+ */
+export const VENUE_COMMENT_GROUP_SIZE = 6;
+
+/**
+ * gated な会議で「関心がある」とみなす条件: PAPER_KEYWORDS のうち重みがこれ以上の語に一致すること。
+ * optimization (2) / scheduling (2) のような汎用語だけの一致 (policy optimization, LLM serving scheduling) は落とす。
+ */
+export const VENUE_GATE_MIN_WEIGHT = 3;
 
 /**
  * comments 検索で遡る日数 (arXiv の lastUpdatedDate 基準)。採択表記は v2 以降で
@@ -479,9 +541,35 @@ export const JOURNALS: JournalConfig[] = [
   { id: "mor", name: "Math. of Operations Research", issn: "0364-765X" },
   { id: "opre", name: "Operations Research", issn: "0030-364X" },
   { id: "ijoc", name: "INFORMS J. Computing", issn: "1091-9856" },
+  { id: "ijoo", name: "INFORMS J. Optimization", issn: "2575-1484" },
+  { id: "ejor", name: "European J. Operational Research", issn: "0377-2217" },
+  { id: "cor", name: "Computers & Operations Research", issn: "0305-0548" },
+  { id: "siopt", name: "SIAM J. Optimization", issn: "1052-6234" },
+  { id: "sidma", name: "SIAM J. Discrete Math.", issn: "0895-4801" },
+  { id: "algorithmica", name: "Algorithmica", issn: "0178-4617" },
+  { id: "joco", name: "J. Combinatorial Optimization", issn: "1382-6905" },
+  { id: "disopt", name: "Discrete Optimization", issn: "1572-5286" },
+  { id: "optlet", name: "Optimization Letters", issn: "1862-4472" },
+  { id: "networks", name: "Networks", issn: "0028-3045" },
+  // メタヒューリスティクス / 進化計算
+  { id: "jheur", name: "J. Heuristics", issn: "1381-1231" },
+  { id: "evco", name: "Evolutionary Computation", issn: "1063-6560" },
+  { id: "tevc", name: "IEEE Trans. Evolutionary Computation", issn: "1089-778X" },
+  { id: "swevo", name: "Swarm and Evolutionary Computation", issn: "2210-6502" },
+  // 制約 / AI
+  { id: "constraints", name: "Constraints", issn: "1383-7133" },
+  { id: "jair", name: "J. Artificial Intelligence Research", issn: "1076-9757" },
+  { id: "aij", name: "Artificial Intelligence", issn: "0004-3702" },
   { id: "trsc", name: "Transportation Science", issn: "0041-1655" },
+  // 量子
   { id: "quantum", name: "Quantum", issn: "2521-327X" },
+  { id: "npjqi", name: "npj Quantum Information", issn: "2056-6387" },
+  { id: "tqc", name: "ACM Trans. Quantum Computing", issn: "2643-6809" },
+  { id: "tqe", name: "IEEE Trans. Quantum Engineering", issn: "2689-1808" },
+  // 形式検証 / 論理
   { id: "jar", name: "J. Automated Reasoning", issn: "0168-7433" },
+  { id: "tocl", name: "ACM Trans. Computational Logic", issn: "1529-3785" },
+  { id: "lmcs", name: "Logical Methods in Computer Science", issn: "1860-5974" },
 ];
 
 /** Crossref の取得窓 (DOI 登録日がこの日数以内)。重複は直近 bundle の id で弾く。 */

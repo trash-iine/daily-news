@@ -251,16 +251,25 @@ export async function fetchArxivByIds(ids: string[]): Promise<ArxivPaper[]> {
 }
 
 /**
- * comments 欄に `<venue> <year>` を含む論文を、更新日の新しい順に取る。
- * arXiv の co: 検索はトークン一致なので、隣接して出現するかの再確認は呼び出し側
- * (venues/arxivComments.ts: matchVenueComment) で行う。
+ * comments 欄に `<venue> <year>` (または `<venue>-<yy>`) を含む論文を、更新日の新しい順に取る。
+ * 複数会議をまとめて OR で 1 クエリにする。`titleTerms` を渡すとタイトルにそのいずれかを
+ * 含むものに絞る (採択数の多い会議向け)。arXiv の co: 検索はトークン一致なので、隣接して出現するか・
+ * どの会議かの判定は呼び出し側 (venues/arxivComments.ts: matchVenueComment) で行う。
  */
 export async function fetchArxivByComment(
-  venue: string,
+  venues: string[],
   years: number[],
   sinceMs: number,
+  titleTerms: string[] = [],
 ): Promise<ArxivPaper[]> {
-  const query = years.map((y) => `co:"${venue} ${y}"`).join(" OR ");
+  // "AAAI-26" は arXiv 側で "AAAI 26" と同じトークン列になるので、短縮年はフレーズ "V YY" で引ける
+  const venueQuery = venues
+    .flatMap((v) => years.flatMap((y) => [`co:"${v} ${y}"`, `co:"${v} ${String(y).slice(2)}"`]))
+    .join(" OR ");
+  const query =
+    titleTerms.length > 0
+      ? `(${venueQuery}) AND (${titleTerms.map((t) => `ti:"${t}"`).join(" OR ")})`
+      : venueQuery;
   const url =
     `https://export.arxiv.org/api/query?search_query=${encodeURIComponent(query)}` +
     `&sortBy=lastUpdatedDate&sortOrder=descending&max_results=${ARXIV_API_MAX_RESULTS}`;

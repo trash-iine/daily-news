@@ -54,6 +54,7 @@ export default async function VenuesPage() {
               <span style={{ fontFamily: "var(--font-serif)", fontSize: 18, fontWeight: 500 }}>{l.name}</span>
               <span style={{ fontSize: 11.5, color: "var(--fg-faint)" }}>
                 {l.sourceUrl ? "採択リスト" : "arXiv の採択表記から収集"}
+                {l.gated && " · 関心キーワードで絞り込み"}
               </span>
               <span
                 style={{

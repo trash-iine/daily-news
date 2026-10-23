@@ -51,7 +51,7 @@ export default async function VenuePage({ params }: { params: Promise<{ slug: st
         {list.name}
       </h1>
       <p style={{ color: "var(--fg-muted)", fontSize: 12.5, margin: "0 0 18px", lineHeight: 1.6 }}>
-        {papers.length} 本 · arXiv 版 {onArxiv} 本 ·{" "}
+        {papers.length} 本{list.sourceTotal ? ` (採択 ${list.sourceTotal} 本中)` : ""} · arXiv 版 {onArxiv} 本 ·{" "}
         {list.sourceUrl ? (
           <a href={list.sourceUrl} target="_blank" rel="noreferrer noopener" style={{ color: "var(--fg-muted)" }}>
             採択リスト
@@ -60,7 +60,8 @@ export default async function VenuePage({ params }: { params: Promise<{ slug: st
           "arXiv の採択表記から収集"
         )}
         <br />
-        関心キーワードとの関連度順。arXiv 版が未発見の論文は毎日照合し直しています。
+        {list.gated && "採択数が多い会議なので、関心キーワードに一致する論文だけを載せています。"}
+        関心キーワードとの関連度順。arXiv 版が未発見の論文は照合し直しています (最初の 2 週間は毎日、以降は週 1 回)。
       </p>
 
       <div style={{ display: "grid", gap: 6 }}>
