@@ -7,7 +7,7 @@
 - `packages/shared` — 型定義と big tag グループ
 - `packages/pipeline` — TypeScript で書いた収集・スコア・要約パイプライン
 - `apps/web` — Next.js 15 (App Router) + Tailwind
-- `data/` — 日次の JSON（Action がコミットする成果物）と `index.json`、`data/.cache/` (フィード HTTP キャッシュ)
+- `data/` — 日次の JSON（Action がコミットする成果物）と `index.json`、`data/venues/` (会議ごとの採択論文リスト)、`data/.cache/` (フィード HTTP キャッシュ)
 - `.github/workflows/daily.yml` — 毎朝の cron (`0 22 * * *` UTC) + 手動実行 (`workflow_dispatch`)
 
 ## ソース
@@ -21,6 +21,10 @@
 - **Hacker News** (Algolia Search API, `HN_QUERIES`): `claude` / `anthropic` / `rust` / `python` / `mechanical keyboard` / `qmk` / `zmk` / `ergonomic keyboard` / `split keyboard` / `combinatorial optimization` / `quantum computing` / `quantum algorithm` / `algorithm` / `dynamic programming` / `np hard`
 - **arXiv** (Atom API, `ARXIV_CATEGORIES`): `cs.DS` / `cs.CC` / `math.OC` / `math.CO` / `quant-ph` / `cs.AI` / `cs.LG`
 - **APS (Physical Review)** (`APS_FEEDS`): PRX Quantum / PRL / PRA / PRX / PRResearch — PRX Quantum 以外は量子関連キーワードを含む item のみ採用
+- **会議の採択リスト** (`VENUE_ACCEPTED_LISTS`): STOC (acm-stoc.org) / FOCS (focs.computer.org の WordPress REST API)。今年・来年の URL を毎日叩き、ページが公開された日にリストを取り込む
+- **arXiv comments の採択表記** (`VENUE_COMMENT_VENUES`): FOCS / STOC / SODA / ICALP / IPCO / ITCS / ESA / APPROX / CCC / IPEC / QIP / CPAIOR — "To appear in SODA 2027" のような表記を arXiv API の `co:` 検索で拾う。SODA (siam.org は bot に 403) のようにリストを取れない会議の補完と、リスト公開前の早期検知を兼ねる
+- **論文誌** (`JOURNALS`, Crossref REST API): J. ACM / SIAM J. Comput. / TALG / TheoretiCS / Combinatorica / Math. Programming / MPC / MOR / Operations Research / IJOC / Transportation Science / Quantum / J. Automated Reasoning — DOI 登録日で新着を取る
+- **ECCC** (`ECCC_FEED_URL`): 計算量理論のプレプリント RSS
 
 各 RSS は `RssFeedConfig` で `baseScore` / `lang` / `important` を持ち、更新頻度が低い一次情報ほど `baseScore` を高く設定して埋もれを防ぐ (PEP=15, Shtetl-Optimized=15, Rust 公式・TWIR・TALPKEYBOARD・コーヒー系=12, Greenkeys・Google Research=5, Quanta Magazine・Nazology=0)。
 
@@ -57,6 +61,18 @@
 arXiv (Atom API) と APS RSS の候補を合算し、`PAPER_KEYWORDS` をタイトル + abstract に当てたスコアで降順、`PAPER_PRIORITY_KEYWORDS` (`np-hard` / `np hard` / `metaheuristic` / `heuristic`) を含むものを最優先、`PAPERS_TOP_N` (= 5) 件を採用し、`OPENAI_MODEL` (gpt-4o-mini) で日本語要約。arXiv は `announceType === "new"` のみ採用 (cross-listing / replace は除外)。quantum 系はキーワード加点しない方針の代わりに、`PAPERS_QUANTUM_MIN` (= 1) 件の最低枠で採用を保証する。
 
 arXiv のアナウンスが無い日 (土日など、当日 publish された論文が無い日) は論文セクションが空になりうる。
+
+### 採択論文・論文誌
+
+arXiv 新着とは別枠の「採択論文・論文誌」セクション (`VENUE_PAPERS_TOP_N` = 6 件)。`src/venues/` が担当する。
+
+1. **採択リスト** を取り込み、`data/venues/{venue}-{year}.json` に保存する。見出しの年を検証し、前年の内容が残ったページは採らない
+2. **arXiv 照合**: リストの各論文の arXiv 版をタイトル語検索 + 著者の姓の一致で探す (`venues/match.ts`)。既定は arXiv API (3 秒間隔、1 回 `VENUE_MATCH_MAX_PER_RUN_ARXIV` = 80 件まで)。Secrets に `OPENALEX_API_KEY` (無料) があれば OpenAlex を使う (速く、1 回 250 件まで)。未発見の論文はリスト作成から 14 日は毎日、以降は 7 日おきに照合し直す
+3. **comments 採択表記** でヒットした論文も同じ venue ファイルに積む
+4. arXiv 版が **初めて見つかった日** に、その論文が Today の候補になる。abstract で `PAPER_KEYWORDS` 採点し、要約して venue ファイルに保存 (1 回 `VENUE_SUMMARIZE_MAX_PER_RUN` = 80 件まで)
+5. 論文誌 / ECCC の新着も同じキーワード採点で候補に入れ、関連度上位を採用する。会議採択論文と `important` な誌 (JACM / SICOMP / TheoretiCS) はキーワード非一致でも候補に残る
+
+採択リスト公開日は数十〜百本が一度に見つかるので、Today に出るのは関連度上位だけ。全件は Web の `/venues/{slug}` (会議別ページ) で関連度順に読める。
 
 ### サムネイル
 

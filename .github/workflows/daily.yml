@@ -19,7 +19,8 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # 会議採択論文の arXiv 照合 (3 秒間隔 × 最大 80 件) と comments 検索のぶん、15 分から延ばしている
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
         with:
@@ -51,6 +52,8 @@ jobs:
       - name: Run pipeline
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # 任意。設定すると会議採択論文の arXiv 照合に OpenAlex を使う (無ければ arXiv API)
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: pnpm --filter @daily-news/pipeline start
 
       - name: Commit data

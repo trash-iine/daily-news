@@ -17,7 +17,7 @@ export interface ScoredPaper {
  * スコア 0 になりうるため、source カテゴリ (quant-ph / prxquantum) も併用して
  * 確実に拾えるようにする。
  */
-export function isQuantumPaper(p: ArxivPaper): boolean {
+export function isQuantumPaper(p: Pick<ArxivPaper, "source" | "title" | "abstract">): boolean {
   if (p.source === "arxiv:quant-ph" || p.source === "aps:prxquantum") return true;
   const hay = `${p.title} ${p.abstract}`.toLowerCase();
   return PAPER_QUANTUM_KEYWORDS.some((k) => hay.includes(k));

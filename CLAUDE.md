@@ -5,10 +5,10 @@
 ## ディレクトリの歩き方
 
 - `apps/web/` — Next.js 15 (App Router) + Tailwind の閲覧 UI。`app/` がページ、`app/components/` が UI、`lib/data.ts` が `data/*.json` の読み込み。
-- `packages/pipeline/` — RSS / Qiita / Zenn / Hacker News / arXiv の収集・スコアリング・要約。`src/main.ts` が本体、`src/sources/*.ts` が各ソース実装。
+- `packages/pipeline/` — RSS / Qiita / Zenn / Hacker News / arXiv の収集・スコアリング・要約。`src/main.ts` が本体、`src/sources/*.ts` が各ソース実装、`src/venues/` が会議採択論文・論文誌。
 - `packages/pipeline/src/config.ts` — **設定ハブ**。フィード一覧・キーワード重み・件数・タグ別名はすべてここ。チューニングはほぼこのファイルで完結する。
 - `packages/shared/` — 共有型 (`types.ts`) と big tag グループ定義 (`big-tag-groups.ts`)。
-- `data/` — 日次 JSON (`YYYY-MM-DD.json`) と `index.json`。**GitHub Actions の自動コミット成果物**。
+- `data/` — 日次 JSON (`YYYY-MM-DD.json`) と `index.json`、会議ごとの採択論文リスト `venues/{venue}-{year}.json`。**GitHub Actions の自動コミット成果物**。
 - `.github/workflows/daily.yml` — 毎日 22:00 UTC (07:00 JST) に `pnpm pipeline` を回して `data/` をコミットする cron。
 
 ## よく使うコマンド
@@ -32,6 +32,8 @@
 | Qiita / Zenn のトピック追加 | 同 `QIITA_API_TAGS` / `ZENN_API_TOPICS` |
 | Hacker News クエリ追加 | 同 `HN_QUERIES` |
 | arXiv カテゴリ追加 | 同 `ARXIV_CATEGORIES` |
+| 採択リストを取る会議の追加 | 同 `VENUE_ACCEPTED_LISTS` (形式が「見出し → タイトル行/著者行の交互」でなければ `venues/acceptedList.ts` にパーサを足す) |
+| comments 採択表記で拾う会議 / 論文誌の追加 | 同 `VENUE_COMMENT_VENUES` / `JOURNALS` |
 | キーワード重み調整 | 同 `KEYWORD_WEIGHTS`（ニュース）/ `PAPER_KEYWORDS` / `PAPER_PRIORITY_KEYWORDS`（論文） |
 | 採用件数調整 | 同 `NEWS_TOP_N` / `NEWS_MIN_PER_GROUP` / `NEWS_TRENDING_TOP_N` / `PAPERS_TOP_N` |
 | タグ正規化 | 同 `TAG_ALIASES` |
@@ -42,7 +44,7 @@
 ## 守ってほしい規約
 
 - **外部ソース追加前に利用規約を確認する**。`RSS_FEEDS` / `sources/` への新規 RSS フィード・未公開 API・スクレイピング対象の追加時は、コードを書く前に対象サイトの利用規約・`robots.txt`・RSS 配信ポリシーを読み、機械取得 / 転載 / 表示形態に制限が無いことを確認する。確認結果はプラン or PR 説明に簡潔に残す。Qiita / Zenn / Hacker News / arXiv は確認済みのため対象外。
-- **`data/YYYY-MM-DD.json` と `data/index.json` は手で編集しない**。GitHub Actions が生成・コミットするファイル。再生成したい場合は Actions の `workflow_dispatch` を使う。
+- **`data/YYYY-MM-DD.json` / `data/index.json` / `data/venues/*.json` は手で編集しない**。GitHub Actions が生成・コミットするファイル。再生成したい場合は Actions の `workflow_dispatch` を使う。
 - **`data/.cache/` は触らない**。Actions のフィード HTTP キャッシュ復元先。
 - **`.env*` / `OPENAI_API_KEY` をコミットしない**。本番のキーは GitHub Secrets で管理されている (`.gitignore` 済み)。
 - **コミットメッセージのプレフィクス** は既存に合わせる: `FEAT:` / `FIX:` / `CHORE:` / `UPGRADE:` / `REMOVE:` / `data:` (`data:` は Actions 専用)。

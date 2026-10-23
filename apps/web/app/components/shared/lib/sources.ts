@@ -55,6 +55,7 @@ const SOURCE_LABELS: Record<string, string> = {
   "aps:prx": "APS · PRX",
   "aps:prxquantum": "APS · PRX Quantum",
   "aps:prresearch": "APS · PRResearch",
+  eccc: "ECCC",
   // legacy (旧 bundle 専用)
   "rss:zenn-all": "Zenn",
   "rss:qiita-popular": "Qiita",
@@ -71,6 +72,9 @@ const SOURCE_LABELS: Record<string, string> = {
 export const sourceLabel = (s: string): string => {
   const fixed = SOURCE_LABELS[s];
   if (fixed) return fixed;
+  // 会議採択論文は arXiv 版へのリンク、論文誌は Crossref の DOI リンク。誌名・会議名は venue ピルが出す。
+  if (s.startsWith("venue:")) return "arXiv";
+  if (s.startsWith("journal:")) return "Crossref";
   const prefixed = /^(qiita-api|zenn-api|hn|arxiv):(.+)$/.exec(s);
   if (prefixed) {
     const head = { "qiita-api": "Qiita", "zenn-api": "Zenn", hn: "HN", arxiv: "arXiv" }[
@@ -83,7 +87,14 @@ export const sourceLabel = (s: string): string => {
 
 export const sourceFamily = (s: string): string => {
   if (s === "hn" || s === "hn-trending" || s.startsWith("hn:")) return "hn";
-  if (s.startsWith("arxiv:") || s.startsWith("aps:")) return "arxiv";
+  if (
+    s.startsWith("arxiv:") ||
+    s.startsWith("aps:") ||
+    s.startsWith("venue:") ||
+    s.startsWith("journal:") ||
+    s === "eccc"
+  )
+    return "arxiv";
   if (s === "zenn-trending" || s.startsWith("rss:zenn") || s.startsWith("zenn-api:")) return "zenn";
   if (s === "qiita-trending" || s.startsWith("rss:qiita") || s.startsWith("qiita-api:")) return "qiita";
   if (s.startsWith("reddit:")) return "reddit";

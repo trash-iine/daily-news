@@ -72,6 +72,53 @@ export interface BaseItem {
    * 2026-05-21 以降の bundle に付与される。
    */
   popularityLabel?: string;
+  /**
+   * 採択会議・掲載誌の表示名 (例: "FOCS 2026", "SIAM J. Comput.", "ECCC")。
+   * 会議採択論文 / 論文誌新着由来の paper にのみ付き、UI は「採択論文・論文誌」セクションに
+   * 分けて表示する。通常の arXiv 新着には付かない。2026-10-24 以降の bundle に付与される。
+   */
+  venue?: string;
+  /** 会議採択論文のとき、会議別ページ (`/venues/{slug}`) の slug。論文誌由来では undefined。 */
+  venueSlug?: string;
+}
+
+/** 会議採択論文 1 件。`data/venues/{slug}.json` の `papers` 要素。 */
+export interface VenuePaper {
+  title: string;
+  /** 表示用の著者リスト (所属は落とす)。 */
+  authors: string[];
+  /** arXiv 版が見つかった場合の ID (バージョン無し)。 */
+  arxivId?: string;
+  /** arXiv 版が初めて見つかった日 (JST, YYYY-MM-DD)。 */
+  arxivFoundOn?: string;
+  /** PAPER_KEYWORDS による関連度。arXiv abstract が取れるまではタイトルのみで採点。 */
+  score: number;
+  matchedKeywords: string[];
+  summary?: string;
+  summaryStruct?: PaperSummaryStruct;
+  /** どこから知ったか。採択リスト / arXiv comments ("To appear in ...")。 */
+  via: "accepted-list" | "arxiv-comment";
+  /** 最後に arXiv 照合した日。未発見の論文を毎日照合し直すのに使う。 */
+  lastCheckedOn?: string;
+}
+
+/** 会議 1 回分の採択論文リスト。`data/venues/{slug}.json`。 */
+export interface VenueList {
+  /** "focs-2026" */
+  slug: string;
+  /** "FOCS" */
+  venue: string;
+  year: number;
+  /** "FOCS 2026" */
+  name: string;
+  /** 採択リストの取得元 URL。arXiv comments だけから作られたリストでは undefined。 */
+  sourceUrl?: string;
+  /** 採択リスト本文のハッシュ。変化したときだけ再パースする。 */
+  sourceHash?: string;
+  /** このリストを初めて作った日 (JST)。 */
+  createdOn: string;
+  updatedAt: string;
+  papers: VenuePaper[];
 }
 
 /**

@@ -9,6 +9,7 @@ import {
   writeDaily,
 } from "./store.js";
 import { todayString } from "./util.js";
+import { collectVenueItems } from "./venues/index.js";
 
 async function main() {
   const date = todayString();
@@ -27,7 +28,15 @@ async function main() {
   );
 
   const news = rankNews(rawNews, seenNewsIds);
-  const papers = await rankPapers(rawPapers, seenPaperIds);
+  // 会議採択論文・論文誌は arXiv API を叩くので、collectPapers (arXiv 逐次取得) の完了後に回す。
+  // 失敗しても通常の論文/ニュースは書き出したいので、ここで握りつぶす。
+  const [papers, venuePapers] = await Promise.all([
+    rankPapers(rawPapers, seenPaperIds),
+    collectVenueItems(date, seenPaperIds).catch((err: unknown) => {
+      console.warn("[main] venue collection failed:", err);
+      return [];
+    }),
+  ]);
   // 興味タグに無関係でも世間トレンドで勢いのある item を別枠で追加する
   // (curated news / 過去既出を除外してから velocity 上位を採用)。
   const selectedUrls = new Set(news.map((n) => n.url));
@@ -38,14 +47,14 @@ async function main() {
     NEWS_TRENDING_TOP_N,
   );
   console.log(
-    `[main] selected ${news.length} news / ${papers.length} papers / ${trendingNews.length} trending extras`,
+    `[main] selected ${news.length} news / ${papers.length} papers / ${venuePapers.length} venue papers / ${trendingNews.length} trending extras`,
   );
 
   if (papers.length === 0) {
     console.log("[main] no fresh papers today — leaving papers section empty");
   }
 
-  const items = [...papers, ...news, ...trendingNews];
+  const items = [...papers, ...venuePapers, ...news, ...trendingNews];
   if (items.length === 0) {
     console.warn("[main] no items selected; nothing to write");
     return;

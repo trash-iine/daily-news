@@ -375,6 +375,130 @@ export const APS_FEEDS: { id: string; url: string; quantumOnly: boolean }[] = [
 export const APS_PAPER_MAX_AGE_DAYS = 7;
 
 /**
+ * 会議の採択論文リストページ。`{year}` は今年と来年で展開し、ページが公開された日に
+ * `data/venues/{slug}.json` を作る (公開タイミングの検知を兼ねる)。
+ *
+ * 形式はどちらも「見出し `<VENUE> <YEAR> Accepted Papers` の後にタイトル行と著者行が交互」
+ * (venues/acceptedList.ts: parseAcceptedList)。見出しの年を検証するので、前年の内容が
+ * 残ったページ (FOCS 2026 サイトの accepted-papers-with-abstracts は 2024 年の内容だった) は採らない。
+ *
+ * 規約確認 (CLAUDE.md ルール):
+ * - acm-stoc.org: robots.txt なし (404)。採択リストは公開ページ。1 日 1〜2 リクエスト。
+ * - focs.computer.org: robots.txt は /wp-admin/ のみ Disallow、Crawl-delay: 10。
+ *   WordPress 標準の公開 REST API (wp-json/wp/v2/pages) で本文を取る。1 日 1〜2 リクエスト。
+ * - 保存するのはタイトルと著者名のみ (所属は落とす)。
+ * - SODA (siam.org) は bot に 403 を返すため対象外。arXiv comments 側で拾う。
+ */
+export interface AcceptedListConfig {
+  venue: string;
+  urlTemplate: string;
+  /** "html": ページをそのまま取る / "wp-json": WordPress REST API の pages 配列から本文を取る */
+  format: "html" | "wp-json";
+}
+
+export const VENUE_ACCEPTED_LISTS: AcceptedListConfig[] = [
+  { venue: "STOC", urlTemplate: "https://acm-stoc.org/stoc{year}/accepted-papers.html", format: "html" },
+  {
+    venue: "FOCS",
+    urlTemplate: "https://focs.computer.org/{year}/wp-json/wp/v2/pages?slug=accepted-papers&_fields=content,link",
+    format: "wp-json",
+  },
+];
+
+/**
+ * arXiv comments の採択表記 ("To appear in SODA 2027" 等) で採択論文を拾う会議。
+ * 採択リストを機械取得できない会議の補完と、リスト公開前の早期検知を兼ねる。
+ * ヒットした論文は会議ごとの `data/venues/{slug}.json` に積み上がる。
+ */
+export const VENUE_COMMENT_VENUES: string[] = [
+  "FOCS",
+  "STOC",
+  "SODA",
+  "ICALP",
+  "IPCO",
+  "ITCS",
+  "ESA",
+  "APPROX",
+  "CCC",
+  "IPEC",
+  "QIP",
+  "CPAIOR",
+];
+
+/**
+ * comments 検索で遡る日数 (arXiv の lastUpdatedDate 基準)。採択表記は v2 以降で
+ * 追記されることが多いので submittedDate ではなく更新日で見る。重複は venue ファイルで弾く。
+ */
+export const VENUE_COMMENT_LOOKBACK_DAYS = 7;
+
+/** 採択リストを arXiv と照合し直す期間 (リスト作成日からの日数)。過ぎたら照合をやめる。 */
+export const VENUE_MATCH_WINDOW_DAYS = 240;
+
+/**
+ * arXiv 版が未発見の論文を照合し直す間隔。リスト作成から `VENUE_RECHECK_DAILY_DAYS` 日は毎日、
+ * その後は `VENUE_RECHECK_INTERVAL_DAYS` 日おき (camera-ready 前後に arXiv 版が出揃うまで追う)。
+ */
+export const VENUE_RECHECK_DAILY_DAYS = 14;
+export const VENUE_RECHECK_INTERVAL_DAYS = 7;
+
+/**
+ * 1 回の実行で照合する最大件数 (Actions の実行時間の上限対策)。arXiv API は 3 秒間隔なので
+ * 80 件で約 4〜5 分。OpenAlex (OPENALEX_API_KEY がある場合) は速いので多めに取る。
+ */
+export const VENUE_MATCH_MAX_PER_RUN_ARXIV = 80;
+export const VENUE_MATCH_MAX_PER_RUN_OPENALEX = 250;
+
+/** 1 回の実行で要約する会議採択論文の最大件数。採択リスト公開日の一括要約を抑える。 */
+export const VENUE_SUMMARIZE_MAX_PER_RUN = 80;
+
+/**
+ * Crossref REST API (api.crossref.org/journals/{issn}/works) で新着を取る論文誌。
+ * DOI 登録日 (created) で絞るので online-first も拾える。
+ *
+ * 規約確認 (CLAUDE.md ルール): Crossref REST API は認証不要の公開 API で、メタデータの
+ * 機械取得を想定している。User-Agent に連絡先 (リポジトリ URL) を入れて polite に叩く。
+ * abstract は要約生成の入力にだけ使い、bundle には保存しない。
+ *
+ * important: true の誌はキーワードに一致しなくても採用候補に残す (分野のトップ誌を漏らさない)。
+ */
+export interface JournalConfig {
+  id: string;
+  name: string;
+  issn: string;
+  important?: boolean;
+}
+
+export const JOURNALS: JournalConfig[] = [
+  { id: "jacm", name: "J. ACM", issn: "0004-5411", important: true },
+  { id: "sicomp", name: "SIAM J. Comput.", issn: "0097-5397", important: true },
+  { id: "talg", name: "ACM Trans. Algorithms", issn: "1549-6325" },
+  { id: "theoretics", name: "TheoretiCS", issn: "2751-4838", important: true },
+  { id: "combinatorica", name: "Combinatorica", issn: "0209-9683" },
+  { id: "mathprog", name: "Math. Programming", issn: "0025-5610" },
+  { id: "mpc", name: "Math. Programming Computation", issn: "1867-2949" },
+  { id: "mor", name: "Math. of Operations Research", issn: "0364-765X" },
+  { id: "opre", name: "Operations Research", issn: "0030-364X" },
+  { id: "ijoc", name: "INFORMS J. Computing", issn: "1091-9856" },
+  { id: "trsc", name: "Transportation Science", issn: "0041-1655" },
+  { id: "quantum", name: "Quantum", issn: "2521-327X" },
+  { id: "jar", name: "J. Automated Reasoning", issn: "0168-7433" },
+];
+
+/** Crossref の取得窓 (DOI 登録日がこの日数以内)。重複は直近 bundle の id で弾く。 */
+export const JOURNAL_LOOKBACK_DAYS = 3;
+
+/**
+ * ECCC (Electronic Colloquium on Computational Complexity) の新着レポート RSS。
+ * 規約確認: robots.txt は /submit/ /search 等のみ Disallow で、/feeds/ は対象外。
+ * RSS は購読用に公開されている。
+ */
+export const ECCC_FEED_URL = "https://eccc.weizmann.ac.il/feeds/reports/";
+export const ECCC_MAX_AGE_DAYS = 3;
+
+/** 1 日の「採択論文・論文誌」セクションの採用件数。arXiv 新着の `PAPERS_TOP_N` とは別枠。 */
+export const VENUE_PAPERS_TOP_N = 6;
+
+/**
  * タイトル or 本文にいずれかが含まれる item は除外する。
  * プロモーション系 / アフィリエイト記事を切り捨てる用途。
  * ASCII / 非 ASCII の両方を扱える (score.ts と同じ規約)。
