@@ -1,0 +1,575 @@
+{
+  "slug": "neurips-2026",
+  "venue": "NeurIPS",
+  "year": 2026,
+  "name": "NeurIPS 2026",
+  "createdOn": "2026-10-23",
+  "updatedAt": "2026-10-23T13:48:14.139Z",
+  "papers": [
+    {
+      "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "ROCKET: Rapid Optimization via Calibration-guided Knapsack-Enhanced Truncation for Efficient Model Compression",
+      "authors": [
+        "Ammar Ali",
+        "Baher Mohammad",
+        "Denis Makhov",
+        "+3"
+      ],
+      "score": 23,
+      "matchedKeywords": [
+        "optimization",
+        "knapsack"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2602.11008",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** ROCKET (モデル圧縮手法) を用いたトレーニング不要の高性能モデル圧縮\n\n**問題** モデル圧縮は、モデルのサイズを減少させつつ性能を維持することが求められる課題です。従来の手法では、圧縮後の性能低下が大きな問題となっていました。\n\n**手法** ROCKETは、レイヤーごとの圧縮割り当てを多選択ナップサック問題として定式化し、最適な圧縮レベルを選定します。また、辞書学習に触発された単一ステップのスパース行列因子分解を導入し、重み係数をスパース化します。\n\n**結果** ROCKETは、20-50%の圧縮率で既存の圧縮手法を常に上回り、30%の圧縮でも元のモデル性能の90%以上を維持します。軽微なファインチューニングを行うことで、Qwen3-14Bを8Bパラメータモデルに圧縮し、30百万トークンで回復すると、元のQwen3-8Bに近い性能を実現します。",
+      "summaryStruct": {
+        "problem": "モデル圧縮は、モデルのサイズを減少させつつ性能を維持することが求められる課題です。従来の手法では、圧縮後の性能低下が大きな問題となっていました。",
+        "method": "ROCKETは、レイヤーごとの圧縮割り当てを多選択ナップサック問題として定式化し、最適な圧縮レベルを選定します。また、辞書学習に触発された単一ステップのスパース行列因子分解を導入し、重み係数をスパース化します。",
+        "result": "ROCKETは、20-50%の圧縮率で既存の圧縮手法を常に上回り、30%の圧縮でも元のモデル性能の90%以上を維持します。軽微なファインチューニングを行うことで、Qwen3-14Bを8Bパラメータモデルに圧縮し、30百万トークンで回復すると、元のQwen3-8Bに近い性能を実現します。",
+        "topic": "ROCKET (モデル圧縮手法) を用いたトレーニング不要の高性能モデル圧縮"
+      }
+    },
+    {
+      "title": "Worst-Case Regret Bounds for Combinatorial Bandits with Ranking Feedback",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "SPLICE: Structured Prompt Local Iterative Combinatorial Evolution",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "HOPSE: Scalable Higher-Order Positional and Structural Encoder for Combinatorial Representations",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "SeqDiCO: Sequence-oriented Diffusion for Scale-Generalizable Neural Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Revisiting Autoregressive GCNs for Vehicle Routing Problems",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Diffusion-Enhanced GFlowNet for Solving Vehicle Routing Problems",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "QEC Model Zoo: Democratizing AI-enhanced Quantum Error Correction",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Ballad: Bandit-Based LLM Routing for Automated Heuristic Discovery",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "EnerGNN: Learning Optimization-Compatible Energy Functions for Exact Constrained Combinatorial Inference",
+      "authors": [],
+      "score": 14,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "SimpleEvol: Efficient Intelligence Conversion via Less Human Prior in Automated Heuristic Design",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "UECO: A Unified Encoder with Structure-Aware Attention Mixture via Iterative Edge Evolving for Neural Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Rectified Policy Rollouts with Hierarchical Expert Guidance for Neural Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Teacher-Aware Evolution of Heuristic Programs from Learned Optimization Policies",
+      "authors": [
+        "Minyu Chen",
+        "Song Qin",
+        "Ling-I Wu",
+        "+2"
+      ],
+      "score": 37,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic",
+        "scheduling"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2605.10634",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 教師あり進化フレームワークを用いた組合せ最適化のための自動ヒューリスティック設計\n\n**問題** 従来のLLM（大規模言語モデル）に基づく自動ヒューリスティック設計は、遅延したエンドポイント性能に依存しており、即時のフィードバックが不足しているという課題があります。\n\n**手法** 提案手法では、独立に訓練された最適化ポリシーを教師として利用し、候補ヒューリスティックプログラムが訪れた状態に対して教師にクエリを行い、その行動の好みをローカルフィードバックとして進化に活用します。これにより、タスク性能と教師由来の行動信号に基づいた静的実行可能ヒューリスティックを発見します。\n\n**結果** 実験の結果、スケジューリング、ルーティング、グラフ最適化のベンチマークにおいて、提案手法は性能駆動型のLLMヒューリスティック進化のベースラインを上回る改善を示し、デプロイ時に神経推論を必要としませんでした。",
+      "summaryStruct": {
+        "problem": "従来のLLM（大規模言語モデル）に基づく自動ヒューリスティック設計は、遅延したエンドポイント性能に依存しており、即時のフィードバックが不足しているという課題があります。",
+        "method": "提案手法では、独立に訓練された最適化ポリシーを教師として利用し、候補ヒューリスティックプログラムが訪れた状態に対して教師にクエリを行い、その行動の好みをローカルフィードバックとして進化に活用します。これにより、タスク性能と教師由来の行動信号に基づいた静的実行可能ヒューリスティックを発見します。",
+        "result": "実験の結果、スケジューリング、ルーティング、グラフ最適化のベンチマークにおいて、提案手法は性能駆動型のLLMヒューリスティック進化のベースラインを上回る改善を示し、デプロイ時に神経推論を必要としませんでした。",
+        "topic": "教師あり進化フレームワークを用いた組合せ最適化のための自動ヒューリスティック設計"
+      }
+    },
+    {
+      "title": "The Graph Concept Bottleneck: Decoding Combinatorial Reasoning in GNNs for Interpretability",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Insight-Driven Search: A Framework for Multi-objective Automated Heuristic Design with Large Language Models",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Interactive Combinatorial Reinforcement Learning for Knowledge Graph Reasoning",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Zeroth-Order Stackelberg Control in Combinatorial Congestion Games",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "NLD4CO: Neural Langevin Dynamics for Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "EDISCO: Equivariant Discrete Diffusion for Euclidean Combinatorial Optimization",
+      "authors": [
+        "Ruogu Chen",
+        "Jie Han"
+      ],
+      "score": 61,
+      "matchedKeywords": [
+        "optimization",
+        "traveling salesman",
+        "vehicle routing",
+        "tsp"
+      ],
+      "via": "accepted-list",
+      "arxivId": "2610.04953",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** ユークリッド組合せ最適化問題 (ECOPs) に対する離散拡散モデルの提案\n\n**問題** ユークリッド組合せ最適化問題（例: 巡回セールスマン問題 (TSP) や容量制約付き車両ルーティング問題 (CVRP)）は、データ拡張や正則化に依存してE(2)（ユークリッド群）における対称性を近似する必要があるという課題があります。\n\n**手法** EDISCOは、ノードインデックス解に対してE(2)不変な生成分布を持つ初の離散拡散モデルであり、E(2)に準拠したエッジスコアネットワークと連続時間マルコフ連鎖を組み合わせています。この設計により、学習が効率的になり、推論がより堅牢になります。\n\n**結果** EDISCOは、100から10000ノードの合成TSPや50から2000顧客のCVRPにおいて、従来の最先端学習ベースのソルバーを上回り、トレーニングインスタンスの33-50%のみを使用しています。また、均一な合成データで訓練されたEDISCOは、空間分布の変化やCVRPの制約の厳しさの変化に対しても競合する学習ベースのベースラインを上回ります。",
+      "summaryStruct": {
+        "problem": "ユークリッド組合せ最適化問題（例: 巡回セールスマン問題 (TSP) や容量制約付き車両ルーティング問題 (CVRP)）は、データ拡張や正則化に依存してE(2)（ユークリッド群）における対称性を近似する必要があるという課題があります。",
+        "method": "EDISCOは、ノードインデックス解に対してE(2)不変な生成分布を持つ初の離散拡散モデルであり、E(2)に準拠したエッジスコアネットワークと連続時間マルコフ連鎖を組み合わせています。この設計により、学習が効率的になり、推論がより堅牢になります。",
+        "result": "EDISCOは、100から10000ノードの合成TSPや50から2000顧客のCVRPにおいて、従来の最先端学習ベースのソルバーを上回り、トレーニングインスタンスの33-50%のみを使用しています。また、均一な合成データで訓練されたEDISCOは、空間分布の変化やCVRPの制約の厳しさの変化に対しても競合する学習ベースのベースラインを上回ります。",
+        "topic": "ユークリッド組合せ最適化問題 (ECOPs) に対する離散拡散モデルの提案"
+      }
+    },
+    {
+      "title": "FocusBranch: Combinatorial Branch-and-Bound for $\\ell_0$ Neural Network Robustness Verification",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "PISG: Constraint-Aligned Signal Amplification for Diffusion-Based Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Precision-Pyramid: Towards real-time neural decoding for fault-tolerant quantum computing",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Orthogonal Uplift Learning with Permutation-Invariant Representations for Combinatorial Treatments",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "PACE: Partial-state Amortized Constraint Editing for Neural Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Relaxation-Aligned State Control for Test-Time Scaling in Generative Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Don't Waste Population: Post-Anneal Refinement for Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "An Embarrassingly Simple Graph Heuristic Reveals Shortcut-Solvable Benchmarks for Sequential Recommendation",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Optimal and Efficient Contextual Combinatorial Semi-bandits with General Function Approximation",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "A Single-Sample Polylogarithmic Regret Bound for Nonstationary Online Linear Programming",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "linear programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "The Query Complexity of Local Search in Rounds on General Graphs",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "local search"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "FindStatBench: Evaluating Large Language Models on Combinatorial Code Synthesis",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Solving Max-Cut to Global Optimality via Feasibility-Preserving Graph Neural Networks",
+      "authors": [
+        "Hao Chen",
+        "Chendi Qian",
+        "Christopher Morris",
+        "+2"
+      ],
+      "score": 41,
+      "matchedKeywords": [
+        "optimization",
+        "max-cut",
+        "branch and bound"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2605.07113",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** Max-Cut問題に特化したグラフニューラルネットワークを用いた最適化手法の提案\n\n**問題** 難解な組合せ最適化問題の正確な解法は強い凸緩和に依存するが、その解法を繰り返し使用することは高コストである。特に、Max-Cut問題においては半正定値計画 (SDP) 緩和が一般的に用いられるが、計算負荷が大きい。\n\n**手法** 提案手法は、SDPソルバーの軽量なニューラルプロキシとして機能するMax-Cut特化型のグラフニューラルネットワークであり、正確な分岐限定法に直接組み込むことができる。更新ステップの計算量は$\text{O}(n^2 + ne)$で、プライマルおよびデュアルの両方のSDP解を予測する。\n\n**結果** 実験により、提案手法は最先端のSDPソルバーMosekと比較して、Max-Cutの正確な解法におけるバウンディングコストを最大で10.6倍削減できることを示した。",
+      "summaryStruct": {
+        "problem": "難解な組合せ最適化問題の正確な解法は強い凸緩和に依存するが、その解法を繰り返し使用することは高コストである。特に、Max-Cut問題においては半正定値計画 (SDP) 緩和が一般的に用いられるが、計算負荷が大きい。",
+        "method": "提案手法は、SDPソルバーの軽量なニューラルプロキシとして機能するMax-Cut特化型のグラフニューラルネットワークであり、正確な分岐限定法に直接組み込むことができる。更新ステップの計算量は$\text{O}(n^2 + ne)$で、プライマルおよびデュアルの両方のSDP解を予測する。",
+        "result": "実験により、提案手法は最先端のSDPソルバーMosekと比較して、Max-Cutの正確な解法におけるバウンディングコストを最大で10.6倍削減できることを示した。",
+        "topic": "Max-Cut問題に特化したグラフニューラルネットワークを用いた最適化手法の提案"
+      }
+    },
+    {
+      "title": "HyCO: A Hybrid Neural Solver for Combinatorial Optimization",
+      "authors": [
+        "Yuheng Li",
+        "Di Yang",
+        "Haipeng Chen",
+        "+1"
+      ],
+      "score": 37,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2609.07990",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 強化学習 (RL) と拡散モデル (DM) を用いた組合せ最適化のためのハイブリッド推論アルゴリズム\n\n**問題** 従来のRLソルバーとDMソルバーは、それぞれ異なる失敗モードを持ち、最適化の観点からは相補的な課題を抱えている。これらの手法の欠点を克服する必要がある。\n\n**手法** 提案手法HyCOは、RLソルバーで解の接頭辞を構築し、残りの決定を完了するために条件付きDMに適応的に切り替える。ハイブリッド化が有効な理由を理論的に示し、最適な切り替えタイミングを特定するための軽量な適応トリガーを設計した。\n\n**結果** 実験結果は、HyCOが従来の手法に対して一貫した改善を達成し、適応トリガーの実証的効果を支持することを示した。",
+      "summaryStruct": {
+        "problem": "従来のRLソルバーとDMソルバーは、それぞれ異なる失敗モードを持ち、最適化の観点からは相補的な課題を抱えている。これらの手法の欠点を克服する必要がある。",
+        "method": "提案手法HyCOは、RLソルバーで解の接頭辞を構築し、残りの決定を完了するために条件付きDMに適応的に切り替える。ハイブリッド化が有効な理由を理論的に示し、最適な切り替えタイミングを特定するための軽量な適応トリガーを設計した。",
+        "result": "実験結果は、HyCOが従来の手法に対して一貫した改善を達成し、適応トリガーの実証的効果を支持することを示した。",
+        "topic": "強化学習 (RL) と拡散モデル (DM) を用いた組合せ最適化のためのハイブリッド推論アルゴリズム"
+      }
+    },
+    {
+      "title": "Interpreting Neural Combinatorial Optimization via Evolving Programmatic Bottlenecks",
+      "authors": [
+        "Haocheng Duan",
+        "Yuxin Guo",
+        "Jieyi Bi",
+        "+4"
+      ],
+      "score": 43,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2606.19741",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** ニューラル組合せ最適化 (NCO) の解釈可能性を向上させる手法の提案\n\n**問題** NCOは強力な性能を持つが、そのブラックボックス性が展開や科学的診断の障害となっている。従来の解釈ツールはNCOの動的かつ状態依存の意思決定に適していない。\n\n**手法** Evolving Programmatic Bottlenecks (EPB)というフレームワークを提案し、ブラックボックスのNCOモデルを人間が理解できるプログラムポートフォリオに蒸留する。EPBは大規模言語モデル (LLM) を用いてプログラムのバンクを自律的に進化させ、各プログラムのアクション分布をボトルネックとして利用する。\n\n**結果** 実験により、EPBは元の性能にほぼ一致するプログラムポートフォリオを生成し、NCOの行動が最適化段階に応じて変化することを示した。",
+      "summaryStruct": {
+        "problem": "NCOは強力な性能を持つが、そのブラックボックス性が展開や科学的診断の障害となっている。従来の解釈ツールはNCOの動的かつ状態依存の意思決定に適していない。",
+        "method": "Evolving Programmatic Bottlenecks (EPB)というフレームワークを提案し、ブラックボックスのNCOモデルを人間が理解できるプログラムポートフォリオに蒸留する。EPBは大規模言語モデル (LLM) を用いてプログラムのバンクを自律的に進化させ、各プログラムのアクション分布をボトルネックとして利用する。",
+        "result": "実験により、EPBは元の性能にほぼ一致するプログラムポートフォリオを生成し、NCOの行動が最適化段階に応じて変化することを示した。",
+        "topic": "ニューラル組合せ最適化 (NCO) の解釈可能性を向上させる手法の提案"
+      }
+    },
+    {
+      "title": "Parameterized Complexity of Stationarity Testing for Piecewise-Affine Functions and Shallow CNN Losses",
+      "authors": [
+        "Yuhan Ye"
+      ],
+      "score": 19,
+      "matchedKeywords": [
+        "optimization",
+        "parameterized complexity"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2605.10219",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 連続的な区分線形関数 (PA関数) における近似一次停留点のテストのパラメータ化された複雑性\n\n**問題** この論文は、非滑らかな最適化における基本的なタスクであるPA関数の近似一次停留点のテストの計算困難性を扱っている。特に、固定次元での計算可能性の問題に焦点を当てている。\n\n**手法** 著者らは、周囲の次元$d$をパラメータとして、固定次元におけるXPアルゴリズムを提案し、補完的な側面に対してはW[1]-困難性を証明している。さらに、指数時間仮説の下で、任意の計算可能な関数に対して特定の時間内に動作するアルゴリズムは存在しないことを示している。\n\n**結果** 得られた結果は、PA関数の局所的最小性のテストに関するパラメータ化された複雑性の全体像を提供し、浅いReLU CNNのトレーニング損失にも同様の困難性が適用されることを示している。",
+      "summaryStruct": {
+        "problem": "この論文は、非滑らかな最適化における基本的なタスクであるPA関数の近似一次停留点のテストの計算困難性を扱っている。特に、固定次元での計算可能性の問題に焦点を当てている。",
+        "method": "著者らは、周囲の次元$d$をパラメータとして、固定次元におけるXPアルゴリズムを提案し、補完的な側面に対してはW[1]-困難性を証明している。さらに、指数時間仮説の下で、任意の計算可能な関数に対して特定の時間内に動作するアルゴリズムは存在しないことを示している。",
+        "result": "得られた結果は、PA関数の局所的最小性のテストに関するパラメータ化された複雑性の全体像を提供し、浅いReLU CNNのトレーニング損失にも同様の困難性が適用されることを示している。",
+        "topic": "連続的な区分線形関数 (PA関数) における近似一次停留点のテストのパラメータ化された複雑性"
+      }
+    },
+    {
+      "title": "Exact Combinatorial Optimization for Partial Permutation Synchronization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Learning to Search, Searching to Learn: A Closed-Loop Framework for Large-Scale Vehicle Routing",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Quantizing With Randomized Hadamard Transforms: Efficient Heuristic Now Proven",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "A Reproducible Evaluation Protocol for Quantum Non-Linearity in Variational Quantum Models",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Learning Density Operator Latent Variable Models via Quantum Information Projection",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Intersectional Fairness via Mixed-Integer Optimization",
+      "authors": [
+        "Jiří Němeček",
+        "Mark Kozdoba",
+        "Illia Kryvoviaz",
+        "+2"
+      ],
+      "score": 20,
+      "matchedKeywords": [
+        "optimization",
+        "mixed-integer"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2601.19595",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 混合整数最適化 (MIO) を用いた交差的に公正で解釈可能な分類器の訓練\n\n**問題** 高リスク領域における人工知能の導入には、公正性と透明性を兼ね備えたモデルが求められるが、バイアスの定義が曖昧であることが課題である。特に、保護されたグループの交差点におけるバイアスに対処することが真の公正性に必要である。\n\n**手法** 本研究では、交差的に公正で本質的に解釈可能な分類器を訓練するための統一フレームワークを提案する。混合整数最適化を活用することで、最も不公正なサブグループを特定し、バイアスを見つける性能を向上させることができる。\n\n**結果** 提案手法により、交差的バイアスを許容可能な閾値以下に抑えた高性能で解釈可能な分類器を訓練することに成功した。",
+      "summaryStruct": {
+        "problem": "高リスク領域における人工知能の導入には、公正性と透明性を兼ね備えたモデルが求められるが、バイアスの定義が曖昧であることが課題である。特に、保護されたグループの交差点におけるバイアスに対処することが真の公正性に必要である。",
+        "method": "本研究では、交差的に公正で本質的に解釈可能な分類器を訓練するための統一フレームワークを提案する。混合整数最適化を活用することで、最も不公正なサブグループを特定し、バイアスを見つける性能を向上させることができる。",
+        "result": "提案手法により、交差的バイアスを許容可能な閾値以下に抑えた高性能で解釈可能な分類器を訓練することに成功した。",
+        "topic": "混合整数最適化 (MIO) を用いた交差的に公正で解釈可能な分類器の訓練"
+      }
+    },
+    {
+      "title": "Differentiable Knapsack and Top-k Operators via Dynamic Programming",
+      "authors": [
+        "Germain Vivier-Ardisson",
+        "Michaël E. Sander",
+        "Axel Parmentier",
+        "+1"
+      ],
+      "score": 23,
+      "matchedKeywords": [
+        "knapsack",
+        "dynamic-programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2601.21775",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** ナップサック問題およびTop-k演算子を用いたニューラルネットワークのための統一フレームワークの提案\n\n**問題** ナップサック問題とTop-k演算子は変数の離散的なサブセットを選択するのに有用だが、これらをニューラルネットワークに統合するのは難しい。なぜなら、これらの演算子はほぼどこでも勾配がゼロになるためである。\n\n**手法** 本研究では、これらの演算子を動的プログラムとして捉え、基盤となる再帰を滑らかにすることで微分可能な緩和を導出する。さらに、決定論的および確率的な前方パスをサポートする効率的な並列アルゴリズムを開発した。\n\n**結果** 実験では、意思決定に焦点を当てた学習ベンチマークや制約付き動的アソートメント強化学習問題、離散変分オートエンコーダの拡張において提案フレームワークを示した。",
+      "summaryStruct": {
+        "problem": "ナップサック問題とTop-k演算子は変数の離散的なサブセットを選択するのに有用だが、これらをニューラルネットワークに統合するのは難しい。なぜなら、これらの演算子はほぼどこでも勾配がゼロになるためである。",
+        "method": "本研究では、これらの演算子を動的プログラムとして捉え、基盤となる再帰を滑らかにすることで微分可能な緩和を導出する。さらに、決定論的および確率的な前方パスをサポートする効率的な並列アルゴリズムを開発した。",
+        "result": "実験では、意思決定に焦点を当てた学習ベンチマークや制約付き動的アソートメント強化学習問題、離散変分オートエンコーダの拡張において提案フレームワークを示した。",
+        "topic": "ナップサック問題およびTop-k演算子を用いたニューラルネットワークのための統一フレームワークの提案"
+      }
+    },
+    {
+      "title": "Chaining 2-FWL GNNs for Combinatorial Graph Alignment",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    }
+  ],
+  "sourceCheckedOn": "2026-10-23",
+  "sourceUrl": "https://neurips.cc/virtual/2026/papers.html",
+  "sourceHash": "95e802df13c6f606",
+  "gated": true,
+  "sourceTotal": 9129
+}

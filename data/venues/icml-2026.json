@@ -1,0 +1,654 @@
+{
+  "slug": "icml-2026",
+  "venue": "ICML",
+  "year": 2026,
+  "name": "ICML 2026",
+  "createdOn": "2026-10-23",
+  "updatedAt": "2026-10-23T13:48:14.140Z",
+  "papers": [
+    {
+      "title": "Position: Neural Approximation Is Rarely Justified for Hard Combinatorial Problems",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "RouteFinder: Towards Foundation Models for Vehicle Routing Problems",
+      "authors": [
+        "Federico Berto",
+        "Chuanbo Hua",
+        "Nayeli Gast Zepeda",
+        "+6"
+      ],
+      "score": 15,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2406.15007",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 車両ルーティング問題 (VRP) のさまざまなバリエーションに対応するための基盤モデルフレームワークの提案。\n\n**問題** 車両ルーティング問題の異なるバリエーションを効率的に扱うことが求められている。これにより、さまざまな属性を持つ問題を統一的に解決する必要がある。\n\n**手法** RouteFinderは、各VRPバリエーションを一般化された問題のサブセットとして扱うことで、効率的なタスク表現を実現する。現代のトランスフォーマーエンコーダとグローバル属性埋め込みを活用し、強化学習技術を用いてマルチタスク性能を向上させる。\n\n**結果** 48のVRPバリエーションに関する広範な実験において、RouteFinderは最近の最先端学習手法を上回る成果を示した。",
+      "summaryStruct": {
+        "problem": "車両ルーティング問題の異なるバリエーションを効率的に扱うことが求められている。これにより、さまざまな属性を持つ問題を統一的に解決する必要がある。",
+        "method": "RouteFinderは、各VRPバリエーションを一般化された問題のサブセットとして扱うことで、効率的なタスク表現を実現する。現代のトランスフォーマーエンコーダとグローバル属性埋め込みを活用し、強化学習技術を用いてマルチタスク性能を向上させる。",
+        "result": "48のVRPバリエーションに関する広範な実験において、RouteFinderは最近の最先端学習手法を上回る成果を示した。",
+        "topic": "車両ルーティング問題 (VRP) のさまざまなバリエーションに対応するための基盤モデルフレームワークの提案。"
+      }
+    },
+    {
+      "title": "OptMaster: A DAG-Based Framework for Formulation and Heuristic Discovery in Optimization",
+      "authors": [],
+      "score": 14,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Learning Multi-Timescale Abstractions for Hierarchical Combinatorial Planning",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Hierarchical Representations for Cross-task Automated Heuristic Design using LLMs",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Instance-Specific Approximation Ratios for Correlation Clustering and Max-Cut",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "max-cut"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "RefineEvo: Planning-Guided Heuristic Evolution with Bidirectional Experience",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "A General Neural Backbone for Mixed-Integer Linear Optimization via Dual Attention",
+      "authors": [
+        "Peixin Huang",
+        "Yaoxin Wu",
+        "Yining Ma",
+        "+3"
+      ],
+      "score": 48,
+      "matchedKeywords": [
+        "optimization",
+        "mixed-integer",
+        "linear programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2601.04509",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 注意機構を用いた混合整数線形計画法 (MILP) のための強化学習手法\n\n**問題** 混合整数線形計画法は、科学や工学における組合せ最適化の基盤であるが、NP困難性により大規模な問題を解くのが難しい。従来の学習ベースの手法は、局所性の制約により表現力が限られている。\n\n**手法** 提案手法は、変数と制約に対する要素中心の視点を採用し、双方向の注意機構を用いて同種内自己注意と異種間交差注意を並行して行う。これにより、表現力が向上し、問題解決に効果的である。\n\n**結果** 提案モデルは、インスタンス、要素、解決状態の3つの代表的なタスクにおいて、従来のGNNベースのアーキテクチャを一貫して上回る性能を示した。",
+      "summaryStruct": {
+        "problem": "混合整数線形計画法は、科学や工学における組合せ最適化の基盤であるが、NP困難性により大規模な問題を解くのが難しい。従来の学習ベースの手法は、局所性の制約により表現力が限られている。",
+        "method": "提案手法は、変数と制約に対する要素中心の視点を採用し、双方向の注意機構を用いて同種内自己注意と異種間交差注意を並行して行う。これにより、表現力が向上し、問題解決に効果的である。",
+        "result": "提案モデルは、インスタンス、要素、解決状態の3つの代表的なタスクにおいて、従来のGNNベースのアーキテクチャを一貫して上回る性能を示した。",
+        "topic": "注意機構を用いた混合整数線形計画法 (MILP) のための強化学習手法"
+      }
+    },
+    {
+      "title": "Black-Box Combinatorial Optimization with Order-Invariant Reinforcement Learning",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "PathWise: Planning through World Model for Automated Heuristic Design via Self-Evolving LLMs",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Preference-Modulated Structural Attention for Multi-Objective Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Provably Data-driven Lagrangian Relaxation for Mixed Integer Linear Programming",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "linear programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Differentially Private Submodular Maximization with a Knapsack Constraint",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "knapsack"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "APEX: Approximate-but-exhaustive search for ultra-large combinatorial synthesis libraries",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "An Approximation Algorithm for Graph Label Selection",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "approximation algorithm"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Position: Interestingness is an Inductive Heuristic for Future Compression Progress",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Optimizing Return Distributions with Distributional Dynamic Programming",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "dynamic-programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Can Computational Reducibility Lead to Transferable Models for Graph Combinatorial Optimization?",
+      "authors": [
+        "Semih Cantürk",
+        "Thomas Sabourin",
+        "Frederik Wenkel",
+        "+2"
+      ],
+      "score": 51,
+      "matchedKeywords": [
+        "optimization",
+        "graph coloring",
+        "maxcut"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2603.02462",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 組合最適化 (CO) のための統一されたニューラルソルバーの開発\n\n**問題** 組合最適化のタスクから新しいタスクへの効率的な一般化が課題である。特に、初期のトレーニングで見たことのないタスクへの適応が求められている。\n\n**手法** 新しいGNNエンコーダを設計し、表現力豊かなメッセージパッシングとエネルギーベースの教師なし損失関数を用いることで、複数のCOタスクで競争力のある性能を達成する。さらに、計算可能な還元性に関する知見を活用し、事前学習とファインチューニングの戦略を提案する。\n\n**結果** 事前学習を行うことで、残りのタスクに対するファインチューニング時の収束がほぼ常に早くなることを観察した。具体的な数値は示されていないが、負の転送を避けることができた。",
+      "summaryStruct": {
+        "problem": "組合最適化のタスクから新しいタスクへの効率的な一般化が課題である。特に、初期のトレーニングで見たことのないタスクへの適応が求められている。",
+        "method": "新しいGNNエンコーダを設計し、表現力豊かなメッセージパッシングとエネルギーベースの教師なし損失関数を用いることで、複数のCOタスクで競争力のある性能を達成する。さらに、計算可能な還元性に関する知見を活用し、事前学習とファインチューニングの戦略を提案する。",
+        "result": "事前学習を行うことで、残りのタスクに対するファインチューニング時の収束がほぼ常に早くなることを観察した。具体的な数値は示されていないが、負の転送を避けることができた。",
+        "topic": "組合最適化 (CO) のための統一されたニューラルソルバーの開発"
+      }
+    },
+    {
+      "title": "Gateways to Tractability for Satisfiability in Pearl’s Causal Hierarchy",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "satisfiability"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "TSP with Predictions: Heatmap to Tour with Provable Guarantees",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "tsp"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Accelerating Regression Tasks with Quantum Algorithms",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "QuantumBoost: A lazy, yet fast, quantum algorithm for learning with weak hypotheses",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Latent Spherical Flow Policy for Reinforcement Learning with Combinatorial Actions",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Unsupervised Diffusion Solver for Combinatorial Optimization via Combinatorial Adjoint Matching",
+      "authors": [
+        "Shengyu Feng",
+        "Tarun Suresh",
+        "Yiming Yang"
+      ],
+      "score": 37,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2605.30920",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 拡散ベースのニューラルソルバーを用いた組合せ最適化のための新しい手法の提案\n\n**問題** 従来の手法は、大量の近似最適解を用いた教師あり学習に依存しており、効率的な解法の開発が課題となっている。これに対処するため、教師なしでの最適化手法が求められている。\n\n**手法** 本研究では、連続時間マルコフ連鎖上での確率制御問題として組合せ最適化を定式化し、離散生成軌道を通じて最適化信号を伝播する離散随伴動力学を導入する。これに基づき、構造化された低分散の軌道レベル最適化信号を持つ教師なし訓練フレームワークであるCombinatorial Adjoint Matching (CAM)を提案する。\n\n**結果** CAMは、既存の教師なし拡散ベースの手法を一貫して上回り、強力な教師あり拡散ソルバーや従来のソルバーと競争力のある性能を達成した。",
+      "summaryStruct": {
+        "problem": "従来の手法は、大量の近似最適解を用いた教師あり学習に依存しており、効率的な解法の開発が課題となっている。これに対処するため、教師なしでの最適化手法が求められている。",
+        "method": "本研究では、連続時間マルコフ連鎖上での確率制御問題として組合せ最適化を定式化し、離散生成軌道を通じて最適化信号を伝播する離散随伴動力学を導入する。これに基づき、構造化された低分散の軌道レベル最適化信号を持つ教師なし訓練フレームワークであるCombinatorial Adjoint Matching (CAM)を提案する。",
+        "result": "CAMは、既存の教師なし拡散ベースの手法を一貫して上回り、強力な教師あり拡散ソルバーや従来のソルバーと競争力のある性能を達成した。",
+        "topic": "拡散ベースのニューラルソルバーを用いた組合せ最適化のための新しい手法の提案"
+      }
+    },
+    {
+      "title": "Optimal Transport–Guided Stochastic Control for Graph Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Neural QAOA$^2$: Differentiable Joint Graph Partitioning and Parameter Initialization for Quantum Combinatorial Optimization",
+      "authors": [
+        "Zubin Zheng",
+        "Jiahao Wu",
+        "Shengcai Liu"
+      ],
+      "score": 54,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic",
+        "maxcut",
+        "quantum-computing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2605.13072",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 量子近似最適化アルゴリズム (QAOA) を用いた組合せ最適化のための新しいフレームワークの提案\n\n**問題** QAOAは組合せ最適化に有望だが、限られたキュービット数に制約されている。既存の手法は、ヒューリスティックな分割指標と量子最適化目標との不整合や、トポロジーに無関心なパラメータ初期化による最適化の冷却スタートといった根本的な限界を抱えている。\n\n**手法** 提案するNeural QAOA$^{2}$は、グラフの分割と初期パラメータを共同生成するエンドツーエンドの微分可能なフレームワークである。生成評価ネットワーク（GEN）を統合することで、量子評価器を高忠実度の性能代理として利用し、グラフのトポロジーから高品質な分割とパラメータ設定への内在的なマッピングを学習する。\n\n**結果** 183のQUBO、イジング、MaxCutインスタンス（21から1000変数）に対する広範な実験により、我々の勾配駆動アプローチはヒューリスティックなベースラインを広く上回り、101のインスタンスで1位を記録した。さらに、分布外のグラフトポロジーに対するゼロショット一般化も示した。",
+      "summaryStruct": {
+        "problem": "QAOAは組合せ最適化に有望だが、限られたキュービット数に制約されている。既存の手法は、ヒューリスティックな分割指標と量子最適化目標との不整合や、トポロジーに無関心なパラメータ初期化による最適化の冷却スタートといった根本的な限界を抱えている。",
+        "method": "提案するNeural QAOA$^{2}$は、グラフの分割と初期パラメータを共同生成するエンドツーエンドの微分可能なフレームワークである。生成評価ネットワーク（GEN）を統合することで、量子評価器を高忠実度の性能代理として利用し、グラフのトポロジーから高品質な分割とパラメータ設定への内在的なマッピングを学習する。",
+        "result": "183のQUBO、イジング、MaxCutインスタンス（21から1000変数）に対する広範な実験により、我々の勾配駆動アプローチはヒューリスティックなベースラインを広く上回り、101のインスタンスで1位を記録した。さらに、分布外のグラフトポロジーに対するゼロショット一般化も示した。",
+        "topic": "量子近似最適化アルゴリズム (QAOA) を用いた組合せ最適化のための新しいフレームワークの提案"
+      }
+    },
+    {
+      "title": "Latent Guided Sampling for Combinatorial Optimization",
+      "authors": [
+        "Sobihan Surendran",
+        "Adeline Fermanian",
+        "Sylvain Le Corff"
+      ],
+      "score": 44,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2506.03672",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** ニューラル組合せ最適化(NCO)手法を用いた組合せ最適化問題の解決\n\n**問題** 組合せ最適化問題は物流や製造、医薬品発見などで広く存在するが、NP困難で計算が難しい。既存のNCO手法は特定のタスクに依存し、一般化能力に欠ける。\n\n**手法** 本研究では、問題インスタンスに条件付けされた新しい潜在空間モデルLGS-Netを提案し、マルコフ連鎖モンテカルロ法と確率的近似に基づく効率的な推論手法Latent Guided Samplingを導入する。これにより、堅牢な推論が可能となる。\n\n**結果** ベンチマークルーティングタスクにおいて、提案手法はNCOのベースラインと比較して最先端の性能を達成した。",
+      "summaryStruct": {
+        "problem": "組合せ最適化問題は物流や製造、医薬品発見などで広く存在するが、NP困難で計算が難しい。既存のNCO手法は特定のタスクに依存し、一般化能力に欠ける。",
+        "method": "本研究では、問題インスタンスに条件付けされた新しい潜在空間モデルLGS-Netを提案し、マルコフ連鎖モンテカルロ法と確率的近似に基づく効率的な推論手法Latent Guided Samplingを導入する。これにより、堅牢な推論が可能となる。",
+        "result": "ベンチマークルーティングタスクにおいて、提案手法はNCOのベースラインと比較して最先端の性能を達成した。",
+        "topic": "ニューラル組合せ最適化(NCO)手法を用いた組合せ最適化問題の解決"
+      }
+    },
+    {
+      "title": "KnapSpec: Self-Speculative Decoding via Adaptive Layer Selection as a Knapsack Problem",
+      "authors": [
+        "Seongjin Cha",
+        "Gyuwan Kim",
+        "Dongsu Han",
+        "+2"
+      ],
+      "score": 20,
+      "matchedKeywords": [
+        "knapsack",
+        "dynamic-programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2602.20217",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 自己推測デコーディング (SSD) を用いた大規模言語モデル (LLM) の推論速度向上\n\n**問題** 従来の手法は静的なヒューリスティクスに依存しており、長文コンテキストにおける注意機構の動的な計算負荷を無視している。これにより、効率的なドラフトモデルの選択が困難である。\n\n**手法** KnapSpecというトレーニング不要のフレームワークを提案し、ドラフトモデルの選択をナップサック問題として再定式化することで、トークンあたりのスループットを最大化する。注意機構とMLP層を分離し、ハードウェア特有のレイテンシをコンテキスト長の関数としてモデル化することで、最適なドラフト構成を動的に特定する。\n\n**結果** KnapSpecは、Qwen3およびLlama3において、最先端のSSDベースラインを常に上回り、さまざまなベンチマークで最大1.47倍の壁時計速度向上を達成した。",
+      "summaryStruct": {
+        "problem": "従来の手法は静的なヒューリスティクスに依存しており、長文コンテキストにおける注意機構の動的な計算負荷を無視している。これにより、効率的なドラフトモデルの選択が困難である。",
+        "method": "KnapSpecというトレーニング不要のフレームワークを提案し、ドラフトモデルの選択をナップサック問題として再定式化することで、トークンあたりのスループットを最大化する。注意機構とMLP層を分離し、ハードウェア特有のレイテンシをコンテキスト長の関数としてモデル化することで、最適なドラフト構成を動的に特定する。",
+        "result": "KnapSpecは、Qwen3およびLlama3において、最先端のSSDベースラインを常に上回り、さまざまなベンチマークで最大1.47倍の壁時計速度向上を達成した。",
+        "topic": "自己推測デコーディング (SSD) を用いた大規模言語モデル (LLM) の推論速度向上"
+      }
+    },
+    {
+      "title": "Reinforcement Learning with Discrete Diffusion Policies for Combinatorial Action Spaces",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Knapsack RL: Compute-Efficient Reinforcement Learning via Heterogeneous Rollout Allocation",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "knapsack"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Online Linear Programming for Multi-Objective Routing in LLM Serving",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "linear programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Quantum Algorithms for Triangle Cut Sparsification",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Trajectory-Aware Heuristic Learning for Combinatorial Search",
+      "authors": [],
+      "score": 18,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Beyond Heuristic Tuning: Power-Calibrated LLM Watermarking",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Divide and Learn: Multi-Objective Combinatorial Optimization at Scale",
+      "authors": [
+        "Esha Singh",
+        "Dongxia Wu",
+        "Chien-Yi Yang",
+        "+3"
+      ],
+      "score": 37,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2602.11346",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** オンライン学習を用いた多目的組合せ最適化手法の提案\n\n**問題** 多目的組合せ最適化は、指数的に大きな離散空間でパレート最適解を求めるが、既存の手法は一般性やスケーラビリティ、理論的保証を犠牲にしている。\n\n**手法** 本研究では、分解された意思決定空間におけるオンライン学習問題として再定式化し、適応型専門家ガイドによる逐次構築を通じて位置ごとのバンディットサブ問題を解決する。このアプローチは、組合せ空間のサイズではなく、サブ問題の次元性に依存した悔恨境界を持つ。\n\n**結果** 標準ベンチマークにおいて、提案手法は専門ソルバーの性能の80～98%を達成し、ベイズ最適化手法に比べてサンプルおよび計算効率が2～3桁向上した。実世界のAIアクセラレータのハードウェア・ソフトウェア共同設計においても、固定評価予算の下で競合手法を上回る性能を示した。",
+      "summaryStruct": {
+        "problem": "多目的組合せ最適化は、指数的に大きな離散空間でパレート最適解を求めるが、既存の手法は一般性やスケーラビリティ、理論的保証を犠牲にしている。",
+        "method": "本研究では、分解された意思決定空間におけるオンライン学習問題として再定式化し、適応型専門家ガイドによる逐次構築を通じて位置ごとのバンディットサブ問題を解決する。このアプローチは、組合せ空間のサイズではなく、サブ問題の次元性に依存した悔恨境界を持つ。",
+        "result": "標準ベンチマークにおいて、提案手法は専門ソルバーの性能の80～98%を達成し、ベイズ最適化手法に比べてサンプルおよび計算効率が2～3桁向上した。実世界のAIアクセラレータのハードウェア・ソフトウェア共同設計においても、固定評価予算の下で競合手法を上回る性能を示した。",
+        "topic": "オンライン学習を用いた多目的組合せ最適化手法の提案"
+      }
+    },
+    {
+      "title": "Automated Formal Proofs of Combinatorial Identities via Wilf–Zeilberger Guidance and LLMs",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Inducing Overthink: Hierarchical Genetic Algorithm-based DoS Attack on Black-Box Large Language Reasoning Models",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "genetic algorithm"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Combinatorial Sparse PCA Beyond the Spiked Identity Model",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Unsupervised Neural Langevin Sampler for Mixed Integer Linear Programming",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "linear programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Predicting Future Utility: Global Combinatorial Optimization for Task-Agnostic KV Cache Eviction",
+      "authors": [
+        "Ziyao Tang",
+        "Pengkun Jiao",
+        "Xinhang Chen",
+        "+3"
+      ],
+      "score": 43,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2602.08585",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 長期的な意味情報を保持するためのKVキャッシュ管理手法の最適化\n\n**問題** 注意機構の二次元的な複雑さにより、モデル推論の加速にはKVキャッシュの適切な管理が必要です。従来の手法は瞬時の指標に依存しており、注意ヘッド間の予測精度の違いを無視しています。\n\n**手法** 本論文では、長期的な意味情報を保持するためのマージナルユーティリティに基づいた予算配分を提案します。これにより、ヘッドレベルの予算配分をグローバルな組合せ最適化問題として定式化し、近似最適解を得る手法を用います。\n\n**結果** LU-KVフレームワークはKVキャッシュサイズを80%削減し、性能低下を最小限に抑えつつ推論のレイテンシとGPUメモリ使用量を減少させることを実証しました。",
+      "summaryStruct": {
+        "problem": "注意機構の二次元的な複雑さにより、モデル推論の加速にはKVキャッシュの適切な管理が必要です。従来の手法は瞬時の指標に依存しており、注意ヘッド間の予測精度の違いを無視しています。",
+        "method": "本論文では、長期的な意味情報を保持するためのマージナルユーティリティに基づいた予算配分を提案します。これにより、ヘッドレベルの予算配分をグローバルな組合せ最適化問題として定式化し、近似最適解を得る手法を用います。",
+        "result": "LU-KVフレームワークはKVキャッシュサイズを80%削減し、性能低下を最小限に抑えつつ推論のレイテンシとGPUメモリ使用量を減少させることを実証しました。",
+        "topic": "長期的な意味情報を保持するためのKVキャッシュ管理手法の最適化"
+      }
+    },
+    {
+      "title": "Dynamic Programming for Epistemic Uncertainty in Markov Decision Processes",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "dynamic-programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Error Propagation in Dynamic Programming: From Stochastic Control to American Option Pricing",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "dynamic-programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Rethink the Role of Neural Decoders in Quantum Error Correction",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Generative Large Neighborhood Search: Scalable Set Cover Optimization via Discrete Diffusion",
+      "authors": [],
+      "score": 14,
+      "matchedKeywords": [
+        "optimization",
+        "set cover"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Game-Theoretic Co-Evolution for LLM-Based Heuristic Discovery",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Rethinking Parameter Sharing as Graph Coloring for Structured Compression",
+      "authors": [
+        "Boyang Zhang",
+        "Daning Cheng",
+        "Yunquan Zhang"
+      ],
+      "score": 20,
+      "matchedKeywords": [
+        "heuristic",
+        "graph coloring"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2511.06786",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** パラメータ共有を用いた深層モデルのメモリ使用量の削減\n\n**問題** 現代の深層モデルはパラメータサイズが大きく、推論時のメモリ使用量が高いため、実用的な展開が制限されている。既存のパラメータ共有手法は隣接層に制限されており、層を越えた共有の体系的な分析が不足している。\n\n**手法** 本研究では、パラメータ共有を群論的視点から再定義し、モデルのパラメータ空間に構造的対称性を導入する。共有構成は色付け関数を用いて定義され、テイラー展開とヘッセ行列のスペクトルに基づく基準を提案することで、性能への影響を最小限に抑えた共有グループの選定を行う。\n\n**結果** 提案手法Geo-Sharingは、さまざまなアーキテクチャとタスクにおいて、従来の手法よりも高い圧縮率を達成し、精度の低下を抑えつつ優れた性能を示した。",
+      "summaryStruct": {
+        "problem": "現代の深層モデルはパラメータサイズが大きく、推論時のメモリ使用量が高いため、実用的な展開が制限されている。既存のパラメータ共有手法は隣接層に制限されており、層を越えた共有の体系的な分析が不足している。",
+        "method": "本研究では、パラメータ共有を群論的視点から再定義し、モデルのパラメータ空間に構造的対称性を導入する。共有構成は色付け関数を用いて定義され、テイラー展開とヘッセ行列のスペクトルに基づく基準を提案することで、性能への影響を最小限に抑えた共有グループの選定を行う。",
+        "result": "提案手法Geo-Sharingは、さまざまなアーキテクチャとタスクにおいて、従来の手法よりも高い圧縮率を達成し、精度の低下を抑えつつ優れた性能を示した。",
+        "topic": "パラメータ共有を用いた深層モデルのメモリ使用量の削減"
+      }
+    },
+    {
+      "title": "ASAP: Exploiting the Satisficing Generalization Edge in Neural Combinatorial Optimization",
+      "authors": [
+        "Han Fang",
+        "Paul Weng",
+        "Yutong Ban"
+      ],
+      "score": 68,
+      "matchedKeywords": [
+        "optimization",
+        "traveling salesman",
+        "vehicle routing",
+        "bin packing",
+        "tsp"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2501.17377",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 深層強化学習 (DRL) を用いた組合せ最適化問題の解決手法\n\n**問題** DRLは3Dビンパッキング問題 (3D-BPP) や巡回セールスマン問題 (TSP) などの組合せ最適化問題に有望だが、分布の変化に対して脆弱性を示すことがある。これを解決するための手法が求められている。\n\n**手法** 提案手法である適応選択後提案 (ASAP) は、意思決定プロセスを提案ポリシーと選択ポリシーの2段階に分解することで、選択ポリシーが新しい分布に迅速に適応できるようにする。これにより、候補となる行動のセットを特定することが、単一の最適行動を選択するよりも一般化能力が高いことを活用している。\n\n**結果** 3D-BPP、TSP、CVRPに関する広範な実験により、ASAPは最先端のベースラインの一般化能力を向上させ、分布外のインスタンスに対するオンライン適応で優れた成果を達成した。",
+      "summaryStruct": {
+        "problem": "DRLは3Dビンパッキング問題 (3D-BPP) や巡回セールスマン問題 (TSP) などの組合せ最適化問題に有望だが、分布の変化に対して脆弱性を示すことがある。これを解決するための手法が求められている。",
+        "method": "提案手法である適応選択後提案 (ASAP) は、意思決定プロセスを提案ポリシーと選択ポリシーの2段階に分解することで、選択ポリシーが新しい分布に迅速に適応できるようにする。これにより、候補となる行動のセットを特定することが、単一の最適行動を選択するよりも一般化能力が高いことを活用している。",
+        "result": "3D-BPP、TSP、CVRPに関する広範な実験により、ASAPは最先端のベースラインの一般化能力を向上させ、分布外のインスタンスに対するオンライン適応で優れた成果を達成した。",
+        "topic": "深層強化学習 (DRL) を用いた組合せ最適化問題の解決手法"
+      }
+    },
+    {
+      "title": "Problem Distributions as Tasks: Repurposing Meta Learning for Generative Combinatorial Optimization towards Multi-task Pretraining and Adaptation",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Evolving Interdependent Operators with Large Language Models for Multi-Objective Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "PoMtVRS: Preference-Optimized Multi-Task Vehicle Routing Solver with Preference Gating",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    }
+  ],
+  "sourceCheckedOn": "2026-10-23",
+  "sourceUrl": "https://icml.cc/virtual/2026/papers.html",
+  "sourceHash": "049cb742badb05e9",
+  "gated": true,
+  "sourceTotal": 6628
+}

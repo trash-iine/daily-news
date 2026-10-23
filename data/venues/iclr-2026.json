@@ -1,0 +1,596 @@
+{
+  "slug": "iclr-2026",
+  "venue": "ICLR",
+  "year": 2026,
+  "name": "ICLR 2026",
+  "createdOn": "2026-10-23",
+  "updatedAt": "2026-10-23T13:48:14.140Z",
+  "papers": [
+    {
+      "title": "Combinatorial Rising Bandits",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Lightweight Transformer for EEG Classification via Balanced Signed Graph Algorithm Unrolling",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "graph-algorithm"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "A Genetic Algorithm for Navigating Synthesizable Molecular Spaces",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "genetic algorithm"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Gelato: Graph Edit Distance via Autoregressive Neural Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "ConRep4CO: Contrastive Representation Learning of Combinatorial Optimization Instances across Types",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "SAQ: Stabilizer-Aware Quantum Error Correction Decoder",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "FMIP: Joint Continuous-Integer Flow For Mixed-Integer Linear Programming",
+      "authors": [
+        "Hongpei Li",
+        "Hui Yuan",
+        "Han Zhang",
+        "+4"
+      ],
+      "score": 39,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic",
+        "mixed-integer",
+        "linear programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2507.23390",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 混合整数線形計画法 (MILP) における整数変数と連続変数の共同分布をモデル化する生成フレームワークの提案。\n\n**問題** MILPは複雑な意思決定問題において重要なツールですが、NP困難な性質により計算が難しいという課題があります。特に、従来の生成モデルは整数変数のみを扱い、連続変数との関係を捉えられず、情報ボトルネックが生じます。\n\n**手法** 本研究では、整数変数と連続変数の共同分布をモデル化するJoint Continuous-Integer Flow for Mixed-Integer Linear Programming (FMIP)を提案します。この手法は、生成過程において解を最適化と実現可能性に向けて積極的に誘導するホリスティックなガイダンスメカニズムを備えています。\n\n**結果** FMIPは8つの標準MILPベンチマークにおいて、既存の手法に対して優れた性能を示し、平均で41.34%のプライマルギャップを削減しました。また、FMIPは任意のバックボーンネットワークやさまざまな下流ソルバーと完全に互換性があります。",
+      "summaryStruct": {
+        "problem": "MILPは複雑な意思決定問題において重要なツールですが、NP困難な性質により計算が難しいという課題があります。特に、従来の生成モデルは整数変数のみを扱い、連続変数との関係を捉えられず、情報ボトルネックが生じます。",
+        "method": "本研究では、整数変数と連続変数の共同分布をモデル化するJoint Continuous-Integer Flow for Mixed-Integer Linear Programming (FMIP)を提案します。この手法は、生成過程において解を最適化と実現可能性に向けて積極的に誘導するホリスティックなガイダンスメカニズムを備えています。",
+        "result": "FMIPは8つの標準MILPベンチマークにおいて、既存の手法に対して優れた性能を示し、平均で41.34%のプライマルギャップを削減しました。また、FMIPは任意のバックボーンネットワークやさまざまな下流ソルバーと完全に互換性があります。",
+        "topic": "混合整数線形計画法 (MILP) における整数変数と連続変数の共同分布をモデル化する生成フレームワークの提案。"
+      }
+    },
+    {
+      "title": "A Scalable Constant-Factor Approximation Algorithm for $W_p$ Optimal Transport",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "approximation algorithm"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Combinatorial Bandit Bayesian Optimization for Tensor Outputs",
+      "authors": [
+        "Jingru Huang",
+        "Haijie Xu",
+        "Jie Guo",
+        "+2"
+      ],
+      "score": 23,
+      "matchedKeywords": [
+        "optimization",
+        "optimize"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2602.00640",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** テンソル出力関数の最適化におけるベイズ最適化手法の提案\n\n**問題** 既存のベイズ最適化（BO）手法は、高価でブラックボックス的なテンソル出力関数に対応していないという課題があります。これに対処するための新しいフレームワークが必要です。\n\n**手法** 提案手法では、テンソル出力ガウス過程（TOGP）を用いてテンソル出力関数の代理モデルを構築し、構造的依存性を効果的に捉えます。また、部分的に観測されたテンソル出力を扱うための組合せバンディットベイズ最適化（CBBO）手法を開発し、クエリポイントと出力サブセットを逐次選択するための新しい基準を設計します。\n\n**結果** 理論的な後悔境界を確立し、実験では合成データと実データにおいて提案手法の優位性が示されました。",
+      "summaryStruct": {
+        "problem": "既存のベイズ最適化（BO）手法は、高価でブラックボックス的なテンソル出力関数に対応していないという課題があります。これに対処するための新しいフレームワークが必要です。",
+        "method": "提案手法では、テンソル出力ガウス過程（TOGP）を用いてテンソル出力関数の代理モデルを構築し、構造的依存性を効果的に捉えます。また、部分的に観測されたテンソル出力を扱うための組合せバンディットベイズ最適化（CBBO）手法を開発し、クエリポイントと出力サブセットを逐次選択するための新しい基準を設計します。",
+        "result": "理論的な後悔境界を確立し、実験では合成データと実データにおいて提案手法の優位性が示されました。",
+        "topic": "テンソル出力関数の最適化におけるベイズ最適化手法の提案"
+      }
+    },
+    {
+      "title": "On the Expressive Power of GNNs for Boolean Satisfiability",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "satisfiability"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "CALM: Co-evolution of Algorithms and Language Model for Automatic Heuristic Design",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "HeuriGym: An Agentic Benchmark for LLM-Crafted Heuristics in Combinatorial Optimization",
+      "authors": [
+        "Hongzheng Chen",
+        "Yingheng Wang",
+        "Yaohui Cai",
+        "+10"
+      ],
+      "score": 43,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2506.07972",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 大規模言語モデル (LLM) のための組合せ最適化問題に対する評価フレームワーク HeuriGym の提案\n\n**問題** 現在の評価手法は、LLM の能力を適切に評価できておらず、既存のベンチマークは閉じた質問や主観的比較に依存しているため、一貫性や厳密さに欠ける。これにより、LLM の実用性が制限されている。\n\n**手法** HeuriGym は、LLM がヒューリスティック (経験則に基づく解法) を提案し、コード実行を通じてフィードバックを受け取り、解法を反復的に改善できるように設計されている。これにより、明確な目的と広範な解決空間を持つ問題に対する評価が可能となる。\n\n**結果** 9つの最先端モデルを9つの問題で評価した結果、最高モデルでも QYI (品質収益指数) スコアは0.6にとどまり、専門家の基準である1を大きく下回った。",
+      "summaryStruct": {
+        "problem": "現在の評価手法は、LLM の能力を適切に評価できておらず、既存のベンチマークは閉じた質問や主観的比較に依存しているため、一貫性や厳密さに欠ける。これにより、LLM の実用性が制限されている。",
+        "method": "HeuriGym は、LLM がヒューリスティック (経験則に基づく解法) を提案し、コード実行を通じてフィードバックを受け取り、解法を反復的に改善できるように設計されている。これにより、明確な目的と広範な解決空間を持つ問題に対する評価が可能となる。",
+        "result": "9つの最先端モデルを9つの問題で評価した結果、最高モデルでも QYI (品質収益指数) スコアは0.6にとどまり、専門家の基準である1を大きく下回った。",
+        "topic": "大規模言語モデル (LLM) のための組合せ最適化問題に対する評価フレームワーク HeuriGym の提案"
+      }
+    },
+    {
+      "title": "Analysis of approximate linear programming solution to Markov decision problem with log barrier function",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "linear programming"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "FrontierCO: Real-World and Large-Scale Evaluation of Machine Learning Solvers for Combinatorial Optimization",
+      "authors": [
+        "Shengyu Feng",
+        "Weiwei Sun",
+        "Shanda Li",
+        "+2"
+      ],
+      "score": 47,
+      "matchedKeywords": [
+        "optimization",
+        "scheduling",
+        "tsp"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2505.16952",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 実世界の構造と極端なスケールに基づく組合せ最適化のための機械学習ベンチマーク「FrontierCO」の提案。\n\n**問題** 機械学習は組合せ最適化の解決に有望だが、従来の研究は小規模な合成ベンチマークに依存しており、実世界のデータセットでの性能が不明である。これにより、実際の競技や産業データに対する評価が不足している。\n\n**手法** FrontierCOは、ルーティングやスケジューリングなど8つの組合せ最適化問題を対象に、競技や公的リポジトリから得たインスタンスを用いて機械学習ソルバーを評価する。これにより、実世界の構造に基づく評価が可能となり、従来の手法との性能差を明らかにする。\n\n**結果** 16の代表的な機械学習ソルバーを評価した結果、構造的に困難な大規模インスタンスでは性能差が広がることが確認されたが、特定のケースでは機械学習手法が従来のソルバーを上回ることもあった。",
+      "summaryStruct": {
+        "problem": "機械学習は組合せ最適化の解決に有望だが、従来の研究は小規模な合成ベンチマークに依存しており、実世界のデータセットでの性能が不明である。これにより、実際の競技や産業データに対する評価が不足している。",
+        "method": "FrontierCOは、ルーティングやスケジューリングなど8つの組合せ最適化問題を対象に、競技や公的リポジトリから得たインスタンスを用いて機械学習ソルバーを評価する。これにより、実世界の構造に基づく評価が可能となり、従来の手法との性能差を明らかにする。",
+        "result": "16の代表的な機械学習ソルバーを評価した結果、構造的に困難な大規模インスタンスでは性能差が広がることが確認されたが、特定のケースでは機械学習手法が従来のソルバーを上回ることもあった。",
+        "topic": "実世界の構造と極端なスケールに基づく組合せ最適化のための機械学習ベンチマーク「FrontierCO」の提案。"
+      }
+    },
+    {
+      "title": "RRNCO: Towards Real-World Routing with Neural Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Constraint Matters: Multi-Modal Representation for Reducing Mixed-Integer Linear programming",
+      "authors": [
+        "Jiajun Li",
+        "Yixuan Li",
+        "Ran Hou",
+        "+8"
+      ],
+      "score": 28,
+      "matchedKeywords": [
+        "heuristic",
+        "mixed-integer",
+        "linear programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2508.18742",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 混合整数線形計画法 (MILP) における制約ベースのモデル削減手法の提案\n\n**問題** 大規模なMILP問題を効率的に解決するためには、モデルの簡素化が必要です。従来の手法は変数削減に依存していましたが、制約削減の重要性は見過ごされていました。\n\n**手法** 本研究では、重要な不等式制約を等式に変換することでMILPの複雑さを減少させる新しいアプローチを提案します。最適解における緊密制約を特定し、ヒューリスティックルールを用いて重要な制約を選択する手法を採用しています。\n\n**結果** 実験結果により、提案手法は最先端の手法と比較して解の質を50%以上改善し、計算時間を17.47%短縮しました。",
+      "summaryStruct": {
+        "problem": "大規模なMILP問題を効率的に解決するためには、モデルの簡素化が必要です。従来の手法は変数削減に依存していましたが、制約削減の重要性は見過ごされていました。",
+        "method": "本研究では、重要な不等式制約を等式に変換することでMILPの複雑さを減少させる新しいアプローチを提案します。最適解における緊密制約を特定し、ヒューリスティックルールを用いて重要な制約を選択する手法を採用しています。",
+        "result": "実験結果により、提案手法は最先端の手法と比較して解の質を50%以上改善し、計算時間を17.47%短縮しました。",
+        "topic": "混合整数線形計画法 (MILP) における制約ベースのモデル削減手法の提案"
+      }
+    },
+    {
+      "title": "Bayesian Parameter Shift Rules in Variational Quantum Eigensolvers",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Symmetric Space Learning for Combinatorial Generalization",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Tractability via Low Dimensionality: The Parameterized Complexity of Training Quantized Neural Networks",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "parameterized complexity"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Neural Multi-Objective Combinatorial Optimization for Flexible Job Shop Scheduling Problems",
+      "authors": [],
+      "score": 32,
+      "matchedKeywords": [
+        "optimization",
+        "scheduling"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Boolean Satisfiability via Imitation Learning",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "satisfiability"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Beyond the Heatmap: A Rigorous Evaluation of Component Impact in MCTS-Based TSP Solvers",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "tsp"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Accelerating Inference for Multilayer Neural Networks with Quantum Computers",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Native Adaptive Solution Expansion for Diffusion-based Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Sublinear Time Quantum Algorithm for Attention Approximation",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Heuristic-Based Ideation for Guiding LLMs Toward Structured Creativity",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "AutoEP: LLMs-Driven Automation of Hyperparameter Evolution for Metaheuristic Algorithms",
+      "authors": [
+        "Zhenxing Xu",
+        "Yizhe Zhang",
+        "Weidong Bao",
+        "+6"
+      ],
+      "score": 27,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2509.23189",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 大規模言語モデル (LLM) を用いたアルゴリズムのハイパーパラメータ自動調整手法の提案\n\n**問題** アルゴリズムのハイパーパラメータを動的に設定することは計算知能における基本的な課題であり、従来の学習ベースの手法はサンプルの複雑さと一般化の問題に悩まされている。\n\n**手法** 提案手法AutoEPは、オンラインの探索的ランドスケープ分析 (ELA) モジュールと複数のLLMによる推論チェーンを統合し、リアルタイムでのフィードバックを基にハイパーパラメータ戦略を生成する。これにより、高次の推論を実証データに基づかせ、幻覚を軽減する。\n\n**結果** AutoEPは、異なる組合せ最適化ベンチマークにおいて、従来の最先端チューナーを一貫して上回り、オープンソースモデルのQwen3-30BがGPT-4と同等の性能を発揮することを実証した。",
+      "summaryStruct": {
+        "problem": "アルゴリズムのハイパーパラメータを動的に設定することは計算知能における基本的な課題であり、従来の学習ベースの手法はサンプルの複雑さと一般化の問題に悩まされている。",
+        "method": "提案手法AutoEPは、オンラインの探索的ランドスケープ分析 (ELA) モジュールと複数のLLMによる推論チェーンを統合し、リアルタイムでのフィードバックを基にハイパーパラメータ戦略を生成する。これにより、高次の推論を実証データに基づかせ、幻覚を軽減する。",
+        "result": "AutoEPは、異なる組合せ最適化ベンチマークにおいて、従来の最先端チューナーを一貫して上回り、オープンソースモデルのQwen3-30BがGPT-4と同等の性能を発揮することを実証した。",
+        "topic": "大規模言語モデル (LLM) を用いたアルゴリズムのハイパーパラメータ自動調整手法の提案"
+      }
+    },
+    {
+      "title": "Branch and Bound Search for Exact MAP Inference in Credal Networks",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "branch and bound"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Multi-Action Self-Improvement For Neural Combinatorial Optimization",
+      "authors": [
+        "Laurin Luttmann",
+        "Lin Xie"
+      ],
+      "score": 41,
+      "matchedKeywords": [
+        "optimization",
+        "scheduling"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2510.12273",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** ニューラル組合せ最適化 (NCO) における自己改善手法の拡張\n\n**問題** 従来の自己改善手法は計算コストが高く、複数のエージェントの調整を必要とする組合せ問題の構造を活用できていないという課題がある。\n\n**手法** 本研究では、共同のマルチエージェントアクションに基づく自己改善を提案し、セット予測損失を用いて複数の専門的な割り当てを監視することで、サンプル効率を向上させ、協調行動の学習を促進する。\n\n**結果** 実験により、提案手法は最終解の質を一貫して改善し、標準的な自己改善手法と比較して生成遅延を短縮することが確認された。",
+      "summaryStruct": {
+        "problem": "従来の自己改善手法は計算コストが高く、複数のエージェントの調整を必要とする組合せ問題の構造を活用できていないという課題がある。",
+        "method": "本研究では、共同のマルチエージェントアクションに基づく自己改善を提案し、セット予測損失を用いて複数の専門的な割り当てを監視することで、サンプル効率を向上させ、協調行動の学習を促進する。",
+        "result": "実験により、提案手法は最終解の質を一貫して改善し、標準的な自己改善手法と比較して生成遅延を短縮することが確認された。",
+        "topic": "ニューラル組合せ最適化 (NCO) における自己改善手法の拡張"
+      }
+    },
+    {
+      "title": "Efficient Best-of-Both-Worlds Algorithms for Contextual Combinatorial Semi-Bandits",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "MaskCO: Masked Generation Drives Effective Representation Learning and Exploiting for Combinatorial Optimization",
+      "authors": [],
+      "score": 26,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Combination-of-Experts with Knowledge Sharing for Cross-Task Vehicle Routing Problems",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "HiFo-Prompt: Prompting with Hindsight and Foresight for LLM-based Automatic Heuristic Design",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Exposing Weaknesses of Large Reasoning Models through Graph Algorithm Problems",
+      "authors": [],
+      "score": 6,
+      "matchedKeywords": [
+        "graph-algorithm"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "From Sequential to Parallel: Reformulating Dynamic Programming as GPU Kernels for Large-Scale Stochastic Combinatorial Optimization",
+      "authors": [
+        "Jingyi Zhao",
+        "Linxin Yang",
+        "Haohua Zhang",
+        "+2"
+      ],
+      "score": 54,
+      "matchedKeywords": [
+        "optimization",
+        "vehicle routing",
+        "dynamic-programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2602.05179",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** GPUベースのフレームワークを用いた確率的プログラミングのための構造化整数再帰演算子の効率化\n\n**問題** 確率的プログラミングにおいて、シナリオごとにNP困難な組合せ構造を持つ二次問題を解くコストが大きなボトルネックとなっている。これにより、二次段階を線形または簡略化されたモデルに制限する文献が多い。\n\n**手法** 提案手法は、シナリオ間の並列性を活用するハードウェア対応のGPUカーネルを用いて、構造化整数再帰演算子を大規模に扱えるようにする。これにより、1,000,000以上の実現に対してベルマン更新を一度のパスで実行できる。\n\n**結果** このアプローチは、確率的車両ルーティングや在庫再挿入の設定で評価され、シナリオの数に対してほぼ線形にスケールし、1〜5桁の速度向上を達成した。これにより、より大規模なシナリオセットと強力な第一段階の意思決定が可能となった。",
+      "summaryStruct": {
+        "problem": "確率的プログラミングにおいて、シナリオごとにNP困難な組合せ構造を持つ二次問題を解くコストが大きなボトルネックとなっている。これにより、二次段階を線形または簡略化されたモデルに制限する文献が多い。",
+        "method": "提案手法は、シナリオ間の並列性を活用するハードウェア対応のGPUカーネルを用いて、構造化整数再帰演算子を大規模に扱えるようにする。これにより、1,000,000以上の実現に対してベルマン更新を一度のパスで実行できる。",
+        "result": "このアプローチは、確率的車両ルーティングや在庫再挿入の設定で評価され、シナリオの数に対してほぼ線形にスケールし、1〜5桁の速度向上を達成した。これにより、より大規模なシナリオセットと強力な第一段階の意思決定が可能となった。",
+        "topic": "GPUベースのフレームワークを用いた確率的プログラミングのための構造化整数再帰演算子の効率化"
+      }
+    },
+    {
+      "title": "Learning to Segment for Vehicle Routing Problems",
+      "authors": [
+        "Wenbin Ouyang",
+        "Sirui Li",
+        "Yining Ma",
+        "+1"
+      ],
+      "score": 15,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2507.01037",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 車両ルーティング問題 (VRP) における反復ヒューリスティックの効率化手法\n\n**問題** 車両ルーティング問題では、解の大部分が反復検索中に安定しているため、大規模な問題では冗長な計算が発生します。この課題を解決するための新しいアプローチが求められています。\n\n**手法** 本研究では、First-Segment-Then-Aggregate (FSTA) 分解技術を提案し、安定した解のセグメントを保持しながら、検索を不安定な部分に集中させることで計算を加速します。さらに、Learning-to-Segment (L2Seg) フレームワークを導入し、安定と不安定な部分を賢く識別します。\n\n**結果** 実験結果により、L2SegはCVRPおよびVRPTWにおいて、最先端のソルバーを2倍から7倍の速度で加速することが示されました。特に、L2Segは従来のソルバーや学習ベースのソルバーとも互換性があります。",
+      "summaryStruct": {
+        "problem": "車両ルーティング問題では、解の大部分が反復検索中に安定しているため、大規模な問題では冗長な計算が発生します。この課題を解決するための新しいアプローチが求められています。",
+        "method": "本研究では、First-Segment-Then-Aggregate (FSTA) 分解技術を提案し、安定した解のセグメントを保持しながら、検索を不安定な部分に集中させることで計算を加速します。さらに、Learning-to-Segment (L2Seg) フレームワークを導入し、安定と不安定な部分を賢く識別します。",
+        "result": "実験結果により、L2SegはCVRPおよびVRPTWにおいて、最先端のソルバーを2倍から7倍の速度で加速することが示されました。特に、L2Segは従来のソルバーや学習ベースのソルバーとも互換性があります。",
+        "topic": "車両ルーティング問題 (VRP) における反復ヒューリスティックの効率化手法"
+      }
+    },
+    {
+      "title": "Generalizable Heuristic Generation Through LLMs with Meta-Optimization",
+      "authors": [],
+      "score": 14,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "Learning from Algorithm Feedback: One-Shot SAT Solver Guidance with GNNs",
+      "authors": [
+        "Jan Tönshoff",
+        "Martin Grohe"
+      ],
+      "score": 44,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic",
+        "satisfiability",
+        "sat solver"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2505.16053",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 強化学習を用いたSATソルバーの分岐ヒューリスティクスの最適化\n\n**問題** Boolean Satisfiability (SAT) ソルバーの性能は通常、手作りのヒューリスティクスに依存しており、これを改善する必要がある。特に、異なるSAT問題に対して効率的な解決策を見つけることが課題である。\n\n**手法** 本研究では、Graph Neural Networks (GNN) を用いてSATソルバーの分岐ヒューリスティクスを学習する新しい手法、Reinforcement Learning from Algorithm Feedback (RLAF) を提案する。GNNが変数に重みと極性を割り当て、強化学習の枠組みでトレーニングすることで、ソルバーの計算コストを報酬信号として利用する。\n\n**結果** RLAFによってトレーニングされたポリシーは、異なるベースソルバーの平均解決時間を大幅に短縮し、一部のケースでは2倍以上の速度向上を達成した。また、トレーニング後にはより大規模で難易度の高い問題にも効果的に一般化した。",
+      "summaryStruct": {
+        "problem": "Boolean Satisfiability (SAT) ソルバーの性能は通常、手作りのヒューリスティクスに依存しており、これを改善する必要がある。特に、異なるSAT問題に対して効率的な解決策を見つけることが課題である。",
+        "method": "本研究では、Graph Neural Networks (GNN) を用いてSATソルバーの分岐ヒューリスティクスを学習する新しい手法、Reinforcement Learning from Algorithm Feedback (RLAF) を提案する。GNNが変数に重みと極性を割り当て、強化学習の枠組みでトレーニングすることで、ソルバーの計算コストを報酬信号として利用する。",
+        "result": "RLAFによってトレーニングされたポリシーは、異なるベースソルバーの平均解決時間を大幅に短縮し、一部のケースでは2倍以上の速度向上を達成した。また、トレーニング後にはより大規模で難易度の高い問題にも効果的に一般化した。",
+        "topic": "強化学習を用いたSATソルバーの分岐ヒューリスティクスの最適化"
+      }
+    },
+    {
+      "title": "Self-Predictive Representations for Combinatorial Generalization in Behavioral Cloning",
+      "authors": [],
+      "score": 8,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "An Agentic Framework with LLMs for Solving Complex Vehicle Routing Problems",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    },
+    {
+      "title": "ViTSP: A Vision Language Models Guided Framework for Solving Large-Scale Traveling Salesman Problems",
+      "authors": [
+        "Zhuoli Yin",
+        "Yi Ding",
+        "Reem Khir",
+        "+1"
+      ],
+      "score": 63,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic",
+        "traveling salesman",
+        "tsp"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2509.23465",
+      "arxivFoundOn": "2026-10-23",
+      "summary": "**技術と問題** 視覚言語モデル (VLM) を用いた巡回セールスマン問題 (TSP) の解決手法\n\n**問題** 巡回セールスマン問題 (TSP) は NP困難であり、実世界の多くの応用において重要ですが、従来の手法はスケーラビリティに課題があります。学習ベースのアプローチは一般化能力が低く、固定されたトレーニングデータに依存しています。\n\n**手法** 提案手法 ViTSP は、事前学習済みの視覚言語モデルを利用して、TSP インスタンスの視覚化から有望な小規模サブ問題を特定し、オフ・ザ・シェルフのソルバーで効率的に最適化します。これにより、ユーザー側での専用モデルのトレーニングを回避しつつ、さまざまなインスタンスに対して効果的です。\n\n**結果** 実世界の TSP インスタンスに対する実験では、ViTSP は平均最適性ギャップ 0.24% を達成し、既存の学習ベースの手法を上回りました。また、同じ実行時間の下で、LKH-3 よりもギャップを 3.57% から 100% 削減し、特に 10,000 ノード以上の大規模インスタンスで優れた性能を示しました。",
+      "summaryStruct": {
+        "problem": "巡回セールスマン問題 (TSP) は NP困難であり、実世界の多くの応用において重要ですが、従来の手法はスケーラビリティに課題があります。学習ベースのアプローチは一般化能力が低く、固定されたトレーニングデータに依存しています。",
+        "method": "提案手法 ViTSP は、事前学習済みの視覚言語モデルを利用して、TSP インスタンスの視覚化から有望な小規模サブ問題を特定し、オフ・ザ・シェルフのソルバーで効率的に最適化します。これにより、ユーザー側での専用モデルのトレーニングを回避しつつ、さまざまなインスタンスに対して効果的です。",
+        "result": "実世界の TSP インスタンスに対する実験では、ViTSP は平均最適性ギャップ 0.24% を達成し、既存の学習ベースの手法を上回りました。また、同じ実行時間の下で、LKH-3 よりもギャップを 3.57% から 100% 削減し、特に 10,000 ノード以上の大規模インスタンスで優れた性能を示しました。",
+        "topic": "視覚言語モデル (VLM) を用いた巡回セールスマン問題 (TSP) の解決手法"
+      }
+    },
+    {
+      "title": "AQER: A Scalable and Efficient Data Loader for Digital Quantum Computers",
+      "authors": [],
+      "score": 0,
+      "matchedKeywords": [
+        "quantum-computing"
+      ],
+      "via": "accepted-list"
+    },
+    {
+      "title": "Lifelong Learning with Behavior Consolidation for Vehicle Routing",
+      "authors": [],
+      "score": 10,
+      "matchedKeywords": [
+        "vehicle routing"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-23"
+    }
+  ],
+  "sourceCheckedOn": "2026-10-23",
+  "sourceUrl": "https://iclr.cc/virtual/2026/papers.html",
+  "sourceHash": "8b51aa6678156f8b",
+  "gated": true,
+  "sourceTotal": 5468
+}
