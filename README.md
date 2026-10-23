@@ -77,7 +77,7 @@ arXiv のアナウンスが無い日 (土日など、当日 publish された論
 arXiv 新着とは別枠の「採択論文・論文誌」セクション (`VENUE_PAPERS_TOP_N` = 6 件)。`src/venues/` が担当する。
 
 1. **採択リスト** を取り込み、`data/venues/{venue}-{year}.json` に保存する。見出しの年を検証し、前年の内容が残ったページは採らない
-2. **arXiv 照合**: リストの各論文の arXiv 版をタイトル語検索 + 著者の姓の一致で探す (`venues/match.ts`)。著者が載っていない ML 会議の一覧はタイトルのほぼ一致 (Jaccard 0.9 以上) で判定し、著者は arXiv 側から埋める。既定は arXiv API (3 秒間隔、1 回 `VENUE_MATCH_MAX_PER_RUN_ARXIV` = 80 件まで)。Secrets に `OPENALEX_API_KEY` (無料) があれば OpenAlex を使う (速く、1 回 250 件まで)。未発見の論文はリスト作成から 14 日は毎日、以降は 7 日おきに照合し直す
+2. **arXiv 照合**: リストの各論文の arXiv 版をタイトル語検索 + 著者の姓の一致で探す (`venues/match.ts`)。著者が載っていない ML 会議の一覧はタイトルのほぼ一致 (Jaccard 0.9 以上) で判定し、著者は arXiv 側から埋める。照合は arXiv API のタイトル語検索 (キー不要、3 秒間隔、1 回 `VENUE_MATCH_MAX_PER_RUN` = 80 件まで)。未発見の論文はリスト作成から 14 日は毎日、以降は 7 日おきに照合し直す
 3. **comments 採択表記** でヒットした論文も同じ venue ファイルに積む
 4. arXiv 版が **初めて見つかった日** に、その論文が Today の候補になる。abstract で `PAPER_KEYWORDS` 採点し、要約して venue ファイルに保存 (1 回 `VENUE_SUMMARIZE_MAX_PER_RUN` = 80 件まで)
 5. 論文誌 / ECCC の新着も同じキーワード採点で候補に入れ、関連度上位を採用する。会議採択論文と `important` な誌 (JACM / SICOMP / TheoretiCS) はキーワード非一致でも候補に残る

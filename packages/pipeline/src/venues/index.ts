@@ -10,6 +10,7 @@ import {
   VENUE_COMMENT_LOOKBACK_DAYS,
   VENUE_COMMENT_VENUES,
   type CommentVenueConfig,
+  VENUE_MATCH_MAX_PER_RUN,
   VENUE_MATCH_WINDOW_DAYS,
   VENUE_PAPERS_TOP_N,
   VENUE_RECHECK_DAILY_DAYS,
@@ -30,7 +31,7 @@ import { fetchAcceptedList } from "./acceptedList.js";
 import { matchVenueComment } from "./arxivComments.js";
 import { passesVenueGate, venueGateTerms } from "./gate.js";
 import { fetchCrossrefJournal, fetchEccc, type JournalPaper } from "./journals.js";
-import { pickMatcher, type MatchResult } from "./match.js";
+import { findOnArxiv } from "./match.js";
 import {
   findVenuePaper,
   loadVenueLists,
@@ -219,8 +220,7 @@ export async function collectVenueItems(
   }
 
   // 3) 採択リストのうち arXiv 版が未発見の論文を照合する。未照合 → 関連度の高い順に、件数上限まで。
-  const matcher = pickMatcher();
-  const due = (list: VenueList, paper: VenuePaper): boolean => {
+  const due =(list: VenueList, paper: VenuePaper): boolean => {
     if (paper.arxivId) return false;
     if (!paper.lastCheckedOn) return true;
     const interval =
@@ -235,36 +235,35 @@ export async function collectVenueItems(
         Number(!b.paper.lastCheckedOn) - Number(!a.paper.lastCheckedOn) ||
         b.paper.score - a.paper.score,
     )
-    .slice(0, matcher.maxPerRun);
+    .slice(0, VENUE_MATCH_MAX_PER_RUN);
   let failures = 0;
   let matched = 0;
   for (const { list, paper } of queue) {
     if (failures >= MATCH_MAX_CONSECUTIVE_FAILURES) {
-      console.warn(`[venues] ${matcher.name}: too many consecutive failures; stop matching for today`);
+      console.warn(`[venues] arxiv match: too many consecutive failures; stop matching for today`);
       break;
     }
-    await sleep(matcher.intervalMs);
-    let r: MatchResult | null;
+    await sleep(ARXIV_INTERVAL_MS);
+    let hit: ArxivPaper | null;
     try {
-      r = await matcher.find(paper.title, paper.authors);
+      hit = await findOnArxiv(paper.title, paper.authors);
       failures = 0;
     } catch (err) {
       failures++;
-      console.warn(`[venues] ${matcher.name} failed for "${paper.title}":`, (err as Error).message);
+      console.warn(`[venues] arxiv match failed for "${paper.title}":`, (err as Error).message);
       continue;
     }
     paper.lastCheckedOn = date;
     touch(list);
-    if (r && !list.papers.some((q) => q.arxivId === r.arxivId)) {
-      paper.arxivId = r.arxivId;
+    const id = hit ? stripVersion(hit.arxivId) : undefined;
+    if (hit && id && !list.papers.some((q) => q.arxivId === id)) {
+      paper.arxivId = id;
       paper.arxivFoundOn = date;
-      if (r.paper) meta.set(r.arxivId, r.paper);
+      meta.set(id, hit);
       matched++;
     }
   }
-  console.log(
-    `[venues] ${matcher.name}: checked ${queue.length} accepted papers, matched ${matched} to arXiv`,
-  );
+  console.log(`[venues] arxiv match: checked ${queue.length} accepted papers, matched ${matched}`);
 
   // 4) 今日見つかった論文と、要約待ちの論文の arXiv メタ (abstract) を取る。
   const all: { list: VenueList; paper: VenuePaper }[] = [];

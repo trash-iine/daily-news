@@ -52,8 +52,6 @@ jobs:
       - name: Run pipeline
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # 任意。設定すると会議採択論文の arXiv 照合に OpenAlex を使う (無ければ arXiv API)
-          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
         run: pnpm --filter @daily-news/pipeline start
 
       - name: Commit data

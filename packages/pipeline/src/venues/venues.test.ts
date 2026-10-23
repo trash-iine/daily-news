@@ -5,7 +5,6 @@ import { matchVenueComment } from "./arxivComments.js";
 import { passesVenueGate } from "./gate.js";
 import { parseCrossrefWorks, parseEcccRss } from "./journals.js";
 import { pickArxivPaper, titleSearchWords } from "./match.js";
-import { pickArxivMatch } from "./openAlex.js";
 import type { ArxivPaper } from "../sources/arxiv.js";
 import { findVenuePaper, mergeAcceptedEntries, newVenueList } from "./store.js";
 import { authorsOverlap, splitAuthorsLine, titleKey, titleSimilarity } from "./titles.js";
@@ -148,35 +147,6 @@ describe("passesVenueGate", () => {
   });
 });
 
-describe("pickArxivMatch", () => {
-  const work = (title: string, names: string[], url: string) => ({
-    title,
-    locations: [{ landing_page_url: url }],
-    authorships: names.map((display_name) => ({ author: { display_name } })),
-  });
-
-  it("タイトル一致 + 著者重複 + arXiv 版ありの work を選ぶ", () => {
-    const id = pickArxivMatch(
-      [
-        work("Preprocessed 3SUM: From Reals to Integers", ["Nick Fischer"], "https://arxiv.org/abs/2610.21961"),
-        work("3SUM Is Really Hard: A Real-to-Integer Reduction", ["Nick Fischer", "Adam Polak"], "https://arxiv.org/abs/2610.10153"),
-      ],
-      "3SUM Is Really Hard: A Real-to-Integer Reduction",
-      ["Nick Fischer", "Adam Polak", "Jonas Schmidt"],
-    );
-    assert.equal(id, "2610.10153");
-  });
-
-  it("タイトルが同じでも著者が重ならなければ採らない", () => {
-    const id = pickArxivMatch(
-      [work("Robust Learning with Optimal Error", ["Someone Else"], "https://arxiv.org/abs/2604.02555")],
-      "Robust Learning with Optimal Error",
-      ["Guy Blanc"],
-    );
-    assert.equal(id, null);
-  });
-});
-
 describe("pickArxivPaper", () => {
   const paper = (title: string, authors: string[]): ArxivPaper => ({
     arxivId: "2602.16153v1",
@@ -200,6 +170,15 @@ describe("pickArxivPaper", () => {
       ["Jane Doe"],
     );
     assert.equal(hit?.title, "Bellman-Ford in Almost-Linear Time for Dense Graphs");
+  });
+
+  it("タイトルが同じでも著者が重ならなければ採らない", () => {
+    assert.equal(
+      pickArxivPaper([paper("Robust Learning with Optimal Error", ["Someone Else"])], "Robust Learning with Optimal Error", [
+        "Guy Blanc",
+      ]),
+      null,
+    );
   });
 
   it("著者が分からない (ML 会議の一覧) ときはタイトルのほぼ一致だけで選ぶ", () => {

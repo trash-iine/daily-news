@@ -507,11 +507,10 @@ export const VENUE_RECHECK_DAILY_DAYS = 14;
 export const VENUE_RECHECK_INTERVAL_DAYS = 7;
 
 /**
- * 1 回の実行で照合する最大件数 (Actions の実行時間の上限対策)。arXiv API は 3 秒間隔なので
- * 80 件で約 4〜5 分。OpenAlex (OPENALEX_API_KEY がある場合) は速いので多めに取る。
+ * 1 回の実行で arXiv と照合する最大件数 (Actions の実行時間の上限対策)。arXiv API は 3 秒間隔なので
+ * 80 件で約 4〜5 分。
  */
-export const VENUE_MATCH_MAX_PER_RUN_ARXIV = 80;
-export const VENUE_MATCH_MAX_PER_RUN_OPENALEX = 250;
+export const VENUE_MATCH_MAX_PER_RUN = 80;
 
 /** 1 回の実行で要約する会議採択論文の最大件数。採択リスト公開日の一括要約を抑える。 */
 export const VENUE_SUMMARIZE_MAX_PER_RUN = 80;
