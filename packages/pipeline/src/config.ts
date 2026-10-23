@@ -385,10 +385,13 @@ export const APS_PAPER_MAX_AGE_DAYS = 7;
  * 規約確認 (CLAUDE.md ルール):
  * - acm-stoc.org: robots.txt なし (404)。採択リストは公開ページ。1 日 1〜2 リクエスト。
  * - focs.computer.org: robots.txt は /wp-admin/ のみ Disallow、Crawl-delay: 10。
- *   WordPress 標準の公開 REST API (wp-json/wp/v2/pages) で本文を取る。1 日 1〜2 リクエスト。
- * - neurips.cc / icml.cc / iclr.cc: robots.txt は /static (JSON の全件データ) を Disallow しているので
- *   使わず、許可されている /virtual/{year}/papers.html の <noscript> 版タイトル一覧を読む
+ *   WordPress 標準の公開 REST API (wp-json/wp/v2/pages) で本文を取る。1 日 1〜2 リクエストで、
+ *   同じホストへの連続アクセスは 10 秒空ける (venues/index.ts: ACCEPTED_LIST_HOST_INTERVAL_MS)。
+ * - neurips.cc / icml.cc / iclr.cc: robots.txt は /static (JSON の全件データ) と /virtual/{year}/search を
+ *   Disallow しているので使わず、許可されている /virtual/{year}/papers.html の <noscript> 版タイトル一覧を読む
  *   (venues/acceptedList.ts: parseMiniconfList)。1 MB 前後あるので refetchDays で週 1 回に抑える。
+ *   /virtual/ を Disallow しているのは GPTBot (学習用クローラ) 向けの節だけ。利用規約ページは公開されていない
+ *   (2026-10 時点で /public/TermsOfUse 等は 404、Privacy Policy のみ)。
  *   OpenReview API はボット判定 (ChallengeRequiredError) を返すため対象外。
  * - 保存するのはタイトルと著者名のみ (所属は落とす)。
  * - SODA (siam.org) は bot に 403 を返すため対象外。arXiv comments 側で拾う。
@@ -518,7 +521,8 @@ export const VENUE_SUMMARIZE_MAX_PER_RUN = 80;
  * DOI 登録日 (created) で絞るので online-first も拾える。
  *
  * 規約確認 (CLAUDE.md ルール): Crossref REST API は認証不要の公開 API で、メタデータの
- * 機械取得を想定している。User-Agent に連絡先 (リポジトリ URL) を入れて polite に叩く。
+ * 機械取得を想定している。User-Agent に連絡先 (リポジトリ URL) を入れ、public pool の制限
+ * (一覧系 1 req/s・同時 1 本) に合わせて逐次・1.1 秒間隔で叩く (venues/index.ts: CROSSREF_INTERVAL_MS)。
  * abstract は要約生成の入力にだけ使い、bundle には保存しない。
  *
  * important: true の誌はキーワードに一致しなくても採用候補に残す (分野のトップ誌を漏らさない)。

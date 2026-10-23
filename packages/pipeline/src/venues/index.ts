@@ -42,6 +42,10 @@ import {
 
 // arXiv API ToU: 3 秒に 1 リクエスト、同時接続 1。collectPapers の後に逐次で呼ぶ前提。
 const ARXIV_INTERVAL_MS = 3000;
+// 採択リストのページは同じホストに 10 秒以上空けて取る (focs.computer.org の Crawl-delay: 10)。
+const ACCEPTED_LIST_HOST_INTERVAL_MS = 10_000;
+// Crossref の public pool は一覧系クエリが 1 req/s・同時 1 本 (x-concurrency-limit: 1)。逐次 + 間隔を空ける。
+const CROSSREF_INTERVAL_MS = 1100;
 // 照合先が落ちている日に大量のエラーを積まないよう、連続失敗で照合を打ち切る。
 const MATCH_MAX_CONSECUTIVE_FAILURES = 5;
 const ARXIV_ID_BATCH = 50;
@@ -107,6 +111,7 @@ export async function collectVenueItems(
 
   // 1) 採択リストページ。未公開の年は null が返るだけなので毎日叩いて公開を検知する。
   //    取得済みで refetchDays がある会議 (1 MB 前後ある ML 会議の一覧) は間隔を空ける。
+  const lastHit = new Map<string, number>();
   for (const cfg of VENUE_ACCEPTED_LISTS) {
     for (const year of years) {
       const existing = lists.get(venueSlug(cfg.venue, year));
@@ -117,6 +122,11 @@ export async function collectVenueItems(
       ) {
         continue;
       }
+      // 同じホストへの連続アクセスは robots.txt の Crawl-delay (focs.computer.org: 10) 以上空ける
+      const host = new URL(cfg.urlTemplate.replaceAll("{year}", String(year))).host;
+      const wait = (lastHit.get(host) ?? 0) + ACCEPTED_LIST_HOST_INTERVAL_MS - Date.now();
+      if (wait > 0) await sleep(wait);
+      lastHit.set(host, Date.now());
       const page = await fetchAcceptedList(cfg, year);
       if (!page) continue;
       const list = getList(cfg.venue, year);
@@ -349,6 +359,7 @@ export async function collectVenueItems(
   const sinceDate = new Date(Date.now() - JOURNAL_LOOKBACK_DAYS * DAY_MS).toISOString().slice(0, 10);
   const journalPapers: JournalPaper[] = [];
   for (const j of JOURNALS) {
+    await sleep(CROSSREF_INTERVAL_MS);
     try {
       journalPapers.push(...(await fetchCrossrefJournal(j, sinceDate)));
     } catch (err) {
