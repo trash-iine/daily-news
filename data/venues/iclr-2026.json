@@ -4,34 +4,79 @@
   "year": 2026,
   "name": "ICLR 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-23T13:48:14.140Z",
+  "updatedAt": "2026-10-24T00:13:33.492Z",
   "papers": [
     {
       "title": "Combinatorial Rising Bandits",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Seockbean Song",
+        "Youngsik Yoon",
+        "Siwei Wang",
+        "+2"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2412.00798",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 組合せオンライン学習における報酬の向上を考慮したアルゴリズムの提案\n\n**問題** 組合せオンライン学習では、基礎アームの組み合わせから最適なアクションを選択する必要があるが、報酬が時間とともに上昇する状況では、従来のバンディットモデルでは依存関係を扱えない。これにより、実世界の多くのシナリオでの最適化が困難になる。\n\n**手法** 本研究では、Combinatorial Rising Bandit (CRB) フレームワークを導入し、Combinatorial Rising Upper Confidence Bound (CRUCB) アルゴリズムを提案する。この手法は、基礎アームの報酬向上が複数のスーパアームに影響を与えることを考慮しており、効率的な選択を実現する。\n\n**結果** CRUCBの実験結果は、現実的な深層強化学習環境および合成設定において効果的であることを示し、理論的分析では厳密な後悔境界を確立した。",
+      "summaryStruct": {
+        "problem": "組合せオンライン学習では、基礎アームの組み合わせから最適なアクションを選択する必要があるが、報酬が時間とともに上昇する状況では、従来のバンディットモデルでは依存関係を扱えない。これにより、実世界の多くのシナリオでの最適化が困難になる。",
+        "method": "本研究では、Combinatorial Rising Bandit (CRB) フレームワークを導入し、Combinatorial Rising Upper Confidence Bound (CRUCB) アルゴリズムを提案する。この手法は、基礎アームの報酬向上が複数のスーパアームに影響を与えることを考慮しており、効率的な選択を実現する。",
+        "result": "CRUCBの実験結果は、現実的な深層強化学習環境および合成設定において効果的であることを示し、理論的分析では厳密な後悔境界を確立した。",
+        "topic": "組合せオンライン学習における報酬の向上を考慮したアルゴリズムの提案"
+      }
     },
     {
       "title": "Lightweight Transformer for EEG Classification via Balanced Signed Graph Algorithm Unrolling",
-      "authors": [],
+      "authors": [
+        "Junyi Yao",
+        "Parham Eftekhar",
+        "Gene Cheung",
+        "+3"
+      ],
       "score": 6,
       "matchedKeywords": [
         "graph-algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2510.03027",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 脳波信号の分類における軽量なトランスフォーマー型ニューラルネットワークの提案\n\n**問題** 脳波信号を用いててんかん患者と健康な被験者を区別することは難しい。従来の手法では高いパラメータ数が必要であるため、効率的なアプローチが求められている。\n\n**手法** 本研究では、負のエッジを持つ有限グラフ上でのスペクトルデノイジングアルゴリズムを展開し、軽量で解釈可能なトランスフォーマー型ニューラルネットワークを構築する。バランスの取れた符号付きグラフの特性を利用し、効率的なローパスフィルターを実装することで、データから最適なカットオフ周波数を学習する。\n\n**結果** 実験の結果、提案手法は代表的な深層学習手法と同等の分類性能を達成しながら、著しく少ないパラメータ数で運用可能であることが示された。",
+      "summaryStruct": {
+        "problem": "脳波信号を用いててんかん患者と健康な被験者を区別することは難しい。従来の手法では高いパラメータ数が必要であるため、効率的なアプローチが求められている。",
+        "method": "本研究では、負のエッジを持つ有限グラフ上でのスペクトルデノイジングアルゴリズムを展開し、軽量で解釈可能なトランスフォーマー型ニューラルネットワークを構築する。バランスの取れた符号付きグラフの特性を利用し、効率的なローパスフィルターを実装することで、データから最適なカットオフ周波数を学習する。",
+        "result": "実験の結果、提案手法は代表的な深層学習手法と同等の分類性能を達成しながら、著しく少ないパラメータ数で運用可能であることが示された。",
+        "topic": "脳波信号の分類における軽量なトランスフォーマー型ニューラルネットワークの提案"
+      }
     },
     {
       "title": "A Genetic Algorithm for Navigating Synthesizable Molecular Spaces",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Alston Lo",
+        "Connor W. Coley",
+        "Wojciech Matusik"
+      ],
+      "score": 20,
       "matchedKeywords": [
+        "optimization",
         "genetic algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2509.20719",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 合成経路に直接作用する遺伝的アルゴリズム (分子設計手法) の提案。\n\n**問題** 分子設計において、合成可能性を持つ分子を効率的に探索することが課題である。従来の手法では合成可能性を考慮した設計が難しい。\n\n**手法** SynGAは、合成可能な分子空間に制約を設けたカスタム交差および突然変異オペレーターを特徴とし、フィットネス関数を改良することで設計タスクにおける効果を示す。さらに、機械学習ベースのフィルターと組み合わせることで、性能を向上させる。\n\n**結果** SynGAは、2Dおよび3Dの設計タスクにおいて最先端の性能を達成し、特にプロパティ最適化のためのモデルベースの変種SynGBOを用いることで、効率的な最適化を実現した。",
+      "summaryStruct": {
+        "problem": "分子設計において、合成可能性を持つ分子を効率的に探索することが課題である。従来の手法では合成可能性を考慮した設計が難しい。",
+        "method": "SynGAは、合成可能な分子空間に制約を設けたカスタム交差および突然変異オペレーターを特徴とし、フィットネス関数を改良することで設計タスクにおける効果を示す。さらに、機械学習ベースのフィルターと組み合わせることで、性能を向上させる。",
+        "result": "SynGAは、2Dおよび3Dの設計タスクにおいて最先端の性能を達成し、特にプロパティ最適化のためのモデルベースの変種SynGBOを用いることで、効率的な最適化を実現した。",
+        "topic": "合成経路に直接作用する遺伝的アルゴリズム (分子設計手法) の提案。"
+      }
     },
     {
       "title": "Gelato: Graph Edit Distance via Autoregressive Neural Combinatorial Optimization",
@@ -96,7 +141,8 @@
       "matchedKeywords": [
         "approximation algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Combinatorial Bandit Bayesian Optimization for Tensor Outputs",
@@ -125,21 +171,50 @@
     },
     {
       "title": "On the Expressive Power of GNNs for Boolean Satisfiability",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Saku Peltonen",
+        "Roger Wattenhofer"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "satisfiability"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2602.08745",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** グラフニューラルネットワーク (GNN) を用いたブール充足可能性問題 (SAT) の解決手法の分析\n\n**問題** ブール充足可能性問題を解くための機械学習アプローチは、手作業のヒューリスティックを学習ベースのモデルに置き換えることを目指しているが、GNNの表現力に限界があることが問題である。\n\n**手法** 本研究では、GNNのSAT解決における表現力をWeisfeiler-Leman (WL) テストを通じて分析し、WL階層が充足可能なインスタンスと不充足なインスタンスを一般に区別できないことを証明した。これにより、WL制約のあるソルバーの実用的な限界が明らかになる。\n\n**結果** 実験の結果、ランダムなインスタンスは大部分が区別可能である一方、産業用インスタンスは満足する割り当てを予測するためにより高い表現力を必要とすることが示された。",
+      "summaryStruct": {
+        "problem": "ブール充足可能性問題を解くための機械学習アプローチは、手作業のヒューリスティックを学習ベースのモデルに置き換えることを目指しているが、GNNの表現力に限界があることが問題である。",
+        "method": "本研究では、GNNのSAT解決における表現力をWeisfeiler-Leman (WL) テストを通じて分析し、WL階層が充足可能なインスタンスと不充足なインスタンスを一般に区別できないことを証明した。これにより、WL制約のあるソルバーの実用的な限界が明らかになる。",
+        "result": "実験の結果、ランダムなインスタンスは大部分が区別可能である一方、産業用インスタンスは満足する割り当てを予測するためにより高い表現力を必要とすることが示された。",
+        "topic": "グラフニューラルネットワーク (GNN) を用いたブール充足可能性問題 (SAT) の解決手法の分析"
+      }
     },
     {
       "title": "CALM: Co-evolution of Algorithms and Language Model for Automatic Heuristic Design",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Ziyao Huang",
+        "Weiwei Wu",
+        "Kui Wu",
+        "+2"
+      ],
+      "score": 16,
       "matchedKeywords": [
+        "optimization",
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2505.12285",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 大規模言語モデル (LLM) を用いた複雑な最適化問題のためのハイブリッドフレームワークの提案\n\n**問題** 複雑な最適化問題の解決には専門家が設計したヒューリスティックが必要で、従来は試行錯誤が多くかかる。既存の手法は主に言語的な指導に依存しており、LLMの適応が不十分である。\n\n**手法** 提案手法は、言語的および数値的な指導を組み合わせ、後者は強化学習を用いてLLMを微調整することで実現される。この共同最適化により、LLMは探索プロセスと共に進化することが可能になる。\n\n**結果** 提案手法は、さまざまな最適化タスクにおいて最先端の基準を上回り、24GBのGPU上で7Bモデルを使用してINT4量子化で動作する。従来の言語的指導のみの手法よりも優れた性能を示した。",
+      "summaryStruct": {
+        "problem": "複雑な最適化問題の解決には専門家が設計したヒューリスティックが必要で、従来は試行錯誤が多くかかる。既存の手法は主に言語的な指導に依存しており、LLMの適応が不十分である。",
+        "method": "提案手法は、言語的および数値的な指導を組み合わせ、後者は強化学習を用いてLLMを微調整することで実現される。この共同最適化により、LLMは探索プロセスと共に進化することが可能になる。",
+        "result": "提案手法は、さまざまな最適化タスクにおいて最先端の基準を上回り、24GBのGPU上で7Bモデルを使用してINT4量子化で動作する。従来の言語的指導のみの手法よりも優れた性能を示した。",
+        "topic": "大規模言語モデル (LLM) を用いた複雑な最適化問題のためのハイブリッドフレームワークの提案"
+      }
     },
     {
       "title": "HeuriGym: An Agentic Benchmark for LLM-Crafted Heuristics in Combinatorial Optimization",
@@ -168,12 +243,28 @@
     },
     {
       "title": "Analysis of approximate linear programming solution to Markov decision problem with log barrier function",
-      "authors": [],
-      "score": 8,
-      "matchedKeywords": [
-        "linear programming"
+      "authors": [
+        "Donghwan Lee",
+        "Hyukjun Yang",
+        "Bum Geun Park"
       ],
-      "via": "accepted-list"
+      "score": 28,
+      "matchedKeywords": [
+        "optimization",
+        "linear programming",
+        "dynamic-programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2509.19800",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 線形計画法 (LP) に基づくマルコフ決定問題 (MDP) の解法の理論的基盤の確立\n\n**問題** マルコフ決定問題の解法には動的計画法が広く用いられる一方で、線形計画法はあまり利用されていない。特に、線形計画法は不等式制約最適化問題を生じるため、効果的に解くことが難しいという課題がある。\n\n**手法** 本論文では、ログバリア関数を利用してMDPの線形計画法の定式化を無制約最適化問題に変換する手法を提案する。この変換により、勾配降下法を用いて近似解を容易に得ることが可能となる。\n\n**結果** 提案手法の理論的解釈が未開発であったことを踏まえ、本研究はそのギャップを埋めることを目指す。",
+      "summaryStruct": {
+        "problem": "マルコフ決定問題の解法には動的計画法が広く用いられる一方で、線形計画法はあまり利用されていない。特に、線形計画法は不等式制約最適化問題を生じるため、効果的に解くことが難しいという課題がある。",
+        "method": "本論文では、ログバリア関数を利用してMDPの線形計画法の定式化を無制約最適化問題に変換する手法を提案する。この変換により、勾配降下法を用いて近似解を容易に得ることが可能となる。",
+        "result": "提案手法の理論的解釈が未開発であったことを踏まえ、本研究はそのギャップを埋めることを目指す。",
+        "topic": "線形計画法 (LP) に基づくマルコフ決定問題 (MDP) の解法の理論的基盤の確立"
+      }
     },
     {
       "title": "FrontierCO: Real-World and Large-Scale Evaluation of Machine Learning Solvers for Combinatorial Optimization",
@@ -253,7 +344,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Tractability via Low Dimensionality: The Parameterized Complexity of Training Quantized Neural Networks",
@@ -278,21 +370,51 @@
     },
     {
       "title": "Boolean Satisfiability via Imitation Learning",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Zewei Zhang",
+        "Huan Liu",
+        "Yuanhao Yu",
+        "+2"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "satisfiability"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2509.25411",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 模倣学習に基づくCDCL (衝突駆動節学習) ソルバーの分岐ポリシーの提案\n\n**問題** ブール充足可能性問題 (SAT) におけるCDCLソルバーの分岐性能を向上させることを目指している。従来の手法は、間接的な改善や不十分な情報に依存していた。\n\n**手法** ImitSATは、専門家のKeyTraceから学習し、完全な実行を生存する決定のシーケンスに圧縮する。これにより、ほぼ衝突のない再生が可能となり、高品質な分岐を探索なしで再現できる。\n\n**結果** ImitSATは、伝播回数と実行時間を削減し、最先端の学習手法を上回る性能を示した。",
+      "summaryStruct": {
+        "problem": "ブール充足可能性問題 (SAT) におけるCDCLソルバーの分岐性能を向上させることを目指している。従来の手法は、間接的な改善や不十分な情報に依存していた。",
+        "method": "ImitSATは、専門家のKeyTraceから学習し、完全な実行を生存する決定のシーケンスに圧縮する。これにより、ほぼ衝突のない再生が可能となり、高品質な分岐を探索なしで再現できる。",
+        "result": "ImitSATは、伝播回数と実行時間を削減し、最先端の学習手法を上回る性能を示した。",
+        "topic": "模倣学習に基づくCDCL (衝突駆動節学習) ソルバーの分岐ポリシーの提案"
+      }
     },
     {
       "title": "Beyond the Heatmap: A Rigorous Evaluation of Component Impact in MCTS-Based TSP Solvers",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Xuanhao Pan",
+        "Chenguang Wang",
+        "Chaolong Ying",
+        "+2"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "tsp"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2411.09238",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ヒートマップとモンテカルロ木探索 (MCTS) を用いた巡回セールスマン問題 (TSP) の解法の評価\n\n**問題** 近年、ヒートマップの高度化に多くの努力が注がれているが、その重要性が本当に正当化されるのかを検証することが本論文の課題である。特に、ヒートマップの複雑さとMCTSの設定の相対的な影響を評価する。\n\n**手法** 本研究では、MCTSの戦略設定が解の質に大きく影響することを示し、最適な結果を得るための調整の重要性を強調する。また、基本的なヒートマップと最適に調整されたMCTSを組み合わせることで、より複雑なヒートマップと同等以上の性能を達成できることを示す。\n\n**結果** 多様なTSPのスケールや分布における実験により、単純なヒートマップが高度なヒートマップの性能を上回ることが確認された。これにより、ヒートマップの複雑さが性能の主要因であるという一般的な仮定に挑戦する結果となった。",
+      "summaryStruct": {
+        "problem": "近年、ヒートマップの高度化に多くの努力が注がれているが、その重要性が本当に正当化されるのかを検証することが本論文の課題である。特に、ヒートマップの複雑さとMCTSの設定の相対的な影響を評価する。",
+        "method": "本研究では、MCTSの戦略設定が解の質に大きく影響することを示し、最適な結果を得るための調整の重要性を強調する。また、基本的なヒートマップと最適に調整されたMCTSを組み合わせることで、より複雑なヒートマップと同等以上の性能を達成できることを示す。",
+        "result": "多様なTSPのスケールや分布における実験により、単純なヒートマップが高度なヒートマップの性能を上回ることが確認された。これにより、ヒートマップの複雑さが性能の主要因であるという一般的な仮定に挑戦する結果となった。",
+        "topic": "ヒートマップとモンテカルロ木探索 (MCTS) を用いた巡回セールスマン問題 (TSP) の解法の評価"
+      }
     },
     {
       "title": "Accelerating Inference for Multilayer Neural Networks with Quantum Computers",
@@ -329,7 +451,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "AutoEP: LLMs-Driven Automation of Hyperparameter Evolution for Metaheuristic Algorithms",
@@ -391,12 +514,27 @@
     },
     {
       "title": "Efficient Best-of-Both-Worlds Algorithms for Contextual Combinatorial Semi-Bandits",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Mengmeng Li",
+        "Philipp J. Schneider",
+        "Jelisaveta Aleksić",
+        "+1"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2508.18768",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 文脈付き組合せ半バンディット問題における最適なアルゴリズムの提案\n\n**問題** 本論文は、対立的状況と腐敗した確率的状況の両方において、レグレット（後悔）を低減するアルゴリズムの必要性に応えようとしています。特に、高次元の投影ステップによる実用的なボトルネックに焦点を当てています。\n\n**手法** 提案手法は、Shannonエントロピー正則化子を用いたFollow-the-Regularized-Leader (FTRL) フレームワークに基づいています。このアプローチは、Karush-Kuhn-Tucker条件を活用して高次元の凸投影問題を単変数の根探索問題に変換し、各ラウンドの処理を加速します。\n\n**結果** 実験により、提案手法は両方の状況における魅力的なレグレット境界を達成し、各ラウンドの処理速度を大幅に向上させることが示されました。",
+      "summaryStruct": {
+        "problem": "本論文は、対立的状況と腐敗した確率的状況の両方において、レグレット（後悔）を低減するアルゴリズムの必要性に応えようとしています。特に、高次元の投影ステップによる実用的なボトルネックに焦点を当てています。",
+        "method": "提案手法は、Shannonエントロピー正則化子を用いたFollow-the-Regularized-Leader (FTRL) フレームワークに基づいています。このアプローチは、Karush-Kuhn-Tucker条件を活用して高次元の凸投影問題を単変数の根探索問題に変換し、各ラウンドの処理を加速します。",
+        "result": "実験により、提案手法は両方の状況における魅力的なレグレット境界を達成し、各ラウンドの処理速度を大幅に向上させることが示されました。",
+        "topic": "文脈付き組合せ半バンディット問題における最適なアルゴリズムの提案"
+      }
     },
     {
       "title": "MaskCO: Masked Generation Drives Effective Representation Learning and Exploiting for Combinatorial Optimization",
@@ -425,16 +563,32 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Exposing Weaknesses of Large Reasoning Models through Graph Algorithm Problems",
-      "authors": [],
-      "score": 6,
+      "authors": [
+        "Qifan Zhang",
+        "Jianhao Ruan",
+        "Aochuan Chen",
+        "+4"
+      ],
+      "score": 9,
       "matchedKeywords": [
         "graph-algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2602.06319",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** グラフアルゴリズム問題を用いた大規模推論モデル (LRM) の評価ベンチマークの提案\n\n**問題** 既存の数学、コード、常識推論に関するベンチマークは限られており、長い文脈での評価が不足している。これにより、LRMの推論能力を適切に評価することが困難である。\n\n**手法** GrAlgoBenchというベンチマークを導入し、グラフアルゴリズム問題を通じてLRMの推論能力を評価する。これにより、長文脈推論や難易度の調整、標準化されたプログラム評価が可能になる。\n\n**結果** 9つのタスクにおける実験で、LRMの精度は文脈の長さが120ノードを超えると50%未満に低下することが明らかになった。また、自己検証が効果的でないために推論過程が膨張し、正確性が向上しないという問題も確認された。",
+      "summaryStruct": {
+        "problem": "既存の数学、コード、常識推論に関するベンチマークは限られており、長い文脈での評価が不足している。これにより、LRMの推論能力を適切に評価することが困難である。",
+        "method": "GrAlgoBenchというベンチマークを導入し、グラフアルゴリズム問題を通じてLRMの推論能力を評価する。これにより、長文脈推論や難易度の調整、標準化されたプログラム評価が可能になる。",
+        "result": "9つのタスクにおける実験で、LRMの精度は文脈の長さが120ノードを超えると50%未満に低下することが明らかになった。また、自己検証が効果的でないために推論過程が膨張し、正確性が向上しないという問題も確認された。",
+        "topic": "グラフアルゴリズム問題を用いた大規模推論モデル (LRM) の評価ベンチマークの提案"
+      }
     },
     {
       "title": "From Sequential to Parallel: Reformulating Dynamic Programming as GPU Kernels for Large-Scale Stochastic Combinatorial Optimization",
@@ -524,12 +678,27 @@
     },
     {
       "title": "Self-Predictive Representations for Combinatorial Generalization in Behavioral Cloning",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Daniel Lawson",
+        "Adriana Hugessen",
+        "Charlotte Cloutier",
+        "+2"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2506.10137",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 目標条件付き行動クローン (GCBC) における組合せ一般化の向上\n\n**問題** GCBC 手法は、訓練タスクに対しては良好な性能を示すが、新しい状態-目標ペアに対するゼロショット一般化が難しい。この制約は、BC によって学習された状態表現の時間的一貫性の欠如に起因している。\n\n**手法** 本研究では、後継表現 (SR) を用いて長期的な時間的一貫性を促進することで一般化を助けることを示す。提案手法 $\text{BYOL-}γ$ は、自己予測表現を通じて有限マルコフ決定過程 (MDP) の後継表現を近似するシンプルかつ効果的な表現学習目的を持つ。\n\n**結果** 提案手法は、組合せ一般化を必要とする一連の難しいタスクにおいて競争力のある実証的性能を達成した。",
+      "summaryStruct": {
+        "problem": "GCBC 手法は、訓練タスクに対しては良好な性能を示すが、新しい状態-目標ペアに対するゼロショット一般化が難しい。この制約は、BC によって学習された状態表現の時間的一貫性の欠如に起因している。",
+        "method": "本研究では、後継表現 (SR) を用いて長期的な時間的一貫性を促進することで一般化を助けることを示す。提案手法 $\text{BYOL-}γ$ は、自己予測表現を通じて有限マルコフ決定過程 (MDP) の後継表現を近似するシンプルかつ効果的な表現学習目的を持つ。",
+        "result": "提案手法は、組合せ一般化を必要とする一連の難しいタスクにおいて競争力のある実証的性能を達成した。",
+        "topic": "目標条件付き行動クローン (GCBC) における組合せ一般化の向上"
+      }
     },
     {
       "title": "An Agentic Framework with LLMs for Solving Complex Vehicle Routing Problems",

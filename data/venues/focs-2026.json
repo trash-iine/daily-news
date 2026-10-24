@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "FOCS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-23T13:48:14.138Z",
+  "updatedAt": "2026-10-24T00:13:33.490Z",
   "papers": [
     {
       "title": "$\\tilde{O}(1)$-Depth Parallel Reachability Faster than Transitive Closure",
@@ -14,7 +14,17 @@
       ],
       "score": 0,
       "matchedKeywords": [],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2608.13231",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ランダム化された $d$-ショートカット構築を用いた並列到達可能性アルゴリズムの改善\n\n**問題** グラフの直径を最大 $d$ に減少させるための $d$-ショートカットの計算は難しく、特に $d=1$ の場合は推移閉包の計算と同等である。これにより、並列アルゴリズムの深さを $\tilde{O}(1)$ にすることが困難であった。\n\n**手法** 本研究では、$d=3$ および一般的に偶数の $d \text{ (d \text{が} 4 \text{以上})}$ に対して、推移閉包の障壁を回避するランダム化された $d$-ショートカット構築を提案する。このアプローチにより、全体の作業量を $\tilde{O}(T^{\frac{\beta}{2}})$ に抑え、特に $\beta=2$ の場合は $\tilde{O}(T)$ となる。\n\n**結果** この手法は、現在の推移閉包の逐次時間境界 $T^{1.3459+o(1)}$ を改善し、作業量 $\tilde{O}(T^{1.186})$ を達成する。",
+      "summaryStruct": {
+        "problem": "グラフの直径を最大 $d$ に減少させるための $d$-ショートカットの計算は難しく、特に $d=1$ の場合は推移閉包の計算と同等である。これにより、並列アルゴリズムの深さを $\tilde{O}(1)$ にすることが困難であった。",
+        "method": "本研究では、$d=3$ および一般的に偶数の $d \text{ (d \text{が} 4 \text{以上})}$ に対して、推移閉包の障壁を回避するランダム化された $d$-ショートカット構築を提案する。このアプローチにより、全体の作業量を $\tilde{O}(T^{\frac{\beta}{2}})$ に抑え、特に $\beta=2$ の場合は $\tilde{O}(T)$ となる。",
+        "result": "この手法は、現在の推移閉包の逐次時間境界 $T^{1.3459+o(1)}$ を改善し、作業量 $\tilde{O}(T^{1.186})$ を達成する。",
+        "topic": "ランダム化された $d$-ショートカット構築を用いた並列到達可能性アルゴリズムの改善"
+      }
     },
     {
       "title": "$L_1$-distortion of Earth Mover Distances and Transportation Cost Spaces on High Dimensional Grids",
@@ -26,7 +36,17 @@
       ],
       "score": 0,
       "matchedKeywords": [],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2602.19434",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 輸送コスト空間の埋め込みにおける歪みの下限の証明\n\n**問題** この論文は、d次元グリッド上の輸送コスト空間における埋め込みの歪みの下限がどのように決まるかを探求しています。特に、頂点の数に対する歪みの下限が重要です。\n\n**手法** 提案手法は、ダイアディックキューブ上の確率測度に基づく新しいソボレフ不等式を用いています。このアプローチにより、歪みの下限を証明することが可能になります。\n\n**結果** 得られた結果として、任意の埋め込みの歪みがΩ(ログN)であることが示され、これは任意のN点距離空間に対して成り立つ上限O(ログN)と一致します。",
+      "summaryStruct": {
+        "problem": "この論文は、d次元グリッド上の輸送コスト空間における埋め込みの歪みの下限がどのように決まるかを探求しています。特に、頂点の数に対する歪みの下限が重要です。",
+        "method": "提案手法は、ダイアディックキューブ上の確率測度に基づく新しいソボレフ不等式を用いています。このアプローチにより、歪みの下限を証明することが可能になります。",
+        "result": "得られた結果として、任意の埋め込みの歪みがΩ(ログN)であることが示され、これは任意のN点距離空間に対して成り立つ上限O(ログN)と一致します。",
+        "topic": "輸送コスト空間の埋め込みにおける歪みの下限の証明"
+      }
     },
     {
       "title": "3SUM Is Really Hard: A Real-to-Integer Reduction",
@@ -35,9 +55,21 @@
         "Adam Polak",
         "Jonas Schmidt"
       ],
-      "score": 0,
-      "matchedKeywords": [],
-      "via": "accepted-list"
+      "score": 2,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2610.10153",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 3SUM問題 (整数値入力の組合せ問題) の時間計算量の改善に関する研究\n\n**問題** 3SUM問題を整数値入力で真に二次未満の時間で解ける場合、実数値入力でも同様に解けるかという問題に取り組んでいます。この問題はChanらによって提起されました。\n\n**手法** 提案手法は、最適化におけるFrank–Tardos定理と加法的組合せ論のFreiman型定理の意外な組み合わせに基づいています。このアプローチにより、整数から実数への自己還元が可能になります。\n\n**結果** この結果は、細かい計算量理論における初めての厳密な整数から実数への自己還元を示しています。",
+      "summaryStruct": {
+        "problem": "3SUM問題を整数値入力で真に二次未満の時間で解ける場合、実数値入力でも同様に解けるかという問題に取り組んでいます。この問題はChanらによって提起されました。",
+        "method": "提案手法は、最適化におけるFrank–Tardos定理と加法的組合せ論のFreiman型定理の意外な組み合わせに基づいています。このアプローチにより、整数から実数への自己還元が可能になります。",
+        "result": "この結果は、細かい計算量理論における初めての厳密な整数から実数への自己還元を示しています。",
+        "topic": "3SUM問題 (整数値入力の組合せ問題) の時間計算量の改善に関する研究"
+      }
     },
     {
       "title": "A coarse Menger’s Theorem for planar graphs",
@@ -48,7 +80,8 @@
       ],
       "score": 0,
       "matchedKeywords": [],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "A computational phase transition for learning-to-sample from Ising models",
@@ -112,11 +145,22 @@
         "Nicole Wein",
         "Yiran Zhang"
       ],
-      "score": 4,
+      "score": 13,
       "matchedKeywords": [
+        "np-complete",
         "polynomial-time"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2511.04345",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 正の辺の重みを持つ有向グラフにおける次点最短経路問題の解決\n\n**問題** 次点最短経路問題は、与えられたグラフと端点$s$, $t$に対して、最短ではない$s\to t$経路の中で最も短い経路を求める問題です。この問題は1996年に提起され、非負の辺の重みを持つ有向グラフにおいてNP完全であることが示されていました。\n\n**手法** 本研究では、正の辺の重みを持つ有向グラフに対する次点最短経路問題に対して新たなアルゴリズムを提案します。このアルゴリズムは、従来の研究で未解決であった問題を解決するものです。\n\n**結果** 提案したアルゴリズムにより、次点最短経路問題を効率的に解決できることが示され、30年近く未解決であった問題に対する進展が得られました。",
+      "summaryStruct": {
+        "problem": "次点最短経路問題は、与えられたグラフと端点$s$, $t$に対して、最短ではない$s\to t$経路の中で最も短い経路を求める問題です。この問題は1996年に提起され、非負の辺の重みを持つ有向グラフにおいてNP完全であることが示されていました。",
+        "method": "本研究では、正の辺の重みを持つ有向グラフに対する次点最短経路問題に対して新たなアルゴリズムを提案します。このアルゴリズムは、従来の研究で未解決であった問題を解決するものです。",
+        "result": "提案したアルゴリズムにより、次点最短経路問題を効率的に解決できることが示され、30年近く未解決であった問題に対する進展が得られました。",
+        "topic": "正の辺の重みを持つ有向グラフにおける次点最短経路問題の解決"
+      }
     },
     {
       "title": "A Polynomial-Time Algorithm for Variational Inequalities under the Minty Condition",
@@ -126,11 +170,22 @@
         "Tuomas Sandholm",
         "Brian Hu Zhang"
       ],
-      "score": 4,
+      "score": 10,
       "matchedKeywords": [
+        "optimization",
         "polynomial-time"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2504.03432",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** Minty条件下のLipschitz連続写像に対するε-変分不等式 (SVI) の多項式時間アルゴリズムの提案。\n\n**問題** 変分不等式の解法は最適化の基盤的な問題であるが、計算の難しさが伴うため、特定のサブクラスに焦点を当てた研究が行われてきた。特に、Minty条件を満たす場合の解の存在が問題となる。\n\n**手法** 新しいエリプソイドアルゴリズムの変種を導入し、エリプソイドの中心から降下ステップを取った後に分離超平面を得ることで、非凸かつ次元が完全でないSVIの解法を実現した。これにより、従来の方法よりも指数的に悪化する依存関係を回避した。\n\n**結果** このアルゴリズムは、次元$d$と$1/ε$の対数に対して多項式的な複雑性を持ち、特に多人数の調和ゲームにおけるナッシュ均衡を求める初の多項式時間アルゴリズムを提供した。",
+      "summaryStruct": {
+        "problem": "変分不等式の解法は最適化の基盤的な問題であるが、計算の難しさが伴うため、特定のサブクラスに焦点を当てた研究が行われてきた。特に、Minty条件を満たす場合の解の存在が問題となる。",
+        "method": "新しいエリプソイドアルゴリズムの変種を導入し、エリプソイドの中心から降下ステップを取った後に分離超平面を得ることで、非凸かつ次元が完全でないSVIの解法を実現した。これにより、従来の方法よりも指数的に悪化する依存関係を回避した。",
+        "result": "このアルゴリズムは、次元$d$と$1/ε$の対数に対して多項式的な複雑性を持ち、特に多人数の調和ゲームにおけるナッシュ均衡を求める初の多項式時間アルゴリズムを提供した。",
+        "topic": "Minty条件下のLipschitz連続写像に対するε-変分不等式 (SVI) の多項式時間アルゴリズムの提案。"
+      }
     },
     {
       "title": "A PTAS for Euclidean Capacitated Vehicle Routing",
@@ -179,7 +234,17 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2607.25693",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 定常次数多項式の同時近似に関する研究\n\n**問題** 定常次数多項式の集合に対して、凸集合上での近似問題を解決することを目的としています。特に、これらの多項式の値の集合を効率的にカバーする方法を探求しています。\n\n**手法** 提案手法は、まず最小の $\text{l}_1$-ボール上での準カバーを構築し、その後、再帰的な次数削減と実行可能性プログラムを用いてカバーを凸集合に圧縮します。このアプローチは、古典的な線形関数のネットベースのスパース化を多項式に拡張したものです。\n\n**結果** 得られたカバーのサイズは $n^{O(\frac{\text{log}(mn)}{\text{ε}^2})}$ であり、これにより多様な問題に対する準多項式時間近似スキームの統一的な枠組みが提供されます。",
+      "summaryStruct": {
+        "problem": "定常次数多項式の集合に対して、凸集合上での近似問題を解決することを目的としています。特に、これらの多項式の値の集合を効率的にカバーする方法を探求しています。",
+        "method": "提案手法は、まず最小の $\text{l}_1$-ボール上での準カバーを構築し、その後、再帰的な次数削減と実行可能性プログラムを用いてカバーを凸集合に圧縮します。このアプローチは、古典的な線形関数のネットベースのスパース化を多項式に拡張したものです。",
+        "result": "得られたカバーのサイズは $n^{O(\frac{\text{log}(mn)}{\text{ε}^2})}$ であり、これにより多様な問題に対する準多項式時間近似スキームの統一的な枠組みが提供されます。",
+        "topic": "定常次数多項式の同時近似に関する研究"
+      }
     },
     {
       "title": "Adversarial Robustness for Small Frequency Moments and a Weak Equivalence Theorem for Turnstile Streams",
@@ -226,7 +291,8 @@
       "matchedKeywords": [
         "approximation algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Approximate polymorphisms of predicates",
@@ -322,11 +388,21 @@
         "Tuukka Korhonen",
         "Sang-il Oum"
       ],
-      "score": 8,
+      "score": 12,
       "matchedKeywords": [
         "fixed-parameter"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2601.04756",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 有限集合上の接続関数に対するブランチ分解の幅を制限する手法の提案\n\n**問題** 接続関数に基づくブランチ分解の幅を制限する問題を解決することを目指している。特に、マトロイドのブランチ幅に関する未解決の問題に取り組んでいる。\n\n**手法** 提案手法は、接続関数をオラクルで与えられた場合に、幅がk以下のブランチ分解を見つけるための固定パラメータ可算性（FPT）アルゴリズムを提供する。これにより、従来のアルゴリズムよりも計算時間が大幅に改善される。\n\n**結果** 新しいアルゴリズムは、計算時間が$2^{O(k^2)} γn^6 \text{log} n$であることを示し、従来の$γn^{O(k)}$からの改善を達成した。",
+      "summaryStruct": {
+        "problem": "接続関数に基づくブランチ分解の幅を制限する問題を解決することを目指している。特に、マトロイドのブランチ幅に関する未解決の問題に取り組んでいる。",
+        "method": "提案手法は、接続関数をオラクルで与えられた場合に、幅がk以下のブランチ分解を見つけるための固定パラメータ可算性（FPT）アルゴリズムを提供する。これにより、従来のアルゴリズムよりも計算時間が大幅に改善される。",
+        "result": "新しいアルゴリズムは、計算時間が$2^{O(k^2)} γn^6 \text{log} n$であることを示し、従来の$γn^{O(k)}$からの改善を達成した。",
+        "topic": "有限集合上の接続関数に対するブランチ分解の幅を制限する手法の提案"
+      }
     },
     {
       "title": "Breaking the Barrier of 2 for Approximating Weighted Throughput Maximization via the Sherali-Adams Hierarchy",
@@ -410,7 +486,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Composing Low-Space Algorithms",
@@ -437,11 +514,21 @@
         "Tuukka Korhonen",
         "Mikkel Thorup"
       ],
-      "score": 8,
+      "score": 12,
       "matchedKeywords": [
         "fixed-parameter"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.11757",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 頂点接続性増強問題におけるアルゴリズムの改善\n\n**問題** 与えられた無向グラフにおいて、指定されたリンクを追加して頂点接続性を高める問題を扱う。特に、少ないリンクで高い接続性を実現することが求められている。\n\n**手法** 提案手法は、頂点接続性をλにするためにk個のリンクを挿入する際の計算時間を改善するもので、λとkでパラメータ化された場合に固定パラメータ可算性（FPT）を示す。これにより、従来の結果を上回る効率を達成している。\n\n**結果** 新たに提案されたアルゴリズムは、時間計算量が2^{O(k log (k + λ))} n^{O(1)}であることを示し、特にλが4以下の場合の既存の結果を改善した。",
+      "summaryStruct": {
+        "problem": "与えられた無向グラフにおいて、指定されたリンクを追加して頂点接続性を高める問題を扱う。特に、少ないリンクで高い接続性を実現することが求められている。",
+        "method": "提案手法は、頂点接続性をλにするためにk個のリンクを挿入する際の計算時間を改善するもので、λとkでパラメータ化された場合に固定パラメータ可算性（FPT）を示す。これにより、従来の結果を上回る効率を達成している。",
+        "result": "新たに提案されたアルゴリズムは、時間計算量が2^{O(k log (k + λ))} n^{O(1)}であることを示し、特にλが4以下の場合の既存の結果を改善した。",
+        "topic": "頂点接続性増強問題におけるアルゴリズムの改善"
+      }
     },
     {
       "title": "Conservative Maltsev Constraint Satisfaction Problems",
@@ -770,11 +857,22 @@
         "András Imolay",
         "Tamás Schwarcz"
       ],
-      "score": 8,
+      "score": 24,
       "matchedKeywords": [
+        "optimization",
         "fixed-parameter"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2511.02081",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** Steiner根付きオリエンテーション問題における接続性の強化\n\n**問題** ネットワーク設計と信頼性において、指定された重要なノード間の堅牢な通信を保証するためのSteiner強k-アーク接続オリエンテーションの発見が重要です。この問題はNP困難であり、kとtが入力の一部である場合に特に難解です。\n\n**手法** 本研究では、Steiner根付きオリエンテーション問題に対して、端末の数tと目標接続性kに関して固定パラメータトラクタビリティを確立するアルゴリズムを提供します。このアプローチは、局所接続性要件を持つ一般的なオリエンテーション問題にも適用可能です。\n\n**結果** 提案したアルゴリズムは、時間計算量f(k,t)・n^{O(1)}で問題を解決できることを示し、kまたはtが入力の一部である場合にはNP困難であることも確認しました。",
+      "summaryStruct": {
+        "problem": "ネットワーク設計と信頼性において、指定された重要なノード間の堅牢な通信を保証するためのSteiner強k-アーク接続オリエンテーションの発見が重要です。この問題はNP困難であり、kとtが入力の一部である場合に特に難解です。",
+        "method": "本研究では、Steiner根付きオリエンテーション問題に対して、端末の数tと目標接続性kに関して固定パラメータトラクタビリティを確立するアルゴリズムを提供します。このアプローチは、局所接続性要件を持つ一般的なオリエンテーション問題にも適用可能です。",
+        "result": "提案したアルゴリズムは、時間計算量f(k,t)・n^{O(1)}で問題を解決できることを示し、kまたはtが入力の一部である場合にはNP困難であることも確認しました。",
+        "topic": "Steiner根付きオリエンテーション問題における接続性の強化"
+      }
     },
     {
       "title": "Flip Distance Between Triangulations of Convex Polygons is NP-Complete",
@@ -834,7 +932,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Gap-Majority Lemmas in Communication Complexity",
@@ -898,11 +997,23 @@
         "Justin Dallant",
         "László Kozma"
       ],
-      "score": 8,
+      "score": 40,
       "matchedKeywords": [
+        "optimization",
+        "traveling salesman",
         "tsp"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2604.05645",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 巡回セールスマン問題 (TSP) における時間と空間のトレードオフの改善\n\n**問題** TSPの正確な解法において、数十年にわたり改善が難しい限界が存在します。特に、既存のアルゴリズムの時間と空間のトレードオフを向上させることが課題です。\n\n**手法** 本研究では、2 < T < 4の範囲で全ての既存のトレードオフを厳密に改善する手法を提案し、最小値をST < 3.572としました。これは、最大鎖を多数持つ疎な集合系（ハイパーグラフ）の構築に基づいています。\n\n**結果** 提案手法により、最小の時間-空間トレードオフがST < 3.572に達し、これまでの最適性に関する予想を反証しました。",
+      "summaryStruct": {
+        "problem": "TSPの正確な解法において、数十年にわたり改善が難しい限界が存在します。特に、既存のアルゴリズムの時間と空間のトレードオフを向上させることが課題です。",
+        "method": "本研究では、2 < T < 4の範囲で全ての既存のトレードオフを厳密に改善する手法を提案し、最小値をST < 3.572としました。これは、最大鎖を多数持つ疎な集合系（ハイパーグラフ）の構築に基づいています。",
+        "result": "提案手法により、最小の時間-空間トレードオフがST < 3.572に達し、これまでの最適性に関する予想を反証しました。",
+        "topic": "巡回セールスマン問題 (TSP) における時間と空間のトレードオフの改善"
+      }
     },
     {
       "title": "Improved Space-Time Tradeoffs for Permutation Problems via Extremal Combinatorics",
@@ -1647,7 +1758,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Strong Low Degree Hardness for Stable Local Optima in Spin Glasses",
@@ -1666,11 +1778,21 @@
         "Sasho Nikolov",
         "Ohad Shamir"
       ],
-      "score": 4,
+      "score": 6,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2607.24827",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 1-Lipschitz凸関数の最小化におけるオラクル複雑性の下限の証明\n\n**問題** この論文は、$d$次元の1-Lipschitz凸関数を$m$ビットのメモリで最小化する際のオラクル複雑性の下限を明らかにしようとしています。特に、従来の下限を改善することを目指しています。\n\n**手法** 提案手法では、ランダム化されたアルゴリズムに対しては$\tildeΩ(\frac{d^2}{\root{m}})$のオラクルクエリが必要であることを示し、決定論的アルゴリズムに対しては$\tildeΩ(\text{min}\big\backslash{d^{1.6},\frac{d^{8/3}}{m^{2/3}}\big\backslash})$のクエリが必要であることを証明しています。これにより、メモリの変化がオラクル呼び出しの数に大きな影響を与えることを示しています。\n\n**結果** 得られた結果は、決定論的アルゴリズムに対する新しい下限が、メモリが$d^2$付近で急激に変化することを示すものであり、ランダム化されたアルゴリズムに対しては、最適なクエリ複雑性に近づくためには$\tildeΩ(d^2)$のメモリが必要であることを示しています。",
+      "summaryStruct": {
+        "problem": "この論文は、$d$次元の1-Lipschitz凸関数を$m$ビットのメモリで最小化する際のオラクル複雑性の下限を明らかにしようとしています。特に、従来の下限を改善することを目指しています。",
+        "method": "提案手法では、ランダム化されたアルゴリズムに対しては$\tildeΩ(\frac{d^2}{\root{m}})$のオラクルクエリが必要であることを示し、決定論的アルゴリズムに対しては$\tildeΩ(\text{min}\big\backslash{d^{1.6},\frac{d^{8/3}}{m^{2/3}}\big\backslash})$のクエリが必要であることを証明しています。これにより、メモリの変化がオラクル呼び出しの数に大きな影響を与えることを示しています。",
+        "result": "得られた結果は、決定論的アルゴリズムに対する新しい下限が、メモリが$d^2$付近で急激に変化することを示すものであり、ランダム化されたアルゴリズムに対しては、最適なクエリ複雑性に近づくためには$\tildeΩ(d^2)$のメモリが必要であることを示しています。",
+        "topic": "1-Lipschitz凸関数の最小化におけるオラクル複雑性の下限の証明"
+      }
     },
     {
       "title": "Strongly Refuting Random CSP without Literals",

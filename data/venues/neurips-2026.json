@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-23T13:48:14.139Z",
+  "updatedAt": "2026-10-24T00:13:33.493Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -48,7 +48,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "SPLICE: Structured Prompt Local Iterative Combinatorial Evolution",
@@ -57,16 +58,32 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "HOPSE: Scalable Higher-Order Positional and Structural Encoder for Combinatorial Representations",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Guillermo Bernárdez",
+        "Marco Montagna",
+        "Louis Van Langendonck",
+        "+7"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2505.15405",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 高次相互作用を扱うためのトポロジカルディープラーニング (TDL) に基づく新しいフレームワークの提案\n\n**問題** 従来のグラフニューラルネットワーク (GNN) は、ペアワイズ接続に依存しており、複雑な実世界システムにおける多方向の関係を十分に捉えられないという課題がある。\n\n**手法** 提案手法HOPSE (高次位置・構造エンコーダ) は、メッセージパッシング層を使用せず、ハッセグラフ分解を利用して高次ドメインに対する効率的で表現力豊かなエンコーディングを生成する。これにより、複雑な構造を扱う際のスケーラビリティの問題を克服している。\n\n**結果** 分子およびトポロジーのベンチマークにおいて、HOPSEは最先端の性能を維持しつつ、HOMPベースのモデルに対して一貫して速度向上を達成した。",
+      "summaryStruct": {
+        "problem": "従来のグラフニューラルネットワーク (GNN) は、ペアワイズ接続に依存しており、複雑な実世界システムにおける多方向の関係を十分に捉えられないという課題がある。",
+        "method": "提案手法HOPSE (高次位置・構造エンコーダ) は、メッセージパッシング層を使用せず、ハッセグラフ分解を利用して高次ドメインに対する効率的で表現力豊かなエンコーディングを生成する。これにより、複雑な構造を扱う際のスケーラビリティの問題を克服している。",
+        "result": "分子およびトポロジーのベンチマークにおいて、HOPSEは最先端の性能を維持しつつ、HOMPベースのモデルに対して一貫して速度向上を達成した。",
+        "topic": "高次相互作用を扱うためのトポロジカルディープラーニング (TDL) に基づく新しいフレームワークの提案"
+      }
     },
     {
       "title": "SeqDiCO: Sequence-oriented Diffusion for Scale-Generalizable Neural Combinatorial Optimization",
@@ -114,7 +131,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "EnerGNN: Learning Optimization-Compatible Energy Functions for Exact Constrained Combinatorial Inference",
@@ -133,7 +151,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "UECO: A Unified Encoder with Structure-Aware Attention Mixture via Iterative Edge Evolving for Neural Combinatorial Optimization",
@@ -188,7 +207,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Insight-Driven Search: A Framework for Multi-objective Automated Heuristic Design with Large Language Models",
@@ -197,7 +217,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Interactive Combinatorial Reinforcement Learning for Knowledge Graph Reasoning",
@@ -206,16 +227,32 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Zeroth-Order Stackelberg Control in Combinatorial Congestion Games",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Saeed Masiha",
+        "Sepehr Elahi",
+        "Negar Kiyavash",
+        "+1"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2602.23277",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ネットワークパラメータのスタッケルベルグ調整を用いた混合交通ゲームにおける最適化手法\n\n**問題** 自己中心的なユーザーが離散的なルートを選択し、混雑均衡に達する中で、システム全体の目的（例：総旅行時間）を最小化することが課題である。特に、この目的は均衡での戦略の変化により滑らかでないことが多い。\n\n**手法** 提案手法ZO-Stackelbergは、投影を用いないFrank-Wolfe均衡ソルバーとゼロ次外部更新を組み合わせ、均衡を通じた微分を回避する。これにより、真の均衡目的の一般化されたゴールドスタイン定常点への収束を証明し、均衡近似誤差に依存することを示す。\n\n**結果** 実世界のネットワークにおける実験では、提案手法が微分に基づくベースラインに比べて桁違いの速度向上を達成し、フォロワー均衡に収束することが確認された。",
+      "summaryStruct": {
+        "problem": "自己中心的なユーザーが離散的なルートを選択し、混雑均衡に達する中で、システム全体の目的（例：総旅行時間）を最小化することが課題である。特に、この目的は均衡での戦略の変化により滑らかでないことが多い。",
+        "method": "提案手法ZO-Stackelbergは、投影を用いないFrank-Wolfe均衡ソルバーとゼロ次外部更新を組み合わせ、均衡を通じた微分を回避する。これにより、真の均衡目的の一般化されたゴールドスタイン定常点への収束を証明し、均衡近似誤差に依存することを示す。",
+        "result": "実世界のネットワークにおける実験では、提案手法が微分に基づくベースラインに比べて桁違いの速度向上を達成し、フォロワー均衡に収束することが確認された。",
+        "topic": "ネットワークパラメータのスタッケルベルグ調整を用いた混合交通ゲームにおける最適化手法"
+      }
     },
     {
       "title": "NLD4CO: Neural Langevin Dynamics for Combinatorial Optimization",
@@ -258,7 +295,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "PISG: Constraint-Aligned Signal Amplification for Diffusion-Based Combinatorial Optimization",
@@ -286,7 +324,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "PACE: Partial-state Amortized Constraint Editing for Neural Combinatorial Optimization",
@@ -320,48 +359,119 @@
     },
     {
       "title": "An Embarrassingly Simple Graph Heuristic Reveals Shortcut-Solvable Benchmarks for Sequential Recommendation",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Haoyu Han",
+        "Li Ma",
+        "Hanbing Wang",
+        "+9"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.07125",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 生成型推薦システムにおけるシーケンシャルパターンとアイテム情報の統合評価\n\n**問題** 生成型推薦システムの評価が限られたベンチマークに依存しており、これらのベンチマークが実際に高度なモデリング能力を必要とするか疑問が生じている。\n\n**手法** 単純なグラフヒューリスティックを用いて、最後の1〜2アイテムから候補を取得し、アイテム特徴の類似性でランク付けする手法を提案。これにより、複雑なモデルを使用せずとも競争力のある結果を得られることを示す。\n\n**結果** この手法は、Amazon Review SportsおよびCDにおいて、最良の競合ベースラインに対してそれぞれ38.10%および44.18%の相対NDCG@10の改善を達成し、14のデータセット中10で競争力を維持した。",
+      "summaryStruct": {
+        "problem": "生成型推薦システムの評価が限られたベンチマークに依存しており、これらのベンチマークが実際に高度なモデリング能力を必要とするか疑問が生じている。",
+        "method": "単純なグラフヒューリスティックを用いて、最後の1〜2アイテムから候補を取得し、アイテム特徴の類似性でランク付けする手法を提案。これにより、複雑なモデルを使用せずとも競争力のある結果を得られることを示す。",
+        "result": "この手法は、Amazon Review SportsおよびCDにおいて、最良の競合ベースラインに対してそれぞれ38.10%および44.18%の相対NDCG@10の改善を達成し、14のデータセット中10で競争力を維持した。",
+        "topic": "生成型推薦システムにおけるシーケンシャルパターンとアイテム情報の統合評価"
+      }
     },
     {
       "title": "Optimal and Efficient Contextual Combinatorial Semi-bandits with General Function Approximation",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Hao Qin",
+        "Chicheng Zhang"
+      ],
+      "score": 16,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2607.13686",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 一般的な報酬関数近似を用いた文脈付き組合せセミバンディット問題の研究\n\n**問題** 文脈付き組合せセミバンディット問題では、学習者が文脈を観察し、基本アームの部分集合からなる組合せアクションを選択し、報酬を受け取ることが求められます。目標は、時間を通じて累積報酬を最大化することです。\n\n**手法** 提案手法SquareCB.Combは、各ラウンドで凸最適化問題を解くことで、探索と活用のバランスを取った組合せアクションをサンプリングします。この手法は、大規模なアームセットにスケールし、組合せアクションに対して基数制約以外の構造的仮定を課しません。\n\n**結果** SquareCB.Combは、最適なレグレット境界を$O(\text{√}(m A T \text{log} |\text{F}|))$で達成し、従来のスレート推薦設定におけるポリシーサーチベースのアルゴリズムと同等の保証を提供します。",
+      "summaryStruct": {
+        "problem": "文脈付き組合せセミバンディット問題では、学習者が文脈を観察し、基本アームの部分集合からなる組合せアクションを選択し、報酬を受け取ることが求められます。目標は、時間を通じて累積報酬を最大化することです。",
+        "method": "提案手法SquareCB.Combは、各ラウンドで凸最適化問題を解くことで、探索と活用のバランスを取った組合せアクションをサンプリングします。この手法は、大規模なアームセットにスケールし、組合せアクションに対して基数制約以外の構造的仮定を課しません。",
+        "result": "SquareCB.Combは、最適なレグレット境界を$O(\text{√}(m A T \text{log} |\text{F}|))$で達成し、従来のスレート推薦設定におけるポリシーサーチベースのアルゴリズムと同等の保証を提供します。",
+        "topic": "一般的な報酬関数近似を用いた文脈付き組合せセミバンディット問題の研究"
+      }
     },
     {
       "title": "A Single-Sample Polylogarithmic Regret Bound for Nonstationary Online Linear Programming",
-      "authors": [],
-      "score": 8,
-      "matchedKeywords": [
-        "linear programming"
+      "authors": [
+        "Haoran Xu",
+        "Owen Shen",
+        "Peter Glynn",
+        "+2"
       ],
-      "via": "accepted-list"
+      "score": 17,
+      "matchedKeywords": [
+        "linear programming",
+        "dynamic-programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2603.14673",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 非定常オンライン線形計画法 (OLP) における資源配分の最適化\n\n**問題** この論文は、非定常な環境下でのオンライン線形計画法における意思決定の課題を扱っています。特に、限られた情報のもとでの報酬最大化を目指します。\n\n**手法** 提案手法は、動的計画法の視点と従来の双対ベースの枠組みを統合した新しい再解法アルゴリズムです。これにより、資源の大規模な配分においても効果的に対応できます。\n\n**結果** 提案アルゴリズムは、非定常な分布系列に対して、$O((\text{log } n)^2)$ の後悔を達成することが証明されました。これにより、環境の変動が大きくてもポリ対数的な後悔が可能であることが示されました。",
+      "summaryStruct": {
+        "problem": "この論文は、非定常な環境下でのオンライン線形計画法における意思決定の課題を扱っています。特に、限られた情報のもとでの報酬最大化を目指します。",
+        "method": "提案手法は、動的計画法の視点と従来の双対ベースの枠組みを統合した新しい再解法アルゴリズムです。これにより、資源の大規模な配分においても効果的に対応できます。",
+        "result": "提案アルゴリズムは、非定常な分布系列に対して、$O((\text{log } n)^2)$ の後悔を達成することが証明されました。これにより、環境の変動が大きくてもポリ対数的な後悔が可能であることが示されました。",
+        "topic": "非定常オンライン線形計画法 (OLP) における資源配分の最適化"
+      }
     },
     {
       "title": "The Query Complexity of Local Search in Rounds on General Graphs",
-      "authors": [],
-      "score": 6,
+      "authors": [
+        "Simina Brânzei",
+        "Ioannis Panageas",
+        "Dimitris Paparas"
+      ],
+      "score": 10,
       "matchedKeywords": [
+        "optimization",
         "local search"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2601.13266",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 一般グラフにおける局所最小値探索のクエリ複雑度分析\n\n**問題** グラフ上で未知の関数の局所最小値を見つけるためのクエリ数を最小化する問題を扱っています。特に、グリッド以外の一般的なグラフにおける理解が不足しています。\n\n**手法** 提案手法では、グラフの各頂点に対して関数のクエリを行い、局所最小値を見つけるための決定論的上限を導出しました。このアプローチは、特に高い分離数と有界度を持つグラフに対して効果的です。\n\n**結果** 得られた決定論的上限は $O(t n^{1/t} (sΔ)^{1-1/t})$ であり、任意の連結グラフに対して $Ω(t n^{1/t}-t)$ の確率的下限も示しました。",
+      "summaryStruct": {
+        "problem": "グラフ上で未知の関数の局所最小値を見つけるためのクエリ数を最小化する問題を扱っています。特に、グリッド以外の一般的なグラフにおける理解が不足しています。",
+        "method": "提案手法では、グラフの各頂点に対して関数のクエリを行い、局所最小値を見つけるための決定論的上限を導出しました。このアプローチは、特に高い分離数と有界度を持つグラフに対して効果的です。",
+        "result": "得られた決定論的上限は $O(t n^{1/t} (sΔ)^{1-1/t})$ であり、任意の連結グラフに対して $Ω(t n^{1/t}-t)$ の確率的下限も示しました。",
+        "topic": "一般グラフにおける局所最小値探索のクエリ複雑度分析"
+      }
     },
     {
       "title": "FindStatBench: Evaluating Large Language Models on Combinatorial Code Synthesis",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Soham Dan"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2607.18260",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 組合せコード合成における大規模言語モデルの評価のための実行ベンチマーク FindStatBench の提案\n\n**問題** 大規模言語モデルが組合せ問題を解く能力を評価するための基準が不足している。特に、統計合成や地図合成のタスクにおけるモデルの性能を測定する必要がある。\n\n**手法** FindStatBench は 2,329 のタスクと 5.52M の隠れインスタンスを含み、モデルは与えられた数学的説明に基づいて Python の解法関数を生成する。評価は、保持された組合せオブジェクトに対する正確な実行によって行われる。\n\n**結果** 評価した 11 のシステムの中で、最も強力なオープンおよびクローズドソースのモデルは、インスタンス精度で 1 pp 以内に収束した。統計合成は地図合成よりもはるかに容易であり、長いプロンプトは精度を急激に低下させることが示された。",
+      "summaryStruct": {
+        "problem": "大規模言語モデルが組合せ問題を解く能力を評価するための基準が不足している。特に、統計合成や地図合成のタスクにおけるモデルの性能を測定する必要がある。",
+        "method": "FindStatBench は 2,329 のタスクと 5.52M の隠れインスタンスを含み、モデルは与えられた数学的説明に基づいて Python の解法関数を生成する。評価は、保持された組合せオブジェクトに対する正確な実行によって行われる。",
+        "result": "評価した 11 のシステムの中で、最も強力なオープンおよびクローズドソースのモデルは、インスタンス精度で 1 pp 以内に収束した。統計合成は地図合成よりもはるかに容易であり、長いプロンプトは精度を急激に低下させることが示された。",
+        "topic": "組合せコード合成における大規模言語モデルの評価のための実行ベンチマーク FindStatBench の提案"
+      }
     },
     {
       "title": "Solving Max-Cut to Global Optimality via Feasibility-Preserving Graph Neural Networks",
@@ -487,7 +597,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "A Reproducible Evaluation Protocol for Quantum Non-Linearity in Variational Quantum Models",
@@ -559,12 +670,24 @@
     },
     {
       "title": "Chaining 2-FWL GNNs for Combinatorial Graph Alignment",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Marc Lelarge"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2510.03086",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 組合せグラフ整列問題 (GAP) におけるノード対応の最適化手法\n\n**問題** GAPは、2つの無名グラフ間の共通辺の数を最大化するノード対応を見つける問題であり、従来の手法では性能が限られている。特に、既存のGNNアプローチは構造的な設定で苦戦している。\n\n**手法** 提案手法は、Folklore型GNNの連鎖手続きを用い、各ネットワークが前のネットワークの類似度行列をデコードし、ノードを整列品質でランク付けすることで訓練される。この非微分可能なランク付けステップが、各リンクで離散的な組合せフィードバックを注入する。\n\n**結果** スパースなErdos-Renyiグラフにおいて、提案手法は85%の精度を達成し、従来のFAQ手法の13%やGNN手法のほぼ0%を大きく上回った。実世界のベンチマークでも、提案手法は強化されたベースラインをさらに改善した。",
+      "summaryStruct": {
+        "problem": "GAPは、2つの無名グラフ間の共通辺の数を最大化するノード対応を見つける問題であり、従来の手法では性能が限られている。特に、既存のGNNアプローチは構造的な設定で苦戦している。",
+        "method": "提案手法は、Folklore型GNNの連鎖手続きを用い、各ネットワークが前のネットワークの類似度行列をデコードし、ノードを整列品質でランク付けすることで訓練される。この非微分可能なランク付けステップが、各リンクで離散的な組合せフィードバックを注入する。",
+        "result": "スパースなErdos-Renyiグラフにおいて、提案手法は85%の精度を達成し、従来のFAQ手法の13%やGNN手法のほぼ0%を大きく上回った。実世界のベンチマークでも、提案手法は強化されたベースラインをさらに改善した。",
+        "topic": "組合せグラフ整列問題 (GAP) におけるノード対応の最適化手法"
+      }
     }
   ],
   "sourceCheckedOn": "2026-10-23",

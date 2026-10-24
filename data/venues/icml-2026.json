@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "ICML 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-23T13:48:14.140Z",
+  "updatedAt": "2026-10-24T00:13:33.492Z",
   "papers": [
     {
       "title": "Position: Neural Approximation Is Rarely Justified for Hard Combinatorial Problems",
@@ -13,7 +13,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "RouteFinder: Towards Foundation Models for Vehicle Routing Problems",
@@ -52,12 +53,26 @@
     },
     {
       "title": "Learning Multi-Timescale Abstractions for Hierarchical Combinatorial Planning",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Vivienne Huiling Wang",
+        "Tinghuai Wang",
+        "Joni Pajarinen"
+      ],
+      "score": 23,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.17058",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 階層型強化学習 (HRL) を用いた逐次確率的組合せ最適化 (SSCO) のためのモデルベースのフレームワーク\n\n**問題** SSCOは、指数的に大きな行動空間や確率的ダイナミクス、限られたリソース下での長期的意思決定が絡むため、強化学習において特に難しい問題です。HRLは自然な分解を提供しますが、変動する期間の行動を持つSMDP (半マルコフ決定過程) に高レベルポリシーを置くため、計画に適した世界モデルの学習が困難です。\n\n**手法** 提案手法は、変動期間の意思決定に対応したSMDP意識の世界モデルと潜在空間ツリー探索プランナーを組み合わせたモデルベースの階層型フレームワークです。この方法は、抽象的行動の効果的な時間スケールを反映するように遷移の大きさを構造化し、適応的な時間抽象の下での効率的な先読みを可能にします。\n\n**結果** 提案手法は、難易度の高いSSCOベンチマークにおいて強力なベースラインを上回る成果を上げました。",
+      "summaryStruct": {
+        "problem": "SSCOは、指数的に大きな行動空間や確率的ダイナミクス、限られたリソース下での長期的意思決定が絡むため、強化学習において特に難しい問題です。HRLは自然な分解を提供しますが、変動する期間の行動を持つSMDP (半マルコフ決定過程) に高レベルポリシーを置くため、計画に適した世界モデルの学習が困難です。",
+        "method": "提案手法は、変動期間の意思決定に対応したSMDP意識の世界モデルと潜在空間ツリー探索プランナーを組み合わせたモデルベースの階層型フレームワークです。この方法は、抽象的行動の効果的な時間スケールを反映するように遷移の大きさを構造化し、適応的な時間抽象の下での効率的な先読みを可能にします。",
+        "result": "提案手法は、難易度の高いSSCOベンチマークにおいて強力なベースラインを上回る成果を上げました。",
+        "topic": "階層型強化学習 (HRL) を用いた逐次確率的組合せ最適化 (SSCO) のためのモデルベースのフレームワーク"
+      }
     },
     {
       "title": "Hierarchical Representations for Cross-task Automated Heuristic Design using LLMs",
@@ -66,7 +81,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Instance-Specific Approximation Ratios for Correlation Clustering and Max-Cut",
@@ -85,7 +101,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "A General Neural Backbone for Mixed-Integer Linear Optimization via Dual Attention",
@@ -125,12 +142,27 @@
     },
     {
       "title": "PathWise: Planning through World Model for Automated Heuristic Design via Self-Evolving LLMs",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Oguzhan Gungordu",
+        "Siheng Xiong",
+        "Faramarz Fekri"
+      ],
+      "score": 29,
       "matchedKeywords": [
+        "optimization",
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2601.20539",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 自己進化型大規模言語モデル (LLM) を用いた組合せ最適化問題 (COP) のための自動ヒューリスティック設計のためのマルチエージェント推論フレームワーク\n\n**問題** 従来のフレームワークは固定された進化ルールと静的なプロンプトテンプレートに依存しており、短期的なヒューリスティック生成や冗長な評価を招いています。これにより、新しいヒューリスティックの導出方法に関する推論が制限されています。\n\n**手法** 提案手法PathWiseは、ヒューリスティック生成を推論グラフ上の逐次的な意思決定プロセスとして定式化します。このアプローチにより、過去の決定を持ち越し、世代間での情報の再利用や回避が可能になります。\n\n**結果** 実験により、PathWiseはより良いヒューリスティックに迅速に収束し、異なるLLMバックボーンに対しても一般化し、大規模な問題サイズにもスケールすることが示されました。",
+      "summaryStruct": {
+        "problem": "従来のフレームワークは固定された進化ルールと静的なプロンプトテンプレートに依存しており、短期的なヒューリスティック生成や冗長な評価を招いています。これにより、新しいヒューリスティックの導出方法に関する推論が制限されています。",
+        "method": "提案手法PathWiseは、ヒューリスティック生成を推論グラフ上の逐次的な意思決定プロセスとして定式化します。このアプローチにより、過去の決定を持ち越し、世代間での情報の再利用や回避が可能になります。",
+        "result": "実験により、PathWiseはより良いヒューリスティックに迅速に収束し、異なるLLMバックボーンに対しても一般化し、大規模な問題サイズにもスケールすることが示されました。",
+        "topic": "自己進化型大規模言語モデル (LLM) を用いた組合せ最適化問題 (COP) のための自動ヒューリスティック設計のためのマルチエージェント推論フレームワーク"
+      }
     },
     {
       "title": "Preference-Modulated Structural Attention for Multi-Objective Combinatorial Optimization",
@@ -144,12 +176,27 @@
     },
     {
       "title": "Provably Data-driven Lagrangian Relaxation for Mixed Integer Linear Programming",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Tung Quoc Le",
+        "Anh Tuan Nguyen",
+        "Viet Anh Nguyen"
+      ],
+      "score": 19,
       "matchedKeywords": [
+        "vehicle routing",
         "linear programming"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.19052",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ラグランジュ緩和 (LR) を用いた大規模混合整数線形計画法 (MILP) の学習問題の理論的理解の強化\n\n**問題** 大規模なMILP問題、特に車両ルーティングやユニットコミットメント問題において、LRを用いた解法の効率を向上させるためのマルチプライヤーの予測に関する理論的理解が不足している。\n\n**手法** 本研究では、データ駆動型アルゴリズム設計の観点からLRの学習問題を分析し、学習したマルチプライヤーの一般化境界を導出することで理論的なギャップを埋める。さらに、確率的勾配上昇法 (SGA) を用いて最適な収束率を達成することを示す。\n\n**結果** 学習したマルチプライヤーに対する一般化境界は $\text{O}(s^{1.5}/\text{√}N)$ であり、最適な収束率は $\text{Θ}(s/\text{N})$ であることが証明された。",
+      "summaryStruct": {
+        "problem": "大規模なMILP問題、特に車両ルーティングやユニットコミットメント問題において、LRを用いた解法の効率を向上させるためのマルチプライヤーの予測に関する理論的理解が不足している。",
+        "method": "本研究では、データ駆動型アルゴリズム設計の観点からLRの学習問題を分析し、学習したマルチプライヤーの一般化境界を導出することで理論的なギャップを埋める。さらに、確率的勾配上昇法 (SGA) を用いて最適な収束率を達成することを示す。",
+        "result": "学習したマルチプライヤーに対する一般化境界は $\text{O}(s^{1.5}/\text{√}N)$ であり、最適な収束率は $\text{Θ}(s/\text{N})$ であることが証明された。",
+        "topic": "ラグランジュ緩和 (LR) を用いた大規模混合整数線形計画法 (MILP) の学習問題の理論的理解の強化"
+      }
     },
     {
       "title": "Differentially Private Submodular Maximization with a Knapsack Constraint",
@@ -163,21 +210,51 @@
     },
     {
       "title": "APEX: Approximate-but-exhaustive search for ultra-large combinatorial synthesis libraries",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Aryan Pedawi",
+        "Jordi Silvestre-Ryan",
+        "Bradley Worley",
+        "+5"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2510.24380",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 近似的だが網羅的な探索プロトコル (APEX) を用いた化合物ライブラリのバーチャルスクリーニングの効率化\n\n**問題** 大規模な化合物ライブラリのサイズがバーチャルスクリーニングを困難にし、限られた計算資源の中で最適な化合物を特定するのが難しい。特に、数十億の化合物の中から0.1%未満しかスコアリングできないことが問題となっている。\n\n**手法** APEXは、神経ネットワークを用いて化合物ライブラリの構造を活用し、消費者向けGPU上で1分未満での完全列挙を可能にする。これにより、近似的なトップkセットを正確に取得できる。\n\n**結果** APEXは、1000万以上の化合物からなるベンチマークライブラリでの評価において、他の手法と比較して常に高い精度と短い実行時間を示した。",
+      "summaryStruct": {
+        "problem": "大規模な化合物ライブラリのサイズがバーチャルスクリーニングを困難にし、限られた計算資源の中で最適な化合物を特定するのが難しい。特に、数十億の化合物の中から0.1%未満しかスコアリングできないことが問題となっている。",
+        "method": "APEXは、神経ネットワークを用いて化合物ライブラリの構造を活用し、消費者向けGPU上で1分未満での完全列挙を可能にする。これにより、近似的なトップkセットを正確に取得できる。",
+        "result": "APEXは、1000万以上の化合物からなるベンチマークライブラリでの評価において、他の手法と比較して常に高い精度と短い実行時間を示した。",
+        "topic": "近似的だが網羅的な探索プロトコル (APEX) を用いた化合物ライブラリのバーチャルスクリーニングの効率化"
+      }
     },
     {
       "title": "An Approximation Algorithm for Graph Label Selection",
-      "authors": [],
-      "score": 6,
+      "authors": [
+        "Josia John",
+        "Simon Meierhans",
+        "Maximilian Probst Gutenberg"
+      ],
+      "score": 15,
       "matchedKeywords": [
+        "heuristic",
         "approximation algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.18623",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** グラフラベル選択問題における近似アルゴリズムの提案\n\n**問題** 与えられたn頂点のグラフと予算kに対し、残りの頂点のラベルを正確に予測するためのk個の頂点を選択する問題を扱う。従来の手法はリソースの増強に依存するか、保証のないヒューリスティックが中心であった。\n\n**手法** 本研究では、標準的な予算制約の下で、初めての$\tilde{O}(\text{log}^{1.5} n)$近似アルゴリズムを提案する。この手法は、全体のグラフから小さな代表的なセットを抽出することを目的としており、効率的にラベル予測を行う。\n\n**結果** 提案したアルゴリズムの実用的なヒューリスティックバリアントは、従来の手法よりも大規模なグラフにスケールしつつ、質をほぼ維持することを示した。",
+      "summaryStruct": {
+        "problem": "与えられたn頂点のグラフと予算kに対し、残りの頂点のラベルを正確に予測するためのk個の頂点を選択する問題を扱う。従来の手法はリソースの増強に依存するか、保証のないヒューリスティックが中心であった。",
+        "method": "本研究では、標準的な予算制約の下で、初めての$\tilde{O}(\text{log}^{1.5} n)$近似アルゴリズムを提案する。この手法は、全体のグラフから小さな代表的なセットを抽出することを目的としており、効率的にラベル予測を行う。",
+        "result": "提案したアルゴリズムの実用的なヒューリスティックバリアントは、従来の手法よりも大規模なグラフにスケールしつつ、質をほぼ維持することを示した。",
+        "topic": "グラフラベル選択問題における近似アルゴリズムの提案"
+      }
     },
     {
       "title": "Position: Interestingness is an Inductive Heuristic for Future Compression Progress",
@@ -186,7 +263,8 @@
       "matchedKeywords": [
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Optimizing Return Distributions with Distributional Dynamic Programming",
@@ -195,7 +273,8 @@
       "matchedKeywords": [
         "dynamic-programming"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Can Computational Reducibility Lead to Transferable Models for Graph Combinatorial Optimization?",
@@ -225,12 +304,29 @@
     },
     {
       "title": "Gateways to Tractability for Satisfiability in Pearl’s Causal Hierarchy",
-      "authors": [],
-      "score": 8,
-      "matchedKeywords": [
-        "satisfiability"
+      "authors": [
+        "Robert Ganian",
+        "Marlene Gründel",
+        "Simon Wietheger"
       ],
-      "via": "accepted-list"
+      "score": 30,
+      "matchedKeywords": [
+        "satisfiability",
+        "parameterized complexity",
+        "fixed-parameter",
+        "dynamic-programming"
+      ],
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2511.08091",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** パールの因果階層 (因果推論の枠組み) における充足可能性問題の計算効率化\n\n**問題** パールの因果階層に基づく式の充足可能性問題は、ほとんどの古典的な設定において計算的に困難です。この論文では、この課題をパラメータ化された複雑性の観点から再考します。\n\n**手法** 提案手法は、プライマル木幅や変数の数などのパラメータを用いた固定パラメータアルゴリズムとXPアルゴリズムを含み、因果モデルの構造的特徴を活用することで新しいアルゴリズムツールキットを提供します。\n\n**結果** 主要な確率的および反事実的断片における充足可能性のためのアルゴリズムを示し、計算可能性の限界を示す一致する困難性結果も得られました。",
+      "summaryStruct": {
+        "problem": "パールの因果階層に基づく式の充足可能性問題は、ほとんどの古典的な設定において計算的に困難です。この論文では、この課題をパラメータ化された複雑性の観点から再考します。",
+        "method": "提案手法は、プライマル木幅や変数の数などのパラメータを用いた固定パラメータアルゴリズムとXPアルゴリズムを含み、因果モデルの構造的特徴を活用することで新しいアルゴリズムツールキットを提供します。",
+        "result": "主要な確率的および反事実的断片における充足可能性のためのアルゴリズムを示し、計算可能性の限界を示す一致する困難性結果も得られました。",
+        "topic": "パールの因果階層 (因果推論の枠組み) における充足可能性問題の計算効率化"
+      }
     },
     {
       "title": "TSP with Predictions: Heatmap to Tour with Provable Guarantees",
@@ -239,7 +335,8 @@
       "matchedKeywords": [
         "tsp"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Accelerating Regression Tasks with Quantum Algorithms",
@@ -261,12 +358,27 @@
     },
     {
       "title": "Latent Spherical Flow Policy for Reinforcement Learning with Combinatorial Actions",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Lingkai Kong",
+        "Anagha Satish",
+        "Hezi Jiang",
+        "+6"
+      ],
+      "score": 27,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2601.22211",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 組合せアクション空間を持つ強化学習 (RL) における新しいポリシー手法の提案\n\n**問題** 組合せアクション空間では、実行可能なアクションセットが指数的に大きく、複雑な制約によって直接的なポリシーのパラメータ化が困難である。既存の手法は一般性やポリシーの表現力を犠牲にしている。\n\n**手法** 提案手法LSFlowは、現代的な生成ポリシーの表現力を組合せRLに持ち込み、設計上の保証として実行可能性を確保する。これは、球面フローによりコンパクトな連続潜在空間で確率的ポリシーを学習し、組合せ最適化ソルバーに実行可能な構造化アクションへのマッピングを委ねる。\n\n**結果** 実験的に、提案手法は様々な困難な組合せRLタスクにおいて、最先端のベースラインに対して平均20.6%の性能向上を示した。",
+      "summaryStruct": {
+        "problem": "組合せアクション空間では、実行可能なアクションセットが指数的に大きく、複雑な制約によって直接的なポリシーのパラメータ化が困難である。既存の手法は一般性やポリシーの表現力を犠牲にしている。",
+        "method": "提案手法LSFlowは、現代的な生成ポリシーの表現力を組合せRLに持ち込み、設計上の保証として実行可能性を確保する。これは、球面フローによりコンパクトな連続潜在空間で確率的ポリシーを学習し、組合せ最適化ソルバーに実行可能な構造化アクションへのマッピングを委ねる。",
+        "result": "実験的に、提案手法は様々な困難な組合せRLタスクにおいて、最先端のベースラインに対して平均20.6%の性能向上を示した。",
+        "topic": "組合せアクション空間を持つ強化学習 (RL) における新しいポリシー手法の提案"
+      }
     },
     {
       "title": "Unsupervised Diffusion Solver for Combinatorial Optimization via Combinatorial Adjoint Matching",
@@ -382,7 +494,8 @@
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Knapsack RL: Compute-Efficient Reinforcement Learning via Heterogeneous Rollout Allocation",
@@ -396,12 +509,27 @@
     },
     {
       "title": "Online Linear Programming for Multi-Objective Routing in LLM Serving",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Zixi Chen",
+        "Yinyu Ye",
+        "Zijie Zhou"
+      ],
+      "score": 16,
       "matchedKeywords": [
+        "optimization",
         "linear programming"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2607.03948",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 大規模言語モデルのオンラインルーティング問題におけるマルチオブジェクティブ最適化手法の提案\n\n**問題** リクエストが逐次的に到着し、バッチサイズやKVキャッシュの制約の下で並列デコードワーカーに配信される必要があるが、従来のルーティング手法はサービスレベル目標（SLO）に基づく制御が不十分である。\n\n**手法** 提案手法では、ルーティングをオンライン線形計画法として定式化し、解釈可能な意思決定報酬を用いる。効率的なビッドプライス制御ポリシーを適用し、SLOに基づく利益が影の価格を超えるリクエストを受け入れることで、問題に対処する。\n\n**結果** 提案したルーターをVidurシミュレーターに統合した結果、エンドツーエンドのレイテンシ、ファーストトークンまでの時間、スループット、テールパフォーマンスなどで標準的なベースラインに対して大幅な改善が見られた。",
+      "summaryStruct": {
+        "problem": "リクエストが逐次的に到着し、バッチサイズやKVキャッシュの制約の下で並列デコードワーカーに配信される必要があるが、従来のルーティング手法はサービスレベル目標（SLO）に基づく制御が不十分である。",
+        "method": "提案手法では、ルーティングをオンライン線形計画法として定式化し、解釈可能な意思決定報酬を用いる。効率的なビッドプライス制御ポリシーを適用し、SLOに基づく利益が影の価格を超えるリクエストを受け入れることで、問題に対処する。",
+        "result": "提案したルーターをVidurシミュレーターに統合した結果、エンドツーエンドのレイテンシ、ファーストトークンまでの時間、スループット、テールパフォーマンスなどで標準的なベースラインに対して大幅な改善が見られた。",
+        "topic": "大規模言語モデルのオンラインルーティング問題におけるマルチオブジェクティブ最適化手法の提案"
+      }
     },
     {
       "title": "Quantum Algorithms for Triangle Cut Sparsification",
@@ -425,12 +553,28 @@
     },
     {
       "title": "Beyond Heuristic Tuning: Power-Calibrated LLM Watermarking",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Xiaopu Wang",
+        "Zelin He",
+        "Chengyuan Liu",
+        "+1"
+      ],
+      "score": 16,
       "matchedKeywords": [
+        "optimization",
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2607.05694",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ロジットベースの透かし技術を用いたLLM（大規模言語モデル）生成コンテンツの識別\n\n**問題** ロジットベースの透かしは、検出可能性と意味的歪みとの間に基本的なトレードオフがあり、実際の運用ではヒューリスティックな調整に依存しているという問題がある。\n\n**手法** 本研究では、透かしのハイパーパラメータ、検出力、歪みとの明示的な定量的関係を確立するパワーキャリブレーションされた統計フレームワークを開発し、透かし設計をガイド付き最適化問題に変換する。これに基づき、制約の下で最適なトレードオフを達成するための実用的なパラメータ選択手順を導出する。\n\n**結果** 複数の言語モデルとデータセットにわたる広範な実験により、提案した理論が検証され、フレームワークが常にパレート最適点を特定できることが示された。",
+      "summaryStruct": {
+        "problem": "ロジットベースの透かしは、検出可能性と意味的歪みとの間に基本的なトレードオフがあり、実際の運用ではヒューリスティックな調整に依存しているという問題がある。",
+        "method": "本研究では、透かしのハイパーパラメータ、検出力、歪みとの明示的な定量的関係を確立するパワーキャリブレーションされた統計フレームワークを開発し、透かし設計をガイド付き最適化問題に変換する。これに基づき、制約の下で最適なトレードオフを達成するための実用的なパラメータ選択手順を導出する。",
+        "result": "複数の言語モデルとデータセットにわたる広範な実験により、提案した理論が検証され、フレームワークが常にパレート最適点を特定できることが示された。",
+        "topic": "ロジットベースの透かし技術を用いたLLM（大規模言語モデル）生成コンテンツの識別"
+      }
     },
     {
       "title": "Divide and Learn: Multi-Objective Combinatorial Optimization at Scale",
@@ -458,30 +602,75 @@
     },
     {
       "title": "Automated Formal Proofs of Combinatorial Identities via Wilf–Zeilberger Guidance and LLMs",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Beibei Xiong",
+        "Hangyu Lv",
+        "Junqi Liu",
+        "+5"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.04472",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ウィルフ・ツァイルバーガー法 (組合せ恒等式の証明手法) を用いた形式的証明の自動化\n\n**問題** LLM（大規模言語モデル）ベースの証明者による組合せ恒等式の形式的証明の自動化は、長期的な証明計画が必要であり、無制約の探索が急速に膨張するため困難である。\n\n**手法** 提案手法WZ-LLMは、WZ証明計画を実行可能な証明スケッチに変換し、LLMベースの証明者を用いて機械検証可能なサブゴールを処理する。さらに、専門家による検証を経たブートストラッピングループで専用のWZ-Proverを訓練し、DAPO（データ駆動型最適化）による洗練を行う。\n\n**結果** WZ-LLMはLCI-Test（100の古典的な組合せ恒等式）で34%の証明成功率を達成し、DeepSeek-V3やGoedel-Prover-V2などの強力なベースラインを上回った。",
+      "summaryStruct": {
+        "problem": "LLM（大規模言語モデル）ベースの証明者による組合せ恒等式の形式的証明の自動化は、長期的な証明計画が必要であり、無制約の探索が急速に膨張するため困難である。",
+        "method": "提案手法WZ-LLMは、WZ証明計画を実行可能な証明スケッチに変換し、LLMベースの証明者を用いて機械検証可能なサブゴールを処理する。さらに、専門家による検証を経たブートストラッピングループで専用のWZ-Proverを訓練し、DAPO（データ駆動型最適化）による洗練を行う。",
+        "result": "WZ-LLMはLCI-Test（100の古典的な組合せ恒等式）で34%の証明成功率を達成し、DeepSeek-V3やGoedel-Prover-V2などの強力なベースラインを上回った。",
+        "topic": "ウィルフ・ツァイルバーガー法 (組合せ恒等式の証明手法) を用いた形式的証明の自動化"
+      }
     },
     {
       "title": "Inducing Overthink: Hierarchical Genetic Algorithm-based DoS Attack on Black-Box Large Language Reasoning Models",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Shuqiang Wang",
+        "Wei Cao",
+        "Jiaqi Weng",
+        "+4"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "genetic algorithm"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2605.13338",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 大規模推論モデル (LRM) の過剰思考を利用した脆弱性の調査と攻撃手法の提案\n\n**問題** LRMは不完全または論理的に矛盾した入力に対して過剰に思考し、推論の遅延やエネルギー消費を増加させる傾向がある。この問題は、サービス拒否 (DoS) 攻撃のリスクを高める。\n\n**手法** 提案手法は、入力問題の論理構造を系統的に変化させる自動化されたブラックボックスフレームワークであり、階層的遺伝アルゴリズム (HGA) を用いて応答の長さと過剰思考の指標を最大化する。これにより、LRMの出力を意図的に増加させることができる。\n\n**結果** 提案手法は、MATHベンチマークで最大26.1倍の出力長を達成し、他の手法と比較して一貫して優れた性能を示した。また、小規模なプロキシモデルを用いて進化させた敵対的入力が、大規模商用LRMに対しても高い効果を持つことを示した。",
+      "summaryStruct": {
+        "problem": "LRMは不完全または論理的に矛盾した入力に対して過剰に思考し、推論の遅延やエネルギー消費を増加させる傾向がある。この問題は、サービス拒否 (DoS) 攻撃のリスクを高める。",
+        "method": "提案手法は、入力問題の論理構造を系統的に変化させる自動化されたブラックボックスフレームワークであり、階層的遺伝アルゴリズム (HGA) を用いて応答の長さと過剰思考の指標を最大化する。これにより、LRMの出力を意図的に増加させることができる。",
+        "result": "提案手法は、MATHベンチマークで最大26.1倍の出力長を達成し、他の手法と比較して一貫して優れた性能を示した。また、小規模なプロキシモデルを用いて進化させた敵対的入力が、大規模商用LRMに対しても高い効果を持つことを示した。",
+        "topic": "大規模推論モデル (LRM) の過剰思考を利用した脆弱性の調査と攻撃手法の提案"
+      }
     },
     {
       "title": "Combinatorial Sparse PCA Beyond the Spiked Identity Model",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Syamantak Kumar",
+        "Purnamrita Sarkar",
+        "Kevin Tian",
+        "+1"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2603.02607",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 高次元統計におけるスパース主成分分析 (Sparse PCA) のための新しい組合せアルゴリズム\n\n**問題** スパース主成分分析は、共分散行列からのサンプルを用いて、s-スパースな主成分を推定する問題です。従来の組合せアルゴリズムは、特定のモデルに限定されるため、一般的な共分散行列に対しては成功しないことが示されています。\n\n**手法** 本研究では、一般的な共分散行列に対しても成功する初の組合せ手法を提案します。この手法は、サンプル数が $s^2 \times \text{polylog}(d)$ で、計算時間が $d^2 \times \text{poly}(s, \text{log}(d))$ となることを保証します。\n\n**結果** 提案手法は、合成データセットおよび実世界のスパース PCA データセットで評価され、従来の手法に対して優れた性能を示しました。",
+      "summaryStruct": {
+        "problem": "スパース主成分分析は、共分散行列からのサンプルを用いて、s-スパースな主成分を推定する問題です。従来の組合せアルゴリズムは、特定のモデルに限定されるため、一般的な共分散行列に対しては成功しないことが示されています。",
+        "method": "本研究では、一般的な共分散行列に対しても成功する初の組合せ手法を提案します。この手法は、サンプル数が $s^2 \times \text{polylog}(d)$ で、計算時間が $d^2 \times \text{poly}(s, \text{log}(d))$ となることを保証します。",
+        "result": "提案手法は、合成データセットおよび実世界のスパース PCA データセットで評価され、従来の手法に対して優れた性能を示しました。",
+        "topic": "高次元統計におけるスパース主成分分析 (Sparse PCA) のための新しい組合せアルゴリズム"
+      }
     },
     {
       "title": "Unsupervised Neural Langevin Sampler for Mixed Integer Linear Programming",
@@ -490,7 +679,8 @@
       "matchedKeywords": [
         "linear programming"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24"
     },
     {
       "title": "Predicting Future Utility: Global Combinatorial Optimization for Task-Agnostic KV Cache Eviction",
@@ -519,21 +709,49 @@
     },
     {
       "title": "Dynamic Programming for Epistemic Uncertainty in Markov Decision Processes",
-      "authors": [],
-      "score": 6,
+      "authors": [
+        "Axel Benyamine",
+        "Julien Grand-Clément",
+        "Marek Petrik",
+        "+2"
+      ],
+      "score": 9,
       "matchedKeywords": [
         "dynamic-programming"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2602.03381",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 不確実な遷移確率を扱う曖昧回避型MDP (マルコフ決定過程) の一般理論の提案\n\n**問題** この論文は、遷移確率の不確実性を考慮したMDPモデルの統一と、リスク測度を用いた政策評価の問題を解決しようとしています。特に、動的計画法の原則に基づく結果を明らかにします。\n\n**手法** 提案手法は、リスク測度を適用したランダムなリターンを用いて政策を評価し、価値関数やベルマン演算子の概念を拡張します。このアプローチにより、動的計画法の原則に従った定常政策の存在や価値・政策反復アルゴリズムを確立します。\n\n**結果** 動的計画法と互換性のある法不変リスク測度を完全に特定し、いくつかのMDPモデルの変種間の関係を明らかにしました。",
+      "summaryStruct": {
+        "problem": "この論文は、遷移確率の不確実性を考慮したMDPモデルの統一と、リスク測度を用いた政策評価の問題を解決しようとしています。特に、動的計画法の原則に基づく結果を明らかにします。",
+        "method": "提案手法は、リスク測度を適用したランダムなリターンを用いて政策を評価し、価値関数やベルマン演算子の概念を拡張します。このアプローチにより、動的計画法の原則に従った定常政策の存在や価値・政策反復アルゴリズムを確立します。",
+        "result": "動的計画法と互換性のある法不変リスク測度を完全に特定し、いくつかのMDPモデルの変種間の関係を明らかにしました。",
+        "topic": "不確実な遷移確率を扱う曖昧回避型MDP (マルコフ決定過程) の一般理論の提案"
+      }
     },
     {
       "title": "Error Propagation in Dynamic Programming: From Stochastic Control to American Option Pricing",
-      "authors": [],
-      "score": 6,
+      "authors": [
+        "Andrea Della Vecchia",
+        "Damir Filipović"
+      ],
+      "score": 9,
       "matchedKeywords": [
         "dynamic-programming"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2509.20239",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** 離散時間における確率的最適制御 (SOC) の理論的および方法論的基盤の探求\n\n**問題** 本論文は、一般的な動的プログラミングフレームワークにおける制御問題を定式化し、収束分析のための数学的構造を導入します。特に、SOC文献における誤差の時間逆伝播という未探査の側面に焦点を当てています。\n\n**手法** 提案手法は、非パラメトリック回帰法とモンテカルロサンプリングを組み合わせた近似の系列を用いて価値関数を推定します。再生カーネルヒルベルト空間 (RKHS) 内での回帰ステップと、継続価値を推定するためのモンテカルロ手法を活用しています。\n\n**結果** 価値関数推定器の精度を評価するために自然な誤差分解を提案し、各時間ステップでの誤差項を厳密に制御しました。最終的に、アメリカンオプションの価格設定という金融応用に対して分析が適用されることを示しました。",
+      "summaryStruct": {
+        "problem": "本論文は、一般的な動的プログラミングフレームワークにおける制御問題を定式化し、収束分析のための数学的構造を導入します。特に、SOC文献における誤差の時間逆伝播という未探査の側面に焦点を当てています。",
+        "method": "提案手法は、非パラメトリック回帰法とモンテカルロサンプリングを組み合わせた近似の系列を用いて価値関数を推定します。再生カーネルヒルベルト空間 (RKHS) 内での回帰ステップと、継続価値を推定するためのモンテカルロ手法を活用しています。",
+        "result": "価値関数推定器の精度を評価するために自然な誤差分解を提案し、各時間ステップでの誤差項を厳密に制御しました。最終的に、アメリカンオプションの価格設定という金融応用に対して分析が適用されることを示しました。",
+        "topic": "離散時間における確率的最適制御 (SOC) の理論的および方法論的基盤の探求"
+      }
     },
     {
       "title": "Rethink the Role of Neural Decoders in Quantum Error Correction",
@@ -557,12 +775,28 @@
     },
     {
       "title": "Game-Theoretic Co-Evolution for LLM-Based Heuristic Discovery",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Xinyi Ke",
+        "Kai Li",
+        "Junliang Xing",
+        "+2"
+      ],
+      "score": 29,
       "matchedKeywords": [
+        "optimization",
         "heuristic"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-24",
+      "arxivId": "2601.22896",
+      "arxivFoundOn": "2026-10-24",
+      "summary": "**技術と問題** ゲーム理論に基づくアルゴリズム空間応答オラクル (ASRO) を用いた自動ヒューリスティック発見の改善\n\n**問題** 従来の自動ヒューリスティック発見手法は、固定されたインスタンス分布に対する静的評価に依存しており、過学習や分布シフトに対する一般化能力が低いという課題があります。\n\n**手法** ASROは、解法者とインスタンス生成器の間の共進化をゲームとしてモデル化し、両者の戦略プールを拡張しながら、LLM（大規模言語モデル）に基づく最適応答オラクルを用いて適応的なカリキュラムを生成します。これにより、静的評価を置き換え、より柔軟な学習を実現します。\n\n**結果** ASROは、同じプログラム探索メカニズムに基づく静的トレーニングの自動ヒューリスティック発見手法と比較して、様々な組合せ最適化ドメインにおいて一貫して優れた結果を示し、多様なインスタンスに対する一般化能力と堅牢性が大幅に向上しました。",
+      "summaryStruct": {
+        "problem": "従来の自動ヒューリスティック発見手法は、固定されたインスタンス分布に対する静的評価に依存しており、過学習や分布シフトに対する一般化能力が低いという課題があります。",
+        "method": "ASROは、解法者とインスタンス生成器の間の共進化をゲームとしてモデル化し、両者の戦略プールを拡張しながら、LLM（大規模言語モデル）に基づく最適応答オラクルを用いて適応的なカリキュラムを生成します。これにより、静的評価を置き換え、より柔軟な学習を実現します。",
+        "result": "ASROは、同じプログラム探索メカニズムに基づく静的トレーニングの自動ヒューリスティック発見手法と比較して、様々な組合せ最適化ドメインにおいて一貫して優れた結果を示し、多様なインスタンスに対する一般化能力と堅牢性が大幅に向上しました。",
+        "topic": "ゲーム理論に基づくアルゴリズム空間応答オラクル (ASRO) を用いた自動ヒューリスティック発見の改善"
+      }
     },
     {
       "title": "Rethinking Parameter Sharing as Graph Coloring for Structured Compression",
