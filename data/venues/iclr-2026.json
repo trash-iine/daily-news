@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "ICLR 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-24T23:52:30.977Z",
+  "updatedAt": "2026-10-25T23:39:57.740Z",
   "papers": [
     {
       "title": "Combinatorial Rising Bandits",
@@ -100,12 +100,25 @@
     },
     {
       "title": "SAQ: Stabilizer-Aware Quantum Error Correction Decoder",
-      "authors": [],
+      "authors": [
+        "David Zenati",
+        "Eliya Nachmani"
+      ],
       "score": 0,
       "matchedKeywords": [
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-26",
+      "arxivId": "2512.08914",
+      "arxivFoundOn": "2026-10-26",
+      "summary": "**技術と問題** 量子誤り訂正 (QEC) のデコーディングにおける精度と効率のトレードオフの解決\n\n**問題** 量子誤り訂正のデコーディングは、精度と計算効率の間に根本的なトレードオフが存在します。従来の手法は性能がノイズモデルによって変動し、計算コストが高くなります。\n\n**手法** SAQ-Decoderは、トランスフォーマーベースの学習と制約を考慮した後処理を組み合わせた統一フレームワークです。この手法は、シンドロームと論理情報を処理する二重ストリームトランスフォーマーアーキテクチャを使用し、論理誤り率を最適化する新しい微分可能な論理損失を導入しています。\n\n**結果** SAQ-Decoderは、トリックコードにおいて独立ノイズで10.99%、脱落ノイズで18.6%の誤り閾値を達成し、既存のニューラルおよび古典的手法を上回る精度と効率を示しました。",
+      "summaryStruct": {
+        "problem": "量子誤り訂正のデコーディングは、精度と計算効率の間に根本的なトレードオフが存在します。従来の手法は性能がノイズモデルによって変動し、計算コストが高くなります。",
+        "method": "SAQ-Decoderは、トランスフォーマーベースの学習と制約を考慮した後処理を組み合わせた統一フレームワークです。この手法は、シンドロームと論理情報を処理する二重ストリームトランスフォーマーアーキテクチャを使用し、論理誤り率を最適化する新しい微分可能な論理損失を導入しています。",
+        "result": "SAQ-Decoderは、トリックコードにおいて独立ノイズで10.99%、脱落ノイズで18.6%の誤り閾値を達成し、既存のニューラルおよび古典的手法を上回る精度と効率を示しました。",
+        "topic": "量子誤り訂正 (QEC) のデコーディングにおける精度と効率のトレードオフの解決"
+      }
     },
     {
       "title": "FMIP: Joint Continuous-Integer Flow For Mixed-Integer Linear Programming",
@@ -335,7 +348,8 @@
       "matchedKeywords": [
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-26"
     },
     {
       "title": "Symmetric Space Learning for Combinatorial Generalization",
@@ -423,7 +437,8 @@
       "matchedKeywords": [
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-26"
     },
     {
       "title": "Native Adaptive Solution Expansion for Diffusion-based Combinatorial Optimization",
@@ -437,12 +452,27 @@
     },
     {
       "title": "Sublinear Time Quantum Algorithm for Attention Approximation",
-      "authors": [],
+      "authors": [
+        "Zhao Song",
+        "Jianfei Xue",
+        "Jiahao Zhang",
+        "+1"
+      ],
       "score": 0,
       "matchedKeywords": [
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-26",
+      "arxivId": "2602.00874",
+      "arxivFoundOn": "2026-10-26",
+      "summary": "**技術と問題** 量子データ構造を用いたトランスフォーマーの注意機構の行の近似\n\n**問題** トランスフォーマーや大規模言語モデルの基盤である注意機構は、ソフトマックス行列の形成にΩ(n²)の時間がかかるため、計算時間の短縮が求められている。\n\n**手法** 本研究では、行クエリのみを用いて注意機構の任意の行を近似する量子アルゴリズムを提案する。この手法は、量子Nyström近似や量子多変量平均推定を利用しており、計算効率を大幅に向上させる。\n\n**結果** 提案手法は、行クエリに対してサブリニア時間で応答できる初の量子データ構造であり、前処理には$\tilde{O}(ε^{-1} n^{0.5} (s_λ^{2.5} + s_λ^{1.5} d + α^{0.5} d))$の時間を要する。",
+      "summaryStruct": {
+        "problem": "トランスフォーマーや大規模言語モデルの基盤である注意機構は、ソフトマックス行列の形成にΩ(n²)の時間がかかるため、計算時間の短縮が求められている。",
+        "method": "本研究では、行クエリのみを用いて注意機構の任意の行を近似する量子アルゴリズムを提案する。この手法は、量子Nyström近似や量子多変量平均推定を利用しており、計算効率を大幅に向上させる。",
+        "result": "提案手法は、行クエリに対してサブリニア時間で応答できる初の量子データ構造であり、前処理には$\tilde{O}(ε^{-1} n^{0.5} (s_λ^{2.5} + s_λ^{1.5} d + α^{0.5} d))$の時間を要する。",
+        "topic": "量子データ構造を用いたトランスフォーマーの注意機構の行の近似"
+      }
     },
     {
       "title": "Heuristic-Based Ideation for Guiding LLMs Toward Structured Creativity",
@@ -739,12 +769,28 @@
     },
     {
       "title": "AQER: A Scalable and Efficient Data Loader for Digital Quantum Computers",
-      "authors": [],
-      "score": 0,
+      "authors": [
+        "Kaining Zhang",
+        "Xinbiao Wang",
+        "Yuxuan Du",
+        "+2"
+      ],
+      "score": 4,
       "matchedKeywords": [
+        "heuristic",
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-26",
+      "arxivId": "2602.02165",
+      "arxivFoundOn": "2026-10-26",
+      "summary": "**技術と問題** 近似量子ローダー (AQL) を用いた量子回路へのデータロードの効率化\n\n**問題** デジタル量子コンピューティングは古典的システムを超える計算能力を提供するが、量子リソースの不足が課題である。特に、データを量子回路に効率的にロードする方法が重要なボトルネックとなっている。\n\n**手法** 本研究では、既存のAQL手法を統一的な枠組みに再定式化し、近似誤差に関する情報理論的な限界を確立した。これに基づき、ターゲット状態のエンタングルメントを系統的に減少させるAQERというスケーラブルなAQL手法を開発した。\n\n**結果** AQERは、合成データセット、古典的な画像と言語データセット、最大50量子ビットの量子多体状態データセットを用いた実験で、既存手法に比べて精度とゲート効率の両方で一貫して優れた結果を示した。",
+      "summaryStruct": {
+        "problem": "デジタル量子コンピューティングは古典的システムを超える計算能力を提供するが、量子リソースの不足が課題である。特に、データを量子回路に効率的にロードする方法が重要なボトルネックとなっている。",
+        "method": "本研究では、既存のAQL手法を統一的な枠組みに再定式化し、近似誤差に関する情報理論的な限界を確立した。これに基づき、ターゲット状態のエンタングルメントを系統的に減少させるAQERというスケーラブルなAQL手法を開発した。",
+        "result": "AQERは、合成データセット、古典的な画像と言語データセット、最大50量子ビットの量子多体状態データセットを用いた実験で、既存手法に比べて精度とゲート効率の両方で一貫して優れた結果を示した。",
+        "topic": "近似量子ローダー (AQL) を用いた量子回路へのデータロードの効率化"
+      }
     },
     {
       "title": "Lifelong Learning with Behavior Consolidation for Vehicle Routing",
