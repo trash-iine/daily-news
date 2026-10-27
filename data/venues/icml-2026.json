@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "ICML 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-25T23:39:57.740Z",
+  "updatedAt": "2026-10-27T01:00:34.092Z",
   "papers": [
     {
       "title": "Position: Neural Approximation Is Rarely Justified for Hard Combinatorial Problems",
@@ -350,12 +350,28 @@
     },
     {
       "title": "QuantumBoost: A lazy, yet fast, quantum algorithm for learning with weak hypotheses",
-      "authors": [],
-      "score": 0,
+      "authors": [
+        "Amira Abbas",
+        "Yanlin Chen",
+        "Tuyen Nguyen",
+        "+1"
+      ],
+      "score": 2,
       "matchedKeywords": [
+        "optimization",
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-27",
+      "arxivId": "2510.05089",
+      "arxivFoundOn": "2026-10-27",
+      "summary": "**技術と問題** 量子アルゴリズムを用いたブースティングアルゴリズムの改良\n\n**問題** ブースティングアルゴリズムは、複数の弱い学習器を組み合わせて強い学習器を作成し、意思決定の質を向上させる手法ですが、計算効率が課題です。\n\n**手法** 提案手法QuantumBoostは、量子アルゴリズムを用いてBregman投影の近似計算を高速化し、さらに遅延投影戦略を組み合わせることで、計算時間を短縮します。このアプローチにより、ブースティングの文脈で初めて遅延投影戦略を成功裏に採用しました。\n\n**結果** QuantumBoostは、他のブースティング手法に比べて最良の計算時間を達成しました。具体的な数値は示されていませんが、従来の手法に対する優位性が確認されています。",
+      "summaryStruct": {
+        "problem": "ブースティングアルゴリズムは、複数の弱い学習器を組み合わせて強い学習器を作成し、意思決定の質を向上させる手法ですが、計算効率が課題です。",
+        "method": "提案手法QuantumBoostは、量子アルゴリズムを用いてBregman投影の近似計算を高速化し、さらに遅延投影戦略を組み合わせることで、計算時間を短縮します。このアプローチにより、ブースティングの文脈で初めて遅延投影戦略を成功裏に採用しました。",
+        "result": "QuantumBoostは、他のブースティング手法に比べて最良の計算時間を達成しました。具体的な数値は示されていませんが、従来の手法に対する優位性が確認されています。",
+        "topic": "量子アルゴリズムを用いたブースティングアルゴリズムの改良"
+      }
     },
     {
       "title": "Latent Spherical Flow Policy for Reinforcement Learning with Combinatorial Actions",
@@ -534,12 +550,25 @@
     },
     {
       "title": "Quantum Algorithms for Triangle Cut Sparsification",
-      "authors": [],
+      "authors": [
+        "Shan Jiang",
+        "Pan Peng"
+      ],
       "score": 0,
       "matchedKeywords": [
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-27",
+      "arxivId": "2606.06287",
+      "arxivFoundOn": "2026-10-27",
+      "summary": "**技術と問題** 三角形を用いたグラフのカットスパース化に関する量子アルゴリズムの提案\n\n**問題** 三角形はグラフにおける高次構造を捉え、クラスタリングやネットワーク分析において重要ですが、効率的に利用するためにはグラフサイズを削減しつつ三角形の数をおおよそ保持する必要があります。\n\n**手法** 本研究では、三角形リスト作成を主な技術要素とし、重軽頂点分割と量子ウォークおよびグローバー探索を用いた三角形検出の拡張に基づく量子アルゴリズムを提案します。これにより、三角形カットスパースファイアの構築も可能になります。\n\n**結果** 提案した量子アルゴリズムは、グラフの頂点数がn、辺数がm、三角形数がtの場合に、計算時間が$T_{\text{q-list}} = \tilde{O}(\text{min}(n^{5/4}t^{7/12} + n^{7/6}t^{7/9}, m + m^{3/4}t^{1/2}, n^{3/2}t^{1/2}))$であり、従来の古典的な限界を広範囲に改善しました。",
+      "summaryStruct": {
+        "problem": "三角形はグラフにおける高次構造を捉え、クラスタリングやネットワーク分析において重要ですが、効率的に利用するためにはグラフサイズを削減しつつ三角形の数をおおよそ保持する必要があります。",
+        "method": "本研究では、三角形リスト作成を主な技術要素とし、重軽頂点分割と量子ウォークおよびグローバー探索を用いた三角形検出の拡張に基づく量子アルゴリズムを提案します。これにより、三角形カットスパースファイアの構築も可能になります。",
+        "result": "提案した量子アルゴリズムは、グラフの頂点数がn、辺数がm、三角形数がtの場合に、計算時間が$T_{\text{q-list}} = \tilde{O}(\text{min}(n^{5/4}t^{7/12} + n^{7/6}t^{7/9}, m + m^{3/4}t^{1/2}, n^{3/2}t^{1/2}))$であり、従来の古典的な限界を広範囲に改善しました。",
+        "topic": "三角形を用いたグラフのカットスパース化に関する量子アルゴリズムの提案"
+      }
     },
     {
       "title": "Trajectory-Aware Heuristic Learning for Combinatorial Search",
@@ -756,12 +785,26 @@
     },
     {
       "title": "Rethink the Role of Neural Decoders in Quantum Error Correction",
-      "authors": [],
+      "authors": [
+        "Ge Yan",
+        "Shanchuan Li",
+        "Yuxuan Du"
+      ],
       "score": 0,
       "matchedKeywords": [
         "quantum-computing"
       ],
-      "via": "accepted-list"
+      "via": "accepted-list",
+      "lastCheckedOn": "2026-10-27",
+      "arxivId": "2605.12046",
+      "arxivFoundOn": "2026-10-27",
+      "summary": "**技術と問題** 量子誤り訂正 (QEC) のためのニューラルデコーダの設計と性能評価\n\n**問題** 量子計算の利点を実現するためには、誤り訂正が不可欠であり、特にデコーディングの精度と遅延のトレードオフが実用化の障害となっている。これを解決するために、サーフェスコードのデコーディングにおけるニューラルデコーダを再検討する。\n\n**手法** 本研究では、異なるアーキテクチャのニューラルデコーダを統合・再設計し、FPGAハードウェア上での展開性と性能を評価するための圧縮パイプラインを開発した。データスケールや適切な帰納的バイアスがデコーディング精度に与える影響を考慮することで、実用的なデコーディングを実現する。\n\n**結果** 実験により、データスケールがデコーディング性能に与える影響が大きいこと、適切な帰納的バイアスが高精度を達成するために重要であること、また、INT4量子化がマイクロ秒スケールの遅延要件を満たすために必要であることが明らかになった。",
+      "summaryStruct": {
+        "problem": "量子計算の利点を実現するためには、誤り訂正が不可欠であり、特にデコーディングの精度と遅延のトレードオフが実用化の障害となっている。これを解決するために、サーフェスコードのデコーディングにおけるニューラルデコーダを再検討する。",
+        "method": "本研究では、異なるアーキテクチャのニューラルデコーダを統合・再設計し、FPGAハードウェア上での展開性と性能を評価するための圧縮パイプラインを開発した。データスケールや適切な帰納的バイアスがデコーディング精度に与える影響を考慮することで、実用的なデコーディングを実現する。",
+        "result": "実験により、データスケールがデコーディング性能に与える影響が大きいこと、適切な帰納的バイアスが高精度を達成するために重要であること、また、INT4量子化がマイクロ秒スケールの遅延要件を満たすために必要であることが明らかになった。",
+        "topic": "量子誤り訂正 (QEC) のためのニューラルデコーダの設計と性能評価"
+      }
     },
     {
       "title": "Generative Large Neighborhood Search: Scalable Set Cover Optimization via Discrete Diffusion",
