@@ -1,0 +1,28 @@
+{
+  "slug": "soda-2026",
+  "venue": "SODA",
+  "year": 2026,
+  "name": "SODA 2026",
+  "createdOn": "2026-10-28",
+  "updatedAt": "2026-10-28T00:51:02.395Z",
+  "papers": [
+    {
+      "title": "k-SUM Hardness Implies Treewidth-SETH",
+      "authors": [
+        "Michael Lampis"
+      ],
+      "arxivId": "2510.08185",
+      "arxivFoundOn": "2026-10-28",
+      "score": 0,
+      "matchedKeywords": [],
+      "via": "arxiv-comment",
+      "summary": "**技術と問題** k-SUM 問題の難しさとその関連性に基づく計算量理論の研究\n\n**問題** k-SUM 問題が難しい場合、Primal Treewidth SETH (木の幅に基づく計算量の仮定) が成り立つことを示すことを目指している。これにより、複数の基本的な問題の計算量の下限を再評価することが可能になる。\n\n**手法** k-SUM 問題の解法が存在する場合、k-SUM と k-XOR 問題に対する新しいランダム化アルゴリズムを提案する。これにより、特定の条件下での計算量の下限を強化できる。\n\n**結果** 提案された手法により、Independent Set や Max Cut、k-Coloring などの問題に対する計算量の下限が、k-SUM または k-XOR の仮定の下でも成り立つことが示された。",
+      "summaryStruct": {
+        "problem": "k-SUM 問題が難しい場合、Primal Treewidth SETH (木の幅に基づく計算量の仮定) が成り立つことを示すことを目指している。これにより、複数の基本的な問題の計算量の下限を再評価することが可能になる。",
+        "method": "k-SUM 問題の解法が存在する場合、k-SUM と k-XOR 問題に対する新しいランダム化アルゴリズムを提案する。これにより、特定の条件下での計算量の下限を強化できる。",
+        "result": "提案された手法により、Independent Set や Max Cut、k-Coloring などの問題に対する計算量の下限が、k-SUM または k-XOR の仮定の下でも成り立つことが示された。",
+        "topic": "k-SUM 問題の難しさとその関連性に基づく計算量理論の研究"
+      }
+    }
+  ]
+}

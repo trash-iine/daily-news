@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-27T01:00:34.093Z",
+  "updatedAt": "2026-10-28T00:51:02.397Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -137,13 +137,28 @@
     },
     {
       "title": "EnerGNN: Learning Optimization-Compatible Energy Functions for Exact Constrained Combinatorial Inference",
-      "authors": [],
-      "score": 14,
+      "authors": [
+        "Niki Triantafyllou",
+        "Maria M. Papathanasiou"
+      ],
+      "score": 46,
       "matchedKeywords": [
-        "optimization"
+        "optimization",
+        "integer programming",
+        "knapsack",
+        "mixed integer programming"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2610.33930",
+      "arxivFoundOn": "2026-10-28",
+      "summary": "**技術と問題** エネルギー関数を用いた組合せ最適化のための学習フレームワーク EnerGNN\n\n**問題** 組合せ最適化において、解を直接予測する手法や近似推論に依存するエネルギーベースモデルの限界を克服することが課題です。\n\n**手法** EnerGNN は、完全な二項構成に対するエネルギー関数を学習し、混合整数計画法 (MIP) を用いて明示的な制約の下で最小化します。グラフニューラルネットワークエンコーダと最適化に適した出力を組み合わせ、学習したエネルギーに対して正確な制約推論を可能にします。\n\n**結果** Quadratic Knapsack、Combinatorial Auctions、個別化細胞治療供給チェーン問題において、EnerGNN は100%の実行可能性で近似最適解を達成しました。供給チェーン問題では、平均プライマルギャップ0.05%およびモノリシックMIPに対して17.4倍のスピードアップを実現しました。",
+      "summaryStruct": {
+        "problem": "組合せ最適化において、解を直接予測する手法や近似推論に依存するエネルギーベースモデルの限界を克服することが課題です。",
+        "method": "EnerGNN は、完全な二項構成に対するエネルギー関数を学習し、混合整数計画法 (MIP) を用いて明示的な制約の下で最小化します。グラフニューラルネットワークエンコーダと最適化に適した出力を組み合わせ、学習したエネルギーに対して正確な制約推論を可能にします。",
+        "result": "Quadratic Knapsack、Combinatorial Auctions、個別化細胞治療供給チェーン問題において、EnerGNN は100%の実行可能性で近似最適解を達成しました。供給チェーン問題では、平均プライマルギャップ0.05%およびモノリシックMIPに対して17.4倍のスピードアップを実現しました。",
+        "topic": "エネルギー関数を用いた組合せ最適化のための学習フレームワーク EnerGNN"
+      }
     },
     {
       "title": "SimpleEvol: Efficient Intelligence Conversion via Less Human Prior in Automated Heuristic Design",
