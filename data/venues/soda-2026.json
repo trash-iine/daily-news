@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "SODA 2026",
   "createdOn": "2026-10-28",
-  "updatedAt": "2026-10-28T00:51:02.395Z",
+  "updatedAt": "2026-10-31T01:12:04.991Z",
   "papers": [
     {
       "title": "k-SUM Hardness Implies Treewidth-SETH",
@@ -22,6 +22,28 @@
         "method": "k-SUM 問題の解法が存在する場合、k-SUM と k-XOR 問題に対する新しいランダム化アルゴリズムを提案する。これにより、特定の条件下での計算量の下限を強化できる。",
         "result": "提案された手法により、Independent Set や Max Cut、k-Coloring などの問題に対する計算量の下限が、k-SUM または k-XOR の仮定の下でも成り立つことが示された。",
         "topic": "k-SUM 問題の難しさとその関連性に基づく計算量理論の研究"
+      }
+    },
+    {
+      "title": "A Logic-based Algorithmic Meta-Theorem for Treedepth: Single Exponential FPT Time and Polynomial Space",
+      "authors": [
+        "Benjamin Bergougnoux",
+        "Vera Chekan",
+        "Giannos Stamoulis"
+      ],
+      "arxivId": "2510.19793",
+      "arxivFoundOn": "2026-10-31",
+      "score": 5,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "via": "arxiv-comment",
+      "summary": "**技術と問題** グラフのトリード深度を利用したNP困難問題のモデル検査手法の提案\n\n**問題** グラフにおけるトリード深度を用いて、独立集合やハミルトン閉路などのNP困難問題を効率的に解く手法を探求する。これらの問題は、特定の条件下で多項式時間で解決可能であることが知られている。\n\n**手法** 提案する論理（$\text{NEO}_2[\text{FRec}]+\text{ACK}$）は、頂点集合の近傍の一般化、接続性、非循環性、クリークの検証を行うための述語を持つ。この論理を用いることで、深さ$k$の排除森林を持つグラフに対して、$2^{\text{O}(k)}n^{\text{O}(1)}$の時間と$n^{\text{O}(1)}$の空間で問題を解決できる。\n\n**結果** 新たに提案した手法により、CNF-SATや奇支配集合などの問題に対して、これまで知られていなかった$2^{\text{O}(k)}n^{\text{O}(1)}$時間および$n^{\text{O}(1)}$空間のアルゴリズムが提供される。特に、$\text{NEO}_2[\text{FRec}]$はCNF式に関連するインシデンスグラフを通じてCNF-SATを捉える。",
+      "summaryStruct": {
+        "problem": "グラフにおけるトリード深度を用いて、独立集合やハミルトン閉路などのNP困難問題を効率的に解く手法を探求する。これらの問題は、特定の条件下で多項式時間で解決可能であることが知られている。",
+        "method": "提案する論理（$\text{NEO}_2[\text{FRec}]+\text{ACK}$）は、頂点集合の近傍の一般化、接続性、非循環性、クリークの検証を行うための述語を持つ。この論理を用いることで、深さ$k$の排除森林を持つグラフに対して、$2^{\text{O}(k)}n^{\text{O}(1)}$の時間と$n^{\text{O}(1)}$の空間で問題を解決できる。",
+        "result": "新たに提案した手法により、CNF-SATや奇支配集合などの問題に対して、これまで知られていなかった$2^{\text{O}(k)}n^{\text{O}(1)}$時間および$n^{\text{O}(1)}$空間のアルゴリズムが提供される。特に、$\text{NEO}_2[\text{FRec}]$はCNF式に関連するインシデンスグラフを通じてCNF-SATを捉える。",
+        "topic": "グラフのトリード深度を利用したNP困難問題のモデル検査手法の提案"
       }
     }
   ]

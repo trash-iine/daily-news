@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-29T01:24:42.174Z",
+  "updatedAt": "2026-10-31T01:12:04.989Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -14,7 +14,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "ROCKET: Rapid Optimization via Calibration-guided Knapsack-Enhanced Truncation for Efficient Model Compression",
@@ -49,7 +49,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "SPLICE: Structured Prompt Local Iterative Combinatorial Evolution",
@@ -59,7 +59,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "HOPSE: Scalable Higher-Order Positional and Structural Encoder for Combinatorial Representations",
@@ -93,7 +93,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-29"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Revisiting Autoregressive GCNs for Vehicle Routing Problems",
@@ -103,17 +103,31 @@
         "vehicle routing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Diffusion-Enhanced GFlowNet for Solving Vehicle Routing Problems",
-      "authors": [],
-      "score": 10,
+      "authors": [
+        "Ni Zhang",
+        "Zhiqin Zhang",
+        "Ling Pan",
+        "+2"
+      ],
+      "score": 15,
       "matchedKeywords": [
         "vehicle routing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-23",
+      "arxivId": "2610.39512",
+      "arxivFoundOn": "2026-10-31",
+      "summary": "**技術と問題** GFlowNet (生成フローネット) と拡散モデルを用いた車両ルーティング問題 (VRP) の解決手法の提案\n\n**問題** 従来のニューラルソルバーは解の多様性が限られており、特に高報酬領域でのフロー拡張が不十分であるため、効果が制約される。これにより、より良い解を得るための探索が不足している。\n\n**手法** 提案手法であるDiffusion-Enhanced GFlowNet (DEG) は、GFlowNetの多様性を活かしてエッジ特有の逆信号を生成し、拡散モデルの確率的ノイズスケジュールを用いてこれらの信号を摂動し、最終的にGFlowNet内でデノイズすることで、高報酬領域へのフロー拡張を促進する。\n\n**結果** 合成データセットおよび実世界のデータセットにおいて、最大10,000ノードのインスタンスを含む評価で、DEGはベースライン手法と比較して一貫して優れた性能を達成した。",
+      "summaryStruct": {
+        "problem": "従来のニューラルソルバーは解の多様性が限られており、特に高報酬領域でのフロー拡張が不十分であるため、効果が制約される。これにより、より良い解を得るための探索が不足している。",
+        "method": "提案手法であるDiffusion-Enhanced GFlowNet (DEG) は、GFlowNetの多様性を活かしてエッジ特有の逆信号を生成し、拡散モデルの確率的ノイズスケジュールを用いてこれらの信号を摂動し、最終的にGFlowNet内でデノイズすることで、高報酬領域へのフロー拡張を促進する。",
+        "result": "合成データセットおよび実世界のデータセットにおいて、最大10,000ノードのインスタンスを含む評価で、DEGはベースライン手法と比較して一貫して優れた性能を達成した。",
+        "topic": "GFlowNet (生成フローネット) と拡散モデルを用いた車両ルーティング問題 (VRP) の解決手法の提案"
+      }
     },
     {
       "title": "QEC Model Zoo: Democratizing AI-enhanced Quantum Error Correction",
@@ -133,7 +147,7 @@
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "EnerGNN: Learning Optimization-Compatible Energy Functions for Exact Constrained Combinatorial Inference",
@@ -168,7 +182,7 @@
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "UECO: A Unified Encoder with Structure-Aware Attention Mixture via Iterative Edge Evolving for Neural Combinatorial Optimization",
@@ -178,7 +192,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-29"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Rectified Policy Rollouts with Hierarchical Expert Guidance for Neural Combinatorial Optimization",
@@ -188,7 +202,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-29"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Teacher-Aware Evolution of Heuristic Programs from Learned Optimization Policies",
@@ -224,7 +238,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Insight-Driven Search: A Framework for Multi-objective Automated Heuristic Design with Large Language Models",
@@ -234,7 +248,7 @@
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Interactive Combinatorial Reinforcement Learning for Knowledge Graph Reasoning",
@@ -244,7 +258,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Zeroth-Order Stackelberg Control in Combinatorial Congestion Games",
@@ -278,7 +292,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "EDISCO: Equivariant Discrete Diffusion for Euclidean Combinatorial Optimization",
@@ -312,7 +326,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "PISG: Constraint-Aligned Signal Amplification for Diffusion-Based Combinatorial Optimization",
@@ -322,7 +336,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Precision-Pyramid: Towards real-time neural decoding for fault-tolerant quantum computing",
@@ -342,7 +356,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "PACE: Partial-state Amortized Constraint Editing for Neural Combinatorial Optimization",
@@ -352,7 +366,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Relaxation-Aligned State Control for Test-Time Scaling in Generative Combinatorial Optimization",
@@ -362,7 +376,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Don't Waste Population: Post-Anneal Refinement for Combinatorial Optimization",
@@ -372,7 +386,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "An Embarrassingly Simple Graph Heuristic Reveals Shortcut-Solvable Benchmarks for Sequential Recommendation",
@@ -595,7 +609,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Learning to Search, Searching to Learn: A Closed-Loop Framework for Large-Scale Vehicle Routing",
@@ -605,7 +619,7 @@
         "vehicle routing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Quantizing With Randomized Hadamard Transforms: Efficient Heuristic Now Proven",
@@ -615,7 +629,7 @@
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "A Reproducible Evaluation Protocol for Quantum Non-Linearity in Variational Quantum Models",
@@ -709,9 +723,9 @@
       }
     }
   ],
-  "sourceCheckedOn": "2026-10-23",
+  "sourceCheckedOn": "2026-10-31",
   "sourceUrl": "https://neurips.cc/virtual/2026/papers.html",
-  "sourceHash": "95e802df13c6f606",
+  "sourceHash": "904e85e80e8d2498",
   "gated": true,
   "sourceTotal": 9129
 }

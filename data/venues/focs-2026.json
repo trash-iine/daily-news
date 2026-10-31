@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "FOCS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-10-25T23:39:57.737Z",
+  "updatedAt": "2026-10-31T01:12:04.994Z",
   "papers": [
     {
       "title": "$\\tilde{O}(1)$-Depth Parallel Reachability Faster than Transitive Closure",
@@ -81,7 +81,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "A computational phase transition for learning-to-sample from Ising models",
@@ -113,7 +113,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "A general framework for geometric problems: Low-dimensionality implies a PTAS",
@@ -125,7 +125,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "A Lower Bound for Non-Commutative Circuits",
@@ -135,7 +135,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "A Polynomial Coreset for Furthest Neighbor in Planar Metrics",
@@ -224,7 +224,7 @@
         "vehicle routing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "A quasipolynomial-time classical algorithm for SYK thermal expectations",
@@ -367,7 +367,7 @@
         "approximation algorithm"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Approximate polymorphisms of predicates",
@@ -440,7 +440,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Approximation Algorithms for Matroid-Intersection Coloring with Applications to Rota’s Basis Conjecture",
@@ -454,7 +454,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Bellman-Ford in Almost-Linear Time for Dense Graphs",
@@ -486,7 +486,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Beyond odd characteristic: Faster isomorphism testing of 2-groups of Frattini class 2",
@@ -544,7 +544,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Can We Break Fine-Grained and NP-Hardness Barriers if We’ve Seen the Graph Before? The Isomorphic-Priors Model",
@@ -670,12 +670,22 @@
         "Yonggang Jiang",
         "Thatchaphol Saranurak"
       ],
-      "score": 8,
+      "score": 17,
       "matchedKeywords": [
-        "optimization"
+        "optimization",
+        "approximation algorithm"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31",
+      "arxivId": "2610.32556",
+      "arxivFoundOn": "2026-10-31",
+      "summary": "**技術と問題** 最小コストフロー問題に対する組合せアルゴリズムの提案\n\n**問題** 最小コストフローを効率的に計算することは、特に密なグラフにおいて重要な課題です。従来のアルゴリズムは内部点法に依存しており、改善が求められていました。\n\n**手法** 本研究では、一般グラフ上の正確な最小コストフローを、DAG（有向非巡回グラフ）上の近似問題に還元する新しい手法を提案します。この還元により、計算時間の損失を最小限に抑えつつ、DAGに特化したアルゴリズムの開発が可能になります。\n\n**結果** 提案したアルゴリズムは、$n^{2+o(1)}$の時間で最小コストフローを計算でき、これはGoldberg-Tarjanの手法以来の初めての組合せ的改善です。",
+      "summaryStruct": {
+        "problem": "最小コストフローを効率的に計算することは、特に密なグラフにおいて重要な課題です。従来のアルゴリズムは内部点法に依存しており、改善が求められていました。",
+        "method": "本研究では、一般グラフ上の正確な最小コストフローを、DAG（有向非巡回グラフ）上の近似問題に還元する新しい手法を提案します。この還元により、計算時間の損失を最小限に抑えつつ、DAGに特化したアルゴリズムの開発が可能になります。",
+        "result": "提案したアルゴリズムは、$n^{2+o(1)}$の時間で最小コストフローを計算でき、これはGoldberg-Tarjanの手法以来の初めての組合せ的改善です。",
+        "topic": "最小コストフロー問題に対する組合せアルゴリズムの提案"
+      }
     },
     {
       "title": "Composing Low-Space Algorithms",
@@ -686,7 +696,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Compressed Inverse Suffix Arrays",
@@ -758,7 +768,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Dense Subset Sum in Multi-Dimension",
@@ -794,7 +804,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Deterministic Hardness of Approximation For SVP in all Finite $\\ell_p$ Norms",
@@ -825,7 +835,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Distances in Planar Graphs are Almost for Free!",
@@ -858,7 +868,7 @@
       "score": 0,
       "matchedKeywords": [],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-25"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Doubly-Efficient Interactive Arguments for Bounded-Space from One-Way Functions",
@@ -1349,7 +1359,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Gap-Majority Lemmas in Communication Complexity",
@@ -2170,7 +2180,7 @@
         "bin packing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-23"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Optimal PSPACE-hardness of Approximating $q$-CSP Reconfiguration",
@@ -2747,7 +2757,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-10-24"
+      "lastCheckedOn": "2026-10-31"
     },
     {
       "title": "Strong Low Degree Hardness for Stable Local Optima in Spin Glasses",
