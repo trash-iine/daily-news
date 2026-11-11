@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-11-10T03:53:12.922Z",
+  "updatedAt": "2026-11-11T01:32:14.478Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -320,13 +320,27 @@
     },
     {
       "title": "FocusBranch: Combinatorial Branch-and-Bound for $\\ell_0$ Neural Network Robustness Verification",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Renwei Deng",
+        "Yang He",
+        "Linyi Li",
+        "+1"
+      ],
+      "score": 12,
       "matchedKeywords": [
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-06"
+      "lastCheckedOn": "2026-11-06",
+      "arxivId": "2611.12024",
+      "arxivFoundOn": "2026-11-11",
+      "summary": "**技術と問題** ニューラルネットワークの $\text{ℓ}_0$ 耐性検証のためのコンビナトリアルブランチアンドバウンドフレームワーク FocusBranch\n\n**問題** ニューラルネットワークの $\text{ℓ}_0$ 摂動に対する局所的な耐性を検証することは、すべてのスパースな摂動ピクセルの部分集合を考慮する必要があり、組合せ的な問題である。これにより、効率的な検証手法が求められている。\n\n**手法** FocusBranchは、ノード抽象化を用いて $\text{ℓ}_0$ ボールを分解可能かつブランチ可能にすることで、耐性検証を実現する。具体的なノードとスーパー ノードの2つのブランチ機構を統合し、ノード制約のある $\text{ℓ}_0$ ボール上での線形緩和を具体化してノードの安全性を証明する。\n\n**結果** MNIST、Fashion-MNIST、CIFAR-10のデータセットに対する実験において、FocusBranchはさまざまなアーキテクチャで $\text{ℓ}_0$ 耐性を効果的に検証し、最先端の検証器を上回る性能を示した。",
+      "summaryStruct": {
+        "problem": "ニューラルネットワークの $\text{ℓ}_0$ 摂動に対する局所的な耐性を検証することは、すべてのスパースな摂動ピクセルの部分集合を考慮する必要があり、組合せ的な問題である。これにより、効率的な検証手法が求められている。",
+        "method": "FocusBranchは、ノード抽象化を用いて $\text{ℓ}_0$ ボールを分解可能かつブランチ可能にすることで、耐性検証を実現する。具体的なノードとスーパー ノードの2つのブランチ機構を統合し、ノード制約のある $\text{ℓ}_0$ ボール上での線形緩和を具体化してノードの安全性を証明する。",
+        "result": "MNIST、Fashion-MNIST、CIFAR-10のデータセットに対する実験において、FocusBranchはさまざまなアーキテクチャで $\text{ℓ}_0$ 耐性を効果的に検証し、最先端の検証器を上回る性能を示した。",
+        "topic": "ニューラルネットワークの $\text{ℓ}_0$ 耐性検証のためのコンビナトリアルブランチアンドバウンドフレームワーク FocusBranch"
+      }
     },
     {
       "title": "PISG: Constraint-Aligned Signal Amplification for Diffusion-Based Combinatorial Optimization",
