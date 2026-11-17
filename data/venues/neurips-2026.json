@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-11-16T01:35:29.866Z",
+  "updatedAt": "2026-11-17T04:13:33.548Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -344,13 +344,27 @@
     },
     {
       "title": "PISG: Constraint-Aligned Signal Amplification for Diffusion-Based Combinatorial Optimization",
-      "authors": [],
-      "score": 26,
+      "authors": [
+        "Yuming Zhang",
+        "Xianchen Zhou",
+        "Hongxia Wang"
+      ],
+      "score": 43,
       "matchedKeywords": [
-        "optimization"
+        "optimization",
+        "tsp"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-13",
+      "arxivId": "2611.19768",
+      "arxivFoundOn": "2026-11-17",
+      "summary": "**技術と問題** 拡散モデルを用いた組合せ最適化問題の解法における予測と制約の整合性強化\n\n**問題** 論文は、拡散モデルを用いた組合せ最適化において、予測と制約の整合性が弱いと解の質が低下する問題を扱っています。既存の手法は検索やデコーディングの改善に焦点を当てていますが、整合性を直接強化するアプローチは不足しています。\n\n**手法** 提案手法であるPerturbed Instance-Structure Guidance (PISG) は、テスト時に制約に沿った構造信号を強化することで、候補のランキングを改善します。具体的には、各デノイジングステップで構造を劣化させた予測を構築し、それから元の予測を外挿します。\n\n**結果** PISGを用いることで、DIFUSCO、T2T、FastT2T、StruDiCOの全16のTSPソルバー規模ペアや4つのMIS-ERソルバーで、MIS-ERの解決コストが最大+4.8%向上しました。これらの改善は、2-opt後の大規模設定でも持続しました。",
+      "summaryStruct": {
+        "problem": "論文は、拡散モデルを用いた組合せ最適化において、予測と制約の整合性が弱いと解の質が低下する問題を扱っています。既存の手法は検索やデコーディングの改善に焦点を当てていますが、整合性を直接強化するアプローチは不足しています。",
+        "method": "提案手法であるPerturbed Instance-Structure Guidance (PISG) は、テスト時に制約に沿った構造信号を強化することで、候補のランキングを改善します。具体的には、各デノイジングステップで構造を劣化させた予測を構築し、それから元の予測を外挿します。",
+        "result": "PISGを用いることで、DIFUSCO、T2T、FastT2T、StruDiCOの全16のTSPソルバー規模ペアや4つのMIS-ERソルバーで、MIS-ERの解決コストが最大+4.8%向上しました。これらの改善は、2-opt後の大規模設定でも持続しました。",
+        "topic": "拡散モデルを用いた組合せ最適化問題の解法における予測と制約の整合性強化"
+      }
     },
     {
       "title": "Precision-Pyramid: Towards real-time neural decoding for fault-tolerant quantum computing",
