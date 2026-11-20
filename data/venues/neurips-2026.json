@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-11-19T02:51:31.480Z",
+  "updatedAt": "2026-11-20T02:43:26.192Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -14,7 +14,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "ROCKET: Rapid Optimization via Calibration-guided Knapsack-Enhanced Truncation for Efficient Model Compression",
@@ -49,17 +49,31 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "SPLICE: Structured Prompt Local Iterative Combinatorial Evolution",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Anish Acharya",
+        "Phillip Studans",
+        "Amit Dhanda",
+        "+4"
+      ],
+      "score": 20,
       "matchedKeywords": [
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20",
+      "arxivId": "2611.18883",
+      "arxivFoundOn": "2026-11-20",
+      "summary": "**技術と問題** 自然言語最適化 (NLO) に基づくエージェントのポリシー改善手法の提案\n\n**問題** 従来のNLO手法は、文書全体を単一の編集可能な文字列として扱うため、安全性や多様性の欠如、無制限な膨張といった問題に直面している。これらの問題は、正式な保証によって解決されていない。\n\n**手法** SPLICEという新しいNLOフレームワークを提案し、編集グラフ上での制約付き組合せ探索として最適化を定式化する。これにより、契約テキストの保護や多様性の維持、精度と長さのバイアス制御が可能となる。\n\n**結果** SPLICEは、7つの公的ベンチマークにおいて4つで勝利し、3つでは従来の最強手法と同等の結果を達成した。また、契約ストレステストでは、制約のある最適化手法が失う契約条項を保持することができた。",
+      "summaryStruct": {
+        "problem": "従来のNLO手法は、文書全体を単一の編集可能な文字列として扱うため、安全性や多様性の欠如、無制限な膨張といった問題に直面している。これらの問題は、正式な保証によって解決されていない。",
+        "method": "SPLICEという新しいNLOフレームワークを提案し、編集グラフ上での制約付き組合せ探索として最適化を定式化する。これにより、契約テキストの保護や多様性の維持、精度と長さのバイアス制御が可能となる。",
+        "result": "SPLICEは、7つの公的ベンチマークにおいて4つで勝利し、3つでは従来の最強手法と同等の結果を達成した。また、契約ストレステストでは、制約のある最適化手法が失う契約条項を保持することができた。",
+        "topic": "自然言語最適化 (NLO) に基づくエージェントのポリシー改善手法の提案"
+      }
     },
     {
       "title": "HOPSE: Scalable Higher-Order Positional and Structural Encoder for Combinatorial Representations",
@@ -93,7 +107,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Revisiting Autoregressive GCNs for Vehicle Routing Problems",
@@ -103,7 +117,7 @@
         "vehicle routing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Diffusion-Enhanced GFlowNet for Solving Vehicle Routing Problems",
@@ -141,13 +155,27 @@
     },
     {
       "title": "Ballad: Bandit-Based LLM Routing for Automated Heuristic Discovery",
-      "authors": [],
-      "score": 8,
+      "authors": [
+        "Samidha Verma",
+        "Ankit Anand",
+        "Sayan Ranu"
+      ],
+      "score": 52,
       "matchedKeywords": [
+        "optimization",
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20",
+      "arxivId": "2611.17241",
+      "arxivFoundOn": "2026-11-20",
+      "summary": "**技術と問題** 大規模言語モデル (LLM) を用いた自動ヒューリスティック発見のためのバンディットアルゴリズム。\n\n**問題** LLMの選択が問題解決の効率に与える影響を探求し、コストの高いモデルが常に優れたヒューリスティックを提供するわけではないことを示します。特に、最適なモデル選択が非定常であるため、従来のオンライン意思決定の仮定が破られる問題に取り組みます。\n\n**手法** Ballad（バンディットベースのLLMルーティング）というオンラインバンディットアルゴリズムを提案し、複数のLLMを効果的に組織化します。これにより、各モデルの出力を考慮しつつ、希少で高スコアのヒューリスティックを優先する選択ポリシーを実現します。\n\n**結果** Balladは、5つのNP困難な組合せ最適化問題において、最良の個別LLMと同等またはそれを上回る成果を上げ、APIコストを最大65.6%削減しました。",
+      "summaryStruct": {
+        "problem": "LLMの選択が問題解決の効率に与える影響を探求し、コストの高いモデルが常に優れたヒューリスティックを提供するわけではないことを示します。特に、最適なモデル選択が非定常であるため、従来のオンライン意思決定の仮定が破られる問題に取り組みます。",
+        "method": "Ballad（バンディットベースのLLMルーティング）というオンラインバンディットアルゴリズムを提案し、複数のLLMを効果的に組織化します。これにより、各モデルの出力を考慮しつつ、希少で高スコアのヒューリスティックを優先する選択ポリシーを実現します。",
+        "result": "Balladは、5つのNP困難な組合せ最適化問題において、最良の個別LLMと同等またはそれを上回る成果を上げ、APIコストを最大65.6%削減しました。",
+        "topic": "大規模言語モデル (LLM) を用いた自動ヒューリスティック発見のためのバンディットアルゴリズム。"
+      }
     },
     {
       "title": "EnerGNN: Learning Optimization-Compatible Energy Functions for Exact Constrained Combinatorial Inference",
@@ -182,7 +210,7 @@
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "UECO: A Unified Encoder with Structure-Aware Attention Mixture via Iterative Edge Evolving for Neural Combinatorial Optimization",
@@ -192,7 +220,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Rectified Policy Rollouts with Hierarchical Expert Guidance for Neural Combinatorial Optimization",
@@ -202,7 +230,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Teacher-Aware Evolution of Heuristic Programs from Learned Optimization Policies",
@@ -238,7 +266,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Insight-Driven Search: A Framework for Multi-objective Automated Heuristic Design with Large Language Models",
@@ -248,7 +276,7 @@
         "heuristic"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Interactive Combinatorial Reinforcement Learning for Knowledge Graph Reasoning",
@@ -258,7 +286,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Zeroth-Order Stackelberg Control in Combinatorial Congestion Games",
@@ -292,7 +320,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "EDISCO: Equivariant Discrete Diffusion for Euclidean Combinatorial Optimization",
@@ -384,7 +412,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "PACE: Partial-state Amortized Constraint Editing for Neural Combinatorial Optimization",
@@ -394,7 +422,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Relaxation-Aligned State Control for Test-Time Scaling in Generative Combinatorial Optimization",
@@ -404,7 +432,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Don't Waste Population: Post-Anneal Refinement for Combinatorial Optimization",
@@ -414,7 +442,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "An Embarrassingly Simple Graph Heuristic Reveals Shortcut-Solvable Benchmarks for Sequential Recommendation",
@@ -637,7 +665,7 @@
         "optimization"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Learning to Search, Searching to Learn: A Closed-Loop Framework for Large-Scale Vehicle Routing",
@@ -647,7 +675,7 @@
         "vehicle routing"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-13"
+      "lastCheckedOn": "2026-11-20"
     },
     {
       "title": "Quantizing With Randomized Hadamard Transforms: Efficient Heuristic Now Proven",
