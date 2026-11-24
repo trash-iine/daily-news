@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "SAT 2026",
   "createdOn": "2026-11-17",
-  "updatedAt": "2026-11-17T04:13:33.548Z",
+  "updatedAt": "2026-11-24T05:33:53.902Z",
   "papers": [
     {
       "title": "Dsat: A Native SAT Solver for Discrete Logic",
@@ -26,6 +26,27 @@
         "method": "本研究では、離散変数が任意の値を取ることができる離散論理のためのネイティブなSATソルバーを開発しました。このソルバーは、単位解決やクローズ学習などの要素を持ちながら、離散変数に直接作用するように設計されています。",
         "result": "提案したSATソルバーは、離散CNFに適用したCSPソルバーやバイナリ化したCNFに適用したブールSATソルバー、いくつかのハイブリッドソルバーと比較して、実証的にその利点を示しました。",
         "topic": "離散論理に基づくSATソルバーの開発"
+      }
+    },
+    {
+      "title": "Extending CDCL to disjunctions of parity equations",
+      "authors": [
+        "Paul Beame",
+        "Glenn Sun"
+      ],
+      "arxivId": "2605.15002",
+      "arxivFoundOn": "2026-11-24",
+      "score": 4,
+      "matchedKeywords": [
+        "heuristic"
+      ],
+      "via": "arxiv-comment",
+      "summary": "**技術と問題** XNF (拡張論理形式) に基づく CDCL (衝突駆動学習法) の一般化による証明システムの強化\n\n**問題** CDCL と Resolution の両方で困難な問題に対して、より短い証明を見つける方法を探求しています。特に、XNF 形式における一般的な推論があまり探求されていないという背景があります。\n\n**手法** CDCL($\noplus$) は XNF 形式に対する CDCL の一般化であり、任意のパリティ方程式に基づく分岐や単位伝播中の線形代数的推論を含みます。この手法は、古典的な解決法を一般化したアフィン解決規則を用いており、最大のバックジャンプを持つ主張クローズを学習することを保証します。\n\n**結果** Xorcle というソルバーに実装した結果、Xorcle は Kissat、CaDiCaL、CryptoMiniSat と競争力があり、特に同時に開発された XNF ソルバー Xorricane を上回る性能を示しました。また、Xorcle は多くの CNF バージョンの問題を多項式時間で解決しました。",
+      "summaryStruct": {
+        "problem": "CDCL と Resolution の両方で困難な問題に対して、より短い証明を見つける方法を探求しています。特に、XNF 形式における一般的な推論があまり探求されていないという背景があります。",
+        "method": "CDCL($\noplus$) は XNF 形式に対する CDCL の一般化であり、任意のパリティ方程式に基づく分岐や単位伝播中の線形代数的推論を含みます。この手法は、古典的な解決法を一般化したアフィン解決規則を用いており、最大のバックジャンプを持つ主張クローズを学習することを保証します。",
+        "result": "Xorcle というソルバーに実装した結果、Xorcle は Kissat、CaDiCaL、CryptoMiniSat と競争力があり、特に同時に開発された XNF ソルバー Xorricane を上回る性能を示しました。また、Xorcle は多くの CNF バージョンの問題を多項式時間で解決しました。",
+        "topic": "XNF (拡張論理形式) に基づく CDCL (衝突駆動学習法) の一般化による証明システムの強化"
       }
     }
   ]
