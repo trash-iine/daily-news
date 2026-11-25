@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-11-24T05:33:53.904Z",
+  "updatedAt": "2026-11-25T04:38:11.936Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -790,6 +790,30 @@
         "method": "提案手法は、Folklore型GNNの連鎖手続きを用い、各ネットワークが前のネットワークの類似度行列をデコードし、ノードを整列品質でランク付けすることで訓練される。この非微分可能なランク付けステップが、各リンクで離散的な組合せフィードバックを注入する。",
         "result": "スパースなErdos-Renyiグラフにおいて、提案手法は85%の精度を達成し、従来のFAQ手法の13%やGNN手法のほぼ0%を大きく上回った。実世界のベンチマークでも、提案手法は強化されたベースラインをさらに改善した。",
         "topic": "組合せグラフ整列問題 (GAP) におけるノード対応の最適化手法"
+      }
+    },
+    {
+      "title": "SimpleEvol: An Agent-Loop Framework for LLM-Driven Automated Heuristic Design with Minimal Human Priors",
+      "authors": [
+        "Jianghan Zhu",
+        "Cong Zhang",
+        "Rongjie Zhu",
+        "+2"
+      ],
+      "arxivId": "2609.37172",
+      "arxivFoundOn": "2026-11-25",
+      "score": 29,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "via": "arxiv-comment",
+      "summary": "**技術と問題** 大規模言語モデル (LLM) を用いた自動ヒューリスティック設計 (AHD) の効率化\n\n**問題** 従来のAHDフレームワークではLLMが狭い役割に制約されており、その自律性が十分に活用されていない。これにより、手作りのソリューションよりも計算スケールに基づく一般的な手法が優れているという原則が無視されている。\n\n**手法** 提案手法は、LLM駆動のAHDフレームワークの手作り度 (AHI) と知能変換効率 (ICE) の指標を定義し、LLMが自律的に動作できるように人間の先入観をほぼ排除したSimpleEvolを提案する。これにより、LLMの能力を最大限に引き出すことができる。\n\n**結果** 10種類のLLMを3つの組合せ最適化問題で評価した結果、より少ない人間の先入観を持つフレームワークが高いICEを達成することが確認された。SimpleEvolは常に最高のICEを達成し、しばしば大きな差をつけている。",
+      "summaryStruct": {
+        "problem": "従来のAHDフレームワークではLLMが狭い役割に制約されており、その自律性が十分に活用されていない。これにより、手作りのソリューションよりも計算スケールに基づく一般的な手法が優れているという原則が無視されている。",
+        "method": "提案手法は、LLM駆動のAHDフレームワークの手作り度 (AHI) と知能変換効率 (ICE) の指標を定義し、LLMが自律的に動作できるように人間の先入観をほぼ排除したSimpleEvolを提案する。これにより、LLMの能力を最大限に引き出すことができる。",
+        "result": "10種類のLLMを3つの組合せ最適化問題で評価した結果、より少ない人間の先入観を持つフレームワークが高いICEを達成することが確認された。SimpleEvolは常に最高のICEを達成し、しばしば大きな差をつけている。",
+        "topic": "大規模言語モデル (LLM) を用いた自動ヒューリスティック設計 (AHD) の効率化"
       }
     }
   ],
