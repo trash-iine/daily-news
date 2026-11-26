@@ -4,7 +4,7 @@
   "year": 2026,
   "name": "NeurIPS 2026",
   "createdOn": "2026-10-23",
-  "updatedAt": "2026-11-25T04:38:11.936Z",
+  "updatedAt": "2026-11-26T03:48:12.029Z",
   "papers": [
     {
       "title": "Federated Distributionally Robust Neural Combinatorial Optimization with Convergence Guarantees",
@@ -436,13 +436,26 @@
     },
     {
       "title": "Don't Waste Population: Post-Anneal Refinement for Combinatorial Optimization",
-      "authors": [],
-      "score": 26,
+      "authors": [
+        "Yuma Ichikawa"
+      ],
+      "score": 51,
       "matchedKeywords": [
-        "optimization"
+        "optimization",
+        "graph coloring",
+        "maxcut"
       ],
       "via": "accepted-list",
-      "lastCheckedOn": "2026-11-20"
+      "lastCheckedOn": "2026-11-20",
+      "arxivId": "2611.33766",
+      "arxivFoundOn": "2026-11-26",
+      "summary": "**技術と問題** 並列アニーリングを用いた解の洗練手法の提案\n\n**問題** 従来の後処理では最良の解のみが洗練され、生成された候補解の多様性が活かされていない問題を解決する。多様な候補解を活用することで、より良い解を見つけることが求められている。\n\n**手法** 提案手法である反復経路再連結ポリッシュ (I-PRP) は、候補解から有望なものを選び、局所最適解間のコストに基づく経路を探索し、途中の状態を洗練することで新たな局所最適解を発見する。これにより、解の質を保ちながらさらなる探索が可能となる。\n\n**結果** MaxCut、MaxClique、グラフ彩色などの難しい組合せ最適化ベンチマークにおいて、いくつかの事例で大幅な改善が確認された。I-PRPは、従来の単一候補洗練法と比較して解の質を劣化させず、既存の多様性を活用することで追加のアニーリングを上回る性能を示した。",
+      "summaryStruct": {
+        "problem": "従来の後処理では最良の解のみが洗練され、生成された候補解の多様性が活かされていない問題を解決する。多様な候補解を活用することで、より良い解を見つけることが求められている。",
+        "method": "提案手法である反復経路再連結ポリッシュ (I-PRP) は、候補解から有望なものを選び、局所最適解間のコストに基づく経路を探索し、途中の状態を洗練することで新たな局所最適解を発見する。これにより、解の質を保ちながらさらなる探索が可能となる。",
+        "result": "MaxCut、MaxClique、グラフ彩色などの難しい組合せ最適化ベンチマークにおいて、いくつかの事例で大幅な改善が確認された。I-PRPは、従来の単一候補洗練法と比較して解の質を劣化させず、既存の多様性を活用することで追加のアニーリングを上回る性能を示した。",
+        "topic": "並列アニーリングを用いた解の洗練手法の提案"
+      }
     },
     {
       "title": "An Embarrassingly Simple Graph Heuristic Reveals Shortcut-Solvable Benchmarks for Sequential Recommendation",

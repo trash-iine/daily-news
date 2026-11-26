@@ -1,0 +1,1857 @@
+{
+  "date": "2026-11-26",
+  "generatedAt": "2026-11-26T03:48:13.914Z",
+  "items": [
+    {
+      "id": "3ba0b802a79cc8c3",
+      "kind": "paper",
+      "title": "The Traveling Salesman Problem with non-convex polygonal neighborhoods: A hybrid Iterated Local Search--Block Coordinate Descent approach",
+      "url": "https://arxiv.org/abs/2611.33376v1",
+      "summary": "**技術と問題** 近隣を考慮した巡回セールスマン問題 (TSPN) における最適訪問点の計算手法の提案\n\n**問題** 本研究は、ユークリッド平面上の任意の非凸多角形近隣を訪問する必要があるTSPNの解決を目指している。この問題は、連続最適化と組合せ最適化の両方の課題が絡むため、非常に複雑である。\n\n**手法** 提案手法は、ブロック座標降下法 (BCD) を用いており、与えられた訪問順序に対する最適訪問点を迅速に計算する。これにより、商業用ソルバーよりも6桁以上速く最適解を求めることが可能となる。\n\n**結果** 235のベンチマークインスタンスに対する広範な計算テストにおいて、提案手法は全てのケースで既知の最良ツアーと同等またはそれを上回る結果を示し、234のインスタンスでより短いツアーを得た。最適性が証明された80のインスタンスでは、すべてで最適ツアー長を達成し、相対差は0.001%未満であった。",
+      "summaryStruct": {
+        "problem": "本研究は、ユークリッド平面上の任意の非凸多角形近隣を訪問する必要があるTSPNの解決を目指している。この問題は、連続最適化と組合せ最適化の両方の課題が絡むため、非常に複雑である。",
+        "method": "提案手法は、ブロック座標降下法 (BCD) を用いており、与えられた訪問順序に対する最適訪問点を迅速に計算する。これにより、商業用ソルバーよりも6桁以上速く最適解を求めることが可能となる。",
+        "result": "235のベンチマークインスタンスに対する広範な計算テストにおいて、提案手法は全てのケースで既知の最良ツアーと同等またはそれを上回る結果を示し、234のインスタンスでより短いツアーを得た。最適性が証明された80のインスタンスでは、すべてで最適ツアー長を達成し、相対差は0.001%未満であった。",
+        "topic": "近隣を考慮した巡回セールスマン問題 (TSPN) における最適訪問点の計算手法の提案"
+      },
+      "tags": [
+        "optimization",
+        "heuristic",
+        "local search",
+        "traveling salesman",
+        "tsp",
+        "mixed-integer"
+      ],
+      "score": 70,
+      "popularity": 0,
+      "keywordScore": 70,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic",
+        "local search",
+        "traveling salesman",
+        "tsp",
+        "mixed-integer"
+      ],
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-11-24T20:05:17.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.928Z",
+      "authors": [
+        "Ernesto G. Birgin",
+        "Paula C. R. Ertel"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "1a2074ca2207d6b1",
+      "kind": "paper",
+      "title": "Don't Waste Population: Post-Anneal Refinement for Combinatorial Optimization",
+      "url": "https://arxiv.org/abs/2611.33766",
+      "summary": "**技術と問題** 並列アニーリングを用いた解の洗練手法の提案\n\n**問題** 従来の後処理では最良の解のみが洗練され、生成された候補解の多様性が活かされていない問題を解決する。多様な候補解を活用することで、より良い解を見つけることが求められている。\n\n**手法** 提案手法である反復経路再連結ポリッシュ (I-PRP) は、候補解から有望なものを選び、局所最適解間のコストに基づく経路を探索し、途中の状態を洗練することで新たな局所最適解を発見する。これにより、解の質を保ちながらさらなる探索が可能となる。\n\n**結果** MaxCut、MaxClique、グラフ彩色などの難しい組合せ最適化ベンチマークにおいて、いくつかの事例で大幅な改善が確認された。I-PRPは、従来の単一候補洗練法と比較して解の質を劣化させず、既存の多様性を活用することで追加のアニーリングを上回る性能を示した。",
+      "summaryStruct": {
+        "problem": "従来の後処理では最良の解のみが洗練され、生成された候補解の多様性が活かされていない問題を解決する。多様な候補解を活用することで、より良い解を見つけることが求められている。",
+        "method": "提案手法である反復経路再連結ポリッシュ (I-PRP) は、候補解から有望なものを選び、局所最適解間のコストに基づく経路を探索し、途中の状態を洗練することで新たな局所最適解を発見する。これにより、解の質を保ちながらさらなる探索が可能となる。",
+        "result": "MaxCut、MaxClique、グラフ彩色などの難しい組合せ最適化ベンチマークにおいて、いくつかの事例で大幅な改善が確認された。I-PRPは、従来の単一候補洗練法と比較して解の質を劣化させず、既存の多様性を活用することで追加のアニーリングを上回る性能を示した。",
+        "topic": "並列アニーリングを用いた解の洗練手法の提案"
+      },
+      "tags": [
+        "optimization",
+        "graph coloring",
+        "maxcut"
+      ],
+      "score": 51,
+      "popularity": 0,
+      "keywordScore": 51,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "optimization",
+        "graph coloring",
+        "maxcut"
+      ],
+      "source": "venue:neurips-2026",
+      "venue": "NeurIPS 2026",
+      "venueSlug": "neurips-2026",
+      "publishedAt": "2026-11-26T03:47:21.229Z",
+      "fetchedAt": "2026-11-26T03:47:21.229Z",
+      "authors": [
+        "Yuma Ichikawa"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "dc68c4e2d6ebdef5",
+      "kind": "paper",
+      "title": "Improved Quantum Algorithms for TSP and More",
+      "url": "https://arxiv.org/abs/2611.33730v1",
+      "summary": "**技術と問題** 量子アルゴリズムを用いた巡回セールスマン問題 (TSP) の計算時間の短縮\n\n**問題** 巡回セールスマン問題 (TSP) は、一般的な辺の重みに対して NP困難な最適化問題であり、従来の古典的アルゴリズムでは計算時間が指数的に増加します。従来の量子アルゴリズムの限界を超える新たなアプローチが求められています。\n\n**手法** 本研究では、Ambainis らの量子アルゴリズムの枠組みと極値集合システムの手法を組み合わせることで、TSP の計算時間を改善しました。最適なツアーを異なるサイズの4つの連続したサブパスに分解し、動的計画法を用いて最適値を計算することで、成功確率を小さく保ちながら振幅増幅を利用しています。\n\n**結果** 新たに提案したアルゴリズムは、TSP の計算時間を $O^*(1.70961^n)$ に短縮し、これまでの量子アルゴリズムの最良の時間境界を改善しました。また、関連する他の問題に対しても同様の量子上限を得ています。",
+      "summaryStruct": {
+        "problem": "巡回セールスマン問題 (TSP) は、一般的な辺の重みに対して NP困難な最適化問題であり、従来の古典的アルゴリズムでは計算時間が指数的に増加します。従来の量子アルゴリズムの限界を超える新たなアプローチが求められています。",
+        "method": "本研究では、Ambainis らの量子アルゴリズムの枠組みと極値集合システムの手法を組み合わせることで、TSP の計算時間を改善しました。最適なツアーを異なるサイズの4つの連続したサブパスに分解し、動的計画法を用いて最適値を計算することで、成功確率を小さく保ちながら振幅増幅を利用しています。",
+        "result": "新たに提案したアルゴリズムは、TSP の計算時間を $O^*(1.70961^n)$ に短縮し、これまでの量子アルゴリズムの最良の時間境界を改善しました。また、関連する他の問題に対しても同様の量子上限を得ています。",
+        "topic": "量子アルゴリズムを用いた巡回セールスマン問題 (TSP) の計算時間の短縮"
+      },
+      "tags": [
+        "optimization",
+        "traveling salesman",
+        "tsp",
+        "dynamic-programming",
+        "quantum-computing"
+      ],
+      "score": 38,
+      "popularity": 0,
+      "keywordScore": 38,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "optimization",
+        "traveling salesman",
+        "tsp",
+        "dynamic-programming",
+        "quantum-computing"
+      ],
+      "source": "arxiv:quant-ph",
+      "publishedAt": "2026-11-25T03:51:27.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.928Z",
+      "authors": [
+        "Masayuki Miyamoto"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "9444e97d9b44b2dd",
+      "kind": "news",
+      "title": "Show HN: An agent skill that optimizes code with falsifiable hypotheses",
+      "url": "https://chszlab.github.io/AgenticAlgorithmEngineering/",
+      "summary": "Hi all, I am a professor in algorithm engineering. In our field we use a method of falsifiable hypothesis testing to improve algorithms. More precisely, this is a cycle consisting of designing an algorithm, analyzing the algorithm, then imp",
+      "tags": [
+        "agent",
+        "algorithm"
+      ],
+      "score": 34,
+      "popularity": 15,
+      "keywordScore": 19,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "agent",
+        "algorithm"
+      ],
+      "source": "hn:algorithm",
+      "publishedAt": "2026-11-23T14:02:15.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://chszlab.github.io/AgenticAlgorithmEngineering/assets/social-preview.png"
+    },
+    {
+      "id": "5d82e7b9c184d4b7",
+      "kind": "paper",
+      "title": "Solving the capacitated vehicle routing problem with polygonal neighborhoods using a metaheuristic enhanced with block coordinate descent",
+      "url": "https://arxiv.org/abs/2611.33583v1",
+      "summary": "**技術と問題** 顧客の近隣地域を考慮した容量制約付き車両ルーティング問題 (CVRP) の解決手法\n\n**問題** 顧客が固定点ではなく平面上の領域として表現されるCVRPを扱い、訪問地点の選定が必要な問題を解決する。実際の応用に即した形で、顧客の近隣地域は単純な多角形として定義される。\n\n**手法** 提案手法は一般的な変数近傍探索フレームワークで、各近傍はルートの集合で表される。ルート構築は顧客の順序を定義し、その後訪問地点を決定する二段階のプロセスで行い、訪問地点の決定にはブロック座標降下法 (BCD) を用いる。\n\n**結果** 提案手法は、CPLEXによって最適と証明されたすべての解に一致し、残りのインスタンスではCPLEXによって見つかった最良の解を一致または改善した。また、文献に報告された元のCVRPインスタンスの解に基づく上限をすべての適応インスタンスで改善した。",
+      "summaryStruct": {
+        "problem": "顧客が固定点ではなく平面上の領域として表現されるCVRPを扱い、訪問地点の選定が必要な問題を解決する。実際の応用に即した形で、顧客の近隣地域は単純な多角形として定義される。",
+        "method": "提案手法は一般的な変数近傍探索フレームワークで、各近傍はルートの集合で表される。ルート構築は顧客の順序を定義し、その後訪問地点を決定する二段階のプロセスで行い、訪問地点の決定にはブロック座標降下法 (BCD) を用いる。",
+        "result": "提案手法は、CPLEXによって最適と証明されたすべての解に一致し、残りのインスタンスではCPLEXによって見つかった最良の解を一致または改善した。また、文献に報告された元のCVRPインスタンスの解に基づく上限をすべての適応インスタンスで改善した。",
+        "topic": "顧客の近隣地域を考慮した容量制約付き車両ルーティング問題 (CVRP) の解決手法"
+      },
+      "tags": [
+        "heuristic",
+        "vehicle routing"
+      ],
+      "score": 27,
+      "popularity": 0,
+      "keywordScore": 27,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "heuristic",
+        "vehicle routing"
+      ],
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-11-25T00:47:47.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.928Z",
+      "authors": [
+        "Ernesto G. Birgin",
+        "Rogério S. Matos"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "f82e87e46bb211a5",
+      "kind": "news",
+      "title": "【技術書典21】Claudeと作った同人誌で初出展しました。部数の決め方と当日の売れ方の記録",
+      "url": "https://qiita.com/minorun365/items/4416bd940ca0cd3aaabc",
+      "summary": "# 技術書典に初出展しました！ 技術書典21、おつかれさまでした！ 初めての出展で、Claude と一緒に作った同人誌を300部刷り、紙の本はおかげさまで全部お届けできました。 お待ちしてます！ #技術書典 pic.twitter.com/tOZ1NwRlsr — 🍊❄️ (@ponponmikankan) November 23, 2026 これから出展する人が部数を決める参考になればと思い、売れた冊数と売れ方を記録しておきます。 # 結果の数字 11/21（土）のオンラ",
+      "tags": [
+        "claude"
+      ],
+      "score": 25,
+      "popularity": 10,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Qiita LGTM 12",
+      "source": "qiita-api:claude",
+      "publishedAt": "2026-11-25T20:57:51+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkYxNjMzODU2JTJGYzIyNmJjMzRhYzZjNDVhMjFmNWU1MTJkMWM3MmE2ZjA5NzQ5NDU3OCUyRnhfbGFyZ2UucG5nJTNGMTY5OTk1NDk3Nj9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9MTlhZDI4ODRkNmQ2MzEyNjMxZDJkNTBjOTZmOTA5ZjU%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkYxZTIwZGI1ZTdlNDA3ZWFlN2I5NzBlYzk5OTg4MGRjOGMzY2MwZjY0JTJGb3JpZ2luYWwuanBnJTNGMTY2NzI3NDk2Mz9peGxpYj1yYi00LjEuMSZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZiZz1GRkZGRkYmYm9yZGVyPTIlMkNGRkZGRkYmZm09cG5nMzImcz04OTI0NDcwMDk1MDMyZjUxYmZlNzE3ZjVkOGUzYmE3ZA%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D75789497542ed55352086443c7ba4c98?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU2JThBJTgwJUU4JUExJTkzJUU2JTlCJUI4JUU1JTg1JUI4MjElRTMlODAlOTFDbGF1ZGUlRTMlODElQTglRTQlQkQlOUMlRTMlODElQTMlRTMlODElOUYlRTUlOTAlOEMlRTQlQkElQkElRTglQUElOEMlRTMlODElQTclRTUlODglOUQlRTUlODclQkElRTUlQjElOTUlRTMlODElOTclRTMlODElQkUlRTMlODElOTclRTMlODElOUYlRTMlODAlODIlRTklODMlQTglRTYlOTUlQjAlRTMlODElQUUlRTYlQjElQkElRTMlODIlODElRTYlOTYlQjklRTMlODElQTglRTUlQkQlOTMlRTYlOTclQTUlRTMlODElQUUlRTUlQTMlQjIlRTMlODIlOEMlRTYlOTYlQjklRTMlODElQUUlRTglQTglOTglRTklOEMlQjImdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1kMDg4ODEzMjVjMDBkZTQyNTc3YWMwN2VkNjNlYzNmMA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBtaW5vcnVuMzY1JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9YThjYmQyMjBkNDc3NGM1MjI3MzBiOWExMjBkOWZlMGM&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=S0RESeOCouOCuOODo-OCpOODq-mWi-eZuuOCu-ODs-OCv-ODvOagquW8j-S8muekvg&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%231E2121&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=6f5d05878d4b34170f6083220eeccf9e"
+    },
+    {
+      "id": "5608410099bdcaf9",
+      "kind": "news",
+      "title": "体験ドリブンのすすめ ― AIで作れる時代に、何で差がつくか",
+      "url": "https://zenn.dev/mediaforce/articles/2fef9933aae9e7",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 25,
+      "popularity": 10,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 11",
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-11-25T11:28:01.027+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--LkldVQKE--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E4%25BD%2593%25E9%25A8%2593%25E3%2583%2589%25E3%2583%25AA%25E3%2583%2596%25E3%2583%25B3%25E3%2581%25AE%25E3%2581%2599%25E3%2581%2599%25E3%2582%2581%2520%25E2%2580%2595%2520AI%25E3%2581%25A7%25E4%25BD%259C%25E3%2582%258C%25E3%2582%258B%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AB%25E3%2580%2581%25E4%25BD%2595%25E3%2581%25A7%25E5%25B7%25AE%25E3%2581%258C%25E3%2581%25A4%25E3%2581%258F%25E3%2581%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:Kazuma%2520Hosaka%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YxNDJmYjhhMzcuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E3%2583%25A1%25E3%2583%2587%25E3%2582%25A3%25E3%2582%25A2%25E3%2583%2595%25E3%2582%25A9%25E3%2583%25BC%25E3%2582%25B9%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSk16QnktS2wzXzF6YldNbGZZLXoxWGV5cUFpNWhhWUlwZTB1bnZkVnE1YlVsZTFnPXM5Ni1j%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "a3e0c1f40460c242",
+      "kind": "news",
+      "title": "【個人開発】AIでバトルロイヤルゲームを作ってみた",
+      "url": "https://qiita.com/yangon/items/4b0e3752764eb13f15be",
+      "summary": "![ZONEFALL](https://github30.github.io/knives-out/qiita/02-town.jpg) ## はじめに 「荒野行動みたいなバトロワを、ブラウザで、three.js なしで作って」 そう AI に頼んだら、2日後にはこうなっていました。 - **ブラウザで動く30人バトルロイヤル**（オンライン対戦 / ボット戦） - **Rust → WebAssembly** のゲームコア、**生の WebGPU**（three.js なし",
+      "tags": [
+        "rust"
+      ],
+      "score": 24,
+      "popularity": 9,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Qiita LGTM 10",
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-11-25T17:14:14+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0Mjk0NzUyJTJGN2QwNDAyNGE2YWUzZjFkYzJiYzJjNjZhZGZlMjAzMjU0Y2JjMzIyZiUyRnhfbGFyZ2UucG5nJTNGMTc2NTMzNzUyMD9peGxpYj1yYi00LjEuMSZhcj0xJTNBMSZmaXQ9Y3JvcCZtYXNrPWVsbGlwc2UmYmc9RkZGRkZGJmZtPXBuZzMyJnM9ODRkMjMyYWI1OWIwNWI2OGNhZDBjMmZhYWVhMjRkNGM%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D0ea95b509e7e01d172f367fc4a7dd2d6?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgwJTkwJUU1JTgwJThCJUU0JUJBJUJBJUU5JTk2JThCJUU3JTk5JUJBJUUzJTgwJTkxQUklRTMlODElQTclRTMlODMlOTAlRTMlODMlODglRTMlODMlQUIlRTMlODMlQUQlRTMlODIlQTQlRTMlODMlQTQlRTMlODMlQUIlRTMlODIlQjIlRTMlODMlQkMlRTMlODMlQTAlRTMlODIlOTIlRTQlQkQlOUMlRTMlODElQTMlRTMlODElQTYlRTMlODElQkYlRTMlODElOUYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz1jMjU3ZDA1NzhiZjc0YTJkOWQyMzllOThhZDMzMjM5ZQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDB5YW5nb24mdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1jNmU1Y2Q2NjE4ZWY0ZTdkMmJkNjc4YWMzZjUwMjQyNA&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=9ea7bf55e300496f666df8a8fbbb3344"
+    },
+    {
+      "id": "cec56ec8f289087d",
+      "kind": "news",
+      "title": "Claude CodeとLLM Wikiで全国の自治体の入札参加資格を、一人で回す",
+      "url": "https://zenn.dev/wisevine/articles/97b7ba8db70657",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 24,
+      "popularity": 9,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 9",
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-11-25T09:00:07.033+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--mXo44pdP--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%25E3%2581%25A8LLM%2520Wiki%25E3%2581%25A7%25E5%2585%25A8%25E5%259B%25BD%25E3%2581%25AE%25E8%2587%25AA%25E6%25B2%25BB%25E4%25BD%2593%25E3%2581%25AE%25E5%2585%25A5%25E6%259C%25AD%25E5%258F%2582%25E5%258A%25A0%25E8%25B3%2587%25E6%25A0%25BC%25E3%2582%2592%25E3%2580%2581%25E4%25B8%2580%25E4%25BA%25BA%25E3%2581%25A7%25E5%259B%259E%25E3%2581%2599%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%259F%25E3%2581%25A4%25E3%2582%2584%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2VlM2YyOGZhZmMuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:WiseVine%2520Tech%2520Blog%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzE4ODNiY2Y3NjMuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "1cf6557e4c3cf1be",
+      "kind": "paper",
+      "title": "Using block coordinate descent for solving the close enough traveling salesman problem",
+      "url": "https://arxiv.org/abs/2611.33448v1",
+      "summary": "**技術と問題** 近似旅行セールスマン問題 (CETSP) における訪問ポイントの最適化手法の提案。\n\n**問題** CETSPでは、セールスマンが顧客ごとに関連付けられた円内の任意のポイントを訪問する必要があり、訪問順序の評価には最適な訪問ポイントの決定が求められます。従来の手法は高コストまたは最適性を犠牲にするため、効率的な解法が必要です。\n\n**手法** 提案手法はブロック座標降下法 (BCD) を用い、訪問ポイントを逐次最適化します。この方法は、単一の円のサブ問題を1次元の最小化問題に還元し、効率的な解法を提供します。\n\n**結果** BCDは、従来のSOCPソルバーと比較して固定ツアーを1桁以上速く評価し、720の小規模ベンチマーク問題で既知の最適解を見つけ、62の大規模問題では47件で全てのヒューリスティックを上回り、11件で最良の結果に匹敵しました。",
+      "summaryStruct": {
+        "problem": "CETSPでは、セールスマンが顧客ごとに関連付けられた円内の任意のポイントを訪問する必要があり、訪問順序の評価には最適な訪問ポイントの決定が求められます。従来の手法は高コストまたは最適性を犠牲にするため、効率的な解法が必要です。",
+        "method": "提案手法はブロック座標降下法 (BCD) を用い、訪問ポイントを逐次最適化します。この方法は、単一の円のサブ問題を1次元の最小化問題に還元し、効率的な解法を提供します。",
+        "result": "BCDは、従来のSOCPソルバーと比較して固定ツアーを1桁以上速く評価し、720の小規模ベンチマーク問題で既知の最適解を見つけ、62の大規模問題では47件で全てのヒューリスティックを上回り、11件で最良の結果に匹敵しました。",
+        "topic": "近似旅行セールスマン問題 (CETSP) における訪問ポイントの最適化手法の提案。"
+      },
+      "tags": [
+        "local search",
+        "traveling salesman"
+      ],
+      "score": 23,
+      "popularity": 0,
+      "keywordScore": 23,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "local search",
+        "traveling salesman"
+      ],
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-11-24T21:13:11.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.928Z",
+      "authors": [
+        "Ernesto G. Birgin",
+        "Paula C. R. Ertel",
+        "Rogerio S. Matos"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "c31465abe4a576c3",
+      "kind": "news",
+      "title": "HOLY SHIT HOLY SHIT HOLY SHIT HOLY SHIT",
+      "url": "https://scottaaronson.blog/?p=10379",
+      "summary": "I feel like my previous posts (and post titles), and podcasts, and talks, have failed to do full justice to the magnitude of what’s now happening, so I’m trying again. Last night, we had friends and colleagues over for dinner. We were still",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 23,
+      "popularity": 15,
+      "keywordScore": 3,
+      "languageBonus": 5,
+      "matchedKeywords": [
+        "anthropic"
+      ],
+      "source": "rss:shtetl-optimized",
+      "publishedAt": "2026-11-25T19:01:13.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://s0.wp.com/_si/?t=eyJpbWciOiJodHRwczpcL1wvc2NvdHRhYXJvbnNvbi5ibG9nXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDIxXC8xMFwvY3JvcHBlZC1KYWNrZXQuZ2lmIiwidHh0IjoiU2h0ZXRsLU9wdGltaXplZCIsInRlbXBsYXRlIjoiZWRnZSIsImZvbnQiOiIiLCJibG9nX2lkIjoxMjk1MjA1ODB9.siOtN7gHw4tefA_rZickBw4GfI6tPxGgOQ1AXr2ZoOQMQ"
+    },
+    {
+      "id": "94bf528f2456eb3f",
+      "kind": "news",
+      "title": "Claude Code のセキュリティ、2026年11月時点のベストプラクティス（サンドボックス・権限・MCP）",
+      "url": "https://zenn.dev/happy_elements/articles/27e14ff6754044",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 23,
+      "popularity": 8,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 8",
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-11-25T12:53:12.176+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--XBzX5cTq--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Claude%2520Code%2520%25E3%2581%25AE%25E3%2582%25BB%25E3%2582%25AD%25E3%2583%25A5%25E3%2583%25AA%25E3%2583%2586%25E3%2582%25A3%25E3%2580%25812026%25E5%25B9%25B411%25E6%259C%2588%25E6%2599%2582%25E7%2582%25B9%25E3%2581%25AE%25E3%2583%2599%25E3%2582%25B9%25E3%2583%2588%25E3%2583%2597%25E3%2583%25A9%25E3%2582%25AF%25E3%2583%2586%25E3%2582%25A3%25E3%2582%25B9%25EF%25BC%2588%25E3%2582%25B5%25E3%2583%25B3%25E3%2583%2589%25E3%2583%259C%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25B9%25E3%2583%25BB%25E6%25A8%25A9%25E9%2599%2590%25E3%2583%25BBMCP%25EF%25BC%2589%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:ko.%252B%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YxOTA5NWJmOGIuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:Happy%2520Elements%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2U1OTRiOGRmY2EuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "830759ce26ae1fce",
+      "kind": "news",
+      "title": "A faster algorithm for extracting hexadecimal digits of π",
+      "url": "https://www.stylewarning.com/posts/faster-digit-extraction/",
+      "summary": "",
+      "tags": [
+        "algorithm"
+      ],
+      "score": 21,
+      "popularity": 15,
+      "keywordScore": 6,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "algorithm"
+      ],
+      "source": "hn:algorithm",
+      "publishedAt": "2026-11-25T03:28:42.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z"
+    },
+    {
+      "id": "2262fc1dcb92c379",
+      "kind": "news",
+      "title": "「コードを書く」から「迷わず判断する」へ——AIエージェント時代の開発ワークフローを自作ツールで再設計した話",
+      "url": "https://zenn.dev/syarihu/articles/ba25f243ca79ed",
+      "summary": "",
+      "tags": [
+        "rust"
+      ],
+      "score": 21,
+      "popularity": 6,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 4",
+      "source": "zenn-api:rust",
+      "publishedAt": "2026-11-24T08:00:05.516+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--QYpSLSN_--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2580%258C%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2589%25E3%2582%2592%25E6%259B%25B8%25E3%2581%258F%25E3%2580%258D%25E3%2581%258B%25E3%2582%2589%25E3%2580%258C%25E8%25BF%25B7%25E3%2582%258F%25E3%2581%259A%25E5%2588%25A4%25E6%2596%25AD%25E3%2581%2599%25E3%2582%258B%25E3%2580%258D%25E3%2581%25B8%25E2%2580%2594%25E2%2580%2594AI%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E6%2599%2582%25E4%25BB%25A3%25E3%2581%25AE%25E9%2596%258B%25E7%2599%25BA%25E3%2583%25AF%25E3%2583%25BC%25E3%2582%25AF%25E3%2583%2595%25E3%2583%25AD%25E3%2583%25BC%25E3%2582%2592%25E8%2587%25AA%25E4%25BD%259C%25E3%2583%2584%25E3%2583%25BC%25E3%2583%25AB%25E3%2581%25A7%25E5%2586%258D%25E8%25A8%25AD%25E8%25A8%2588%25E3%2581%2597%25E3%2581%259F%25E8%25A9%25B1%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:syarihu%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2lYdU9CWDA3aExLSENiMzJXYVJlSHBDQ2paVXJpLUVveVlIcnpremhvPXMyNTAtYw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "e7fce43c8c8b3250",
+      "kind": "news",
+      "title": "AIにイラレを触らせてみた ― バナーのサイズ違い展開を、手作業とAIで比べてみた",
+      "url": "https://zenn.dev/interpark/articles/8061229c8a5b8c",
+      "summary": "",
+      "tags": [
+        "claude"
+      ],
+      "score": 21,
+      "popularity": 6,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 4",
+      "source": "zenn-api:claude",
+      "publishedAt": "2026-11-24T17:09:05.509+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--1--wfgXp--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:AI%25E3%2581%25AB%25E3%2582%25A4%25E3%2583%25A9%25E3%2583%25AC%25E3%2582%2592%25E8%25A7%25A6%25E3%2582%2589%25E3%2581%259B%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2520%25E2%2580%2595%2520%25E3%2583%2590%25E3%2583%258A%25E3%2583%25BC%25E3%2581%25AE%25E3%2582%25B5%25E3%2582%25A4%25E3%2582%25BA%25E9%2581%2595%25E3%2581%2584%25E5%25B1%2595%25E9%2596%258B%25E3%2582%2592%25E3%2580%2581%25E6%2589%258B%25E4%25BD%259C%25E6%25A5%25AD%25E3%2581%25A8AI%25E3%2581%25A7%25E6%25AF%2594%25E3%2581%25B9%25E3%2581%25A6%25E3%2581%25BF%25E3%2581%259F%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BE%25E3%2582%25A4%25E3%2583%25B3%25E3%2582%25BF%25E3%2583%25BC%25E3%2583%2591%25E3%2583%25BC%25E3%2582%25AF%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2I0MjAyNzZmZjQuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "f63f4cad14680799",
+      "kind": "news",
+      "title": "Much shorter version of GRH Lean verification from Anthropic",
+      "url": "https://github.com/lsernau/grh-lean",
+      "summary": "",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 21,
+      "popularity": 15,
+      "keywordScore": 6,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "anthropic"
+      ],
+      "source": "hn:anthropic",
+      "publishedAt": "2026-11-25T21:48:10.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://opengraph.githubassets.com/f53c5cef09a63befce2661b460c3690ea2329e058a28a85a55dcc9dcabf28414/lsernau/grh-lean"
+    },
+    {
+      "id": "82b29f10efe921b5",
+      "kind": "news",
+      "title": "Addy Osmani from Anthropic: A practical guide to shipping with Claude Code",
+      "url": "https://claude.dev/blog/the-work-after-you-open-a-pr/",
+      "summary": "",
+      "tags": [
+        "claude",
+        "claude-code",
+        "anthropic"
+      ],
+      "score": 21,
+      "popularity": 3,
+      "keywordScore": 18,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "claude",
+        "claude-code",
+        "anthropic"
+      ],
+      "source": "hn:anthropic",
+      "publishedAt": "2026-11-24T22:09:50.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://claude.dev/blog/the-work-after-you-open-a-pr/og.png"
+    },
+    {
+      "id": "4175c83018e7a81b",
+      "kind": "news",
+      "title": "Anthropic Staff Openly Talk About ‘Taking Over the World’, Claims Max Tegmark",
+      "url": "https://novaramedia.com/2026/11/24/anthropic-staff-openly-talk-about-taking-over-the-world-claims-top-mit-physicist/",
+      "summary": "",
+      "tags": [
+        "anthropic"
+      ],
+      "score": 21,
+      "popularity": 15,
+      "keywordScore": 6,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "anthropic"
+      ],
+      "source": "hn:anthropic",
+      "publishedAt": "2026-11-24T17:10:45.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://novaramedia.com/wp-content/uploads/2026/11/Screenshot-2026-11-24-at-2.42.06-pm-e1795535439679-1200x630.png"
+    },
+    {
+      "id": "79f1a9c60a6f6966",
+      "kind": "news",
+      "title": "Show HN: Rust agent with an Inkling 2 Mini inference engine for Apple Silicon",
+      "url": "https://github.com/onatm/rustling",
+      "summary": "",
+      "tags": [
+        "rust",
+        "agent"
+      ],
+      "score": 21,
+      "popularity": 7,
+      "keywordScore": 14,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "rust",
+        "agent"
+      ],
+      "source": "hn:rust",
+      "publishedAt": "2026-11-25T19:42:36.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://opengraph.githubassets.com/df4cca77a7b763fe3f4160d762d83887069384c768812a4a16e046b48c014f61/onatm/rustling"
+    },
+    {
+      "id": "f1d99f95974300e6",
+      "kind": "paper",
+      "title": "A Robust Optimization Framework for Energy System Capacity Expansion under Line Outage Uncertainty",
+      "url": "https://arxiv.org/abs/2611.34113v1",
+      "summary": "**技術と問題** 気候とエネルギー政策分析における容量拡張モデルを用いた送電線の故障リスクの考慮\n\n**問題** 再生可能エネルギーの割合が増加する中で、送電線の故障が投資判断に与える影響を考慮する必要がある。従来のモデルは小規模システムに適用されることが多く、大規模システムには適用が難しい。\n\n**手法** 本研究では、送電線の故障リスクを考慮した容量拡張モデルを開発し、マルコフモデルからの時間変動する故障シナリオをサンプリングして、最も厳しいシナリオに対して投資をヘッジする二段階のロバスト最適化問題として定式化した。メモリ拡張ベンダー分解法とモンテカルロシミュレーションを組み合わせて、数千のシナリオを処理できるアルゴリズムを提案した。\n\n**結果** ドイツとその近隣国の25ノードのケーススタディでは、下限とシミュレーションによるVaR（バリュー・アット・リスク）境界とのギャップは1%未満であった。ロバストプランは、決定論的プランと比較して平均システムコストが0.2%以内、ヒューリスティックより約4.5%低かった。",
+      "summaryStruct": {
+        "problem": "再生可能エネルギーの割合が増加する中で、送電線の故障が投資判断に与える影響を考慮する必要がある。従来のモデルは小規模システムに適用されることが多く、大規模システムには適用が難しい。",
+        "method": "本研究では、送電線の故障リスクを考慮した容量拡張モデルを開発し、マルコフモデルからの時間変動する故障シナリオをサンプリングして、最も厳しいシナリオに対して投資をヘッジする二段階のロバスト最適化問題として定式化した。メモリ拡張ベンダー分解法とモンテカルロシミュレーションを組み合わせて、数千のシナリオを処理できるアルゴリズムを提案した。",
+        "result": "ドイツとその近隣国の25ノードのケーススタディでは、下限とシミュレーションによるVaR（バリュー・アット・リスク）境界とのギャップは1%未満であった。ロバストプランは、決定論的プランと比較して平均システムコストが0.2%以内、ヒューリスティックより約4.5%低かった。",
+        "topic": "気候とエネルギー政策分析における容量拡張モデルを用いた送電線の故障リスクの考慮"
+      },
+      "tags": [
+        "optimization",
+        "heuristic"
+      ],
+      "score": 20,
+      "popularity": 0,
+      "keywordScore": 20,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "optimization",
+        "heuristic"
+      ],
+      "source": "arxiv:math.OC",
+      "publishedAt": "2026-11-25T10:15:42.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.928Z",
+      "authors": [
+        "Kamran Forghani",
+        "Lina Reichenberg",
+        "Fredrik Hedenus",
+        "+1"
+      ],
+      "thumbnail": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png"
+    },
+    {
+      "id": "5bd4a347e53e3362",
+      "kind": "news",
+      "title": "agf導入でAIエージェントのセッション検索、クラウド実行では0件になった理由",
+      "url": "https://qiita.com/kai_kou/items/2925b5388cc7724d50c9",
+      "summary": "## はじめに Claude Code、Codex CLI、Cursor CLI、Gemini CLI……と複数の AI コーディングエージェントを併用していると、「あのセッション、どのツールでどのディレクトリで動かしてたっけ」と探す羽目になります。この状況を解決する Rust 製 CLI ツールが [agf](https://github.com/subinium/agf)（AI Agent Session Finder）です。 対象読者は、複数の AI コーディングエージ",
+      "tags": [
+        "rust"
+      ],
+      "score": 20,
+      "popularity": 5,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Qiita LGTM 3",
+      "source": "qiita-api:rust",
+      "publishedAt": "2026-11-23T20:10:28+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGNDg1NDklMkZwcm9maWxlLWltYWdlcyUyRjE1MjQxMzIyMDk_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPWY4Y2RhNWUwYjAyYzZhMDEwMTRiOTEwZjliYTRkZjY3%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da8e3712665b37e28e8194f64fe1c50c4?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9YWdmJUU1JUIwJThFJUU1JTg1JUE1JUUzJTgxJUE3QUklRTMlODIlQTglRTMlODMlQkMlRTMlODIlQjglRTMlODIlQTclRTMlODMlQjMlRTMlODMlODglRTMlODElQUUlRTMlODIlQkIlRTMlODMlODMlRTMlODIlQjclRTMlODMlQTclRTMlODMlQjMlRTYlQTQlOUMlRTclQjQlQTIlRTMlODAlODElRTMlODIlQUYlRTMlODMlQTklRTMlODIlQTYlRTMlODMlODklRTUlQUUlOUYlRTglQTElOEMlRTMlODElQTclRTMlODElQUYwJUU0JUJCJUI2JUUzJTgxJUFCJUUzJTgxJUFBJUUzJTgxJUEzJUUzJTgxJTlGJUU3JTkwJTg2JUU3JTk0JUIxJnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9ZmRmODEzNWRmMTNlZDQwOWZhZWY1NWE1YWNiYmU3ZTM&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrYWlfa291JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NWY2ZTkxOGU3MmQxNWJiYWRkODAzMjQ5NGVhMzVmNzI&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=159a48c50e5be5fd7e99a6a8848cabd4"
+    },
+    {
+      "id": "6b06788612edbff6",
+      "kind": "news",
+      "title": "自作キーボードのポインティングデバイスの特性の整理",
+      "url": "https://zenn.dev/tttkjm/articles/57542419da012c",
+      "summary": "",
+      "tags": [
+        "自作キーボード"
+      ],
+      "score": 18,
+      "popularity": 3,
+      "keywordScore": 0,
+      "languageBonus": 15,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 1",
+      "source": "zenn-api:自作キーボード",
+      "publishedAt": "2026-11-23T12:02:38.288+09:00",
+      "fetchedAt": "2026-11-26T03:46:33.909Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--ZMy95gnS--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E8%2587%25AA%25E4%25BD%259C%25E3%2582%25AD%25E3%2583%25BC%25E3%2583%259C%25E3%2583%25BC%25E3%2583%2589%25E3%2581%25AE%25E3%2583%259D%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2586%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%25E3%2583%2587%25E3%2583%2590%25E3%2582%25A4%25E3%2582%25B9%25E3%2581%25AE%25E7%2589%25B9%25E6%2580%25A7%25E3%2581%25AE%25E6%2595%25B4%25E7%2590%2586%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:karter%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2YzNWFhMWI3MzAuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "2ff1d8f9ee0f4a5a",
+      "kind": "news",
+      "title": "Analyze arcane symbols and purify corrupted animals in this upcoming horror puzzle roguelite",
+      "url": "https://thinkygames.com/news/analyze-arcane-symbols-and-purify-corrupted-animals-in-this-upcoming-horror-puzzle-roguelite/",
+      "summary": "Eldritch Empathy is a recently announced game featuring a relatively bizarre mix of mechanics, which feels appropriate for its Lovecraftian theme. Continue reading",
+      "tags": [
+        "puzzle-game"
+      ],
+      "score": 17,
+      "popularity": 12,
+      "keywordScore": 0,
+      "languageBonus": 5,
+      "matchedKeywords": [],
+      "source": "rss:thinky-games",
+      "publishedAt": "2026-11-24T16:38:51.000Z",
+      "fetchedAt": "2026-11-26T03:46:33.909Z"
+    },
+    {
+      "id": "ef2175e91eabfbca",
+      "kind": "paper",
+      "title": "The metro crew scheduling problem with train service segmentation: Formulations and a column generation-based algorithm",
+      "url": "https://doi.org/10.1016/j.ejor.2026.11.006",
+      "summary": "",
+      "tags": [
+        "scheduling",
+        "column generation"
+      ],
+      "score": 16,
+      "popularity": 0,
+      "keywordScore": 16,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "scheduling",
+        "column generation"
+      ],
+      "source": "journal:ejor",
+      "venue": "European J. Operational Research",
+      "publishedAt": "2026-11-25T07:33:09.000Z",
+      "fetchedAt": "2026-11-26T03:47:21.229Z",
+      "authors": [
+        "Jue Zhou",
+        "Xiaoming Xu",
+        "Jiancheng Long"
+      ]
+    },
+    {
+      "id": "decd25177cbd5db8",
+      "kind": "paper",
+      "title": "Neural-network-guided particle swarm optimization for tracking moving optima in continuous dynamic environments",
+      "url": "https://doi.org/10.1016/j.swevo.2026.102591",
+      "summary": "",
+      "tags": [
+        "optimization",
+        "particle swarm"
+      ],
+      "score": 14,
+      "popularity": 0,
+      "keywordScore": 14,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "optimization",
+        "particle swarm"
+      ],
+      "source": "journal:swevo",
+      "venue": "Swarm and Evolutionary Computation",
+      "publishedAt": "2026-11-25T16:00:31.000Z",
+      "fetchedAt": "2026-11-26T03:47:21.229Z",
+      "authors": [
+        "Stephen Raharja",
+        "Toshiharu Sugawara"
+      ]
+    },
+    {
+      "id": "03536b65a60c348d",
+      "kind": "paper",
+      "title": "A bilevel PPO–DDQN-coordinated evolutionary algorithm for multi-objective hybrid lot-streaming flow shop scheduling",
+      "url": "https://doi.org/10.1016/j.swevo.2026.102631",
+      "summary": "",
+      "tags": [
+        "scheduling",
+        "evolutionary algorithm"
+      ],
+      "score": 14,
+      "popularity": 0,
+      "keywordScore": 14,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "scheduling",
+        "evolutionary algorithm"
+      ],
+      "source": "journal:swevo",
+      "venue": "Swarm and Evolutionary Computation",
+      "publishedAt": "2026-11-25T07:54:51.000Z",
+      "fetchedAt": "2026-11-26T03:47:21.229Z",
+      "authors": [
+        "Tianpeng Xu",
+        "Xinping Han",
+        "Jingyu He",
+        "+3"
+      ]
+    },
+    {
+      "id": "8fe69e8c031836ee",
+      "kind": "paper",
+      "title": "Elementary first-order model checking for sparse graphs",
+      "url": "https://doi.org/10.46298/theoretics.26.19",
+      "summary": "**技術と問題** サブグラフ閉包グラフクラスにおける第一階モデル検査問題の固定パラメータ可算性の特性化\n\n**問題** サブグラフ閉包グラフクラスにおいて、第一階モデル検査問題の計算量がどのように依存するかを明らかにすることが課題である。特に、式のサイズに対する依存性が非初等的であることが知られている。\n\n**手法** 本研究では、第一階モデル検査問題が固定パラメータ可算であり、かつ式のサイズに対して初等的な依存性を持つサブグラフ閉包グラフクラスを一般化して特定する。特定の木を避けることが条件となる。\n\n**結果** この結果により、特定の木をトポロジカルマイナーとして除外するグラフクラスでは、第一階モデル検査が固定パラメータ可算であることが示された。",
+      "tags": [
+        "fixed-parameter"
+      ],
+      "score": 12,
+      "popularity": 0,
+      "keywordScore": 12,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "fixed-parameter"
+      ],
+      "source": "journal:theoretics",
+      "venue": "TheoretiCS",
+      "publishedAt": "2026-11-25T15:10:12.000Z",
+      "fetchedAt": "2026-11-26T03:47:21.229Z",
+      "authors": [
+        "Jakub Gajarský",
+        "Michał Pilipczuk",
+        "Marek Sokołowski",
+        "+2"
+      ],
+      "summaryStruct": {
+        "problem": "サブグラフ閉包グラフクラスにおいて、第一階モデル検査問題の計算量がどのように依存するかを明らかにすることが課題である。特に、式のサイズに対する依存性が非初等的であることが知られている。",
+        "method": "本研究では、第一階モデル検査問題が固定パラメータ可算であり、かつ式のサイズに対して初等的な依存性を持つサブグラフ閉包グラフクラスを一般化して特定する。特定の木を避けることが条件となる。",
+        "result": "この結果により、特定の木をトポロジカルマイナーとして除外するグラフクラスでは、第一階モデル検査が固定パラメータ可算であることが示された。",
+        "topic": "サブグラフ閉包グラフクラスにおける第一階モデル検査問題の固定パラメータ可算性の特性化"
+      },
+      "thumbnail": "https://theoretics.episciences.org/img/episciences_logo_1081x1081.jpg"
+    },
+    {
+      "id": "3043a7d8c91cd120",
+      "kind": "news",
+      "title": "アウトプットの「質」ってじゃあなんなんだよ",
+      "url": "https://zenn.dev/watany/articles/1efe3adea67dd5",
+      "summary": "",
+      "tags": [
+        "話題"
+      ],
+      "score": 11,
+      "popularity": 17,
+      "keywordScore": 0,
+      "languageBonus": 0,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 34",
+      "source": "zenn-trending",
+      "publishedAt": "2026-11-25T20:31:18.461+09:00",
+      "fetchedAt": "2026-11-26T03:48:12.031Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--grq4bfJz--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E3%2582%25A2%25E3%2582%25A6%25E3%2583%2588%25E3%2583%2597%25E3%2583%2583%25E3%2583%2588%25E3%2581%25AE%25E3%2580%258C%25E8%25B3%25AA%25E3%2580%258D%25E3%2581%25A3%25E3%2581%25A6%25E3%2581%2598%25E3%2582%2583%25E3%2581%2582%25E3%2581%25AA%25E3%2582%2593%25E3%2581%25AA%25E3%2582%2593%25E3%2581%25A0%25E3%2582%2588%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:watany%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyLzJiYjJiYTdkZjkuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "2da10ebf7215a41b",
+      "kind": "news",
+      "title": "1Password Security Incident",
+      "url": "https://1password.com/blog/update-on-nov-2026-security-incident",
+      "summary": "",
+      "tags": [
+        "話題"
+      ],
+      "score": 11,
+      "popularity": 15,
+      "keywordScore": 0,
+      "languageBonus": 0,
+      "matchedKeywords": [],
+      "source": "hn-trending",
+      "publishedAt": "2026-11-25T17:18:26.000Z",
+      "fetchedAt": "2026-11-26T03:48:12.031Z",
+      "thumbnail": "https://images.ctfassets.net/3091ajzcmzlr/3yu0DTU3edoU7HK8MxkW54/c5e7801fb8c0d7d52295da96af7e8013/business_2x.webp"
+    },
+    {
+      "id": "69bc7adaa5686af7",
+      "kind": "news",
+      "title": "結局「オントロジー」って何なのさ 〜概念と良さを4つのレイヤーで整理する〜",
+      "url": "https://zenn.dev/algomatic/articles/ece749a7e3cb24",
+      "summary": "",
+      "tags": [
+        "話題"
+      ],
+      "score": 8,
+      "popularity": 13,
+      "keywordScore": 0,
+      "languageBonus": 0,
+      "matchedKeywords": [],
+      "popularityLabel": "Zenn ♥ 18",
+      "source": "zenn-trending",
+      "publishedAt": "2026-11-25T18:23:05.006+09:00",
+      "fetchedAt": "2026-11-26T03:48:12.031Z",
+      "thumbnail": "https://res.cloudinary.com/zenn/image/upload/s--8yptwCbw--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:%25E7%25B5%2590%25E5%25B1%2580%25E3%2580%258C%25E3%2582%25AA%25E3%2583%25B3%25E3%2583%2588%25E3%2583%25AD%25E3%2582%25B8%25E3%2583%25BC%25E3%2580%258D%25E3%2581%25A3%25E3%2581%25A6%25E4%25BD%2595%25E3%2581%25AA%25E3%2581%25AE%25E3%2581%2595%2520%25E3%2580%259C%25E6%25A6%2582%25E5%25BF%25B5%25E3%2581%25A8%25E8%2589%25AF%25E3%2581%2595%25E3%2582%25924%25E3%2581%25A4%25E3%2581%25AE%25E3%2583%25AC%25E3%2582%25A4%25E3%2583%25A4%25E3%2583%25BC%25E3%2581%25A7%25E6%2595%25B4%25E7%2590%2586%25E3%2581%2599%25E3%2582%258B%25E3%2580%259C%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_34:%25E3%2581%25B2%25E3%2581%2595%25E3%2581%25B5%25E3%2582%258B%2Cx_220%2Cy_108/bo_3px_solid_rgb:d6e3ed%2Cg_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2JiNmQ5MTdlYmEuanBlZw==%2Cr_20%2Cw_90%2Cx_92%2Cy_102/co_rgb:6e7b85%2Cg_south_west%2Cl_text:notosansjp-medium.otf_30:%25E6%25A0%25AA%25E5%25BC%258F%25E4%25BC%259A%25E7%25A4%25BEAlgomatic%2Cx_220%2Cy_160/bo_4px_solid_white%2Cg_south_west%2Ch_50%2Cl_fetch:aHR0cHM6Ly9zdGF0aWMuemVubi5zdHVkaW8vdXNlci11cGxvYWQvYXZhdGFyL2Q2ZjExOTZmNTAuanBlZw==%2Cr_max%2Cw_50%2Cx_139%2Cy_84/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE"
+    },
+    {
+      "id": "8d417f9557a02d95",
+      "kind": "paper",
+      "title": "Navigating the Optimization Gap: Challenges and Improvements in Deep Learning Model Deployment",
+      "url": "https://doi.org/10.1613/jair.1.22113",
+      "summary": "**技術と問題** ディープラーニングモデルのデプロイメント課題に関する統一フレームワークの提案\n\n**問題** オフラインベンチマークで優れた性能を示すディープラーニングモデルが、厳しいレイテンシやコスト、信頼性の要件を満たせない問題を解決しようとしています。この問題は、MLインフラの予算に直接的な影響を与えています。\n\n**手法** 93件の関連論文をレビューし、最適化ギャップを性能、効率、互換性、可観測性、運用の堅牢性の5つの次元に分解しました。これにより、モデル、コンパイラ、システム、パイプラインレベルでの対策をマッピングしました。\n\n**結果** ビジョン、言語モデル、エッジデプロイメント、非Nvidiaハードウェアの事例研究により、ボトルネックの特定と最適化介入の効果が示されました。特に、5つの研究方向が今後の注目を必要としています。",
+      "tags": [
+        "optimization"
+      ],
+      "score": 6,
+      "popularity": 0,
+      "keywordScore": 6,
+      "languageBonus": 0,
+      "matchedKeywords": [
+        "optimization"
+      ],
+      "source": "journal:jair",
+      "venue": "J. Artificial Intelligence Research",
+      "publishedAt": "2026-11-25T20:29:07.000Z",
+      "fetchedAt": "2026-11-26T03:47:21.229Z",
+      "authors": [
+        "Lovina Dmello",
+        "Blaise Dmello",
+        "Linnet Tuscano"
+      ],
+      "summaryStruct": {
+        "problem": "オフラインベンチマークで優れた性能を示すディープラーニングモデルが、厳しいレイテンシやコスト、信頼性の要件を満たせない問題を解決しようとしています。この問題は、MLインフラの予算に直接的な影響を与えています。",
+        "method": "93件の関連論文をレビューし、最適化ギャップを性能、効率、互換性、可観測性、運用の堅牢性の5つの次元に分解しました。これにより、モデル、コンパイラ、システム、パイプラインレベルでの対策をマッピングしました。",
+        "result": "ビジョン、言語モデル、エッジデプロイメント、非Nvidiaハードウェアの事例研究により、ボトルネックの特定と最適化介入の効果が示されました。特に、5つの研究方向が今後の注目を必要としています。",
+        "topic": "ディープラーニングモデルのデプロイメント課題に関する統一フレームワークの提案"
+      }
+    }
+  ],
+  "trending": [
+    {
+      "source": "qiita-trending",
+      "title": "部署別Excelの列名とステータス値をpandasで棚卸しし、統合DB設計の手戻りを防ぐ",
+      "url": "https://qiita.com/takumi_engineer/items/b1c47eab37a04c8b5f55",
+      "publishedAt": "2026-11-26T09:00:16+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 4,
+      "tags": [
+        "python",
+        "pandas",
+        "excel",
+        "openpyxl",
+        "要件定義"
+      ],
+      "popularityRaw": 2
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【備忘録】AIが書いたコードを自分で理解するための習慣 ― 「動いた」で手を離さない",
+      "url": "https://qiita.com/Tadataka_Takahashi/items/f47f216fb76fff654336",
+      "publishedAt": "2026-11-26T01:23:47+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "ai",
+        "生成ai",
+        "プログラミング",
+        "学習",
+        "コードレビュー"
+      ],
+      "popularityRaw": 5
+    },
+    {
+      "source": "qiita-trending",
+      "title": "SBOMとは？自分のライブラリに導入してみた。",
+      "url": "https://qiita.com/ei_1263_/items/840a4797038ce7c62052",
+      "publishedAt": "2026-11-26T00:32:57+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 6,
+      "tags": [
+        "sbom",
+        "security"
+      ],
+      "popularityRaw": 4
+    },
+    {
+      "source": "qiita-trending",
+      "title": "VS Code 1.148：エージェント専用の Dev Container と Sandbox profiles。「隔離」の3種類を使い分ける",
+      "url": "https://qiita.com/shahin0809/items/05a6c7431ee7e5b6e520",
+      "publishedAt": "2026-11-26T00:19:26+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [
+        "vscode",
+        "githubcopilot",
+        "devcontainer",
+        "docker",
+        "aiエージェント"
+      ],
+      "popularityRaw": 9
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【技術書典21】Claudeと作った同人誌で初出展しました。部数の決め方と当日の売れ方の記録",
+      "url": "https://qiita.com/minorun365/items/4416bd940ca0cd3aaabc",
+      "publishedAt": "2026-11-25T20:57:51+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 10,
+      "tags": [
+        "技術書典",
+        "同人誌",
+        "claude",
+        "claudecode",
+        "生成ai"
+      ],
+      "popularityRaw": 12
+    },
+    {
+      "source": "qiita-trending",
+      "title": "海外で話題！「VS Codeが重い」を軽くする方法。まず測って、効く順に削る（2026年11月版）",
+      "url": "https://qiita.com/shahin0809/items/46b64d3f76c9a4440298",
+      "publishedAt": "2026-11-25T20:24:47+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 11,
+      "tags": [
+        "vscode",
+        "パフォーマンス",
+        "拡張機能",
+        "typescript",
+        "githubcopilot"
+      ],
+      "popularityRaw": 14
+    },
+    {
+      "source": "qiita-trending",
+      "title": "VS Code 1.147：エージェントへの依頼を予約できる！？Send Later と Drafts を整理した",
+      "url": "https://qiita.com/shahin0809/items/e6cbd71914171b8b6b49",
+      "publishedAt": "2026-11-25T20:13:58+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [
+        "vscode",
+        "githubcopilot",
+        "aiエージェント",
+        "github",
+        "自動化"
+      ],
+      "popularityRaw": 10
+    },
+    {
+      "source": "qiita-trending",
+      "title": "MinIO 単機コンテナの `read_only` 硬化・`SO_PEERCRED` 秘密注入・ハードクォータ強制の検証記録",
+      "url": "https://qiita.com/ubinity/items/f48deb95dd3ed52f1446",
+      "publishedAt": "2026-11-25T19:43:24+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [
+        "minio",
+        "s3",
+        "docker",
+        "linux",
+        "自宅サーバー"
+      ],
+      "popularityRaw": 1
+    },
+    {
+      "source": "qiita-trending",
+      "title": "心理的安全性を現場で育てる ― 「なんで？」をやめただけで2チーム統合リーダーの現場が変わった話",
+      "url": "https://qiita.com/teppei19980914/items/205353ed847956c45dd2",
+      "publishedAt": "2026-11-25T19:03:41+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 11,
+      "tags": [
+        "心理的安全性",
+        "心理的安全性のつくりかた",
+        "リーダーシップ",
+        "キャリア",
+        "組織開発"
+      ],
+      "popularityRaw": 13
+    },
+    {
+      "source": "qiita-trending",
+      "title": "Xでバズっている、AIに一文ごとの執筆意図を書かせる文章生成・校正スキル「tsuzuri」を普通の文章生成と比べてみた",
+      "url": "https://qiita.com/inoyu-qiita/items/c073f8b67716610c738e",
+      "publishedAt": "2026-11-25T18:59:17+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 5,
+      "tags": [
+        "claudecode",
+        "codex",
+        "ai",
+        "生成ai",
+        "ai活用"
+      ],
+      "popularityRaw": 3
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【合格体験記】G検定、勉強40時間。本番145問100分はエグい！",
+      "url": "https://qiita.com/Shinn_Matsumoto/items/310d5eff7fcbcbd044f7",
+      "publishedAt": "2026-11-25T17:54:08+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [
+        "g検定",
+        "jdla",
+        "deeplearning",
+        "資格",
+        "udemy"
+      ],
+      "popularityRaw": 1
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【個人開発】AIでバトルロイヤルゲームを作ってみた",
+      "url": "https://qiita.com/yangon/items/4b0e3752764eb13f15be",
+      "publishedAt": "2026-11-25T17:14:14+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [
+        "個人開発",
+        "ai",
+        "rust",
+        "webgpu",
+        "ゲーム開発"
+      ],
+      "popularityRaw": 10
+    },
+    {
+      "source": "qiita-trending",
+      "title": "New Relic アップデート(2026年10月)",
+      "url": "https://qiita.com/nr-mito/items/edfc9563e95e8283142a",
+      "publishedAt": "2026-11-25T15:01:41+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "newrelic",
+        "初心者",
+        "googlecloud",
+        "oraclecloud",
+        "監視"
+      ],
+      "popularityRaw": 6
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【第072回】AAがスマホでズレる悲劇を救え！アスキーアート専用等幅フォント保護とコードブロック衝突回避",
+      "url": "https://qiita.com/Waipe/items/e3421108dca5bf134191",
+      "publishedAt": "2026-11-25T13:03:14+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [
+        "掲示板",
+        "スレッドフロート",
+        "ai",
+        "バイブコーディング",
+        "チャットボット"
+      ],
+      "popularityRaw": 1
+    },
+    {
+      "source": "qiita-trending",
+      "title": "AIでGmail作ってみた【個人開発】",
+      "url": "https://qiita.com/yangon/items/2d7e26f6c306ed255282",
+      "publishedAt": "2026-11-25T12:24:06+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "個人開発",
+        "ai",
+        "typescript",
+        "cloudflareworkers",
+        "pwa"
+      ],
+      "popularityRaw": 5
+    },
+    {
+      "source": "qiita-trending",
+      "title": "LM Studio経由が10 tok/sなのは --n-gpu-layers 9 が渡されていたから。設定ファイルで gpuStrictVramCap を false にすると24 tok/s（VRAM 8GB・Qwen3.6-35B-A3B・ランタイム2.80.1）",
+      "url": "https://qiita.com/mukai3/items/4194902b97d0955f2c0f",
+      "publishedAt": "2026-11-25T11:57:58+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "llm",
+        "llama.cpp",
+        "lmstudio",
+        "ローカルllm",
+        "qwen"
+      ],
+      "popularityRaw": 5
+    },
+    {
+      "source": "qiita-trending",
+      "title": "2027年フレームワーク・ライブラリは死語になるか",
+      "url": "https://qiita.com/yangon/items/d11754d1ddd9390c17c6",
+      "publishedAt": "2026-11-25T11:56:24+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [
+        "ai",
+        "生成ai",
+        "アーキテクチャ",
+        "パフォーマンス",
+        "web開発"
+      ],
+      "popularityRaw": 1
+    },
+    {
+      "source": "qiita-trending",
+      "title": "テクスチャなしで魔法陣を描くHLSL実装（SDF／自動ルーン／3D多層視差）",
+      "url": "https://qiita.com/YYYGame/items/e59485469244adb57237",
+      "publishedAt": "2026-11-25T11:34:45+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 4,
+      "tags": [
+        "unity",
+        "urp",
+        "hlsl",
+        "shader",
+        "sdf"
+      ],
+      "popularityRaw": 2
+    },
+    {
+      "source": "qiita-trending",
+      "title": "New Relicの認定がリニューアル！30分から始められる日本語の認定試験",
+      "url": "https://qiita.com/seamoooooo/items/be1047af8fa86f22299a",
+      "publishedAt": "2026-11-25T11:32:07+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "newrelic",
+        "初心者",
+        "資格",
+        "監視",
+        "apm"
+      ],
+      "popularityRaw": 6
+    },
+    {
+      "source": "qiita-trending",
+      "title": "AIでphpMyAdmin作ってみた【個人開発】",
+      "url": "https://qiita.com/yangon/items/2bc93acc01fe5b2de14e",
+      "publishedAt": "2026-11-25T11:22:17+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 4,
+      "tags": [
+        "個人開発",
+        "ai",
+        "phpmyadmin",
+        "database",
+        "typescript"
+      ],
+      "popularityRaw": 2
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【EventBridge Webhook】SlackはNG、GitHubはOK？署名の仕様を突き合わせて調べた",
+      "url": "https://qiita.com/N-Kyo/items/3ed8f4a0a17eb4b1409d",
+      "publishedAt": "2026-11-25T10:45:30+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 8,
+      "tags": [
+        "aws",
+        "eventbridge",
+        "webhook",
+        "slack",
+        "新卒"
+      ],
+      "popularityRaw": 7
+    },
+    {
+      "source": "qiita-trending",
+      "title": "【OCIベクトルDB】無料枠から始められるRAGを無料で始める前に知っておきたいこと",
+      "url": "https://qiita.com/N-Kyo/items/f976e9467320807b2c3f",
+      "publishedAt": "2026-11-25T10:45:17+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [
+        "oci",
+        "oraclecloud",
+        "vectordatabase",
+        "rag",
+        "新卒"
+      ],
+      "popularityRaw": 9
+    },
+    {
+      "source": "qiita-trending",
+      "title": "Gemini 4のCarbon・Argon・Neon・Hydrogen、結局どれを使う？使い分けを1枚の表にした",
+      "url": "https://qiita.com/N-Kyo/items/6156bc251e826cdbf92d",
+      "publishedAt": "2026-11-25T10:44:51+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [
+        "googlecloud",
+        "gemini",
+        "生成ai",
+        "agentplatform",
+        "新卒"
+      ],
+      "popularityRaw": 10
+    },
+    {
+      "source": "qiita-trending",
+      "title": "pgvector検索のテナント漏えいをRLSで防ぐ：FastAPIでWHERE書き忘れを無害にする",
+      "url": "https://qiita.com/takumi_engineer/items/43f9cba66ac1c2264b25",
+      "publishedAt": "2026-11-25T09:00:13+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 5,
+      "tags": [
+        "postgresql",
+        "pgvector",
+        "fastapi",
+        "rag",
+        "security"
+      ],
+      "popularityRaw": 3
+    },
+    {
+      "source": "qiita-trending",
+      "title": "Laravel vs AIオレオレフレームワーク【Laravelは過去の遺物？】",
+      "url": "https://qiita.com/yangon/items/2552b40a820022126988",
+      "publishedAt": "2026-11-25T08:01:09+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 5,
+      "tags": [
+        "php",
+        "laravel",
+        "ai",
+        "パフォーマンス",
+        "ベンチマーク"
+      ],
+      "popularityRaw": 3
+    },
+    {
+      "source": "qiita-trending",
+      "title": "⚡オントロジー入門⚡ 属性とリレーションシップとは？Data PropertyとObject Propertyの違いをOntoBricksで理解する",
+      "url": "https://qiita.com/mellowlaunch/items/93123b9f53e6668fe876",
+      "publishedAt": "2026-11-25T07:32:04+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "オントロジー",
+        "ontology",
+        "ontobricks",
+        "ナレッジグラフ"
+      ],
+      "popularityRaw": 5
+    },
+    {
+      "source": "qiita-trending",
+      "title": "スプレッドシートの横で AI と会話してマイマクロを育てる ── GASコンボ＆GASクイック大幅改修の話",
+      "url": "https://qiita.com/shu15511551/items/a334ca0711365cf77786",
+      "publishedAt": "2026-11-25T06:45:14+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 4,
+      "tags": [
+        "gas",
+        "googlesheets",
+        "gemini",
+        "ai",
+        "claudecode"
+      ],
+      "popularityRaw": 2
+    },
+    {
+      "source": "qiita-trending",
+      "title": "ECR/S3からのimage pullの仕組みを深掘りする",
+      "url": "https://qiita.com/har1101/items/a6e5f0d2039bd0932511",
+      "publishedAt": "2026-11-25T00:28:45+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [
+        "aws",
+        "ecr",
+        "s3",
+        "vpc",
+        "privatelink"
+      ],
+      "popularityRaw": 6
+    },
+    {
+      "source": "qiita-trending",
+      "title": "火星の地震とは？",
+      "url": "https://qiita.com/hiraihayato8810/items/2097cceab435e7b8897a",
+      "publishedAt": "2026-11-24T23:56:20+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 0,
+      "tags": [
+        "火震",
+        "火星探査",
+        "地球科学",
+        "惑星科学",
+        "論文紹介"
+      ]
+    },
+    {
+      "source": "qiita-trending",
+      "title": "Cloudflare Pagesの_redirectsが約120件目から効かなくなった原因と、自分のファイルの確認方法",
+      "url": "https://qiita.com/myipscan/items/811bac5006d651c5aaac",
+      "publishedAt": "2026-11-24T21:17:16+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 0,
+      "tags": [
+        "cloudflare",
+        "cloudflarepages",
+        "seo",
+        "リダイレクト",
+        "javascript"
+      ]
+    },
+    {
+      "source": "zenn-trending",
+      "title": "著名なRust製OSSをLean 4で形式検証してみたら、めちゃめちゃバグが見つかった話",
+      "url": "https://zenn.dev/koukyosyumei/articles/31c8fcf4da45b7",
+      "publishedAt": "2026-11-23T14:17:05.936+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 37,
+      "tags": [],
+      "popularityRaw": 149
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Claude Code を5〜8個並べても迷わないように、自分用のダッシュボードをバイブコーディングで作った",
+      "url": "https://zenn.dev/nexta_/articles/a3ff76a9f98f1c",
+      "publishedAt": "2026-11-24T11:30:05.263+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 27,
+      "tags": [],
+      "popularityRaw": 79
+    },
+    {
+      "source": "zenn-trending",
+      "title": "アウトプットの「質」ってじゃあなんなんだよ",
+      "url": "https://zenn.dev/watany/articles/1efe3adea67dd5",
+      "publishedAt": "2026-11-25T20:31:18.461+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 17,
+      "tags": [],
+      "popularityRaw": 34
+    },
+    {
+      "source": "zenn-trending",
+      "title": "【自動化】Muse のサイドチャットへ Webhook を届ける MuseKnock の仕組み",
+      "url": "https://zenn.dev/codehex/articles/33bc6ee330b880",
+      "publishedAt": "2026-11-25T15:12:03.837+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 12,
+      "tags": [],
+      "popularityRaw": 16
+    },
+    {
+      "source": "zenn-trending",
+      "title": "マーダーミステリーのシナリオを形式手法で検証しようとしたら、バグと曖昧さが見つかった",
+      "url": "https://zenn.dev/henteko/articles/ed8d1458246d7a",
+      "publishedAt": "2026-11-25T01:45:47.259+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 16,
+      "tags": [],
+      "popularityRaw": 27
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Claude Code の /ship を図解する",
+      "url": "https://zenn.dev/peoplex_blog/articles/claude-code-ship",
+      "publishedAt": "2026-11-24T15:30:06.028+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 16,
+      "tags": [],
+      "popularityRaw": 28
+    },
+    {
+      "source": "zenn-trending",
+      "title": "モデルの性能が出ないのは AI ゲートウェイのせいかもしれない",
+      "url": "https://zenn.dev/google_cloud_jp/articles/7e29a9acf06557",
+      "publishedAt": "2026-11-25T07:22:23.618+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 14,
+      "tags": [],
+      "popularityRaw": 21
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Claude Code のセキュリティ、2026年11月時点のベストプラクティス（サンドボックス・権限・MCP）",
+      "url": "https://zenn.dev/happy_elements/articles/27e14ff6754044",
+      "publishedAt": "2026-11-25T12:53:12.176+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 8,
+      "tags": [],
+      "popularityRaw": 8
+    },
+    {
+      "source": "zenn-trending",
+      "title": "JSConf JP 2026 公開資料・Xアカウントリンクまとめ",
+      "url": "https://zenn.dev/h_yoshikawa0724/articles/2026-11-23-jsconf-jp-2026",
+      "publishedAt": "2026-11-23T14:38:39.090+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 17,
+      "tags": [],
+      "popularityRaw": 32
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Gemini 4 Neon を API で叩いて Claude Code・Codex CLI と比べた：65万トークンの超長文、費用、失敗",
+      "url": "https://zenn.dev/canly/articles/40e773759da8f8",
+      "publishedAt": "2026-11-24T17:51:41.386+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [],
+      "popularityRaw": 9
+    },
+    {
+      "source": "zenn-trending",
+      "title": "寝てる間に自動で動くAIエージェントを誰でも作れる：10分でわかる pstack 実践ガイド",
+      "url": "https://zenn.dev/canly/articles/ca6875cd79539f",
+      "publishedAt": "2026-11-20T18:04:40.760+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 29,
+      "tags": [],
+      "popularityRaw": 94
+    },
+    {
+      "source": "zenn-trending",
+      "title": "結局「オントロジー」って何なのさ 〜概念と良さを4つのレイヤーで整理する〜",
+      "url": "https://zenn.dev/algomatic/articles/ece749a7e3cb24",
+      "publishedAt": "2026-11-25T18:23:05.006+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 13,
+      "tags": [],
+      "popularityRaw": 18
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Personal Agent Protocol (Poppy) が解く問題と仕組み",
+      "url": "https://zenn.dev/sierra_japan/articles/0b9ba590232345",
+      "publishedAt": "2026-11-25T08:30:05.092+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 10,
+      "tags": [],
+      "popularityRaw": 12
+    },
+    {
+      "source": "zenn-trending",
+      "title": "なんとなくgrill-meしている人に伝えたい、作者本人から学んだSkillsの使い方",
+      "url": "https://zenn.dev/mediaforce/articles/27df1f22a00546",
+      "publishedAt": "2026-11-25T07:30:05.211+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 14,
+      "tags": [],
+      "popularityRaw": 22
+    },
+    {
+      "source": "zenn-trending",
+      "title": "specは実装後に8割削除しよう",
+      "url": "https://zenn.dev/ruri/articles/distill-specs-after-implementation",
+      "publishedAt": "2026-11-25T20:33:06.566+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [],
+      "popularityRaw": 1
+    },
+    {
+      "source": "zenn-trending",
+      "title": "RustでFiberを用いたJob Systemを実装したらReleaseビルドでバグが発生した",
+      "url": "https://zenn.dev/otinpan/articles/082f6178eb1472",
+      "publishedAt": "2026-11-25T19:24:41.403+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 5,
+      "tags": [],
+      "popularityRaw": 3
+    },
+    {
+      "source": "zenn-trending",
+      "title": "AIエージェントのMemory設計 ― 会話履歴・業務データ・長期Memoryの使い分け",
+      "url": "https://zenn.dev/taru_neko/articles/ai-agent-memory-architecture-2026",
+      "publishedAt": "2026-11-25T14:23:27.855+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [],
+      "popularityRaw": 1
+    },
+    {
+      "source": "zenn-trending",
+      "title": "エンジニア20人の組織を、デザイナー1人と AI で支える仕組み",
+      "url": "https://zenn.dev/rimo/articles/c25919207b1cde",
+      "publishedAt": "2026-11-24T17:24:00.501+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 10,
+      "tags": [],
+      "popularityRaw": 12
+    },
+    {
+      "source": "zenn-trending",
+      "title": "プログラミング教育の功罪",
+      "url": "https://zenn.dev/nobkz/articles/a8ed5591cd3e7d",
+      "publishedAt": "2026-11-23T13:40:23.019+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 16,
+      "tags": [],
+      "popularityRaw": 27
+    },
+    {
+      "source": "zenn-trending",
+      "title": "AIを使った開発に「敵対的検証」を取り入れてみた",
+      "url": "https://zenn.dev/visionarray/articles/26b316ff128513",
+      "publishedAt": "2026-11-25T15:55:45.050+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 6,
+      "tags": [],
+      "popularityRaw": 4
+    },
+    {
+      "source": "zenn-trending",
+      "title": "AWS セキュリティ成熟度モデル v3 と PCI DSS 版・AI 版の変更点と評価ツールを確認する",
+      "url": "https://zenn.dev/cscloud_blog/articles/new-aws-security-maturity-model",
+      "publishedAt": "2026-11-25T18:41:57.684+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 0,
+      "tags": []
+    },
+    {
+      "source": "zenn-trending",
+      "title": "RTX 5090を買ったからGPUサーバーを構築していくぞ その1（Ubuntu Server・vLLM編）",
+      "url": "https://zenn.dev/luxiar/articles/7eff2306ffb0c6",
+      "publishedAt": "2026-11-25T14:20:49.127+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [],
+      "popularityRaw": 10
+    },
+    {
+      "source": "zenn-trending",
+      "title": "15分かかっていたCIを数分に — 内訳を測り、ランナーは同じコミットで並べて比べ、テストを3シャードに分けた",
+      "url": "https://zenn.dev/rehabforjapan/articles/ci-runner-compare-test-shards-202611",
+      "publishedAt": "2026-11-25T13:41:36.647+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 8,
+      "tags": [],
+      "popularityRaw": 7
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Claude CodeとLLM Wikiで全国の自治体の入札参加資格を、一人で回す",
+      "url": "https://zenn.dev/wisevine/articles/97b7ba8db70657",
+      "publishedAt": "2026-11-25T09:00:07.033+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 9,
+      "tags": [],
+      "popularityRaw": 9
+    },
+    {
+      "source": "zenn-trending",
+      "title": "ぼくはnullが嫌いだ",
+      "url": "https://zenn.dev/okaponta/articles/ea88f9ed0c5be5",
+      "publishedAt": "2026-11-26T10:36:47.619+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [],
+      "popularityRaw": 1
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Claude Codeを安心して使うために、Dev Containerで隔離環境を作ってみた（WSL2＋Docker Desktop）",
+      "url": "https://zenn.dev/mutsu_zenn/articles/b9f824737b434a",
+      "publishedAt": "2026-11-26T07:00:05.178+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 3,
+      "tags": [],
+      "popularityRaw": 1
+    },
+    {
+      "source": "zenn-trending",
+      "title": "家事・育児の手順を題材に、暗黙知の形式知化を実践する｜小さく始めるAI-Readyなデータ基盤作り②",
+      "url": "https://zenn.dev/ot_it_bridge/articles/2c1f89d2408a88",
+      "publishedAt": "2026-11-26T04:24:43.376+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 0,
+      "tags": []
+    },
+    {
+      "source": "zenn-trending",
+      "title": "URPの_CameraDepthAttachmentと_CameraDepthTextureの違い",
+      "url": "https://zenn.dev/romgameclient/articles/954bbd6294522e",
+      "publishedAt": "2026-11-25T19:00:07.217+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 7,
+      "tags": [],
+      "popularityRaw": 5
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Java経験者が感じたLINQの便利さ",
+      "url": "https://zenn.dev/skyfall/articles/5de268e8339685",
+      "publishedAt": "2026-11-25T17:00:06.090+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 4,
+      "tags": [],
+      "popularityRaw": 2
+    },
+    {
+      "source": "zenn-trending",
+      "title": "Yocto で脱 GPLv3 構成を作り、ビルドごとに OSS ライセンス一覧を自動生成する",
+      "url": "https://zenn.dev/remote_sw/articles/3777969dd3a4de",
+      "publishedAt": "2026-11-25T16:35:05.422+09:00",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 0,
+      "tags": []
+    },
+    {
+      "source": "hn-trending",
+      "title": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+      "url": "https://alpo.ge/remark.pdf",
+      "publishedAt": "2026-11-20T14:16:21.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 2934
+    },
+    {
+      "source": "hn-trending",
+      "title": "Nvidia Reinstates Jensen Huang as CEO",
+      "url": "https://www.cnbc.com/2026/11/23/nvidia-jensen-huang-ceo.html",
+      "publishedAt": "2026-11-23T14:00:18.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 2840
+    },
+    {
+      "source": "hn-trending",
+      "title": "Hurried Announcement: Alessandro Masullo GRH",
+      "url": "https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/",
+      "publishedAt": "2026-11-20T18:33:14.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 2453
+    },
+    {
+      "source": "hn-trending",
+      "title": "Ladybird is now in alpha",
+      "url": "https://ladybird.org/posts/alpha/",
+      "publishedAt": "2026-11-23T16:13:12.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 2435
+    },
+    {
+      "source": "hn-trending",
+      "title": "\"Dario is hyping the dangers so OSS models are illegal and he stays in control\"",
+      "url": "https://twitter.com/ylecun/status/2124550037912920090",
+      "publishedAt": "2026-11-23T17:07:26.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 2013
+    },
+    {
+      "source": "hn-trending",
+      "title": "Jensen Huang Reinstated as Nvidia CEO",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director",
+      "publishedAt": "2026-11-23T14:01:23.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1714
+    },
+    {
+      "source": "hn-trending",
+      "title": "Inkling 2 Mini",
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "publishedAt": "2026-11-20T20:12:19.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1488
+    },
+    {
+      "source": "hn-trending",
+      "title": "Toyota, Nissan, and Honda to standardize parts to lower costs",
+      "url": "https://www.caranddriver.com/news/a74490092/toyota-nissan-honda-standardize-parts-lower-costs/",
+      "publishedAt": "2026-11-22T04:04:56.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1402
+    },
+    {
+      "source": "hn-trending",
+      "title": "Pill to treat pancreatic cancer hailed as 'biggest breakthrough in decades'",
+      "url": "https://www.theguardian.com/society/2026/nov/20/pill-pancreatic-cancer-breakthrough-daraxonrasib",
+      "publishedAt": "2026-11-20T21:03:12.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1400
+    },
+    {
+      "source": "hn-trending",
+      "title": "Lean verification of the Riemann Hypothesis",
+      "url": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+      "publishedAt": "2026-11-21T14:36:45.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1248
+    },
+    {
+      "source": "hn-trending",
+      "title": "1Password Security Incident",
+      "url": "https://1password.com/blog/update-on-nov-2026-security-incident",
+      "publishedAt": "2026-11-25T17:18:26.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1240
+    },
+    {
+      "source": "hn-trending",
+      "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+      "url": "https://z.ai/blog/glm-5.4",
+      "publishedAt": "2026-11-23T10:06:43.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1179
+    },
+    {
+      "source": "hn-trending",
+      "title": "Per Arm's request, this site will be discontinued on 4 December 2026 :(",
+      "url": "https://arm.jonpalmisc.com/",
+      "publishedAt": "2026-11-23T19:17:55.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1177
+    },
+    {
+      "source": "hn-trending",
+      "title": "Anthropic’s Nasdaq debut",
+      "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+      "publishedAt": "2026-11-19T17:02:40.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1146
+    },
+    {
+      "source": "hn-trending",
+      "title": "Free alternative TV network built from the Internet Archive's forgotten videos",
+      "url": "https://spelunkr.tv",
+      "publishedAt": "2026-11-23T01:13:51.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1089
+    },
+    {
+      "source": "hn-trending",
+      "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "publishedAt": "2026-11-22T08:57:34.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1042
+    },
+    {
+      "source": "hn-trending",
+      "title": "The matrix multiplication exponent is nine fourths [pdf]",
+      "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf",
+      "publishedAt": "2026-11-25T01:19:26.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1029
+    },
+    {
+      "source": "hn-trending",
+      "title": "Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening",
+      "url": "https://scottaaronson.blog/?p=10379",
+      "publishedAt": "2026-11-25T19:11:27.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1025
+    },
+    {
+      "source": "hn-trending",
+      "title": "2035 came early",
+      "url": "https://fzakaria.com/2026/11/23/2035-came-early",
+      "publishedAt": "2026-11-24T06:30:33.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1021
+    },
+    {
+      "source": "hn-trending",
+      "title": "LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "publishedAt": "2026-11-24T12:40:15.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 1006
+    },
+    {
+      "source": "hn-trending",
+      "title": "Pancreatic cancer halted by virus injection in three patients",
+      "url": "https://www.newscientist.com/article/2528235-pancreatic-cancer-halted-by-virus-injection-in-three-patients/",
+      "publishedAt": "2026-11-19T17:25:33.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 895
+    },
+    {
+      "source": "hn-trending",
+      "title": "Button Sounds – collection of professionally-recorded button clicks and presses",
+      "url": "https://buttons.joshwcomeau.com/",
+      "publishedAt": "2026-11-25T03:23:07.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 852
+    },
+    {
+      "source": "hn-trending",
+      "title": "What Happened to Silicon Valley?",
+      "url": "https://www.oreilly.com/radar/what-happened-to-silicon-valley/",
+      "publishedAt": "2026-11-22T19:20:15.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 841
+    },
+    {
+      "source": "hn-trending",
+      "title": "I'll never buy Framework hardware again",
+      "url": "https://poolp.org/posts/2026-11-20/ill-never-buy-framework-hardware-again/",
+      "publishedAt": "2026-11-20T16:06:30.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 840
+    },
+    {
+      "source": "hn-trending",
+      "title": "New York Bans Subscription and Post-Purchase Fees on Cars",
+      "url": "https://www.governor.ny.gov/news/money-your-pockets-governor-hochul-signs-bill-restricting-exploitative-vehicle-subscription",
+      "publishedAt": "2026-11-24T02:27:02.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 818
+    },
+    {
+      "source": "hn-trending",
+      "title": "Slopstrap – Make your site look hastily vibecoded",
+      "url": "https://slopstrap.mikelacher.com/",
+      "publishedAt": "2026-11-20T15:24:11.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 818
+    },
+    {
+      "source": "hn-trending",
+      "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+      "publishedAt": "2026-11-22T21:01:16.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 776
+    },
+    {
+      "source": "hn-trending",
+      "title": "Ask HN: I have been unemployed for 2y. 15 years of experience, US. What to do?",
+      "url": "https://news.ycombinator.com/item?id=50583761",
+      "publishedAt": "2026-11-20T23:18:32.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 754
+    },
+    {
+      "source": "hn-trending",
+      "title": "If you can't explain something in simple terms, you don't understand it (2017)",
+      "url": "https://kottke.org/17/06/if-you-cant-explain-something-in-simple-terms-you-dont-understand-it",
+      "publishedAt": "2026-11-20T09:43:19.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 726
+    },
+    {
+      "source": "hn-trending",
+      "title": "Detonating a pile of lead azide",
+      "url": "https://www.science.org/content/blog-post/detonating-huge-pile-lead-azide-really",
+      "publishedAt": "2026-11-21T13:23:14.000Z",
+      "fetchedAt": "2026-11-26T03:46:10.450Z",
+      "popularity": 15,
+      "tags": [],
+      "popularityRaw": 725
+    }
+  ]
+}
