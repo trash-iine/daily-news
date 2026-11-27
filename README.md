@@ -1,6 +1,8 @@
 # daily-news
 
-自分用デイリーニュースサイト。GitHub Actions で毎朝 (JST 07:00) ニュースと論文を巡回・スコアリングし、論文を OpenAI で日本語要約して `data/YYYY-MM-DD.json` に保存。Next.js + Vercel で閲覧する。
+自分用デイリーニュースサイト。GitHub Actions で毎朝 (JST 06:43) ニュースと論文を巡回・スコアリングし、論文を OpenAI で日本語要約して `data/YYYY-MM-DD.json` に保存。Next.js + Vercel で閲覧する。
+
+中身を変える人向けの資料は [`docs/`](./docs/README.md) にある (全体像・データ形式・パイプライン・Web・開発の進め方)。
 
 ## 構成
 
@@ -8,7 +10,7 @@
 - `packages/pipeline` — TypeScript で書いた収集・スコア・要約パイプライン
 - `apps/web` — Next.js 15 (App Router) + Tailwind
 - `data/` — 日次の JSON（Action がコミットする成果物）と `index.json`、`data/venues/` (会議ごとの採択論文リスト)、`data/.cache/` (フィード HTTP キャッシュ)
-- `.github/workflows/daily.yml` — 毎朝の cron (`0 22 * * *` UTC) + 手動実行 (`workflow_dispatch`)
+- `.github/workflows/daily.yml` — 毎朝の cron (`43 21 * * *` UTC = 06:43 JST) + 手動実行 (`workflow_dispatch`)
 
 ## ソース
 
@@ -38,95 +40,14 @@
 
 各 RSS は `RssFeedConfig` で `baseScore` / `lang` / `important` を持ち、更新頻度が低い一次情報ほど `baseScore` を高く設定して埋もれを防ぐ (PEP=15, Shtetl-Optimized=15, Rust 公式・TWIR・TALPKEYBOARD・コーヒー系=12, Greenkeys・Google Research=5, Quanta Magazine・Nazology=0)。
 
-## スコアリングとランキング
+## スコアリングと画面
 
-### ニュース
+- **ニュース**: 人気指標 (いいね・points・フィードの重み) とキーワード一致で採点し、日本語ソースを優先して並べる。大タグ (`language` / `ai` / `algorithm` / `hobby` / `game`) ごとに最低枠を確保し、残りをスコア順に埋める。興味タグと関係なく勢いのある記事を「話題」枠として数件足す
+- **論文**: arXiv / APS の新着をキーワードで採点して上位を採用し、OpenAI で日本語に構造化要約する。量子の論文は最低 1 本を保証する
+- **採択論文・論文誌**: 会議の採択リストと arXiv comments の採択表記、論文誌の新着を追い、arXiv 版が見つかった日に Today に載せる。会議ごとの全件は `/venues/{slug}` で読める
+- **Web**: Today / Recap の 2 タブ。スマホ (1 カラム + スワイプで日送り) と PC (3 ペイン + キーボード操作) を幅 1024px で切り替える。機械向けに最新日 1 日分を返す `/latest.json` がある
 
-1 つの全体ランキングに統一されており、各 item に対して以下の 2 段階スコアを計算する:
-
-- `merit  = popularity + kwScore`
-  - `popularity` — Qiita / Zenn は `likes_count` を sqrt スケール圧縮 (`round(3 * sqrt)`)、Hacker News は points を `pointsToBaseScore` で sqrt 正規化 (cap 15)、RSS は `baseScore` をそのまま
-  - `kwScore` — `KEYWORD_WEIGHTS` をタイトル + 概要にマッチさせた重み合計 (Qiita / Zenn は API のタグ自体を信頼してキーワード照合をスキップ)
-- `score  = merit + LANGUAGE_BONUS[tier]`
-  - `tier 0` (日本語ソース全般): `+15`
-  - `tier 1` (英語の重要・低頻度ソース、`important: true`): `+5`
-  - `tier 2` (それ以外の英語、HN 等): `+0`
-
-採用ロジック (`rankNews`):
-
-1. 過去 `NEWS_MAX_AGE_HOURS` (= 168 時間 / 7 日) 以内に発行
-2. URL 重複除外 + 過去 `NEWS_SEEN_LOOKBACK_DAYS` (= 7 日) の bundle に出た記事を除外
-3. `NEGATIVE_KEYWORDS` (`sponsored` / `アフィリエイト` / `プロモーション` / `pr記事`) を含む item を除外
-4. `merit >= NEWS_SCORE_THRESHOLD` かつ canonical タグが `BIG_TAG_GROUPS` に属する item のみ残す (`BIG_TAG_GROUPS` に無いタグの item は採用候補から落ちる)
-5. github.com 直リンクは canonical タグごと最高スコア 1 件まで (HN 由来のレポ紹介で同タグが埋まるのを防ぐ)
-6. **大タグ別の最低枠**: `BIG_TAG_GROUPS` (`language` / `ai` / `algorithm` / `hobby` / `game`) の各グループから最低 `NEWS_MIN_PER_GROUP` (= 1) 件を確保
-7. 残り枠は全体 `score` 降順で `NEWS_TOP_N` (= 17) 件まで埋める
-
-`LANGUAGE_BONUS` は順位付けのみに効かせ、`merit` の閾値判定には使わない（低品質記事が bonus だけで通過しない設計）。
-
-このほか興味タグと無関係でも、Qiita / Zenn / HN 全体で勢い (velocity = popularity ÷ √経過時間) のある記事を「話題」枠として `NEWS_TRENDING_TOP_N` (= 3) 件まで別途追加する (`selectTrendingNews`)。
-
-### 論文
-
-arXiv (Atom API) と APS RSS の候補を合算し、`PAPER_KEYWORDS` をタイトル + abstract に当てたスコアで降順、`PAPER_PRIORITY_KEYWORDS` (`np-hard` / `np hard` / `metaheuristic` / `heuristic`) を含むものを最優先、`PAPERS_TOP_N` (= 5) 件を採用し、`OPENAI_MODEL` (gpt-4o-mini) で日本語要約。arXiv は `announceType === "new"` のみ採用 (cross-listing / replace は除外)。quantum 系はキーワード加点しない方針の代わりに、`PAPERS_QUANTUM_MIN` (= 1) 件の最低枠で採用を保証する。
-
-arXiv のアナウンスが無い日 (土日など、当日 publish された論文が無い日) は論文セクションが空になりうる。
-
-### 採択論文・論文誌
-
-arXiv 新着とは別枠の「採択論文・論文誌」セクション (`VENUE_PAPERS_TOP_N` = 6 件)。`src/venues/` が担当する。
-
-1. **採択リスト** を取り込み、`data/venues/{venue}-{year}.json` に保存する。見出しの年を検証し、前年の内容が残ったページは採らない
-2. **arXiv 照合**: リストの各論文の arXiv 版をタイトル語検索 + 著者の姓の一致で探す (`venues/match.ts`)。著者が載っていない ML 会議の一覧はタイトルのほぼ一致 (Jaccard 0.9 以上) で判定し、著者は arXiv 側から埋める。照合は arXiv API のタイトル語検索 (キー不要、3 秒間隔、1 回 `VENUE_MATCH_MAX_PER_RUN` = 80 件まで)。未発見の論文はリスト作成から 14 日は毎日、以降は 7 日おきに照合し直す
-3. **comments 採択表記** でヒットした論文も同じ venue ファイルに積む
-4. arXiv 版が **初めて見つかった日** に、その論文が Today の候補になる。abstract で `PAPER_KEYWORDS` 採点し、要約して venue ファイルに保存 (1 回 `VENUE_SUMMARIZE_MAX_PER_RUN` = 80 件まで)
-5. 論文誌 / ECCC の新着も同じキーワード採点で候補に入れ、関連度上位を採用する。会議採択論文と `important` な誌 (JACM / SICOMP / TheoretiCS) はキーワード非一致でも候補に残る
-
-採択リスト公開日は数十〜百本が一度に見つかるので、Today に出るのは関連度上位だけ。全件は Web の `/venues/{slug}` (会議別ページ) で関連度順に読める。
-
-### サムネイル
-
-採用後に各 item の URL を Open Graph スクレイプで取得し (`thumbnail.ts`、並列度 8)、ヒットした分だけ JSON に `thumbnail` を入れる。
-
-## Web UI
-
-Today / Recap の 2 タブ構成。スマホ版とデスクトップ版の両方を SSR で描画し、`globals.css` の
-`.viewport-mobile` / `.viewport-desktop` (境界 **1024px**) で出し分ける。表示状態 (タブ・表示中の日付・
-現在時刻) は `app/components/AppRoot.tsx` が一括で持つので、ウィンドウ幅を跨いでも状態は保たれる。
-
-サーバがクライアントに渡すのは **直近 7 日の bundle と Recap の集計結果だけ** (`lib/data.ts` /
-`lib/recap.ts`)。日次 JSON は毎日 1 ファイル増え続けるので、履歴全体を client component の props に
-渡すと 1 ページの RSC ペイロードが日数に比例し、`/d/[date]` のページ数と掛け算になって
-ビルド出力が破綻する。UI が日付として触れるのは `buildWeekSlots` の Mon-Sun リング (直近 7 日) だけなので、
-渡す窓もそれに揃えている。Recap は最大 60 日を参照するが、集計は `lib/recap.ts` がサーバ側で済ませる。
-
-```
-app/components/
-  AppRoot.tsx    共有状態 + 出し分け
-  shared/        両レイアウトが使う部品 (ArticleCard / RecapScreen / SeriesCard /
-                 badges / ScoreBar / ScoreBreakdown / PaperSummaryStruct / SummaryMarkdown /
-                 TodayTabs / lib/*)
-  mobile/        スマホ固有 = 下部 TabBar + スワイプ日送り (DayCarousel / DayPanel / WeekStrip)
-  desktop/       PC 固有 = 3 ペイン (Sidebar / DayList / ListCard / DetailPane)
-```
-
-**スマホ (< 1024px)** — 下部タブバー + 1 カラム。
-
-- **Today** — All / 論文 / ニュースのタブ (`TodayTabs`)、大タグフィルタ (`BigTagFilter`)、Mon-Sun 週ストリップ (`WeekStrip`)、左右スワイプの日送り (`DayCarousel`)。カード (`ArticleCard`) はタップで展開し、論文は構造化要約 (`PaperSummaryStruct`)、「なぜ採択された?」の内訳 (`ScoreBreakdown`)、続いている話題 (`SeriesCard`) を表示
-- **Recap** — 直近 7/14/30 日のタグ動向・大タグ別集計・トレンド Top 5 (`RecapScreen`。集計は `lib/recap.ts` + `shared/lib/trend.ts`)
-
-**PC (>= 1024px)** — 左サイドバー / 中央リスト / 右詳細ペインの 3 ペイン (`DesktopApp`)。
-
-- **サイドバー** (`Sidebar`) — ブランドと件数、縦ナビ、Mon-Sun 週カレンダー (`buildWeekSlots` を共有)、大タグフィルタ (縦積み)
-- **中央リスト** (`DayList` / `ListCard`) — 論文 / ニュースのセクション分けはスマホ版と同じ。カードのクリックは論文・ニュースを問わず「右ペインで開く」に統一
-- **詳細ペイン** (`DetailPane`) — 要約 (論文は構造化要約)、採択理由の内訳、全タグ、元記事リンク
-- **キーボード** — `↑`/`↓` (`k`/`j`) で選択移動、`←`/`→` で日送り (週リング内を巡回)、`Enter` で元記事を別タブ
-- Recap タブは詳細ペインを畳んで 2 カラムにし、共有の `RecapScreen` を中央に流用する
-
-**ルーティング** — 入口は `/` (最新日)。`/d/YYYY-MM-DD` は直リンク用で、**静的生成は直近 30 日のみ**
-(`d/[date]/page.tsx` の `STATIC_DAYS` / `dynamicParams = false`)。UI からこのルートへのリンクは無く、
-日付の移動はクライアント状態なので、履歴全日分をプリレンダしてもページ数が増えるだけで得がない。
-それより古い日付 URL は 404。
+採点の式と採用の手順は [`docs/pipeline.md`](./docs/pipeline.md#スコアリング)、画面の構成は [`docs/web.md`](./docs/web.md) を参照。
 
 ## ローカル実行
 
@@ -266,6 +187,6 @@ pnpm --filter @daily-news/pipeline test
 
 ## 拡張・チューニングのヒント
 
-- `data/.cache/health.log` (JSON Lines) に各フィードの取得結果 (`ok` / `cached` / `failed`) が残るので、長期で取れていないフィードを発見しやすい
-- 既存のソースを残したまま自分の興味を追加していくと、ランキングが偏るので使わない `KEYWORD_WEIGHTS` / `BIG_TAG_GROUPS` エントリは削除推奨
-- arXiv の API ToU により 1 リクエスト/3 秒のレートリミットを `main.ts` で守っている。`ARXIV_CATEGORIES` を増やすと所要時間が線形に伸びる点に注意 (15 分の `timeout-minutes` を超えないように)
+- 既存のソースを残したまま自分の興味を足していくとランキングが偏るので、使わない `KEYWORD_WEIGHTS` / `BIG_TAG_GROUPS` のエントリは消すとよい
+- `ARXIV_CATEGORIES` を増やすと、arXiv API の 3 秒間隔のぶん所要時間が線形に伸びる (workflow の `timeout-minutes` は 25 分)
+- フィードが取れているかは `data/.cache/health.log` で見られる。詳しくは [`docs/development.md` のトラブル対応](./docs/development.md#トラブル対応)

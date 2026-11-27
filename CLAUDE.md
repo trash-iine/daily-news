@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-このファイルは Claude (Claude Code 等) が daily-news リポジトリで作業するときの行動指針。プロジェクトの全体像・ソース一覧・スコアリング方針・デプロイ手順は [`README.md`](./README.md) に書いてあるので、まずそちらを読むこと。ここでは「どこを触るか」「何に気をつけるか」だけ短く整理する。
+このファイルは Claude (Claude Code 等) が daily-news リポジトリで作業するときの行動指針。ソース一覧・デプロイ手順・fork 手順は [`README.md`](./README.md)、全体像・データ形式・スコアリングの詳細・ソースの書き方・UI 構成・テストの書き方は [`docs/`](./docs/README.md) にあるので、まずそちらを読むこと。ここでは「どこを触るか」「何に気をつけるか」だけ短く整理する。
 
 ## ディレクトリの歩き方
 
@@ -9,7 +9,7 @@
 - `packages/pipeline/src/config.ts` — **設定ハブ**。フィード一覧・キーワード重み・件数・タグ別名はすべてここ。チューニングはほぼこのファイルで完結する。
 - `packages/shared/` — 共有型 (`types.ts`) と big tag グループ定義 (`big-tag-groups.ts`)。
 - `data/` — 日次 JSON (`YYYY-MM-DD.json`) と `index.json`、会議ごとの採択論文リスト `venues/{venue}-{year}.json`。**GitHub Actions の自動コミット成果物**。
-- `.github/workflows/daily.yml` — 毎日 22:00 UTC (07:00 JST) に `pnpm pipeline` を回して `data/` をコミットする cron。
+- `.github/workflows/daily.yml` — 毎日 21:43 UTC (06:43 JST) に `pnpm pipeline` を回して `data/` をコミットする cron。
 
 ## よく使うコマンド
 
@@ -44,10 +44,11 @@
 ## 守ってほしい規約
 
 - **外部ソース追加前に利用規約を確認する**。`RSS_FEEDS` / `sources/` への新規 RSS フィード・未公開 API・スクレイピング対象の追加時は、コードを書く前に対象サイトの利用規約・`robots.txt`・RSS 配信ポリシーを読み、機械取得 / 転載 / 表示形態に制限が無いことを確認する。確認結果はプラン or PR 説明に簡潔に残す。Qiita / Zenn / Hacker News / arXiv は確認済みのため対象外。
+- **`BaseItem` などの型にフィールドを足すときは optional にする**。古い日付の JSON は書き直さないので、web はフィールドが無くても動くこと ([`docs/data-format.md`](./docs/data-format.md#後方互換のルール))。
 - **`data/YYYY-MM-DD.json` / `data/index.json` / `data/venues/*.json` は手で編集しない**。GitHub Actions が生成・コミットするファイル。再生成したい場合は Actions の `workflow_dispatch` を使う。
 - **`data/.cache/` は触らない**。Actions のフィード HTTP キャッシュ復元先。
 - **`.env*` / `OPENAI_API_KEY` をコミットしない**。本番のキーは GitHub Secrets で管理されている (`.gitignore` 済み)。
-- **コミットメッセージのプレフィクス** は既存に合わせる: `FEAT:` / `FIX:` / `CHORE:` / `UPGRADE:` / `REMOVE:` / `data:` (`data:` は Actions 専用)。
+- **コミットメッセージのプレフィクス** は既存に合わせる: `FEAT:` / `FIX:` / `REFACTOR:` / `CHORE:` / `UPGRADE:` / `REMOVE:` / `data:` (`data:` は Actions 専用)。
 
 ## 検証手順
 
