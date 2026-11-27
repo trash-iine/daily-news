@@ -11,6 +11,11 @@ export interface WeekSlot {
   iso: string;
   date: number;
   inArchive: boolean;
+  /**
+   * 最新日より曜日順で後ろのスロット = 先週の日付。リングなので、たとえば最新日が火曜なら
+   * 水〜日には先週の水〜日が入る。UI はこれを見て「先週」と分かる見た目にする。
+   */
+  lastWeek: boolean;
 }
 
 export const WEEKDAY_MON_SUN = ["月", "火", "水", "木", "金", "土", "日"] as const;
@@ -26,15 +31,45 @@ export function buildWeekSlots(archive: string[]): WeekSlot[] {
   const slots: (WeekSlot | null)[] = new Array(7).fill(null);
   const base = new Date(`${anchor}T00:00:00Z`);
   if (Number.isNaN(base.getTime())) return [];
+  const anchorSlotIdx = (base.getUTCDay() + 6) % 7; // Mon=0..Sun=6
   for (let i = 0; i < 7; i++) {
     const d = new Date(base);
     d.setUTCDate(d.getUTCDate() - i);
     const iso = isoDate(d);
-    const dayIdx = d.getUTCDay(); // 0=Sun..6=Sat
-    const slotIdx = dayIdx === 0 ? 6 : dayIdx - 1; // Mon=0..Sun=6
-    slots[slotIdx] = { iso, date: d.getUTCDate(), inArchive: archiveSet.has(iso) };
+    const slotIdx = (d.getUTCDay() + 6) % 7; // Mon=0..Sun=6
+    slots[slotIdx] = {
+      iso,
+      date: d.getUTCDate(),
+      inArchive: archiveSet.has(iso),
+      lastWeek: slotIdx > anchorSlotIdx,
+    };
   }
   return slots.filter((s): s is WeekSlot => s !== null);
+}
+
+/** 週の帯のボタンの title / aria-label。先週のスロットはそうと分かるようにする。 */
+export function weekSlotLabel(slot: WeekSlot): string {
+  return slot.lastWeek ? `先週 ${slot.iso}` : slot.iso;
+}
+
+/**
+ * 週の帯のボタンの配色。先週のスロットは塗りを外して破線の枠にし、今週の日と見分けられるようにする。
+ * mobile の WeekStrip と desktop の WeekRail で共有する。
+ */
+export function weekSlotSkin(
+  slot: WeekSlot,
+  active: boolean,
+): { background: string; color: string; outline?: string; outlineOffset?: number } {
+  if (active) return { background: "var(--fg)", color: "var(--bg)" };
+  if (slot.lastWeek) {
+    return {
+      background: "transparent",
+      color: "var(--fg-faint)",
+      outline: "1px dashed var(--border)",
+      outlineOffset: -1,
+    };
+  }
+  return { background: "var(--bg-sunken)", color: "var(--fg-muted)" };
 }
 
 /**

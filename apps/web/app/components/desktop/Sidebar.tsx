@@ -2,7 +2,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { BigTagGroup, DailyBundle } from "@daily-news/shared";
 import { NAV_ITEMS, type TabId } from "../shared/lib/nav";
-import { WEEKDAY_MON_SUN, buildWeekSlots } from "../shared/lib/today";
+import { WEEKDAY_MON_SUN, buildWeekSlots, weekSlotLabel, weekSlotSkin } from "../shared/lib/today";
 import { BIG_TAGS } from "../shared/lib/bigTags";
 import { fmtDateHeader } from "../shared/lib/format";
 import type { BundleCounts } from "../shared/lib/bundle";
@@ -158,12 +158,12 @@ function WeekRail({
               key={slot.iso}
               disabled={!slot.inArchive}
               onClick={() => onChange(slot.iso)}
-              title={slot.iso}
+              title={weekSlotLabel(slot)}
+              aria-label={weekSlotLabel(slot)}
               style={{
                 padding: "6px 0",
                 borderRadius: 8,
-                background: active ? "var(--fg)" : "var(--bg-sunken)",
-                color: active ? "var(--bg)" : "var(--fg-muted)",
+                ...weekSlotSkin(slot, active),
                 border: 0,
                 fontFamily: "var(--font-mono)",
                 fontSize: 11,

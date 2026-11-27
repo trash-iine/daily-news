@@ -54,9 +54,16 @@ export const DayCarousel = forwardRef<DayCarouselHandle, {
     onJump,
   } = props;
 
+  // 隣の日のパネル (スワイプ中に覗く分) はマウント後にだけ描画する。
+  // SSR の HTML に 3 日分の一覧が並ぶと、テキストとして読むクライアント (要約つきの
+  // Web 取得など) には、見出しの日付と別の日の一覧が混ざって見えるため。
+  // スワイプはハイドレーション後にしか起きないので、見た目と操作は変わらない。
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const slots = useMemo(() => buildWeekSlots(archive), [archive]);
-  const earlierDate = ringNeighbor(slots, currentDate, -1);
-  const laterDate = ringNeighbor(slots, currentDate, 1);
+  const earlierDate = mounted ? ringNeighbor(slots, currentDate, -1) : null;
+  const laterDate = mounted ? ringNeighbor(slots, currentDate, 1) : null;
   const earlierBundle = earlierDate ? bundles[earlierDate] ?? null : null;
   const laterBundle = laterDate ? bundles[laterDate] ?? null : null;
 
