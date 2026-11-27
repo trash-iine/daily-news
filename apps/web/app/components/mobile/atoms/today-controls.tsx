@@ -3,7 +3,7 @@ import type { CSSProperties } from "react";
 import type { BigTagGroup } from "@daily-news/shared";
 import { BIG_TAGS } from "../../shared/lib/bigTags";
 import type { BundleCounts } from "../../shared/lib/bundle";
-import { WEEKDAY_MON_SUN, buildWeekSlots } from "../../shared/lib/today";
+import { WEEKDAY_MON_SUN, buildWeekSlots, weekSlotLabel, weekSlotSkin } from "../../shared/lib/today";
 
 export function BigTagFilter({
   value,
@@ -119,11 +119,12 @@ export function WeekStrip({
             key={slot.iso}
             disabled={!slot.inArchive}
             onClick={() => onChange(slot.iso)}
+            title={weekSlotLabel(slot)}
+            aria-label={weekSlotLabel(slot)}
             style={{
               padding: "8px 0",
               borderRadius: 10,
-              background: active ? "var(--fg)" : "var(--bg-sunken)",
-              color: active ? "var(--bg)" : "var(--fg-muted)",
+              ...weekSlotSkin(slot, active),
               border: 0,
               fontFamily: "var(--font-mono)",
               fontSize: 12,
